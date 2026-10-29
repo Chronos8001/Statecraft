@@ -87,22 +87,36 @@ func test_scheduler_order_is_deterministic() -> void:
 	assert_eq(scheduler.get_systems(SimSystem.DAILY).size(), 2)
 
 
+func test_speeds_follow_hoi4() -> void:
+	var clock: Node = autofree(ClockScript.new())
+	var expected := [2.0, 0.5, 0.2, 0.1]
+	for level: int in expected.size():
+		clock.set_speed(level + 1)
+		assert_almost_eq(clock.get_seconds_per_hour(), expected[level], 0.0001, "vitesse %d" % (level + 1))
+	clock.set_speed(5)
+	assert_true(clock.is_unbounded(), "vitesse 5 sans limite")
+
+
 func test_clock_converts_real_time_into_ticks() -> void:
 	var clock: Node = autofree(ClockScript.new())
 	clock.reset()
-	clock.set_speed(2)
-	var hours_per_second: float = clock.get_hours_per_second()
-	assert_eq(clock.consume(1.0), mini(int(hours_per_second), int(DataLoader.get_define("time.max_ticks_per_frame"))))
+	clock.set_speed(1)
+	assert_eq(clock.consume(1.0), 0, "vitesse 1 : 2 s par heure")
+	assert_eq(clock.consume(1.0), 1)
+	clock.set_speed(3)
+	assert_eq(clock.consume(1.0), 5, "vitesse 3 : 0,2 s par heure")
 	assert_eq(clock.consume(0.0), 0)
 
 
 func test_clock_caps_ticks_per_frame() -> void:
 	var clock: Node = autofree(ClockScript.new())
 	clock.reset()
-	clock.set_speed(clock.get_speed_count())
+	clock.set_speed(4)
 	var max_ticks := int(DataLoader.get_define("time.max_ticks_per_frame"))
-	assert_eq(clock.consume(10.0), max_ticks)
+	assert_eq(clock.consume(100.0), max_ticks)
 	assert_lte(clock.consume(0.0), 1, "le retard est abandonné")
+	clock.set_speed(5)
+	assert_eq(clock.consume(0.016), max_ticks, "sans limite : plafond par image")
 
 
 func test_clock_speed_and_pause() -> void:
