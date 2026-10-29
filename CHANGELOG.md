@@ -14,6 +14,8 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Affichage de la carte en jeu par shader (mode politique), chargée en arrière-plan.
 - Caméra : zoom vers le curseur (molette, Page préc. / Page suiv.), déplacement au clavier (WASD / ZQSD selon le clavier, flèches), glisser avec le clic droit ou la molette, défilement au bord de l'écran, carte qui boucle d'est en ouest.
 - « Nouvelle partie » ouvre l'écran de jeu ; Échap revient à l'écran titre.
+- Clic sur une province : mise en évidence sur la carte et panneau d'information (pays, occupation, capitale, population, superficie, terrain, infrastructures, côte, ressources, voisins). Échap ou ✕ ferme le panneau.
+- Nombres affichés selon la langue (« 2 138 259 » / « 2,138,259 »).
 
 ### Modifié
 - Mer plus sombre et bleu des États-Unis plus clair pour mieux les distinguer.

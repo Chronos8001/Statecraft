@@ -49,8 +49,8 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Caméra : zoom molette, déplacement clavier / souris / bord d'écran, limites, wrap est-ouest
 
 **1c. Sélection**
-- [ ] Picking : clic → couleur → id de province
-- [ ] Panneau d'info de la province
+- [x] Picking : clic → couleur → id de province
+- [x] Panneau d'info de la province
 
 **1d. Modes de carte**
 - [ ] Politique, terrain, population, PIB/hab., idéologie, alliances, relations, ressources, infrastructures, contrôle militaire, stabilité
