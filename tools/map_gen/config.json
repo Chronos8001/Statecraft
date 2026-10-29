@@ -2,42 +2,85 @@
   "natural_earth_version": "v5.1.2",
   "width": 16384,
   "height": 8192,
-
   "min_province_pixels": 16,
   "micro_province_radius": 2,
   "gap_fill_passes": 4,
   "max_lake_scalerank": 1,
-
-  "tag_renames": { "SDS": "SSD", "PSX": "PSE" },
-  "unowned_units": ["ATA", "PGA"],
-  "unit_owners": { "PSX": "PSX", "SAH": "MAR", "KAS": "IND", "USG": "CUB", "KAB": "KAZ" },
-  "unit_controllers": { "USG": "USA", "KAB": "RUS" },
-
+  "tag_renames": {
+    "SDS": "SSD",
+    "PSX": "PSE"
+  },
+  "unowned_units": [
+    "ATA",
+    "PGA"
+  ],
+  "unit_owners": {
+    "PSX": "PSX",
+    "SAH": "MAR",
+    "KAS": "IND",
+    "USG": "CUB",
+    "KAB": "KAZ"
+  },
+  "unit_controllers": {
+    "USG": "USA",
+    "KAB": "RUS"
+  },
   "province_overrides": {
-    "RUS-283":  { "owner": "UKR", "controller": "RUS", "note": "Crimée" },
-    "RUS-5482": { "owner": "UKR", "controller": "RUS", "note": "Sébastopol" },
-    "UKR-329":  { "controller": "RUS", "note": "Louhansk" },
-    "UKR-327":  { "controller": "RUS", "note": "Donetsk" }
+    "RUS-283": {
+      "owner": "UKR",
+      "controller": "RUS",
+      "note": "Crimée"
+    },
+    "RUS-5482": {
+      "owner": "UKR",
+      "controller": "RUS",
+      "note": "Sébastopol"
+    },
+    "UKR-329": {
+      "controller": "RUS",
+      "note": "Louhansk"
+    },
+    "UKR-327": {
+      "controller": "RUS",
+      "note": "Donetsk"
+    }
   },
-
   "country_name_overrides": {
-    "CHN": { "en": "China", "fr": "Chine" },
-    "USA": { "en": "United States", "fr": "États-Unis" },
-    "PSE": { "en": "Palestine", "fr": "Palestine" }
+    "CHN": {
+      "en": "China",
+      "fr": "Chine"
+    },
+    "USA": {
+      "en": "United States",
+      "fr": "États-Unis"
+    },
+    "PSE": {
+      "en": "Palestine",
+      "fr": "Palestine"
+    }
   },
-
   "province_name_overrides": {
-    "BRA-599": { "en": "Federal District", "fr": "District fédéral" }
+    "BRA-599": {
+      "en": "Federal District",
+      "fr": "District fédéral"
+    }
   },
-
-  "political_palette": ["#C97B63", "#D8B25C", "#8FB16A", "#5E9E9A", "#6F8CC4", "#9C7BB8", "#C9789E", "#B89268", "#7FA8C9"],
+  "political_palette": [
+    "#C97B63",
+    "#D8B25C",
+    "#8FB16A",
+    "#5E9E9A",
+    "#6F8CC4",
+    "#9C7BB8",
+    "#C9789E",
+    "#B89268",
+    "#7FA8C9"
+  ],
   "political_variation": 0.12,
-
   "population_scale": 1.065,
   "population_city_share": 0.6,
   "city_core_share": 0.3,
   "urban_density_km2": 1500,
-
   "income_infrastructure": {
     "1. High income: OECD": 8,
     "2. High income: nonOECD": 7,
@@ -47,25 +90,413 @@
   },
   "default_infrastructure": 3,
   "urban_infrastructure_bonus": 1,
-
   "terrain_downscale": 4,
   "terrain_min_share": 0.3,
   "terrain_regions": [
-    ["Plain", "plains"],
-    ["Lowland", "plains"],
-    ["Basin", "plains"],
-    ["Valley", "plains"],
-    ["Plateau", "hills"],
-    ["Foothills", "hills"],
-    ["Desert", "desert"],
-    ["Wetlands", "marsh"],
-    ["Delta", "marsh"],
-    ["Tundra", "tundra"],
-    ["Range/mtn", "mountains"]
+    [
+      "Plain",
+      "plains"
+    ],
+    [
+      "Lowland",
+      "plains"
+    ],
+    [
+      "Basin",
+      "plains"
+    ],
+    [
+      "Valley",
+      "plains"
+    ],
+    [
+      "Plateau",
+      "hills"
+    ],
+    [
+      "Foothills",
+      "hills"
+    ],
+    [
+      "Desert",
+      "desert"
+    ],
+    [
+      "Wetlands",
+      "marsh"
+    ],
+    [
+      "Delta",
+      "marsh"
+    ],
+    [
+      "Tundra",
+      "tundra"
+    ],
+    [
+      "Range/mtn",
+      "mountains"
+    ]
   ],
-  "climate_latitudes": { "tundra": 64, "forest": 50, "steppe": 40, "savanna": 22, "jungle": 10 },
+  "climate_latitudes": {
+    "tundra": 64,
+    "forest": 50,
+    "steppe": 40,
+    "savanna": 22,
+    "jungle": 10
+  },
   "terrain_population_factor": {
-    "plains": 1.0, "hills": 0.8, "mountains": 0.4, "forest": 0.6, "jungle": 0.5, "desert": 0.1,
-    "marsh": 0.5, "savanna": 0.7, "steppe": 0.5, "tundra": 0.05, "urban": 1.0
-  }
+    "plains": 1.0,
+    "hills": 0.8,
+    "mountains": 0.4,
+    "forest": 0.6,
+    "jungle": 0.5,
+    "desert": 0.1,
+    "marsh": 0.5,
+    "savanna": 0.7,
+    "steppe": 0.5,
+    "tundra": 0.05,
+    "urban": 1.0
+  },
+  "max_marine_scalerank": 5,
+  "marine_classes": [
+    "ocean",
+    "sea",
+    "gulf",
+    "bay",
+    "strait",
+    "sound",
+    "channel",
+    "generic",
+    "inlet"
+  ],
+  "sea_fill_downscale": 4,
+  "min_sea_zone_km2": 30000,
+  "max_sea_zone_km2": 2000000,
+  "sea_split_sample_step": 8,
+  "sea_split_iterations": 15,
+  "compass_en": [
+    "North",
+    "Northeast",
+    "East",
+    "Southeast",
+    "South",
+    "Southwest",
+    "West",
+    "Northwest"
+  ],
+  "compass_fr": [
+    "Nord",
+    "Nord-Est",
+    "Est",
+    "Sud-Est",
+    "Sud",
+    "Sud-Ouest",
+    "Ouest",
+    "Nord-Ouest"
+  ],
+  "strait_sea_search_px": 90,
+  "strait_province_radius_px": 10,
+  "straits": {
+    "suez": {
+      "kind": "canal",
+      "name": {
+        "en": "Suez Canal",
+        "fr": "Canal de Suez"
+      },
+      "ends": [
+        [
+          32.31,
+          31.3
+        ],
+        [
+          32.56,
+          29.9
+        ]
+      ]
+    },
+    "panama": {
+      "kind": "canal",
+      "name": {
+        "en": "Panama Canal",
+        "fr": "Canal de Panama"
+      },
+      "ends": [
+        [
+          -79.92,
+          9.4
+        ],
+        [
+          -79.53,
+          8.85
+        ]
+      ]
+    },
+    "kiel": {
+      "kind": "canal",
+      "name": {
+        "en": "Kiel Canal",
+        "fr": "Canal de Kiel"
+      },
+      "ends": [
+        [
+          10.17,
+          54.4
+        ],
+        [
+          9.1,
+          53.88
+        ]
+      ]
+    },
+    "hormuz": {
+      "kind": "strait",
+      "name": {
+        "en": "Strait of Hormuz",
+        "fr": "Détroit d'Ormuz"
+      },
+      "ends": [
+        [
+          55.9,
+          26.6
+        ],
+        [
+          57.0,
+          26.0
+        ]
+      ]
+    },
+    "malacca": {
+      "kind": "strait",
+      "name": {
+        "en": "Strait of Malacca",
+        "fr": "Détroit de Malacca"
+      },
+      "ends": [
+        [
+          98.5,
+          5.2
+        ],
+        [
+          103.9,
+          1.2
+        ]
+      ],
+      "province_radius_px": 20
+    },
+    "bosphorus": {
+      "kind": "strait",
+      "name": {
+        "en": "Bosphorus",
+        "fr": "Bosphore"
+      },
+      "ends": [
+        [
+          29.12,
+          41.25
+        ],
+        [
+          28.98,
+          40.98
+        ]
+      ]
+    },
+    "dardanelles": {
+      "kind": "strait",
+      "name": {
+        "en": "Dardanelles",
+        "fr": "Dardanelles"
+      },
+      "ends": [
+        [
+          26.7,
+          40.42
+        ],
+        [
+          26.15,
+          40.02
+        ]
+      ]
+    },
+    "gibraltar": {
+      "kind": "strait",
+      "name": {
+        "en": "Strait of Gibraltar",
+        "fr": "Détroit de Gibraltar"
+      },
+      "ends": [
+        [
+          -6.2,
+          35.95
+        ],
+        [
+          -5.2,
+          36.05
+        ]
+      ]
+    },
+    "bab_el_mandeb": {
+      "kind": "strait",
+      "name": {
+        "en": "Bab-el-Mandeb",
+        "fr": "Bab-el-Mandeb"
+      },
+      "ends": [
+        [
+          43.2,
+          12.9
+        ],
+        [
+          43.6,
+          12.4
+        ]
+      ]
+    },
+    "oresund": {
+      "kind": "strait",
+      "name": {
+        "en": "Øresund",
+        "fr": "Øresund"
+      },
+      "ends": [
+        [
+          12.6,
+          56.1
+        ],
+        [
+          12.8,
+          55.4
+        ]
+      ]
+    },
+    "dover": {
+      "kind": "strait",
+      "name": {
+        "en": "Strait of Dover",
+        "fr": "Pas de Calais"
+      },
+      "ends": [
+        [
+          1.7,
+          51.2
+        ],
+        [
+          1.2,
+          50.85
+        ]
+      ]
+    },
+    "taiwan": {
+      "kind": "strait",
+      "name": {
+        "en": "Taiwan Strait",
+        "fr": "Détroit de Taïwan"
+      },
+      "ends": [
+        [
+          118.5,
+          22.6
+        ],
+        [
+          120.6,
+          25.4
+        ]
+      ],
+      "province_radius_px": 45
+    },
+    "bering": {
+      "kind": "strait",
+      "name": {
+        "en": "Bering Strait",
+        "fr": "Détroit de Béring"
+      },
+      "ends": [
+        [
+          -168.9,
+          66.4
+        ],
+        [
+          -169.4,
+          65.2
+        ]
+      ]
+    },
+    "kerch": {
+      "kind": "strait",
+      "name": {
+        "en": "Kerch Strait",
+        "fr": "Détroit de Kertch"
+      },
+      "ends": [
+        [
+          36.62,
+          45.45
+        ],
+        [
+          36.55,
+          45.1
+        ]
+      ]
+    },
+    "sunda": {
+      "kind": "strait",
+      "name": {
+        "en": "Sunda Strait",
+        "fr": "Détroit de la Sonde"
+      },
+      "ends": [
+        [
+          106.0,
+          -5.7
+        ],
+        [
+          105.5,
+          -6.3
+        ]
+      ]
+    },
+    "lombok": {
+      "kind": "strait",
+      "name": {
+        "en": "Lombok Strait",
+        "fr": "Détroit de Lombok"
+      },
+      "ends": [
+        [
+          115.8,
+          -8.3
+        ],
+        [
+          115.7,
+          -9.0
+        ]
+      ]
+    },
+    "magellan": {
+      "kind": "strait",
+      "name": {
+        "en": "Strait of Magellan",
+        "fr": "Détroit de Magellan"
+      },
+      "ends": [
+        [
+          -68.3,
+          -52.4
+        ],
+        [
+          -73.2,
+          -53.0
+        ]
+      ]
+    }
+  },
+  "protected_sea_names": [
+    "Sea of Marmara",
+    "Gulf of Suez",
+    "Bali Sea",
+    "Gulf of Aqaba",
+    "Sea of Azov",
+    "Gulf of Finland",
+    "Gulf of Riga"
+  ]
 }
