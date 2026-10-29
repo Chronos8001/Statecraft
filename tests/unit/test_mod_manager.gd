@@ -22,3 +22,13 @@ func test_missing_directory_gives_no_package() -> void:
 
 func test_base_data_root_comes_first() -> void:
 	assert_eq(ModManager.get_data_roots()[0], ModManager.BASE_DATA_ROOT)
+
+
+func test_user_mods_are_not_loaded_while_disabled() -> void:
+	if ModManager.USER_MODS_ENABLED:
+		pass_test("mods utilisateur activés")
+		return
+	ModManager.discover()
+	assert_eq(ModManager.mods.size(), 0)
+	for root: String in ModManager.get_data_roots():
+		assert_false(root.begins_with(ModManager.MODS_DIR), root)

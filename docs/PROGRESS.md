@@ -4,7 +4,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 
 | Étape | Nom | Statut | Version cible | Validée le | Tag |
 |---|---|---|---|---|---|
-| 0 | Fondations du projet | 🟨 | v0.0.0 | | |
+| 0 | Fondations du projet | ✅ | v0.0.0 | 2026-10-29 | v0.0.0 |
 | 1 | La carte du monde | ⬜ | v0.1.0 | | |
 | 2 | Temps et boucle de simulation | ⬜ | v0.2.0 | | |
 | 3 | Les pays en 2026 | ⬜ | v0.3.0 | | |
@@ -23,18 +23,18 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 
 ---
 
-## Étape 0 — Fondations du projet 🟨
+## Étape 0 — Fondations du projet ✅ (validée le 2026-10-29, v0.0.0)
 - [x] Création du projet Godot et arborescence (`core/`, `sim/`, `map/`, `ui/`, `data/`, `assets/`, `tests/`)
 - [x] Autoloads vides mais fonctionnels : `GameClock`, `GameState`, `DataLoader`, `EventBus`, `SaveManager`, `ModManager`, `Localization`
 - [x] `DataLoader` : chargement de tous les JSON de `data/`, validation des schémas, journal des erreurs
-- [x] `ModManager` : fusion des fichiers de `user://mods/` par-dessus `data/`
+- [x] `ModManager` : fusion des fichiers de `user://mods/` par-dessus `data/` (désactivée pour l'instant, activation dans une mise à jour ultérieure)
 - [x] `EventBus` : signaux globaux (`day_passed`, `month_passed`, `war_declared`, `election_held`…)
 - [x] Points d'extension pour les futurs modules (`SystemRegistry`, DLC dans `res://dlc/`)
 - [x] Localisation FR / EN en place
 - [x] Schémas JSON d'un pays et d'une province, 5 pays d'exemple
 - [x] Écran titre minimal : Nouvelle partie / Charger / Options / Quitter
 - [x] GUT installé et premiers tests
-- [ ] Validation : le jeu démarre, la console affiche le nombre de fichiers chargés
+- [x] Validation : le jeu démarre, la console affiche le nombre de fichiers chargés
 
 ## Étape 1 — La carte du monde ⬜
 - [ ] Carte de provinces par image couleur (`provinces.png`) + `provinces.json`
