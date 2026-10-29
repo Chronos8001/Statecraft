@@ -6,6 +6,8 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-10-29
+
 ### Ajouté
 - Carte du monde générée : 4 564 provinces réelles (arrondissements de Londres regroupés en une province) (16384 × 8192), avec propriétaire, contrôleur, terrain, population (Wikidata), infrastructures, côtes, surface, centre et voisins.
 - Les 199 pays du monde en version minimale (nom FR / EN, couleur, capitale).
@@ -46,5 +48,6 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Suivi du projet : `docs/PROGRESS.md`, `docs/DECISIONS.md`, `docs/KNOWN_ISSUES.md`.
 - Configuration Git : `.gitignore` et `.gitattributes` (fins de ligne LF, fichiers binaires).
 
-[Unreleased]: https://github.com/Chronos8001/Statecraft/compare/v0.0.0...HEAD
+[Unreleased]: https://github.com/Chronos8001/Statecraft/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.1.0
 [0.0.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.0.0
