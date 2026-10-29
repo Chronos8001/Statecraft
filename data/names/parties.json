@@ -1,0 +1,46 @@
+{
+  "parties": {
+    "pty_usa_restoration": {
+      "name": { "en": "Restoration Party", "fr": "Parti de la Restauration" },
+      "abbreviation": "RP",
+      "country": "USA", "ideology": "national_conservative",
+      "leader": "chr_usa_calloway",
+      "color": "#B22234"
+    },
+    "pty_chn_workers": {
+      "name": { "en": "Chinese People's Labour Party", "fr": "Parti du travail du peuple chinois" },
+      "abbreviation": "CPLP",
+      "country": "CHN", "ideology": "communist",
+      "leader": "chr_chn_wei",
+      "color": "#DE2910"
+    },
+    "pty_fra_cap_avenir": {
+      "name": "Cap Avenir",
+      "abbreviation": "CA",
+      "country": "FRA", "ideology": "centrist",
+      "leader": "chr_fra_vasseur",
+      "color": "#F5A623"
+    },
+    "pty_deu_cbu": {
+      "name": "Christlich-Bürgerliche Union",
+      "abbreviation": "CBU",
+      "country": "DEU", "ideology": "christian_democrat",
+      "leader": "chr_deu_strauch",
+      "color": "#151518"
+    },
+    "pty_deu_svd": {
+      "name": "Soziale Volkspartei Deutschlands",
+      "abbreviation": "SVD",
+      "country": "DEU", "ideology": "social_democrat",
+      "leader": "chr_deu_kolbeck",
+      "color": "#E3000F"
+    },
+    "pty_bra_pfs": {
+      "name": "Partido da Frente Social",
+      "abbreviation": "PFS",
+      "country": "BRA", "ideology": "social_democrat",
+      "leader": "chr_bra_moreira",
+      "color": "#C4122D"
+    }
+  }
+}

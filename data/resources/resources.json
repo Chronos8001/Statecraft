@@ -1,0 +1,13 @@
+{
+  "oil":            { "name_key": "RESOURCE_OIL",            "strategic": true },
+  "gas":            { "name_key": "RESOURCE_GAS",            "strategic": true },
+  "uranium":        { "name_key": "RESOURCE_URANIUM",        "strategic": true },
+  "coal":           { "name_key": "RESOURCE_COAL",           "strategic": true },
+  "rare_earths":    { "name_key": "RESOURCE_RARE_EARTHS",    "strategic": true },
+  "lithium":        { "name_key": "RESOURCE_LITHIUM",        "strategic": true },
+  "cobalt":         { "name_key": "RESOURCE_COBALT",         "strategic": true },
+  "semiconductors": { "name_key": "RESOURCE_SEMICONDUCTORS", "strategic": true },
+  "wheat":          { "name_key": "RESOURCE_WHEAT",          "strategic": true },
+  "steel":          { "name_key": "RESOURCE_STEEL",          "strategic": true },
+  "water":          { "name_key": "RESOURCE_WATER",          "strategic": true }
+}

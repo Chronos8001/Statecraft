@@ -1,0 +1,18 @@
+keys,en,fr
+LANGUAGE_NATIVE_NAME,English,Français
+GAME_TITLE,STATECRAFT,STATECRAFT
+GAME_SUBTITLE,"Grand strategy · January 1, 2026",Grande stratégie · 1er janvier 2026
+MENU_NEW_GAME,New Game,Nouvelle partie
+MENU_LOAD,Load Game,Charger
+MENU_LOAD_NONE,No saved game yet.,Aucune sauvegarde pour l'instant.
+MENU_OPTIONS,Options,Options
+MENU_QUIT,Quit,Quitter
+OPTIONS_TITLE,Options,Options
+OPTIONS_LANGUAGE,Language,Langue
+OPTIONS_CLOSE,Close,Fermer
+FOOTER_VERSION,Version %s,Version %s
+FOOTER_DATA_FILES,%d data files loaded,%d fichiers de données chargés
+FOOTER_DATA_ERRORS,%d data errors (see console),%d erreurs de données (voir la console)
+INFO_TITLE,Information,Information
+INFO_NEW_GAME_PLACEHOLDER,A new game has been initialized. Country selection will arrive in a future version.,Une nouvelle partie a été initialisée. La sélection du pays arrivera dans une prochaine version.
+INFO_LOAD_UNAVAILABLE,Loading saved games will arrive in a future version.,Le chargement des sauvegardes arrivera dans une prochaine version.

@@ -1,0 +1,102 @@
+{
+  "1": {
+    "name_key": "PROV_USA_DISTRICT_OF_COLUMBIA",
+    "color": "#1F4E79",
+    "owner": "USA", "controller": "USA",
+    "terrain": "urban",
+    "population": 702000,
+    "resources": { "water": 2 },
+    "infrastructure": 9,
+    "coastal": false
+  },
+  "2": {
+    "name_key": "PROV_USA_CALIFORNIA",
+    "color": "#2E75B6",
+    "owner": "USA", "controller": "USA",
+    "terrain": "hills",
+    "population": 39400000,
+    "resources": { "oil": 3, "semiconductors": 8, "wheat": 2, "water": 3 },
+    "infrastructure": 9,
+    "coastal": true
+  },
+  "3": {
+    "name_key": "PROV_CHN_BEIJING",
+    "color": "#C00000",
+    "owner": "CHN", "controller": "CHN",
+    "terrain": "urban",
+    "population": 21800000,
+    "resources": { "coal": 1, "semiconductors": 4, "water": 2 },
+    "infrastructure": 9,
+    "coastal": false
+  },
+  "4": {
+    "name_key": "PROV_CHN_GUANGDONG",
+    "color": "#FF5050",
+    "owner": "CHN", "controller": "CHN",
+    "terrain": "hills",
+    "population": 127000000,
+    "resources": { "rare_earths": 2, "semiconductors": 7, "steel": 4, "water": 6 },
+    "infrastructure": 9,
+    "coastal": true
+  },
+  "5": {
+    "name_key": "PROV_FRA_ILE_DE_FRANCE",
+    "color": "#3A5FCD",
+    "owner": "FRA", "controller": "FRA",
+    "terrain": "urban",
+    "population": 12400000,
+    "resources": { "wheat": 3, "water": 5 },
+    "infrastructure": 10,
+    "coastal": false
+  },
+  "6": {
+    "name_key": "PROV_FRA_PROVENCE",
+    "color": "#7B9BE0",
+    "owner": "FRA", "controller": "FRA",
+    "terrain": "mountains",
+    "population": 5200000,
+    "resources": { "water": 5 },
+    "infrastructure": 8,
+    "coastal": true
+  },
+  "7": {
+    "name_key": "PROV_DEU_BERLIN",
+    "color": "#404040",
+    "owner": "DEU", "controller": "DEU",
+    "terrain": "urban",
+    "population": 3900000,
+    "resources": { "water": 4 },
+    "infrastructure": 9,
+    "coastal": false
+  },
+  "8": {
+    "name_key": "PROV_DEU_BAVARIA",
+    "color": "#808080",
+    "owner": "DEU", "controller": "DEU",
+    "terrain": "hills",
+    "population": 13500000,
+    "resources": { "wheat": 4, "steel": 3, "water": 7 },
+    "infrastructure": 9,
+    "coastal": false
+  },
+  "9": {
+    "name_key": "PROV_BRA_FEDERAL_DISTRICT",
+    "color": "#00703C",
+    "owner": "BRA", "controller": "BRA",
+    "terrain": "savanna",
+    "population": 2980000,
+    "resources": { "water": 4 },
+    "infrastructure": 7,
+    "coastal": false
+  },
+  "10": {
+    "name_key": "PROV_BRA_SAO_PAULO",
+    "color": "#3CB371",
+    "owner": "BRA", "controller": "BRA",
+    "terrain": "hills",
+    "population": 46100000,
+    "resources": { "steel": 5, "wheat": 2, "water": 7 },
+    "infrastructure": 8,
+    "coastal": true
+  }
+}

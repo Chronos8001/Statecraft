@@ -1,0 +1,13 @@
+{
+  "plains":    { "name_key": "TERRAIN_PLAINS",    "color": "#B8C77A" },
+  "hills":     { "name_key": "TERRAIN_HILLS",     "color": "#A39261" },
+  "mountains": { "name_key": "TERRAIN_MOUNTAINS", "color": "#7D6E5A" },
+  "forest":    { "name_key": "TERRAIN_FOREST",    "color": "#3F6B3A" },
+  "jungle":    { "name_key": "TERRAIN_JUNGLE",    "color": "#2B5A2E" },
+  "desert":    { "name_key": "TERRAIN_DESERT",    "color": "#E0C98A" },
+  "marsh":     { "name_key": "TERRAIN_MARSH",     "color": "#5E7D6A" },
+  "savanna":   { "name_key": "TERRAIN_SAVANNA",   "color": "#C9B25E" },
+  "steppe":    { "name_key": "TERRAIN_STEPPE",    "color": "#BFB58A" },
+  "tundra":    { "name_key": "TERRAIN_TUNDRA",    "color": "#C7D1D6" },
+  "urban":     { "name_key": "TERRAIN_URBAN",     "color": "#8C8C8C" }
+}
