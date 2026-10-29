@@ -6,7 +6,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 |---|---|---|---|---|---|
 | 0 | Fondations du projet | ✅ | v0.0.0 | 2026-10-29 | v0.0.0 |
 | 1 | La carte du monde | ✅ | v0.1.0 | 2026-10-29 | v0.1.0 |
-| 2 | Temps et boucle de simulation | ⬜ | v0.2.0 | | |
+| 2 | Temps et boucle de simulation | 🟨 | v0.2.0 | | |
 | 3 | Les pays en 2026 | ⬜ | v0.3.0 | | |
 | 4 | Économie | ⬜ | v0.4.0 | | |
 | 5 | Politique intérieure | ⬜ | v0.5.0 | | |
@@ -65,10 +65,10 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 
 - [x] Validation : clic sur une province → panneau d'info
 
-## Étape 2 — Temps et boucle de simulation ⬜
-- [ ] `GameClock` : date, heure, pause, 5 vitesses, raccourcis (Espace, +, -)
-- [ ] Ordonnanceur : abonnements `hourly`, `daily`, `weekly`, `monthly`, `yearly`
-- [ ] Barre supérieure : date, vitesse, trésorerie, stabilité, soutien populaire, puissance militaire, influence
+## Étape 2 — Temps et boucle de simulation 🟨
+- [x] `GameClock` : date, heure, pause, 5 vitesses, raccourcis (Espace, +, -)
+- [x] Ordonnanceur : abonnements `hourly`, `daily`, `weekly`, `monthly`, `yearly`
+- [x] Barre supérieure : date, vitesse, trésorerie, stabilité, soutien populaire, puissance militaire, influence (valeurs « — » en attendant les systèmes)
 - [ ] Validation : le temps défile, les événements mensuels se déclenchent
 
 ## Étape 3 — Les pays en 2026 ⬜
