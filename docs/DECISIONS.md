@@ -16,3 +16,8 @@
 | 2026-10-29 | État de partie dans une classe pure `SimState`, modifiée uniquement par des `Command` en file | Séparation simulation / affichage, déterminisme, sauvegardes | L'UI modifie l'état directement |
 | 2026-10-29 | Mods utilisateur désactivés pour l'instant (`ModManager.USER_MODS_ENABLED = false`), mécanisme de fusion conservé | Pas de compatibilité mod à garantir pendant le développement ; la fusion sert aussi aux DLC | Supprimer tout le code mod |
 | 2026-10-29 | Déclarations non typées traitées comme des erreurs (`untyped_declaration = 2`) | Rend le typage statique obligatoire | Simple avertissement |
+| 2026-10-29 | Carte générée depuis Natural Earth (régions de premier niveau, ~4 600 provinces) par un outil Python versionné | Frontières réelles, domaine public, regénérable | Carte dessinée à la main, découpage plus grossier |
+| 2026-10-29 | Populations des provinces issues de Wikidata (données de Wikipédia), estimation en secours | Chiffres réels et sourcés | Répartition estimée par surface et villes (trop imprécise) |
+| 2026-10-29 | Image des provinces en 16384 × 8192, couleur = identifiant (`R + G × 256`) | Précision élevée ; le shader et le clic lisent l'id sans table de conversion, texture RG8 (~270 Mo) | Couleurs libres + table de correspondance (conversion pixel par pixel trop lente à cette taille) |
+| 2026-10-29 | Images de carte dans Git LFS, hook `pre-push` étendu pour l'envoi LFS | Dépôt léger malgré les regénérations | Images directement dans Git |
+| 2026-10-29 | Dépendances rattachées à leur État (Groenland → Danemark, Porto Rico → États-Unis…) ; Taïwan, Kosovo, Palestine, Chypre du Nord, Somaliland sont des pays | Fidèle à la situation de 2026, entités non reconnues jouables | Dépendances jouables |

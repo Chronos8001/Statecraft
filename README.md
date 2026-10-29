@@ -78,6 +78,10 @@ Les fichiers d'un mod sont fusionnés par-dessus les données du jeu, entrée pa
 
 Exemple : `{"FRA": {"population": 70000000}}` ne change que la population de la France.
 
+## Carte et sources des données
+
+La carte des provinces est générée par `tools/map_gen/` (voir son [README](tools/map_gen/README.md)) à partir de **Natural Earth** (domaine public) et des populations de **Wikidata / Wikipédia** (CC0). Les images de carte sont stockées avec **Git LFS** : installer Git LFS avant de cloner le dépôt.
+
 ## Suivi du projet
 
 - [docs/PROGRESS.md](docs/PROGRESS.md) : avancement des étapes de développement.

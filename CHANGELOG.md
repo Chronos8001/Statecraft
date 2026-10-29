@@ -6,6 +6,15 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 ## [Unreleased]
 
+### Ajouté
+- Carte du monde générée : 4 596 provinces réelles (16384 × 8192), avec propriétaire, contrôleur, terrain, population (Wikidata), infrastructures, côtes, surface, centre et voisins.
+- Les 199 pays du monde en version minimale (nom FR / EN, couleur, capitale).
+- Territoires occupés au 1er janvier 2026 : Crimée, Sébastopol, Donetsk et Louhansk sous contrôle russe.
+- Outil de génération de la carte (`tools/map_gen/`).
+
+### Modifié
+- Les pays n'exigent plus que leur nom, leur couleur et leur capitale ; les données politiques et économiques restent facultatives jusqu'à l'étape des pays.
+
 ## [0.0.0] - 2026-10-29
 
 ### Ajouté
