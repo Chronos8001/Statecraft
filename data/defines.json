@@ -27,7 +27,8 @@
   "map_colors": {
     "sea": "#132235",
     "unowned": "#8C8C8C",
-    "background": "#0B1017"
+    "background": "#0B1017",
+    "no_data": "#4E545C"
   },
   "map_style": {
     "selection_color": "#FFFFFF",

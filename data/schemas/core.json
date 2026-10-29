@@ -123,7 +123,8 @@
         "required": [
           "sea",
           "unowned",
-          "background"
+          "background",
+          "no_data"
         ],
         "properties": {
           "sea": {
@@ -133,6 +134,9 @@
             "type": "color"
           },
           "background": {
+            "type": "color"
+          },
+          "no_data": {
             "type": "color"
           }
         }
@@ -238,7 +242,8 @@
       "strict": true,
       "required": [
         "name_key",
-        "strategic"
+        "strategic",
+        "color"
       ],
       "properties": {
         "name_key": {
@@ -246,6 +251,9 @@
         },
         "strategic": {
           "type": "bool"
+        },
+        "color": {
+          "type": "color"
         }
       }
     }
@@ -600,6 +608,9 @@
             },
             "founded": {
               "type": "int"
+            },
+            "color": {
+              "type": "color"
             }
           }
         }
@@ -649,6 +660,78 @@
           "source": {
             "type": "string"
           }
+        }
+      }
+    }
+  },
+  "map_modes": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "kind",
+        "order"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string"
+        },
+        "order": {
+          "type": "int"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "political",
+            "terrain",
+            "province_gradient",
+            "country_gradient",
+            "ideology",
+            "alliance",
+            "relations",
+            "resources",
+            "control"
+          ]
+        },
+        "value": {
+          "type": "string"
+        },
+        "logarithmic": {
+          "type": "bool"
+        },
+        "unit_key": {
+          "type": "string"
+        },
+        "stops": {
+          "type": "array",
+          "min_items": 2,
+          "items": {
+            "type": "array",
+            "min_items": 2
+          }
+        },
+        "organization_kinds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "none_color": {
+          "type": "color"
+        },
+        "player_color": {
+          "type": "color"
+        },
+        "occupied_color": {
+          "type": "color"
+        },
+        "occupied_strength": {
+          "type": "number",
+          "min": 0,
+          "max": 1
         }
       }
     }

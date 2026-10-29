@@ -1,0 +1,164 @@
+{
+  "political": {
+    "name_key": "MAPMODE_POLITICAL",
+    "kind": "political",
+    "order": 1
+  },
+  "terrain": {
+    "name_key": "MAPMODE_TERRAIN",
+    "kind": "terrain",
+    "order": 2
+  },
+  "population": {
+    "name_key": "MAPMODE_POPULATION",
+    "kind": "province_gradient",
+    "value": "population_density",
+    "logarithmic": true,
+    "unit_key": "MAPMODE_UNIT_DENSITY",
+    "stops": [
+      [
+        1,
+        "#F4EDD6"
+      ],
+      [
+        25,
+        "#EBC27A"
+      ],
+      [
+        100,
+        "#DE7F45"
+      ],
+      [
+        500,
+        "#B1362F"
+      ],
+      [
+        5000,
+        "#4A0D1F"
+      ]
+    ],
+    "order": 3
+  },
+  "gdp_per_capita": {
+    "name_key": "MAPMODE_GDP_PER_CAPITA",
+    "kind": "country_gradient",
+    "value": "gdp_per_capita",
+    "logarithmic": true,
+    "unit_key": "MAPMODE_UNIT_USD",
+    "stops": [
+      [
+        1000,
+        "#8A2F2F"
+      ],
+      [
+        5000,
+        "#D7893F"
+      ],
+      [
+        15000,
+        "#E3CF6A"
+      ],
+      [
+        40000,
+        "#87B95A"
+      ],
+      [
+        90000,
+        "#2D7A4C"
+      ]
+    ],
+    "order": 4
+  },
+  "ideology": {
+    "name_key": "MAPMODE_IDEOLOGY",
+    "kind": "ideology",
+    "order": 5
+  },
+  "alliances": {
+    "name_key": "MAPMODE_ALLIANCES",
+    "kind": "alliance",
+    "organization_kinds": [
+      "military_alliance",
+      "security"
+    ],
+    "none_color": "#B8B2A0",
+    "order": 6
+  },
+  "relations": {
+    "name_key": "MAPMODE_RELATIONS",
+    "kind": "relations",
+    "player_color": "#F2D16B",
+    "stops": [
+      [
+        -100,
+        "#B23A3A"
+      ],
+      [
+        0,
+        "#D9D3BC"
+      ],
+      [
+        100,
+        "#3A8F4E"
+      ]
+    ],
+    "order": 7
+  },
+  "resources": {
+    "name_key": "MAPMODE_RESOURCES",
+    "kind": "resources",
+    "none_color": "#B8B2A0",
+    "order": 8
+  },
+  "infrastructure": {
+    "name_key": "MAPMODE_INFRASTRUCTURE",
+    "kind": "province_gradient",
+    "value": "infrastructure",
+    "logarithmic": false,
+    "unit_key": "",
+    "stops": [
+      [
+        0,
+        "#3B2A20"
+      ],
+      [
+        5,
+        "#B08A4F"
+      ],
+      [
+        10,
+        "#F4E6BC"
+      ]
+    ],
+    "order": 9
+  },
+  "military_control": {
+    "name_key": "MAPMODE_MILITARY_CONTROL",
+    "kind": "control",
+    "occupied_color": "#E04A3A",
+    "occupied_strength": 0.5,
+    "order": 10
+  },
+  "stability": {
+    "name_key": "MAPMODE_STABILITY",
+    "kind": "country_gradient",
+    "value": "stability",
+    "logarithmic": false,
+    "unit_key": "",
+    "stops": [
+      [
+        0,
+        "#9E2B25"
+      ],
+      [
+        50,
+        "#E0C25A"
+      ],
+      [
+        100,
+        "#3C8C52"
+      ]
+    ],
+    "order": 11
+  }
+}
