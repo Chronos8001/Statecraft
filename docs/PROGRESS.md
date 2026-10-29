@@ -56,8 +56,8 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Politique, terrain, population, PIB/hab., idéologie, alliances, relations, ressources, infrastructures, contrôle militaire, stabilité
 
 **1e. Frontières et noms**
-- [ ] Frontières de pays (épaisses) et de provinces (fines)
-- [ ] Noms de pays affichés en courbe selon la forme
+- [x] Frontières de pays (épaisses) et de provinces (fines)
+- [x] Noms de pays affichés en courbe selon la forme
 
 **1f. Mers**
 - [ ] Zones maritimes

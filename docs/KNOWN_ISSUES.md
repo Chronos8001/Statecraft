@@ -13,6 +13,7 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Population totale de certains pays issue de valeurs Wikidata anciennes (ex. Inde ~1,33 milliard) ; total mondial ~7,9 milliards. | 3 | Ouvert |
 | 🟢 | Terrain estimé (régions géographiques + latitude) ; ressources vides jusqu'au commerce. | 4c | Ouvert |
 | 🟢 | Quelques noms français de Natural Earth sont approximatifs ; corrections possibles dans `tools/map_gen/config.json`. | 1 | Ouvert |
-| 🟢 | Carte crénelée en zoom arrière (pas de mipmaps) et pixelisée en zoom maximal ; les frontières lissées arrivent avec l'étape 1e. | 1e | Ouvert |
 | 🟢 | La carte demande une carte graphique acceptant les textures 16384 px et ~270 Mo de mémoire vidéo ; chargement ~3 s, rechargée à chaque nouvelle partie. | 1 | Ouvert |
 | 🟢 | Modes PIB/hab., idéologie et alliances limités aux 5 pays détaillés ; relations et stabilité neutres ; ressources vides. Ils se rempliront avec les étapes 3, 4c, 5 et 6. | 3–6 | Ouvert |
+| 🟢 | Les noms de pays voisins peuvent se chevaucher (pas encore d'évitement des collisions). | 13 | Ouvert |
+| 🟢 | En zoom maximal, les contours suivent la précision de l'image (~2 km par pixel) : lissés mais encore un peu anguleux. | 1 | Ouvert |

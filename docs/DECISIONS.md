@@ -25,3 +25,5 @@
 | 2026-10-29 | Couleurs des provinces dans une texture de correspondance 256 × N (id → couleur) | Changer de mode de carte ne regénère qu'une petite texture | Recolorer l'image complète |
 | 2026-10-29 | Raccourcis de déplacement en touches physiques | WASD et ZQSD fonctionnent selon la disposition du clavier | Touches logiques (inutilisables en AZERTY) |
 | 2026-10-29 | Modes de carte décrits en données (type, dégradé, couleurs, ordre) et implémentés par 9 types réutilisables | Ajouter ou régler un mode sans toucher au code | Une classe codée par mode |
+| 2026-10-29 | Contours lissés dans le shader (pondération bilinéaire des 4 pixels voisins), frontières par comparaison avec 4 voisins à distance fixe en pixels d'écran | Rendu net à tout zoom sans regénérer la carte ni la vectoriser ; ~3,5 ms GPU par image | Contours vectoriels précalculés, champ de distance |
+| 2026-10-29 | Noms de pays : axe principal du plus grand territoire d'un seul tenant, parabole ajustée, courbe coupée à la partie située dans le pays | Suit la forme des pays sans données manuelles, se recalcule si les frontières changent | Positions de noms saisies à la main |

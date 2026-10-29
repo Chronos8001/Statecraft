@@ -17,6 +17,9 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Clic sur une province : mise en évidence sur la carte et panneau d'information (pays, occupation, capitale, population, superficie, terrain, infrastructures, côte, ressources, voisins). Échap ou ✕ ferme le panneau.
 - 11 modes de carte décrits dans `data/map_modes/` : politique, terrain, population (densité), PIB/hab., idéologie, alliances, relations, ressources, infrastructures, contrôle militaire (territoires occupés teintés), stabilité. Barre de choix en bas de l'écran, Tab / Maj+Tab pour changer, légende en bas à gauche.
 - Couleurs des organisations internationales et des ressources.
+- Frontières de pays et côtes (épaisses) et de provinces (fines, estompées en zoom arrière), d'épaisseur constante à l'écran.
+- Contours lissés en zoom rapproché : la carte n'apparaît plus en escalier de pixels.
+- Noms des pays écrits en courbe selon la forme de leur territoire principal, affichés seulement quand ils sont lisibles.
 - Nombres affichés selon la langue (« 2 138 259 » / « 2,138,259 »).
 
 ### Modifié
