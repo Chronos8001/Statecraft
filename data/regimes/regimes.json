@@ -1,0 +1,12 @@
+{
+  "parliamentary_republic":    { "name_key": "REGIME_PARLIAMENTARY_REPUBLIC",    "democratic": true },
+  "presidential_republic":     { "name_key": "REGIME_PRESIDENTIAL_REPUBLIC",     "democratic": true },
+  "semi_presidential_republic": { "name_key": "REGIME_SEMI_PRESIDENTIAL_REPUBLIC", "democratic": true },
+  "constitutional_monarchy":   { "name_key": "REGIME_CONSTITUTIONAL_MONARCHY",   "democratic": true },
+  "absolute_monarchy":         { "name_key": "REGIME_ABSOLUTE_MONARCHY",         "democratic": false },
+  "authoritarian":             { "name_key": "REGIME_AUTHORITARIAN",             "democratic": false },
+  "one_party_state":           { "name_key": "REGIME_ONE_PARTY_STATE",           "democratic": false },
+  "theocracy":                 { "name_key": "REGIME_THEOCRACY",                 "democratic": false },
+  "military_junta":            { "name_key": "REGIME_MILITARY_JUNTA",            "democratic": false },
+  "failed_state":              { "name_key": "REGIME_FAILED_STATE",              "democratic": false }
+}

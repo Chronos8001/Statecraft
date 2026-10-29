@@ -1,0 +1,67 @@
+keys,en,fr
+# --- Pays ---
+COUNTRY_USA,United States,États-Unis
+COUNTRY_CHN,China,Chine
+COUNTRY_FRA,France,France
+COUNTRY_DEU,Germany,Allemagne
+COUNTRY_BRA,Brazil,Brésil
+# --- Provinces ---
+PROV_USA_DISTRICT_OF_COLUMBIA,District of Columbia,District de Columbia
+PROV_USA_CALIFORNIA,California,Californie
+PROV_CHN_BEIJING,Beijing,Pékin
+PROV_CHN_GUANGDONG,Guangdong,Guangdong
+PROV_FRA_ILE_DE_FRANCE,Île-de-France,Île-de-France
+PROV_FRA_PROVENCE,Provence-Alpes-Côte d'Azur,Provence-Alpes-Côte d'Azur
+PROV_DEU_BERLIN,Berlin,Berlin
+PROV_DEU_BAVARIA,Bavaria,Bavière
+PROV_BRA_FEDERAL_DISTRICT,Federal District,District fédéral
+PROV_BRA_SAO_PAULO,São Paulo,São Paulo
+# --- Idéologies ---
+IDEOLOGY_COMMUNIST,Communist,Communiste
+IDEOLOGY_SOCIALIST,Socialist,Socialiste
+IDEOLOGY_SOCIAL_DEMOCRAT,Social democrat,Social-démocrate
+IDEOLOGY_GREEN,Green,Écologiste
+IDEOLOGY_LIBERAL,Liberal,Libéral
+IDEOLOGY_CENTRIST,Centrist,Centriste
+IDEOLOGY_CHRISTIAN_DEMOCRAT,Christian democrat,Démocrate-chrétien
+IDEOLOGY_CONSERVATIVE,Conservative,Conservateur
+IDEOLOGY_NATIONAL_CONSERVATIVE,National conservative,National-conservateur
+IDEOLOGY_NATIONALIST,Nationalist,Nationaliste
+IDEOLOGY_AUTHORITARIAN,Authoritarian,Autoritaire
+IDEOLOGY_THEOCRATIC,Theocratic,Théocratique
+IDEOLOGY_MONARCHIST,Monarchist,Monarchiste
+# --- Régimes ---
+REGIME_PARLIAMENTARY_REPUBLIC,Parliamentary republic,République parlementaire
+REGIME_PRESIDENTIAL_REPUBLIC,Presidential republic,République présidentielle
+REGIME_SEMI_PRESIDENTIAL_REPUBLIC,Semi-presidential republic,République semi-présidentielle
+REGIME_CONSTITUTIONAL_MONARCHY,Constitutional monarchy,Monarchie constitutionnelle
+REGIME_ABSOLUTE_MONARCHY,Absolute monarchy,Monarchie absolue
+REGIME_AUTHORITARIAN,Authoritarian regime,Régime autoritaire
+REGIME_ONE_PARTY_STATE,One-party state,Parti unique
+REGIME_THEOCRACY,Theocracy,Théocratie
+REGIME_MILITARY_JUNTA,Military junta,Junte militaire
+REGIME_FAILED_STATE,Failed state,État failli
+# --- Terrains ---
+TERRAIN_PLAINS,Plains,Plaines
+TERRAIN_HILLS,Hills,Collines
+TERRAIN_MOUNTAINS,Mountains,Montagnes
+TERRAIN_FOREST,Forest,Forêt
+TERRAIN_JUNGLE,Jungle,Jungle
+TERRAIN_DESERT,Desert,Désert
+TERRAIN_MARSH,Marsh,Marais
+TERRAIN_SAVANNA,Savanna,Savane
+TERRAIN_STEPPE,Steppe,Steppe
+TERRAIN_TUNDRA,Tundra,Toundra
+TERRAIN_URBAN,Urban,Urbain
+# --- Ressources ---
+RESOURCE_OIL,Oil,Pétrole
+RESOURCE_GAS,Natural gas,Gaz naturel
+RESOURCE_URANIUM,Uranium,Uranium
+RESOURCE_COAL,Coal,Charbon
+RESOURCE_RARE_EARTHS,Rare earths,Terres rares
+RESOURCE_LITHIUM,Lithium,Lithium
+RESOURCE_COBALT,Cobalt,Cobalt
+RESOURCE_SEMICONDUCTORS,Semiconductors,Semi-conducteurs
+RESOURCE_WHEAT,Wheat,Blé
+RESOURCE_STEEL,Steel,Acier
+RESOURCE_WATER,Water,Eau

@@ -1,0 +1,5 @@
+keys,en,fr
+# commentaire ignoré
+HELLO,Hello,Bonjour
+WITH_COMMA,"One, two","Un, deux"
+ONLY_EN,English only,

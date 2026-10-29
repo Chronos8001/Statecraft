@@ -14,8 +14,8 @@ Les pays, institutions et organisations internationales portent leurs vrais noms
 
 ## Prérequis
 
-- **Godot 4.3 ou plus récent** (version standard, GDScript) : <https://godotengine.org/download>
-- **GUT** (Godot Unit Test) pour les tests, inclus dans `addons/gut/` une fois le projet initialisé.
+- **Godot 4.7 ou plus récent** (version standard, GDScript), développé avec Godot 4.7.2 : <https://godotengine.org/download>
+- **GUT 9.7** (Godot Unit Test) pour les tests, déjà inclus dans `addons/gut/`.
 
 ## Lancer le projet
 
@@ -35,8 +35,11 @@ Depuis l'éditeur : panneau **GUT** en bas de l'écran, puis **Run All**.
 En ligne de commande :
 
 ```sh
-godot --headless --path . -s addons/gut/gut_cmdln.gd -gdir=res://tests -gexit
+godot --headless --path . --import
+godot --headless --path . -s addons/gut/gut_cmdln.gd
 ```
+
+La configuration des tests est dans `.gutconfig.json`. La première commande n'est nécessaire qu'après un clonage ou l'ajout de nouveaux fichiers.
 
 ## Arborescence
 
@@ -53,7 +56,27 @@ docs/     suivi du projet
 
 ## Modding
 
-Toutes les données de jeu sont dans `data/`. Un dossier `user://mods/` peut surcharger ou compléter n'importe quel fichier de `data/` sans toucher au code.
+Toutes les données de jeu sont dans `data/`, en JSON, validées par les schémas de `data/schemas/`. Les textes affichés sont dans `data/localization/*.csv` (colonnes `keys,en,fr`).
+
+> Les mods utilisateur sont **désactivés pour l'instant** : le jeu ne lit pas `user://mods/`. Le format ci-dessous est prévu pour leur réactivation.
+
+Un mod est un dossier dans `user://mods/` (sous Windows : `%APPDATA%\Godot\app_userdata\Statecraft\mods\`) :
+
+```
+mods/mon_mod/
+  mod.json          {"id": "mon_mod", "name": "Mon mod", "version": "1.0.0", "load_order": 0}
+  data/             mêmes chemins que data/ du jeu
+    countries/mon_fichier.json
+    localization/mon_mod.csv
+```
+
+Les fichiers d'un mod sont fusionnés par-dessus les données du jeu, entrée par entrée :
+
+- une valeur remplace la valeur d'origine (les tableaux sont remplacés en entier) ;
+- `null` supprime une entrée ou un champ ;
+- `"__replace": true` dans un objet le remplace entièrement au lieu de le fusionner.
+
+Exemple : `{"FRA": {"population": 70000000}}` ne change que la population de la France.
 
 ## Suivi du projet
 

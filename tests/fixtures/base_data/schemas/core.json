@@ -1,0 +1,18 @@
+{
+  "countries": {
+    "type": "object",
+    "keys_pattern": "^[A-Z]{3}$",
+    "unique_fields": ["color"],
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": ["name", "population", "color"],
+      "properties": {
+        "name": { "type": "string" },
+        "population": { "type": "int", "min": 0 },
+        "color": { "type": "color" },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

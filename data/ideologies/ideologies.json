@@ -1,0 +1,15 @@
+{
+  "communist":             { "name_key": "IDEOLOGY_COMMUNIST",             "color": "#B22222" },
+  "socialist":             { "name_key": "IDEOLOGY_SOCIALIST",             "color": "#D9443C" },
+  "social_democrat":       { "name_key": "IDEOLOGY_SOCIAL_DEMOCRAT",       "color": "#E8746A" },
+  "green":                 { "name_key": "IDEOLOGY_GREEN",                 "color": "#3FA34D" },
+  "liberal":               { "name_key": "IDEOLOGY_LIBERAL",               "color": "#F2C230" },
+  "centrist":              { "name_key": "IDEOLOGY_CENTRIST",              "color": "#F59E2B" },
+  "christian_democrat":    { "name_key": "IDEOLOGY_CHRISTIAN_DEMOCRAT",    "color": "#3B6FB6" },
+  "conservative":          { "name_key": "IDEOLOGY_CONSERVATIVE",          "color": "#2F4F8F" },
+  "national_conservative": { "name_key": "IDEOLOGY_NATIONAL_CONSERVATIVE", "color": "#1F2F66" },
+  "nationalist":           { "name_key": "IDEOLOGY_NATIONALIST",           "color": "#5A3A1E" },
+  "authoritarian":         { "name_key": "IDEOLOGY_AUTHORITARIAN",         "color": "#4A4A4A" },
+  "theocratic":            { "name_key": "IDEOLOGY_THEOCRATIC",            "color": "#2E6B4F" },
+  "monarchist":            { "name_key": "IDEOLOGY_MONARCHIST",            "color": "#7A4FA0" }
+}
