@@ -4,13 +4,16 @@ extends Control
 ## (clic droit ou molette enfoncée) et bord de l'écran.
 
 signal camera_changed
-## Clic gauche sur la carte : identifiant de la province (0 = eau).
+## Clic gauche sur la carte : identifiant de la province ou zone maritime (0 = hors carte).
 signal province_clicked(province_id: int)
+## Double-clic gauche.
+signal province_double_clicked(province_id: int)
 
 const NO_SELECTION := -1
 
 var camera: MapCameraState
 var selected_province: int = NO_SELECTION
+var _country_indices: Dictionary = {}
 var map_data: ProvinceMapData
 var _material: ShaderMaterial
 var _dragging: bool = false
@@ -51,6 +54,8 @@ func setup(data: ProvinceMapData, colors: PackedColorArray) -> void:
 	_material.set_shader_parameter("background_color", Color.html(str(DataLoader.get_define("map_colors.background"))))
 	_material.set_shader_parameter("selection_color", Color.html(str(DataLoader.get_define("map_style.selection_color"))))
 	_material.set_shader_parameter("selection_strength", float(DataLoader.get_define("map_style.selection_strength")))
+	_material.set_shader_parameter("country_selection_strength",
+		float(DataLoader.get_define("map_style.country_selection_strength")))
 	_apply_border_style()
 	set_selected_province(NO_SELECTION)
 	set_province_colors(colors)
@@ -75,9 +80,15 @@ func set_province_colors(colors: PackedColorArray) -> void:
 
 ## Recalcule les frontières de pays (à appeler quand un propriétaire change).
 func set_province_owners(provinces: Dictionary, countries: Dictionary) -> void:
+	_country_indices = ProvinceLookup.country_indices(countries)
 	var owners := ProvinceLookup.owner_indices(provinces, countries, DataLoader.get_category("sea_zones"),
 		int(DataLoader.get_category("map")["map"]["max_id"]))
 	_material.set_shader_parameter("province_owners", ImageTexture.create_from_image(ProvinceLookup.build_image(owners)))
+
+
+## Éclaire toutes les provinces d'un pays ("" = aucun).
+func set_selected_country(tag: String) -> void:
+	_material.set_shader_parameter("selected_country", int(_country_indices.get(tag, NO_SELECTION)))
 
 
 func set_selected_province(province_id: int) -> void:
@@ -100,7 +111,11 @@ func _gui_input(event: InputEvent) -> void:
 		match button.button_index:
 			MOUSE_BUTTON_LEFT:
 				if button.pressed:
-					province_clicked.emit(province_at_screen(button.position))
+					var province_id := province_at_screen(button.position)
+					if button.double_click:
+						province_double_clicked.emit(province_id)
+					else:
+						province_clicked.emit(province_id)
 				accept_event()
 			MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN:
 				if button.pressed:

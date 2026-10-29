@@ -174,7 +174,8 @@
           "strait_line_width",
           "strait_marker_size",
           "strait_label_min_zoom",
-          "strait_label_size"
+          "strait_label_size",
+          "country_selection_strength"
         ],
         "properties": {
           "selection_color": {
@@ -295,6 +296,11 @@
           "strait_label_size": {
             "type": "int",
             "min": 1
+          },
+          "country_selection_strength": {
+            "type": "number",
+            "min": 0,
+            "max": 1
           }
         }
       },

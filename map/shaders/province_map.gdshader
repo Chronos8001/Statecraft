@@ -17,6 +17,9 @@ uniform vec4 background_color : source_color;
 uniform int selected_province = -1;
 uniform vec4 selection_color : source_color = vec4(1.0);
 uniform float selection_strength = 0.4;
+// Pays sélectionné (indice dans province_owners, -1 = aucun), éclairci plus légèrement.
+uniform int selected_country = -1;
+uniform float country_selection_strength = 0.22;
 
 // Frontières : épaisseur en pixels d'écran ; province_border_alpha dépend du zoom (calculé côté CPU).
 uniform vec4 province_border_color : source_color;
@@ -89,10 +92,12 @@ void fragment() {
 	} else {
 		int province_id = province_at(map_position);
 		vec4 color = texelFetch(province_colors, lookup_texel(province_id), 0);
+		int owner = owner_of(province_id);
 		if (province_id == selected_province && province_id > 0) {
 			color.rgb = mix(color.rgb, selection_color.rgb, selection_strength);
+		} else if (owner == selected_country) {
+			color.rgb = mix(color.rgb, selection_color.rgb, country_selection_strength);
 		}
-		int owner = owner_of(province_id);
 		// Mêmes voisins pour les deux types de frontières ; seule la frontière de pays est plus épaisse.
 		vec2 directions[4] = vec2[4](vec2(1.0, 0.0), vec2(-1.0, 0.0), vec2(0.0, 1.0), vec2(0.0, -1.0));
 		float radius = country_border_width / zoom;

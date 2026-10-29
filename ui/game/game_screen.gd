@@ -18,6 +18,7 @@ var _current_mode_id: String = DEFAULT_MAP_MODE
 @onready var _loading_label: Label = %LoadingLabel
 @onready var _debug_label: Label = %DebugLabel
 @onready var _info_panel: ProvinceInfoPanel = %ProvinceInfoPanel
+@onready var _country_panel: CountryInfoPanel = %CountryInfoPanel
 @onready var _mode_bar: MapModeBar = %MapModeBar
 @onready var _legend: MapLegend = %MapLegend
 
@@ -28,7 +29,9 @@ func _ready() -> void:
 	_loading_label.text = "MAP_LOADING"
 	_load_started_ms = Time.get_ticks_msec()
 	_map_view.province_clicked.connect(_on_province_clicked)
+	_map_view.province_double_clicked.connect(_show_province)
 	_info_panel.closed.connect(func() -> void: _map_view.set_selected_province(MapView.NO_SELECTION))
+	_country_panel.closed.connect(func() -> void: _map_view.set_selected_country(""))
 	_map_modes = MapModeRegistry.from_definitions(DataLoader.get_category("map_modes"))
 	_mode_context = MapModeContext.from_game_data()
 	_mode_bar.set_modes(_map_modes.modes)
@@ -51,8 +54,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		_cycle_map_mode(-1 if event.is_action_pressed("ui_focus_prev") else 1)
 	elif event.is_action_pressed("ui_cancel"):
 		get_viewport().set_input_as_handled()
-		if _info_panel.visible:
+		if _info_panel.visible or _country_panel.visible:
 			_info_panel.close()
+			_country_panel.close()
 		else:
 			get_tree().change_scene_to_file(TITLE_SCENE)
 
@@ -101,11 +105,29 @@ func _cycle_map_mode(step: int) -> void:
 	set_map_mode(_map_modes.modes[index].id)
 
 
+## Clic simple : fiche du pays propriétaire ; mers et terres sans propriétaire ouvrent leur propre fiche.
 func _on_province_clicked(province_id: int) -> void:
+	var province: Dictionary = DataLoader.get_entry("provinces", str(province_id))
+	var owner := str(province.get("owner", ""))
+	var info := CountryInfo.build(owner, DataLoader.get_category("countries"),
+		DataLoader.get_category("provinces"), DataLoader.get_category("names"),
+		DataLoader.get_category("regimes"), DataLoader.get_category("ideologies"))
+	if info == null:
+		_show_province(province_id)
+		return
+	_info_panel.close()
+	_map_view.set_selected_province(MapView.NO_SELECTION)
+	_map_view.set_selected_country(owner)
+	_country_panel.show_country(info)
+
+
+## Double-clic (ou clic sur une mer ou une terre sans propriétaire) : fiche de la province ou de la zone.
+func _show_province(province_id: int) -> void:
 	var info := ProvinceInfo.build(province_id, DataLoader.get_category("provinces"),
 		DataLoader.get_category("countries"), DataLoader.get_category("terrains"),
 		DataLoader.get_category("resources"), DataLoader.get_category("sea_zones"),
 		DataLoader.get_category("straits"))
+	_country_panel.close()
 	if info == null:
 		_map_view.set_selected_province(MapView.NO_SELECTION)
 		_info_panel.close()

@@ -22,11 +22,7 @@ static func build_image(colors: PackedColorArray) -> Image:
 ## 0 = mer ou lac, 1 = sans propriétaire, puis un indice par pays (ordre alphabétique des tags).
 static func owner_indices(provinces: Dictionary, countries: Dictionary, sea_zones: Dictionary,
 		max_id: int) -> PackedColorArray:
-	var tags: Array = countries.keys()
-	tags.sort()
-	var index_of_tag: Dictionary = {}
-	for i: int in tags.size():
-		index_of_tag[tags[i]] = i + FIRST_COUNTRY_INDEX
+	var index_of_tag := country_indices(countries)
 	var owners := PackedColorArray()
 	owners.resize(max_id + 1)
 	owners.fill(ProvinceMapData.id_to_color(UNOWNED_INDEX))
@@ -41,3 +37,13 @@ static func owner_indices(provinces: Dictionary, countries: Dictionary, sea_zone
 		if province_id > 0 and province_id <= max_id and index_of_tag.has(owner):
 			owners[province_id] = ProvinceMapData.id_to_color(index_of_tag[owner])
 	return owners
+
+
+## Indice de chaque pays dans la texture des propriétaires (tag → indice).
+static func country_indices(countries: Dictionary) -> Dictionary:
+	var tags: Array = countries.keys()
+	tags.sort()
+	var indices: Dictionary = {}
+	for i: int in tags.size():
+		indices[tags[i]] = i + FIRST_COUNTRY_INDEX
+	return indices
