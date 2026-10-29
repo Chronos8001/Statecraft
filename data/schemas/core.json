@@ -1,138 +1,350 @@
 {
   "defines": {
     "type": "object",
-    "required": ["game", "time"],
+    "required": [
+      "game",
+      "time"
+    ],
     "properties": {
       "game": {
         "type": "object",
-        "required": ["start_date"],
+        "required": [
+          "start_date"
+        ],
         "properties": {
           "start_date": {
             "type": "object",
             "strict": true,
-            "required": ["year", "month", "day", "hour"],
+            "required": [
+              "year",
+              "month",
+              "day",
+              "hour"
+            ],
             "properties": {
-              "year":  { "type": "int", "min": 1 },
-              "month": { "type": "int", "min": 1, "max": 12 },
-              "day":   { "type": "int", "min": 1, "max": 31 },
-              "hour":  { "type": "int", "min": 0, "max": 23 }
+              "year": {
+                "type": "int",
+                "min": 1
+              },
+              "month": {
+                "type": "int",
+                "min": 1,
+                "max": 12
+              },
+              "day": {
+                "type": "int",
+                "min": 1,
+                "max": 31
+              },
+              "hour": {
+                "type": "int",
+                "min": 0,
+                "max": 23
+              }
             }
           }
         }
       },
       "time": {
         "type": "object",
-        "required": ["speed_count", "default_speed"],
+        "required": [
+          "speed_count",
+          "default_speed"
+        ],
         "properties": {
-          "speed_count":   { "type": "int", "min": 1 },
-          "default_speed": { "type": "int", "min": 1 }
+          "speed_count": {
+            "type": "int",
+            "min": 1
+          },
+          "default_speed": {
+            "type": "int",
+            "min": 1
+          }
         }
       }
     }
   },
-
   "ideologies": {
     "type": "object",
     "keys_pattern": "^[a-z_]+$",
     "values": {
-      "type": "object", "strict": true, "required": ["name_key", "color"],
-      "properties": { "name_key": { "type": "string" }, "color": { "type": "color" } }
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "color"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string"
+        },
+        "color": {
+          "type": "color"
+        }
+      }
     }
   },
-
   "regimes": {
     "type": "object",
     "keys_pattern": "^[a-z_]+$",
     "values": {
-      "type": "object", "strict": true, "required": ["name_key", "democratic"],
-      "properties": { "name_key": { "type": "string" }, "democratic": { "type": "bool" } }
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "democratic"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string"
+        },
+        "democratic": {
+          "type": "bool"
+        }
+      }
     }
   },
-
   "terrains": {
     "type": "object",
     "keys_pattern": "^[a-z_]+$",
     "values": {
-      "type": "object", "strict": true, "required": ["name_key", "color"],
-      "properties": { "name_key": { "type": "string" }, "color": { "type": "color" } }
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "color"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string"
+        },
+        "color": {
+          "type": "color"
+        }
+      }
     }
   },
-
   "resources": {
     "type": "object",
     "keys_pattern": "^[a-z_]+$",
     "values": {
-      "type": "object", "strict": true, "required": ["name_key", "strategic"],
-      "properties": { "name_key": { "type": "string" }, "strategic": { "type": "bool" } }
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "strategic"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string"
+        },
+        "strategic": {
+          "type": "bool"
+        }
+      }
     }
   },
-
   "countries": {
     "type": "object",
     "keys_pattern": "^[A-Z]{3}$",
-    "unique_fields": ["color"],
+    "unique_fields": [
+      "color"
+    ],
     "values": {
       "type": "object",
       "strict": true,
-      "required": ["name_key", "color", "capital", "regime", "head_of_state", "head_of_government",
-                   "ideology", "population", "economy", "military", "organizations"],
+      "required": [
+        "name_key",
+        "color",
+        "capital"
+      ],
       "properties": {
-        "name_key":           { "type": "string", "pattern": "^COUNTRY_[A-Z]{3}$" },
-        "flag":               { "type": "string" },
-        "color":              { "type": "color" },
-        "capital":            { "type": "int", "ref": "provinces" },
-        "regime":             { "type": "string", "ref": "regimes" },
-        "head_of_state":      { "type": "string", "ref": "names#characters" },
-        "head_of_government": { "type": "string", "ref": "names#characters" },
-        "ruling_party":       { "type": "string", "ref": "names#parties" },
-        "coalition_partners": { "type": "array", "unique_items": true,
-                                "items": { "type": "string", "ref": "names#parties" } },
-        "ideology":           { "type": "string", "ref": "ideologies" },
-        "population":         { "type": "int", "min": 0 },
+        "name_key": {
+          "type": "string",
+          "pattern": "^COUNTRY_[A-Z]{3}$"
+        },
+        "flag": {
+          "type": "string"
+        },
+        "color": {
+          "type": "color"
+        },
+        "capital": {
+          "type": "int",
+          "ref": "provinces"
+        },
+        "regime": {
+          "type": "string",
+          "ref": "regimes"
+        },
+        "head_of_state": {
+          "type": "string",
+          "ref": "names#characters"
+        },
+        "head_of_government": {
+          "type": "string",
+          "ref": "names#characters"
+        },
+        "ruling_party": {
+          "type": "string",
+          "ref": "names#parties"
+        },
+        "coalition_partners": {
+          "type": "array",
+          "unique_items": true,
+          "items": {
+            "type": "string",
+            "ref": "names#parties"
+          }
+        },
+        "ideology": {
+          "type": "string",
+          "ref": "ideologies"
+        },
+        "population": {
+          "type": "int",
+          "min": 0
+        },
         "economy": {
-          "type": "object", "strict": true, "required": ["gdp_billion_usd", "debt_to_gdp"],
+          "type": "object",
+          "strict": true,
+          "required": [
+            "gdp_billion_usd",
+            "debt_to_gdp"
+          ],
           "properties": {
-            "gdp_billion_usd": { "type": "number", "min": 0 },
-            "debt_to_gdp":     { "type": "number", "min": 0 }
+            "gdp_billion_usd": {
+              "type": "number",
+              "min": 0
+            },
+            "debt_to_gdp": {
+              "type": "number",
+              "min": 0
+            }
           }
         },
         "military": {
-          "type": "object", "strict": true, "required": ["active_personnel", "reserve_personnel"],
+          "type": "object",
+          "strict": true,
+          "required": [
+            "active_personnel",
+            "reserve_personnel"
+          ],
           "properties": {
-            "active_personnel":  { "type": "int", "min": 0 },
-            "reserve_personnel": { "type": "int", "min": 0 }
+            "active_personnel": {
+              "type": "int",
+              "min": 0
+            },
+            "reserve_personnel": {
+              "type": "int",
+              "min": 0
+            }
           }
         },
-        "organizations": { "type": "array", "unique_items": true,
-                           "items": { "type": "string", "ref": "names#organizations" } }
+        "organizations": {
+          "type": "array",
+          "unique_items": true,
+          "items": {
+            "type": "string",
+            "ref": "names#organizations"
+          }
+        }
       }
     }
   },
-
   "provinces": {
     "type": "object",
     "keys_pattern": "^[0-9]+$",
-    "unique_fields": ["color"],
+    "unique_fields": [
+      "color"
+    ],
     "values": {
       "type": "object",
       "strict": true,
-      "required": ["name_key", "color", "owner", "controller", "terrain", "population",
-                   "resources", "infrastructure", "coastal"],
+      "required": [
+        "name_key",
+        "color",
+        "terrain",
+        "population",
+        "resources",
+        "infrastructure",
+        "coastal",
+        "area_km2",
+        "size",
+        "center",
+        "neighbors"
+      ],
       "properties": {
-        "name_key":       { "type": "string", "pattern": "^PROV_[A-Z0-9_]+$" },
-        "color":          { "type": "color" },
-        "owner":          { "type": "string", "ref": "countries" },
-        "controller":     { "type": "string", "ref": "countries" },
-        "terrain":        { "type": "string", "ref": "terrains" },
-        "population":     { "type": "int", "min": 0 },
-        "resources":      { "type": "object", "keys_ref": "resources",
-                            "values": { "type": "number", "min": 0, "max": 10 } },
-        "infrastructure": { "type": "int", "min": 0, "max": 10 },
-        "coastal":        { "type": "bool" }
+        "name_key": {
+          "type": "string",
+          "pattern": "^PROV_[0-9]+$"
+        },
+        "color": {
+          "type": "color"
+        },
+        "owner": {
+          "type": "string",
+          "ref": "countries"
+        },
+        "controller": {
+          "type": "string",
+          "ref": "countries"
+        },
+        "terrain": {
+          "type": "string",
+          "ref": "terrains"
+        },
+        "population": {
+          "type": "int",
+          "min": 0
+        },
+        "resources": {
+          "type": "object",
+          "keys_ref": "resources",
+          "values": {
+            "type": "number",
+            "min": 0,
+            "max": 10
+          }
+        },
+        "infrastructure": {
+          "type": "int",
+          "min": 0,
+          "max": 10
+        },
+        "coastal": {
+          "type": "bool"
+        },
+        "area_km2": {
+          "type": "number",
+          "min": 0
+        },
+        "size": {
+          "type": "int",
+          "min": 1
+        },
+        "center": {
+          "type": "array",
+          "min_items": 2,
+          "items": {
+            "type": "number",
+            "min": 0
+          }
+        },
+        "neighbors": {
+          "type": "array",
+          "unique_items": true,
+          "items": {
+            "type": "int",
+            "ref": "provinces"
+          }
+        },
+        "source_id": {
+          "type": "string"
+        }
       }
     }
   },
-
   "names": {
     "type": "object",
     "strict": true,
@@ -143,23 +355,71 @@
         "values": {
           "type": "object",
           "strict": true,
-          "required": ["first_name", "last_name", "birth_year", "gender", "country", "ideology"],
+          "required": [
+            "first_name",
+            "last_name",
+            "birth_year",
+            "gender",
+            "country",
+            "ideology"
+          ],
           "properties": {
-            "first_name": { "type": "string" },
-            "last_name":  { "type": "string" },
-            "birth_year": { "type": "int", "min": 1900 },
-            "gender":     { "type": "string", "enum": ["male", "female"] },
-            "country":    { "type": "string", "ref": "countries" },
-            "ideology":   { "type": "string", "ref": "ideologies" },
-            "traits":     { "type": "array", "unique_items": true, "items": { "type": "string" } },
+            "first_name": {
+              "type": "string"
+            },
+            "last_name": {
+              "type": "string"
+            },
+            "birth_year": {
+              "type": "int",
+              "min": 1900
+            },
+            "gender": {
+              "type": "string",
+              "enum": [
+                "male",
+                "female"
+              ]
+            },
+            "country": {
+              "type": "string",
+              "ref": "countries"
+            },
+            "ideology": {
+              "type": "string",
+              "ref": "ideologies"
+            },
+            "traits": {
+              "type": "array",
+              "unique_items": true,
+              "items": {
+                "type": "string"
+              }
+            },
             "skills": {
               "type": "object",
               "strict": true,
               "properties": {
-                "administration": { "type": "int", "min": 0, "max": 10 },
-                "diplomacy":      { "type": "int", "min": 0, "max": 10 },
-                "economy":        { "type": "int", "min": 0, "max": 10 },
-                "military":       { "type": "int", "min": 0, "max": 10 }
+                "administration": {
+                  "type": "int",
+                  "min": 0,
+                  "max": 10
+                },
+                "diplomacy": {
+                  "type": "int",
+                  "min": 0,
+                  "max": 10
+                },
+                "economy": {
+                  "type": "int",
+                  "min": 0,
+                  "max": 10
+                },
+                "military": {
+                  "type": "int",
+                  "min": 0,
+                  "max": 10
+                }
               }
             }
           }
@@ -171,14 +431,35 @@
         "values": {
           "type": "object",
           "strict": true,
-          "required": ["name", "abbreviation", "country", "ideology", "color"],
+          "required": [
+            "name",
+            "abbreviation",
+            "country",
+            "ideology",
+            "color"
+          ],
           "properties": {
-            "name":         { "type": "loc_string" },
-            "abbreviation": { "type": "string" },
-            "country":      { "type": "string", "ref": "countries" },
-            "ideology":     { "type": "string", "ref": "ideologies" },
-            "leader":       { "type": "string", "ref": "names#characters" },
-            "color":        { "type": "color" }
+            "name": {
+              "type": "loc_string"
+            },
+            "abbreviation": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string",
+              "ref": "countries"
+            },
+            "ideology": {
+              "type": "string",
+              "ref": "ideologies"
+            },
+            "leader": {
+              "type": "string",
+              "ref": "names#characters"
+            },
+            "color": {
+              "type": "color"
+            }
           }
         }
       },
@@ -188,13 +469,79 @@
         "values": {
           "type": "object",
           "strict": true,
-          "required": ["name", "abbreviation", "kind"],
+          "required": [
+            "name",
+            "abbreviation",
+            "kind"
+          ],
           "properties": {
-            "name":         { "type": "loc_string" },
-            "abbreviation": { "type": "loc_string" },
-            "kind":         { "type": "string", "enum": ["global", "military_alliance", "economic_union",
-                                                         "economic_forum", "security", "cartel"] },
-            "founded":      { "type": "int" }
+            "name": {
+              "type": "loc_string"
+            },
+            "abbreviation": {
+              "type": "loc_string"
+            },
+            "kind": {
+              "type": "string",
+              "enum": [
+                "global",
+                "military_alliance",
+                "economic_union",
+                "economic_forum",
+                "security",
+                "cartel"
+              ]
+            },
+            "founded": {
+              "type": "int"
+            }
+          }
+        }
+      }
+    }
+  },
+  "map": {
+    "type": "object",
+    "strict": true,
+    "required": [
+      "map"
+    ],
+    "properties": {
+      "map": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "width",
+          "height",
+          "projection",
+          "provinces_image",
+          "province_count"
+        ],
+        "properties": {
+          "width": {
+            "type": "int",
+            "min": 1
+          },
+          "height": {
+            "type": "int",
+            "min": 1
+          },
+          "projection": {
+            "type": "string",
+            "enum": [
+              "equirectangular"
+            ]
+          },
+          "provinces_image": {
+            "type": "string",
+            "pattern": "^res://"
+          },
+          "province_count": {
+            "type": "int",
+            "min": 1
+          },
+          "source": {
+            "type": "string"
           }
         }
       }
