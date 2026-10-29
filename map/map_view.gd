@@ -20,7 +20,11 @@ var _key_pan_speed: float = 0.0
 var _edge_margin: float = 0.0
 var _edge_speed: float = 0.0
 
+var _province_border_min_zoom: float = 0.0
+var _province_border_full_zoom: float = 0.0
+
 @onready var _surface: ColorRect = $Surface
+@onready var _labels: CountryLabelLayer = $Labels
 
 
 func _ready() -> void:
@@ -46,8 +50,17 @@ func setup(data: ProvinceMapData, colors: PackedColorArray) -> void:
 	_material.set_shader_parameter("background_color", Color.html(str(DataLoader.get_define("map_colors.background"))))
 	_material.set_shader_parameter("selection_color", Color.html(str(DataLoader.get_define("map_style.selection_color"))))
 	_material.set_shader_parameter("selection_strength", float(DataLoader.get_define("map_style.selection_strength")))
+	_apply_border_style()
 	set_selected_province(NO_SELECTION)
 	set_province_colors(colors)
+	set_province_owners(DataLoader.get_category("provinces"), DataLoader.get_category("countries"))
+	var provinces := DataLoader.get_category("provinces")
+	var owner_at := func(map_position: Vector2) -> String:
+		var province: Dictionary = provinces.get(str(data.get_province_at(map_position)), {})
+		return str(province.get("owner", ""))
+	_labels.setup(CountryLabelLayout.compute_all(provinces, data.width,
+		float(DataLoader.get_define("map_style.label_max_bend")), owner_at),
+		DataLoader.get_category("countries"), camera)
 	_update_camera()
 	set_process(true)
 
@@ -56,6 +69,12 @@ func setup(data: ProvinceMapData, colors: PackedColorArray) -> void:
 func set_province_colors(colors: PackedColorArray) -> void:
 	var lookup := ImageTexture.create_from_image(ProvinceLookup.build_image(colors))
 	_material.set_shader_parameter("province_colors", lookup)
+
+
+## Recalcule les frontières de pays (à appeler quand un propriétaire change).
+func set_province_owners(provinces: Dictionary, countries: Dictionary) -> void:
+	var owners := ProvinceLookup.owner_indices(provinces, countries, int(DataLoader.get_category("map")["map"]["province_count"]))
+	_material.set_shader_parameter("province_owners", ImageTexture.create_from_image(ProvinceLookup.build_image(owners)))
 
 
 func set_selected_province(province_id: int) -> void:
@@ -139,8 +158,25 @@ func _on_resized() -> void:
 		_update_camera()
 
 
+func _apply_border_style() -> void:
+	var province_color := Color.html(str(DataLoader.get_define("map_style.province_border_color")))
+	province_color.a = float(DataLoader.get_define("map_style.province_border_opacity"))
+	var country_color := Color.html(str(DataLoader.get_define("map_style.country_border_color")))
+	country_color.a = float(DataLoader.get_define("map_style.country_border_opacity"))
+	_material.set_shader_parameter("province_border_color", province_color)
+	_material.set_shader_parameter("country_border_color", country_color)
+	_material.set_shader_parameter("province_border_width", float(DataLoader.get_define("map_style.province_border_width")))
+	_material.set_shader_parameter("country_border_width", float(DataLoader.get_define("map_style.country_border_width")))
+	_material.set_shader_parameter("smooth_min_zoom", float(DataLoader.get_define("map_style.smooth_min_zoom")))
+	_province_border_min_zoom = float(DataLoader.get_define("map_style.province_border_min_zoom"))
+	_province_border_full_zoom = float(DataLoader.get_define("map_style.province_border_full_zoom"))
+
+
 func _update_camera() -> void:
 	_material.set_shader_parameter("viewport_size", size)
 	_material.set_shader_parameter("camera_center", camera.center)
 	_material.set_shader_parameter("zoom", camera.zoom)
+	_material.set_shader_parameter("province_border_alpha",
+		smoothstep(_province_border_min_zoom, _province_border_full_zoom, camera.zoom))
+	_labels.queue_redraw()
 	camera_changed.emit()

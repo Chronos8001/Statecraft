@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://map/map_view.gd" id="1_view"]
 [ext_resource type="Shader" path="res://map/shaders/province_map.gdshader" id="2_shader"]
+[ext_resource type="Script" path="res://map/country_label_layer.gd" id="3_labels"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_map"]
 shader = ExtResource("2_shader")
@@ -24,3 +25,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Labels" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_labels")

@@ -146,7 +146,27 @@
         "strict": true,
         "required": [
           "selection_color",
-          "selection_strength"
+          "selection_strength",
+          "province_border_color",
+          "province_border_opacity",
+          "province_border_width",
+          "province_border_min_zoom",
+          "province_border_full_zoom",
+          "country_border_color",
+          "country_border_opacity",
+          "country_border_width",
+          "label_color",
+          "label_opacity",
+          "label_outline_color",
+          "label_outline_opacity",
+          "label_outline_size",
+          "label_min_screen_size",
+          "label_max_screen_size",
+          "label_fill_ratio",
+          "label_thickness_ratio",
+          "label_letter_spacing",
+          "label_max_bend",
+          "smooth_min_zoom"
         ],
         "properties": {
           "selection_color": {
@@ -156,6 +176,87 @@
             "type": "number",
             "min": 0,
             "max": 1
+          },
+          "province_border_color": {
+            "type": "color"
+          },
+          "province_border_opacity": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "province_border_width": {
+            "type": "number",
+            "min": 0
+          },
+          "province_border_min_zoom": {
+            "type": "number",
+            "min": 0
+          },
+          "province_border_full_zoom": {
+            "type": "number",
+            "min": 0
+          },
+          "country_border_color": {
+            "type": "color"
+          },
+          "country_border_opacity": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "country_border_width": {
+            "type": "number",
+            "min": 0
+          },
+          "label_color": {
+            "type": "color"
+          },
+          "label_opacity": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "label_outline_color": {
+            "type": "color"
+          },
+          "label_outline_opacity": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "label_outline_size": {
+            "type": "int",
+            "min": 0
+          },
+          "label_min_screen_size": {
+            "type": "number",
+            "min": 1
+          },
+          "label_max_screen_size": {
+            "type": "number",
+            "min": 1
+          },
+          "label_fill_ratio": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "label_thickness_ratio": {
+            "type": "number",
+            "min": 0
+          },
+          "label_letter_spacing": {
+            "type": "number",
+            "min": 0
+          },
+          "label_max_bend": {
+            "type": "number",
+            "min": 0
+          },
+          "smooth_min_zoom": {
+            "type": "number",
+            "min": 0
           }
         }
       },
