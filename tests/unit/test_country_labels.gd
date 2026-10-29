@@ -71,11 +71,12 @@ func test_curve_is_clipped_to_the_country() -> void:
 
 func test_owner_indices() -> void:
 	var provinces := {"1": {"owner": "BBB"}, "2": {"owner": "AAA"}, "3": {}}
-	var owners := ProvinceLookup.owner_indices(provinces, {"AAA": {}, "BBB": {}}, 3)
+	var owners := ProvinceLookup.owner_indices(provinces, {"AAA": {}, "BBB": {}}, {"4": {}}, 4)
 	assert_eq(ProvinceMapData.color_to_id(owners[0]), ProvinceLookup.SEA_INDEX)
 	assert_eq(ProvinceMapData.color_to_id(owners[1]), ProvinceLookup.FIRST_COUNTRY_INDEX + 1)
 	assert_eq(ProvinceMapData.color_to_id(owners[2]), ProvinceLookup.FIRST_COUNTRY_INDEX)
 	assert_eq(ProvinceMapData.color_to_id(owners[3]), ProvinceLookup.UNOWNED_INDEX)
+	assert_eq(ProvinceMapData.color_to_id(owners[4]), ProvinceLookup.SEA_INDEX, "zone maritime")
 
 
 func test_all_game_countries_get_a_label() -> void:

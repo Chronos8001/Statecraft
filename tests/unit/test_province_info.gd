@@ -57,6 +57,21 @@ func test_unowned_province() -> void:
 	assert_eq(info.terrain_name_key, "tundra", "clé brute si le terrain est inconnu")
 
 
+func test_sea_zone_info() -> void:
+	var sea_zones := {"20": {"name_key": "SEA_20", "kind": "sea", "area_km2": 50000.0,
+		"neighbors": [21, 22], "coasts": [10, 11, 12]}}
+	var straits := {"kerch": {"name_key": "STRAIT_KERCH", "sea_zones": [20, 30], "provinces": [10]}}
+	var info := ProvinceInfo.build(20, PROVINCES, COUNTRIES, TERRAINS, RESOURCES, sea_zones, straits)
+	assert_true(info.is_sea_zone)
+	assert_eq(info.sea_kind_key, "SEA_KIND_SEA")
+	assert_eq(info.neighbor_count, 2)
+	assert_eq(info.coast_count, 3)
+	assert_eq(info.strait_name_keys, PackedStringArray(["STRAIT_KERCH"]))
+	var land := ProvinceInfo.build(10, PROVINCES, COUNTRIES, TERRAINS, RESOURCES, sea_zones, straits)
+	assert_false(land.is_sea_zone)
+	assert_eq(land.strait_name_keys, PackedStringArray(["STRAIT_KERCH"]))
+
+
 func test_number_format() -> void:
 	assert_eq(NumberFormat.integer(0, "fr"), "0")
 	assert_eq(NumberFormat.integer(999, "en"), "999")
