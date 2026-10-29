@@ -6,6 +6,12 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 ## [Unreleased]
 
+### Ajouté
+- Écoulement du temps : 1 tick = 1 heure de jeu, pause et 5 vitesses (de 6 heures à 20 jours par seconde), raccourcis Espace, + et -.
+- Ordonnanceur de la simulation : systèmes abonnés aux heures, jours, semaines, mois et années, appelés dans un ordre fixe.
+- Barre supérieure : date localisée, pause, vitesse, pays joué et ressources clés (en attente des systèmes qui les calculent).
+- Notification à chaque nouveau mois et nouvelle année.
+
 ## [0.1.0] - 2026-10-29
 
 ### Ajouté
