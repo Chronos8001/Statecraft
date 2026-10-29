@@ -18,3 +18,20 @@ INFO_LOAD_UNAVAILABLE,Loading saved games will arrive in a future version.,Le ch
 MAP_LOADING,Loading map…,Chargement de la carte…
 MAP_LOAD_ERROR,The map could not be loaded (see console).,La carte n'a pas pu être chargée (voir la console).
 DEBUG_MAP_INFO,%d FPS · zoom ×%.2f · %.2f° %.2f°,%d FPS · zoom ×%.2f · %.2f° %.2f°
+COMMON_YES,Yes,Oui
+COMMON_NO,No,Non
+COMMON_CLOSE_SYMBOL,✕,✕
+INFO_PROVINCE_ID,Province no. %d,Province n° %d
+INFO_UNOWNED,No owner,Sans propriétaire
+INFO_OCCUPIED_BY,Occupied by %s,Occupée par : %s
+INFO_CAPITAL,National capital,Capitale nationale
+INFO_POPULATION,Population,Population
+INFO_AREA,Area,Superficie
+INFO_AREA_VALUE,%s km²,%s km²
+INFO_TERRAIN,Terrain,Terrain
+INFO_INFRASTRUCTURE,Infrastructure,Infrastructures
+INFO_INFRASTRUCTURE_VALUE,%d / %d,%d / %d
+INFO_COASTAL,Coastal,Côtière
+INFO_RESOURCES,Resources,Ressources
+INFO_RESOURCES_NONE,None,Aucune
+INFO_NEIGHBORS,Neighbouring provinces,Provinces voisines

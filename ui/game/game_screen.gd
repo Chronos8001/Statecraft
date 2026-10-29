@@ -13,6 +13,7 @@ var _load_started_ms: int = 0
 @onready var _map_view: MapView = %MapView
 @onready var _loading_label: Label = %LoadingLabel
 @onready var _debug_label: Label = %DebugLabel
+@onready var _info_panel: ProvinceInfoPanel = %ProvinceInfoPanel
 
 
 func _ready() -> void:
@@ -20,6 +21,8 @@ func _ready() -> void:
 	var image_path := str(map_info.get("provinces_image", ""))
 	_loading_label.text = "MAP_LOADING"
 	_load_started_ms = Time.get_ticks_msec()
+	_map_view.province_clicked.connect(_on_province_clicked)
+	_info_panel.closed.connect(func() -> void: _map_view.set_selected_province(MapView.NO_SELECTION))
 	_thread = Thread.new()
 	_thread.start(func() -> ProvinceMapData: return ProvinceMapData.from_png_file(image_path))
 
@@ -33,7 +36,10 @@ func _process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		get_viewport().set_input_as_handled()
-		get_tree().change_scene_to_file(TITLE_SCENE)
+		if _info_panel.visible:
+			_info_panel.close()
+		else:
+			get_tree().change_scene_to_file(TITLE_SCENE)
 
 
 func _exit_tree() -> void:
@@ -65,6 +71,18 @@ func _finish_loading() -> void:
 	await get_tree().process_frame
 	GameLog.info(SOURCE, "Mémoire graphique des textures : %d Mo." % roundi(
 		Performance.get_monitor(Performance.RENDER_TEXTURE_MEM_USED) / BYTES_PER_MEGABYTE))
+
+
+func _on_province_clicked(province_id: int) -> void:
+	var info := ProvinceInfo.build(province_id, DataLoader.get_category("provinces"),
+		DataLoader.get_category("countries"), DataLoader.get_category("terrains"),
+		DataLoader.get_category("resources"))
+	if info == null:
+		_map_view.set_selected_province(MapView.NO_SELECTION)
+		_info_panel.close()
+		return
+	_map_view.set_selected_province(province_id)
+	_info_panel.show_province(info)
 
 
 func _update_debug() -> void:
