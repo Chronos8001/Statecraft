@@ -5,8 +5,12 @@ extends Node
 ## Structure d'un mod :
 ##   user://mods/<id>/mod.json    {"id", "name", "version", "load_order", "enabled"}
 ##   user://mods/<id>/data/...    mêmes chemins que res://data/
+##
+## Les mods utilisateur sont désactivés pour l'instant (USER_MODS_ENABLED) : seuls le jeu de base
+## et les DLC sont chargés. Le mécanisme reste en place pour pouvoir les réactiver.
 
 const SOURCE := "ModManager"
+const USER_MODS_ENABLED := false
 const BASE_DATA_ROOT := "res://data"
 const DLC_DIR := "res://dlc"
 const MODS_DIR := "user://mods"
@@ -19,13 +23,14 @@ var mods: Array[Dictionary] = []
 
 
 func _ready() -> void:
-	DirAccess.make_dir_recursive_absolute(MODS_DIR)
+	if USER_MODS_ENABLED:
+		DirAccess.make_dir_recursive_absolute(MODS_DIR)
 
 
 ## Relit les DLC et mods présents sur le disque.
 func discover() -> void:
 	dlcs = scan_packages(DLC_DIR, DLC_MANIFEST)
-	mods = scan_packages(MODS_DIR, MOD_MANIFEST)
+	mods = scan_packages(MODS_DIR, MOD_MANIFEST) if USER_MODS_ENABLED else ([] as Array[Dictionary])
 	for package: Dictionary in dlcs:
 		GameLog.info(SOURCE, "DLC actif : %s %s" % [package["name"], package["version"]])
 	for package: Dictionary in mods:

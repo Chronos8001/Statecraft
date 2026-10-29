@@ -58,6 +58,8 @@ docs/     suivi du projet
 
 Toutes les données de jeu sont dans `data/`, en JSON, validées par les schémas de `data/schemas/`. Les textes affichés sont dans `data/localization/*.csv` (colonnes `keys,en,fr`).
 
+> Les mods utilisateur sont **désactivés pour l'instant** : le jeu ne lit pas `user://mods/`. Le format ci-dessous est prévu pour leur réactivation.
+
 Un mod est un dossier dans `user://mods/` (sous Windows : `%APPDATA%\Godot\app_userdata\Statecraft\mods\`) :
 
 ```

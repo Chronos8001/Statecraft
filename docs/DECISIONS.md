@@ -14,4 +14,5 @@
 | 2026-10-29 | Idéologies, régimes, terrains et ressources sont des catégories de données, référencées par identifiant | Extensibles par les mods, sans liste figée dans le code | Énumérations dans le code |
 | 2026-10-29 | Autoload supplémentaire `SystemRegistry` (fournisseurs par clé, priorité) | Point d'extension pour remplacer des modules (militaire, IA…) par un DLC | Registre dans `GameState` (réinitialisé à chaque partie) |
 | 2026-10-29 | État de partie dans une classe pure `SimState`, modifiée uniquement par des `Command` en file | Séparation simulation / affichage, déterminisme, sauvegardes | L'UI modifie l'état directement |
+| 2026-10-29 | Mods utilisateur désactivés pour l'instant (`ModManager.USER_MODS_ENABLED = false`), mécanisme de fusion conservé | Pas de compatibilité mod à garantir pendant le développement ; la fusion sert aussi aux DLC | Supprimer tout le code mod |
 | 2026-10-29 | Déclarations non typées traitées comme des erreurs (`untyped_declaration = 2`) | Rend le typage statique obligatoire | Simple avertissement |
