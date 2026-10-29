@@ -7,7 +7,7 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 ## [Unreleased]
 
 ### Ajouté
-- Écoulement du temps : 1 tick = 1 heure de jeu, pause et 5 vitesses (de 6 heures à 20 jours par seconde), raccourcis Espace, + et -.
+- Écoulement du temps à la manière de HOI4 et CK3 : 1 tick = 1 heure de jeu, pause et 5 vitesses (2 s, 0,5 s, 0,2 s et 0,1 s par heure, puis sans limite), raccourcis Espace, + / - et 1 à 5.
 - Ordonnanceur de la simulation : systèmes abonnés aux heures, jours, semaines, mois et années, appelés dans un ordre fixe.
 - Barre supérieure : date localisée, pause, vitesse, pays joué et ressources clés (en attente des systèmes qui les calculent).
 - Notification à chaque nouveau mois et nouvelle année.
