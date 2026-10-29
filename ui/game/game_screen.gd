@@ -104,7 +104,8 @@ func _cycle_map_mode(step: int) -> void:
 func _on_province_clicked(province_id: int) -> void:
 	var info := ProvinceInfo.build(province_id, DataLoader.get_category("provinces"),
 		DataLoader.get_category("countries"), DataLoader.get_category("terrains"),
-		DataLoader.get_category("resources"))
+		DataLoader.get_category("resources"), DataLoader.get_category("sea_zones"),
+		DataLoader.get_category("straits"))
 	if info == null:
 		_map_view.set_selected_province(MapView.NO_SELECTION)
 		_info_panel.close()

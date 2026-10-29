@@ -166,7 +166,15 @@
           "label_thickness_ratio",
           "label_letter_spacing",
           "label_max_bend",
-          "smooth_min_zoom"
+          "smooth_min_zoom",
+          "sea_border_color",
+          "sea_border_opacity",
+          "strait_color",
+          "canal_color",
+          "strait_line_width",
+          "strait_marker_size",
+          "strait_label_min_zoom",
+          "strait_label_size"
         ],
         "properties": {
           "selection_color": {
@@ -257,6 +265,36 @@
           "smooth_min_zoom": {
             "type": "number",
             "min": 0
+          },
+          "sea_border_color": {
+            "type": "color"
+          },
+          "sea_border_opacity": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "strait_color": {
+            "type": "color"
+          },
+          "canal_color": {
+            "type": "color"
+          },
+          "strait_line_width": {
+            "type": "number",
+            "min": 0
+          },
+          "strait_marker_size": {
+            "type": "number",
+            "min": 0
+          },
+          "strait_label_min_zoom": {
+            "type": "number",
+            "min": 0
+          },
+          "strait_label_size": {
+            "type": "int",
+            "min": 1
           }
         }
       },
@@ -487,7 +525,8 @@
         "area_km2",
         "size",
         "center",
-        "neighbors"
+        "neighbors",
+        "sea_neighbors"
       ],
       "properties": {
         "name_key": {
@@ -556,6 +595,14 @@
         },
         "source_id": {
           "type": "string"
+        },
+        "sea_neighbors": {
+          "type": "array",
+          "unique_items": true,
+          "items": {
+            "type": "int",
+            "ref": "sea_zones"
+          }
         }
       }
     }
@@ -733,7 +780,9 @@
           "height",
           "projection",
           "provinces_image",
-          "province_count"
+          "province_count",
+          "sea_zone_count",
+          "max_id"
         ],
         "properties": {
           "width": {
@@ -760,6 +809,14 @@
           },
           "source": {
             "type": "string"
+          },
+          "sea_zone_count": {
+            "type": "int",
+            "min": 0
+          },
+          "max_id": {
+            "type": "int",
+            "min": 1
           }
         }
       }
@@ -833,6 +890,135 @@
           "type": "number",
           "min": 0,
           "max": 1
+        }
+      }
+    }
+  },
+  "sea_zones": {
+    "type": "object",
+    "keys_pattern": "^[0-9]+$",
+    "unique_fields": [
+      "color"
+    ],
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "color",
+        "kind",
+        "area_km2",
+        "size",
+        "center",
+        "neighbors",
+        "coasts"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^SEA_[0-9]+$"
+        },
+        "color": {
+          "type": "color"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "sea",
+            "lake"
+          ]
+        },
+        "area_km2": {
+          "type": "number",
+          "min": 0
+        },
+        "size": {
+          "type": "int",
+          "min": 1
+        },
+        "center": {
+          "type": "array",
+          "min_items": 2,
+          "items": {
+            "type": "number",
+            "min": 0
+          }
+        },
+        "neighbors": {
+          "type": "array",
+          "unique_items": true,
+          "items": {
+            "type": "int",
+            "ref": "sea_zones"
+          }
+        },
+        "coasts": {
+          "type": "array",
+          "unique_items": true,
+          "items": {
+            "type": "int",
+            "ref": "provinces"
+          }
+        },
+        "source_name": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "straits": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "kind",
+        "ends",
+        "sea_zones",
+        "provinces"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^STRAIT_[A-Z_]+$"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "strait",
+            "canal"
+          ]
+        },
+        "ends": {
+          "type": "array",
+          "min_items": 2,
+          "items": {
+            "type": "array",
+            "min_items": 2,
+            "items": {
+              "type": "number"
+            }
+          }
+        },
+        "sea_zones": {
+          "type": "array",
+          "min_items": 2,
+          "unique_items": true,
+          "items": {
+            "type": "int",
+            "ref": "sea_zones"
+          }
+        },
+        "provinces": {
+          "type": "array",
+          "min_items": 1,
+          "unique_items": true,
+          "items": {
+            "type": "int",
+            "ref": "provinces"
+          }
         }
       }
     }

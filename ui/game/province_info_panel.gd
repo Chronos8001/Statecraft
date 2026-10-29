@@ -41,11 +41,14 @@ func _refresh() -> void:
 		return
 	var locale := Localization.get_locale()
 	_name_label.text = tr(_info.name_key)
-	_id_label.text = tr("INFO_PROVINCE_ID") % _info.province_id
+	_id_label.text = tr("INFO_SEA_ZONE_ID" if _info.is_sea_zone else "INFO_PROVINCE_ID") % _info.province_id
 	var has_owner := not _info.owner_name_key.is_empty()
 	_country_swatch.visible = has_owner
 	_country_swatch.color = _info.owner_color
-	_country_label.text = tr(_info.owner_name_key) if has_owner else tr("INFO_UNOWNED")
+	if _info.is_sea_zone:
+		_country_label.text = tr(_info.sea_kind_key)
+	else:
+		_country_label.text = tr(_info.owner_name_key) if has_owner else tr("INFO_UNOWNED")
 	_occupation_label.visible = _info.is_occupied
 	_occupation_label.text = tr("INFO_OCCUPIED_BY") % tr(_info.controller_name_key)
 	_capital_label.visible = _info.is_capital
@@ -53,6 +56,12 @@ func _refresh() -> void:
 	for child: Node in _stats_grid.get_children():
 		_stats_grid.remove_child(child)
 		child.queue_free()
+	if _info.is_sea_zone:
+		_add_row("INFO_AREA", tr("INFO_AREA_VALUE") % NumberFormat.integer(roundi(_info.area_km2), locale))
+		_add_row("INFO_SEA_NEIGHBORS", str(_info.neighbor_count))
+		_add_row("INFO_COASTS", str(_info.coast_count))
+		_add_straits_row()
+		return
 	_add_row("INFO_POPULATION", NumberFormat.integer(_info.population, locale))
 	_add_row("INFO_AREA", tr("INFO_AREA_VALUE") % NumberFormat.integer(roundi(_info.area_km2), locale))
 	_add_row("INFO_TERRAIN", tr(_info.terrain_name_key))
@@ -61,6 +70,16 @@ func _refresh() -> void:
 	_add_row("INFO_COASTAL", tr("COMMON_YES") if _info.coastal else tr("COMMON_NO"))
 	_add_row("INFO_RESOURCES", _resources_text())
 	_add_row("INFO_NEIGHBORS", str(_info.neighbor_count))
+	_add_straits_row()
+
+
+func _add_straits_row() -> void:
+	if _info.strait_name_keys.is_empty():
+		return
+	var names := PackedStringArray()
+	for key: String in _info.strait_name_keys:
+		names.append(tr(key))
+	_add_row("INFO_STRAITS", RESOURCE_SEPARATOR.join(names))
 
 
 func _resources_text() -> String:

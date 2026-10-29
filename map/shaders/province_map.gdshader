@@ -24,6 +24,7 @@ uniform float province_border_width = 1.0;
 uniform float province_border_alpha = 1.0;
 uniform vec4 country_border_color : source_color;
 uniform float country_border_width = 1.6;
+uniform vec4 sea_border_color : source_color;
 // En dessous de ce zoom, un pixel d'écran couvre plusieurs pixels de carte : pas de lissage.
 uniform float smooth_min_zoom = 1.0;
 
@@ -97,19 +98,25 @@ void fragment() {
 		float radius = country_border_width / zoom;
 		float province_edges = 0.0;
 		float country_edges = 0.0;
+		float sea_edges = 0.0;
 		for (int i = 0; i < 4; i++) {
 			int neighbour = province_at(map_position + directions[i] * radius);
 			if (neighbour != province_id) {
 				if (owner_of(neighbour) != owner) {
 					country_edges += 1.0;
-				} else if (province_id > 0) {
+				} else if (owner == 0) {
+					sea_edges += 1.0;
+				} else {
 					province_edges += 1.0;
 				}
 			}
 		}
 		province_edges *= province_border_width / country_border_width;
+		sea_edges *= province_border_width / country_border_width;
 		float province_edge = clamp(province_edges * 0.5, 0.0, 1.0) * province_border_alpha * province_border_color.a;
 		float country_edge = clamp(country_edges * 0.5, 0.0, 1.0) * country_border_color.a;
+		float sea_edge = clamp(sea_edges * 0.5, 0.0, 1.0) * sea_border_color.a;
+		color.rgb = mix(color.rgb, sea_border_color.rgb, sea_edge);
 		color.rgb = mix(color.rgb, province_border_color.rgb, province_edge);
 		color.rgb = mix(color.rgb, country_border_color.rgb, country_edge);
 		COLOR = color;

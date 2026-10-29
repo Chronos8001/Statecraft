@@ -1,0 +1,414 @@
+{
+  "suez": {
+    "name_key": "STRAIT_SUEZ",
+    "kind": "canal",
+    "ends": [
+      [
+        9662.0,
+        2671.0
+      ],
+      [
+        9673.0,
+        2735.0
+      ]
+    ],
+    "sea_zones": [
+      4698,
+      4694
+    ],
+    "provinces": [
+      960,
+      964,
+      965,
+      966,
+      967,
+      983,
+      984
+    ]
+  },
+  "panama": {
+    "name_key": "STRAIT_PANAMA",
+    "kind": "canal",
+    "ends": [
+      [
+        4554.0,
+        3668.0
+      ],
+      [
+        4572.0,
+        3693.0
+      ]
+    ],
+    "sea_zones": [
+      4865,
+      4735
+    ],
+    "provinces": [
+      3059,
+      3062
+    ]
+  },
+  "kiel": {
+    "name_key": "STRAIT_KIEL",
+    "kind": "canal",
+    "ends": [
+      [
+        8654.0,
+        1620.0
+      ],
+      [
+        8606.0,
+        1643.0
+      ]
+    ],
+    "sea_zones": [
+      4619,
+      4680
+    ],
+    "provinces": [
+      822,
+      825
+    ]
+  },
+  "hormuz": {
+    "name_key": "STRAIT_HORMUZ",
+    "kind": "strait",
+    "ends": [
+      [
+        10736.0,
+        2885.0
+      ],
+      [
+        10786.0,
+        2912.0
+      ]
+    ],
+    "sea_zones": [
+      4608,
+      4639
+    ],
+    "provinces": [
+      1814,
+      3044
+    ]
+  },
+  "malacca": {
+    "name_key": "STRAIT_MALACCA",
+    "kind": "strait",
+    "ends": [
+      [
+        12674.0,
+        3859.0
+      ],
+      [
+        12920.0,
+        4041.0
+      ]
+    ],
+    "sea_zones": [
+      4660,
+      4860
+    ],
+    "provinces": [
+      1711,
+      2855,
+      2859,
+      2861,
+      2862,
+      2863,
+      2864,
+      2868,
+      2869,
+      3518,
+      3519,
+      3520,
+      3521,
+      3522
+    ]
+  },
+  "bosphorus": {
+    "name_key": "STRAIT_BOSPHORUS",
+    "kind": "strait",
+    "ends": [
+      [
+        9517.0,
+        2218.0
+      ],
+      [
+        9510.0,
+        2230.0
+      ]
+    ],
+    "sea_zones": [
+      4597,
+      4695
+    ],
+    "provinces": [
+      4071
+    ]
+  },
+  "dardanelles": {
+    "name_key": "STRAIT_DARDANELLES",
+    "kind": "strait",
+    "ends": [
+      [
+        9407.0,
+        2256.0
+      ],
+      [
+        9382.0,
+        2274.0
+      ]
+    ],
+    "sea_zones": [
+      4695,
+      4667
+    ],
+    "provinces": [
+      4065,
+      4066
+    ]
+  },
+  "gibraltar": {
+    "name_key": "STRAIT_GIBRALTAR",
+    "kind": "strait",
+    "ends": [
+      [
+        7909.0,
+        2459.0
+      ],
+      [
+        7955.0,
+        2455.0
+      ]
+    ],
+    "sea_zones": [
+      4721,
+      4698
+    ],
+    "provinces": [
+      1004,
+      1007,
+      1466,
+      2427
+    ]
+  },
+  "bab_el_mandeb": {
+    "name_key": "STRAIT_BAB_EL_MANDEB",
+    "kind": "strait",
+    "ends": [
+      [
+        10158.0,
+        3508.0
+      ],
+      [
+        10176.0,
+        3531.0
+      ]
+    ],
+    "sea_zones": [
+      4605,
+      4638
+    ],
+    "provinces": [
+      838,
+      991,
+      4554,
+      4555
+    ]
+  },
+  "oresund": {
+    "name_key": "STRAIT_ORESUND",
+    "kind": "strait",
+    "ends": [
+      [
+        8765.0,
+        1542.0
+      ],
+      [
+        8774.0,
+        1574.0
+      ]
+    ],
+    "sea_zones": [
+      4680,
+      4617
+    ],
+    "provinces": [
+      853,
+      3838
+    ]
+  },
+  "dover": {
+    "name_key": "STRAIT_DOVER",
+    "kind": "strait",
+    "ends": [
+      [
+        8269.0,
+        1765.0
+      ],
+      [
+        8246.0,
+        1781.0
+      ]
+    ],
+    "sea_zones": [
+      4619,
+      4648
+    ],
+    "provinces": [
+      1172,
+      1392
+    ]
+  },
+  "taiwan": {
+    "name_key": "STRAIT_TAIWAN",
+    "kind": "strait",
+    "ends": [
+      [
+        13585.0,
+        3067.0
+      ],
+      [
+        13680.0,
+        2940.0
+      ]
+    ],
+    "sea_zones": [
+      4861,
+      4625
+    ],
+    "provinces": [
+      624,
+      4144,
+      4146,
+      4147,
+      4148,
+      4149,
+      4151,
+      4152,
+      4153,
+      4154,
+      4155,
+      4156,
+      4157,
+      4158,
+      4159,
+      4160,
+      4161,
+      4163,
+      4164
+    ]
+  },
+  "bering": {
+    "name_key": "STRAIT_BERING",
+    "kind": "strait",
+    "ends": [
+      [
+        505.0,
+        1074.0
+      ],
+      [
+        482.0,
+        1128.0
+      ]
+    ],
+    "sea_zones": [
+      4626,
+      4867
+    ],
+    "provinces": [
+      3380,
+      4409
+    ]
+  },
+  "kerch": {
+    "name_key": "STRAIT_KERCH",
+    "kind": "strait",
+    "ends": [
+      [
+        9858.0,
+        2027.0
+      ],
+      [
+        9855.0,
+        2043.0
+      ]
+    ],
+    "sea_zones": [
+      4642,
+      4597
+    ],
+    "provinces": [
+      3407,
+      3454
+    ]
+  },
+  "sunda": {
+    "name_key": "STRAIT_SUNDA",
+    "kind": "strait",
+    "ends": [
+      [
+        13016.0,
+        4355.0
+      ],
+      [
+        12993.0,
+        4382.0
+      ]
+    ],
+    "sea_zones": [
+      4622,
+      4813
+    ],
+    "provinces": [
+      1699,
+      1702
+    ]
+  },
+  "lombok": {
+    "name_key": "STRAIT_LOMBOK",
+    "kind": "strait",
+    "ends": [
+      [
+        13462.0,
+        4473.0
+      ],
+      [
+        13457.0,
+        4505.0
+      ]
+    ],
+    "sea_zones": [
+      4697,
+      4828
+    ],
+    "provinces": [
+      1705,
+      1723
+    ]
+  },
+  "magellan": {
+    "name_key": "STRAIT_MAGELLAN",
+    "kind": "strait",
+    "ends": [
+      [
+        5083.0,
+        6480.0
+      ],
+      [
+        4860.0,
+        6508.0
+      ]
+    ],
+    "sea_zones": [
+      4833,
+      4785
+    ],
+    "provinces": [
+      108,
+      109,
+      604
+    ]
+  }
+}

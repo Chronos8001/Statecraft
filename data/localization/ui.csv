@@ -58,3 +58,9 @@ LEGEND_NEUTRAL,Neutral,Neutre
 LEGEND_FRIENDLY,Friendly,Amical
 LEGEND_POLITICAL_HINT,Each country has its own colour.,Chaque pays a sa couleur.
 LEGEND_CONTROL_HINT,Colour of the controlling country.,Couleur du pays qui contrôle la province.
+SEA_KIND_SEA,Sea zone,Zone maritime
+SEA_KIND_LAKE,Lake,Lac
+INFO_SEA_NEIGHBORS,Neighbouring sea zones,Zones maritimes voisines
+INFO_COASTS,Coastal provinces,Provinces côtières
+INFO_STRAITS,Straits and canals,Détroits et canaux
+INFO_SEA_ZONE_ID,Sea zone no. %d,Zone n° %d
