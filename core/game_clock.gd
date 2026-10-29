@@ -1,6 +1,8 @@
 extends Node
 ## Horloge de jeu : pause, vitesses et écoulement du temps. Chaque heure de jeu écoulée
 ## déclenche GameState.advance_hour(). La date elle-même vit dans GameState.sim.date.
+## Vitesses à la manière de HOI4 / CK3 : secondes réelles par heure de jeu, la dernière (0)
+## étant « sans limite » (autant de ticks que le budget de temps par image le permet).
 ## L'horloge ne tourne que pendant une partie affichée (set_running).
 
 const SOURCE := "GameClock"
@@ -24,12 +26,17 @@ func reset() -> void:
 
 
 func get_speed_count() -> int:
-	return maxi(1, (DataLoader.get_define("time.speeds_hours_per_second", []) as Array).size())
+	return maxi(1, (DataLoader.get_define("time.seconds_per_hour", []) as Array).size())
 
 
-func get_hours_per_second() -> float:
-	var speeds: Array = DataLoader.get_define("time.speeds_hours_per_second", [])
+## Secondes réelles par heure de jeu à la vitesse actuelle (0 = sans limite).
+func get_seconds_per_hour() -> float:
+	var speeds: Array = DataLoader.get_define("time.seconds_per_hour", [])
 	return float(speeds[speed - 1]) if speed - 1 < speeds.size() else 0.0
+
+
+func is_unbounded() -> bool:
+	return get_seconds_per_hour() <= 0.0
 
 
 func get_date() -> GameDate:
@@ -62,9 +69,13 @@ func toggle_pause() -> void:
 
 ## Convertit du temps réel en ticks (heures de jeu), au plus max_ticks_per_frame par appel.
 ## Le retard au-delà de ce plafond est abandonné pour ne pas faire ramer le jeu.
+## En vitesse sans limite, renvoie le plafond : _process s'arrête aussi quand le budget de temps est épuisé.
 func consume(delta: float) -> int:
-	_accumulator += delta * get_hours_per_second()
 	var max_ticks := int(DataLoader.get_define("time.max_ticks_per_frame", 1))
+	if is_unbounded():
+		_accumulator = 0.0
+		return max_ticks
+	_accumulator += delta / get_seconds_per_hour()
 	var ticks := mini(floori(_accumulator), max_ticks)
 	_accumulator -= ticks
 	_accumulator = minf(_accumulator, 1.0)
@@ -74,8 +85,13 @@ func consume(delta: float) -> int:
 func _process(delta: float) -> void:
 	if not is_running or is_paused:
 		return
+	var budget_usec := int(float(DataLoader.get_define("time.unbounded_frame_budget_ms", 0.0)) * 1000.0)
+	var started := Time.get_ticks_usec()
+	var unbounded := is_unbounded()
 	for i: int in consume(delta):
 		GameState.advance_hour()
+		if unbounded and Time.get_ticks_usec() - started >= budget_usec:
+			break
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -88,5 +104,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed(InputActions.TIME_SLOW_DOWN, true):
 		set_speed(speed - 1)
 	else:
+		for level: int in InputActions.TIME_SPEED_ACTIONS.size():
+			if event.is_action_pressed(InputActions.TIME_SPEED_ACTIONS[level]):
+				set_speed(level + 1)
+				get_viewport().set_input_as_handled()
+				return
 		return
 	get_viewport().set_input_as_handled()

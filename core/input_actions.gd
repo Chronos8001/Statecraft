@@ -12,6 +12,9 @@ const MAP_ZOOM_OUT := &"map_zoom_out"
 const TIME_TOGGLE_PAUSE := &"time_toggle_pause"
 const TIME_SPEED_UP := &"time_speed_up"
 const TIME_SLOW_DOWN := &"time_slow_down"
+## Touches 1 à 5 : vitesse directe, comme dans CK3 et HOI4.
+const TIME_SPEED_ACTIONS: Array[StringName] = [&"time_speed_1", &"time_speed_2", &"time_speed_3",
+	&"time_speed_4", &"time_speed_5"]
 
 const DEFAULT_KEYS := {
 	MAP_PAN_LEFT: [KEY_A, KEY_LEFT],
@@ -20,6 +23,11 @@ const DEFAULT_KEYS := {
 	MAP_PAN_DOWN: [KEY_S, KEY_DOWN],
 	MAP_ZOOM_IN: [KEY_PAGEUP],
 	MAP_ZOOM_OUT: [KEY_PAGEDOWN],
+	&"time_speed_1": [KEY_1, KEY_KP_1],
+	&"time_speed_2": [KEY_2, KEY_KP_2],
+	&"time_speed_3": [KEY_3, KEY_KP_3],
+	&"time_speed_4": [KEY_4, KEY_KP_4],
+	&"time_speed_5": [KEY_5, KEY_KP_5],
 }
 
 const LOGICAL_KEYS := {
