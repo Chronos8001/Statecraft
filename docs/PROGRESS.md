@@ -39,7 +39,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 ## Étape 1 — La carte du monde 🟨
 **1a. Génération de la carte**
 - [x] Outil `tools/map_gen/` : Natural Earth + populations Wikidata → `provinces.png` (16384 × 8192) + `provinces.json`
-- [x] 4 596 provinces réelles (régions de premier niveau), 199 pays en version minimale
+- [x] 4 564 provinces réelles (régions de premier niveau, arrondissements de Londres regroupés), 199 pays en version minimale
 - [x] Propriétaire / contrôleur, terrain, population, infrastructures, côtière, surface, centre, voisins
 - [x] Micro-États et îlots agrandis à une taille minimale
 - [x] Noms FR / EN des provinces et des pays
@@ -50,7 +50,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 
 **1c. Sélection**
 - [x] Picking : clic → couleur → id de province
-- [x] Panneau d'info de la province
+- [x] Fiche du pays au clic, fiche de la province au double-clic
 
 **1d. Modes de carte**
 - [x] Politique, terrain, population, PIB/hab., idéologie, alliances, relations, ressources, infrastructures, contrôle militaire, stabilité
@@ -60,7 +60,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Noms de pays affichés en courbe selon la forme
 
 **1f. Mers**
-- [x] Zones maritimes (276 mers et secteurs d'océan, 29 lacs)
+- [x] Zones maritimes (155 mers et secteurs d'océan, 29 lacs)
 - [x] Détroits et canaux stratégiques (Suez, Panama, Ormuz, Malacca, Bosphore…)
 
 - [ ] Validation : clic sur une province → panneau d'info

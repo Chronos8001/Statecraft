@@ -30,3 +30,5 @@
 | 2026-10-29 | Zones maritimes dans la même image que les provinces, numérotées à leur suite, décrites dans `data/sea_zones/` | Un seul système de sélection et de voisinage pour terre et mer | Image séparée pour les mers |
 | 2026-10-29 | Zones maritimes : mers nommées de Natural Earth, petites mers fusionnées (sauf mers stratégiques protégées), océans découpés en secteurs de ~2 millions de km² | Noms réels et taille de zone jouable pour le contrôle naval | Grille régulière, Voronoï sans noms |
 | 2026-10-29 | Détroits et canaux comme liens entre deux zones maritimes, avec les provinces riveraines | Les détroits fins (Bosphore) ou les canaux n'existent pas à la résolution de l'image | Les dessiner dans l'image |
+| 2026-10-29 | Clic simple = fiche du pays, double-clic = fiche de la province | Navigation à la manière des jeux de grande stratégie : le pays d'abord, le détail ensuite | Clic = province |
+| 2026-10-29 | Fusions de régions configurables dans le générateur (Londres : 33 arrondissements → 1 province) ; secteurs d'océan de ~8 millions de km² | Découpage plus jouable, moins de micro-provinces et de zones maritimes | Découpage brut de Natural Earth |

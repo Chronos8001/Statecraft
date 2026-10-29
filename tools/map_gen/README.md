@@ -36,6 +36,8 @@ Durée : environ 2 minutes, plus le téléchargement des sources au premier lanc
 Tout est dans `config.json` :
 
 - `unit_owners`, `tag_renames`, `unowned_units` : rattachement des territoires (dépendances, zones contestées) à un pays.
+- `province_merges` : régions regroupées en une seule province (ex. les arrondissements de Londres).
+- `marine_name_overrides` : noms corrigés de mers et d'océans.
 - `province_overrides` : propriétaire ou contrôleur forcé pour une région (ex. territoires occupés au 1er janvier 2026).
 - `country_name_overrides`, `province_name_overrides` : noms corrigés.
 - `min_province_pixels`, `micro_province_radius` : taille minimale des micro-États et îlots pour qu'ils restent cliquables.

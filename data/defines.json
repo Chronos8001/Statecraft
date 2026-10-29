@@ -60,7 +60,8 @@
     "strait_line_width": 2.0,
     "strait_marker_size": 7.0,
     "strait_label_min_zoom": 0.6,
-    "strait_label_size": 14
+    "strait_label_size": 14,
+    "country_selection_strength": 0.22
   },
   "province": {
     "max_infrastructure": 10

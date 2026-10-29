@@ -7,19 +7,20 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 ## [Unreleased]
 
 ### Ajouté
-- Carte du monde générée : 4 596 provinces réelles (16384 × 8192), avec propriétaire, contrôleur, terrain, population (Wikidata), infrastructures, côtes, surface, centre et voisins.
+- Carte du monde générée : 4 564 provinces réelles (arrondissements de Londres regroupés en une province) (16384 × 8192), avec propriétaire, contrôleur, terrain, population (Wikidata), infrastructures, côtes, surface, centre et voisins.
 - Les 199 pays du monde en version minimale (nom FR / EN, couleur, capitale).
 - Territoires occupés au 1er janvier 2026 : Crimée, Sébastopol, Donetsk et Louhansk sous contrôle russe.
 - Outil de génération de la carte (`tools/map_gen/`).
 - Affichage de la carte en jeu par shader (mode politique), chargée en arrière-plan.
 - Caméra : zoom vers le curseur (molette, Page préc. / Page suiv.), déplacement au clavier (WASD / ZQSD selon le clavier, flèches), glisser avec le clic droit ou la molette, défilement au bord de l'écran, carte qui boucle d'est en ouest.
 - « Nouvelle partie » ouvre l'écran de jeu ; Échap revient à l'écran titre.
-- Clic sur une province : mise en évidence sur la carte et panneau d'information (pays, occupation, capitale, population, superficie, terrain, infrastructures, côte, ressources, voisins). Échap ou ✕ ferme le panneau.
+- Clic sur une province : fiche du pays propriétaire (capitale, régime, dirigeants, parti, idéologie, population, superficie, PIB, dette, armée, organisations, territoires occupés), le pays est mis en évidence sur la carte.
+- Double-clic sur une province : sa fiche (pays, occupation, capitale, population, superficie, terrain, infrastructures, côte, ressources, voisins, détroits). Échap ou ✕ ferme les fiches.
 - 11 modes de carte décrits dans `data/map_modes/` : politique, terrain, population (densité), PIB/hab., idéologie, alliances, relations, ressources, infrastructures, contrôle militaire (territoires occupés teintés), stabilité. Barre de choix en bas de l'écran, Tab / Maj+Tab pour changer, légende en bas à gauche.
 - Couleurs des organisations internationales et des ressources.
 - Frontières de pays et côtes (épaisses) et de provinces (fines, estompées en zoom arrière), d'épaisseur constante à l'écran.
 - Contours lissés en zoom rapproché : la carte n'apparaît plus en escalier de pixels.
-- 305 zones maritimes et lacs générés (mers nommées de Natural Earth, océans découpés en secteurs), avec leurs voisines et leurs côtes ; les provinces côtières connaissent leurs zones maritimes.
+- 184 zones maritimes et lacs générés (mers nommées de Natural Earth, océans découpés en grands secteurs d'environ 8 millions de km²), avec leurs voisines et leurs côtes ; les provinces côtières connaissent leurs zones maritimes.
 - 17 détroits et canaux stratégiques (Suez, Panama, Kiel, Ormuz, Malacca, Bosphore, Dardanelles, Gibraltar, Bab-el-Mandeb, Øresund, Pas de Calais, Taïwan, Béring, Kertch, Sonde, Lombok, Magellan) reliant deux zones maritimes, affichés sur la carte avec leur nom.
 - Clic sur une mer ou un lac : superficie, zones voisines, provinces côtières, détroits.
 - Noms des pays écrits en courbe selon la forme de leur territoire principal, affichés seulement quand ils sont lisibles.

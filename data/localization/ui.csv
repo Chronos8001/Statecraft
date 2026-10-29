@@ -64,3 +64,23 @@ INFO_SEA_NEIGHBORS,Neighbouring sea zones,Zones maritimes voisines
 INFO_COASTS,Coastal provinces,Provinces côtières
 INFO_STRAITS,Straits and canals,Détroits et canaux
 INFO_SEA_ZONE_ID,Sea zone no. %d,Zone n° %d
+COUNTRY_INFO_CAPITAL,Capital,Capitale
+COUNTRY_INFO_REGIME,Government,Régime
+COUNTRY_INFO_HEAD_OF_STATE,Head of state,Chef de l'État
+COUNTRY_INFO_HEAD_OF_GOVERNMENT,Head of government,Chef du gouvernement
+COUNTRY_INFO_RULING_PARTY,Ruling party,Parti au pouvoir
+COUNTRY_INFO_COALITION,Coalition partners,Partenaires de coalition
+COUNTRY_INFO_IDEOLOGY,Ideology,Idéologie
+COUNTRY_INFO_PROVINCES,Provinces,Provinces
+COUNTRY_INFO_GDP,GDP,PIB
+COUNTRY_INFO_GDP_VALUE,$%s bn,%s Md$
+COUNTRY_INFO_GDP_PER_CAPITA,GDP per capita,PIB/hab.
+COUNTRY_INFO_USD_VALUE,$%s,%s $
+COUNTRY_INFO_DEBT,Public debt,Dette publique
+COUNTRY_INFO_DEBT_VALUE,%d%% of GDP,%d %% du PIB
+COUNTRY_INFO_ACTIVE_PERSONNEL,Active military,Militaires d'active
+COUNTRY_INFO_ORGANIZATIONS,Organizations,Organisations
+COUNTRY_INFO_OCCUPIED,Occupied territory,Territoire occupé
+COUNTRY_INFO_OCCUPYING,Occupies,Occupe
+COUNTRY_INFO_PROVINCE_COUNT,%d provinces,%d provinces
+COUNTRY_INFO_HINT,Double-click a province for its details.,Double-cliquez sur une province pour la voir en détail.
