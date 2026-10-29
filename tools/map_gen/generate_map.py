@@ -200,6 +200,37 @@ def id_to_color(province_id: int) -> str:
     return "#{:02X}{:02X}00".format(province_id & 0xFF, (province_id >> 8) & 0xFF)
 
 
+# --------------------------------------------------------------------------- fusions de provinces
+
+def apply_province_merges(admin1: list[dict], merges: list[dict]) -> list[dict]:
+    """Regroupe plusieurs régions Natural Earth en une seule province (ex. arrondissements de Londres)."""
+    result = list(admin1)
+    for merge in merges:
+        match = merge["match"]
+        members = [f for f in result if all(f["properties"].get(k) == v for k, v in match.items())]
+        if not members:
+            print(f"  Attention : aucune région pour la fusion « {merge['adm1_code']} ».")
+            continue
+        polygons = []
+        for feature in members:
+            polygons.extend(polygons_of(feature["geometry"]))
+        properties = dict(members[0]["properties"])
+        properties.update({
+            "adm1_code": merge["adm1_code"],
+            "name": merge["name"]["en"],
+            "name_en": merge["name"]["en"],
+            "name_fr": merge["name"]["fr"],
+            "wikidataid": merge.get("wikidataid", properties.get("wikidataid")),
+            "longitude": sum(f["properties"]["longitude"] for f in members) / len(members),
+            "latitude": sum(f["properties"]["latitude"] for f in members) / len(members),
+        })
+        merged = {"type": "Feature", "properties": properties,
+                  "geometry": {"type": "MultiPolygon", "coordinates": polygons}}
+        result = [f for f in result if f not in members] + [merged]
+        print(f"Fusion : {len(members)} régions -> {merge['name']['fr']}")
+    return result
+
+
 # --------------------------------------------------------------------------- zones maritimes
 
 def pixel_vectors(xs: np.ndarray, ys: np.ndarray, projection: Projection) -> np.ndarray:
@@ -319,8 +350,9 @@ def build_sea_zones(ids: np.ndarray, lakes: list[dict], marine_features: list[di
         if areas[label] <= 0:
             continue
         props = kept[label - 1]["properties"]
-        name_en = props.get("name_en") or props.get("name") or ""
-        name_fr = props.get("name_fr") or name_en
+        override = config["marine_name_overrides"].get(props.get("name"), {})
+        name_en = override.get("en") or props.get("name_en") or props.get("name") or ""
+        name_fr = override.get("fr") or props.get("name_fr") or name_en
         sectors = int(math.ceil(areas[label] / config["max_sea_zone_km2"]))
         if sectors <= 1:
             zones.append({"label": label, "name_en": name_en, "name_fr": name_fr, "source": props.get("name")})
@@ -438,6 +470,7 @@ def main() -> None:
     unit_rows = {feature["properties"]["ADM0_A3"]: feature["properties"] for feature in admin0}
     unit_owner = resolve_unit_owners(admin0, config)
 
+    admin1 = apply_province_merges(admin1, config["province_merges"])
     # Identifiants stables : triés par code Natural Earth.
     admin1.sort(key=lambda feature: feature["properties"]["adm1_code"])
     province_count = len(admin1)

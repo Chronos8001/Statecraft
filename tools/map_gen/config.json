@@ -172,7 +172,7 @@
   ],
   "sea_fill_downscale": 4,
   "min_sea_zone_km2": 30000,
-  "max_sea_zone_km2": 2000000,
+  "max_sea_zone_km2": 8000000,
   "sea_split_sample_step": 8,
   "sea_split_iterations": 15,
   "compass_en": [
@@ -498,5 +498,45 @@
     "Sea of Azov",
     "Gulf of Finland",
     "Gulf of Riga"
-  ]
+  ],
+  "province_merges": [
+    {
+      "adm1_code": "GBR-LONDON",
+      "match": {
+        "adm0_a3": "GBR",
+        "region": "Greater London"
+      },
+      "name": {
+        "en": "London",
+        "fr": "Londres"
+      },
+      "wikidataid": "Q23306"
+    }
+  ],
+  "marine_name_overrides": {
+    "North Pacific Ocean": {
+      "en": "North Pacific Ocean",
+      "fr": "océan Pacifique Nord"
+    },
+    "South Pacific Ocean": {
+      "en": "South Pacific Ocean",
+      "fr": "océan Pacifique Sud"
+    },
+    "North Atlantic Ocean": {
+      "en": "North Atlantic Ocean",
+      "fr": "océan Atlantique Nord"
+    },
+    "South Atlantic Ocean": {
+      "en": "South Atlantic Ocean",
+      "fr": "océan Atlantique Sud"
+    },
+    "INDIAN OCEAN": {
+      "en": "Indian Ocean",
+      "fr": "océan Indien"
+    },
+    "SOUTHERN OCEAN": {
+      "en": "Southern Ocean",
+      "fr": "océan Austral"
+    }
+  }
 }
