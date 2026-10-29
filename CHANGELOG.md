@@ -6,6 +6,8 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-10-29
+
 ### Ajouté
 - Écoulement du temps à la manière de HOI4 et CK3 : 1 tick = 1 heure de jeu, pause et 5 vitesses (2 s, 0,5 s, 0,2 s et 0,1 s par heure, puis sans limite), raccourcis Espace, + / - et 1 à 5.
 - Ordonnanceur de la simulation : systèmes abonnés aux heures, jours, semaines, mois et années, appelés dans un ordre fixe.
@@ -54,6 +56,7 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Suivi du projet : `docs/PROGRESS.md`, `docs/DECISIONS.md`, `docs/KNOWN_ISSUES.md`.
 - Configuration Git : `.gitignore` et `.gitattributes` (fins de ligne LF, fichiers binaires).
 
-[Unreleased]: https://github.com/Chronos8001/Statecraft/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/Chronos8001/Statecraft/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.2.0
 [0.1.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.1.0
 [0.0.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.0.0
