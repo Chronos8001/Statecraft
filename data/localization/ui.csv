@@ -84,3 +84,29 @@ COUNTRY_INFO_OCCUPIED,Occupied territory,Territoire occupé
 COUNTRY_INFO_OCCUPYING,Occupies,Occupe
 COUNTRY_INFO_PROVINCE_COUNT,%d provinces,%d provinces
 COUNTRY_INFO_HINT,Double-click a province for its details.,Double-cliquez sur une province pour la voir en détail.
+MONTH_1,January,janvier
+MONTH_2,February,février
+MONTH_3,March,mars
+MONTH_4,April,avril
+MONTH_5,May,mai
+MONTH_6,June,juin
+MONTH_7,July,juillet
+MONTH_8,August,août
+MONTH_9,September,septembre
+MONTH_10,October,octobre
+MONTH_11,November,novembre
+MONTH_12,December,décembre
+TOPBAR_PAUSED,Paused,En pause
+TOPBAR_SPEED,Speed %d,Vitesse %d
+TOPBAR_PAUSE_TOOLTIP,Pause / resume (Space),Pause / reprise (Espace)
+TOPBAR_SLOWER_TOOLTIP,Slower (-),Plus lent (-)
+TOPBAR_FASTER_TOOLTIP,Faster (+),Plus rapide (+)
+TOPBAR_NO_COUNTRY,Observer,Observateur
+TOPBAR_TREASURY,Treasury,Trésorerie
+TOPBAR_STABILITY,Stability,Stabilité
+TOPBAR_SUPPORT,Popular support,Soutien populaire
+TOPBAR_MILITARY,Military power,Puissance militaire
+TOPBAR_INFLUENCE,Influence,Influence
+TOPBAR_UNKNOWN,—,—
+NOTIFY_NEW_MONTH,New month: %s %d,Nouveau mois : %s %d
+NOTIFY_NEW_YEAR,Happy new year %d!,Bonne année %d !
