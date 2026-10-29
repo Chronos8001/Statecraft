@@ -19,6 +19,9 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Couleurs des organisations internationales et des ressources.
 - Frontières de pays et côtes (épaisses) et de provinces (fines, estompées en zoom arrière), d'épaisseur constante à l'écran.
 - Contours lissés en zoom rapproché : la carte n'apparaît plus en escalier de pixels.
+- 305 zones maritimes et lacs générés (mers nommées de Natural Earth, océans découpés en secteurs), avec leurs voisines et leurs côtes ; les provinces côtières connaissent leurs zones maritimes.
+- 17 détroits et canaux stratégiques (Suez, Panama, Kiel, Ormuz, Malacca, Bosphore, Dardanelles, Gibraltar, Bab-el-Mandeb, Øresund, Pas de Calais, Taïwan, Béring, Kertch, Sonde, Lombok, Magellan) reliant deux zones maritimes, affichés sur la carte avec leur nom.
+- Clic sur une mer ou un lac : superficie, zones voisines, provinces côtières, détroits.
 - Noms des pays écrits en courbe selon la forme de leur territoire principal, affichés seulement quand ils sont lisibles.
 - Nombres affichés selon la langue (« 2 138 259 » / « 2,138,259 »).
 
