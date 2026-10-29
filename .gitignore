@@ -1,0 +1,35 @@
+# --- Fichiers privés : ne jamais pousser ---
+/prompt/
+CLAUDE.md
+CLAUDE.local.md
+.claude/
+
+# --- Godot 4 ---
+.godot/
+/android/
+*.translation
+.mono/
+data_*/
+mono_crash.*.json
+
+# --- Builds exportés ---
+/build/
+/export/
+*.exe
+*.pck
+*.zip
+
+# --- Secrets ---
+.env
+*.key
+*.pem
+
+# --- Système / éditeurs ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.tmp
+*.log
