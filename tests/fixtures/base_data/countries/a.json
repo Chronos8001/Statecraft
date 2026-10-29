@@ -1,0 +1,4 @@
+{
+  "AAA": { "name": "Alpha", "population": 10, "color": "#111111", "tags": ["x", "y"] },
+  "BBB": { "name": "Beta", "population": 20, "color": "#222222" }
+}

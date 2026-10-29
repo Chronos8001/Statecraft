@@ -1,0 +1,39 @@
+{
+  "organizations": {
+    "un": {
+      "name": { "en": "United Nations", "fr": "Organisation des Nations unies" },
+      "abbreviation": { "en": "UN", "fr": "ONU" },
+      "kind": "global", "founded": 1945
+    },
+    "nato": {
+      "name": { "en": "North Atlantic Treaty Organization", "fr": "Organisation du traité de l'Atlantique nord" },
+      "abbreviation": { "en": "NATO", "fr": "OTAN" },
+      "kind": "military_alliance", "founded": 1949
+    },
+    "eu": {
+      "name": { "en": "European Union", "fr": "Union européenne" },
+      "abbreviation": { "en": "EU", "fr": "UE" },
+      "kind": "economic_union", "founded": 1993
+    },
+    "brics": {
+      "name": { "en": "BRICS", "fr": "BRICS" },
+      "abbreviation": "BRICS",
+      "kind": "economic_forum", "founded": 2009
+    },
+    "g7": {
+      "name": { "en": "Group of Seven", "fr": "Groupe des sept" },
+      "abbreviation": "G7",
+      "kind": "economic_forum", "founded": 1975
+    },
+    "g20": {
+      "name": { "en": "Group of Twenty", "fr": "Groupe des vingt" },
+      "abbreviation": "G20",
+      "kind": "economic_forum", "founded": 1999
+    },
+    "sco": {
+      "name": { "en": "Shanghai Cooperation Organisation", "fr": "Organisation de coopération de Shanghai" },
+      "abbreviation": { "en": "SCO", "fr": "OCS" },
+      "kind": "security", "founded": 2001
+    }
+  }
+}

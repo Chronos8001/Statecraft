@@ -1,0 +1,70 @@
+{
+  "characters": {
+    "chr_usa_calloway": {
+      "first_name": "Raymond", "last_name": "Calloway",
+      "birth_year": 1946, "gender": "male", "country": "USA", "ideology": "national_conservative",
+      "traits": ["populist", "dealmaker", "combative"],
+      "skills": { "administration": 4, "diplomacy": 5, "economy": 5, "military": 3 }
+    },
+    "chr_chn_wei": {
+      "first_name": "Jianguo", "last_name": "Wei",
+      "birth_year": 1953, "gender": "male", "country": "CHN", "ideology": "communist",
+      "traits": ["centralizer", "strategist", "cautious"],
+      "skills": { "administration": 8, "diplomacy": 6, "economy": 5, "military": 6 }
+    },
+    "chr_chn_liang": {
+      "first_name": "Zhiwen", "last_name": "Liang",
+      "birth_year": 1959, "gender": "male", "country": "CHN", "ideology": "communist",
+      "traits": ["technocrat", "loyal"],
+      "skills": { "administration": 7, "diplomacy": 4, "economy": 7, "military": 2 }
+    },
+    "chr_fra_delcourt": {
+      "first_name": "Arnaud", "last_name": "Delcourt",
+      "birth_year": 1977, "gender": "male", "country": "FRA", "ideology": "centrist",
+      "traits": ["reformer", "europhile", "technocrat"],
+      "skills": { "administration": 6, "diplomacy": 7, "economy": 6, "military": 3 }
+    },
+    "chr_fra_roussel": {
+      "first_name": "Thibault", "last_name": "Roussel",
+      "birth_year": 1986, "gender": "male", "country": "FRA", "ideology": "centrist",
+      "traits": ["negotiator", "loyal"],
+      "skills": { "administration": 6, "diplomacy": 5, "economy": 4, "military": 5 }
+    },
+    "chr_fra_vasseur": {
+      "first_name": "Maxime", "last_name": "Vasseur",
+      "birth_year": 1989, "gender": "male", "country": "FRA", "ideology": "centrist",
+      "traits": ["ambitious", "communicator"],
+      "skills": { "administration": 5, "diplomacy": 5, "economy": 4, "military": 2 }
+    },
+    "chr_deu_lehnhoff": {
+      "first_name": "Matthias", "last_name": "Lehnhoff",
+      "birth_year": 1956, "gender": "male", "country": "DEU", "ideology": "social_democrat",
+      "traits": ["diplomat", "moderate"],
+      "skills": { "administration": 6, "diplomacy": 7, "economy": 4, "military": 2 }
+    },
+    "chr_deu_strauch": {
+      "first_name": "Friedhelm", "last_name": "Strauch",
+      "birth_year": 1955, "gender": "male", "country": "DEU", "ideology": "christian_democrat",
+      "traits": ["fiscal_hawk", "atlanticist"],
+      "skills": { "administration": 6, "diplomacy": 5, "economy": 7, "military": 3 }
+    },
+    "chr_deu_kolbeck": {
+      "first_name": "Jens", "last_name": "Kolbeck",
+      "birth_year": 1978, "gender": "male", "country": "DEU", "ideology": "social_democrat",
+      "traits": ["party_man", "pragmatic"],
+      "skills": { "administration": 5, "diplomacy": 4, "economy": 5, "military": 3 }
+    },
+    "chr_bra_rocha": {
+      "first_name": "Severino", "last_name": "Antunes da Rocha",
+      "birth_year": 1945, "gender": "male", "country": "BRA", "ideology": "social_democrat",
+      "traits": ["charismatic", "union_leader", "negotiator"],
+      "skills": { "administration": 6, "diplomacy": 7, "economy": 5, "military": 2 }
+    },
+    "chr_bra_moreira": {
+      "first_name": "Valdir", "last_name": "Moreira",
+      "birth_year": 1965, "gender": "male", "country": "BRA", "ideology": "social_democrat",
+      "traits": ["party_man"],
+      "skills": { "administration": 5, "diplomacy": 4, "economy": 4, "military": 1 }
+    }
+  }
+}

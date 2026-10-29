@@ -1,0 +1,5 @@
+{
+  "AAA": { "population": 99, "tags": ["z"] },
+  "BBB": null,
+  "DDD": { "name": "Delta", "population": 40, "color": "#444444" }
+}
