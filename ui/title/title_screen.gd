@@ -2,6 +2,7 @@ extends Control
 ## Écran titre : Nouvelle partie / Charger / Options / Quitter.
 
 const FOOTER_SEPARATOR := "   ·   "
+const GAME_SCENE := "res://ui/game/game_screen.tscn"
 
 var _locale_codes: PackedStringArray = PackedStringArray()
 
@@ -67,8 +68,7 @@ func _close_options() -> void:
 
 func _on_new_game_pressed() -> void:
 	GameState.new_game(randi())
-	_info_dialog.dialog_text = "INFO_NEW_GAME_PLACEHOLDER"
-	_info_dialog.popup_centered()
+	get_tree().change_scene_to_file(GAME_SCENE)
 
 
 func _on_load_pressed() -> void:

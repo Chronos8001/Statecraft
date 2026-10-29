@@ -1,39 +1,86 @@
 {
   "organizations": {
     "un": {
-      "name": { "en": "United Nations", "fr": "Organisation des Nations unies" },
-      "abbreviation": { "en": "UN", "fr": "ONU" },
-      "kind": "global", "founded": 1945
+      "name": {
+        "en": "United Nations",
+        "fr": "Organisation des Nations unies"
+      },
+      "abbreviation": {
+        "en": "UN",
+        "fr": "ONU"
+      },
+      "kind": "global",
+      "founded": 1945,
+      "color": "#5B92E5"
     },
     "nato": {
-      "name": { "en": "North Atlantic Treaty Organization", "fr": "Organisation du traité de l'Atlantique nord" },
-      "abbreviation": { "en": "NATO", "fr": "OTAN" },
-      "kind": "military_alliance", "founded": 1949
+      "name": {
+        "en": "North Atlantic Treaty Organization",
+        "fr": "Organisation du traité de l'Atlantique nord"
+      },
+      "abbreviation": {
+        "en": "NATO",
+        "fr": "OTAN"
+      },
+      "kind": "military_alliance",
+      "founded": 1949,
+      "color": "#2F5DA8"
     },
     "eu": {
-      "name": { "en": "European Union", "fr": "Union européenne" },
-      "abbreviation": { "en": "EU", "fr": "UE" },
-      "kind": "economic_union", "founded": 1993
+      "name": {
+        "en": "European Union",
+        "fr": "Union européenne"
+      },
+      "abbreviation": {
+        "en": "EU",
+        "fr": "UE"
+      },
+      "kind": "economic_union",
+      "founded": 1993,
+      "color": "#2E4F9E"
     },
     "brics": {
-      "name": { "en": "BRICS", "fr": "BRICS" },
+      "name": {
+        "en": "BRICS",
+        "fr": "BRICS"
+      },
       "abbreviation": "BRICS",
-      "kind": "economic_forum", "founded": 2009
+      "kind": "economic_forum",
+      "founded": 2009,
+      "color": "#C9772E"
     },
     "g7": {
-      "name": { "en": "Group of Seven", "fr": "Groupe des sept" },
+      "name": {
+        "en": "Group of Seven",
+        "fr": "Groupe des sept"
+      },
       "abbreviation": "G7",
-      "kind": "economic_forum", "founded": 1975
+      "kind": "economic_forum",
+      "founded": 1975,
+      "color": "#6E6E9E"
     },
     "g20": {
-      "name": { "en": "Group of Twenty", "fr": "Groupe des vingt" },
+      "name": {
+        "en": "Group of Twenty",
+        "fr": "Groupe des vingt"
+      },
       "abbreviation": "G20",
-      "kind": "economic_forum", "founded": 1999
+      "kind": "economic_forum",
+      "founded": 1999,
+      "color": "#7E8C6E"
     },
     "sco": {
-      "name": { "en": "Shanghai Cooperation Organisation", "fr": "Organisation de coopération de Shanghai" },
-      "abbreviation": { "en": "SCO", "fr": "OCS" },
-      "kind": "security", "founded": 2001
+      "name": {
+        "en": "Shanghai Cooperation Organisation",
+        "fr": "Organisation de coopération de Shanghai"
+      },
+      "abbreviation": {
+        "en": "SCO",
+        "fr": "OCS"
+      },
+      "kind": "security",
+      "founded": 2001,
+      "color": "#C0533A"
     }
   }
 }

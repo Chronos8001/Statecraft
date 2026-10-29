@@ -5,7 +5,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 | Étape | Nom | Statut | Version cible | Validée le | Tag |
 |---|---|---|---|---|---|
 | 0 | Fondations du projet | ✅ | v0.0.0 | 2026-10-29 | v0.0.0 |
-| 1 | La carte du monde | ⬜ | v0.1.0 | | |
+| 1 | La carte du monde | ✅ | v0.1.0 | 2026-10-29 | v0.1.0 |
 | 2 | Temps et boucle de simulation | ⬜ | v0.2.0 | | |
 | 3 | Les pays en 2026 | ⬜ | v0.3.0 | | |
 | 4 | Économie | ⬜ | v0.4.0 | | |
@@ -36,16 +36,34 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] GUT installé et premiers tests
 - [x] Validation : le jeu démarre, la console affiche le nombre de fichiers chargés
 
-## Étape 1 — La carte du monde ⬜
-- [ ] Carte de provinces par image couleur (`provinces.png`) + `provinces.json`
-- [ ] Rendu par shader avec texture de lookup (recoloration sans regénérer la carte)
-- [ ] Picking : clic → couleur → id de province
-- [ ] Caméra : zoom molette, déplacement clavier / souris / bord d'écran, limites, wrap est-ouest
-- [ ] Modes de carte : politique, terrain, population, PIB/hab., idéologie, alliances, relations, ressources, infrastructures, contrôle militaire, stabilité
-- [ ] Frontières de pays (épaisses) et de provinces (fines)
-- [ ] Noms de pays affichés en courbe selon la forme
-- [ ] Zones maritimes, détroits et canaux stratégiques (Suez, Panama, Ormuz, Malacca, Bosphore…)
-- [ ] Validation : clic sur une province → panneau d'info
+## Étape 1 — La carte du monde ✅ (validée le 2026-10-29, v0.1.0)
+**1a. Génération de la carte**
+- [x] Outil `tools/map_gen/` : Natural Earth + populations Wikidata → `provinces.png` (16384 × 8192) + `provinces.json`
+- [x] 4 564 provinces réelles (régions de premier niveau, arrondissements de Londres regroupés), 199 pays en version minimale
+- [x] Propriétaire / contrôleur, terrain, population, infrastructures, côtière, surface, centre, voisins
+- [x] Micro-États et îlots agrandis à une taille minimale
+- [x] Noms FR / EN des provinces et des pays
+
+**1b. Rendu et caméra**
+- [x] Rendu via shader avec texture de lookup (recoloration sans regénérer la carte)
+- [x] Caméra : zoom molette, déplacement clavier / souris / bord d'écran, limites, wrap est-ouest
+
+**1c. Sélection**
+- [x] Picking : clic → couleur → id de province
+- [x] Fiche du pays au clic, fiche de la province au double-clic
+
+**1d. Modes de carte**
+- [x] Politique, terrain, population, PIB/hab., idéologie, alliances, relations, ressources, infrastructures, contrôle militaire, stabilité
+
+**1e. Frontières et noms**
+- [x] Frontières de pays (épaisses) et de provinces (fines)
+- [x] Noms de pays affichés en courbe selon la forme
+
+**1f. Mers**
+- [x] Zones maritimes (155 mers et secteurs d'océan, 29 lacs)
+- [x] Détroits et canaux stratégiques (Suez, Panama, Ormuz, Malacca, Bosphore…)
+
+- [x] Validation : clic sur une province → panneau d'info
 
 ## Étape 2 — Temps et boucle de simulation ⬜
 - [ ] `GameClock` : date, heure, pause, 5 vitesses, raccourcis (Espace, +, -)

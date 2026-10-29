@@ -1,9 +1,69 @@
 {
   "game": {
-    "start_date": { "year": 2026, "month": 1, "day": 1, "hour": 0 }
+    "start_date": {
+      "year": 2026,
+      "month": 1,
+      "day": 1,
+      "hour": 0
+    }
   },
   "time": {
     "speed_count": 5,
     "default_speed": 3
+  },
+  "camera": {
+    "max_zoom": 8.0,
+    "zoom_step": 1.15,
+    "key_zoom_steps_per_second": 6.0,
+    "key_pan_speed": 1400.0,
+    "edge_scroll_margin": 6.0,
+    "edge_scroll_speed": 1400.0,
+    "start_center": [
+      8900.0,
+      2600.0
+    ],
+    "start_zoom": 0.35
+  },
+  "map_colors": {
+    "sea": "#132235",
+    "unowned": "#8C8C8C",
+    "background": "#0B1017",
+    "no_data": "#4E545C"
+  },
+  "map_style": {
+    "selection_color": "#FFFFFF",
+    "selection_strength": 0.4,
+    "province_border_color": "#0A0D12",
+    "province_border_opacity": 0.35,
+    "province_border_width": 1.0,
+    "province_border_min_zoom": 0.3,
+    "province_border_full_zoom": 0.9,
+    "country_border_color": "#0A0D12",
+    "country_border_opacity": 0.85,
+    "country_border_width": 1.6,
+    "label_color": "#1A1E26",
+    "label_opacity": 0.8,
+    "label_outline_color": "#E8E2D0",
+    "label_outline_opacity": 0.35,
+    "label_outline_size": 3,
+    "label_min_screen_size": 11.0,
+    "label_max_screen_size": 170.0,
+    "label_fill_ratio": 0.8,
+    "label_thickness_ratio": 0.7,
+    "label_letter_spacing": 0.15,
+    "label_max_bend": 0.3,
+    "smooth_min_zoom": 1.0,
+    "sea_border_color": "#4A6E96",
+    "sea_border_opacity": 0.45,
+    "strait_color": "#F2C14E",
+    "canal_color": "#7FD3E8",
+    "strait_line_width": 2.0,
+    "strait_marker_size": 7.0,
+    "strait_label_min_zoom": 0.6,
+    "strait_label_size": 14,
+    "country_selection_strength": 0.22
+  },
+  "province": {
+    "max_infrastructure": 10
   }
 }

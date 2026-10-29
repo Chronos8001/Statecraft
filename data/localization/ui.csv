@@ -14,5 +14,73 @@ FOOTER_VERSION,Version %s,Version %s
 FOOTER_DATA_FILES,%d data files loaded,%d fichiers de données chargés
 FOOTER_DATA_ERRORS,%d data errors (see console),%d erreurs de données (voir la console)
 INFO_TITLE,Information,Information
-INFO_NEW_GAME_PLACEHOLDER,A new game has been initialized. Country selection will arrive in a future version.,Une nouvelle partie a été initialisée. La sélection du pays arrivera dans une prochaine version.
 INFO_LOAD_UNAVAILABLE,Loading saved games will arrive in a future version.,Le chargement des sauvegardes arrivera dans une prochaine version.
+MAP_LOADING,Loading map…,Chargement de la carte…
+MAP_LOAD_ERROR,The map could not be loaded (see console).,La carte n'a pas pu être chargée (voir la console).
+DEBUG_MAP_INFO,%d FPS · zoom ×%.2f · %.2f° %.2f°,%d FPS · zoom ×%.2f · %.2f° %.2f°
+COMMON_YES,Yes,Oui
+COMMON_NO,No,Non
+COMMON_CLOSE_SYMBOL,✕,✕
+INFO_PROVINCE_ID,Province no. %d,Province n° %d
+INFO_UNOWNED,No owner,Sans propriétaire
+INFO_OCCUPIED_BY,Occupied by %s,Occupée par : %s
+INFO_CAPITAL,National capital,Capitale nationale
+INFO_POPULATION,Population,Population
+INFO_AREA,Area,Superficie
+INFO_AREA_VALUE,%s km²,%s km²
+INFO_TERRAIN,Terrain,Terrain
+INFO_INFRASTRUCTURE,Infrastructure,Infrastructures
+INFO_INFRASTRUCTURE_VALUE,%d / %d,%d / %d
+INFO_COASTAL,Coastal,Côtière
+INFO_RESOURCES,Resources,Ressources
+INFO_RESOURCES_NONE,None,Aucune
+INFO_NEIGHBORS,Neighbouring provinces,Provinces voisines
+MAPMODE_POLITICAL,Political,Politique
+MAPMODE_TERRAIN,Terrain,Terrain
+MAPMODE_POPULATION,Population,Population
+MAPMODE_GDP_PER_CAPITA,GDP per capita,PIB/hab.
+MAPMODE_IDEOLOGY,Ideology,Idéologie
+MAPMODE_ALLIANCES,Alliances,Alliances
+MAPMODE_RELATIONS,Relations,Relations
+MAPMODE_RESOURCES,Resources,Ressources
+MAPMODE_INFRASTRUCTURE,Infrastructure,Infrastructures
+MAPMODE_MILITARY_CONTROL,Military control,Contrôle militaire
+MAPMODE_STABILITY,Stability,Stabilité
+MAPMODE_UNIT_DENSITY,%s /km²,%s hab./km²
+MAPMODE_UNIT_USD,$%s,%s $
+LEGEND_NO_DATA,No data,Pas de données
+LEGEND_UNOWNED,No owner,Sans propriétaire
+LEGEND_NONE,None,Aucune
+LEGEND_OCCUPIED,Occupied territory,Territoire occupé
+LEGEND_PLAYER,Your country,Votre pays
+LEGEND_HOSTILE,Hostile,Hostile
+LEGEND_NEUTRAL,Neutral,Neutre
+LEGEND_FRIENDLY,Friendly,Amical
+LEGEND_POLITICAL_HINT,Each country has its own colour.,Chaque pays a sa couleur.
+LEGEND_CONTROL_HINT,Colour of the controlling country.,Couleur du pays qui contrôle la province.
+SEA_KIND_SEA,Sea zone,Zone maritime
+SEA_KIND_LAKE,Lake,Lac
+INFO_SEA_NEIGHBORS,Neighbouring sea zones,Zones maritimes voisines
+INFO_COASTS,Coastal provinces,Provinces côtières
+INFO_STRAITS,Straits and canals,Détroits et canaux
+INFO_SEA_ZONE_ID,Sea zone no. %d,Zone n° %d
+COUNTRY_INFO_CAPITAL,Capital,Capitale
+COUNTRY_INFO_REGIME,Government,Régime
+COUNTRY_INFO_HEAD_OF_STATE,Head of state,Chef de l'État
+COUNTRY_INFO_HEAD_OF_GOVERNMENT,Head of government,Chef du gouvernement
+COUNTRY_INFO_RULING_PARTY,Ruling party,Parti au pouvoir
+COUNTRY_INFO_COALITION,Coalition partners,Partenaires de coalition
+COUNTRY_INFO_IDEOLOGY,Ideology,Idéologie
+COUNTRY_INFO_PROVINCES,Provinces,Provinces
+COUNTRY_INFO_GDP,GDP,PIB
+COUNTRY_INFO_GDP_VALUE,$%s bn,%s Md$
+COUNTRY_INFO_GDP_PER_CAPITA,GDP per capita,PIB/hab.
+COUNTRY_INFO_USD_VALUE,$%s,%s $
+COUNTRY_INFO_DEBT,Public debt,Dette publique
+COUNTRY_INFO_DEBT_VALUE,%d%% of GDP,%d %% du PIB
+COUNTRY_INFO_ACTIVE_PERSONNEL,Active military,Militaires d'active
+COUNTRY_INFO_ORGANIZATIONS,Organizations,Organisations
+COUNTRY_INFO_OCCUPIED,Occupied territory,Territoire occupé
+COUNTRY_INFO_OCCUPYING,Occupies,Occupe
+COUNTRY_INFO_PROVINCE_COUNT,%d provinces,%d provinces
+COUNTRY_INFO_HINT,Double-click a province for its details.,Double-cliquez sur une province pour la voir en détail.

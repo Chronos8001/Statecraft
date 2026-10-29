@@ -1,13 +1,57 @@
 {
-  "oil":            { "name_key": "RESOURCE_OIL",            "strategic": true },
-  "gas":            { "name_key": "RESOURCE_GAS",            "strategic": true },
-  "uranium":        { "name_key": "RESOURCE_URANIUM",        "strategic": true },
-  "coal":           { "name_key": "RESOURCE_COAL",           "strategic": true },
-  "rare_earths":    { "name_key": "RESOURCE_RARE_EARTHS",    "strategic": true },
-  "lithium":        { "name_key": "RESOURCE_LITHIUM",        "strategic": true },
-  "cobalt":         { "name_key": "RESOURCE_COBALT",         "strategic": true },
-  "semiconductors": { "name_key": "RESOURCE_SEMICONDUCTORS", "strategic": true },
-  "wheat":          { "name_key": "RESOURCE_WHEAT",          "strategic": true },
-  "steel":          { "name_key": "RESOURCE_STEEL",          "strategic": true },
-  "water":          { "name_key": "RESOURCE_WATER",          "strategic": true }
+  "oil": {
+    "name_key": "RESOURCE_OIL",
+    "strategic": true,
+    "color": "#2B2B2B"
+  },
+  "gas": {
+    "name_key": "RESOURCE_GAS",
+    "strategic": true,
+    "color": "#6FA8C7"
+  },
+  "uranium": {
+    "name_key": "RESOURCE_URANIUM",
+    "strategic": true,
+    "color": "#9BD14B"
+  },
+  "coal": {
+    "name_key": "RESOURCE_COAL",
+    "strategic": true,
+    "color": "#5A4A3E"
+  },
+  "rare_earths": {
+    "name_key": "RESOURCE_RARE_EARTHS",
+    "strategic": true,
+    "color": "#B05CC4"
+  },
+  "lithium": {
+    "name_key": "RESOURCE_LITHIUM",
+    "strategic": true,
+    "color": "#E5E5E5"
+  },
+  "cobalt": {
+    "name_key": "RESOURCE_COBALT",
+    "strategic": true,
+    "color": "#3D5FD1"
+  },
+  "semiconductors": {
+    "name_key": "RESOURCE_SEMICONDUCTORS",
+    "strategic": true,
+    "color": "#3FB6A8"
+  },
+  "wheat": {
+    "name_key": "RESOURCE_WHEAT",
+    "strategic": true,
+    "color": "#E8C35A"
+  },
+  "steel": {
+    "name_key": "RESOURCE_STEEL",
+    "strategic": true,
+    "color": "#8C96A3"
+  },
+  "water": {
+    "name_key": "RESOURCE_WATER",
+    "strategic": true,
+    "color": "#3E7FD1"
+  }
 }

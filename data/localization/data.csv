@@ -1,21 +1,4 @@
 keys,en,fr
-# --- Pays ---
-COUNTRY_USA,United States,États-Unis
-COUNTRY_CHN,China,Chine
-COUNTRY_FRA,France,France
-COUNTRY_DEU,Germany,Allemagne
-COUNTRY_BRA,Brazil,Brésil
-# --- Provinces ---
-PROV_USA_DISTRICT_OF_COLUMBIA,District of Columbia,District de Columbia
-PROV_USA_CALIFORNIA,California,Californie
-PROV_CHN_BEIJING,Beijing,Pékin
-PROV_CHN_GUANGDONG,Guangdong,Guangdong
-PROV_FRA_ILE_DE_FRANCE,Île-de-France,Île-de-France
-PROV_FRA_PROVENCE,Provence-Alpes-Côte d'Azur,Provence-Alpes-Côte d'Azur
-PROV_DEU_BERLIN,Berlin,Berlin
-PROV_DEU_BAVARIA,Bavaria,Bavière
-PROV_BRA_FEDERAL_DISTRICT,Federal District,District fédéral
-PROV_BRA_SAO_PAULO,São Paulo,São Paulo
 # --- Idéologies ---
 IDEOLOGY_COMMUNIST,Communist,Communiste
 IDEOLOGY_SOCIALIST,Socialist,Socialiste
