@@ -13,12 +13,16 @@ var _load_started_ms: int = 0
 var _map_modes: MapModeRegistry
 var _mode_context: MapModeContext
 var _current_mode_id: String = DEFAULT_MAP_MODE
+var _notification_timer: SceneTreeTimer
 
 @onready var _map_view: MapView = %MapView
 @onready var _loading_label: Label = %LoadingLabel
 @onready var _debug_label: Label = %DebugLabel
 @onready var _info_panel: ProvinceInfoPanel = %ProvinceInfoPanel
 @onready var _country_panel: CountryInfoPanel = %CountryInfoPanel
+@onready var _top_bar: TopBar = %TopBar
+@onready var _notification_label: Label = %NotificationLabel
+
 @onready var _mode_bar: MapModeBar = %MapModeBar
 @onready var _legend: MapLegend = %MapLegend
 
@@ -38,6 +42,8 @@ func _ready() -> void:
 	_mode_bar.mode_selected.connect(set_map_mode)
 	_mode_bar.visible = false
 	_legend.visible = false
+	EventBus.month_passed.connect(_on_month_passed)
+	EventBus.year_passed.connect(_on_year_passed)
 	_thread = Thread.new()
 	_thread.start(func() -> ProvinceMapData: return ProvinceMapData.from_png_file(image_path))
 
@@ -62,6 +68,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _exit_tree() -> void:
+	GameClock.set_running(false)
+	GameClock.set_paused(true)
 	if _thread != null:
 		_thread.wait_to_finish()
 		_thread = null
@@ -77,7 +85,10 @@ func _finish_loading() -> void:
 	_map_view.setup(data, _mode_context.new_colors())
 	set_map_mode(_current_mode_id)
 	_mode_bar.visible = true
+	_top_bar.visible = true
+	_top_bar.refresh()
 	_loading_label.visible = false
+	GameClock.set_running(true)
 	GameLog.info(SOURCE, "Carte %d × %d chargée en %d ms." % [data.width, data.height,
 		Time.get_ticks_msec() - _load_started_ms])
 	# Les textures partent vers la carte graphique au rendu suivant.
@@ -85,6 +96,26 @@ func _finish_loading() -> void:
 	await get_tree().process_frame
 	GameLog.info(SOURCE, "Mémoire graphique des textures : %d Mo." % roundi(
 		Performance.get_monitor(Performance.RENDER_TEXTURE_MEM_USED) / BYTES_PER_MEGABYTE))
+
+
+func _on_month_passed(date: GameDate) -> void:
+	if date.month != 1:
+		_notify(tr("NOTIFY_NEW_MONTH") % [tr(DateFormat.month_key(date.month)), date.year])
+
+
+func _on_year_passed(date: GameDate) -> void:
+	_notify(tr("NOTIFY_NEW_YEAR") % date.year)
+
+
+## Message temporaire sous la barre supérieure.
+func _notify(text: String) -> void:
+	_notification_label.text = text
+	_notification_label.visible = true
+	_notification_timer = get_tree().create_timer(float(DataLoader.get_define("time.notification_seconds")))
+	var timer := _notification_timer
+	timer.timeout.connect(func() -> void:
+		if _notification_timer == timer:
+			_notification_label.visible = false)
 
 
 func set_map_mode(mode_id: String) -> void:

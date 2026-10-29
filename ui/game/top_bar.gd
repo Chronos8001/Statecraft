@@ -1,0 +1,75 @@
+class_name TopBar
+extends PanelContainer
+## Barre supérieure : date, contrôle du temps et ressources clés du pays joué.
+
+const STAT_KEYS := ["TOPBAR_TREASURY", "TOPBAR_STABILITY", "TOPBAR_SUPPORT", "TOPBAR_MILITARY", "TOPBAR_INFLUENCE"]
+const PIP_ON := "■"
+const PIP_OFF := "□"
+const PAUSE_SYMBOL := "❚❚"
+const PLAY_SYMBOL := "▶"
+
+var _stat_values: Array[Label] = []
+
+@onready var _date_label: Label = %DateLabel
+@onready var _pause_button: Button = %PauseButton
+@onready var _slower_button: Button = %SlowerButton
+@onready var _faster_button: Button = %FasterButton
+@onready var _speed_label: Label = %SpeedLabel
+@onready var _country_label: Label = %CountryLabel
+@onready var _stats_row: HBoxContainer = %StatsRow
+
+
+func _ready() -> void:
+	_pause_button.pressed.connect(GameClock.toggle_pause)
+	_slower_button.pressed.connect(func() -> void: GameClock.set_speed(GameClock.speed - 1))
+	_faster_button.pressed.connect(func() -> void: GameClock.set_speed(GameClock.speed + 1))
+	EventBus.hour_passed.connect(func(_date: GameDate) -> void: _update_date())
+	EventBus.game_speed_changed.connect(func(_speed: int) -> void: _update_speed())
+	EventBus.game_pause_changed.connect(func(_paused: bool) -> void: _update_speed())
+	EventBus.locale_changed.connect(func(_locale: String) -> void: refresh())
+	_build_stats()
+	refresh()
+
+
+func refresh() -> void:
+	_update_date()
+	_update_speed()
+	_update_country()
+
+
+func _build_stats() -> void:
+	for key: String in STAT_KEYS:
+		var name_label := Label.new()
+		name_label.text = key
+		name_label.add_theme_color_override("font_color", InfoPanel.LABEL_COLOR)
+		_stats_row.add_child(name_label)
+		var value_label := Label.new()
+		value_label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+		value_label.custom_minimum_size.x = 40.0
+		_stats_row.add_child(value_label)
+		_stat_values.append(value_label)
+
+
+func _update_date() -> void:
+	var date := GameClock.get_date()
+	_date_label.text = DateFormat.long_date(date, tr(DateFormat.month_key(date.month)), Localization.get_locale())
+
+
+func _update_speed() -> void:
+	_pause_button.text = PLAY_SYMBOL if GameClock.is_paused else PAUSE_SYMBOL
+	var pips := ""
+	for level: int in range(1, GameClock.get_speed_count() + 1):
+		pips += PIP_ON if level <= GameClock.speed else PIP_OFF
+	var status := tr("TOPBAR_PAUSED") if GameClock.is_paused else tr("TOPBAR_SPEED") % GameClock.speed
+	_speed_label.text = "%s  %s" % [pips, status]
+	_slower_button.disabled = GameClock.speed <= 1
+	_faster_button.disabled = GameClock.speed >= GameClock.get_speed_count()
+
+
+## Pays joué et ses ressources. Les valeurs restent « — » tant que les systèmes qui les calculent n'existent pas.
+func _update_country() -> void:
+	var tag := str(GameState.sim.player_tag)
+	var country := DataLoader.get_entry("countries", tag)
+	_country_label.text = tr(str(country.get("name_key", ""))) if not country.is_empty() else tr("TOPBAR_NO_COUNTRY")
+	for value_label: Label in _stat_values:
+		value_label.text = tr("TOPBAR_UNKNOWN")

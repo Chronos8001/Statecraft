@@ -51,18 +51,38 @@
       },
       "time": {
         "type": "object",
+        "strict": true,
         "required": [
-          "speed_count",
-          "default_speed"
+          "seconds_per_hour",
+          "default_speed",
+          "max_ticks_per_frame",
+          "unbounded_frame_budget_ms",
+          "notification_seconds"
         ],
         "properties": {
-          "speed_count": {
-            "type": "int",
-            "min": 1
+          "seconds_per_hour": {
+            "type": "array",
+            "min_items": 1,
+            "items": {
+              "type": "number",
+              "min": 0
+            }
           },
           "default_speed": {
             "type": "int",
             "min": 1
+          },
+          "max_ticks_per_frame": {
+            "type": "int",
+            "min": 1
+          },
+          "unbounded_frame_budget_ms": {
+            "type": "number",
+            "min": 0
+          },
+          "notification_seconds": {
+            "type": "number",
+            "min": 0
           }
         }
       },

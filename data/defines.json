@@ -8,8 +8,17 @@
     }
   },
   "time": {
-    "speed_count": 5,
-    "default_speed": 3
+    "seconds_per_hour": [
+      2.0,
+      0.5,
+      0.2,
+      0.1,
+      0.0
+    ],
+    "default_speed": 3,
+    "max_ticks_per_frame": 48,
+    "unbounded_frame_budget_ms": 8.0,
+    "notification_seconds": 4.0
   },
   "camera": {
     "max_zoom": 8.0,
