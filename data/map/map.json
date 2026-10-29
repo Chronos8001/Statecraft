@@ -5,6 +5,8 @@
     "projection": "equirectangular",
     "provinces_image": "res://data/map/provinces.png",
     "province_count": 4596,
+    "sea_zone_count": 305,
+    "max_id": 4901,
     "source": "Natural Earth v5.1.2 (domaine public)"
   }
 }

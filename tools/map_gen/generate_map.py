@@ -41,6 +41,7 @@ LAYERS = {
     "places": "ne_10m_populated_places",
     "lakes": "ne_10m_lakes",
     "regions": "ne_10m_geography_regions_polys",
+    "marine": "ne_10m_geography_marine_polys",
 }
 EARTH_CIRCUMFERENCE_KM = 40075.0
 MERIDIAN_LENGTH_KM = 20004.0
@@ -199,6 +200,226 @@ def id_to_color(province_id: int) -> str:
     return "#{:02X}{:02X}00".format(province_id & 0xFF, (province_id >> 8) & 0xFF)
 
 
+# --------------------------------------------------------------------------- zones maritimes
+
+def pixel_vectors(xs: np.ndarray, ys: np.ndarray, projection: Projection) -> np.ndarray:
+    """Vecteurs unitaires 3D des centres de pixels (calculs sur la sphère, sans souci de bouclage)."""
+    lon = np.radians((xs + 0.5) / projection.width * 360.0 - 180.0)
+    lat = np.radians(90.0 - (ys + 0.5) / projection.height * 180.0)
+    return np.column_stack((np.cos(lat) * np.cos(lon), np.cos(lat) * np.sin(lon), np.sin(lat))).astype(np.float32)
+
+
+def zone_areas(labels: np.ndarray, count: int, projection: Projection) -> np.ndarray:
+    pixel_km2 = (EARTH_CIRCUMFERENCE_KM / projection.width) * (MERIDIAN_LENGTH_KM / projection.height)
+    areas = np.zeros(count)
+    for y0 in range(0, projection.height, ROW_CHUNK):
+        y1 = min(y0 + ROW_CHUNK, projection.height)
+        weights = np.cos(np.radians(90.0 - (np.arange(y0, y1) + 0.5) / projection.height * 180.0)) * pixel_km2
+        areas += np.bincount(labels[y0:y1].ravel(), weights=np.repeat(weights, projection.width), minlength=count)
+    return areas
+
+
+def zone_adjacency(labels: np.ndarray) -> dict[tuple[int, int], int]:
+    """Longueur de frontière commune (en pixels) entre étiquettes non nulles."""
+    counts: dict[tuple[int, int], int] = {}
+    height = labels.shape[0]
+    for y0 in range(0, height, ROW_CHUNK):
+        y1 = min(y0 + ROW_CHUNK, height)
+        block = labels[y0:min(y1 + 1, height)]
+        for a, b in ((labels[y0:y1], np.roll(labels[y0:y1], -1, axis=1)), (block[:-1], block[1:])):
+            mask = (a != b) & (a > 0) & (b > 0)
+            keys = np.minimum(a[mask], b[mask]).astype(np.int64) * 1_000_000 + np.maximum(a[mask], b[mask])
+            unique, occurrences = np.unique(keys, return_counts=True)
+            for key, occurrence in zip(unique.tolist(), occurrences.tolist()):
+                pair = divmod(key, 1_000_000)
+                counts[pair] = counts.get(pair, 0) + occurrence
+    return counts
+
+
+def compass_direction(offset: np.ndarray, centre: np.ndarray, config: dict) -> tuple[str, str]:
+    lon0 = math.atan2(float(centre[1]), float(centre[0]))
+    norm = float(np.linalg.norm(centre))
+    lat0 = math.asin(max(-1.0, min(1.0, float(centre[2]) / max(norm, 1e-9))))
+    east = np.array([-math.sin(lon0), math.cos(lon0), 0.0])
+    north = np.array([-math.sin(lat0) * math.cos(lon0), -math.sin(lat0) * math.sin(lon0), math.cos(lat0)])
+    angle = math.degrees(math.atan2(float(np.dot(offset, north)), float(np.dot(offset, east))))
+    sector = int(round(((90.0 - angle) % 360.0) / 45.0)) % 8
+    return config["compass_en"][sector], config["compass_fr"][sector]
+
+
+def build_sea_zones(ids: np.ndarray, lakes: list[dict], marine_features: list[dict], projection: Projection,
+                    config: dict, first_id: int) -> list[dict]:
+    """Découpe l'eau (pixels à 0) en zones maritimes et lacs, écrit leurs ids dans ids et renvoie leur liste."""
+    height = projection.height
+    water = ids == 0
+
+    big_lakes = [f for f in lakes if f["properties"]["scalerank"] <= config["max_lake_scalerank"]]
+    lake_labels = rasterize([(i + 1, f["geometry"]) for i, f in enumerate(big_lakes)], projection, "I").astype(np.int32)
+    lake_labels[~water] = 0
+
+    protected = set(config["protected_sea_names"])
+    kept = [f for f in marine_features
+            if f["properties"].get("name") in protected
+            or (f["properties"]["scalerank"] <= config["max_marine_scalerank"]
+                and f["properties"]["featurecla"] in config["marine_classes"])]
+    print(f"Zones maritimes : {len(kept)} mers et golfes retenus, {len(big_lakes)} lacs")
+    labels = rasterize([(i + 1, f["geometry"]) for i, f in enumerate(kept)], projection, "I").astype(np.int32)
+    labels[~water | (lake_labels > 0)] = 0
+
+    # Eau non couverte : zone la plus proche (calcul à résolution réduite).
+    missing = water & (lake_labels == 0) & (labels == 0)
+    if missing.any():
+        from scipy import ndimage
+        step = config["sea_fill_downscale"]
+        small = labels[::step, ::step]
+        nearest = ndimage.distance_transform_edt(small == 0, return_distances=False, return_indices=True)
+        filled = small[nearest[0], nearest[1]]
+        ys, xs = np.nonzero(missing)
+        labels[ys, xs] = filled[np.minimum(ys // step, filled.shape[0] - 1), np.minimum(xs // step, filled.shape[1] - 1)]
+
+    # Petites zones fusionnées avec la voisine qui partage la plus longue frontière.
+    label_count = len(kept) + 1
+    areas = zone_areas(labels, label_count, projection)
+    neighbours: dict[int, dict[int, int]] = {}
+    for (a, b), length in zone_adjacency(labels).items():
+        neighbours.setdefault(a, {})[b] = length
+        neighbours.setdefault(b, {})[a] = length
+    parent = list(range(label_count))
+
+    def find(label: int) -> int:
+        while parent[label] != label:
+            parent[label] = parent[parent[label]]
+            label = parent[label]
+        return label
+
+    mergeable = [l for l in range(1, label_count) if 0 < areas[l] < config["min_sea_zone_km2"]
+                 and kept[l - 1]["properties"].get("name") not in protected]
+    for label in sorted(mergeable, key=lambda l: areas[l]):
+        root = find(label)
+        candidates: dict[int, int] = {}
+        for other, length in neighbours.get(label, {}).items():
+            other_root = find(other)
+            if other_root != root:
+                candidates[other_root] = candidates.get(other_root, 0) + length
+        if candidates:
+            target = max(candidates, key=lambda c: (candidates[c], -c))
+            parent[root] = target
+            areas[target] += areas[root]
+            areas[root] = 0.0
+    lut = np.array([find(l) for l in range(label_count)], dtype=np.int32)
+    labels = lut[labels]
+    areas = zone_areas(labels, label_count, projection)
+
+    # Grandes zones découpées en secteurs (k-moyennes sur la sphère).
+    zones: list[dict] = []
+    final_labels = labels.copy()
+    next_label = label_count
+    sample_step = config["sea_split_sample_step"]
+    for label in range(1, label_count):
+        if areas[label] <= 0:
+            continue
+        props = kept[label - 1]["properties"]
+        name_en = props.get("name_en") or props.get("name") or ""
+        name_fr = props.get("name_fr") or name_en
+        sectors = int(math.ceil(areas[label] / config["max_sea_zone_km2"]))
+        if sectors <= 1:
+            zones.append({"label": label, "name_en": name_en, "name_fr": name_fr, "source": props.get("name")})
+            continue
+        ys, xs = np.nonzero(labels[::sample_step, ::sample_step] == label)
+        vectors = pixel_vectors(xs * sample_step, ys * sample_step, projection)
+        sectors = min(sectors, len(vectors))
+        rng = np.random.default_rng(label)
+        centroids = vectors[rng.choice(len(vectors), size=sectors, replace=False)]
+        for _ in range(config["sea_split_iterations"]):
+            assignment = np.argmax(vectors @ centroids.T, axis=1)
+            for k in range(sectors):
+                members = vectors[assignment == k]
+                if len(members):
+                    mean = members.mean(axis=0)
+                    centroids[k] = mean / max(float(np.linalg.norm(mean)), 1e-9)
+        sector_labels = np.arange(next_label, next_label + sectors, dtype=np.int32)
+        next_label += sectors
+        for y0 in range(0, height, ROW_CHUNK):
+            y1 = min(y0 + ROW_CHUNK, height)
+            block_ys, block_xs = np.nonzero(labels[y0:y1] == label)
+            if block_ys.size == 0:
+                continue
+            block_vectors = pixel_vectors(block_xs, block_ys + y0, projection)
+            final_labels[block_ys + y0, block_xs] = sector_labels[np.argmax(block_vectors @ centroids.T, axis=1)]
+        zone_centre = vectors.mean(axis=0)
+        used: dict[str, int] = {}
+        for k in range(sectors):
+            direction_en, direction_fr = compass_direction(centroids[k] - zone_centre, zone_centre, config)
+            used[direction_en] = used.get(direction_en, 0) + 1
+            suffix = "" if used[direction_en] == 1 else f" {used[direction_en]}"
+            zones.append({"label": int(sector_labels[k]), "name_en": f"{name_en} ({direction_en}{suffix})",
+                          "name_fr": f"{name_fr} ({direction_fr}{suffix})", "source": props.get("name")})
+
+    # Identifiants définitifs : mers dans l'ordre de leurs étiquettes, puis lacs.
+    zones.sort(key=lambda zone: zone["label"])
+    id_of_label = np.zeros(next_label, dtype=np.int32)
+    result: list[dict] = []
+    next_id = first_id
+    for zone in zones:
+        id_of_label[zone["label"]] = next_id
+        result.append({"id": next_id, "kind": "sea", "name_en": zone["name_en"], "name_fr": zone["name_fr"],
+                       "source": zone["source"]})
+        next_id += 1
+    sea_pixels = water & (lake_labels == 0)
+    ids[sea_pixels] = id_of_label[final_labels[sea_pixels]]
+    lake_ids = np.zeros(len(big_lakes) + 1, dtype=np.int32)
+    present = set(np.unique(lake_labels).tolist())
+    for i, feature in enumerate(big_lakes):
+        if i + 1 not in present:
+            continue
+        props = feature["properties"]
+        name_en = props.get("name_en") or props.get("name") or ""
+        lake_ids[i + 1] = next_id
+        result.append({"id": next_id, "kind": "lake", "name_en": name_en, "name_fr": props.get("name_fr") or name_en,
+                       "source": props.get("name")})
+        next_id += 1
+    lake_pixels = lake_labels > 0
+    ids[lake_pixels] = lake_ids[lake_labels[lake_pixels]]
+    return result
+
+
+def resolve_straits(straits: dict, ids: np.ndarray, projection: Projection, province_count: int,
+                    config: dict) -> dict:
+    """Pour chaque détroit ou canal : zones maritimes à ses extrémités et provinces qui le bordent."""
+    reach = config["strait_sea_search_px"]
+    search = sorted(((dx, dy) for dx in range(-reach, reach + 1) for dy in range(-reach, reach + 1)),
+                    key=lambda o: o[0] ** 2 + o[1] ** 2)
+    result = {}
+    for strait_id, strait in straits.items():
+        radius = strait.get("province_radius_px", config["strait_province_radius_px"])
+        ends = [projection.point(lon, lat) for lon, lat in strait["ends"]]
+        # Zone la plus proche de chaque extrémité ; la seconde doit être différente de la première.
+        zones: list[int] = []
+        for x, y in ends:
+            for dx, dy in search:
+                value = int(ids[min(max(y + dy, 0), projection.height - 1), (x + dx) % projection.width])
+                if value > province_count and value not in zones:
+                    zones.append(value)
+                    break
+        provinces: set[int] = set()
+        (x0, y0), (x1, y1) = ends
+        dx_wrapped = (x1 - x0 + projection.width // 2) % projection.width - projection.width // 2
+        for k in range(21):
+            x = int(round(x0 + dx_wrapped * k / 20)) % projection.width
+            y = int(round(y0 + (y1 - y0) * k / 20))
+            rows = slice(max(y - radius, 0), y + radius + 1)
+            window = ids[rows][:, np.arange(x - radius, x + radius + 1) % projection.width]
+            provinces.update(int(v) for v in np.unique(window) if 0 < v <= province_count)
+        result[strait_id] = {
+            "name_key": f"STRAIT_{strait_id.upper()}",
+            "kind": strait["kind"],
+            "ends": [[float(x), float(y)] for x, y in ends],
+            "sea_zones": zones,
+            "provinces": sorted(provinces),
+        }
+    return result
+
+
 # --------------------------------------------------------------------------- génération
 
 def main() -> None:
@@ -212,6 +433,7 @@ def main() -> None:
     places = load_layer("places", version)
     lakes = load_layer("lakes", version)
     regions = load_layer("regions", version)
+    marine = load_layer("marine", version)
 
     unit_rows = {feature["properties"]["ADM0_A3"]: feature["properties"] for feature in admin0}
     unit_owner = resolve_unit_owners(admin0, config)
@@ -275,20 +497,25 @@ def main() -> None:
                     break
     print(f"{len(small)} provinces agrandies à la taille minimale")
 
+    # 4 bis. Zones maritimes et lacs, numérotés à la suite des provinces.
+    sea_zones = build_sea_zones(ids, lakes, marine, projection, config, province_count + 1)
+    sea_kind = {zone["id"]: zone["kind"] for zone in sea_zones}
+    total_ids = province_count + len(sea_zones)
+    print(f"{len(sea_zones)} zones maritimes et lacs")
+
     # 5. Statistiques par province, par bandes de lignes : taille, centre, surface, voisins, côtes.
     print("Analyse des pixels…")
     n = province_count + 1
-    count = np.zeros(n)
-    sum_cos = np.zeros(n)
-    sum_sin = np.zeros(n)
-    sum_y = np.zeros(n)
-    sum_area = np.zeros(n)
-    coastal = np.zeros(n, dtype=bool)
+    n_all = total_ids + 1
+    count = np.zeros(n_all)
+    sum_cos = np.zeros(n_all)
+    sum_sin = np.zeros(n_all)
+    sum_y = np.zeros(n_all)
+    sum_area = np.zeros(n_all)
     pair_keys: list[np.ndarray] = []
     angles = 2.0 * math.pi * (np.arange(width) + 0.5) / width
     cos_x, sin_x = np.cos(angles), np.sin(angles)
     pixel_km2 = (EARTH_CIRCUMFERENCE_KM / width) * (MERIDIAN_LENGTH_KM / height)
-    ocean = ~land
 
     def add_pairs(a: np.ndarray, b: np.ndarray) -> None:
         mask = (a != b) & (a > 0) & (b > 0)
@@ -302,29 +529,20 @@ def main() -> None:
         flat = block.ravel()
         row_centres = np.arange(y0, y1) + 0.5
         latitudes = np.radians(90.0 - row_centres / height * 180.0)
-        count += np.bincount(flat, minlength=n)
-        sum_cos += np.bincount(flat, weights=np.tile(cos_x, rows), minlength=n)
-        sum_sin += np.bincount(flat, weights=np.tile(sin_x, rows), minlength=n)
-        sum_y += np.bincount(flat, weights=np.repeat(row_centres, width), minlength=n)
-        sum_area += np.bincount(flat, weights=np.repeat(np.cos(latitudes) * pixel_km2, width), minlength=n)
+        count += np.bincount(flat, minlength=n_all)
+        sum_cos += np.bincount(flat, weights=np.tile(cos_x, rows), minlength=n_all)
+        sum_sin += np.bincount(flat, weights=np.tile(sin_x, rows), minlength=n_all)
+        sum_y += np.bincount(flat, weights=np.repeat(row_centres, width), minlength=n_all)
+        sum_area += np.bincount(flat, weights=np.repeat(np.cos(latitudes) * pixel_km2, width), minlength=n_all)
         # Voisins horizontaux (avec bouclage est-ouest) et verticaux.
         right = np.roll(block, -1, axis=1)
         add_pairs(block, right)
         below_end = min(y1 + 1, height)
         extended = ids[y0:below_end]
         add_pairs(extended[:-1], extended[1:])
-        # Côtes : pixel de province touchant un pixel d'océan.
-        ocean_block = ocean[y0:below_end]
-        for neighbour_ocean, own in (
-            (np.roll(ocean[y0:y1], -1, axis=1), block),
-            (np.roll(ocean[y0:y1], 1, axis=1), block),
-            (ocean_block[1:], extended[:-1]),
-            (ocean_block[:-1], extended[1:]),
-        ):
-            coastal[np.unique(own[neighbour_ocean & (own > 0)])] = True
 
     pairs = np.unique(np.concatenate(pair_keys)) if pair_keys else np.array([], dtype=np.int64)
-    neighbours: list[set[int]] = [set() for _ in range(n)]
+    neighbours: list[set[int]] = [set() for _ in range(n_all)]
     for key in pairs.tolist():
         a, b = divmod(key, 65536)
         neighbours[a].add(b)
@@ -333,6 +551,10 @@ def main() -> None:
     safe_count = np.maximum(count, 1)
     centre_x = (np.arctan2(sum_sin, sum_cos) / (2.0 * math.pi) * width) % width
     centre_y = sum_y / safe_count
+    # Côtière : province voisine d'une zone maritime (les lacs ne comptent pas).
+    coastal = np.zeros(n, dtype=bool)
+    for province_id in range(1, n):
+        coastal[province_id] = any(sea_kind.get(other) == "sea" for other in neighbours[province_id])
 
     # 6. Terrain : régions géographiques Natural Earth, puis climat selon la latitude.
     print("Terrain…")
@@ -352,6 +574,7 @@ def main() -> None:
         layer = rasterize([(value, geometry)], projection, "L", scale)
         terrain_map[layer > 0] = value
     small_ids = ids[::scale, ::scale][: terrain_map.shape[0], : terrain_map.shape[1]]
+    small_ids = np.where(small_ids < n, small_ids, 0)
     classes = len(terrain_names) + 1
     histogram = np.bincount(small_ids.ravel().astype(np.int64) * classes + terrain_map.ravel(),
                             minlength=n * classes).reshape(n, classes)
@@ -384,9 +607,9 @@ def main() -> None:
         props = feature["properties"]
         x, y = projection.point(props["LONGITUDE"], props["LATITUDE"])
         province_id = int(ids[y, x])
-        if province_id == 0:
+        if province_id == 0 or province_id >= n:
             window = ids[max(y - 3, 0): y + 4, max(x - 3, 0): x + 4]
-            found = window[window > 0]
+            found = window[(window > 0) & (window < n)]
             province_id = int(found[0]) if found.size else 0
         if province_id:
             pop_max, pop_min = max(props["POP_MAX"] or 0, 0), max(props["POP_MIN"] or 0, 0)
@@ -449,7 +672,7 @@ def main() -> None:
             for p in members:
                 population[p] *= target / total
 
-    density = population / np.maximum(sum_area, 1.0)
+    density = population / np.maximum(sum_area[:n], 1.0)
     for province_id in range(1, n):
         if density[province_id] >= config["urban_density_km2"]:
             terrain[province_id] = "urban"
@@ -468,8 +691,9 @@ def main() -> None:
         candidates = sorted(capitals_by_unit.get(tag_to_unit.get(tag, tag), []), key=lambda c: -(c["POP_MAX"] or 0))
         for capital in candidates:
             x, y = projection.point(capital["LONGITUDE"], capital["LATITUDE"])
-            if owner[int(ids[y, x])] == tag:
-                return int(ids[y, x])
+            found = int(ids[y, x])
+            if found < n and owner[found] == tag:
+                return found
             nearest = min(owned, key=lambda p: (min(abs(centre_x[p] - x), width - abs(centre_x[p] - x))) ** 2
                           + (centre_y[p] - y) ** 2)
             return nearest
@@ -512,7 +736,8 @@ def main() -> None:
             "area_km2": round(float(sum_area[province_id]), 1),
             "size": int(count[province_id]),
             "center": [round(float(centre_x[province_id]), 1), round(float(centre_y[province_id]), 1)],
-            "neighbors": sorted(neighbours[province_id]),
+            "neighbors": sorted(p for p in neighbours[province_id] if p < n),
+            "sea_neighbors": sorted(p for p in neighbours[province_id] if sea_kind.get(p) == "sea"),
             "source_id": source["adm1_code"],
         })
         provinces_out.append(f'  "{province_id}": {json.dumps(entry, ensure_ascii=False, separators=(",", ": "))}')
@@ -538,11 +763,37 @@ def main() -> None:
             "projection": "equirectangular",
             "provinces_image": "res://data/map/provinces.png",
             "province_count": province_count,
+            "sea_zone_count": len(sea_zones),
+            "max_id": total_ids,
             "source": f"Natural Earth {version} (domaine public)",
         }
     }
     (DATA_DIR / "map" / "map.json").write_text(json.dumps(map_info, ensure_ascii=False, indent=2) + "\n",
                                                 encoding="utf-8", newline="\n")
+
+    # Zones maritimes et détroits.
+    sea_out: list[str] = []
+    for zone in sea_zones:
+        zone_id = zone["id"]
+        entry = {
+            "name_key": f"SEA_{zone_id}",
+            "color": id_to_color(zone_id),
+            "kind": zone["kind"],
+            "area_km2": round(float(sum_area[zone_id]), 1),
+            "size": int(count[zone_id]),
+            "center": [round(float(centre_x[zone_id]), 1), round(float(centre_y[zone_id]), 1)],
+            "neighbors": sorted(p for p in neighbours[zone_id] if p >= n),
+            "coasts": sorted(p for p in neighbours[zone_id] if p < n),
+            "source_name": zone["source"] or "",
+        }
+        sea_out.append(f'  "{zone_id}": {json.dumps(entry, ensure_ascii=False, separators=(",", ": "))}')
+    (DATA_DIR / "sea_zones").mkdir(parents=True, exist_ok=True)
+    (DATA_DIR / "sea_zones" / "sea_zones.json").write_text(
+        "{\n" + ",\n".join(sea_out) + "\n}\n", encoding="utf-8", newline="\n")
+    straits = resolve_straits(config["straits"], ids, projection, province_count, config)
+    (DATA_DIR / "straits").mkdir(parents=True, exist_ok=True)
+    (DATA_DIR / "straits" / "straits.json").write_text(
+        json.dumps(straits, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
 
     def write_csv(path: Path, rows: list[tuple[str, str, str]]) -> None:
         with path.open("w", encoding="utf-8", newline="") as file:
@@ -567,11 +818,18 @@ def main() -> None:
                                          "fr": row.get("NAME_FR") or row.get("NAME_EN") or tag})
         country_rows.append((f"COUNTRY_{tag}", names["en"], names["fr"]))
     write_csv(DATA_DIR / "localization" / "countries.csv", country_rows)
+    sea_rows = [(f"SEA_{zone['id']}", zone["name_en"], zone["name_fr"]) for zone in sea_zones]
+    sea_rows += [(f"STRAIT_{strait_id.upper()}", strait["name"]["en"], strait["name"]["fr"])
+                 for strait_id, strait in config["straits"].items()]
+    write_csv(DATA_DIR / "localization" / "sea_zones.csv", sea_rows)
 
     # Aperçu politique (non versionné).
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    lut = np.zeros((n, 3), dtype=np.uint8)
+    lut = np.zeros((n_all, 3), dtype=np.uint8)
     lut[0] = (40, 70, 110)
+    for zone in sea_zones:
+        shade = zlib.crc32(str(zone["id"]).encode()) % 60
+        lut[zone["id"]] = (20 + shade // 3, 50 + shade // 2, 90 + shade) if zone["kind"] == "sea" else (60, 120, 170)
     for province_id in range(1, n):
         tag = owner[province_id]
         colour = countries[tag]["color"] if tag else "#B0B0B0"
@@ -579,7 +837,11 @@ def main() -> None:
     preview = lut[ids[::4, ::4]]
     Image.fromarray(preview, "RGB").save(OUT_DIR / "preview_political.png")
     unowned = sum(1 for p in range(1, n) if not owner[p])
-    print(f"Terminé : {province_count} provinces, {len(countries)} pays, {unowned} provinces sans propriétaire.")
+    print(f"Terminé : {province_count} provinces, {len(sea_zones)} zones maritimes, {len(straits)} détroits, "
+          f"{len(countries)} pays, {unowned} provinces sans propriétaire.")
+    for strait_id, strait in straits.items():
+        if len(strait["sea_zones"]) < 2:
+            print(f"  Attention : le passage « {strait_id} » ne relie qu'une zone maritime ({strait['sea_zones']}).")
 
 
 if __name__ == "__main__":

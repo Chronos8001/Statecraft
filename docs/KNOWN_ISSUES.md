@@ -17,3 +17,4 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Modes PIB/hab., idéologie et alliances limités aux 5 pays détaillés ; relations et stabilité neutres ; ressources vides. Ils se rempliront avec les étapes 3, 4c, 5 et 6. | 3–6 | Ouvert |
 | 🟢 | Les noms de pays voisins peuvent se chevaucher (pas encore d'évitement des collisions). | 13 | Ouvert |
 | 🟢 | En zoom maximal, les contours suivent la précision de l'image (~2 km par pixel) : lissés mais encore un peu anguleux. | 1 | Ouvert |
+| 🟢 | Découpage des océans en secteurs inégal (jusqu'à ~3,6 millions de km²) ; rives du détroit de Taïwan trop larges (provinces de l'intérieur incluses). | 1 | Ouvert |

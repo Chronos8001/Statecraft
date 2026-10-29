@@ -3,6 +3,7 @@ extends RefCounted
 ## Données dont les modes de carte ont besoin pour calculer leurs couleurs.
 
 var provinces: Dictionary = {}
+var sea_zones: Dictionary = {}
 var countries: Dictionary = {}
 var terrains: Dictionary = {}
 var ideologies: Dictionary = {}
@@ -20,25 +21,30 @@ var no_data_color: Color = Color.DIM_GRAY
 static func from_game_data() -> MapModeContext:
 	var context := MapModeContext.new()
 	context.provinces = DataLoader.get_category("provinces")
+	context.sea_zones = DataLoader.get_category("sea_zones")
 	context.countries = DataLoader.get_category("countries")
 	context.terrains = DataLoader.get_category("terrains")
 	context.ideologies = DataLoader.get_category("ideologies")
 	context.organizations = DataLoader.repository.resolve_ref("names#organizations")
 	context.resources = DataLoader.get_category("resources")
 	context.player_tag = str(GameState.sim.player_tag)
-	context.max_id = int(DataLoader.get_category("map")["map"]["province_count"])
+	context.max_id = int(DataLoader.get_category("map")["map"]["max_id"])
 	context.sea_color = Color.html(str(DataLoader.get_define("map_colors.sea")))
 	context.unowned_color = Color.html(str(DataLoader.get_define("map_colors.unowned")))
 	context.no_data_color = Color.html(str(DataLoader.get_define("map_colors.no_data")))
 	return context
 
 
-## Tableau de couleurs prêt à remplir : mer pour l'id 0, « sans propriétaire » ailleurs.
+## Tableau de couleurs prêt à remplir : mer pour l'id 0 et les zones maritimes, « sans propriétaire » ailleurs.
 func new_colors() -> PackedColorArray:
 	var colors := PackedColorArray()
 	colors.resize(max_id + 1)
 	colors.fill(unowned_color)
 	colors[0] = sea_color
+	for key: String in sea_zones.keys():
+		var zone_id := int(key)
+		if zone_id > 0 and zone_id <= max_id:
+			colors[zone_id] = sea_color
 	return colors
 
 

@@ -47,12 +47,20 @@
     "label_outline_opacity": 0.35,
     "label_outline_size": 3,
     "label_min_screen_size": 11.0,
-    "label_max_screen_size": 240.0,
+    "label_max_screen_size": 170.0,
     "label_fill_ratio": 0.8,
     "label_thickness_ratio": 0.7,
     "label_letter_spacing": 0.15,
     "label_max_bend": 0.3,
-    "smooth_min_zoom": 1.0
+    "smooth_min_zoom": 1.0,
+    "sea_border_color": "#4A6E96",
+    "sea_border_opacity": 0.45,
+    "strait_color": "#F2C14E",
+    "canal_color": "#7FD3E8",
+    "strait_line_width": 2.0,
+    "strait_marker_size": 7.0,
+    "strait_label_min_zoom": 0.6,
+    "strait_label_size": 14
   },
   "province": {
     "max_infrastructure": 10

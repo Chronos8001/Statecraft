@@ -60,8 +60,8 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Noms de pays affichés en courbe selon la forme
 
 **1f. Mers**
-- [ ] Zones maritimes
-- [ ] Détroits et canaux stratégiques (Suez, Panama, Ormuz, Malacca, Bosphore…)
+- [x] Zones maritimes (276 mers et secteurs d'océan, 29 lacs)
+- [x] Détroits et canaux stratégiques (Suez, Panama, Ormuz, Malacca, Bosphore…)
 
 - [ ] Validation : clic sur une province → panneau d'info
 
