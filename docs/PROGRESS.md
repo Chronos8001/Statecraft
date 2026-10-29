@@ -45,8 +45,8 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Noms FR / EN des provinces et des pays
 
 **1b. Rendu et caméra**
-- [ ] Rendu via shader avec texture de lookup (recoloration sans regénérer la carte)
-- [ ] Caméra : zoom molette, déplacement clavier / souris / bord d'écran, limites, wrap est-ouest
+- [x] Rendu via shader avec texture de lookup (recoloration sans regénérer la carte)
+- [x] Caméra : zoom molette, déplacement clavier / souris / bord d'écran, limites, wrap est-ouest
 
 **1c. Sélection**
 - [ ] Picking : clic → couleur → id de province

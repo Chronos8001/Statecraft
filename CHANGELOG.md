@@ -11,8 +11,12 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Les 199 pays du monde en version minimale (nom FR / EN, couleur, capitale).
 - Territoires occupés au 1er janvier 2026 : Crimée, Sébastopol, Donetsk et Louhansk sous contrôle russe.
 - Outil de génération de la carte (`tools/map_gen/`).
+- Affichage de la carte en jeu par shader (mode politique), chargée en arrière-plan.
+- Caméra : zoom vers le curseur (molette, Page préc. / Page suiv.), déplacement au clavier (WASD / ZQSD selon le clavier, flèches), glisser avec le clic droit ou la molette, défilement au bord de l'écran, carte qui boucle d'est en ouest.
+- « Nouvelle partie » ouvre l'écran de jeu ; Échap revient à l'écran titre.
 
 ### Modifié
+- Mer plus sombre et bleu des États-Unis plus clair pour mieux les distinguer.
 - Les pays n'exigent plus que leur nom, leur couleur et leur capitale ; les données politiques et économiques restent facultatives jusqu'à l'étape des pays.
 
 ## [0.0.0] - 2026-10-29
