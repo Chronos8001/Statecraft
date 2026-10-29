@@ -3,7 +3,9 @@
     "type": "object",
     "required": [
       "game",
-      "time"
+      "time",
+      "camera",
+      "map_colors"
     ],
     "properties": {
       "game": {
@@ -59,6 +61,77 @@
           "default_speed": {
             "type": "int",
             "min": 1
+          }
+        }
+      },
+      "camera": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "max_zoom",
+          "zoom_step",
+          "key_zoom_steps_per_second",
+          "key_pan_speed",
+          "edge_scroll_margin",
+          "edge_scroll_speed",
+          "start_center",
+          "start_zoom"
+        ],
+        "properties": {
+          "max_zoom": {
+            "type": "number",
+            "min": 0.01
+          },
+          "zoom_step": {
+            "type": "number",
+            "min": 1.0
+          },
+          "key_zoom_steps_per_second": {
+            "type": "number",
+            "min": 0
+          },
+          "key_pan_speed": {
+            "type": "number",
+            "min": 0
+          },
+          "edge_scroll_margin": {
+            "type": "number",
+            "min": 0
+          },
+          "edge_scroll_speed": {
+            "type": "number",
+            "min": 0
+          },
+          "start_center": {
+            "type": "array",
+            "min_items": 2,
+            "items": {
+              "type": "number"
+            }
+          },
+          "start_zoom": {
+            "type": "number",
+            "min": 0
+          }
+        }
+      },
+      "map_colors": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "sea",
+          "unowned",
+          "background"
+        ],
+        "properties": {
+          "sea": {
+            "type": "color"
+          },
+          "unowned": {
+            "type": "color"
+          },
+          "background": {
+            "type": "color"
           }
         }
       }
