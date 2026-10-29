@@ -7,7 +7,7 @@ const MIN_PROVINCE_COUNT := 4000
 const LOCALIZATION_DIR := "res://data/localization"
 const TRANSLATED_CATEGORIES := ["countries", "provinces", "sea_zones", "straits", "ideologies", "regimes",
 	"terrains", "resources"]
-const MIN_SEA_ZONE_COUNT := 200
+const MIN_SEA_ZONE_COUNT := 150
 
 const LocalizationScript := preload("res://core/localization/localization.gd")
 
