@@ -24,3 +24,4 @@
 | 2026-10-29 | Carte rendue par un seul rectangle plein écran : le shader calcule la position de carte de chaque pixel à partir de la caméra | Bouclage est-ouest gratuit, une seule texture de 16384 × 8192, aucun nœud par province | Sprite de carte dupliqué pour le bouclage, Camera2D |
 | 2026-10-29 | Couleurs des provinces dans une texture de correspondance 256 × N (id → couleur) | Changer de mode de carte ne regénère qu'une petite texture | Recolorer l'image complète |
 | 2026-10-29 | Raccourcis de déplacement en touches physiques | WASD et ZQSD fonctionnent selon la disposition du clavier | Touches logiques (inutilisables en AZERTY) |
+| 2026-10-29 | Modes de carte décrits en données (type, dégradé, couleurs, ordre) et implémentés par 9 types réutilisables | Ajouter ou régler un mode sans toucher au code | Une classe codée par mode |
