@@ -1,0 +1,10 @@
+{
+  "map": {
+    "width": 16384,
+    "height": 8192,
+    "projection": "equirectangular",
+    "provinces_image": "res://data/map/provinces.png",
+    "province_count": 4596,
+    "source": "Natural Earth v5.1.2 (domaine public)"
+  }
+}

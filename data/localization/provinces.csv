@@ -1,0 +1,4597 @@
+keys,en,fr
+PROV_1,Aruba,Aruba
+PROV_2,Badghis,Bâdghîs
+PROV_3,Herat,Hérât
+PROV_4,Bamyan,Bâmiyân
+PROV_5,Balkh,Balkh
+PROV_6,Faryab,Fâryâb
+PROV_7,Jowzjan,Djôzdjân
+PROV_8,Ghōr,Ghôr
+PROV_9,Sar-e Pol,Sar-é Pol
+PROV_10,Farah,Farâh
+PROV_11,Helmand,Helmand
+PROV_12,Nimruz,Nimrôz
+PROV_13,Urozgan,Orozgân
+PROV_14,Urozgan,Orozgân
+PROV_15,Kandahar,Kandahâr
+PROV_16,Zabul,Zabol
+PROV_17,Ghazni,Ghazni
+PROV_18,Khost,Khôst
+PROV_19,Paktika,Paktîkâ
+PROV_20,Badakhshan,Badakhchan
+PROV_21,Nuristan,Nourestân
+PROV_22,Kunar,Kounar
+PROV_23,Kunduz,Kondôz
+PROV_24,Nangarhar,Nangarhâr
+PROV_25,Takhar,Takhâr
+PROV_26,Baghlan,Baghlân
+PROV_27,Kabul,Kaboul
+PROV_28,Kapisa,Kâpîssâ
+PROV_29,Parwan,Parwân
+PROV_30,Laghman,Laghmân
+PROV_31,Logar,Lôgar
+PROV_32,Parwan,Parwân
+PROV_33,Samangan,Samangân
+PROV_34,Maidan Wardak,Wardak
+PROV_35,Paktia,Paktiyâ
+PROV_36,Lunda Norte,Lunda-Nord
+PROV_37,Lunda Sul,Lunda-Sud
+PROV_38,Malanje,Malanje
+PROV_39,Bengo,Bengo
+PROV_40,Cuanza Norte,Kwanza-Nord
+PROV_41,Cuanza Sul,Kwanza-Sud
+PROV_42,Luanda,Luanda
+PROV_43,Uíge,Uíge
+PROV_44,Zaire,Zaïre
+PROV_45,Cabinda,Cabinda
+PROV_46,Bié,Bié
+PROV_47,Benguela,Benguela
+PROV_48,Cuando Cubango,Kwando-Kubango
+PROV_49,Cunene,Kunene
+PROV_50,Huambo,Huambo
+PROV_51,Huíla,Huila
+PROV_52,Moxico,Moxico
+PROV_53,Namibe,Namibe
+PROV_54,Anguilla,Anguilla
+PROV_55,Blowing Point,Blowing Point
+PROV_56,East End,Extrémité Est
+PROV_57,George Hill,George Hill
+PROV_58,Island Harbour,Island Harbour
+PROV_59,North Hill,North Hill
+PROV_60,North Side,North Side
+PROV_61,Sandy Ground,Sandy-Ground
+PROV_62,Sandy Hill Bay,Côte-de-Sable
+PROV_63,South Hill,South Hill
+PROV_64,Stoney Ground,Stoney Ground
+PROV_65,The Farrington,The Farrington
+PROV_66,The Quarter,The Quarter
+PROV_67,The Valley,The Valley
+PROV_68,West End,West End
+PROV_69,Durrës,Durrës
+PROV_70,Fier,Fier
+PROV_71,Shkodër,Shkodër
+PROV_72,Kukës,Kukës
+PROV_73,Vlorë,Vlorë
+PROV_74,Korçë,Korçë
+PROV_75,Berat,Berat
+PROV_76,Elbasan,Elbasan
+PROV_77,Gjirokastër,Gjirokastër
+PROV_78,Dibër,Dibër
+PROV_79,Lezhë,Lezhë
+PROV_80,Tirana,Tirana
+PROV_81,Jomala,Jomala
+PROV_82,Eckerö,Eckerö
+PROV_83,Föglö,Föglö
+PROV_84,Mariehamn,Mariehamn
+PROV_85,Lemland,Lemland
+PROV_86,Lumparland,Lumparland
+PROV_87,Vårdö,Vårdö
+PROV_88,Sottunga,Sottunga
+PROV_89,Kumlinge,Kumlinge
+PROV_90,Brändö,Brändö
+PROV_91,Kökar,Kökar
+PROV_92,Andorra la Vella,Andorre-la-Vieille
+PROV_93,La Massana,La Massana
+PROV_94,Ordino,Ordino
+PROV_95,Canillo,Canillo
+PROV_96,Encamp,Encamp
+PROV_97,Escaldes-Engordany,Escaldes-Engordany
+PROV_98,Sant Julià de Lòria,Sant Julià de Lòria
+PROV_99,Emirate of Ras Al Khaimah,Ras el Khaïmah
+PROV_100,Emirate of Umm Al Quwain,Oumm al Qaïwaïn
+PROV_101,Emirate of Fujairah,Fujaïrah
+PROV_102,Fujairah,Zone neutre
+PROV_103,Emirate of Ajman,Ajman
+PROV_104,Sayh Mudayrah,Zone neutre
+PROV_105,Emirate of Sharjah,Charjah
+PROV_106,Emirate of Abu Dhabi,Abou Dabi
+PROV_107,Emirate of Dubai,Dubaï
+PROV_108,Santa Cruz,Santa Cruz
+PROV_109,Tierra del Fuego,Terre de Feu
+PROV_110,San Juan,San Juan
+PROV_111,Chubut,Chubut
+PROV_112,Mendoza,Mendoza
+PROV_113,Neuquén,Neuquén
+PROV_114,Buenos Aires,Buenos Aires
+PROV_115,La Pampa,La Pampa
+PROV_116,Río Negro,Río Negro
+PROV_117,San Luis,San Luis
+PROV_118,Córdoba,Córdoba
+PROV_119,Catamarca,Catamarca
+PROV_120,Jujuy,Jujuy
+PROV_121,La Rioja,La Rioja
+PROV_122,Salta,Salta
+PROV_123,Santiago del Estero,Santiago del Estero
+PROV_124,Tucumán,Tucumán
+PROV_125,Chaco,Chaco
+PROV_126,Formosa,Formosa
+PROV_127,Corrientes,Corrientes
+PROV_128,Entre Ríos,Entre Ríos
+PROV_129,Santa Fe,Santa Fe
+PROV_130,Misiones,Misiones
+PROV_131,Buenos Aires,Buenos Aires
+PROV_132,Aragatsotn,Aragatsotn
+PROV_133,Armavir,Armavir
+PROV_134,Shirak,Shirak
+PROV_135,Tavush,Tavush
+PROV_136,Ararat,Ararat
+PROV_137,Gegharkunik,Gegharkunik
+PROV_138,Kotayk,Kotayk
+PROV_139,Lori,Lorri
+PROV_140,Yerevan,Erevan
+PROV_141,Syunik,Syunik
+PROV_142,Vayots Dzor,Vayots Dzor
+PROV_143,Eastern District,Este
+PROV_144,Manu'a Islands,Manus
+PROV_145,Rose Atoll,Île Rose
+PROV_146,Swains Island,Île Swains
+PROV_147,Western District,Ouest
+PROV_148,Antarctica,Antarctique
+PROV_149,Antarctica,Antarctique
+PROV_150,Ashmore and Cartier Islands,Îles Ashmore-et-Cartier
+PROV_151,Kerguelen Islands,Île Kerguelen
+PROV_152,Crozet Islands,Îles Crozet
+PROV_153,Amsterdam and Saint-Paul Islands,Îles Saint-Paul et Nouvelle-Amsterdam
+PROV_154,Scattered Islands in the Indian Ocean,Îles Éparses de l'océan Indien
+PROV_155,Barbuda,Barbuda
+PROV_156,Redonda,Redonda
+PROV_157,Saint George,Saint-George
+PROV_158,Saint Peter,Saint-Peter
+PROV_159,Saint Philip,Saint-Philip
+PROV_160,Saint Paul,Saint-Paul
+PROV_161,Saint Mary,Saint-Mary
+PROV_162,Saint John,Saint-John
+PROV_163,Macquarie Island,île Macquarie
+PROV_164,Jervis Bay Territory,Territoire de la baie de Jervis
+PROV_165,Northern Territory,Territoire du Nord
+PROV_166,Western Australia,Australie-Occidentale
+PROV_167,Australian Capital Territory,Territoire de la capitale australienne
+PROV_168,New South Wales,Nouvelle-Galles du Sud
+PROV_169,South Australia,Australie-Méridionale
+PROV_170,Victoria,Victoria
+PROV_171,Queensland,Queensland
+PROV_172,Lord Howe Island,Île Lord Howe
+PROV_173,Tasmania,Tasmanie
+PROV_174,Vorarlberg,Vorarlberg
+PROV_175,Burgenland,Burgenland
+PROV_176,Styria,Styrie
+PROV_177,Carinthia,Carinthie
+PROV_178,Upper Austria,Haute-Autriche
+PROV_179,Salzburg,Salzbourg
+PROV_180,Tyrol,Tyrol
+PROV_181,Lower Austria,Basse-Autriche
+PROV_182,Vienna,Vienne
+PROV_183,Agstafa,Aghstafa
+PROV_184,Dashkasan,Daşkəsən
+PROV_185,Gadabay,Gədəbəy
+PROV_186,Ganja,Gandja
+PROV_187,Goygol,Göygöl
+PROV_188,Goranboy,Goranboy
+PROV_189,Kalbajar,Kelbadjar
+PROV_190,Mingachevir,Mingachevir
+PROV_191,Qazax,Qazax
+PROV_192,Shamkir,Şəmkir
+PROV_193,Samukh,Samux
+PROV_194,Tovuz,Tovuz
+PROV_195,Yevlakh,Yevlax
+PROV_196,Baku,Bakou
+PROV_197,Absheron,Abşeron
+PROV_198,Agdam,Agdam
+PROV_199,Agdash,Ağdaş
+PROV_200,Agsu,Ağsu
+PROV_201,Hajigabul,Hacıqabul
+PROV_202,Astara,Astara
+PROV_203,Barda,Bərdə
+PROV_204,Beylagan,Beyləqan
+PROV_205,Bilasuvar,Biləsuvar
+PROV_206,Jabrayil,Jabrayil
+PROV_207,Jalilabad,Cəlilabad
+PROV_208,Shabran,Şabran
+PROV_209,Fuzuli,Fizuli
+PROV_210,Goychay,Göyçay
+PROV_211,Imishli,İmişli
+PROV_212,Ismayilli,Ismailli
+PROV_213,Kurdamir,Kürdəmir
+PROV_214,Lankaran,Lankaran
+PROV_215,Masally,Masallı
+PROV_216,Lerik,Lerik
+PROV_217,Neftchala,Neftçala
+PROV_218,Gobustan,Qobustan
+PROV_219,Siyazan,Siyəzən
+PROV_220,Saatly,Saatlı
+PROV_221,Sabirabad,Sabirabad
+PROV_222,Salyan,Salyan
+PROV_223,Shamakhi,Şamaxı
+PROV_224,Sumqayit,Sumqayıt
+PROV_225,Ujar,Ucar
+PROV_226,Khizi,Xızı
+PROV_227,Yardimli,Yardımlı
+PROV_228,Zardab,Zərdab
+PROV_229,Aghjabadi,Ağcabədi
+PROV_230,Balakan,Balakən
+PROV_231,Qabala,Qabala
+PROV_232,Oghuz,Oğuz
+PROV_233,Qakh,Qax
+PROV_234,Sheki,Cheki
+PROV_235,Quba,Quba
+PROV_236,Qusar,Qusar
+PROV_237,Khachmaz,Xaçmaz
+PROV_238,Zaqatala,Zaqatala
+PROV_239,Khojavend,Khojavend
+PROV_240,Lankaran,Lankaran
+PROV_241,Qubadli,Qubadli
+PROV_242,Susa,Choucha
+PROV_243,Tartar,Tartar
+PROV_244,Khojali,Khodjaly
+PROV_245,Zangilan,Zangilan
+PROV_246,Sadarak,Sadarak raion
+PROV_247,Ordubad,Ordubad raion
+PROV_248,Sharur,Sharur raion
+PROV_249,Babek,Babek raion
+PROV_250,Julfa,Djoulfa raion
+PROV_251,Nakhchivan,Nakhitchevan
+PROV_252,Shahbuz,Shakhbuz raion
+PROV_253,Stepanakert,Stepanakert
+PROV_254,Naftalan,Naftalan
+PROV_255,Lankaran,Lankaran
+PROV_256,Şirvan,Şirvan
+PROV_257,Shaki,Sheki
+PROV_258,Shusha,Choucha
+PROV_259,Yevlakh,Ievlakh
+PROV_260,Kangarli,Kangarli
+PROV_261,Cankuzo,Cankuzo
+PROV_262,Karuzi,Karuzi
+PROV_263,Rutana,Rutana
+PROV_264,Ruyigi,Ruyigi
+PROV_265,Bubanza,Bubanza
+PROV_266,Bururi,Bururi
+PROV_267,Cibitoke,Cibitoke
+PROV_268,Gitega,Gitega
+PROV_269,Kayanza,Kayanza
+PROV_270,Makamba,Makamba
+PROV_271,Ngozi,Ngozi
+PROV_272,Kirundo,Kirundo
+PROV_273,Muyinga,Muyinga
+PROV_274,Bujumbura Mairie,Bujumbura Mairie
+PROV_275,Muramvya,Muramvya
+PROV_276,Bujumbura Rural,Bujumbura rural
+PROV_277,Mwaro,Mwaro
+PROV_278,Hainaut,Hainaut
+PROV_279,Limburg,Limbourg
+PROV_280,Brussels Capital,Bruxelles-Capitale
+PROV_281,Flemish Brabant,Brabant flamand
+PROV_282,Namur,Namur
+PROV_283,Luxembourg,Luxembourg
+PROV_284,East Flanders,Flandre-Orientale
+PROV_285,West Flanders,Flandre-Occidentale
+PROV_286,Antwerp,d'Anvers
+PROV_287,Liège,Liège
+PROV_288,Walloon Brabant,Brabant wallon
+PROV_289,Borgou,Borgou
+PROV_290,Alibori,Alibori
+PROV_291,Collines,Collines
+PROV_292,Atlantique,Atlantique
+PROV_293,Littoral,Littoral
+PROV_294,Kouffo,Couffo
+PROV_295,Ouémé,Ouémé
+PROV_296,Zou,Zou
+PROV_297,Plateau,Plateau
+PROV_298,Mono,Mono
+PROV_299,Atakora,Atacora
+PROV_300,Donga,Donga
+PROV_301,Kompienga,Kompienga
+PROV_302,Gourma,Gourma
+PROV_303,Houet,Houet
+PROV_304,Kénédougou,Kénédougou
+PROV_305,Banwa,Banwa
+PROV_306,Kossi,Kossi
+PROV_307,Balé,Balé
+PROV_308,Mouhoun,Mouhoun
+PROV_309,Oudalan,Oudalan
+PROV_310,Soum,Soum
+PROV_311,Nayala,Nayala
+PROV_312,Sourou,Sourou
+PROV_313,Bam,Bam
+PROV_314,Boulkiemdé,Boulkiemdé
+PROV_315,Kourwéogo,Kourwéogo
+PROV_316,Bazèga,Bazèga
+PROV_317,Kadiogo,Kadiogo
+PROV_318,Oubritenga,Oubritenga
+PROV_319,Passoré,Passoré
+PROV_320,Zondoma,Zondoma
+PROV_321,Sanguié,Sanguié
+PROV_322,Sissili,Sissili
+PROV_323,Ziro,Ziro
+PROV_324,Loroum,Loroum
+PROV_325,Yatenga,Yatenga
+PROV_326,Namentenga,Namentenga
+PROV_327,Sanmatenga,Sanmatenga
+PROV_328,Boulgou,Boulgou
+PROV_329,Koulpélogo,Koulpélogo
+PROV_330,Ganzourgou,Ganzourgou
+PROV_331,Kouritenga,Kouritenga
+PROV_332,Nahouri,Nahouri
+PROV_333,Zoundwéogo,Zoundwéogo
+PROV_334,Bougouriba,Bougouriba
+PROV_335,Ioba,Ioba
+PROV_336,Tuy,Tuy
+PROV_337,Léraba,Léraba
+PROV_338,Comoé,Comoé
+PROV_339,Poni,Poni
+PROV_340,Gnagna,Gnagna
+PROV_341,Komondjari,Komondjari
+PROV_342,Séno,Séno
+PROV_343,Yagha,Yagha
+PROV_344,Tapoa,Tapoa
+PROV_345,Noumbiel,Noumbiel
+PROV_346,Dhaka,Dhaka
+PROV_347,Khulna,Khulna
+PROV_348,Barisal,Barisal
+PROV_349,Chattogram,Chittagong
+PROV_350,Sylhet,Sylhet
+PROV_351,Rajshahi,Rajshahi
+PROV_352,Rangpur,Rangpur
+PROV_353,Sliven,Sliven
+PROV_354,Haskovo,Khaskovo
+PROV_355,Stara Zagora,Stara Zagora
+PROV_356,Pazardzhik,Pazardjik
+PROV_357,Plovdiv,Plovdiv
+PROV_358,Smolyan,Smolyan
+PROV_359,Kardzhali,Kardjali
+PROV_360,Sofia,Sofia-ville
+PROV_361,Sofia,Sofia
+PROV_362,Pernik,Pernik
+PROV_363,Gabrovo,Gabrovo
+PROV_364,Lovech,Lovetch
+PROV_365,Pleven,Pleven
+PROV_366,Veliko Tarnovo,Veliko Tarnovo
+PROV_367,Montana,Montana
+PROV_368,Vratsa,Vratsa
+PROV_369,Kyustendil,Kyoustendil
+PROV_370,Vidin,Vidin
+PROV_371,Burgas,Bourgas
+PROV_372,Yambol,Yambol
+PROV_373,Razgrad,Razgrad
+PROV_374,Targovishte,Targovichté
+PROV_375,Shumen,Choumen
+PROV_376,Dobrich,Dobritch
+PROV_377,Varna,Varna
+PROV_378,Silistra,Silistra
+PROV_379,Ruse,Roussé
+PROV_380,Blagoevgrad,Blagoevgrad
+PROV_381,Southern,méridional
+PROV_382,Northern,septentrional
+PROV_383,Central,central
+PROV_384,Capital,de la capitale
+PROV_385,Muharraq,de Muharraq
+PROV_386,New Providence,New Providence
+PROV_387,Freeport,Freeport
+PROV_388,West Grand Bahama,West Grand Bahama
+PROV_389,East Grand Bahama,East Grand Bahama
+PROV_390,North Abaco,North Abaco
+PROV_391,Central Abaco,Central Abaco
+PROV_392,South Abaco,South Abaco
+PROV_393,Moore's Island,Moore's Island
+PROV_394,Berry Islands,Îles Berry
+PROV_395,North Andros,North Andros
+PROV_396,Central Andros,Central Andros
+PROV_397,Mangrove Cay,Mangrove Cay
+PROV_398,South Andros,South Andros
+PROV_399,Black Point,Black Point
+PROV_400,Exuma,Îles Exumas
+PROV_401,Spanish Wells,Spanish Wells
+PROV_402,Harbour Island,Harbour Island
+PROV_403,North Eleuthera,North Eleuthera
+PROV_404,Central Eleuthera,Central Eleuthera
+PROV_405,South Eleuthera,South Eleuthera
+PROV_406,Cat Island,Cat Island
+PROV_407,San Salvador Island,San Salvador
+PROV_408,Rum Cay,Rum Cay
+PROV_409,Long Island,Long Island
+PROV_410,Ragged Island,Ragged Island
+PROV_411,Crooked Island,Crooked Island
+PROV_412,Acklins,Acklins
+PROV_413,Mayaguana,Mayaguana
+PROV_414,Inagua,Inagua
+PROV_415,Bimini,Îles Bimini
+PROV_416,Livno,Bosnie-Herzégovine
+PROV_417,Una-Sana Canton,Una-Sana
+PROV_418,Central Bosnia Canton,canton de Bosnie centrale
+PROV_419,West Herzegovina Canton,canton de l'Herzégovine de l'Ouest
+PROV_420,Herzegovina-Neretva Canton,canton d'Herzégovine-Neretva
+PROV_421,Tuzla Canton,canton de Tuzla
+PROV_422,Zenica-Doboj Canton,canton de Zenica-Doboj
+PROV_423,Sarajevo Canton,canton de Sarajevo
+PROV_424,Bosnian Podrinje Canton,Podrinje bosnien
+PROV_425,Posavina Canton,canton de la Posavina
+PROV_426,Doboj,Doboj
+PROV_427,Banja Luka,Banja Luka
+PROV_428,Brčko,Brčko
+PROV_429,Bijeljina,Bijeljina
+PROV_430,Vlasenica,Vlasenica
+PROV_431,Sarajevo-Romanija,Sarajevo-Romanija
+PROV_432,Foča,Foča
+PROV_433,Trebinje,Trebinje
+PROV_434,Saint Barthélemy,Saint-Barthélemy
+PROV_435,Brest,Brest
+PROV_436,Gomel,voblast de Homiel
+PROV_437,Mahilioŭ,Moguilev
+PROV_438,Vitebsk,Vitebsk
+PROV_439,Grodno,Hrodna
+PROV_440,Minsk,Minsk
+PROV_441,Minsk,Minsk
+PROV_442,Belize,Belize
+PROV_443,Cayo,Cayo
+PROV_444,Corozal,Corozal
+PROV_445,Orange Walk,Orange Walk
+PROV_446,Stann Creek,Stann Creek
+PROV_447,Toledo,Toledo
+PROV_448,Hamilton,Hamilton
+PROV_449,St. George,Saint George
+PROV_450,Devonshire,Devon
+PROV_451,Hamilton,Hamilton
+PROV_452,Paget Parish,Paget
+PROV_453,Pembroke Parish,Pembroke
+PROV_454,Saint George,Saint George
+PROV_455,Sandys Parish,Sandys
+PROV_456,Smith's Parish,Smith's
+PROV_457,Southampton,Southampton
+PROV_458,Warwick,Warwick
+PROV_459,Cochabamba,Cochabamba
+PROV_460,Chuquisaca,Chuquisaca
+PROV_461,Beni,Beni
+PROV_462,La Paz,La Paz
+PROV_463,Oruro,Oruro
+PROV_464,Pando,Pando
+PROV_465,Potosí,Potosí
+PROV_466,Santa Cruz,Santa Cruz
+PROV_467,Tarija,Tarija
+PROV_468,Goiás,Goiás
+PROV_469,São Paulo,São Paulo
+PROV_470,Pernambuco,Pernambouc
+PROV_471,Acre,Acre
+PROV_472,Amazonas,Amazonas
+PROV_473,Maranhão,Maranhão
+PROV_474,Pará,Pará
+PROV_475,Rondônia,Rondônia
+PROV_476,Tocantins,Tocantins
+PROV_477,Federal District,District fédéral
+PROV_478,Mato Grosso do Sul,Mato Grosso do Sul
+PROV_479,Minas Gerais,Minas Gerais
+PROV_480,Mato Grosso,Mato Grosso
+PROV_481,Rio Grande do Sul,Rio Grande do Sul
+PROV_482,Paraná,Paraná
+PROV_483,Santa Catarina,Santa Catarina
+PROV_484,Ceará,Ceará
+PROV_485,Piauí,Piauí
+PROV_486,Alagoas,Alagoas
+PROV_487,Bahia,Bahia
+PROV_488,Espírito Santo,Espírito Santo
+PROV_489,Paraíba,Paraíba
+PROV_490,Rio de Janeiro,Rio de Janeiro
+PROV_491,Rio Grande do Norte,Rio Grande do Norte
+PROV_492,Sergipe,Sergipe
+PROV_493,Roraima,Roraima
+PROV_494,Amapá,Amapá
+PROV_495,Christ Church,Christ Church
+PROV_496,Saint Andrew,Saint Andrew
+PROV_497,Saint George,Saint George
+PROV_498,Saint James,Saint James
+PROV_499,Saint John,Saint John
+PROV_500,Saint Joseph,Saint Joseph
+PROV_501,Saint Lucy,Saint Lucy
+PROV_502,Saint Michael,Saint Michael
+PROV_503,Saint Peter,Saint Peter
+PROV_504,Saint Philip,Saint Philip
+PROV_505,Saint Thomas,Saint Thomas
+PROV_506,Belait,Belait
+PROV_507,Brunei-Muara,Brunei-Muara
+PROV_508,Temburong,Temburong
+PROV_509,Tutong,Tutong
+PROV_510,Chukha,Chukha
+PROV_511,Dagana,Dagana
+PROV_512,Haa,Haa
+PROV_513,Paro,Paro
+PROV_514,Gasa,Gasa
+PROV_515,Samtse,Samtse
+PROV_516,Thimphu,Thimphou
+PROV_517,Punakha,Punakha
+PROV_518,Bumthang,Bumthang
+PROV_519,Tsirang,Tsirang
+PROV_520,Geylegphug,Geylegphug
+PROV_521,Lhuntse,Lhuntse
+PROV_522,Trashiyangtse,Trashiyangtse
+PROV_523,Zhemgang,Zhemgang
+PROV_524,Trongsa,Trongsa
+PROV_525,Wangdue Phodrang,Wangdue Phodrang
+PROV_526,Mongar,Mongar
+PROV_527,Pemagatshel,Pemagatshel
+PROV_528,Samdrup Jongkhar,Samdrup Jongkhar
+PROV_529,Trashigang,Trashigang
+PROV_530,Bouvet Island,Île Bouvet
+PROV_531,Ghanzi,Ghanzi
+PROV_532,Kgalagadi,Kgalagadi
+PROV_533,North-West,du Nord-Ouest
+PROV_534,Central,Central
+PROV_535,Kgatleng,Kgatleng
+PROV_536,Kweneng,Kweneng
+PROV_537,South-East,du Sud-Est
+PROV_538,Southern,du Sud
+PROV_539,North-East,du Nord-Est
+PROV_540,Gaborone,Gaborone
+PROV_541,Francistown,Francistown
+PROV_542,Lobatse,Lobatse
+PROV_543,Selebi-Phikwe,Selebi-Phikwe
+PROV_544,Sowa,Sowa Town
+PROV_545,Jwaneng,Jwaneng
+PROV_546,Bangui,Bangui
+PROV_547,Ombella-M'Poko Prefecture,Ombella-M'Poko
+PROV_548,Basse-Kotto Prefecture,Basse-Kotto
+PROV_549,Lobaye Prefecture,Lobaye
+PROV_550,Mambéré-Kadéï,Mambéré-Kadéï
+PROV_551,Sangha-Mbaéré,Sangha-Mbaéré
+PROV_552,Nana-Mambéré Prefecture,Nana-Mambéré
+PROV_553,Ouham-Pendé Prefecture,Ouham-Pendé
+PROV_554,Bamingui-Bangoran Prefecture,Bamingui-Bangoran
+PROV_555,Nana-Grébizi Economic Prefecture,Nana-Grébizi
+PROV_556,Kémo Prefecture,Kémo
+PROV_557,Ouaka Prefecture,Ouaka
+PROV_558,Ouham Prefecture,Ouham
+PROV_559,Vakaga Prefecture,Vakaga
+PROV_560,Haute-Kotto Prefecture,Haute-Kotto
+PROV_561,Haut-Mbomou Prefecture,Haut-Mbomou
+PROV_562,Mbomou Prefecture,Mbomou
+PROV_563,Manitoba,Manitoba
+PROV_564,Saskatchewan,Saskatchewan
+PROV_565,Alberta,Alberta
+PROV_566,British Columbia,Colombie-Britannique
+PROV_567,Nunavut,Nunavut
+PROV_568,Northwest Territories,Territoires du Nord-Ouest
+PROV_569,Yukon,Yukon
+PROV_570,Ontario,Ontario
+PROV_571,Quebec,Québec
+PROV_572,New Brunswick,Nouveau-Brunswick
+PROV_573,Nova Scotia,Nouvelle-Écosse
+PROV_574,Newfoundland and Labrador,Terre-Neuve-et-Labrador
+PROV_575,Prince Edward Island,Île-du-Prince-Édouard
+PROV_576,Geneva,canton de Genève
+PROV_577,Jura,Jura
+PROV_578,Neuchâtel,canton de Neuchâtel
+PROV_579,Aargau,canton d'Argovie
+PROV_580,Lucerne,canton de Lucerne
+PROV_581,Nidwalden,canton de Nidwald
+PROV_582,Valais,Valais
+PROV_583,Appenzell Ausserrhoden,canton d'Appenzell Rhodes-Extérieures
+PROV_584,St. Gallen,canton de Saint-Gall
+PROV_585,Ticino,Tessin
+PROV_586,Glarus,canton de Glaris
+PROV_587,Grisons,canton des Grisons
+PROV_588,Schaffhausen,canton de Schaffhouse
+PROV_589,Schwyz,canton de Schwytz
+PROV_590,Thurgau,canton de Thurgovie
+PROV_591,Uri,canton d'Uri
+PROV_592,Zürich,canton de Zurich
+PROV_593,Zug,canton de Zoug
+PROV_594,Fribourg,canton de Fribourg
+PROV_595,Vaud,canton de Vaud
+PROV_596,Basel-Landschaft,canton de Bâle-Campagne
+PROV_597,Bern,canton de Berne
+PROV_598,Basel-Stadt,canton de Bâle-Ville
+PROV_599,Solothurn,canton de Soleure
+PROV_600,Obwalden,canton d'Obwald
+PROV_601,Appenzell Innerrhoden,canton d'Appenzell Rhodes-Intérieures
+PROV_602,Ñuble,Ñuble
+PROV_603,Aysén,Aisén
+PROV_604,Magellan and the Chilean Antarctic,Magallanes et l'Antarctique chilien
+PROV_605,Tarapacá,Tarapacá
+PROV_606,Arica y Parinacota,Arica et Parinacota
+PROV_607,Antofagasta,Antofagasta
+PROV_608,Atacama,Atacama
+PROV_609,Coquimbo,Coquimbo
+PROV_610,Santiago,Santiago
+PROV_611,Valparaíso,Valparaíso
+PROV_612,Araucanía,Araucanie
+PROV_613,Los Ríos,Région des Fleuves
+PROV_614,Biobío,Biobío
+PROV_615,O'Higgins,O'Higgins
+PROV_616,Los Lagos,Région des Lacs
+PROV_617,Maule,Maule
+PROV_618,Gansu,Gansu
+PROV_619,Qinghai,Qinghai
+PROV_620,Guangxi,Guangxi
+PROV_621,Guizhou,Guizhou
+PROV_622,Chongqing,Chongqing
+PROV_623,Beijing,Pékin
+PROV_624,Fujian,Fujian
+PROV_625,Anhui,Anhui
+PROV_626,Guangdong,Guangdong
+PROV_627,Tibet,Tibet
+PROV_628,Xinjiang,Xinjiang
+PROV_629,Hainan,Hainan
+PROV_630,Ningxia,Níngxià
+PROV_631,Shaanxi,Shaanxi
+PROV_632,Shanxi,Shanxi
+PROV_633,Hubei,Hubei
+PROV_634,Hunan,Hunan
+PROV_635,Sichuan,Sichuan
+PROV_636,Yunnan,Yunnan
+PROV_637,Hebei,Hebei
+PROV_638,Henan,Henan
+PROV_639,Liaoning,Liaoning
+PROV_640,Shandong,Shandong
+PROV_641,Tianjin,Tianjin
+PROV_642,Jiangxi,Jiangxi
+PROV_643,Jiangsu,Jiangsu
+PROV_644,Shanghai,Shanghai
+PROV_645,Zhejiang,Zhejiang
+PROV_646,Jilin,Jilin
+PROV_647,Inner Mongolia,Mongolie-Intérieure
+PROV_648,Heilongjiang,Heilongjiang
+PROV_649,Savanes,Savanes
+PROV_650,Denguélé,Denguélé
+PROV_651,Bafing,Bafing
+PROV_652,Dix-Huit Montagnes,Dix-Huit Montagnes
+PROV_653,Worodougou,Worodougou
+PROV_654,Marahoué,Marahoué
+PROV_655,Fromager,Gôh
+PROV_656,Haut-Sassandra,Haut-Sassandra
+PROV_657,Sud-Bandama,Sud-Bandama
+PROV_658,Bas-Sassandra,Bas-Sassandra
+PROV_659,Zanzan,Zanzan
+PROV_660,Vallée du Bandama,Vallée du Bandama
+PROV_661,Agnéby,Agnébi
+PROV_662,N'zi-Comoé,N'zi-Comoé
+PROV_663,Lagunes,Lagunes
+PROV_664,Moyen-Cavally,Moyen-Cavally
+PROV_665,Comoé,Comoé
+PROV_666,Lacs,Lacs
+PROV_667,Sud-Comoé,Sud-Comoé
+PROV_668,Clipperton Island,île Clipperton
+PROV_669,Far North,Extrême-Nord
+PROV_670,Littoral,Littoral
+PROV_671,Northwest,Nord-Ouest
+PROV_672,Centre,Centre
+PROV_673,East,Est
+PROV_674,Adamawa,Adamaoua
+PROV_675,North,Nord
+PROV_676,West,Ouest
+PROV_677,Southwest,Sud-Ouest
+PROV_678,South,Région du Sud
+PROV_679,Équateur,Équateur
+PROV_680,Orientale,orientale
+PROV_681,Bandundu,Bandundu
+PROV_682,Kasaï-Occidental,Kasaï occidental
+PROV_683,Kongo Central,Kongo central
+PROV_684,Kinshasa,Kinshasa
+PROV_685,South Kivu,Sud-Kivu
+PROV_686,Maniema,Maniema
+PROV_687,Kasaï-Oriental,Kasaï-Oriental
+PROV_688,Katanga,Katanga
+PROV_689,North Kivu,Nord-Kivu
+PROV_690,Cuvette-Ouest,Cuvette-Ouest
+PROV_691,Bouenza,Bouenza
+PROV_692,Likouala,Likouala
+PROV_693,Sangha,Sangha
+PROV_694,Pool,Pool
+PROV_695,Cuvette,Cuvette
+PROV_696,Kouilou,Kouilou
+PROV_697,Lékoumou,Lékoumou
+PROV_698,Niari,Niari
+PROV_699,Plateaux,Plateaux
+PROV_700,Brazzaville,Brazzaville
+PROV_701,Pointe-Noire,Pointe Noire
+PROV_702,Atiu,Atiu
+PROV_703,Aitutaki,Aitutaki
+PROV_704,Mangaia,Mangaia
+PROV_705,Rarotonga,Rarotonga
+PROV_706,Mitiaro,Mitiaro
+PROV_707,Mauke,Mauke
+PROV_708,Palmerston Island,Palmerston
+PROV_709,Pukapuka,Puka Puka
+PROV_710,Rakahanga,Rakahanga
+PROV_711,Manihiki,Manihiki
+PROV_712,Penrhyn Atoll,Penrhyn
+PROV_713,Colombia,Colombie
+PROV_714,Amazonas,Amazonas
+PROV_715,Antioquia,Antioquia
+PROV_716,Boyacá,Boyacá
+PROV_717,Córdoba,Córdoba
+PROV_718,Santander,Santander
+PROV_719,La Guajira,La Guajira
+PROV_720,Archipelago of Saint Andréws,Archipel de San Andrés
+PROV_721,Caldas,Caldas
+PROV_722,Cundinamarca,Cundinamarca
+PROV_723,Bogotá,Bogota
+PROV_724,Quindío,Quindío
+PROV_725,Risaralda,Risaralda
+PROV_726,Tolima,Tolima
+PROV_727,Caquetá,Caquetá
+PROV_728,Cauca,Cauca
+PROV_729,Huila,Huila
+PROV_730,Nariño,Nariño
+PROV_731,Putumayo,Putumayo
+PROV_732,Valle del Cauca,Valle del Cauca
+PROV_733,Atlántico,Atlántico
+PROV_734,Bolívar,Bolívar
+PROV_735,Cesar,Cesar
+PROV_736,Chocó,Chocó
+PROV_737,Magdalena,Magdalena
+PROV_738,Sucre,Sucre
+PROV_739,Arauca,Arauca
+PROV_740,Norte de Santander,Norte de Santander
+PROV_741,Casanare,Casanare
+PROV_742,Guaviare,Guaviare
+PROV_743,Guainía,Guainía
+PROV_744,Meta,Meta
+PROV_745,Vaupés,Vaupés
+PROV_746,Vichada,Vichada
+PROV_747,Mohéli,Mohéli
+PROV_748,Andjazîdja,Grande Comore
+PROV_749,Anjouan,Anjouan
+PROV_750,Brava,Brava
+PROV_751,São Filipe,São Filipe
+PROV_752,Mosteiros,Mosteiros
+PROV_753,Santa Catarina do Fogo,Santa Catarina do Fogo
+PROV_754,Tarrafal,Tarrafal
+PROV_755,Santa Catarina,Santa Catarina
+PROV_756,São Miguel,São Miguel
+PROV_757,Santa Cruz,Santa Cruz
+PROV_758,São Salvador do Mundo,São Salvador do Mundo
+PROV_759,São Lourenço dos Órgãos,São Lourenço dos Órgãos
+PROV_760,São Domingos,São Domingos
+PROV_761,Ribeira Grande de Santiago,Ribeira Grande de Santiago
+PROV_762,Praia,Praia
+PROV_763,Maio,Maio
+PROV_764,Boa Vista,Boa Vista
+PROV_765,Sal,Sal
+PROV_766,Ribeira Brava,Ribeira Brava
+PROV_767,Tarrafal de São Nicolau,Tarrafal de São Nicolau
+PROV_768,São Vicente,São Vicente
+PROV_769,Porto Novo,Porto Novo
+PROV_770,Ribeira Grande,Ribeira Grande
+PROV_771,Paul,Paul
+PROV_772,Cartago,Cartago
+PROV_773,Heredia,Heredia
+PROV_774,Limón,Limón
+PROV_775,Puntarenas,Puntarenas
+PROV_776,San José,San José
+PROV_777,Alajuela,Alajuela
+PROV_778,Guanacaste,Guanacaste
+PROV_779,Coral Sea Islands,Coral Sea Islands
+PROV_780,Cienfuegos,Cienfuegos
+PROV_781,Isla de la Juventud,île de la Jeunesse
+PROV_782,Pinar del Río,Pinar del Río
+PROV_783,Sancti Spíritus,Sancti Spíritus
+PROV_784,Ciego de Ávila,Ciego de Ávila
+PROV_785,Camagüey,Camagüey
+PROV_786,Guantánamo,Guantánamo
+PROV_787,Granma,Granma
+PROV_788,Holguín,Holguín
+PROV_789,Las Tunas,Las Tunas
+PROV_790,Santiago de Cuba,Santiago de Cuba
+PROV_791,Havana,La Havane
+PROV_792,Artemisa,Artemisa
+PROV_793,Matanzas,Matanzas
+PROV_794,Villa Clara,Villa Clara
+PROV_795,Mayabeque,Mayabeque
+PROV_796,Curaçao,Curaçao
+PROV_797,Cayman Islands,Îles Caïmans
+PROV_798,Northern Cyprus,Chypre du Nord
+PROV_799,Larnaca,Larnaca
+PROV_800,Nicosia,Nicosie
+PROV_801,Paphos,Paphos
+PROV_802,Famagusta,Famagouste
+PROV_803,Limassol,Limassol
+PROV_804,Ústí nad Labem,région d'Ústí nad Labem
+PROV_805,Plzeň-,Plzeň-město
+PROV_806,South Moravian,Moravie du Sud
+PROV_807,Zlín,Zlín
+PROV_808,Olomouc,Olomouc
+PROV_809,Pardubice,Pardubice
+PROV_810,Karlovy Vary,Karlovy Vary
+PROV_811,South Bohemian,Bohême-du-Sud
+PROV_812,Vysočina,Vysočina
+PROV_813,Prague,Prague
+PROV_814,Central Bohemian,Bohême centrale
+PROV_815,Liberec,Liberec
+PROV_816,Hradec Králové,Hradec Králové
+PROV_817,Moravian-Silesian,Moravie-Silésie
+PROV_818,North Rhine-Westphalia,Rhénanie-du-Nord-Westphalie
+PROV_819,Baden-Württemberg,Bade-Wurtemberg
+PROV_820,Hesse,Hesse
+PROV_821,Free Hanseatic Bremen,Brême
+PROV_822,Lower Saxony,Basse-Saxe
+PROV_823,Thuringia,Thuringe
+PROV_824,Hamburg,Hambourg
+PROV_825,Schleswig-Holstein,Schleswig-Holstein
+PROV_826,Rhineland-Palatinate,Rhénanie-Palatinat
+PROV_827,Saarland,Sarre
+PROV_828,Bavaria,Bavière
+PROV_829,Berlin,Berlin
+PROV_830,Saxony-Anhalt,Saxe-Anhalt
+PROV_831,Saxony,Saxe
+PROV_832,Brandenburg,Brandebourg
+PROV_833,Mecklenburg-Western Pomerania,Mecklembourg-Poméranie-Occidentale
+PROV_834,Ali Sabieh,Ali Sabieh
+PROV_835,Djibouti,Djibouti
+PROV_836,Arta,Arta
+PROV_837,Dikhil,Dikhil
+PROV_838,Obock,Obock
+PROV_839,Tadjourah,Tadjourah
+PROV_840,Saint Andrew,Saint-Andrew
+PROV_841,Saint David,Saint-David
+PROV_842,Saint George,Saint-George
+PROV_843,Saint John,Saint-John
+PROV_844,Saint Joseph,Saint-Joseph
+PROV_845,Saint Luke,Saint-Luke
+PROV_846,Saint Mark,Saint-Mark
+PROV_847,Saint Patrick,Saint-Patrick
+PROV_848,Saint Paul,Saint-Paul
+PROV_849,Saint Peter,Saint-Peter
+PROV_850,Central Denmark,Jutland-Central
+PROV_851,Southern Denmark,Danemark du Sud
+PROV_852,North Denmark,Jutland-du-Nord
+PROV_853,Denmark,Hovedstaden
+PROV_854,Zealand,Sjælland
+PROV_855,Santiago,Santiago
+PROV_856,Santiago Rodríguez,Santiago Rodríguez
+PROV_857,Valverde,Valverde
+PROV_858,San Juan,San Juan
+PROV_859,Santo Domingo,Santo Domingo
+PROV_860,Sánchez Ramírez,Sánchez Ramírez
+PROV_861,San Pedro de Macorís,San Pedro de Macorís
+PROV_862,Monte Cristi,Monte Cristi
+PROV_863,Puerto Plata,Puerto Plata
+PROV_864,Dajabón,Dajabón
+PROV_865,Espaillat,Espaillat
+PROV_866,Hermanas Mirabal,Hermanas Mirabal
+PROV_867,Baoruco,Baoruco
+PROV_868,Barahona,Barahona
+PROV_869,Independencia,Independencia
+PROV_870,La Estrelleta,Elías Piña
+PROV_871,Pedernales,Pedernales
+PROV_872,Azua,Azua
+PROV_873,La Vega,La Vega
+PROV_874,Monseñor Nouel,Monseñor Nouel
+PROV_875,Peravia,Peravia
+PROV_876,San José de Ocoa,San José de Ocoa
+PROV_877,Duarte,Duarte
+PROV_878,Hato Mayor,Hato Mayor
+PROV_879,Monte Plata,Monte Plata
+PROV_880,María Trinidad Sánchez,María Trinidad Sánchez
+PROV_881,Samaná,Samaná
+PROV_882,San Cristóbal,San Cristóbal
+PROV_883,Nacional,Nacional
+PROV_884,El Seibo,El Seibo
+PROV_885,La Altagracia,La Altagracia
+PROV_886,La Romana,La Romana
+PROV_887,Adrar,Adrar
+PROV_888,Aïn Témouchent,Aïn Témouchent
+PROV_889,Oran,Oran
+PROV_890,Sidi Bel Abbès,Sidi Bel Abbès
+PROV_891,Tlemcen,Tlemcen
+PROV_892,Béchar,Béchar
+PROV_893,Naama,Naâma
+PROV_894,Tindouf,Tindouf
+PROV_895,Annaba,Wilaya d'Annaba
+PROV_896,El Tarf,El Tarf
+PROV_897,Jijel,Jijel
+PROV_898,Skikda,Skikda
+PROV_899,Illizi,Illizi
+PROV_900,Tamanghasset,Tamanrasset
+PROV_901,El Bayadh,El Bayadh
+PROV_902,El Oued,El Oued
+PROV_903,Ghardaïa,Ghardaïa
+PROV_904,Laghouat,Laghouat
+PROV_905,Ouargla,Ouargla
+PROV_906,Algiers,Alger
+PROV_907,Boumerdès,Boumerdès
+PROV_908,Tizi Ouzou,Tizi Ouzou
+PROV_909,Tipasa,Tipaza
+PROV_910,Aïn Defla,Aïn Defla
+PROV_911,Chlef,Chlef
+PROV_912,Mascara,Mascara
+PROV_913,Mostaganem,Mostaganem
+PROV_914,Relizane,Relizane
+PROV_915,Saïda,Saïda
+PROV_916,Tiaret,Tiaret
+PROV_917,Tissemsilt,Tissemsilt
+PROV_918,Bordj Bou Arréridj,Bordj Bou Arreridj
+PROV_919,Béjaïa,Béjaïa
+PROV_920,Blida,Wilaya de Blida
+PROV_921,Bouïra,Bouira
+PROV_922,Biskra,Biskra
+PROV_923,Djelfa,Djelfa
+PROV_924,Médéa,Médéa
+PROV_925,M'Sila,M'Sila
+PROV_926,Sétif,Sétif
+PROV_927,Batna,Batna
+PROV_928,Constantine,Constantine
+PROV_929,Guelma,Guelma
+PROV_930,Khenchela,Khenchela
+PROV_931,Mila,Mila
+PROV_932,Oum El Bouaghi,Oum El Bouaghi
+PROV_933,Souk Ahras,Souk Ahras
+PROV_934,Tébessa,Tébessa
+PROV_935,Azuay,Azuay
+PROV_936,El Oro,El Oro
+PROV_937,Loja,Loja
+PROV_938,Zamora Chinchipe,Zamora-Chinchipe
+PROV_939,Galápagos,Galápagos
+PROV_940,Bolívar,Bolívar
+PROV_941,Cañar,Cañar
+PROV_942,Cotopaxi,Cotopaxi
+PROV_943,Guayas,Guayas
+PROV_944,Los Ríos,Los Ríos
+PROV_945,Manabí,Manabí
+PROV_946,Chimborazo,Chimborazo
+PROV_947,Morona-Santiago,Morona-Santiago
+PROV_948,Orellana,Orellana
+PROV_949,Pichincha,Pichincha
+PROV_950,Pastaza,Pastaza
+PROV_951,Napo,Napo
+PROV_952,Tungurahua,Tungurahua
+PROV_953,Esmeraldas,Esmeraldas
+PROV_954,Carchi,Carchi
+PROV_955,Imbabura,Imbabura
+PROV_956,Sucumbíos,Sucumbíos
+PROV_957,Santa Elena,Santa Elena
+PROV_958,Santo Domingo de los Tsáchilas,Santo Domingo de los Tsáchilas
+PROV_959,Gharbia,Gharbeya
+PROV_960,Ismailia,Ismaïlia
+PROV_961,Monufia,Menufeya
+PROV_962,Cairo,du Caire
+PROV_963,Qalyubia,Qalyubiya
+PROV_964,Al Sharqia,Ach-Charqiya
+PROV_965,Suez,Suez
+PROV_966,Dakahlia,Dakahleya
+PROV_967,Port Said,Port-Saïd
+PROV_968,Damietta,Damiette
+PROV_969,Matrouh,Marsa-Matruh
+PROV_970,Beheira,Beheira
+PROV_971,Faiyum,Fayoum
+PROV_972,Alexandria,Alexandrie
+PROV_973,Giza,Gizeh
+PROV_974,Minya,Minya
+PROV_975,Beni Suef,Beni Souef
+PROV_976,Kafr el-Sheikh,de Kafr el-Cheik
+PROV_977,Aswan,Assouan
+PROV_978,Asyut,Assiout
+PROV_979,New Valley,la Nouvelle-Vallée
+PROV_980,Qena,Qena
+PROV_981,Sohag,Sohag
+PROV_982,Red Sea,Mer-Rouge
+PROV_983,South Sinai,Sinaï Sud
+PROV_984,North Sinai,Sinaï Nord
+PROV_985,Luxor,Louxor
+PROV_986,Gash-Barka,Gash-Barka
+PROV_987,Anseba,Anseba
+PROV_988,Debub,Debub
+PROV_989,Northern Red Sea,Semien-Keih-Bahri
+PROV_990,Maekel,Maekel
+PROV_991,Southern Red Sea,Debub-Keih-Bahri
+PROV_992,Dhekelia,Akrotiri et Dhekelia
+PROV_993,Araba / Álava,Alava
+PROV_994,Albacete,d'Albacete
+PROV_995,Alicante,d'Alicante
+PROV_996,Almería,d'Almería
+PROV_997,Asturias,Asturies
+PROV_998,Ávila,d'Ávila
+PROV_999,Badajoz,Badajoz
+PROV_1000,Balearic Islands,Îles Baléares
+PROV_1001,Barcelona,Barcelone
+PROV_1002,Burgos,Burgos
+PROV_1003,Cáceres,Cáceres
+PROV_1004,Cádiz,Cadix
+PROV_1005,Cantabria,Cantabrie
+PROV_1006,Castellón,Castellón
+PROV_1007,Ceuta,Ceuta
+PROV_1008,Ciudad Real,Ciudad Real
+PROV_1009,Córdoba,Cordoue
+PROV_1010,Cuenca,Cuenca
+PROV_1011,Girona,Gérone
+PROV_1012,Granada,Grenade
+PROV_1013,Guadalajara,Guadalajara
+PROV_1014,Gipuzkoa,Guipuscoa
+PROV_1015,Huelva,Huelva
+PROV_1016,Huesca,Huesca
+PROV_1017,Jaén,Jaén
+PROV_1018,A Coruña,Corogne
+PROV_1019,La Rioja,La Rioja
+PROV_1020,Las Palmas,Las Palmas
+PROV_1021,León,León
+PROV_1022,Lleida,Lérida
+PROV_1023,Lugo,Lugo
+PROV_1024,Community of Madrid,Communauté de Madrid
+PROV_1025,Málaga,Málaga
+PROV_1026,Melilla,Melilla
+PROV_1027,Murcia,Murcie
+PROV_1028,Navarre,Navarre
+PROV_1029,Ourense,d'Ourense
+PROV_1030,Palencia,Palencia
+PROV_1031,Pontevedra,Pontevedra
+PROV_1032,Salamanca,Salamanque
+PROV_1033,Santa Cruz de Tenerife,Santa Cruz de Ténérife
+PROV_1034,Segovia,Ségovie
+PROV_1035,Seville,Séville
+PROV_1036,Soria,Soria
+PROV_1037,Tarragona,Tarragone
+PROV_1038,Teruel,Teruel
+PROV_1039,Toledo,Tolède
+PROV_1040,Valencia,Valence
+PROV_1041,Valladolid,Valladolid
+PROV_1042,Biscay,Biscaye
+PROV_1043,Zamora,Zamora
+PROV_1044,Zaragoza,Saragosse
+PROV_1045,Harju,Harju
+PROV_1046,Ida-Viru,Viru oriental
+PROV_1047,Järva,Järva
+PROV_1048,Jõgeva,Jõgeva
+PROV_1049,Lääne-Viru,Viru occidental
+PROV_1050,Tartu,Tartu
+PROV_1051,Hiiu,Hiiu
+PROV_1052,Lääne,Lääne
+PROV_1053,Pärnu,Pärnu
+PROV_1054,Põlva,Põlva
+PROV_1055,Rapla,Rapla
+PROV_1056,Valga,Valga
+PROV_1057,Viljandi,Viljandi
+PROV_1058,Võru,Võru
+PROV_1059,Saare,Saare
+PROV_1060,Amhara,Amhara
+PROV_1061,Tigray,Tigré
+PROV_1062,Afar,Afar
+PROV_1063,Southern Nations,région des nations
+PROV_1064,Gambela,Gambela
+PROV_1065,Oromia,Oromia
+PROV_1066,Benishangul-Gumuz,Benishangul-Gumuz
+PROV_1067,Addis Ababa,Addis-Abeba
+PROV_1068,Somali,Somali
+PROV_1069,Dire Dawa,Dire Dawa
+PROV_1070,Harari,Harar
+PROV_1071,Lapland,Laponie
+PROV_1072,Central Finland,Finlande-Centrale
+PROV_1073,Northern Savonia,Savonie du Nord
+PROV_1074,Kainuu,Kainuu
+PROV_1075,Northern Ostrobothnia,Ostrobotnie du Nord
+PROV_1076,Central Ostrobothnia,Ostrobotnie-Centrale
+PROV_1077,Ostrobothnia,Ostrobotnie
+PROV_1078,Southern Ostrobothnia,Ostrobotnie du Sud
+PROV_1079,Päijänne Tavastia,Päijät-Häme
+PROV_1080,Tavastia Proper,Kanta-Häme
+PROV_1081,Pirkanmaa,Pirkanmaa
+PROV_1082,Kymenlaakso,Vallée de la Kymi
+PROV_1083,South Karelia,Carélie du Sud
+PROV_1084,Southern Savonia,Savonie du Sud
+PROV_1085,North Karelia,Carélie du Nord
+PROV_1086,Finland Proper,Finlande-Propre
+PROV_1087,Satakunta,Satakunta
+PROV_1088,Uusimaa,Uusimaa
+PROV_1089,Central,centrale
+PROV_1090,Eastern,orientale
+PROV_1091,Northern,septentrionale
+PROV_1092,Western,occidentale
+PROV_1093,Rotuma,Rotuma
+PROV_1094,Falkland Islands,Îles Falkland
+PROV_1095,Martinique,Martinique
+PROV_1096,French Guiana,Guyane
+PROV_1097,Réunion,La Réunion
+PROV_1098,Mayotte,Mayotte
+PROV_1099,Guadeloupe,Guadeloupe
+PROV_1100,Ain,Ain
+PROV_1101,Aisne,Aisne
+PROV_1102,Allier,Allier
+PROV_1103,Alpes-de-Haute-Provence,Alpes-de-Haute-Provence
+PROV_1104,Alpes-Maritimes,Alpes-Maritimes
+PROV_1105,Ardèche,Ardèche
+PROV_1106,Ardennes,Ardennes
+PROV_1107,Ariège,Ariège
+PROV_1108,Aube,Aube
+PROV_1109,Aude,Aude
+PROV_1110,Aveyron,Aveyron
+PROV_1111,Bas-Rhin,Bas-Rhin
+PROV_1112,Bouches-du-Rhône,Bouches-du-Rhône
+PROV_1113,Calvados,Calvados
+PROV_1114,Cantal,Cantal
+PROV_1115,Charente,Charente
+PROV_1116,Charente-Maritime,Charente-Maritime
+PROV_1117,Cher,Cher
+PROV_1118,Corrèze,Corrèze
+PROV_1119,Corse-du-Sud,Corse-du-Sud
+PROV_1120,Côte-d’Or,Côte-d'Or
+PROV_1121,Côtes-d'Armor,Côtes-d'Armor
+PROV_1122,Creuse,Creuse
+PROV_1123,Deux-Sèvres,Deux-Sèvres
+PROV_1124,Dordogne,Dordogne
+PROV_1125,Doubs,Doubs
+PROV_1126,Drôme,Drôme
+PROV_1127,Essonne,Essonne
+PROV_1128,Eure,Eure
+PROV_1129,Eure-et-Loir,Eure-et-Loir
+PROV_1130,Finistère,Finistère
+PROV_1131,Gard,Gard
+PROV_1132,Gers,Gers
+PROV_1133,Gironde,Gironde
+PROV_1134,Haut-Rhin,Haut-Rhin
+PROV_1135,Haute-Corse,Haute-Corse
+PROV_1136,Haute-Garonne,Haute-Garonne
+PROV_1137,Haute-Loire,Haute-Loire
+PROV_1138,Haute-Marne,Haute-Marne
+PROV_1139,Haute-Saône,Haute-Saône
+PROV_1140,Haute-Savoie,Haute-Savoie
+PROV_1141,Haute-Vienne,Haute-Vienne
+PROV_1142,Hautes-Alpes,Hautes-Alpes
+PROV_1143,Hautes-Pyrénées,Hautes-Pyrénées
+PROV_1144,Hauts-de-Seine,Hauts-de-Seine
+PROV_1145,Hérault,Hérault
+PROV_1146,Ille-et-Vilaine,Ille-et-Vilaine
+PROV_1147,Indre,Indre
+PROV_1148,Indre-et-Loire,Indre-et-Loire
+PROV_1149,Isère,Isère
+PROV_1150,Jura,Jura
+PROV_1151,Landes,Landes
+PROV_1152,Loir-et-Cher,Loir-et-Cher
+PROV_1153,Loire,Loire
+PROV_1154,Loire-Atlantique,Loire-Atlantique
+PROV_1155,Loiret,Loiret
+PROV_1156,Lot,Lot
+PROV_1157,Lot-et-Garonne,Lot-et-Garonne
+PROV_1158,Lozère,Lozère
+PROV_1159,Maine-et-Loire,Maine-et-Loire
+PROV_1160,Manche,Manche
+PROV_1161,Marne,Marne
+PROV_1162,Mayenne,Mayenne
+PROV_1163,Meurthe-et-Moselle,Meurthe-et-Moselle
+PROV_1164,Meuse,Meuse
+PROV_1165,Morbihan,Morbihan
+PROV_1166,Moselle,Moselle
+PROV_1167,Nièvre,Nièvre
+PROV_1168,Nord,Nord
+PROV_1169,Oise,Oise
+PROV_1170,Orne,Orne
+PROV_1171,Paris,Paris
+PROV_1172,Pas-de-Calais,Pas-de-Calais
+PROV_1173,Puy-de-Dôme,Puy-de-Dôme
+PROV_1174,Pyrenees-Atlantics,Pyrénées-Atlantiques
+PROV_1175,Pyrénées-Orientales,Pyrénées-Orientales
+PROV_1176,Rhône,Rhône
+PROV_1177,Saône-et-Loire,Saône-et-Loire
+PROV_1178,Sarthe,Sarthe
+PROV_1179,Savoie,Savoie
+PROV_1180,Seine-et-Marne,Seine-et-Marne
+PROV_1181,Seine-Maritime,Seine-Maritime
+PROV_1182,Seine-Saint-Denis,Seine-Saint-Denis
+PROV_1183,Somme,Somme
+PROV_1184,Tarn,Tarn
+PROV_1185,Tarn-et-Garonne,Tarn-et-Garonne
+PROV_1186,Territoire de Belfort,Territoire de Belfort
+PROV_1187,Val-d'Oise,Val-d'Oise
+PROV_1188,Val-de-Marne,Val-de-Marne
+PROV_1189,Var,Var
+PROV_1190,Vaucluse,Vaucluse
+PROV_1191,Vendée,Vendée
+PROV_1192,Vienne,Vienne
+PROV_1193,Vosges,Vosges
+PROV_1194,Yonne,Yonne
+PROV_1195,Yvelines,Yvelines
+PROV_1196,Eysturoy,Eysturoy
+PROV_1197,Pohnpei State,Pohnpei
+PROV_1198,Chuuk State,Chuuk
+PROV_1199,Yap State,Yap
+PROV_1200,Kosrae,Kosrae
+PROV_1201,Estuaire,Estuaire
+PROV_1202,Ogooué-Ivindo,Ogooué-Ivindo
+PROV_1203,Woleu-Ntem,Woleu-Ntem
+PROV_1204,Moyen-Ogooué,Moyen-Ogooué
+PROV_1205,Ngounié,Ngounié
+PROV_1206,Nyanga,Nyanga
+PROV_1207,Ogooué-Maritime,Ogooué-Maritime
+PROV_1208,Haut-Ogooué,Haut-Ogooué
+PROV_1209,Ogooué-Lolo,Ogooué-Lolo
+PROV_1210,Gaza,de Gaza
+PROV_1211,East Ayrshire,East Ayrshire
+PROV_1212,East Dunbartonshire,East Dunbartonshire
+PROV_1213,East Renfrewshire,East Renfrewshire
+PROV_1214,Glasgow,Glasgow
+PROV_1215,Inverclyde,Inverclyde
+PROV_1216,North Ayrshire,North Ayrshire
+PROV_1217,North Lanarkshire,North Lanarkshire
+PROV_1218,Renfrewshire,Renfrewshire
+PROV_1219,South Ayrshire,South Ayrshire
+PROV_1220,South Lanarkshire,South Lanarkshire
+PROV_1221,West Dunbartonshire,West Dunbartonshire
+PROV_1222,Aberdeen,Aberdeen
+PROV_1223,Aberdeenshire,Aberdeenshire
+PROV_1224,Moray,Moray
+PROV_1225,Falkirk,Falkirk
+PROV_1226,Stirling,Stirling
+PROV_1227,Clackmannanshire,Clackmannanshire
+PROV_1228,Perth and Kinross,Perth and Kinross
+PROV_1229,Angus,Angus
+PROV_1230,Dundee,Dundee
+PROV_1231,Fife,Fife
+PROV_1232,East Lothian,East Lothian
+PROV_1233,Edinburgh,Édimbourg
+PROV_1234,Midlothian,Midlothian
+PROV_1235,West Lothian,West Lothian
+PROV_1236,Scottish Borders,Scottish Borders
+PROV_1237,Darlington,Darlington
+PROV_1238,Durham,Durham
+PROV_1239,Hartlepool,Hartlepool
+PROV_1240,Middlesbrough,Middlesbrough
+PROV_1241,Redcar and Cleveland,Redcar et Cleveland
+PROV_1242,Stockton-on-Tees,Stockton-on-Tees
+PROV_1243,Northumberland,Northumberland
+PROV_1244,Hampshire,Hampshire
+PROV_1245,Southampton,Southampton
+PROV_1246,Milton Keynes,Milton Keynes
+PROV_1247,Gloucestershire,Gloucestershire
+PROV_1248,Buckinghamshire,Buckinghamshire
+PROV_1249,Hertfordshire,Hertfordshire
+PROV_1250,Bath and North East Somerset,Bath and North East Somerset
+PROV_1251,Bristol,Bristol
+PROV_1252,North Somerset,North Somerset
+PROV_1253,South Gloucestershire,South Gloucestershire
+PROV_1254,Somerset,Somerset
+PROV_1255,Devon,Devon
+PROV_1256,Bournemouth,Bournemouth
+PROV_1257,Dorset,Dorset
+PROV_1258,Poole,Poole
+PROV_1259,Cambridgeshire,Cambridgeshire
+PROV_1260,Leicestershire,Leicestershire
+PROV_1261,Kingston upon Hull,Kingston-upon-Hull
+PROV_1262,North East Lincolnshire,North East Lincolnshire
+PROV_1263,North Lincolnshire,Lincolnshire du Nord
+PROV_1264,Derby,Derby
+PROV_1265,Derbyshire,Derbyshire
+PROV_1266,Barking and Dagenham,Barking et Dagenham
+PROV_1267,Bexley,Bexley
+PROV_1268,Brent,Brent
+PROV_1269,Bromley,Bromley
+PROV_1270,Camden,Camden
+PROV_1271,Croydon,Croydon
+PROV_1272,Ealing,londonien d'Ealing
+PROV_1273,Enfield,londonien d'Enfield
+PROV_1274,Greenwich,Greenwich
+PROV_1275,Hammersmith and Fulham,Hammersmith et Fulham
+PROV_1276,Hounslow,Hounslow
+PROV_1277,Islington,londonien d’Islington
+PROV_1278,Kensington and Chelsea,Kensington et Chelsea
+PROV_1279,Merton,Merton
+PROV_1280,Redbridge,Redbridge
+PROV_1281,Richmond upon Thames,Richmond upon Thames
+PROV_1282,Sutton,Sutton
+PROV_1283,Tower Hamlets,Tower Hamlets
+PROV_1284,Waltham Forest,Waltham Forest
+PROV_1285,Wandsworth,Wandsworth
+PROV_1286,Westminster,cité de Westminster
+PROV_1287,Lincolnshire,Lincolnshire
+PROV_1288,Belfast,Belfast
+PROV_1289,Derry,Ville de Derry
+PROV_1290,Omagh,d'Omagh
+PROV_1291,Armagh,Armagh
+PROV_1292,Newry and Mourne,Newry and Mourne
+PROV_1293,Banbridge,Banbridge
+PROV_1294,Craigavon,Craigavon
+PROV_1295,Dungannon and South Tyrone,Dungannon and South Tyrone
+PROV_1296,Lisburn,Lisburn
+PROV_1297,Mid Ulster,Mid-Ulster
+PROV_1298,Antrim,d'Antrim
+PROV_1299,Magherafelt,Magherafelt
+PROV_1300,Ballymena,Ballymena
+PROV_1301,Larne,Larne
+PROV_1302,Carrickfergus,Carrickfergus
+PROV_1303,Newtownabbey,Newtownabbey
+PROV_1304,North Down,North Down
+PROV_1305,Down,Down
+PROV_1306,Coleraine,Coleraine
+PROV_1307,Ballymoney,Ballymoney
+PROV_1308,Limavady,Limavady
+PROV_1309,Castlereagh,Castlereagh
+PROV_1310,Carmarthenshire,Carmarthenshire
+PROV_1311,Ceredigion,Ceredigion
+PROV_1312,Pembrokeshire,Pembrokeshire
+PROV_1313,Halton,Halton
+PROV_1314,Cornwall,Cornouailles
+PROV_1315,Powys,Powys
+PROV_1316,Bridgend,Bridgend
+PROV_1317,Caerphilly,Caerphilly
+PROV_1318,Merthyr Tydfil,Merthyr Tydfil
+PROV_1319,Rhondda Cynon Taf,Rhondda Cynon Taf
+PROV_1320,Cardiff,Cardiff
+PROV_1321,Vale of Glamorgan,Vale of Glamorgan
+PROV_1322,Neath Port Talbot,Neath Port Talbot
+PROV_1323,Swansea,Swansea
+PROV_1324,York,York
+PROV_1325,Telford and Wrekin,Telford et Wrekin
+PROV_1326,Blackburn with Darwen,Blackburn with Darwen
+PROV_1327,Lancashire,Lancashire
+PROV_1328,East Riding of Yorkshire,Yorkshire de l'Est
+PROV_1329,Denbighshire,Denbighshire
+PROV_1330,Flintshire,Flintshire
+PROV_1331,Wrexham,Wrexham
+PROV_1332,Anglesey,Anglesey
+PROV_1333,Conwy,Conwy
+PROV_1334,Gwynedd,Gwynedd
+PROV_1335,Blaenau Gwent,Blaenau Gwent
+PROV_1336,Monmouthshire,Monmouthshire
+PROV_1337,Newport,Newport
+PROV_1338,Torfaen,Torfaen
+PROV_1339,Strabane,Strabane
+PROV_1340,Fermanagh,Fermanagh
+PROV_1341,Ards,Ards
+PROV_1342,Dumfries and Galloway,Dumfries and Galloway
+PROV_1343,Cumbria,Cumbria
+PROV_1344,North Yorkshire,Yorkshire du Nord
+PROV_1345,Plymouth,Plymouth
+PROV_1346,Torbay,Torbay
+PROV_1347,Essex,Essex
+PROV_1348,Suffolk,Suffolk
+PROV_1349,Norfolk,Norfolk
+PROV_1350,Brighton and Hove,Brighton et Hove
+PROV_1351,Havering,londonien d'Havering
+PROV_1352,Thurrock,Thurrock
+PROV_1353,East Sussex,Sussex de l'Est
+PROV_1354,Medway,Medway
+PROV_1355,Southend-on-Sea,Southend-on-Sea
+PROV_1356,Orkney Islands,Orcades
+PROV_1357,Highland,Highland
+PROV_1358,Argyll and Bute,Argyll and Bute
+PROV_1359,Shetland Islands,Shetland
+PROV_1360,West Sussex,Sussex de l'Ouest
+PROV_1361,Northamptonshire,Northamptonshire
+PROV_1362,Warwickshire,Warwickshire
+PROV_1363,Oxfordshire,Oxfordshire
+PROV_1364,Luton,Luton
+PROV_1365,Hillingdon,Hillingdon
+PROV_1366,Kingston upon Thames,Kingston-upon-Thames
+PROV_1367,Surrey,Surrey
+PROV_1368,Swindon,Swindon
+PROV_1369,Wiltshire,Wiltshire
+PROV_1370,Isle of Wight,île de Wight
+PROV_1371,Portsmouth,Portsmouth
+PROV_1372,Peterborough,Peterborough
+PROV_1373,Leicester,Leicester
+PROV_1374,Rutland,Rutland
+PROV_1375,Nottingham,Nottingham
+PROV_1376,Nottinghamshire,Nottinghamshire
+PROV_1377,Hackney,Hackney
+PROV_1378,Haringey,Haringey
+PROV_1379,Harrow,Harrow
+PROV_1380,Lambeth,Lambeth
+PROV_1381,Lewisham,Lewisham
+PROV_1382,Newham,Newham
+PROV_1383,Southwark,Southwark
+PROV_1384,Outer Hebrides,Hébrides extérieures
+PROV_1385,Moyle,Moyle
+PROV_1386,Warrington,Warrington
+PROV_1387,Herefordshire,Herefordshire
+PROV_1388,Worcestershire,Worcestershire
+PROV_1389,Staffordshire,Staffordshire
+PROV_1390,Stoke-on-Trent,Stoke-on-Trent
+PROV_1391,Shropshire,Shropshire
+PROV_1392,Kent,Kent
+PROV_1393,London,cité de Londres
+PROV_1394,Newcastle upon Tyne,Newcastle upon Tyne
+PROV_1395,North Tyneside,North Tyneside
+PROV_1396,South Tyneside,South Tyneside
+PROV_1397,Sunderland,Sunderland
+PROV_1398,Gateshead,Gateshead
+PROV_1399,Knowsley,Knowsley
+PROV_1400,Sefton,Sefton
+PROV_1401,Liverpool,Liverpool
+PROV_1402,Merseyside,Merseyside
+PROV_1403,Blackpool,Blackpool
+PROV_1404,Kirklees,Kirklees
+PROV_1405,Calderdale,Calderdale
+PROV_1406,Bradford,cité de Bradford
+PROV_1407,Leeds,cité de Leeds
+PROV_1408,Wakefield,cité de Wakefield
+PROV_1409,Salford,cité de Salford
+PROV_1410,Wigan,Wigan
+PROV_1411,Bolton,Bolton
+PROV_1412,Bury,Bury
+PROV_1413,Rochdale,Rochdale
+PROV_1414,Oldham,Oldham
+PROV_1415,Tameside,Tameside
+PROV_1416,Stockport,Stockport
+PROV_1417,Manchester,Manchester
+PROV_1418,Trafford,Trafford
+PROV_1419,Rotherham,Rotherham
+PROV_1420,Sheffield,Sheffield
+PROV_1421,Barnsley,Barnsley
+PROV_1422,Doncaster,Doncaster
+PROV_1423,Birmingham,Birmingham
+PROV_1424,Sandwell,Sandwell
+PROV_1425,Dudley,Dudley
+PROV_1426,Wolverhampton,Wolverhampton
+PROV_1427,Walsall,Walsall
+PROV_1428,Solihull,Solihull
+PROV_1429,Coventry,Coventry
+PROV_1430,Central Bedfordshire,Central Bedfordshire
+PROV_1431,Bedford,Bedford
+PROV_1432,Reading,Reading
+PROV_1433,West Berkshire,West Berkshire
+PROV_1434,Wokingham,Wokingham
+PROV_1435,Bracknell Forest,Bracknell Forest
+PROV_1436,Windsor and Maidenhead,Windsor and Maidenhead
+PROV_1437,Slough,Slough
+PROV_1438,Barnet,Barnet
+PROV_1439,Cheshire East,Cheshire East
+PROV_1440,Cheshire West and Chester,Cheshire West and Chester
+PROV_1441,Halton,Halton
+PROV_1442,Isles of Scilly,Sorlingues
+PROV_1443,Abkhazia,Abkhazie
+PROV_1444,Adjara,Adjarie
+PROV_1445,Guria,Gourie
+PROV_1446,Samegrelo-Zemo Svaneti,Mingrélie-Haute Svanétie
+PROV_1447,Imereti,Iméréthie
+PROV_1448,Kakheti,Kakhétie
+PROV_1449,Mtskheta-Mtianeti,Mtskheta-Mtianeti
+PROV_1450,Racha-Lechkhumi and Kvemo Svaneti,Racha-Lechkhumi et Kvemo Svaneti
+PROV_1451,Tbilisi,Tbilissi
+PROV_1452,Kvemo Kartli,Basse Kartlie
+PROV_1453,Samtskhe–Javakheti,Samtskhé-Djavakhétie
+PROV_1454,Shida Kartli,Kartlie intérieure
+PROV_1455,Sark,Sercq
+PROV_1456,Northern,Région du Nord
+PROV_1457,Upper East,Haut Ghana oriental
+PROV_1458,Upper West,Haut Ghana occidental
+PROV_1459,Ashanti,Ashanti
+PROV_1460,Brong-Ahafo,Brong Ahafo
+PROV_1461,Central,Région du Centre
+PROV_1462,Eastern,Région Orientale
+PROV_1463,Western,Région Occidentale
+PROV_1464,Greater Accra,Grand Accra
+PROV_1465,Volta,Volta
+PROV_1466,Gibraltar,Gibraltar
+PROV_1467,Beyla Prefecture,Beyla
+PROV_1468,Boffa Prefecture,Boffa
+PROV_1469,Boké,Boké
+PROV_1470,Conakry,Conakry
+PROV_1471,Coyah Prefecture,Coyah
+PROV_1472,Dabola Prefecture,Dabola
+PROV_1473,Dalaba Prefecture,Dalaba
+PROV_1474,Dinguiraye Prefecture,Dinguiraye
+PROV_1475,Dubréka Prefecture,Dubréka
+PROV_1476,Faranah,Faranah
+PROV_1477,Forécariah Prefecture,Forécariah
+PROV_1478,Fria Prefecture,Fria
+PROV_1479,Gaoual Prefecture,Gaoual
+PROV_1480,Guéckédou Prefecture,Guéckédou
+PROV_1481,Kankan,Kankan
+PROV_1482,Kérouané Prefecture,Kérouane
+PROV_1483,Kindia,Kindia
+PROV_1484,Kissidougou Prefecture,Kissidougou
+PROV_1485,Koubia Prefecture,Koubia
+PROV_1486,Koundara Prefecture,Koundara
+PROV_1487,Kouroussa Prefecture,Kouroussa
+PROV_1488,Labé Prefecture,Labé
+PROV_1489,Lélouma Prefecture,Lélouma
+PROV_1490,Lola Prefecture,Lola
+PROV_1491,Macenta Prefecture,Macenta
+PROV_1492,Mali Prefecture,Mali
+PROV_1493,Mamou Prefecture,Mamou
+PROV_1494,Mandiana Prefecture,Mandiana
+PROV_1495,Nzérékoré Prefecture,Nzérékoré
+PROV_1496,Pita Prefecture,Pita
+PROV_1497,Siguiri Prefecture,Siguiri
+PROV_1498,Tougué Prefecture,Tougué
+PROV_1499,Yomou Prefecture,Yomou
+PROV_1500,Télimélé Prefecture,Télimélé
+PROV_1501,Central River,de Central River
+PROV_1502,Upper River,Upper River
+PROV_1503,Banjul,Banjul
+PROV_1504,Lower River,Lower River
+PROV_1505,West Coast,West Coast
+PROV_1506,North Bank,North Bank
+PROV_1507,Biombo,Biombo
+PROV_1508,Bissau,Bissau
+PROV_1509,Bolama,Bolama-Bijagos
+PROV_1510,Cacheu,Cacheu
+PROV_1511,Oio,Oio
+PROV_1512,Quinara,Quinara
+PROV_1513,Bafatá,Bafatá
+PROV_1514,Gabú,Gabu
+PROV_1515,Tombali,Tombali
+PROV_1516,Annobón,Annobón
+PROV_1517,Centro Sur,Centro-Sur
+PROV_1518,Kié-Ntem,Kié-Ntem
+PROV_1519,Litoral,Litoral
+PROV_1520,Wele-Nzas,Wele-Nzas
+PROV_1521,Bioko Norte,Bioko-Norte
+PROV_1522,Bioko Sur,Bioko-Sur
+PROV_1523,Ionian Islands,Îles Ioniennes
+PROV_1524,Attica,Attique
+PROV_1525,Peloponnese,Péloponnèse
+PROV_1526,West Greece,Grèce-Occidentale
+PROV_1527,West Macedonia,Macédoine-Occidentale
+PROV_1528,Thessalia,Thessalie
+PROV_1529,Epirus,Épire
+PROV_1530,North Aegean,Égée-Septentrionale
+PROV_1531,Central Greece,Grèce-Centrale
+PROV_1532,Crete,Crète
+PROV_1533,Centre Macedonia,Macédoine-Centrale
+PROV_1534,Mount Athos,mont Athos
+PROV_1535,East Macedonia and Thrace,Macédoine-Orientale-et-Thrace
+PROV_1536,South Aegean,Égée-Méridionale
+PROV_1537,Carriacou and Petite Martinique,Dépendance de Carriacou et Petite Martinique
+PROV_1538,Saint Andrew,Paroisse de Saint Andrew
+PROV_1539,Saint David,Paroisse de Saint David
+PROV_1540,Saint George,Paroisse de Saint George
+PROV_1541,Saint John,Paroisse de Saint John
+PROV_1542,Saint Mark,Paroisse de Saint Mark
+PROV_1543,Saint Patrick,Paroisse de Saint Patrick
+PROV_1544,Pituffik,Pituffik
+PROV_1545,Sermersooq,Sermersooq
+PROV_1546,Kujalleq,Kujalleq
+PROV_1547,Qeqqata,Qeqqata
+PROV_1548,Northeast Greenland National Park,parc national du Nord-Est du Groenland
+PROV_1549,Qaasuitsup,Qaasuitsup
+PROV_1550,Baja Verapaz,Baja Verapaz
+PROV_1551,Huehuetenango,Huehuetenango
+PROV_1552,Petén,Petén
+PROV_1553,Quetzaltenango,Quetzaltenango
+PROV_1554,Retalhuleu,Retalhuleu
+PROV_1555,San Marcos,San Marcos
+PROV_1556,Alta Verapaz,Alta Verapaz
+PROV_1557,Chimaltenango,Chimaltenango
+PROV_1558,Escuintla,Escuintla
+PROV_1559,Guatemala,Guatemala
+PROV_1560,Suchitepéquez,Suchitepéquez
+PROV_1561,Sacatepéquez,Sacatepéquez
+PROV_1562,Sololá,Sololá
+PROV_1563,Totonicapán,Totonicapán
+PROV_1564,El Progreso,El Progreso
+PROV_1565,Santa Rosa,Santa Rosa
+PROV_1566,Izabal,Izabal
+PROV_1567,Chiquimula,Chiquimula
+PROV_1568,Jalapa,Jalapa
+PROV_1569,Jutiapa,Jutiapa
+PROV_1570,Zacapa,Zacapa
+PROV_1571,Quiché,Quiché
+PROV_1572,Guam,Guam
+PROV_1573,Mahaica-Berbice,Mahaica-Berbice
+PROV_1574,Potaro-Siparuni,Potaro-Siparuni
+PROV_1575,Upper Takutu-Upper Essequibo,Haut-Takutu-Haut-Essequibo
+PROV_1576,Upper Demerara-Berbice,Haut-Demerara-Berbice
+PROV_1577,Barima-Waini,Barima-Waini
+PROV_1578,Pomeroon-Supenaam,Pomeroon-Supenaam
+PROV_1579,East Berbice-Corentyne,Berbice oriental-Courantyne
+PROV_1580,Demerara-Mahaica,Demerara-Mahaica
+PROV_1581,Mahaica-Berbice,Mahaica-Berbice
+PROV_1582,Cuyuni-Mazaruni,Cuyuni-Mazaruni
+PROV_1583,Central and Western District,Central and Western District
+PROV_1584,Wan Chai,Wan Chai
+PROV_1585,Siu Ma Shan,Este
+PROV_1586,Southern District,Sud
+PROV_1587,Yau Tsim Mong,Yau Tsim Mong
+PROV_1588,Kowloon City,Kowloon City
+PROV_1589,Sham Shui Po,Sham Shui Po
+PROV_1590,Wong Tai Sin District,Wong Tai Sin
+PROV_1591,Kwun Tong,Kwun Tong
+PROV_1592,Sai Kung,Sai Kung
+PROV_1593,Sha Tin,Sha Tin
+PROV_1594,Kwai Tsing,Kwai Tsing
+PROV_1595,Tsuen Wan,Tsuen Wan
+PROV_1596,Tuen Mun,Tuen Mun
+PROV_1597,Yuen Long,Yuen Long
+PROV_1598,North District,Nord
+PROV_1599,Tai Po,Tai Po
+PROV_1600,Lantau Island,Islands
+PROV_1601,Heard Island and McDonald Islands,Îles Heard et McDonald
+PROV_1602,Atlántida,Atlántida
+PROV_1603,Colón,Colón
+PROV_1604,Francisco Morazán,Francisco Morazán
+PROV_1605,Gracias a Dios,Gracias a Dios
+PROV_1606,Bay Islands,Islas de la Bahía
+PROV_1607,Olancho,Olancho
+PROV_1608,Yoro,Yoro
+PROV_1609,Valle,Valle
+PROV_1610,Comayagua,Comayagua
+PROV_1611,Cortés,Cortés
+PROV_1612,Intibucá,Intibucá
+PROV_1613,La Paz,La Paz
+PROV_1614,Santa Bárbara,Santa Bárbara
+PROV_1615,Copán,Copán
+PROV_1616,Lempira,Lempira
+PROV_1617,Ocotepeque,Ocotepeque
+PROV_1618,Choluteca,Choluteca
+PROV_1619,El Paraíso,El Paraíso
+PROV_1620,Dubrovnik-Neretva,Dubrovnik-Neretva
+PROV_1621,Šibenik-Knin,Šibenik-Knin
+PROV_1622,Split-Dalmatia,Split-Dalmatie
+PROV_1623,Zadar,Zadar
+PROV_1624,Krapina-Zagorje,Krapina-Zagorje
+PROV_1625,Karlovac,Karlovac
+PROV_1626,Lika-Senj,Lika-Senj
+PROV_1627,Primorje-Gorski,Primorje-Gorski
+PROV_1628,Sisak-Moslavina,Sisak-Moslavina
+PROV_1629,Zagreb,Zagreb
+PROV_1630,Zagreb,Zagreb
+PROV_1631,Istria,Comitat d'Istrie
+PROV_1632,Brod-Posavina,Brod-Posavina
+PROV_1633,Osijek-Baranja,Osijek-Baranja
+PROV_1634,Požega-Slavonia,Požega-Slavonie
+PROV_1635,Vukovar-Syrmia,Vukovar-Syrmie
+PROV_1636,Virovitica-Podravina,Virovitica-Podravina
+PROV_1637,Bjelovar-Bilogora,Bjelovar-Bilogora
+PROV_1638,Koprivnica-Križevci,Koprivnica-Križevci
+PROV_1639,Međimurje,Međimurje
+PROV_1640,Varaždin,Varaždin
+PROV_1641,Grand'Anse,Grand'Anse
+PROV_1642,Nippes,Nippes
+PROV_1643,Nord-Ouest,Nord-Ouest
+PROV_1644,Sud,Sud
+PROV_1645,Artibonite,Artibonite
+PROV_1646,Centre,Centre
+PROV_1647,Nord-Est,Nord-Est
+PROV_1648,Nord,Nord
+PROV_1649,Ouest,Ouest
+PROV_1650,Sud-Est,Sud-Est
+PROV_1651,Vas,Vas
+PROV_1652,Baranya,Baranya
+PROV_1653,Győr-Moson-Sopron,Győr-Moson-Sopron
+PROV_1654,Somogy,Somogy
+PROV_1655,Veszprém,Veszprém
+PROV_1656,Zala,Zala
+PROV_1657,Budapest,Budapest
+PROV_1658,Bács-Kiskun,Bács-Kiskun
+PROV_1659,Fejér,Fejér
+PROV_1660,Komárom-Esztergom,Komárom-Esztergom
+PROV_1661,Pest,Pest
+PROV_1662,Tolna,Tolna
+PROV_1663,Nógrád,Nógrád
+PROV_1664,Borsod-Abaúj-Zemplén,Borsod-Abaúj-Zemplén
+PROV_1665,Szabolcs-Szatmár-Bereg,Szabolcs-Szatmár-Bereg
+PROV_1666,Békés,Békés
+PROV_1667,Csongrád-Csanád,Csongrád-Csanád
+PROV_1668,Hajdú-Bihar,Hajdú-Bihar
+PROV_1669,Heves,Heves
+PROV_1670,Jász-Nagykun-Szolnok,Jász-Nagykun-Szolnok
+PROV_1671,Szombathely,Szombathely
+PROV_1672,Sopron,Sopron
+PROV_1673,Győr,Győr
+PROV_1674,Tatabánya,Tatabánya
+PROV_1675,Érd,Érd
+PROV_1676,Székesfehérvár,Székesfehérvár
+PROV_1677,Veszprém,Veszprém
+PROV_1678,Zalaegerszeg,Zalaegerszeg
+PROV_1679,Nagykanizsa,Nagykanizsa
+PROV_1680,Kaposvár,Kaposvár
+PROV_1681,Pécs,Pécs
+PROV_1682,Szekszárd,Szekszárd
+PROV_1683,Kecskemét,Kecskemét
+PROV_1684,Szeged,Szeged
+PROV_1685,Hódmezővásárhely,Hódmezővásárhely
+PROV_1686,Szolnok,Szolnok
+PROV_1687,Békéscsaba,Békéscsaba
+PROV_1688,Eger,Eger
+PROV_1689,Salgótarján,Salgótarján
+PROV_1690,Miskolc,Miskolc
+PROV_1691,Nyíregyháza,Nyíregyháza
+PROV_1692,Debrecen,Debrecen
+PROV_1693,Dunaújváros,Dunaújváros
+PROV_1694,Aceh,Aceh
+PROV_1695,East Kalimantan,Kalimantan oriental
+PROV_1696,West Java,Java occidental
+PROV_1697,Central Java,Java central
+PROV_1698,Bengkulu,Bengkulu
+PROV_1699,Banten,Banten
+PROV_1700,Jakarta,Jakarta
+PROV_1701,West Kalimantan,Kalimantan occidental
+PROV_1702,Lampung,Lampung
+PROV_1703,South Sumatra,Sumatra du Sud
+PROV_1704,Bangka Belitung Islands,Îles Bangka Belitung
+PROV_1705,Bali,Bali
+PROV_1706,East Java,Java oriental
+PROV_1707,South Kalimantan,Kalimantan du Sud
+PROV_1708,East Nusa Tenggara,Petites Îles de la Sonde orientales
+PROV_1709,South Sulawesi,Sulawesi du Sud
+PROV_1710,West Sulawesi,Sulawesi occidental
+PROV_1711,Riau Islands,Îles Riau
+PROV_1712,Gorontalo,Gorontalo
+PROV_1713,Jambi,Jambi
+PROV_1714,Central Kalimantan,Kalimantan central
+PROV_1715,West Papua,Papouasie occidentale
+PROV_1716,North Sumatra,Sumatra du Nord
+PROV_1717,Riau,Riau
+PROV_1718,North Sulawesi,Sulawesi du Nord
+PROV_1719,North Maluku,Moluques du Nord
+PROV_1720,West Sumatra,Sumatra occidental
+PROV_1721,Yogyakarta,Territoire spécial de Yogyakarta
+PROV_1722,Maluku,Moluques
+PROV_1723,West Nusa Tenggara,Petites Îles de la Sonde occidentales
+PROV_1724,Southeast Sulawesi,Sulawesi du Sud-Est
+PROV_1725,Central Sulawesi,Sulawesi central
+PROV_1726,Papua,Papouasie
+PROV_1727,Isle of Man,Île de Man
+PROV_1728,Telangana,Telangana
+PROV_1729,Ladakh,Ladakh
+PROV_1730,Chandigarh,Chandigarh
+PROV_1731,Delhi,Delhi
+PROV_1732,Himachal Pradesh,Himachal Pradesh
+PROV_1733,Haryana,Haryana
+PROV_1734,Jammu and Kashmir,Jammu-et-Cachemire
+PROV_1735,Andhra Pradesh,Andhra Pradesh
+PROV_1736,Kerala,Kerala
+PROV_1737,Lakshadweep,Lakshadweep
+PROV_1738,Odisha,Odisha
+PROV_1739,Dadra and Nagar Haveli and Daman and Diu,Dadra et Nagar Haveli et Daman et Diu
+PROV_1740,Karnataka,Karnataka
+PROV_1741,Maharashtra,Maharashtra
+PROV_1742,Andaman and Nicobar Islands,Îles Andaman-et-Nicobar
+PROV_1743,Assam,Assam
+PROV_1744,Manipur,Manipur
+PROV_1745,Nagaland,Nagaland
+PROV_1746,Meghalaya,Meghalaya
+PROV_1747,Punjab,Pendjab
+PROV_1748,Rajasthan,Rajasthan
+PROV_1749,Uttar Pradesh,Uttar Pradesh
+PROV_1750,Uttarakhand,Uttarakhand
+PROV_1751,Jharkhand,Jharkhand
+PROV_1752,West Bengal,Bengale-Occidental
+PROV_1753,Bihar,Bihar
+PROV_1754,Sikkim,Sikkim
+PROV_1755,Chhattisgarh,Chhattisgarh
+PROV_1756,Madhya Pradesh,Madhya Pradesh
+PROV_1757,Puducherry,Territoire de Pondichéry
+PROV_1758,Tamil Nadu,Tamil Nadu
+PROV_1759,Gujarat,Gujarat
+PROV_1760,Goa,Goa
+PROV_1761,Arunachal Pradesh,Arunachal Pradesh
+PROV_1762,Mizoram,Mizoram
+PROV_1763,Tripura,Tripura
+PROV_1764,Cocos,îles Cocos
+PROV_1765,Christmas Island,île Christmas
+PROV_1766,British Indian Ocean Territory,Territoire britannique de l'océan Indien
+PROV_1767,Waterford,Waterford
+PROV_1768,Monaghan,Monaghan
+PROV_1769,Galway,Galway
+PROV_1770,Cork,Cork
+PROV_1771,Limerick,Limerick
+PROV_1772,Waterford,Waterford
+PROV_1773,Tipperary,Tipperary
+PROV_1774,South Dublin,Comté de Dublin Sud
+PROV_1775,Fingal,Fingal
+PROV_1776,Dublin,Dublin
+PROV_1777,Dún Laoghaire–Rathdown,Comté de Dun Laoghaire-Rathdown
+PROV_1778,Louth,Louth
+PROV_1779,Galway,Galway
+PROV_1780,Mayo,Mayo
+PROV_1781,Meath,Meath
+PROV_1782,Offaly,comté d'Offaly
+PROV_1783,Westmeath,Westmeath
+PROV_1784,Wexford,Wexford
+PROV_1785,Wicklow,Wicklow
+PROV_1786,Kildare,Kildare
+PROV_1787,Kilkenny,Kilkenny
+PROV_1788,Laois,Laois
+PROV_1789,Tipperary,Tipperary
+PROV_1790,Kerry,Kerry
+PROV_1791,Limerick,Limerick
+PROV_1792,Roscommon,Roscommon
+PROV_1793,Sligo,Sligo
+PROV_1794,Donegal,Donegal
+PROV_1795,Leitrim,Leitrim
+PROV_1796,Longford,Longford
+PROV_1797,Clare,Clare
+PROV_1798,Carlow,Carlow
+PROV_1799,Cork,Cork
+PROV_1800,Cavan,Cavan
+PROV_1801,Kohgiluyeh and Boyer-Ahmad,Kohguilouyeh-et-Bouyer-Ahmad
+PROV_1802,Bushehr,Bouchehr
+PROV_1803,Isfahan,Ispahan
+PROV_1804,Fars,Fars
+PROV_1805,Golestan,Golestan
+PROV_1806,Mazandaran,Mazandéran
+PROV_1807,Semnan,Semnan
+PROV_1808,Tehran,Téhéran
+PROV_1809,Yazd,Yazd
+PROV_1810,Chaharmahal and Bakhtiari,Tchaharmahal et Bakhtiari
+PROV_1811,Khuzestan,Khouzistan
+PROV_1812,Lorestan,Lorestan
+PROV_1813,Ilam,Ilam
+PROV_1814,Hormozgan,Hormozgan
+PROV_1815,Ardabil,Ardabil
+PROV_1816,Markazi,Markazi
+PROV_1817,Qom,Qom
+PROV_1818,Hamadan,Hamedan
+PROV_1819,Zanjan,Zandjan
+PROV_1820,Qazvin,Qazvin
+PROV_1821,West Azerbaijan,Azerbaïdjan occidental
+PROV_1822,East Azerbaijan,Azerbaïdjan oriental
+PROV_1823,Kermanshah,Kermanchah
+PROV_1824,Gilan,Guilan
+PROV_1825,Kurdistan,Kurdistan
+PROV_1826,South Khorasan,Khorassan du Sud
+PROV_1827,Razavi Khorasan,Khorassan Razavi
+PROV_1828,North Khorasan,Khorassan du Nord
+PROV_1829,Sistan and Baluchestan,Sistan-et-Baloutchistan
+PROV_1830,Kerman,Kerman
+PROV_1831,Alborz,Alborz
+PROV_1832,Duhok,Dahuk
+PROV_1833,Kirkuk,Kirkouk
+PROV_1834,Erbil,Erbil
+PROV_1835,Nineveh,Ninive
+PROV_1836,Saladin,Salah ad-Din
+PROV_1837,Najaf,An-Najaf
+PROV_1838,Karbala,Karbala
+PROV_1839,Baghdad,Bagdad
+PROV_1840,Basra,Al-Basra
+PROV_1841,Al Muthanna,Al-Muthanna
+PROV_1842,Al-Qādisiyyah,Al-Qadisiyya
+PROV_1843,Dhi Qar,Dhi Qar
+PROV_1844,Maysan,Maysan
+PROV_1845,Wasit,Wasit
+PROV_1846,Sulaymaniyah,As-Sulaymaniya
+PROV_1847,Diyala,Diyala
+PROV_1848,Al Anbar,Al-Anbar
+PROV_1849,Babylon,Babil
+PROV_1850,Reykjavík,Reykjavik
+PROV_1851,Westfjords,Vestfirðir
+PROV_1852,Austurland,Austurland
+PROV_1853,Northwestern,Norðurland vestra
+PROV_1854,Northeastern,Norðurland eystra
+PROV_1855,Southern Peninsula,Suðurnes
+PROV_1856,Southern,Suðurland
+PROV_1857,Capital,Höfuðborgarsvæðið
+PROV_1858,Western,Vesturland
+PROV_1859,Southern,sud
+PROV_1860,Haifa,Haïfa
+PROV_1861,Central,centre
+PROV_1862,Northern,nord
+PROV_1863,Tel Aviv,Tel Aviv
+PROV_1864,Jerusalem,Jérusalem
+PROV_1865,Modena,Modène
+PROV_1866,Reggio Emilia,Reggio d'Émilie
+PROV_1867,Parma,Parme
+PROV_1868,Piacenza,Plaisance
+PROV_1869,Bologna,Bologne
+PROV_1870,Ferrara,Ferrare
+PROV_1871,Ravenna,Ravenne
+PROV_1872,Forlì-Cesena,Forlì-Cesena
+PROV_1873,Rimini,Rimini
+PROV_1874,Liguria,Ligurie
+PROV_1875,Savona,Savone
+PROV_1876,Imperia,Imperia
+PROV_1877,La Spezia,La Spezia
+PROV_1878,Carbonia-Iglesias,Carbonia-Iglesias
+PROV_1879,Medio Campidano,Medio Campidano
+PROV_1880,Oristano,d'Oristano
+PROV_1881,Sassari,Sassari
+PROV_1882,Olbia-Tempio,Olbia-Tempio
+PROV_1883,Nuoro,Nuoro
+PROV_1884,Ogliastra,Ogliastra
+PROV_1885,Cagliari,Cagliari
+PROV_1886,Grosseto,Grosseto
+PROV_1887,Livorno,Livourne
+PROV_1888,Pisa,Pise
+PROV_1889,Massa-Carrara,Massa-Carrara
+PROV_1890,Lucca,Lucques
+PROV_1891,Pistoia,Pistoia
+PROV_1892,Prato,Prato
+PROV_1893,Florence,Florence
+PROV_1894,Arezzo,Arezzo
+PROV_1895,Siena,Sienne
+PROV_1896,Matera,Matera
+PROV_1897,Potenza,Potenza
+PROV_1898,Cosenza,Cosenza
+PROV_1899,Crotone,Crotone
+PROV_1900,Catanzaro,Catanzaro
+PROV_1901,Vibo Valentia,Vibo Valentia
+PROV_1902,Reggio Calabria,Reggio de Calabre
+PROV_1903,Caserta,Caserte
+PROV_1904,Naples,Naples
+PROV_1905,Benevento,Bénévent
+PROV_1906,Avellino,Avellino
+PROV_1907,Salerno,Salerne
+PROV_1908,Campobasso,Campobasso
+PROV_1909,Isernia,Isernia
+PROV_1910,Bari,Bari
+PROV_1911,Foggia,Foggia
+PROV_1912,Barletta-Andria-Trani,Barletta-Andria-Trani
+PROV_1913,Brindisi,Brindisi
+PROV_1914,Lecce,Lecce
+PROV_1915,Taranto,Tarente
+PROV_1916,Trapani,Trapani
+PROV_1917,Palermo,Palerme
+PROV_1918,Messina,Messine
+PROV_1919,Enna,Enna
+PROV_1920,Catania,Catane
+PROV_1921,Syracuse,Syracuse
+PROV_1922,Ragusa,Raguse
+PROV_1923,Caltanissetta,Caltanissetta
+PROV_1924,Agrigento,Agrigente
+PROV_1925,Pescara,Pescara
+PROV_1926,Teramo,Teramo
+PROV_1927,L'Aquila,L'Aquila
+PROV_1928,Chieti,Chieti
+PROV_1929,Rome,Rome
+PROV_1930,Viterbo,Viterbe
+PROV_1931,Rieti,Rieti
+PROV_1932,Frosinone,Frosinone
+PROV_1933,Latina,Latina
+PROV_1934,Ancona,Ancône
+PROV_1935,Pesaro and Urbino,Pesaro et Urbino
+PROV_1936,Macerata,Macerata
+PROV_1937,Fermo,Fermo
+PROV_1938,Ascoli Piceno,Ascoli Piceno
+PROV_1939,Perugia,Pérouse
+PROV_1940,Terni,Terni
+PROV_1941,Turin,Turin
+PROV_1942,Biella,Biella
+PROV_1943,Vercelli,Verceil
+PROV_1944,Verbano-Cusio-Ossola,Verbano-Cusio-Ossola
+PROV_1945,Novara,Novare
+PROV_1946,Alessandria,Alexandrie
+PROV_1947,Asti,Asti
+PROV_1948,Cuneo,Coni
+PROV_1949,Aosta,Aoste
+PROV_1950,Bergamo,Bergame
+PROV_1951,Sondrio,Sondrio
+PROV_1952,Brescia,Brescia
+PROV_1953,Mantua,Mantoue
+PROV_1954,Cremona,Crémone
+PROV_1955,Lodi,Lodi
+PROV_1956,Pavia,Pavie
+PROV_1957,Milan,Milan
+PROV_1958,Varese,Varèse
+PROV_1959,Como,Côme
+PROV_1960,Lecco,Lecco
+PROV_1961,Monza and Brianza,Monza et Brianza
+PROV_1962,Udine,Udine
+PROV_1963,Pordenone,Pordenone
+PROV_1964,Gorizia,Gorizia
+PROV_1965,Trieste,Trieste
+PROV_1966,Trentino-South Tyrol,Trentin-Haut-Adige
+PROV_1967,Trentino,Trentin
+PROV_1968,Venice,Venise
+PROV_1969,Rovigo,Rovigo
+PROV_1970,Padua,Padoue
+PROV_1971,Verona,Vérone
+PROV_1972,Vicenza,Vicence
+PROV_1973,Treviso,Trévise
+PROV_1974,Belluno,Belluno
+PROV_1975,Clarendon,paroisse de Clarendon
+PROV_1976,Hanover,Hanover
+PROV_1977,Manchester,Manchester
+PROV_1978,Saint Elizabeth,Saint Elizabeth
+PROV_1979,Saint James,Saint James
+PROV_1980,Trelawny,Trelawny
+PROV_1981,Westmoreland,Westmoreland
+PROV_1982,Kingston,Kingston
+PROV_1983,Portland,Portland
+PROV_1984,Saint Ann,Saint Ann
+PROV_1985,Saint Catherine,Sainte-Catherine
+PROV_1986,Saint Mary,Saint Mary
+PROV_1987,Saint Andrew,Saint Andrew
+PROV_1988,Saint Thomas,Saint-Thomas
+PROV_1989,Jersey,Jersey
+PROV_1990,Aqaba,Aqaba
+PROV_1991,Mafraq,Mafraq
+PROV_1992,Amman,Amman
+PROV_1993,Tafilah,Tafilah
+PROV_1994,Ma'an,Ma'an
+PROV_1995,Irbid,Irbid
+PROV_1996,Ajloun,Ajlun
+PROV_1997,Jerash,Jerash
+PROV_1998,Balqa,Balqa
+PROV_1999,Madaba,Madaba
+PROV_2000,Karak,Karak
+PROV_2001,Zarqa,Zarqa
+PROV_2002,Hiroshima Prefecture,Préfecture d'Hiroshima
+PROV_2003,Okayama Prefecture,Préfecture d'Okayama
+PROV_2004,Shimane Prefecture,Shimane
+PROV_2005,Tottori Prefecture,Tottori
+PROV_2006,Yamaguchi Prefecture,Yamaguchi
+PROV_2007,Saga Prefecture,Saga
+PROV_2008,Fukuoka Prefecture,Fukuoka
+PROV_2009,Kumamoto Prefecture,Kumamoto
+PROV_2010,Miyazaki Prefecture,Miyazaki
+PROV_2011,Ehime Prefecture,Préfecture d'Ehime
+PROV_2012,Kagawa Prefecture,Kagawa
+PROV_2013,Kōchi Prefecture,Kōchi
+PROV_2014,Ōita Prefecture,Préfecture d'Ōita
+PROV_2015,Tokushima Prefecture,Tokushima
+PROV_2016,Aichi Prefecture,Préfecture d'Aichi
+PROV_2017,Gifu Prefecture,Gifu
+PROV_2018,Ishikawa Prefecture,Préfecture d'Ishikawa
+PROV_2019,Mie Prefecture,Mie
+PROV_2020,Nagano Prefecture,Nagano
+PROV_2021,Shizuoka Prefecture,Shizuoka
+PROV_2022,Toyama Prefecture,Toyama
+PROV_2023,Hokkaidō,Hokkaidō
+PROV_2024,Fukui Prefecture,Fukui
+PROV_2025,Hyōgo Prefecture,Hyōgo
+PROV_2026,Kyōto Prefecture,Kyoto
+PROV_2027,Nara Prefecture,Nara
+PROV_2028,Ōsaka Prefecture,Préfecture d'Osaka
+PROV_2029,Shiga Prefecture,Shiga
+PROV_2030,Wakayama Prefecture,Wakayama
+PROV_2031,Chiba Prefecture,Chiba
+PROV_2032,Ibaraki Prefecture,Préfecture d'Ibaraki
+PROV_2033,Kanagawa Prefecture,Kanagawa
+PROV_2034,Saitama Prefecture,Saitama
+PROV_2035,Tochigi Prefecture,Tochigi
+PROV_2036,Tokyo,Tokyo
+PROV_2037,Yamanashi Prefecture,Yamanashi
+PROV_2038,Akita Prefecture,Préfecture d'Akita
+PROV_2039,Aomori Prefecture,Préfecture d'Aomori
+PROV_2040,Fukushima Prefecture,Fukushima
+PROV_2041,Iwate Prefecture,Préfecture d'Iwate
+PROV_2042,Miyagi Prefecture,Miyagi
+PROV_2043,Niigata Prefecture,Niigata
+PROV_2044,Yamagata Prefecture,Yamagata
+PROV_2045,Nagasaki Prefecture,Nagasaki
+PROV_2046,Kagoshima Prefecture,Kagoshima
+PROV_2047,Okinawa Prefecture,Préfecture d'Okinawa
+PROV_2048,Gunma Prefecture,Gunma
+PROV_2049,Baikonur,Baïkonour
+PROV_2050,Kashmir,Kashmir
+PROV_2051,Aktobe,Aqtöbe
+PROV_2052,Kostanay,Kostanaï
+PROV_2053,Kyzylorda,Kyzylorda
+PROV_2054,Atyrau,Atyraou
+PROV_2055,West Kazakhstan,Kazakhstan-Occidental
+PROV_2056,Akmola,Aqmola
+PROV_2057,Karaganda,Karaganda
+PROV_2058,North Kazakhstan,Kazakhstan-Septentrional
+PROV_2059,Pavlodar,Pavlodar
+PROV_2060,East Kazakhstan,Kazakhstan-Oriental
+PROV_2061,Almaty,Almaty
+PROV_2062,Mangystau,Manguistaou
+PROV_2063,Turkistan,Oblys du Turkestan
+PROV_2064,Jambyl,Djamboul
+PROV_2065,Almaty,Almaty
+PROV_2066,Nur-Sultan,Noursoultan
+PROV_2067,Coast,Côte
+PROV_2068,Central,centrale
+PROV_2069,Nairobi,Nairobi
+PROV_2070,Nyanza,Nyanza
+PROV_2071,Eastern,orientale
+PROV_2072,Rift Valley,Vallée du Rift
+PROV_2073,Western,occidentale
+PROV_2074,North Eastern,nord-orientale
+PROV_2075,Bishkek,Bichkek
+PROV_2076,Chuy,Tchouï
+PROV_2077,Issyk-Kul,Issyk-Koul
+PROV_2078,Naryn,Naryn
+PROV_2079,Batken,Batken
+PROV_2080,Jalal-Abad,Djalal-Abad
+PROV_2081,Talas,Talas
+PROV_2082,Osh,Och
+PROV_2083,Banteay Meanchey,Banteay Mean Chey
+PROV_2084,Battambang,Battambang
+PROV_2085,Koh Kong,Kaoh Kong
+PROV_2086,Pursat,Pouthisat
+PROV_2087,Siem Reap,Siem Reap
+PROV_2088,Oddar Meanchey,Otdar Mean Cheay
+PROV_2089,Pailin,Pailin
+PROV_2090,Kampong Cham,Kampong Cham
+PROV_2091,Kampong Chhnang,Kampong Chhnang
+PROV_2092,Kandal,Kandal
+PROV_2093,Kam,Kampong Spoe
+PROV_2094,Kampong Thom,Kampong Thom
+PROV_2095,Phnom Penh,Phnom Penh
+PROV_2096,Prey Veng,Prey Veng
+PROV_2097,Preah Vihear,Preah Vihear
+PROV_2098,Stung Treng,Stoeng Treng
+PROV_2099,Kratié,Kratie
+PROV_2100,Mondulkiri,Mondol Kiri
+PROV_2101,Ratanakiri,Rotanah Kiri
+PROV_2102,Kampot,Kampot
+PROV_2103,Kep,Kep
+PROV_2104,Sihanoukville,Sihanoukville
+PROV_2105,Svay Rieng,Svay Rieng
+PROV_2106,Takéo,Takeo
+PROV_2107,Kiribati,Kiribati
+PROV_2108,Kiribati,Kiribati
+PROV_2109,Christ Church Nichola Town,Christ Church Nichola Town
+PROV_2110,Saint Anne Sandy Point,Saint-Anne Sandy Point
+PROV_2111,Saint George Basseterre,Saint-George Basseterre
+PROV_2112,Saint George Gingerland,Saint-George Gingerland
+PROV_2113,Saint James Windward,Saint-James Windward
+PROV_2114,Saint John Capisterre,Saint-John Capisterre
+PROV_2115,Saint John Figtree,Saint-John Figtree
+PROV_2116,Saint Mary Cayon,Saint-Mary Cayon
+PROV_2117,Saint Paul Capisterre,Saint-Paul Capisterre
+PROV_2118,Saint Paul Charlestown,Saint-Paul Charlestown
+PROV_2119,Saint Peter Basseterre,Saint-Peter Basseterre
+PROV_2120,Saint Thomas Lowland,Saint-Thomas Lowland
+PROV_2121,Saint Thomas Middle Island,Saint-Thomas Middle Island
+PROV_2122,Trinity Palmetto Point,Trinity Palmetto Point
+PROV_2123,North Chungcheong,Chungcheong du Nord
+PROV_2124,Incheon,Incheon
+PROV_2125,Gangwon,Gangwon
+PROV_2126,Seoul,Séoul
+PROV_2127,Gyeonggi,Gyeonggi
+PROV_2128,North Jeolla,Jeolla du Nord
+PROV_2129,Gwangju,Gwangju
+PROV_2130,South Chungcheong,Chungcheong du Sud
+PROV_2131,Daejeon,Daejeon
+PROV_2132,Daegu,Daegu
+PROV_2133,South Gyeongsang,Gyeongsang du Sud
+PROV_2134,South Jeolla,Jeolla du Sud
+PROV_2135,Busan,Pusan
+PROV_2136,Ulsan,Ulsan
+PROV_2137,North Gyeongsang,Gyeongsang du Nord
+PROV_2138,Jeju,Jeju
+PROV_2139,Sejong,Sejong
+PROV_2140,Peja,Peć
+PROV_2141,Istok,Istok
+PROV_2142,Klina,Klina
+PROV_2143,Dečani,Dečani
+PROV_2144,Gjakova,Gjakovë
+PROV_2145,Orahovac,Orahovac
+PROV_2146,Zvečan,Zvečan
+PROV_2147,Leposavić,Leposaviq
+PROV_2148,Kosovska Mitrovica,Kosovska Mitrovica
+PROV_2149,Vučitrn,Vučitrn
+PROV_2150,Skenderaj/Srbica,Skenderaj
+PROV_2151,Zubin Potok,Zubin Potok
+PROV_2152,Kosovo Polje,Kosovo Polje
+PROV_2153,Glogovac,Glogovac
+PROV_2154,Obiliq,Obilić
+PROV_2155,Podujevo/Podujeva,Podujevo
+PROV_2156,Kosovo and Metohija,Kossovo-et-Métochie
+PROV_2157,Lipljan,Lipljan
+PROV_2158,Gnjilane,Gnjilane
+PROV_2159,Viti/Vitina,Vitina
+PROV_2160,Novo Brdo,Novo Brdo
+PROV_2161,Kosovo-Pomoravlje,Kosovo-Pomoravlje
+PROV_2162,Plužine,Plužine
+PROV_2163,Dragaš,Dragaš
+PROV_2164,Suva Reka,Suva Reka
+PROV_2165,Mališevo,Mališevo
+PROV_2166,Štimlje,Štimlje
+PROV_2167,Uroševac/ferizaj,Uroševac
+PROV_2168,Štrpce,Štrpce
+PROV_2169,Kačanik,Kačanik
+PROV_2170,Capital,Al Asimah
+PROV_2171,Al Farwaniyah,Al Farwaniyah
+PROV_2172,Al Ahmadi,Al Ahmadi
+PROV_2173,Mubarak Al-Kabeer,Mubarak Al-Kabeer
+PROV_2174,Al Jahra,Al Jahra
+PROV_2175,Hawally,Hawalli
+PROV_2176,Bokeo,Bokeo
+PROV_2177,Luang Namtha,Luang Namtha
+PROV_2178,Sainyabuli,Sayaboury
+PROV_2179,Champasak,Champassak
+PROV_2180,Salavan,Saravane
+PROV_2181,Savannakhet,Savannakhet
+PROV_2182,Vientiane Prefecture,Vientiane
+PROV_2183,Vientiane,Vientiane
+PROV_2184,Xiangkhouang,Xieng Khouang
+PROV_2185,Houaphanh,Houaphan
+PROV_2186,Luang Prabang,Luang Prabang
+PROV_2187,Oudomxay,Oudomxay
+PROV_2188,Phongsaly,Phongsaly
+PROV_2189,Bolikhamsai,Borikhamxay
+PROV_2190,Khammouane,Khammouane
+PROV_2191,Attapeu,Attapeu
+PROV_2192,Sekong,Sékong
+PROV_2193,Beqaa,Bekaa
+PROV_2194,North,Nord
+PROV_2195,Beirut,de Beyrouth
+PROV_2196,Mount Lebanon,Mont-Liban
+PROV_2197,Nabatieh,Nabatieh
+PROV_2198,South,du Liban-Sud
+PROV_2199,River Gee,River Gee
+PROV_2200,Gbarpolu,Gbarpolu
+PROV_2201,Grand Kru,Grand Kru
+PROV_2202,Maryland,Maryland
+PROV_2203,Sinoe,Sinoe
+PROV_2204,Bomi,Bomi
+PROV_2205,Bong,Bong
+PROV_2206,Grand Bassa,Grand Bassa
+PROV_2207,Grand Cape Mount,Grand Cape Mount
+PROV_2208,Lofa,Lofa
+PROV_2209,Montserrado,Montserrado
+PROV_2210,Margibi,Margibi
+PROV_2211,Nimba,Nimba
+PROV_2212,River Cess,River Cess
+PROV_2213,Grand Gedeh,Grand Gedeh
+PROV_2214,Ghadames,Ghadamès
+PROV_2215,Jufra,Al Djoufrah
+PROV_2216,Kufra,Al-Koufrah
+PROV_2217,Murqub,Al Mourqoub
+PROV_2218,Ash Shati,Ash-Sharqiyah
+PROV_2219,Ghat,Ghat
+PROV_2220,Murzuq,Mourzouq
+PROV_2221,Misrata,Misratah
+PROV_2222,Sabha,Sebha
+PROV_2223,Jafara,Al Djfara
+PROV_2224,Nuqat al Khams,An Nouqat al Khams
+PROV_2225,Zawiya,Az Zaouiyah
+PROV_2226,Mizdah,Mizdah
+PROV_2227,Tripoli District,Tajura' wa an Nawahi al Arba
+PROV_2228,Marj,Al Marj
+PROV_2229,Jabal al Akhdar,Al Jabal al Akhdar
+PROV_2230,Ajdabiya,d'Ajdabiya
+PROV_2231,Benghazi,Benghazi
+PROV_2232,Sirte,Syrte
+PROV_2233,Al Qubbah,Gubba
+PROV_2234,Butnan,Al Boutnan
+PROV_2235,Wadi al Hayaa,Wadi al Hayaat
+PROV_2236,Anse la Raye Quarter,d'Anse-la-Raye
+PROV_2237,Castries Quarter,Castries
+PROV_2238,Choiseul Quarter,Choiseul
+PROV_2239,Dauphin Quarter,Dauphin Island
+PROV_2240,Dennery Quarter,Dennery
+PROV_2241,Gros Islet Quarter,Gros-Islet
+PROV_2242,Laborie Quarter,Laborie
+PROV_2243,Micoud Quarter,Micoud
+PROV_2244,Praslin Quarter,Praslin
+PROV_2245,Soufrière Quarter,Soufrière
+PROV_2246,Vieux Fort Quarter,Vieux Fort
+PROV_2247,Triesenberg,Triesenberg
+PROV_2248,Triesen,Triesen
+PROV_2249,Balzers,Balzers
+PROV_2250,Vaduz,Vaduz
+PROV_2251,Schaan,Schaan
+PROV_2252,Gamprin,Gamprin
+PROV_2253,Ruggell,Ruggell
+PROV_2254,Schellenberg,Schellenberg
+PROV_2255,Mauren,Mauren
+PROV_2256,Planken,Planken
+PROV_2257,Eschen,Eschen
+PROV_2258,Kandy,Mahanuvara
+PROV_2259,Matale,Matale
+PROV_2260,Nuwara Eliya,Nuwara Eliya
+PROV_2261,Ampara,Ampara
+PROV_2262,Batticaloa,Batticaloa
+PROV_2263,Polonnaruwa,Polonnaruwa
+PROV_2264,Trincomalee,Trinquemalay
+PROV_2265,Anuradhapura,Anuradhapura
+PROV_2266,Vavuniya,Vavuniya
+PROV_2267,Mannar,Mannar
+PROV_2268,Mullaitivu,Mullaitivu
+PROV_2269,Jaffna,Jaffna
+PROV_2270,Kilinochchi,Kilinochchi
+PROV_2271,Kurunegala,Kurunegala
+PROV_2272,Puttalam,Puttalam
+PROV_2273,Ratnapura,Ratnapura
+PROV_2274,Galle,Galle
+PROV_2275,Hambantota,d'Hambantota
+PROV_2276,Matara,Matara
+PROV_2277,Badulla,Badulla
+PROV_2278,Monaragala,Moneragala
+PROV_2279,Kegalle,Kegalle
+PROV_2280,Colombo,Colombo
+PROV_2281,Gampaha,Gampaha
+PROV_2282,Kalutara,Kalutara
+PROV_2283,Berea,Berea
+PROV_2284,Maseru,Maseru
+PROV_2285,Mohale's Hoek,Mohale's Hoek
+PROV_2286,Quthing,Quthing
+PROV_2287,Butha-Buthe,Butha-Buthe
+PROV_2288,Leribe,Leribe
+PROV_2289,Mokhotlong,Mokhotlong
+PROV_2290,Qacha's Nek,Qacha's Nek
+PROV_2291,Thaba-Tseka,Thaba-Tseka
+PROV_2292,Mafeteng,Mafeteng
+PROV_2293,Alytus,Alytus
+PROV_2294,Kaunas,Kaunas
+PROV_2295,Marijampolė,Marijampolė
+PROV_2296,Panevėžys,Panevėžys
+PROV_2297,Šiauliai,Šiauliai
+PROV_2298,Tauragė,Tauragė
+PROV_2299,Utena,Utena
+PROV_2300,Vilnius,Vilnius
+PROV_2301,Klaipėda,Klaipėda
+PROV_2302,Telšiai,Telšiai
+PROV_2303,Diekirch,Diekirch
+PROV_2304,Grevenmacher,Grevenmacher
+PROV_2305,Luxembourg,Luxembourg
+PROV_2306,Balvi,Balvi
+PROV_2307,Krāslava,Krāslava
+PROV_2308,Ludza,Ludza
+PROV_2309,Rēzekne,Rēzekne
+PROV_2310,Saldus,Saldus
+PROV_2311,Alūksne,Alūksne
+PROV_2312,Valka,Valka
+PROV_2313,Bauska,Bauska
+PROV_2314,Cēsis,Cēsis
+PROV_2315,Daugavpils,Daugavpils
+PROV_2316,Dobele,Dobele
+PROV_2317,Gulbene,Gulbene
+PROV_2318,Jelgava,Jelgava
+PROV_2319,Jēkabpils,Jēkabpils
+PROV_2320,Limbaži,Limbaži
+PROV_2321,Madona,Madona
+PROV_2322,Ogre,Ogre
+PROV_2323,Preiļi,Preiļi
+PROV_2324,Talsi,Municipalité de Talsi
+PROV_2325,Tukums,Tukums
+PROV_2326,Valmiera,Valmiera
+PROV_2327,Riga,Riga
+PROV_2328,Liepāja,Liepāja
+PROV_2329,Jelgava,Jelgava
+PROV_2330,Daugavpils,Daugavpils
+PROV_2331,Rēzekne,Rēzekne
+PROV_2332,Ventspils,Ventspils
+PROV_2333,Kuldīga,Kuldīga
+PROV_2334,Alsunga,Alsunga
+PROV_2335,Brocēni,Brocēni
+PROV_2336,Skrunda,Skrunda
+PROV_2337,Vaiņode,Vaiņode
+PROV_2338,Aizpute,Aizputes novads
+PROV_2339,Priekule,Priekule
+PROV_2340,Grobiņa,Grobiņa
+PROV_2341,Nīca,Nīcas novads
+PROV_2342,Rucava,Rucava
+PROV_2343,Pāvilosta,Pāvilosta
+PROV_2344,Durbe,Durbe
+PROV_2345,Dundaga,Dundaga
+PROV_2346,Roja,Roja
+PROV_2347,Mērsrags,Mērsrags
+PROV_2348,Nereta,Nereta
+PROV_2349,Jēkabpils,Jēkabpils
+PROV_2350,Krustpils,Krustpils
+PROV_2351,Sala,Sala
+PROV_2352,Pļaviņas,Pļaviņas
+PROV_2353,Koknese,Koknese
+PROV_2354,Aizkraukle,Aizkraukles novads
+PROV_2355,Skrīveri,Skrīveri
+PROV_2356,Jaunjelgava,Commune de Jaunjelgava
+PROV_2357,Viesīte,Viesīte
+PROV_2358,Aknīste,Commune d'Aknīste
+PROV_2359,Vecumnieki,Vecumnieki
+PROV_2360,Iecava,Iecava
+PROV_2361,Ozolnieki,Ozolnieki
+PROV_2362,Rundāle,Rundāle
+PROV_2363,Tērvete,Tērvete
+PROV_2364,Auce,Auce
+PROV_2365,Rugāji,Rugāji
+PROV_2366,Viļaka,Viļaka
+PROV_2367,Baltinava,Baltinava
+PROV_2368,Kārsava,Kārsava
+PROV_2369,Cibla,Cibla
+PROV_2370,Zilupe,Zilupes novads
+PROV_2371,Dagda,Dagda
+PROV_2372,Aglona,Aglonas novads
+PROV_2373,Ilūkste,Ilūkste
+PROV_2374,Līvāni,Līvāni
+PROV_2375,Vārkava,Vārkava
+PROV_2376,Riebiņi,Riebiņi
+PROV_2377,Viļāni,Viļānu
+PROV_2378,Ādaži,Ādaži
+PROV_2379,Aloja,Commune d'Aloja
+PROV_2380,Babīte,Babīte
+PROV_2381,Baldone,Baldone
+PROV_2382,Carnikava,Carnikava
+PROV_2383,Engure,Engure
+PROV_2384,Garkalne,Garkalne
+PROV_2385,Ikskile,Ikšķile
+PROV_2386,Inčukalns,Inčukalns
+PROV_2387,Jaunpils,Jaunpils
+PROV_2388,Jūrmala,Jurmala
+PROV_2389,Kandava,Kandava
+PROV_2390,Ķegums,Ķegums
+PROV_2391,Ķekava,Ķekava
+PROV_2392,Krimulda,Krimulda
+PROV_2393,Lielvārde,Lielvārde
+PROV_2394,Mālpils,Mālpils
+PROV_2395,Mārupe,Mārupes novads
+PROV_2396,Olaine,Olaine
+PROV_2397,Ropaži,Ropaži
+PROV_2398,Salacgrīva,Salacgrīva
+PROV_2399,Salaspils,Salaspils
+PROV_2400,Saulkrasti,Saulkrasti
+PROV_2401,Sēja,Sēja
+PROV_2402,Sigulda,Sigulda
+PROV_2403,Stopiņi,Stopiņi
+PROV_2404,Valmiera,Valmiera
+PROV_2405,Valmiera,Valmiera
+PROV_2406,Valmiera,Valmiera
+PROV_2407,Valmiera,Valmiera
+PROV_2408,Valmiera,Valmiera
+PROV_2409,Valmiera,Valmiera
+PROV_2410,Valmiera,Valmiera
+PROV_2411,Valmiera,Valmiera
+PROV_2412,Valmiera,Valmiera
+PROV_2413,Valmiera,Valmiera
+PROV_2414,Valmiera,Valmiera
+PROV_2415,Valmiera,Valmiera
+PROV_2416,Valmiera,Valmiera
+PROV_2417,Valmiera,Valmiera
+PROV_2418,Valmiera,Valmiera
+PROV_2419,Valmiera,Valmiera
+PROV_2420,Valmiera,Valmiera
+PROV_2421,Valmiera,Valmiera
+PROV_2422,Valmiera,Valmiera
+PROV_2423,Valmiera,Valmiera
+PROV_2424,Ventspils,Ventspils
+PROV_2425,Macau,Macao
+PROV_2426,Saint Martin,Saint-Martin
+PROV_2427,Tangier-Tetouan,Tanger-Tétouan
+PROV_2428,Fès-méknas-boulmane,Fès-Boulemane
+PROV_2429,Taza-Al Hoceïma-Taounate,Taza-Al Hoceïma-Taounate
+PROV_2430,Gharb-Chrarda-Béni Hssen,Gharb-Chrarda-Beni Hssen
+PROV_2431,Chaouia-Ouardigha,Chaouia-Ouardigha
+PROV_2432,Grand Casablanca,Grand Casablanca
+PROV_2433,Rabat-Salé-Zemmour-Zaër,Rabat-Salé-Zemmour-Zaër
+PROV_2434,Meknès-Tafilalet,Meknès-Tafilalet
+PROV_2435,Tadla-Azilal,Tadla-Azilal
+PROV_2436,Oriental,Oriental
+PROV_2437,Suss-Massa-Draa,Souss-Massa-Drâa
+PROV_2438,Marrakesh-Tensift-El Haouz,Marrakech-Tensift-Al Haouz
+PROV_2439,Doukkala Abda,Région Doukkala Abda
+PROV_2440,Laâyoune-Boujdour-Sakia El Hamra,Laâyoune-Boujdour-Sakia el Hamra
+PROV_2441,Guelmim-Es Semara,Guelmim-Es Semara
+PROV_2442,Oued Ed-Dahab,Oued Ed-Dahab
+PROV_2443,Monaco,Monaco-Ville
+PROV_2444,Briceni,Briceni
+PROV_2445,Dondușeni,Dondușeni
+PROV_2446,Edineț,Edineț
+PROV_2447,Ocnița,Ocnița
+PROV_2448,Rîșcani,Rîșcani
+PROV_2449,Bălți,Bălți
+PROV_2450,Drochia,Drochia
+PROV_2451,Fălești,Falești
+PROV_2452,Glodeni,Glodeni
+PROV_2453,Sîngerei,Sîngerei
+PROV_2454,Ungheni,Ungheni
+PROV_2455,Cahul,Cahul
+PROV_2456,Taraclia,Taraclia
+PROV_2457,Comrat,Comrat
+PROV_2458,Chișinău,Chișinău
+PROV_2459,Transnistria,Stîngă Nistrului
+PROV_2460,Anenii Noi,Anenii Noi
+PROV_2461,Basarabeasca,Basarabeasca
+PROV_2462,Cantemir,Cantemir
+PROV_2463,Călărași,Călărași
+PROV_2464,Cimișlia,Cimișlia
+PROV_2465,Criuleni,Criuleni
+PROV_2466,Florești,Florești
+PROV_2467,Grigoriopol,Grigoriopol
+PROV_2468,Transnistria,Transnistrie
+PROV_2469,Hîncești,Hîncești
+PROV_2470,Ialoveni,Ialoveni
+PROV_2471,Leova,Leova
+PROV_2472,Nisporeni,Nisporeni
+PROV_2473,Orhei,Orhei
+PROV_2474,Rezina,Rezina
+PROV_2475,Rezina,Rezina
+PROV_2476,Șoldănești,Șoldănești
+PROV_2477,Strășeni,Strășeni
+PROV_2478,Telenești,Telenești
+PROV_2479,Căușeni,Căușeni
+PROV_2480,Bender,Bender
+PROV_2481,Ștefan Vodă,Ștefan Vodă
+PROV_2482,Camenca,Camenca
+PROV_2483,Soroca,Soroca
+PROV_2484,Toamasina,Tamatave
+PROV_2485,Amoron'i Mania,Amoron'i Mania
+PROV_2486,Antananarivo,Antananarivo
+PROV_2487,Toamasina,Tamatave
+PROV_2488,Androy,Androy
+PROV_2489,Anosy,Anosy
+PROV_2490,Atsimo-Andrefana,Atsimo-Andrefana
+PROV_2491,Atsimo-Atsinanana,Atsimo-Atsinanana
+PROV_2492,Toamasina,Tamatave
+PROV_2493,Betsiboka,Betsiboka
+PROV_2494,Boeny,Boeny
+PROV_2495,Antananarivo,Antananarivo
+PROV_2496,Diana,Diana
+PROV_2497,Haute Matsiatra,Haute Matsiatra
+PROV_2498,Ihorombe,Ihorombe
+PROV_2499,Antananarivo,Antananarivo
+PROV_2500,Melaky,Melaky
+PROV_2501,Menabe,Menabe
+PROV_2502,Sava,Sava
+PROV_2503,Sofia,Sofia
+PROV_2504,Antananarivo,Antananarivo
+PROV_2505,Vatovavy-Fitovinany,Vatovavy-Fitovinany
+PROV_2506,Haa Alif Atoll,Haa Alifu
+PROV_2507,Haa Dhaalu Atoll,Haa Dhaalu
+PROV_2508,Shaviyani Atoll,Shaviyani
+PROV_2509,Raa Atoll,Raa
+PROV_2510,Noonu Atoll,Noonu
+PROV_2511,Baa Atoll,Baa
+PROV_2512,Lhaviyani Atoll,Atoll Faadhippolhu
+PROV_2513,Kaafu Atoll,Kaafu
+PROV_2514,Alif Alif Atoll,Alif Alif
+PROV_2515,Alif Dhaal Atoll,Alif Dhaal
+PROV_2516,Faafu Atoll,Atoll Nilandhe Nord
+PROV_2517,Malé,Malé
+PROV_2518,Vaavu Atoll,Vaavu
+PROV_2519,Meemu Atoll,Atoll Mulaku
+PROV_2520,Dhaalu Atoll,Atoll Nilandhe Sud
+PROV_2521,Thaa Atoll,Atoll Kolhumadulu
+PROV_2522,Laamu Atoll,Atoll Hadhdhunmathi
+PROV_2523,Gaafu Alif Atoll,Gaafu Alif
+PROV_2524,Gaafu Dhaalu Atoll,Gaafu Dhaalu
+PROV_2525,Gnaviyani Atoll,Atoll de Gnaviyani
+PROV_2526,Addu Atoll,Addu
+PROV_2527,Mexico,Mexique
+PROV_2528,Baja California,Basse-Californie
+PROV_2529,Baja California Sur,Basse-Californie du Sud
+PROV_2530,Coahuila,Coahuila
+PROV_2531,Chihuahua,Chihuahua
+PROV_2532,Durango,Durango
+PROV_2533,Sinaloa,Sinaloa
+PROV_2534,Sonora,Sonora
+PROV_2535,Zacatecas,Zacatecas
+PROV_2536,Nuevo León,Nuevo León
+PROV_2537,San Luis Potosí,San Luis Potosí
+PROV_2538,Tamaulipas,Tamaulipas
+PROV_2539,Aguascalientes,Aguascalientes
+PROV_2540,Colima,Colima
+PROV_2541,Jalisco,Jalisco
+PROV_2542,Michoacán,Michoacán
+PROV_2543,Nayarit,Nayarit
+PROV_2544,Campeche,Campeche
+PROV_2545,Oaxaca,Oaxaca
+PROV_2546,Puebla,Puebla
+PROV_2547,Tabasco,Tabasco
+PROV_2548,Tlaxcala,Tlaxcala
+PROV_2549,Mexico,Mexico
+PROV_2550,Guanajuato,Guanajuato
+PROV_2551,Guerrero,Guerrero
+PROV_2552,Hidalgo,Hidalgo
+PROV_2553,State of Mexico,État de Mexico
+PROV_2554,Morelos,Morelos
+PROV_2555,Querétaro,Querétaro
+PROV_2556,Veracruz,Veracruz
+PROV_2557,Chiapas,Chiapas
+PROV_2558,Quintana Roo,Quintana Roo
+PROV_2559,Yucatán,Yucatán
+PROV_2560,Ralik Chain,Chaîne de Ralik
+PROV_2561,Ratak Chain,Îles Ratak
+PROV_2562,Resen,Resen
+PROV_2563,Vevčani,Vevtchani
+PROV_2564,Bitola,Bitola
+PROV_2565,Demir Hisar,Demir Hisar
+PROV_2566,Ohrid,Ohrid
+PROV_2567,Debarca,Debartsa
+PROV_2568,Skopje,Skopje
+PROV_2569,Plasnica,Plasnitsa
+PROV_2570,Prilep,Prilep
+PROV_2571,Probištip,Probichtip
+PROV_2572,Radoviš,Radovich
+PROV_2573,Kriva Palanka,Kriva Palanka
+PROV_2574,Rosoman,Rosoman
+PROV_2575,Saraj,Saraï
+PROV_2576,Sopište,Sopichté
+PROV_2577,Staro Nagoričane,Staro Nagoritchané
+PROV_2578,Štip,Chtip
+PROV_2579,Studeničani,Stoudenitchani
+PROV_2580,Čair,Tchaïr
+PROV_2581,Sveti Nikole,Sveti Nikolé
+PROV_2582,Veles,Vélès
+PROV_2583,Vraneštica,Vranechtitsa
+PROV_2584,Zelenikovo,Zelenikovo
+PROV_2585,Želino,Jelino
+PROV_2586,Aračinovo,Aratchinovo
+PROV_2587,Lipkovo,Lipkovo
+PROV_2588,Butel,Boutel
+PROV_2589,Čaška,Tchachka
+PROV_2590,Centar,Tsentar
+PROV_2591,Zrnovci,Zrnovtsi
+PROV_2592,Češinovo-Obleševo,Tchéchinovo-Obléchévo
+PROV_2593,Čučer-Sandevo,Tchoutcher Sandevo
+PROV_2594,Demir Kapija,Demir Kapija
+PROV_2595,Dolneni,Dolneni
+PROV_2596,Gazi Baba,Gazi Baba
+PROV_2597,Gradsko,Gradsko
+PROV_2598,Lozovo,Lozovo
+PROV_2599,Konče,Kontché
+PROV_2600,Ilinden,Ilinden
+PROV_2601,Karbinci,Karbintsi
+PROV_2602,Karpoš,Karpoch
+PROV_2603,Kavadarci,Kavadarci
+PROV_2604,Aerodrom,Aerodrom
+PROV_2605,Kisela Voda,Kisela Voda
+PROV_2606,Kočani,Kotchani
+PROV_2607,Kratovo,Kratovo
+PROV_2608,Krivogaštani,Krivogachtani
+PROV_2609,Kruševo,Krouchevo
+PROV_2610,Kumanovo,Koumanovo
+PROV_2611,Makedonski Brod,Makedonski Brod
+PROV_2612,Mogila,Mogila
+PROV_2613,Negotino,Negotino
+PROV_2614,Novaci,Novatsi
+PROV_2615,Gjorče Petrov,Guiortché Pétrov
+PROV_2616,Zajas,Zaïas
+PROV_2617,Centar Župa,Tsentar Joupa
+PROV_2618,Debar,Debar
+PROV_2619,Drugovo,Drougovo
+PROV_2620,Kičevo,Kitchevo
+PROV_2621,Mavrovo and Rostuša,Mavrovo et Rostoucha
+PROV_2622,Oslomej,Oslomeï
+PROV_2623,Tearce,Téartsé
+PROV_2624,Tetovo,Tetovo
+PROV_2625,Vrapčište,Vraptchichté
+PROV_2626,Bogovinje,Bogovinyé
+PROV_2627,Brvenica,Brvenitsa
+PROV_2628,Gostivar,Municipalité de Gostivar
+PROV_2629,Jegunovce,Yégounovtsé
+PROV_2630,Strumica,Stroumitsa
+PROV_2631,Valandovo,Valandovo
+PROV_2632,Vasilevo,Vasilevo
+PROV_2633,Bogdanci,Bogdantsi
+PROV_2634,Bosilovo,Bosilovo
+PROV_2635,Gevgelija,Gevgelija
+PROV_2636,Novo Selo,Novo Selo
+PROV_2637,Dojran,Dojran
+PROV_2638,Vinica,Vinitsa
+PROV_2639,Berovo,Berovo
+PROV_2640,Delčevo,Deltchevo
+PROV_2641,Makedonska Kamenica,Makedonska Kamenitsa
+PROV_2642,Pehčevo,Pehtchevo
+PROV_2643,Struga,Struga
+PROV_2644,Rankovce,Rankovtsé
+PROV_2645,Šuto Orizari,Chouto Orizari
+PROV_2646,Tombouctou,Tombouctou
+PROV_2647,Kidal,Kidal
+PROV_2648,Gao,Gao
+PROV_2649,Bamako,Bamako
+PROV_2650,Kayes,Kayes
+PROV_2651,Wassoulou,Wassoulou
+PROV_2652,Mopti,Mopti
+PROV_2653,Ségou,Ségou
+PROV_2654,Koulikoro,Koulikoro
+PROV_2655,Attard,Attard
+PROV_2656,Mdina,Mdina
+PROV_2657,Mtarfa,Mtarfa
+PROV_2658,Rabat,Rabat
+PROV_2659,Mġarr,Mġarr
+PROV_2660,Mellieħa,Mellieħa
+PROV_2661,St. Paul's Bay,San Pawl il-Baħar
+PROV_2662,Mosta,Mosta
+PROV_2663,Naxxar,Naxxar
+PROV_2664,Lija,Lija
+PROV_2665,Balzan,Balzan
+PROV_2666,Iklin,Iklin
+PROV_2667,Għargħur,Għargħur
+PROV_2668,Swieqi,Swieqi
+PROV_2669,Pembroke,Pembroke
+PROV_2670,St. Julian's,San Ġiljan
+PROV_2671,Sliema,Sliema
+PROV_2672,San Ġwann,San Ġwann
+PROV_2673,Gżira,Gżira
+PROV_2674,Birkirkara,Birkirkara
+PROV_2675,Msida,Msida
+PROV_2676,Ta' Xbiex,Ta' Xbiex
+PROV_2677,Pietà,Pietà
+PROV_2678,Santa Venera,Santa Venera
+PROV_2679,Ħamrun,Hamrun
+PROV_2680,Qormi,Qormi
+PROV_2681,Żebbuġ Gozo,Żebbuġ
+PROV_2682,Dingli,Dingli
+PROV_2683,Siġġiewi,Siġġiewi
+PROV_2684,Valletta,La Valette
+PROV_2685,Kalkara,Kalkara
+PROV_2686,Birgu,Birgu
+PROV_2687,Xgħajra,Xgħajra
+PROV_2688,Senglea,Isla
+PROV_2689,Floriana,Il-Furjana
+PROV_2690,Cospicua,Bormla
+PROV_2691,Żabbar,Żabbar
+PROV_2692,Marsa,Marsa
+PROV_2693,Paola,Paola
+PROV_2694,Fgura,Fgura
+PROV_2695,Tarxien,Tarxien
+PROV_2696,Żejtun,Żejtun
+PROV_2697,Marsaskala,Marsaskala
+PROV_2698,Marsaxlokk,Marsaxlokk
+PROV_2699,Luqa,Luqa
+PROV_2700,Santa Luċija,Santa Luċija
+PROV_2701,Gudja,Gudja
+PROV_2702,Għaxaq,Għaxaq
+PROV_2703,Birżebbuġa,Birżebbuġa
+PROV_2704,Mqabba,Mqabba
+PROV_2705,Kirkop,Kirkop
+PROV_2706,Safi,Safi
+PROV_2707,Qrendi,Qrendi
+PROV_2708,Żurrieq,Żurrieq
+PROV_2709,Saint Lawrence,San Lawrenz
+PROV_2710,Għarb,Għarb
+PROV_2711,Għasri,Għasri
+PROV_2712,Żebbuġ,Żebbuġ
+PROV_2713,Xagħra,Xagħra
+PROV_2714,Nadur,Nadur
+PROV_2715,Qala,Qala
+PROV_2716,Kerċem,Kerċem
+PROV_2717,Victoria,Rabat
+PROV_2718,Fontana,Fontana
+PROV_2719,Munxar,Munxar
+PROV_2720,Sannat,Sannat
+PROV_2721,Xewkija,Xewkija
+PROV_2722,Għajnsielem,Għajnsielem
+PROV_2723,Kayah State,Kayah
+PROV_2724,Kayin State,Karen
+PROV_2725,Mandalay,Mandalay
+PROV_2726,Bago,Bago
+PROV_2727,Yangon,Yangon
+PROV_2728,Mon State,Môn
+PROV_2729,Rakhine State,Arakan
+PROV_2730,Chin State,Chin
+PROV_2731,Ayeyarwady,Ayeyarwady
+PROV_2732,Magway,Magway
+PROV_2733,Shan State,Shan
+PROV_2734,Tanintharyi,Tanintharyi
+PROV_2735,Kachin State,Kachin
+PROV_2736,Sagaing,Sagaing
+PROV_2737,Bar,Bar
+PROV_2738,Ulcinj,Ulcinj
+PROV_2739,Budva,Budva
+PROV_2740,Cetinje,Cetinje
+PROV_2741,Rožaje,Rožaje
+PROV_2742,Plav,Plav
+PROV_2743,Herceg Novi,Herceg Novi
+PROV_2744,Kotor,Kotor
+PROV_2745,Andrijevica,Andrijevica
+PROV_2746,Berane,Berane
+PROV_2747,Bijelo Polje,Bijelo Polje
+PROV_2748,Danilovgrad,Danilovgrad
+PROV_2749,Kolašin,Kolašin
+PROV_2750,Mojkovac,Mojkovac
+PROV_2751,Nikšić,Nikšić
+PROV_2752,Plužine,Plužine
+PROV_2753,Pljevlja,Pljevlja
+PROV_2754,Podgorica,Podgorica
+PROV_2755,Tivat,Tivat
+PROV_2756,Šavnik,Šavnik
+PROV_2757,Žabljak,Žabljak
+PROV_2758,Bayan-Ölgii,Bayan-Ölgii
+PROV_2759,Dornogovi,Dornogovi
+PROV_2760,Ömnögovi,Ömnögovi
+PROV_2761,Khentii,Khentii
+PROV_2762,Arkhangai,Arkhangai
+PROV_2763,Bayankhongor,Bayankhongor
+PROV_2764,Zavkhan,Zavkhan
+PROV_2765,Govi-Altai,Govi-Altai
+PROV_2766,Khovd,Khovd
+PROV_2767,Khövsgöl,Khövsgöl
+PROV_2768,Uvs,Uvs
+PROV_2769,Bulgan,Bulgan
+PROV_2770,Orkhon,Orkhon
+PROV_2771,Dundgovi,Dundgovi
+PROV_2772,Selenge,Selenge
+PROV_2773,Övörkhangai,Övörkhangai
+PROV_2774,Darkhan-Uul,Darhan-Uul
+PROV_2775,Töv,Töv
+PROV_2776,Govisümber,Govisümber
+PROV_2777,Ulaanbaatar,Oulan-Bator
+PROV_2778,Dornod,Dornod
+PROV_2779,Sükhbaatar,Sühbaatar
+PROV_2780,Rota,Rota
+PROV_2781,Tinian,Tinian
+PROV_2782,Saipan,Saipan
+PROV_2783,Northern Mariana Islands,îles Mariannes du Nord
+PROV_2784,Tete,Tete
+PROV_2785,Manica,Manica
+PROV_2786,Cabo Delgado,Cabo Delgado
+PROV_2787,Niassa,Niassa
+PROV_2788,Nampula,Nampula
+PROV_2789,Gaza,Gaza
+PROV_2790,Sofala,Sofala
+PROV_2791,Zambezia,Zambézie
+PROV_2792,Inhambane,Inhambane
+PROV_2793,Maputo,Maputo
+PROV_2794,Maputo,Maputo
+PROV_2795,Tiris Zemmour,Tiris Zemmour
+PROV_2796,Brakna,Brakna
+PROV_2797,Dakhlet Nouadhibou,Dakhlet Nouadhibou
+PROV_2798,Inchiri,Inchiri
+PROV_2799,Nouakchott,Nouakchott
+PROV_2800,Trarza,Trarza
+PROV_2801,Assaba,Assaba
+PROV_2802,Guidimaka,Guidimakha
+PROV_2803,Gorgol,Gorgol
+PROV_2804,Adrar,Adrar
+PROV_2805,Hodh Ech Chargui,Hodh Ech Chargui
+PROV_2806,Hodh El Gharbi,Hodh El Gharbi
+PROV_2807,Tagant,Tagant
+PROV_2808,Saint Anthony,Saint Anthony
+PROV_2809,Saint George,Saint George
+PROV_2810,Saint Peter,Saint Peter
+PROV_2811,Agaléga,Agaléga
+PROV_2812,Beau Bassin-Rose Hill,Beau-Bassin Rose-Hill
+PROV_2813,Curepipe,Curepipe
+PROV_2814,Flacq,Flacq
+PROV_2815,Grand Port,Grand Port
+PROV_2816,Moka,Moka
+PROV_2817,Pamplemousses,Pamplemousses
+PROV_2818,Plaines Wilhems,Plaines Wilhems
+PROV_2819,Port Louis,Port Louis
+PROV_2820,Port Louis,Port-Louis
+PROV_2821,Quatre Bornes,Quatre Bornes
+PROV_2822,Rivière du Rempart,Rivière du Rempart
+PROV_2823,Rivière Noire,Rivière Noire
+PROV_2824,Rodrigues,Rodrigues
+PROV_2825,Savanne,Savanne
+PROV_2826,Vacoas-Phoenix,Vacoas-Phœnix
+PROV_2827,Chitipa,Chitipa
+PROV_2828,Chitipa,Chitipa
+PROV_2829,Kasungu,Kasungu
+PROV_2830,Mzimba,Mzimba
+PROV_2831,Nkhata Bay,Nkhata Bay
+PROV_2832,Nkhotakota,Nkhotakota
+PROV_2833,Rumphi,Rumphi
+PROV_2834,Machinga,Machinga
+PROV_2835,Dedza,Dedza
+PROV_2836,Dowa,Dowa
+PROV_2837,Lilongwe,Lilongwe
+PROV_2838,Mangochi,Mangochi
+PROV_2839,Mchinji,Mchinji
+PROV_2840,Ntcheu,Ntcheu
+PROV_2841,Ntchisi,Ntchisi
+PROV_2842,Salima,Salima
+PROV_2843,Balaka,Balaka
+PROV_2844,Chikwawa,Chikwawa
+PROV_2845,Chiradzulu,Chiradzulu
+PROV_2846,Thyolo,Thyolo
+PROV_2847,Nsanje,Nsanje
+PROV_2848,Zomba,Zomba
+PROV_2849,Blantyre,Blantyre
+PROV_2850,Mwanza,Mwanza
+PROV_2851,Mulanje,Mulanje
+PROV_2852,Phalombe,Phalombe
+PROV_2853,Likoma,Likoma
+PROV_2854,Neno,Neno
+PROV_2855,Perak,Perak
+PROV_2856,Penang,Penang
+PROV_2857,Kedah,Kedah
+PROV_2858,Perlis,Perlis
+PROV_2859,Johor,Johor
+PROV_2860,Kelantan,Kelantan
+PROV_2861,Melaka,Malacca
+PROV_2862,Negeri Sembilan,Negeri Sembilan
+PROV_2863,Pahang,Pahang
+PROV_2864,Selangor,Selangor
+PROV_2865,Terengganu,Terengganu
+PROV_2866,Sabah,Sabah
+PROV_2867,Sarawak,Sarawak
+PROV_2868,Kuala Lumpur,Kuala Lumpur
+PROV_2869,Putrajaya,Putrajaya
+PROV_2870,Labuan,Labuan
+PROV_2871,Karas,Karas
+PROV_2872,Hardap,Hardap
+PROV_2873,Khomas,Khomas
+PROV_2874,Kunene,Kunene
+PROV_2875,Erongo,Erongo
+PROV_2876,Otjozondjupa,Otjozondjupa
+PROV_2877,Omusati,Omusati
+PROV_2878,Oshana,Oshana
+PROV_2879,Ohangwena,Ohangwena
+PROV_2880,Omaheke,Omaheke
+PROV_2881,Kavango,Kavango
+PROV_2882,Oshikoto,Oshikoto
+PROV_2883,Zambezi,Zambezi
+PROV_2884,Loyalty Islands,des îles Loyauté
+PROV_2885,South,Sud
+PROV_2886,North,Nord
+PROV_2887,Tillabéri,Tillabéri
+PROV_2888,Diffa,Diffa
+PROV_2889,Agadez,Agadez
+PROV_2890,Maradi,Maradi
+PROV_2891,Zinder,Zinder
+PROV_2892,Dosso,Dosso
+PROV_2893,Niamey,Niamey
+PROV_2894,Tahoua,Tahoua
+PROV_2895,Norfolk Island,Île Norfolk
+PROV_2896,Borno State,Borno
+PROV_2897,Abia State,Abia
+PROV_2898,Akwa Ibom State,Akwa Ibom
+PROV_2899,Imo State,Imo
+PROV_2900,Rivers State,Rivers
+PROV_2901,Bayelsa State,Bayelsa
+PROV_2902,Benue State,Benue
+PROV_2903,Cross River State,Cross River
+PROV_2904,Taraba State,Taraba
+PROV_2905,Kwara State,Kwara
+PROV_2906,Lagos,Lagos
+PROV_2907,Niger State,Niger
+PROV_2908,Ogun State,Ogun
+PROV_2909,Ondo State,Ondo
+PROV_2910,Ekiti State,Ekiti
+PROV_2911,Osun State,Osun
+PROV_2912,Oyo State,Oyo
+PROV_2913,Anambra State,Anambra
+PROV_2914,Bauchi State,Bauchi
+PROV_2915,Gombe State,Gombe
+PROV_2916,Delta State,Delta
+PROV_2917,Edo State,Edo
+PROV_2918,Enugu State,Enugu
+PROV_2919,Ebonyi State,Ebonyi
+PROV_2920,Kaduna State,Kaduna
+PROV_2921,Kogi State,Kogi
+PROV_2922,Plateau State,Plateau
+PROV_2923,Nasarawa State,Nassarawa
+PROV_2924,Jigawa State,Jigawa
+PROV_2925,Kano State,Kano
+PROV_2926,Katsina State,Katsina
+PROV_2927,Sokoto State,Sokoto
+PROV_2928,Zamfara State,Zamfara
+PROV_2929,Yobe State,Yobe
+PROV_2930,Kebbi State,Kebbi
+PROV_2931,Adamawa State,Adamawa
+PROV_2932,Federal Capital Territory,Territoire de la capitale fédérale du Nigeria
+PROV_2933,Rivas,Rivas
+PROV_2934,Río San Juan,Río San Juan
+PROV_2935,South Caribbean Coast,Atlántico Sur
+PROV_2936,Carazo,Carazo
+PROV_2937,Granada,Granada
+PROV_2938,Jinotega,Jinotega
+PROV_2939,North Caribbean Coast,Atlántico Norte
+PROV_2940,León,León
+PROV_2941,Managua,Managua
+PROV_2942,Masaya,Masaya
+PROV_2943,Chinandega,Chinandega
+PROV_2944,Estelí,Estelí
+PROV_2945,Madriz,Madriz
+PROV_2946,Matagalpa,Matagalpa
+PROV_2947,Nueva Segovia,Nueva Segovia
+PROV_2948,Boaco,Boaco
+PROV_2949,Chontales,Chontales
+PROV_2950,Niue,Niue
+PROV_2951,North Brabant,Brabant-Septentrional
+PROV_2952,Utrecht,Utrecht
+PROV_2953,South Holland,Hollande-Méridionale
+PROV_2954,North Holland,Hollande-Septentrionale
+PROV_2955,Saba,Saba
+PROV_2956,Sint Eustatius,Saint-Eustache
+PROV_2957,Bonaire,Bonaire
+PROV_2958,Drenthe,Drenthe
+PROV_2959,Friesland,Frise
+PROV_2960,Gelderland,Gueldre
+PROV_2961,Groningen,Groningue
+PROV_2962,Limburg,Limbourg
+PROV_2963,Overijssel,Overijssel
+PROV_2964,Flevoland,Flevoland
+PROV_2965,Zeeland,Zélande
+PROV_2966,Finnmark,Finnmark
+PROV_2967,Nordland,Nordland
+PROV_2968,Troms,Troms
+PROV_2969,Svalbard,Svalbard
+PROV_2970,Møre og Romsdal,Møre og Romsdal
+PROV_2971,Sør-Trøndelag,Sør-Trøndelag
+PROV_2972,Aust-Agder,Aust-Agder
+PROV_2973,Hordaland,Hordaland
+PROV_2974,Rogaland,Rogaland
+PROV_2975,Sogn og Fjordane,Sogn og Fjordane
+PROV_2976,Vest-Agder,Vest-Agder
+PROV_2977,Akershus,Akershus
+PROV_2978,Buskerud,Buskerud
+PROV_2979,Hedmark,Hedmark
+PROV_2980,Oppland,Oppland
+PROV_2981,Oslo,Oslo
+PROV_2982,Telemark,Telemark
+PROV_2983,Vestfold,Vestfold
+PROV_2984,Østfold,Østfold
+PROV_2985,Nord-Trøndelag,Nord-Trøndelag
+PROV_2986,Gandaki Zone,Gandaki
+PROV_2987,Bheri Zone,Bheri
+PROV_2988,Dhaulagiri Zone,Dhawalagiri
+PROV_2989,Karnali Zone,Karnali
+PROV_2990,Lumbini Zone,Lumbinî
+PROV_2991,Mahakali Zone,Mahakali
+PROV_2992,Seti Zone,Seti
+PROV_2993,Bagmati Zone,Bagmati
+PROV_2994,Janakpur Zone,Janakpur
+PROV_2995,Narayani Zone,Narayani
+PROV_2996,Sagarmatha Zone,Sagarmatha
+PROV_2997,Bhojpur,Bhojpur
+PROV_2998,Mechi Zone,Mechi
+PROV_2999,Rapti Zone,Rapti
+PROV_3000,Buada,Buada
+PROV_3001,Boe,Boe
+PROV_3002,Aiwo,Aiwo
+PROV_3003,Denigomodu,Denigomodu
+PROV_3004,Nibok,Nibok
+PROV_3005,Uaboe,Uaboe
+PROV_3006,Baiti,Baiti
+PROV_3007,Ewa,Ewa
+PROV_3008,Anetan,Anetan
+PROV_3009,Anabar,Anabar
+PROV_3010,Ijuw,Ijuw
+PROV_3011,Anibare,Anibare
+PROV_3012,Meneng,Meneng
+PROV_3013,Yaren,Yaren
+PROV_3014,Manawatū-Whanganui,Manawatu-Wanganui
+PROV_3015,Gisborne,Gisborne
+PROV_3016,Hawke's Bay,Hawke's Bay
+PROV_3017,Auckland,Auckland
+PROV_3018,Bay of Plenty,Baie de l'Abondance
+PROV_3019,Canterbury,Canterbury
+PROV_3020,Marlborough,Marlborough
+PROV_3021,Nelson,Nelson
+PROV_3022,Tasman,Tasman
+PROV_3023,Northland,Northland
+PROV_3024,Taranaki,Taranaki
+PROV_3025,West Coast,West Coast
+PROV_3026,Otago,Otago
+PROV_3027,Southland,Southland
+PROV_3028,Waikato,Waikato
+PROV_3029,Wellington,Wellington
+PROV_3030,Chatham Islands,Îles Chatham
+PROV_3031,Kermadec Islands,Kermadec Islands
+PROV_3032,Tokelau,Tokelau
+PROV_3033,Three Kings Islands,Îles des Trois Rois
+PROV_3034,Antipodes Islands,Îles des Antipodes
+PROV_3035,Campbell Islands,Îles Campbell
+PROV_3036,Auckland Islands,Îles Auckland
+PROV_3037,Snares Islands,Îles Snares
+PROV_3038,Ad Dakhiliyah,Ad-Dākhilīyah
+PROV_3039,Al Wusta,Al Wusta
+PROV_3040,Ash Sharqiyah,Ach-Charqiya
+PROV_3041,Dhofar,Dhofar
+PROV_3042,Ad Dhahirah,Ad Dhahirah
+PROV_3043,Al Batinah North,Al-Batina du Nord
+PROV_3044,Musandam,Musandam
+PROV_3045,Muscat,Mascate
+PROV_3046,Al Buraimi,Al Buraymi
+PROV_3047,Ash Sharqiyah North,Ach-Charqiya du Nord
+PROV_3048,Al Batinah South,Al-Batina du Sud
+PROV_3049,Balochistan,Baloutchistan
+PROV_3050,Azad Kashmir,Azad Cachemire
+PROV_3051,Islamabad Capital Territory,Territoire fédéral d'Islamabad
+PROV_3052,Gilgit-Baltistan,Gilgit-Baltistan
+PROV_3053,Federally Administered Tribal Areas,régions tribales
+PROV_3054,Punjab,Pendjab
+PROV_3055,Sindh,Sind
+PROV_3056,Khyber Pakhtunkhwa,Khyber Pakhtunkhwa
+PROV_3057,Chiriquí,Chiriquí
+PROV_3058,Coclé,Coclé
+PROV_3059,Colón,Colón
+PROV_3060,Herrera,Herrera
+PROV_3061,Los Santos,Los Santos
+PROV_3062,Panamá,Panama
+PROV_3063,Veraguas,Veraguas
+PROV_3064,Darién,Darién
+PROV_3065,Guna Yala,Guna Yala
+PROV_3066,comarca Ngäbe-Buglé,Bocas del Toro
+PROV_3067,Ngöbe-Buglé Comarca,Ngöbe-Buglé
+PROV_3068,Emberá-Wounaan Comarca,Emberá-Wounaan
+PROV_3069,Pitcairn Islands,Îles Pitcairn
+PROV_3070,Callao,Callao
+PROV_3071,Lambayeque,Lambayeque
+PROV_3072,Piura,Piura
+PROV_3073,Tumbes,Tumbes
+PROV_3074,Apurímac,Apurímac
+PROV_3075,Arequipa,Arequipa
+PROV_3076,Cusco Departament,Cuzco
+PROV_3077,Madre de Dios,Madre de Dios
+PROV_3078,Puno,Puno
+PROV_3079,Moquegua,Moquegua
+PROV_3080,Tacna,Tacna
+PROV_3081,Áncash,Ancash
+PROV_3082,Cajamarca,Cajamarca
+PROV_3083,Huanuco,Huánuco
+PROV_3084,La Libertad,La Libertad
+PROV_3085,Pasco,Pasco
+PROV_3086,San Martín,San Martín
+PROV_3087,Ucayali,Ucayali
+PROV_3088,Amazonas,Amazonas
+PROV_3089,Loreto,Loreto
+PROV_3090,Ayacucho,Ayacucho
+PROV_3091,Lima,Lima
+PROV_3092,Huancavelica,Huancavelica
+PROV_3093,Ica,Ica
+PROV_3094,Junín,Junín
+PROV_3095,Lima,Lima
+PROV_3096,Paracel Islands,Îles Paracels
+PROV_3097,Spratly Islands,Îles Spratleys
+PROV_3098,Tawi-Tawi,Tawi-Tawi
+PROV_3099,Bohol,Bohol
+PROV_3100,Cebu,Cebu
+PROV_3101,Negros Oriental,Negros oriental
+PROV_3102,Siquijor,Siquijor
+PROV_3103,Negros Occidental,Negros occidental
+PROV_3104,Basilan,Basilan
+PROV_3105,Zamboanga del Norte,Zamboanga du Nord
+PROV_3106,Zamboanga Sibugay,Zamboanga Sibugay
+PROV_3107,Zamboanga del Sur,Zamboanga du Sud
+PROV_3108,Misamis Occidental,Misamis occidental
+PROV_3109,Sulu,Sulu
+PROV_3110,Aklan,Aklan
+PROV_3111,Antique,Antique
+PROV_3112,Capiz,Cápiz
+PROV_3113,Iloilo,Iloilo
+PROV_3114,Guimaras,Guimaras
+PROV_3115,Palawan,Palawan
+PROV_3116,Romblon,Romblon
+PROV_3117,Albay,Albay
+PROV_3118,Camarines Norte,Camarines Norte
+PROV_3119,Camarines Sur,Camarines Sur
+PROV_3120,Catanduanes,Catanduanes
+PROV_3121,Masbate,Masbate
+PROV_3122,Sorsogon,Sorsogon
+PROV_3123,Abra,Abra
+PROV_3124,Batanes,Batanes
+PROV_3125,Cagayan,Cagayan
+PROV_3126,Apayao,Apayao
+PROV_3127,Ilocos Norte,Ilocos Norte
+PROV_3128,Ilocos Sur,Ilocos Sur
+PROV_3129,Aurora,Aurora
+PROV_3130,Isabela,Isabela
+PROV_3131,Ifugao,Ifugao
+PROV_3132,Mountain,Mountain
+PROV_3133,Nueva Vizcaya,Nueva Vizcaya
+PROV_3134,Quirino,Quirino
+PROV_3135,Bataan,Bataan
+PROV_3136,Tarlac,Tarlac
+PROV_3137,Nueva Ecija,Nueva Ecija
+PROV_3138,Pampanga,La Pampangue
+PROV_3139,Benguet,Benguet
+PROV_3140,Zambales,Zambales
+PROV_3141,La Union,La Union
+PROV_3142,Pangasinan,Pangasinan
+PROV_3143,Cavite,Cavite
+PROV_3144,Batangas,Batangas
+PROV_3145,Bulacan,Bulacan
+PROV_3146,Laguna,Laguna
+PROV_3147,Rizal,Rizal
+PROV_3148,Marinduque,Marinduque
+PROV_3149,Occidental Mindoro,Mindoro occidental
+PROV_3150,Oriental Mindoro,Mindoro oriental
+PROV_3151,Quezon,Quezon
+PROV_3152,Lanao del Norte,Lanao du Nord
+PROV_3153,Lanao del Sur,Lanao du Sud
+PROV_3154,Maguindanao,Maguindanao
+PROV_3155,Cotabato,Cotabato
+PROV_3156,Sultan Kudarat,Sultan Kudarat
+PROV_3157,Biliran,Biliran
+PROV_3158,Eastern Samar,Samar oriental
+PROV_3159,Leyte,Leyte
+PROV_3160,Samar,Samar
+PROV_3161,Southern Leyte,Leyte du Sud
+PROV_3162,Northern Samar,Samar du Nord
+PROV_3163,Agusan del Norte,Agusan du Nord
+PROV_3164,Agusan del Sur,Agusan du Sud
+PROV_3165,Bukidnon,Bukidnon
+PROV_3166,Camiguin,Camiguin
+PROV_3167,Davao del Norte,Davao du Nord
+PROV_3168,Davao de Oro,Davao de Oro
+PROV_3169,Dinagat Islands,des Îles Dinagat
+PROV_3170,Surigao del Sur,Surigao du Sud
+PROV_3171,Misamis Oriental,Misamis oriental
+PROV_3172,Davao del Sur,Davao du Sud
+PROV_3173,Davao Oriental,Davao oriental
+PROV_3174,Sarangani,Sarangani
+PROV_3175,South Cotabato,Cotabato du Sud
+PROV_3176,Kalinga,Kalinga
+PROV_3177,Zamboanga Peninsula,péninsule de Zamboanga
+PROV_3178,Cebu,Cebu
+PROV_3179,Mandaue,Mandaue
+PROV_3180,Lapu-Lapu,Lapu-Lapu
+PROV_3181,Bacolod,Bacolod
+PROV_3182,Iloilo,Iloilo
+PROV_3183,Cotabato,Cotabato
+PROV_3184,Davao,Davao
+PROV_3185,General Santos,General Santos
+PROV_3186,Iligan,Iligan
+PROV_3187,Cagayan de Oro,Cagayán de Oro
+PROV_3188,Butuan,Butuan
+PROV_3189,Puerto Princesa,Puerto Princesa
+PROV_3190,Ormoc,Ormoc
+PROV_3191,Tacloban,Tacloban
+PROV_3192,Naga,Naga
+PROV_3193,Santiago,Santiago
+PROV_3194,Angeles,Ángeles
+PROV_3195,Baguio,Baguio
+PROV_3196,Olongapo,Olongapo
+PROV_3197,Dagupan,Dagupan
+PROV_3198,Mandaluyong,Mandaluyong
+PROV_3199,Metro Manila,Grand Manille
+PROV_3200,Navotas,Navotas
+PROV_3201,Caloocan,Caloocan
+PROV_3202,Malabon,Malabon
+PROV_3203,Valenzuela City,Valenzuela
+PROV_3204,Quezon City,Quezon City
+PROV_3205,Marikina,Marikina
+PROV_3206,San Juan,San Juan
+PROV_3207,Pasig,Pasig
+PROV_3208,Makati,Makati
+PROV_3209,Pasay,Pasay
+PROV_3210,Parañaque,Parañaque
+PROV_3211,Las Pinas,Las Piñas
+PROV_3212,Muntinlupa,Muntinlupa
+PROV_3213,Taguig City,Taguig
+PROV_3214,Pateros,Pateros
+PROV_3215,Lucena,Lucena
+PROV_3216,Aimeliik,Aimeliik
+PROV_3217,Airai,Airai
+PROV_3218,Angaur,Angaur
+PROV_3219,Hatohobei,Hatohobei
+PROV_3220,Kayangel,Kayangel
+PROV_3221,Koror,Koror
+PROV_3222,Melekeok,Melekeok
+PROV_3223,Ngaraard,Ngaraard
+PROV_3224,Ngarchelong,Ngarchelong
+PROV_3225,Ngardmau,Ngardmau
+PROV_3226,Ngatpang,Ngatpang
+PROV_3227,Ngchesar,Ngchesar
+PROV_3228,Ngeremlengui,Ngaremlengui
+PROV_3229,Ngiwal,Ngiwal
+PROV_3230,Peleliu,Peleliu
+PROV_3231,Sonsorol,Sonsorol
+PROV_3232,Enga,Enga
+PROV_3233,East Sepik,Sepik oriental
+PROV_3234,Madang,Madang
+PROV_3235,Sandaun,Sandaun
+PROV_3236,Chimbu,Simbu
+PROV_3237,Eastern Highlands,Hautes-Terres orientales
+PROV_3238,Gulf,Golfe
+PROV_3239,of Bougainville,Bougainville
+PROV_3240,Southern Highlands,Hautes-Terres méridionales
+PROV_3241,Western Highlands,Hautes-Terres occidentales
+PROV_3242,Western,l'Ouest
+PROV_3243,Central,centrale
+PROV_3244,East New Britain,Nouvelle-Bretagne orientale
+PROV_3245,Manus,Manus
+PROV_3246,Milne Bay,Baie de Milne
+PROV_3247,Morobe,Morobe
+PROV_3248,Port Moresby,Port Moresby
+PROV_3249,New Ireland,Nouvelle-Irlande
+PROV_3250,Oro,nord
+PROV_3251,West New Britain,Nouvelle-Bretagne occidentale
+PROV_3252,Warmian-Masurian Voivodeship,voïvodie de Varmie-Mazurie
+PROV_3253,Pomeranian Voivodeship,voïvodie de Poméranie
+PROV_3254,Lower Silesian Voivodeship,voïvodie de Basse-Silésie
+PROV_3255,West Pomeranian Voivodeship,voïvodie de Poméranie occidentale
+PROV_3256,Lubusz Voivodeship,voïvodie de Lubusz
+PROV_3257,Greater Poland Voivodeship,voïvodie de Grande-Pologne
+PROV_3258,Kuyavian-Pomeranian Voivodeship,voïvodie de Couïavie-Poméranie
+PROV_3259,Silesian Voivodeship,voïvodie de Silésie
+PROV_3260,Łódź Voivodeship,voïvodie de Łódź
+PROV_3261,Masovian Voivodeship,voïvodie de Mazovie
+PROV_3262,Świętokrzyskie Voivodeship,voïvodie de Sainte-Croix
+PROV_3263,Podlaskie Voivodeship,voïvodie de Podlachie
+PROV_3264,Lublin Voivodeship,voïvodie de Lublin
+PROV_3265,Podkarpackie Voivodeship,voïvodie des Basses-Carpates
+PROV_3266,Opole Voivodeship,voïvodie d'Opole
+PROV_3267,Lesser Poland Voivodeship,voïvodie de Petite-Pologne
+PROV_3268,Puerto Rico,Porto Rico
+PROV_3269,North Hwanghae,Hwanghae du Nord
+PROV_3270,South Hwanghae,Hwanghae du Sud
+PROV_3271,Pyongyang,Pyongyang
+PROV_3272,North Hamgyong,Hamgyong du Nord
+PROV_3273,Kangwon,Kangwŏn
+PROV_3274,Chagang,Chagang
+PROV_3275,South Hamgyong,Hamgyŏng du Sud
+PROV_3276,North Pyongan,Pyongan du Nord
+PROV_3277,South Pyongan,Pyongan du Sud
+PROV_3278,Ryanggang,Ryanggang
+PROV_3279,Rason,Rasŏn
+PROV_3280,Setúbal,Setúbal
+PROV_3281,Azores,Açores
+PROV_3282,Madeira,Madère
+PROV_3283,Aveiro,Aveiro
+PROV_3284,Leiria,Leiria
+PROV_3285,Viana do Castelo,Viana do Castelo
+PROV_3286,Beja,Beja
+PROV_3287,Évora,Évora
+PROV_3288,Faro,Faro
+PROV_3289,Lisbon,Lisbonne
+PROV_3290,Portalegre,Portalegre
+PROV_3291,Santarém,Santarém
+PROV_3292,Braga,Braga
+PROV_3293,Bragança,Bragance
+PROV_3294,Castelo Branco,Castelo Branco
+PROV_3295,Coimbra,Coimbra
+PROV_3296,Guarda,Guarda
+PROV_3297,Porto,Porto
+PROV_3298,Viseu,Viseu
+PROV_3299,Vila Real,Vila Real
+PROV_3300,Asunción,Asuncion
+PROV_3301,Alto Paraguay,Alto Paraguay
+PROV_3302,Boquerón,Boquerón
+PROV_3303,Concepción,Concepción
+PROV_3304,Cordillera,Cordillera
+PROV_3305,Presidente Hayes,Presidente Hayes
+PROV_3306,San Pedro,San Pedro
+PROV_3307,Central,département Central
+PROV_3308,Guairá,Guairá
+PROV_3309,Misiones,Misiones
+PROV_3310,Ñeembucú,Ñeembucú
+PROV_3311,Paraguarí,Paraguarí
+PROV_3312,Amambay,Amambay
+PROV_3313,Alto Paraná,Alto Paraná
+PROV_3314,Caaguazú,Caaguazú
+PROV_3315,Caazapá,Caazapá
+PROV_3316,Canindeyú,Canindeyú
+PROV_3317,Itapúa,Itapúa
+PROV_3318,Windward Islands,Îles du Vent
+PROV_3319,Leeward Islands,Îles Sous-le-Vent
+PROV_3320,Tuamotu Archipelago,Tuamotu-Gambier
+PROV_3321,Austral Islands,Îles Australes
+PROV_3322,Marquesas Islands,Îles Marquises
+PROV_3323,Doha,Doha
+PROV_3324,Al Rayyan,Al Rayyan
+PROV_3325,Al Wakrah,Al Wakrah
+PROV_3326,Al Khor,Al Khawr
+PROV_3327,Madinat ash Shamal,Ash Shamal
+PROV_3328,Umm Salal,Umm Salal
+PROV_3329,Al Daayen,Al Daayen
+PROV_3330,Dolj,Dolj
+PROV_3331,Gorj,Gorj
+PROV_3332,Mehedinți,Mehedinți
+PROV_3333,Olt,Olt
+PROV_3334,Teleorman,Teleorman
+PROV_3335,Bucharest,Bucarest
+PROV_3336,Călărași,Călărași
+PROV_3337,Dâmbovița,Dâmbovița
+PROV_3338,Giurgiu,Giurgiu
+PROV_3339,Ialomița,Ialomița
+PROV_3340,Constanța,Constanța
+PROV_3341,Arad,Arad
+PROV_3342,Bihor,Bihor
+PROV_3343,Caraș-Severin,Caraș-Severin
+PROV_3344,Timiș,Timiș
+PROV_3345,Botoșani,Botoșani
+PROV_3346,Alba,Alba
+PROV_3347,Bistrița-Năsăud,Bistrița-Năsăud
+PROV_3348,Cluj,Cluj
+PROV_3349,Hunedoara,Hunedoara
+PROV_3350,Maramureș,Maramureș
+PROV_3351,Mureș,Mureș
+PROV_3352,Sălaj,Sălaj
+PROV_3353,Satu Mare,Satu Mare
+PROV_3354,Argeș,Argeș
+PROV_3355,Sibiu,Sibiu
+PROV_3356,Vâlcea,Vâlcea
+PROV_3357,Brașov,Brașov
+PROV_3358,Covasna,Covasna
+PROV_3359,Harghita,Harghita
+PROV_3360,Iași,Iași
+PROV_3361,Neamț,Neamț
+PROV_3362,Prahova,Prahova
+PROV_3363,Suceava,Suceava
+PROV_3364,Bacău,Bacău
+PROV_3365,Brăila,Brăila
+PROV_3366,Buzău,Buzău
+PROV_3367,Galați,Galați
+PROV_3368,Vaslui,Vaslui
+PROV_3369,Vrancea,Vrancea
+PROV_3370,Ilfov,Ilfov
+PROV_3371,Tulcea,Tulcea
+PROV_3372,Russia,Russie
+PROV_3373,Tomsk,Tomsk
+PROV_3374,Republic of Adygea,Adyguée
+PROV_3375,Karachay-Cherkess Republic,Karatchaïévo-Tcherkessie
+PROV_3376,Republic of Ingushetia,Ingouchie
+PROV_3377,Kabardino-Balkaria,Kabardino-Balkarie
+PROV_3378,Republic of North Ossetia-Alania,Ossétie du Nord-Alanie
+PROV_3379,Stavropol Krai,Stavropol
+PROV_3380,Chukotka Autonomous Okrug,Tchoukotka
+PROV_3381,Kaliningrad,Kaliningrad
+PROV_3382,Murmansk,Mourmansk
+PROV_3383,Novgorod,Novgorod
+PROV_3384,Pskov,Pskov
+PROV_3385,Leningrad,Léningrad
+PROV_3386,Saint Petersburg,Saint-Pétersbourg
+PROV_3387,Bryansk,Briansk
+PROV_3388,Smolensk,Smolensk
+PROV_3389,Karelia,Carélie
+PROV_3390,Arkhangelsk,d'Arkhangelsk
+PROV_3391,Ivanovo,d'Ivanovo
+PROV_3392,Kostroma,Kostroma
+PROV_3393,Nizhny Novgorod,Nijni Novgorod
+PROV_3394,Tver,Tver
+PROV_3395,Vologda,Vologda
+PROV_3396,Yaroslavl,d'Iaroslavl
+PROV_3397,Kaluga,Kalouga
+PROV_3398,Kursk,Koursk
+PROV_3399,Lipetsk,Lipetsk
+PROV_3400,Moscow,Moscou
+PROV_3401,Moscow,Moscou
+PROV_3402,Oryol,d'Orel
+PROV_3403,Rostov,Rostov
+PROV_3404,Tula,Toula
+PROV_3405,Volgograd,Volgograd
+PROV_3406,Belgorod,Belgorod
+PROV_3407,Krasnodar Krai,Krasnodar
+PROV_3408,Republic of Mordovia,Mordovie
+PROV_3409,Penza,Penza
+PROV_3410,Ryazan,Riazan
+PROV_3411,Tambov,Tambov
+PROV_3412,Vladimir,Vladimir
+PROV_3413,Voronezh,Voronej
+PROV_3414,Bashkortostan,Bachkirie
+PROV_3415,Chelyabinsk,Tcheliabinsk
+PROV_3416,Kurgan,Kourgan
+PROV_3417,Nenets Autonomous Okrug,Nénétsie
+PROV_3418,Yamalo-Nenets Autonomous Okrug,Iamalie
+PROV_3419,Komi Republic,république des Komis
+PROV_3420,Kirov,Kirov
+PROV_3421,Mari El Republic,république des Maris
+PROV_3422,Sverdlovsk,Sverdlovsk
+PROV_3423,Udmurt Republic,Oudmourtie
+PROV_3424,Astrakhan,d'Astrakhan
+PROV_3425,Chuvash Republic,Tchouvachie
+PROV_3426,Republic of Kalmykia,Kalmoukie
+PROV_3427,Orenburg,d'Orenbourg
+PROV_3428,Samara,Samara
+PROV_3429,Saratov,Saratov
+PROV_3430,Republic of Tatarstan,Tatarstan
+PROV_3431,Ulyanovsk,d'Oulianovsk
+PROV_3432,Khanty-Mansi Autonomous Okrug,Khantys-Mansis
+PROV_3433,Omsk,d'Omsk
+PROV_3434,Tyumen,Tioumen
+PROV_3435,Altai Republic,république de l'Altaï
+PROV_3436,Altai Republic,république de l'Altaï
+PROV_3437,Kemerovo,Kemerovo
+PROV_3438,Republic of Khakassia,Khakassie
+PROV_3439,Novosibirsk,Novossibirsk
+PROV_3440,Chechen Republic,Tchétchénie
+PROV_3441,Republic of Dagestan,Daghestan
+PROV_3442,Irkutsk,d'Irkoutsk
+PROV_3443,Krasnoyarsk Krai,Krasnoïarsk
+PROV_3444,Tuva Republic,Touva
+PROV_3445,Republic of Buryatia,Bouriatie
+PROV_3446,Amur,l'Amour
+PROV_3447,Zabaykalsky Krai,Transbaïkalie
+PROV_3448,Primorsky Krai,du Primorié
+PROV_3449,Sakha Republic,république Sakha
+PROV_3450,Jewish,autonome juif
+PROV_3451,Khabarovsk Krai,Khabarovsk
+PROV_3452,Magadan,Magadan
+PROV_3453,Sakhalin,Sakhaline
+PROV_3454,Autonomous Republic of Crimea,République autonome de Crimée
+PROV_3455,Perm Krai,Perm
+PROV_3456,Kamchatka Krai,du Kamtchatka
+PROV_3457,Sevastopol,Sébastopol
+PROV_3458,Southern,Sud
+PROV_3459,Western,Ouest
+PROV_3460,Eastern,Est
+PROV_3461,Northern,Nord
+PROV_3462,Kigali,Kigali
+PROV_3463,Western Sahara,Sahara occidental
+PROV_3464,Najran,Najran
+PROV_3465,Riyadh,Riyad
+PROV_3466,Eastern,Ach-Charqiya
+PROV_3467,Al Madinah,Médine
+PROV_3468,Al-Qassim,Qasim
+PROV_3469,Ha'il,Haïl
+PROV_3470,Tabuk,Tabuk
+PROV_3471,Northern Borders,Hudud ach-Chamaliya
+PROV_3472,Al-Jowf,Jawf
+PROV_3473,Al-Baha,Al Bahah
+PROV_3474,'Asir,Asir
+PROV_3475,Jazan,Jizan
+PROV_3476,Makkah,la Mecque
+PROV_3477,Blue Nile,Nil Bleu
+PROV_3478,Red Sea,Mer Rouge
+PROV_3479,South Darfur,Darfour du Sud
+PROV_3480,East Darfur,Darfour-Oriental
+PROV_3481,West Soudan,Darfour-Occidental
+PROV_3482,Central Darfur,Darfour-Central
+PROV_3483,Khartoum,Khartoum
+PROV_3484,Al Jazirah,Al Jazirah
+PROV_3485,Al Qadarif,Al Qadarif
+PROV_3486,River Nile,Nil
+PROV_3487,Northern,Nord
+PROV_3488,White Nile,Nil Blanc
+PROV_3489,Sennar,Sannar
+PROV_3490,North Darfur,Darfour du Nord
+PROV_3491,South Kordofan,Kordofan du Sud
+PROV_3492,North Kordofan,Kordofan du Nord
+PROV_3493,Kassala,Kassala
+PROV_3494,Northern Bahr el Ghazal,Bahr el Ghazal du Nord
+PROV_3495,Lakes,Lacs
+PROV_3496,Western Equatoria,Équatoria-Occidental
+PROV_3497,Central Equatoria,Équatoria-Central
+PROV_3498,Upper Nile,Nil Supérieur
+PROV_3499,Jonglei,Jonglei
+PROV_3500,Unity,Unité
+PROV_3501,Warrap,Warab
+PROV_3502,Western Bahr el Ghazal,Bahr el Ghazal occidental
+PROV_3503,Eastern Equatoria,Équatoria-Oriental
+PROV_3504,Sédhiou,Sédhiou
+PROV_3505,Kédougou,Kédougou
+PROV_3506,Kaffrine,Kaffrine
+PROV_3507,Saint-Louis,Saint-Louis
+PROV_3508,Dakar,Dakar
+PROV_3509,Diourbel,Diourbel
+PROV_3510,Fatick,Fatick
+PROV_3511,Kaolack,Kaolack
+PROV_3512,Louga,Louga
+PROV_3513,Matam,Matam
+PROV_3514,Thiès,Thiès
+PROV_3515,Kolda,Kolda
+PROV_3516,Ziguinchor,Ziguinchor
+PROV_3517,Tambacounda,Tambacounda
+PROV_3518,Central Singapore Community Development Council,Singapour central
+PROV_3519,South West Community Development Council,du Sud-Ouest
+PROV_3520,North West,Angleterre du Nord-Ouest
+PROV_3521,North East Community Development Council,du Nord-Est
+PROV_3522,South East Community Development Council,du Sud-Est
+PROV_3523,South Georgia and the South Sandwich Islands,Géorgie du Sud et les Îles Sandwich du Sud
+PROV_3524,Ascension,île de l'Ascension
+PROV_3525,Saint Helena,Sainte-Hélène
+PROV_3526,Tristan da Cunha,Tristan da Cunha
+PROV_3527,Malaita,Malaita
+PROV_3528,Rennell and Bellona,Rennell et Bellona
+PROV_3529,Central,centrale
+PROV_3530,Guadalcanal,Guadalcanal
+PROV_3531,Isabel,d'Isabel
+PROV_3532,Temotu,Temotu
+PROV_3533,Western,occidentale
+PROV_3534,Choiseul,Choiseul
+PROV_3535,Makira-Ulawa,Makira-Ulawa
+PROV_3536,Honiara,Honiara
+PROV_3537,Southern,Sud
+PROV_3538,Western Area,Zone de l'Ouest
+PROV_3539,Northern,Nord
+PROV_3540,Eastern,l'Est
+PROV_3541,Ahuachapán,Ahuachapán
+PROV_3542,Cabañas,Cabañas
+PROV_3543,Cuscatlán,Cuscatlán
+PROV_3544,La Libertad,La Libertad
+PROV_3545,La Paz,La Paz
+PROV_3546,Sonsonate,Sonsonate
+PROV_3547,San Salvador,San Salvador
+PROV_3548,La Unión,La Unión
+PROV_3549,Morazán,Morazán
+PROV_3550,San Miguel,San Miguel
+PROV_3551,San Vicente,San Vicente
+PROV_3552,Usulután,Usulután
+PROV_3553,Chalatenango,Chalatenango
+PROV_3554,Santa Ana,Santa Ana
+PROV_3555,Borgo Maggiore,Borgo Maggiore
+PROV_3556,San Marino,Saint-Marin
+PROV_3557,Acquaviva,Acquaviva
+PROV_3558,Serravalle,Serravalle
+PROV_3559,Domagnano,Domagnano
+PROV_3560,Faetano,Faetano
+PROV_3561,Montegiardino,Montegiardino
+PROV_3562,Fiorentino,Fiorentino
+PROV_3563,Chiesanuova,Chiesanuova
+PROV_3564,Somaliland,Somaliland
+PROV_3565,Bari,Bari
+PROV_3566,Bakool,Bakool
+PROV_3567,Bay,Bay
+PROV_3568,Gedo,Gedo
+PROV_3569,Middle Juba,Jubbada Dhexe
+PROV_3570,Lower Shebelle,Shabeellaha Hoose
+PROV_3571,Banaadir,Banaadir
+PROV_3572,Galguduud,Galguduud
+PROV_3573,Hiran,Hiiraan
+PROV_3574,Middle Shebelle,Shabeellaha Dhexe
+PROV_3575,Mudug,Mudug
+PROV_3576,Nugal,Nugaal
+PROV_3577,Lower Juba,Jubbada Hoose
+PROV_3578,Saint Pierre and Miquelon,Saint-Pierre-et-Miquelon
+PROV_3579,Miquelon-Langlade,Miquelon-Langlade
+PROV_3580,South Bačka,Bačka méridionale
+PROV_3581,South Banat,Banat méridional
+PROV_3582,Central Banat,Banat central
+PROV_3583,Pirot,Pirot
+PROV_3584,Bor,Bor
+PROV_3585,Zlatibor,Zlatibor
+PROV_3586,West Bačka,Bačka occidentale
+PROV_3587,North Bačka,Bačka septentrionale
+PROV_3588,North Banat,Banat septentrional
+PROV_3589,Braničevo,Braničevo
+PROV_3590,Srem,Syrmie
+PROV_3591,Moravica,Moravica
+PROV_3592,Nišava,Nišava
+PROV_3593,Podunavlje,Podunavlje
+PROV_3594,Pomoravski,Pomoravlje
+PROV_3595,Rasina,Rasina
+PROV_3596,Raška,Raška
+PROV_3597,Toplica,Toplica
+PROV_3598,Belgrade,Belgrade
+PROV_3599,Kolubara,Kolubara
+PROV_3600,Mačva,Mačva
+PROV_3601,Šumadija,Šumadija
+PROV_3602,Pčinja,Pčinja
+PROV_3603,Jablanica,Jablanica
+PROV_3604,Zaječar,Zaječar
+PROV_3605,São Tomé,São Tomé
+PROV_3606,Príncipe,Principe
+PROV_3607,Nickerie,Nickerie
+PROV_3608,Brokopondo,Brokopondo
+PROV_3609,Marowijne,Marowijne
+PROV_3610,Para,Para
+PROV_3611,Sipaliwini,Sipaliwini
+PROV_3612,Commewijne,Commewijne
+PROV_3613,Coronie,Coronie
+PROV_3614,Paramaribo,Paramaribo
+PROV_3615,Saramacca,Saramacca
+PROV_3616,Wanica,Wanica
+PROV_3617,Bratislava,Bratislava
+PROV_3618,Banská Bystrica,Banská Bystrica
+PROV_3619,Žilina,Žilina
+PROV_3620,Nitra,Nitra
+PROV_3621,Trenčín,Trenčín
+PROV_3622,Trnava,Trnava
+PROV_3623,Košice,Košice
+PROV_3624,Prešov,Prešov
+PROV_3625,Velike Lašče,Velike Lašče
+PROV_3626,Velenje,Velenje
+PROV_3627,Vitanje,Vitanje
+PROV_3628,Vodice,Vodice
+PROV_3629,Vrhnika,Municipalité de Vrhnika
+PROV_3630,Vuzenica,Vuzenica
+PROV_3631,Zagorje ob Savi,Zagorje ob Savi
+PROV_3632,Zreče,Zreče
+PROV_3633,Bled,Bled
+PROV_3634,Bohinj,Municipalité de Bohinj
+PROV_3635,Cerkno,Commune de Cerkno
+PROV_3636,Občina Gorenja vas-Poljane,Gorenja vas-Poljane
+PROV_3637,Idrija,Idrija
+PROV_3638,Kranj,Kranj
+PROV_3639,Kranjska Gora,Kranjska Gora
+PROV_3640,Naklo,Naklo
+PROV_3641,Radovljica,Radovljica
+PROV_3642,Škofja Loka,Škofja Loka
+PROV_3643,Tolmin,Tolmin
+PROV_3644,Tržič,Tržič
+PROV_3645,Železniki,Železniki
+PROV_3646,Žiri,Žiri
+PROV_3647,Ajdovščina,Ajdovščina
+PROV_3648,Bovec,Municipalité de Bovec
+PROV_3649,Brda,Brda
+PROV_3650,Divača,Municipalité de Divača
+PROV_3651,Hrpelje-Kozina,Hrpelje-Kozina
+PROV_3652,Izola,Izola
+PROV_3653,Kanal ob Soči,Kanal
+PROV_3654,Kobarid,Kobarid
+PROV_3655,Komen,Komen
+PROV_3656,Koper,Koper
+PROV_3657,Miren–Kostanjevica,Miren-Kostanjevica
+PROV_3658,Piran,Piran
+PROV_3659,Sežana,Municipalité de Sežana
+PROV_3660,Vipava,Municipalité de Vipava
+PROV_3661,Beltinci,Municipalité de Beltinci
+PROV_3662,Dornava,Dornava
+PROV_3663,Gorišnica,Gorišnica
+PROV_3664,Juršinci,Juršinci
+PROV_3665,Kobilje,Kobilje
+PROV_3666,Moravske Toplice,Moravske Toplice
+PROV_3667,Murska Sobota,Murska Sobota
+PROV_3668,Odranci,Odranci
+PROV_3669,Ormož,Ormož
+PROV_3670,Sveti Jurij ob Ščavnici,Sveti Jurij
+PROV_3671,Turnišče,Turnišče
+PROV_3672,Zavrč,Zavrč
+PROV_3673,Šalovci,Šalovci
+PROV_3674,Kuzma,Kuzma
+PROV_3675,Cerkvenjak,Municipalité de Cerkvenjak
+PROV_3676,Benedikt,Benedikt
+PROV_3677,Sveta Ana,Sveta Ana
+PROV_3678,Hodoš,Hodos
+PROV_3679,Grad,Grad
+PROV_3680,Destrnik,Destrnik
+PROV_3681,Dobrova–Polhov Gradec,Dobrova-Polhov Gradec
+PROV_3682,Domžale,Domžale
+PROV_3683,Kamnik,Kamnik
+PROV_3684,Kočevje,Kočevje
+PROV_3685,Lenart,Municipalité de Lenart
+PROV_3686,Loška Dolina,Loška Dolina
+PROV_3687,Luče,Luče
+PROV_3688,Majšperk,Majšperk
+PROV_3689,Novo Mesto,Novo Mesto
+PROV_3690,Bistrica ob Sotli,Municipalité de Bistrica ob Sotli
+PROV_3691,Podvelka,Podvelka
+PROV_3692,Preddvor,Preddvor
+PROV_3693,Ptuj,Ptuj
+PROV_3694,Ravne na Koroškem,Ravne na Koroškem
+PROV_3695,Ribnica,Ribnica
+PROV_3696,Ruše,Municipalité de Ruše
+PROV_3697,Šentjur,Municipalité de Šentjur
+PROV_3698,Slovenska Bistrica,Slovenska Bistrica
+PROV_3699,Videm,Videm
+PROV_3700,Vojnik,Municipalité deVojnik
+PROV_3701,Žalec,Žalec
+PROV_3702,Komenda,Komenda
+PROV_3703,Oplotnica,Oplotnica
+PROV_3704,Hajdina,Hajdina
+PROV_3705,Miklavž na Dravskem Polju,Miklavž na Dravskem polju
+PROV_3706,Hoče-Slivnica,Hoče-Slivnica
+PROV_3707,Trnovska Vas,Trnovska vas
+PROV_3708,Žetale,Žetale
+PROV_3709,Podlehnik,Podlehnik
+PROV_3710,Prevalje,Prevalje
+PROV_3711,Selnica ob Dravi,Selnica ob Dravi
+PROV_3712,Lovrenc na Pohorju,Lovrenc na Pohorju
+PROV_3713,Trzin,Trzin
+PROV_3714,Jezersko,Jezersko
+PROV_3715,Žužemberk,Žužemberk
+PROV_3716,Dobrna,Dobrna
+PROV_3717,Tabor,Tabor
+PROV_3718,Vransko,Vransko
+PROV_3719,Mirna Peč,Mirna Peč
+PROV_3720,Prebold,Prebold
+PROV_3721,Polzela,Polzela
+PROV_3722,Kostel,municipalité de Kostel
+PROV_3723,Braslovče,Municipalité de Braslovče
+PROV_3724,Sodražica,Sodražica
+PROV_3725,Dolenjske Toplice,Dolenjske Toplice
+PROV_3726,Horjul,Horjul
+PROV_3727,Solčava,Solčava
+PROV_3728,Dobje,Dobje
+PROV_3729,Dobrepolje,Dobrepolje
+PROV_3730,Bloke,Bloke
+PROV_3731,Podčetrtek,Podčetrtek
+PROV_3732,Maribor,Maribor
+PROV_3733,Ribnica na Pohorju,Ribnica na Pohorju
+PROV_3734,Jesenice,Jesenice
+PROV_3735,Žirovnica,Žirovnica
+PROV_3736,Nova Gorica,Nova Gorica
+PROV_3737,Šempeter–Vrtojba,Šempeter-Vrtojba
+PROV_3738,Črenšovci,Črenšovci
+PROV_3739,Lendava,Lendava
+PROV_3740,Ljutomer,Ljutomer
+PROV_3741,Križevci,Križevci
+PROV_3742,Veržej,Veržej
+PROV_3743,Sveti Andraž v Slovenskih Goricah,Sveti Andraž v Slovenskih goricah
+PROV_3744,Razkrižje,Municipalité de Razkrižje
+PROV_3745,Velika Polana,Velika Polana
+PROV_3746,Dobrovnik,Dobrovnik
+PROV_3747,Markovci,Markovci
+PROV_3748,Apače,Apace
+PROV_3749,Šmartno pri Litiji,Šmartno pri Litiji
+PROV_3750,Cankova,Cankova
+PROV_3751,Gornja Radgona,Gornja Radgona
+PROV_3752,Gornji Petrovci,Gornji Petrovci
+PROV_3753,Puconci,Puconci
+PROV_3754,Radenci,Radenci
+PROV_3755,Rogašovci,Rogašovci
+PROV_3756,Borovnica,Municipalité de Borovnica
+PROV_3757,Brežice,Brežice
+PROV_3758,Krsko,Krško
+PROV_3759,Brezovica,Brezovica
+PROV_3760,Celje,Celje
+PROV_3761,Cerklje na Gorenjskem,Cerklje na Gorenjskem
+PROV_3762,Cerknica,Cerknica
+PROV_3763,Črna na Koroškem,Črna na Koroškem
+PROV_3764,Črnomelj,Municipalité de Črnomelj
+PROV_3765,Dol pri Ljubljani,Dol pri Ljubljani
+PROV_3766,Dravograd,Dravograd
+PROV_3767,Duplek,Duplek
+PROV_3768,Gornji Grad,Gornji Grad
+PROV_3769,Grosuplje,Municipalité de Grosuplje
+PROV_3770,Hrastnik,Municipalité de Hrastnik
+PROV_3771,Trbovlje,Trbovlje
+PROV_3772,Ig,Ig
+PROV_3773,Ilirska Bistrica,Ilirska Bistrica
+PROV_3774,Ivančna Gorica,Ivančna Gorica
+PROV_3775,Kidričevo,Kidričevo
+PROV_3776,Kozje,Kozje
+PROV_3777,Krško,Krško
+PROV_3778,Kungota,Kungota
+PROV_3779,Laško,Laško
+PROV_3780,Litija,Litija
+PROV_3781,Ljubljana,municipalité de Ljubljana
+PROV_3782,Ljubno,Ljubno
+PROV_3783,Logatec,Logatec
+PROV_3784,Loški Potok,Loški Potok
+PROV_3785,Lukovica,Lukovica
+PROV_3786,Medvode,Medvode
+PROV_3787,Mengeš,Mengeš
+PROV_3788,Metlika,Metlika
+PROV_3789,Mežica,Mežica
+PROV_3790,Mislinja,Mislinja
+PROV_3791,Moravče,Moravče
+PROV_3792,Mozirje,Mozirje
+PROV_3793,Muta,Muta
+PROV_3794,Nazarje,Nazarje
+PROV_3795,Pesnica,Pesnica
+PROV_3796,Pivka,Pivka
+PROV_3797,Postojna,Municipalité de Postojna
+PROV_3798,Rače–Fram,Rače-Fram
+PROV_3799,Radeče,Radeče
+PROV_3800,Radlje ob Dravi,Radlje ob Dravi
+PROV_3801,Rogaška Slatina,Rogaska Slatina
+PROV_3802,Rogatec,Rogatec
+PROV_3803,Semič,Municipalité de Semič
+PROV_3804,Šenčur,Šenčur
+PROV_3805,Šentilj,Šentilj
+PROV_3806,Šentjernej,Šentjernej
+PROV_3807,Sevnica,Municipalité de Sevnica
+PROV_3808,Škocjan,Škocjan
+PROV_3809,Škofljica,Škofljica
+PROV_3810,Slovenj Gradec,Slovenj Gradec
+PROV_3811,Slovenske Konjice,Slovenske Konjice
+PROV_3812,Šmarje pri Jelšah,Šmarje pri Jelšah
+PROV_3813,Šmartno ob Paki,Šmartno ob Paki
+PROV_3814,Šoštanj,Šoštanj
+PROV_3815,Starše,Starše
+PROV_3816,Štore,Štore
+PROV_3817,Trebnje,Municipalité de Trebnje
+PROV_3818,Gävleborg,Gävleborg
+PROV_3819,Jönköping,Jönköping
+PROV_3820,Kalmar,Kalmar
+PROV_3821,Dalarna,Dalécarlie
+PROV_3822,Kronoberg,Kronoberg
+PROV_3823,Örebro,Örebro
+PROV_3824,Östergötland,Östergötland
+PROV_3825,Södermanland,Södermanland
+PROV_3826,Västmanland,Västmanland
+PROV_3827,Halland,Halland
+PROV_3828,Värmland,Värmland
+PROV_3829,Jämtland,Jämtland
+PROV_3830,Norrbotten,Norrbotten
+PROV_3831,Västernorrland,Västernorrland
+PROV_3832,Västerbotten,Västerbotten
+PROV_3833,Gotland,Gotland
+PROV_3834,Stockholm,Stockholm
+PROV_3835,Uppsala,Uppsala
+PROV_3836,Blekinge,Blekinge
+PROV_3837,Västra Götaland,Västra Götaland
+PROV_3838,Skåne,Scanie
+PROV_3839,Hhohho,Hhohho
+PROV_3840,Lubombo,Lubombo
+PROV_3841,Manzini,Manzini
+PROV_3842,Shiselweni,Shiselweni
+PROV_3843,Sint Maarten,Saint-Martin
+PROV_3844,Coralline Seychelles,Îles Extérieures
+PROV_3845,Anse-aux-Pins,Anse aux Pins
+PROV_3846,Anse Boileau,Anse Boileau
+PROV_3847,Anse Etoile,Anse Etoile
+PROV_3848,Au Cap,Au Cap
+PROV_3849,Anse Royale,Anse Royale
+PROV_3850,Baie Lazare,Baie Lazare
+PROV_3851,Baie Sainte Anne,Baie Sainte Anne
+PROV_3852,Beau Vallon,Beau Vallon
+PROV_3853,Bel Air,Bel Air
+PROV_3854,Bel Ombre,Bel Ombre
+PROV_3855,Cascade,Cascade
+PROV_3856,Glacis,Glacis
+PROV_3857,Grand'Anse Praslin,Grand'Anse
+PROV_3858,Grand'Anse Praslin,Grand'Anse
+PROV_3859,La Digue,La Digue
+PROV_3860,La Rivière Anglaise,La Rivière Anglaise
+PROV_3861,Mont Buxton,Mont Buxton
+PROV_3862,Mont Fleuri,Mont Fleuri
+PROV_3863,Plaisance,Plaisance
+PROV_3864,Pointe La Rue,Pointe La Rue
+PROV_3865,Port Glaud,Port Glaud
+PROV_3866,Saint Louis,Saint Louis
+PROV_3867,Takamaka,Takamaka
+PROV_3868,Les Mamelles,Les Mamelles
+PROV_3869,Roche Caiman,Roche Caïman
+PROV_3870,Latakia,de Lattaquié
+PROV_3871,Tartus,de Tartous
+PROV_3872,Al-Raqqah,Racca
+PROV_3873,Aleppo,Alep
+PROV_3874,Hama,Hama
+PROV_3875,Homs,de Homs
+PROV_3876,Idlib,Idleb
+PROV_3877,Al-Hasakah,Hassaké
+PROV_3878,Deir ez-Zor,Deir ez-Zor
+PROV_3879,As-Suwayda,Suweyda
+PROV_3880,Rif Dimashq,Rif Dimachq
+PROV_3881,Quneitra,Qouneitra
+PROV_3882,Daraa,de Deraa
+PROV_3883,Damascus,Damas
+PROV_3884,Western al-Samadania,FNUOD
+PROV_3885,Middle Caicos,Caïcos Centrale
+PROV_3886,North Caicos,Caïcos du Nord
+PROV_3887,Providenciales and West Caicos,Providence et Caïcos de l'Ouest
+PROV_3888,South Caicos and East Caicos,Caïcos du Sud et Caïcos de l'Est
+PROV_3889,Grand Turk,Grand Turk
+PROV_3890,Salt Cay,Salt Cay
+PROV_3891,Hadjer-Lamis,Hadjer-Lamis
+PROV_3892,Kanem,Kanem
+PROV_3893,Lac,Lac
+PROV_3894,Batha,Batha
+PROV_3895,Wadi Fira,Wadi Fira
+PROV_3896,Guéra,Guéra
+PROV_3897,Ouaddaï,Ouaddaï
+PROV_3898,Logone Occidental,Logone Occidental
+PROV_3899,Logone Oriental,Logone Oriental
+PROV_3900,Mayo-Kebbi Est,Mayo-Kebbi Est
+PROV_3901,Tandjilé,Tandjilé
+PROV_3902,Mandoul,Mandoul
+PROV_3903,Salamat,Salamat
+PROV_3904,N'Djamena,N'Djaména
+PROV_3905,Mayo-Kebbi Ouest,Mayo-Kebbi Ouest
+PROV_3906,Borkou,Borkou
+PROV_3907,Tibesti,Tibesti
+PROV_3908,Ennedi,Ennedi
+PROV_3909,Chari-Baguirmi,Chari-Baguirmi
+PROV_3910,Bahr el Gazel,Barh El Gazel
+PROV_3911,Sila,Sila
+PROV_3912,Moyen-Chari,Moyen-Chari
+PROV_3913,Plateaux,Région des plateaux
+PROV_3914,Maritime,Région maritime
+PROV_3915,Kara,la Kara
+PROV_3916,Centre,Centre
+PROV_3917,Savanes,Région des Savanes
+PROV_3918,Mae Hong Son,Mae Hong Son
+PROV_3919,Chumphon,Chumphon
+PROV_3920,Nakhon Si Thammarat,Nakhon Si Thammarat
+PROV_3921,Phuket,Phuket
+PROV_3922,Phang Nga,Phang Nga
+PROV_3923,Ranong,Ranong
+PROV_3924,Surat Thani,Surat Thani
+PROV_3925,Krabi,Krabi
+PROV_3926,Phatthalung,Phatthalung
+PROV_3927,Satun,Satun
+PROV_3928,Songkhla,Songkhla
+PROV_3929,Trang,Trang
+PROV_3930,Yala,Yala
+PROV_3931,Chiang Rai,Chiang Rai
+PROV_3932,Chiang Mai,Chiang Mai
+PROV_3933,Lampang,Lampang
+PROV_3934,Lamphun,Lamphun
+PROV_3935,Nan,Nan
+PROV_3936,Phayao,Phayao
+PROV_3937,Phrae,Phrae
+PROV_3938,Phitsanulok,Phitsanulok
+PROV_3939,Sukhothai,Sukhothai
+PROV_3940,Uttaradit,Uttaradit
+PROV_3941,Kanchanaburi,Kanchanaburi
+PROV_3942,Kamphaeng Phet,Kamphaeng Phet
+PROV_3943,Phichit,Phichit
+PROV_3944,Phetchabun,Phetchabun
+PROV_3945,Suphan Buri,Suphanburi
+PROV_3946,Tak,Tak
+PROV_3947,Uthai Thani,Uthai Thani
+PROV_3948,Ang Thong,Ang Thong
+PROV_3949,Chai Nat,Chai Nat
+PROV_3950,Lopburi,Lopburi
+PROV_3951,Nakhon Nayok,Nakhon Nayok
+PROV_3952,Prachin Buri,Prachin Buri
+PROV_3953,Nakhon Sawan,Nakhon Sawan
+PROV_3954,Phra Nakhon Si Ayutthaya,Ayutthaya
+PROV_3955,Pathum Thani,Pathum Thani
+PROV_3956,Sing Buri,Sing Buri
+PROV_3957,Saraburi,Saraburi
+PROV_3958,Bangkok,Bangkok
+PROV_3959,Nonthaburi,Nonthaburi
+PROV_3960,Nakhon Pathom,Nakhon Pathom
+PROV_3961,Phetchaburi,Phetchaburi
+PROV_3962,Prachuap Khiri Khan,Prachuap Khiri Khan
+PROV_3963,Ratchaburi,Ratchaburi
+PROV_3964,Samut Prakan,Samut Prakan
+PROV_3965,Samut Sakhon,Samut Sakhon
+PROV_3966,Samut Songkhram,Samut Songkhram
+PROV_3967,Si Sa Ket,Si Sa Ket
+PROV_3968,Ubon Ratchathani,Ubon Ratchathani
+PROV_3969,Amnat Charoen,Amnat Charoen
+PROV_3970,Yasothon,Yasothon
+PROV_3971,Chon Buri,Chon Buri
+PROV_3972,Chachoengsao,Chachoengsao
+PROV_3973,Chanthaburi,Chanthaburi
+PROV_3974,Sa Kaeo,Sa Kaeo
+PROV_3975,Rayong,Rayong
+PROV_3976,Trat,Trat
+PROV_3977,Buri Ram,Buri Ram
+PROV_3978,Chaiyaphum,Chaiyaphum
+PROV_3979,Khon Kaen,Khon Kaen
+PROV_3980,Kalasin,Kalasin
+PROV_3981,Maha Sarakham,Maha Sarakham
+PROV_3982,Nakhon Ratchasima,Nakhon Ratchasima
+PROV_3983,Roi Et,Roi Et
+PROV_3984,Surin,Surin
+PROV_3985,Loei,Loei
+PROV_3986,Nong Khai,Nong Khai
+PROV_3987,Sakon Nakhon,Sakon Nakhon
+PROV_3988,Udon Thani,Udon Thani
+PROV_3989,Nong Bua Lam Phu,Nong Bua Lam Phu
+PROV_3990,Nakhon Phanom,Nakhon Phanom
+PROV_3991,Mukdahan,Mukdahan
+PROV_3992,Narathiwat,Narathiwat
+PROV_3993,Pattani,Pattani
+PROV_3994,Bueng Kan,Bueng Kan
+PROV_3995,Gorno-Badakhshan,Haut-Badakhchan
+PROV_3996,Khatlon,Khatlon
+PROV_3997,districts of Republican Subordination,Nohiyahoi tobei Jumhurii
+PROV_3998,Khujand,Khodjent
+PROV_3999,Dushanbe,Douchanbé
+PROV_4000,Balkan,Balkan
+PROV_4001,Ahal,Ahal
+PROV_4002,Daşoguz,Daşoguz
+PROV_4003,Lebap,Lebap
+PROV_4004,Mary,Mary
+PROV_4005,Dili,Dili
+PROV_4006,Liquiçá,Liquiçá
+PROV_4007,Oe-Cusse Ambeno,Oe-Cusse Ambeno
+PROV_4008,Aileu,Aileu
+PROV_4009,Ainaro,Ainaro
+PROV_4010,Baucau,Baucau
+PROV_4011,Bobonaro,Bobonaro
+PROV_4012,Cova Lima,Cova Lima
+PROV_4013,Ermera,Ermera
+PROV_4014,Manatuto,Manatuto
+PROV_4015,Manufahi,Manufahi
+PROV_4016,Viqueque,Viqueque
+PROV_4017,Lautém,Lautém
+PROV_4018,Tongatapu,Tongatapu
+PROV_4019,Vavaʻu,Vava'u
+PROV_4020,Niuas,Niuas
+PROV_4021,Haʻapai,Ha'apai
+PROV_4022,ʻEua,'Eua
+PROV_4023,Tobago,Tobago
+PROV_4024,Tobago,Tobago
+PROV_4025,Diego Martin Regional Corporation,Diego Martin
+PROV_4026,Siparia Regional Corporation,Siparia
+PROV_4027,Arima,Arima
+PROV_4028,Sangre Grande Regional Corporation,Sangre Grande
+PROV_4029,Mayaro-Rio Claro,Rio Claro-Mayaro
+PROV_4030,San Juan–Laventille,San Juan-Laventille
+PROV_4031,Princes Town,Princes Town
+PROV_4032,Couva-Tabaquite-Talparo,Couva-Tabaquite-Talparo
+PROV_4033,Penal-Debe Regional Corporation,Penal-Debe
+PROV_4034,Point Fortin,Point Fortin
+PROV_4035,Tunapuna-Piarco Regional Corporation,Tunapuna-Piarco
+PROV_4036,San Fernando,San Fernando
+PROV_4037,Chaguanas,Chaguanas
+PROV_4038,Port of Spain,Port-d'Espagne
+PROV_4039,Tozeur,Tozeur
+PROV_4040,Manouba,La Manouba
+PROV_4041,Beja,Béja
+PROV_4042,Ben Arous,Ben Arous
+PROV_4043,Bizerte,Bizerte
+PROV_4044,Jendouba,Jendouba
+PROV_4045,Nabeul,Nabeul
+PROV_4046,Tunis,Tunis
+PROV_4047,Kef,Le Kef
+PROV_4048,Kasserine,Kasserine
+PROV_4049,Gabès,Gabès
+PROV_4050,Gafsa,Gafsa
+PROV_4051,Sidi Bouzid,Sidi Bouzid
+PROV_4052,Sfax,Sfax
+PROV_4053,Siliana,Siliana
+PROV_4054,Mahdia,Mahdia
+PROV_4055,Monastir,Monastir
+PROV_4056,Kairouan,Kairouan
+PROV_4057,Sousse,Sousse
+PROV_4058,Zaghouan,Zaghouan
+PROV_4059,Medenine,Médenine
+PROV_4060,Kebili,Kébili
+PROV_4061,Tataouine,Tataouine
+PROV_4062,Aydın,Aydın
+PROV_4063,İzmir,Izmir
+PROV_4064,Balıkesir,Balıkesir
+PROV_4065,Çanakkale,Çanakkale
+PROV_4066,Edirne,Edirne
+PROV_4067,Kırklareli,Kırklareli
+PROV_4068,Tekirdağ,Tekirdağ
+PROV_4069,Bilecik,Bilecik
+PROV_4070,Bursa,Bursa
+PROV_4071,Istanbul,Istanbul
+PROV_4072,Kocaeli,Kocaeli
+PROV_4073,Sakarya,Sakarya
+PROV_4074,Bolu,Bolu
+PROV_4075,Eskişehir,Eskişehir
+PROV_4076,Kastamonu,Kastamonu
+PROV_4077,Antalya,Antalya
+PROV_4078,Afyonkarahisar,Afyonkarahisar
+PROV_4079,Burdur,Burdur
+PROV_4080,Denizli,Denizli
+PROV_4081,Isparta,Isparta
+PROV_4082,Kütahya,Kütahya
+PROV_4083,Manisa,Manisa
+PROV_4084,Muğla,Muğla
+PROV_4085,Adıyaman,Adıyaman
+PROV_4086,Elazığ,Elâzığ
+PROV_4087,Kahramanmaraş,Kahramanmaraş
+PROV_4088,Malatya,Malatya
+PROV_4089,Mersin,Mersin
+PROV_4090,Kırşehir,Kırşehir
+PROV_4091,Kayseri,Kayseri
+PROV_4092,Nevşehir,Nevşehir
+PROV_4093,Hatay,Hatay
+PROV_4094,Amasya,Amasya
+PROV_4095,Çorum,Çorum
+PROV_4096,Giresun,Giresun
+PROV_4097,Ordu,Ordu
+PROV_4098,Sinop,Sinop
+PROV_4099,Sivas,Sivas
+PROV_4100,Samsun,Samsun
+PROV_4101,Tokat,Tokat
+PROV_4102,Artvin,Artvin
+PROV_4103,Erzurum,Erzurum
+PROV_4104,Erzincan,Erzincan
+PROV_4105,Rize,Rize
+PROV_4106,Trabzon,Trabzon
+PROV_4107,Ağrı,Ağrı
+PROV_4108,Bingöl,Bingöl
+PROV_4109,Diyarbakır,Diyarbakır
+PROV_4110,Muş,Muş
+PROV_4111,Bitlis,Bitlis
+PROV_4112,Ankara,Ankara
+PROV_4113,Çankırı,Çankırı
+PROV_4114,Zonguldak,Zonguldak
+PROV_4115,Konya,Konya
+PROV_4116,Karaman,Karaman
+PROV_4117,Uşak,Uşak
+PROV_4118,Gaziantep,Gaziantep
+PROV_4119,Şanlıurfa,Şanlıurfa
+PROV_4120,Adana,Adana
+PROV_4121,Kırıkkale,Kırıkkale
+PROV_4122,Niğde,Niğde
+PROV_4123,Aksaray,Aksaray
+PROV_4124,Yozgat,Yozgat
+PROV_4125,Gümüşhane,Gümüşhane
+PROV_4126,Bayburt,Bayburt
+PROV_4127,Kars,Kars
+PROV_4128,Mardin,Mardin
+PROV_4129,Batman,Batman
+PROV_4130,Siirt,Siirt
+PROV_4131,Şırnak,Şırnak
+PROV_4132,Tunceli,Tunceli
+PROV_4133,Hakkâri,Hakkari
+PROV_4134,Van,Van
+PROV_4135,Ardahan,Ardahan
+PROV_4136,Iğdır,Iğdır
+PROV_4137,Kilis,Kilis
+PROV_4138,Osmaniye,Osmaniye
+PROV_4139,Yalova,Yalova
+PROV_4140,Düzce,Düzce
+PROV_4141,Karabük,Karabük
+PROV_4142,Bartın,Bartın
+PROV_4143,Tuvalu,Tuvalu
+PROV_4144,Kaohsiung,Kaohsiung
+PROV_4145,Pingtung,Pingtung
+PROV_4146,Tainan,Tainan
+PROV_4147,Hsinchu,Hsinchu
+PROV_4148,Hsinchu,Hsinchu
+PROV_4149,Yilan,Yilan
+PROV_4150,Keelung,Chilung
+PROV_4151,Miaoli,Miaoli
+PROV_4152,Taipei,Taipei
+PROV_4153,New Taipei,Nouveau Taipei
+PROV_4154,Taoyuan,Taoyuan
+PROV_4155,Changhua,Changhua
+PROV_4156,Chiayi,Chiayi
+PROV_4157,Chiayi,Chiayi
+PROV_4158,Hualien,Hualien
+PROV_4159,Nantou,Nantou
+PROV_4160,Taichung City,Taichung
+PROV_4161,Yunlin,Yunlin
+PROV_4162,Taitung,Taitung
+PROV_4163,Penghu,Penghu
+PROV_4164,Kinmen,Jinmen
+PROV_4165,Mbeya,Mbeya
+PROV_4166,Rukwa,Rukwa
+PROV_4167,Unguja South,Unguja Sud et Central
+PROV_4168,Mwanza,Mwanza
+PROV_4169,Shinyanga,Shinyanga
+PROV_4170,Tabora,Tabora
+PROV_4171,Kagera,Kagera
+PROV_4172,Kigoma,Kigoma
+PROV_4173,Dar es Salaam,Dar es Salaam
+PROV_4174,Morogoro,Morogoro
+PROV_4175,North Pemba,Pemba Nord
+PROV_4176,South Pemba,Pemba Sud
+PROV_4177,Pwani,Pwani
+PROV_4178,Unguja North,Unguja Nord
+PROV_4179,Mjini Magharibi,Unguja Ville et Ouest
+PROV_4180,Dodoma,Dodoma
+PROV_4181,Iringa,Iringa
+PROV_4182,Lindi,Lindi
+PROV_4183,Mtwara,Mtwara
+PROV_4184,Ruvuma,Ruvuma
+PROV_4185,Singida,Singida
+PROV_4186,Arusha,Arusha
+PROV_4187,Manyara,Manyara
+PROV_4188,Kilimanjaro,Kilimandjaro
+PROV_4189,Mara,Mara
+PROV_4190,Tanga,Tanga
+PROV_4191,Katavi,Katavi
+PROV_4192,Simiyu,Simiyu
+PROV_4193,Geita,Geita
+PROV_4194,Njombe,Njombe
+PROV_4195,Kalangala,Kalangala
+PROV_4196,Jinja,Jinja
+PROV_4197,Kumi,Kumi
+PROV_4198,Kaberamaido,Kaberamaido
+PROV_4199,Kayunga,Kayunga
+PROV_4200,Iganga,Iganga
+PROV_4201,Kamuli,Kamuli
+PROV_4202,Amolatar,Amolatar
+PROV_4203,Kaliro,Kaliro
+PROV_4204,Namutumba,Namutumba
+PROV_4205,Soroti,Soroti
+PROV_4206,Mukono,Mukono
+PROV_4207,Pallisa,Pallisa
+PROV_4208,Sembabule,Sembabule
+PROV_4209,Mpigi,Mpigi
+PROV_4210,Adjumani,Adjumani
+PROV_4211,Arua,Arua
+PROV_4212,Koboko,Koboko
+PROV_4213,Buliisa,Buliisa
+PROV_4214,Nebbi,Nebbi
+PROV_4215,Moyo,Moyo
+PROV_4216,Yumbe,Yumbe
+PROV_4217,Maracha,Maracha
+PROV_4218,Kampala,Kampala
+PROV_4219,Kiboga,Kiboga
+PROV_4220,Nakasongola,Nakasongola
+PROV_4221,Wakiso,Wakiso
+PROV_4222,Luwero,Luweero
+PROV_4223,Mubende,Mubende
+PROV_4224,Mityana,Mityana
+PROV_4225,Nakaseke,Nakaseke
+PROV_4226,Kitgum,Kitgum
+PROV_4227,Gulu,Gulu
+PROV_4228,Lira,Lira
+PROV_4229,Dokolo,Dokolo
+PROV_4230,Pader,Pader
+PROV_4231,Masindi,Masindi
+PROV_4232,Oyam,Oyam
+PROV_4233,Bundibugyo,Bundibugyo
+PROV_4234,Hoima,Hoima
+PROV_4235,Kabarole,Kabarole
+PROV_4236,Kyenjojo,Kyenjojo
+PROV_4237,Kibaale,Kibaale
+PROV_4238,Kapchorwa,Kapchorwa
+PROV_4239,Bukwo,Bukwa
+PROV_4240,Sironko,Sironko
+PROV_4241,Mbale,Mbale
+PROV_4242,Manafwa,Manafwa
+PROV_4243,Bugiri,Bugiri
+PROV_4244,Busia,Busia
+PROV_4245,Butaleja,Butaleja
+PROV_4246,Mayuge,Mayuge
+PROV_4247,Tororo,Tororo
+PROV_4248,Katakwi,Katakwi
+PROV_4249,Kotido,Kotido
+PROV_4250,Amuria,Amuria
+PROV_4251,Kaabong,Kaabong
+PROV_4252,Abim,Abim
+PROV_4253,Moroto,Moroto
+PROV_4254,Nakapiripirit,Nakapiripirit
+PROV_4255,Rakai,Rakai
+PROV_4256,Masaka,Masaka
+PROV_4257,Bushenyi,Bushenyi
+PROV_4258,Kasese,Kasese
+PROV_4259,Kamwenge,Kamwenge
+PROV_4260,Ibanda,Ibanda
+PROV_4261,Isingiro,Isingiro
+PROV_4262,Mbarara,Mbarara
+PROV_4263,Ntungamo,Ntungamo
+PROV_4264,Rukungiri,Rukungiri
+PROV_4265,Mbarara,Mbarara
+PROV_4266,Kabale,Kabale
+PROV_4267,Kisoro,Kisoro
+PROV_4268,Kanungu,Kanungu
+PROV_4269,Zombo,Zombo
+PROV_4270,Ngora,Ngora
+PROV_4271,Bukedea,Bukedea
+PROV_4272,Luuka,Luuka
+PROV_4273,Buyende,Buyende
+PROV_4274,Budaka,Budaka
+PROV_4275,Kibuku,Kibuku
+PROV_4276,Serere,Serere
+PROV_4277,Buikwe,Buikwe
+PROV_4278,Buvuma,Buvuma
+PROV_4279,Butambala,Butambala
+PROV_4280,Gomba,Gomba
+PROV_4281,Amuru,Amuru
+PROV_4282,Kyankwanzi,Kyankwanzi
+PROV_4283,Lamwo,Lamwo
+PROV_4284,Apac,Apac
+PROV_4285,Kole,Kole
+PROV_4286,Alebtong,Alebtong
+PROV_4287,Otuke,Otuke
+PROV_4288,Agago,Agago
+PROV_4289,Kiryandongo,Kiryandongo
+PROV_4290,Ntoroko,Ntoroko
+PROV_4291,Kyegegwa,Kyegegwa
+PROV_4292,Kween,Kween
+PROV_4293,Bulambuli,Bulambuli
+PROV_4294,Namayingo,Namayingo
+PROV_4295,Napak,Napak
+PROV_4296,Amudat,Amudat
+PROV_4297,Lwengo,Lwengo
+PROV_4298,Lyantonde,Lyantonde
+PROV_4299,Bukomansimbi,Bukomansimbi
+PROV_4300,Kalungu,Kalungu
+PROV_4301,Rubirizi,Rubirizi
+PROV_4302,Mitooma,Mitooma
+PROV_4303,Sheema,Sheema
+PROV_4304,Buhweju,Buhweju
+PROV_4305,Nwoya,Nwoya
+PROV_4306,Bududa,Bududa
+PROV_4307,Mykolaiv,Mykolaiv
+PROV_4308,Chernihiv,Tchernihiv
+PROV_4309,Rivne,Rivne
+PROV_4310,Chernivtsi,Tchernivtsi
+PROV_4311,Ivano-Frankivsk,d'Ivano-Frankivsk
+PROV_4312,Khmelnytskyi,Khmelnitski
+PROV_4313,Lviv,Lviv
+PROV_4314,Ternopil,Ternopil
+PROV_4315,Zakarpattia,Transcarpatie
+PROV_4316,Volyn,Volhynie
+PROV_4317,Cherkasy,Tcherkassy
+PROV_4318,Kirovohrad,Kirovohrad
+PROV_4319,Kyiv,Kiev
+PROV_4320,Odessa,Odessa
+PROV_4321,Vinnytsia,Vinnytsia
+PROV_4322,Zhytomyr,Jytomyr
+PROV_4323,Sumy,Soumy
+PROV_4324,Dnipropetrovsk,Dnipropetrovsk
+PROV_4325,Donetsk,Donetsk
+PROV_4326,Kharkiv,Kharkiv
+PROV_4327,Luhansk,Lougansk
+PROV_4328,Poltava,Poltava
+PROV_4329,Zaporizhzhia,Zaporijjia
+PROV_4330,Kyiv,Kiev
+PROV_4331,Kherson,Kherson
+PROV_4332,Baker Island,île Baker
+PROV_4333,Howland Island,île Howland
+PROV_4334,Jarvis Island,île Jarvis
+PROV_4335,Johnston Atoll,Atoll Johnston
+PROV_4336,Midway Atoll,îles Midway
+PROV_4337,Navassa Island,île de la Navasse
+PROV_4338,Palmyra Atoll,atoll Palmyra
+PROV_4339,Wake Island,Wake
+PROV_4340,Salto,Salto
+PROV_4341,Soriano,Soriano
+PROV_4342,Cerro Largo,Cerro Largo
+PROV_4343,Durazno,Durazno
+PROV_4344,Rivera,Rivera
+PROV_4345,Tacuarembó,Tacuarembó
+PROV_4346,Treinta y Tres,Treinta y Tres
+PROV_4347,Canelones,Canelones
+PROV_4348,Florida,Florida
+PROV_4349,Lavalleja,Lavalleja
+PROV_4350,Maldonado,Maldonado
+PROV_4351,Montevideo,Montevideo
+PROV_4352,Rocha,Rocha
+PROV_4353,Colonia,Colonia
+PROV_4354,San José,San José
+PROV_4355,Artigas,Artigas
+PROV_4356,Flores,Flores
+PROV_4357,Paysandú,Paysandú
+PROV_4358,Río Negro,Río Negro
+PROV_4359,Massachusetts,Massachusetts
+PROV_4360,Minnesota,Minnesota
+PROV_4361,Montana,Montana
+PROV_4362,North Dakota,Dakota du Nord
+PROV_4363,Hawaii,Hawaï
+PROV_4364,Idaho,Idaho
+PROV_4365,Washington,Washington
+PROV_4366,Arizona,Arizona
+PROV_4367,California,Californie
+PROV_4368,Colorado,Colorado
+PROV_4369,Nevada,Nevada
+PROV_4370,New Mexico,Nouveau-Mexique
+PROV_4371,Oregon,Oregon
+PROV_4372,Utah,Utah
+PROV_4373,Wyoming,Wyoming
+PROV_4374,Arkansas,Arkansas
+PROV_4375,Iowa,Iowa
+PROV_4376,Kansas,Kansas
+PROV_4377,Missouri,Missouri
+PROV_4378,Nebraska,Nebraska
+PROV_4379,Oklahoma,Oklahoma
+PROV_4380,South Dakota,Dakota du Sud
+PROV_4381,Louisiana,Louisiane
+PROV_4382,Texas,Texas
+PROV_4383,Connecticut,Connecticut
+PROV_4384,New Hampshire,New Hampshire
+PROV_4385,Rhode Island,Rhode Island
+PROV_4386,Vermont,Vermont
+PROV_4387,Alabama,Alabama
+PROV_4388,Florida,Floride
+PROV_4389,Georgia,Géorgie
+PROV_4390,Mississippi,Mississippi
+PROV_4391,South Carolina,Caroline du Sud
+PROV_4392,Illinois,Illinois
+PROV_4393,Indiana,Indiana
+PROV_4394,Kentucky,Kentucky
+PROV_4395,North Carolina,Caroline du Nord
+PROV_4396,Ohio,Ohio
+PROV_4397,Tennessee,Tennessee
+PROV_4398,Virginia,Virginie
+PROV_4399,Wisconsin,Wisconsin
+PROV_4400,West Virginia,Virginie-Occidentale
+PROV_4401,Delaware,Delaware
+PROV_4402,Washington,Washington
+PROV_4403,Maryland,Maryland
+PROV_4404,New Jersey,New Jersey
+PROV_4405,New York,État de New York
+PROV_4406,Pennsylvania,Pennsylvanie
+PROV_4407,Maine,Maine
+PROV_4408,Michigan,Michigan
+PROV_4409,Alaska,Alaska
+PROV_4410,"USNB, Guantanamo Bay",Baie de Guantánamo
+PROV_4411,Bukhara,Boukhara
+PROV_4412,Xorazm,Khorezm
+PROV_4413,Karakalpakstan,Karakalpakistan
+PROV_4414,Navoiy,Navoï
+PROV_4415,Samarqand,Samarcande
+PROV_4416,Qashqadaryo,Kachkadaria
+PROV_4417,Surxondaryo,Sourkhan-Daria
+PROV_4418,Andijan,Andijan
+PROV_4419,Fergana,Ferghana
+PROV_4420,Namangan,Namangan
+PROV_4421,Jizzakh,Djizak
+PROV_4422,Sirdaryo,Syr-Daria
+PROV_4423,Tashkent,Tachkent
+PROV_4424,Tashkent,Tachkent
+PROV_4425,Vatican City,Vatican
+PROV_4426,Charlotte,Charlotte
+PROV_4427,Grenadines,Grenadines
+PROV_4428,Saint Andrew,Saint-Andrew
+PROV_4429,Saint David,Saint-David
+PROV_4430,Saint George,Saint-George
+PROV_4431,Saint Patrick,Saint-Patrick
+PROV_4432,Venezuela,Venezuela
+PROV_4433,Falcón,Falcón
+PROV_4434,Apure,Apure
+PROV_4435,Barinas,Barinas
+PROV_4436,Merida,Mérida
+PROV_4437,Tachira,Táchira
+PROV_4438,Trujillo,Trujillo
+PROV_4439,Zulia,Zulia
+PROV_4440,Cojedes,Cojedes
+PROV_4441,Carabobo,Carabobo
+PROV_4442,Lara,Lara
+PROV_4443,Portuguesa,Portuguesa
+PROV_4444,Yaracuy,Yaracuy
+PROV_4445,Amazonas,Amazonas
+PROV_4446,Bolívar,Bolívar
+PROV_4447,Anzoátegui,Anzoátegui
+PROV_4448,Aragua,Aragua
+PROV_4449,Vargas state,La Guaira
+PROV_4450,Capital,la capitale
+PROV_4451,Federal Dependencies,Dépendances fédérales
+PROV_4452,Guárico State,Guárico
+PROV_4453,Monagas,Monagas
+PROV_4454,Miranda,Miranda
+PROV_4455,Nueva Esparta,Nueva Esparta
+PROV_4456,Sucre,Sucre
+PROV_4457,Delta Amacuro,Delta Amacuro
+PROV_4458,British Virgin Islands,Îles Vierges britanniques
+PROV_4459,Saint Thomas,Saint Thomas
+PROV_4460,Saint John,Saint-John
+PROV_4461,Saint Croix,Sainte-Croix
+PROV_4462,Quảng Ninh,Quảng Ninh
+PROV_4463,Tây Ninh,Tây Ninh
+PROV_4464,Điện Biên,Điện Biên
+PROV_4465,Northeast Vietnam,Nord-est
+PROV_4466,Thái Nguyên,Thái Nguyên
+PROV_4467,Lai Châu,Lai Châu
+PROV_4468,Lạng Sơn,Lạng Sơn
+PROV_4469,Sơn La,Sơn La
+PROV_4470,Thanh Hóa,Thanh Hóa
+PROV_4471,Tuyên Quang,Tuyên Quang
+PROV_4472,Yên Bái,Yên Bái
+PROV_4473,Hòa Bình,Hòa Bình
+PROV_4474,Hải Dương,Hải Dương
+PROV_4475,Haiphong,Haïphong
+PROV_4476,Red River Delta,Delta du Fleuve Rouge
+PROV_4477,Hanoi,Hanoï
+PROV_4478,Bắc Ninh,Bắc Ninh
+PROV_4479,Vĩnh Phúc,Vĩnh Phúc
+PROV_4480,Ninh Bình,Ninh Bình
+PROV_4481,Hà Nam,Hà Nam
+PROV_4482,Nam Định,Nam Định
+PROV_4483,Phú Thọ,Phú Thọ
+PROV_4484,Bắc Giang,Bắc Giang
+PROV_4485,Thái Bình,Thái Bình
+PROV_4486,Hà Tĩnh,Hà Tĩnh
+PROV_4487,Nghệ An,Nghệ An
+PROV_4488,Quảng Bình,Quảng Bình
+PROV_4489,Đắk Lắk,Đắk Lắk
+PROV_4490,Gia Lai,Gia Lai
+PROV_4491,Khánh Hòa,Khánh Hòa
+PROV_4492,Lâm Đồng,Lâm Đồng
+PROV_4493,Ninh Thuận,Ninh Thuận
+PROV_4494,Phú Yên,Phú Yên
+PROV_4495,Bình Dương,Bình Dương
+PROV_4496,Tiền Giang,Tiền Giang
+PROV_4497,Đắk Nông,Đắk Nông
+PROV_4498,Bình Phước,Bình Phước
+PROV_4499,Bình Định,Bình Định
+PROV_4500,Kon Tum,Kon Tum
+PROV_4501,Quảng Nam,Quảng Nam
+PROV_4502,Quảng Ngãi,Quảng Ngãi
+PROV_4503,Quảng Trị,Quảng Trị
+PROV_4504,Thừa Thiên Huế,Thừa Thiên-Huế
+PROV_4505,Da Nang,Đà Nẵng
+PROV_4506,Bà Rịa-Vũng Tàu,Bà Rịa-Vũng Tàu
+PROV_4507,Bình Thuận,Bình Thuận
+PROV_4508,Đông Nam Bộ,Đông Nam Bộ
+PROV_4509,An Giang,An Giang
+PROV_4510,Cần Thơ,Cần Thơ
+PROV_4511,Đồng Tháp,Đồng Tháp
+PROV_4512,Ho Chi Minh,Hô Chi Minh-Ville
+PROV_4513,Kiên Giang,Kiên Giang
+PROV_4514,Long An,Long An
+PROV_4515,Bến Tre,Bến Tre
+PROV_4516,Hậu Giang,Hậu Giang
+PROV_4517,Bạc Liêu,Bạc Liêu
+PROV_4518,Cà Mau,Cà Mau
+PROV_4519,Sóc Trăng,Sóc Trăng
+PROV_4520,Trà Vinh,Trà Vinh
+PROV_4521,Vĩnh Long,Vĩnh Long
+PROV_4522,Cao Bằng,Cao Bằng
+PROV_4523,Hà Giang,Hà Giang
+PROV_4524,Lào Cai,Lào Cai
+PROV_4525,Torba,Torba
+PROV_4526,Sanma,Sanma
+PROV_4527,Tafea,Taféa
+PROV_4528,Malampa,Malampa
+PROV_4529,Penama,Pénama
+PROV_4530,Shefa,Shéfa
+PROV_4531,West Bank,Cisjordanie
+PROV_4532,Sigave,Sigave
+PROV_4533,Uvea,Uvea
+PROV_4534,Alo,Alo
+PROV_4535,Akrotiri,Akrotiri
+PROV_4536,Tuamasaga,Tuamasaga
+PROV_4537,A'ana,A'ana
+PROV_4538,Aiga-i-le-Tai,Aiga-i-le-Tai
+PROV_4539,Atua,Atua
+PROV_4540,Va'a-o-Fonoti,Va'a-o-Fonoti
+PROV_4541,Fa'asaleleaga,Fa'asaleleaga
+PROV_4542,Gaga'emauga,Gaga'emauga
+PROV_4543,Gaga'ifomauga,Gaga'ifomauga
+PROV_4544,Vaisigano,Vaisigano
+PROV_4545,Satupa'itea,Satupa'itea
+PROV_4546,Palauli,Palauli
+PROV_4547,Sa'dah,Sa'dah
+PROV_4548,Al Hudaydah,Al-Hodeïda
+PROV_4549,Al Mahwit,Al Mahwit
+PROV_4550,Dhamar,Dhamar
+PROV_4551,Hajjah,Hajjah
+PROV_4552,'Amran,Amran
+PROV_4553,Ibb,Ibb
+PROV_4554,Lahij,Lahij
+PROV_4555,Ta'izz,Ta'izz
+PROV_4556,Al Mahrah,Mahra
+PROV_4557,Al Bayda',Al Bayda'
+PROV_4558,Ad Dali',Ad Dali'
+PROV_4559,Al Jawf,Al Jawf
+PROV_4560,Shabwah,Chabwa
+PROV_4561,Ma'rib,Ma'rib
+PROV_4562,Sanaa,Sanaa
+PROV_4563,Hadhramaut,Hadramaout
+PROV_4564,Sanaa,Sanaa
+PROV_4565,Raymah,Raima
+PROV_4566,'Adan,Aden
+PROV_4567,Abyan,Abyan
+PROV_4568,Northern Cape,Cap-Nord
+PROV_4569,Western Cape,Cap-Occidental
+PROV_4570,North West,Nord-Ouest
+PROV_4571,Free State,État libre
+PROV_4572,Gauteng,Gauteng
+PROV_4573,Mpumalanga,Mpumalanga
+PROV_4574,Limpopo,Limpopo
+PROV_4575,KwaZulu-Natal,KwaZulu-Natal
+PROV_4576,Eastern Cape,Cap-Oriental
+PROV_4577,Luapula,Luapula
+PROV_4578,Northern,Septentrionale
+PROV_4579,Central,Centrale
+PROV_4580,Copperbelt,Copperbelt
+PROV_4581,Eastern,orientale
+PROV_4582,Lusaka,Lusaka
+PROV_4583,Northwestern,Nord-Occidentale
+PROV_4584,Southern,Méridionale
+PROV_4585,Western,Occidentale
+PROV_4586,Muchinga,Muchinga
+PROV_4587,Mashonaland Central,Mashonaland central
+PROV_4588,Harare,Harare
+PROV_4589,Matabeleland North,Matabeleland septentrional
+PROV_4590,Midlands,Midlands
+PROV_4591,Mashonaland East,Mashonaland oriental
+PROV_4592,Manicaland,Manicaland
+PROV_4593,Matabeleland South,Matabeleland méridional
+PROV_4594,Bulawayo,Bulawayo
+PROV_4595,Masvingo,Masvingo
+PROV_4596,Mashonaland West,Mashonaland occidental
