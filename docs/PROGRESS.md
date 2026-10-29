@@ -5,7 +5,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 | Étape | Nom | Statut | Version cible | Validée le | Tag |
 |---|---|---|---|---|---|
 | 0 | Fondations du projet | ✅ | v0.0.0 | 2026-10-29 | v0.0.0 |
-| 1 | La carte du monde | 🟨 | v0.1.0 | | |
+| 1 | La carte du monde | ✅ | v0.1.0 | 2026-10-29 | v0.1.0 |
 | 2 | Temps et boucle de simulation | ⬜ | v0.2.0 | | |
 | 3 | Les pays en 2026 | ⬜ | v0.3.0 | | |
 | 4 | Économie | ⬜ | v0.4.0 | | |
@@ -36,7 +36,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] GUT installé et premiers tests
 - [x] Validation : le jeu démarre, la console affiche le nombre de fichiers chargés
 
-## Étape 1 — La carte du monde 🟨
+## Étape 1 — La carte du monde ✅ (validée le 2026-10-29, v0.1.0)
 **1a. Génération de la carte**
 - [x] Outil `tools/map_gen/` : Natural Earth + populations Wikidata → `provinces.png` (16384 × 8192) + `provinces.json`
 - [x] 4 564 provinces réelles (régions de premier niveau, arrondissements de Londres regroupés), 199 pays en version minimale
@@ -63,7 +63,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Zones maritimes (155 mers et secteurs d'océan, 29 lacs)
 - [x] Détroits et canaux stratégiques (Suez, Panama, Ormuz, Malacca, Bosphore…)
 
-- [ ] Validation : clic sur une province → panneau d'info
+- [x] Validation : clic sur une province → panneau d'info
 
 ## Étape 2 — Temps et boucle de simulation ⬜
 - [ ] `GameClock` : date, heure, pause, 5 vitesses, raccourcis (Espace, +, -)
