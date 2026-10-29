@@ -5,7 +5,9 @@
       "game",
       "time",
       "camera",
-      "map_colors"
+      "map_colors",
+      "map_style",
+      "province"
     ],
     "properties": {
       "game": {
@@ -132,6 +134,37 @@
           },
           "background": {
             "type": "color"
+          }
+        }
+      },
+      "map_style": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "selection_color",
+          "selection_strength"
+        ],
+        "properties": {
+          "selection_color": {
+            "type": "color"
+          },
+          "selection_strength": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          }
+        }
+      },
+      "province": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "max_infrastructure"
+        ],
+        "properties": {
+          "max_infrastructure": {
+            "type": "int",
+            "min": 1
           }
         }
       }

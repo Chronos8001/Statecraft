@@ -4,8 +4,13 @@ extends Control
 ## (clic droit ou molette enfoncée) et bord de l'écran.
 
 signal camera_changed
+## Clic gauche sur la carte : identifiant de la province (0 = eau).
+signal province_clicked(province_id: int)
+
+const NO_SELECTION := -1
 
 var camera: MapCameraState
+var selected_province: int = NO_SELECTION
 var map_data: ProvinceMapData
 var _material: ShaderMaterial
 var _dragging: bool = false
@@ -39,6 +44,9 @@ func setup(data: ProvinceMapData, colors: PackedColorArray) -> void:
 	_material.set_shader_parameter("province_ids", ImageTexture.create_from_image(data.id_image))
 	_material.set_shader_parameter("map_size", map_size)
 	_material.set_shader_parameter("background_color", Color.html(str(DataLoader.get_define("map_colors.background"))))
+	_material.set_shader_parameter("selection_color", Color.html(str(DataLoader.get_define("map_style.selection_color"))))
+	_material.set_shader_parameter("selection_strength", float(DataLoader.get_define("map_style.selection_strength")))
+	set_selected_province(NO_SELECTION)
 	set_province_colors(colors)
 	_update_camera()
 	set_process(true)
@@ -50,12 +58,28 @@ func set_province_colors(colors: PackedColorArray) -> void:
 	_material.set_shader_parameter("province_colors", lookup)
 
 
+func set_selected_province(province_id: int) -> void:
+	selected_province = province_id
+	_material.set_shader_parameter("selected_province", province_id)
+
+
+## Province sous un point de l'écran (0 = eau ou carte non chargée).
+func province_at_screen(screen_position: Vector2) -> int:
+	if camera == null or map_data == null:
+		return 0
+	return map_data.get_province_at(camera.screen_to_map(screen_position))
+
+
 func _gui_input(event: InputEvent) -> void:
 	if camera == null:
 		return
 	if event is InputEventMouseButton:
 		var button := event as InputEventMouseButton
 		match button.button_index:
+			MOUSE_BUTTON_LEFT:
+				if button.pressed:
+					province_clicked.emit(province_at_screen(button.position))
+				accept_event()
 			MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN:
 				if button.pressed:
 					var steps := button.factor if button.factor > 0.0 else 1.0

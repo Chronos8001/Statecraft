@@ -11,6 +11,11 @@ uniform vec2 camera_center;
 uniform float zoom = 1.0;
 uniform vec4 background_color : source_color;
 
+// Province sélectionnée (-1 = aucune), éclaircie vers selection_color.
+uniform int selected_province = -1;
+uniform vec4 selection_color : source_color = vec4(1.0);
+uniform float selection_strength = 0.4;
+
 int province_at(vec2 map_position) {
 	ivec2 texel = ivec2(
 		int(mod(floor(map_position.x), map_size.x)),
@@ -28,5 +33,8 @@ void fragment() {
 		int province_id = province_at(map_position);
 		int lookup_width = textureSize(province_colors, 0).x;
 		COLOR = texelFetch(province_colors, ivec2(province_id % lookup_width, province_id / lookup_width), 0);
+		if (province_id == selected_province && province_id > 0) {
+			COLOR.rgb = mix(COLOR.rgb, selection_color.rgb, selection_strength);
+		}
 	}
 }
