@@ -186,7 +186,7 @@
   "UGA": {"name_key": "COUNTRY_UGA","color": "#A784C5","capital": 4218},
   "UKR": {"name_key": "COUNTRY_UKR","color": "#9777B2","capital": 4330},
   "URY": {"name_key": "COUNTRY_URY","color": "#F1C767","capital": 4351},
-  "USA": {"name_key": "COUNTRY_USA","flag": "flags/USA.png","color": "#2F3E78","capital": 4402,"regime": "presidential_republic","head_of_state": "chr_usa_calloway","head_of_government": "chr_usa_calloway","ruling_party": "pty_usa_restoration","ideology": "national_conservative","population": 343000000,"economy": {"gdp_billion_usd": 31800,"debt_to_gdp": 1.24},"military": {"active_personnel": 1320000,"reserve_personnel": 800000},"organizations": ["un","nato","g7","g20"]},
+  "USA": {"name_key": "COUNTRY_USA","flag": "flags/USA.png","color": "#3D58A8","capital": 4402,"regime": "presidential_republic","head_of_state": "chr_usa_calloway","head_of_government": "chr_usa_calloway","ruling_party": "pty_usa_restoration","ideology": "national_conservative","population": 343000000,"economy": {"gdp_billion_usd": 31800,"debt_to_gdp": 1.24},"military": {"active_personnel": 1320000,"reserve_personnel": 800000},"organizations": ["un","nato","g7","g20"]},
   "UZB": {"name_key": "COUNTRY_UZB","color": "#7695D0","capital": 4424},
   "VAT": {"name_key": "COUNTRY_VAT","color": "#64A8A4","capital": 4425},
   "VCT": {"name_key": "COUNTRY_VCT","color": "#7593CE","capital": 4430},

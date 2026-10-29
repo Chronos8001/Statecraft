@@ -21,3 +21,6 @@
 | 2026-10-29 | Image des provinces en 16384 × 8192, couleur = identifiant (`R + G × 256`) | Précision élevée ; le shader et le clic lisent l'id sans table de conversion, texture RG8 (~270 Mo) | Couleurs libres + table de correspondance (conversion pixel par pixel trop lente à cette taille) |
 | 2026-10-29 | Images de carte dans Git LFS, hook `pre-push` étendu pour l'envoi LFS | Dépôt léger malgré les regénérations | Images directement dans Git |
 | 2026-10-29 | Dépendances rattachées à leur État (Groenland → Danemark, Porto Rico → États-Unis…) ; Taïwan, Kosovo, Palestine, Chypre du Nord, Somaliland sont des pays | Fidèle à la situation de 2026, entités non reconnues jouables | Dépendances jouables |
+| 2026-10-29 | Carte rendue par un seul rectangle plein écran : le shader calcule la position de carte de chaque pixel à partir de la caméra | Bouclage est-ouest gratuit, une seule texture de 16384 × 8192, aucun nœud par province | Sprite de carte dupliqué pour le bouclage, Camera2D |
+| 2026-10-29 | Couleurs des provinces dans une texture de correspondance 256 × N (id → couleur) | Changer de mode de carte ne regénère qu'une petite texture | Recolorer l'image complète |
+| 2026-10-29 | Raccourcis de déplacement en touches physiques | WASD et ZQSD fonctionnent selon la disposition du clavier | Touches logiques (inutilisables en AZERTY) |

@@ -1,9 +1,32 @@
 {
   "game": {
-    "start_date": { "year": 2026, "month": 1, "day": 1, "hour": 0 }
+    "start_date": {
+      "year": 2026,
+      "month": 1,
+      "day": 1,
+      "hour": 0
+    }
   },
   "time": {
     "speed_count": 5,
     "default_speed": 3
+  },
+  "camera": {
+    "max_zoom": 8.0,
+    "zoom_step": 1.15,
+    "key_zoom_steps_per_second": 6.0,
+    "key_pan_speed": 1400.0,
+    "edge_scroll_margin": 6.0,
+    "edge_scroll_speed": 1400.0,
+    "start_center": [
+      8900.0,
+      2600.0
+    ],
+    "start_zoom": 0.35
+  },
+  "map_colors": {
+    "sea": "#132235",
+    "unowned": "#8C8C8C",
+    "background": "#0B1017"
   }
 }
