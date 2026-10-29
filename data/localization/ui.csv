@@ -99,8 +99,8 @@ MONTH_12,December,décembre
 TOPBAR_PAUSED,Paused,En pause
 TOPBAR_SPEED,Speed %d,Vitesse %d
 TOPBAR_PAUSE_TOOLTIP,Pause / resume (Space),Pause / reprise (Espace)
-TOPBAR_SLOWER_TOOLTIP,Slower (-),Plus lent (-)
-TOPBAR_FASTER_TOOLTIP,Faster (+),Plus rapide (+)
+TOPBAR_SLOWER_TOOLTIP,Slower (- or 1 to 5),Plus lent (- ou 1 à 5)
+TOPBAR_FASTER_TOOLTIP,Faster (+ or 1 to 5),Plus rapide (+ ou 1 à 5)
 TOPBAR_NO_COUNTRY,Observer,Observateur
 TOPBAR_TREASURY,Treasury,Trésorerie
 TOPBAR_STABILITY,Stability,Stabilité
