@@ -435,7 +435,12 @@
       "required": [
         "name_key",
         "color",
-        "capital"
+        "capital",
+        "regime",
+        "population",
+        "economy",
+        "military",
+        "organizations"
       ],
       "properties": {
         "name_key": {
@@ -777,7 +782,8 @@
                 "economic_union",
                 "economic_forum",
                 "security",
-                "cartel"
+                "cartel",
+                "regional"
               ]
             },
             "founded": {

@@ -37,6 +37,23 @@ func test_world_is_covered() -> void:
 		assert_true((countries[tag] as Dictionary).has("head_of_state"), "%s détaillé" % tag)
 
 
+func test_every_country_has_real_data() -> void:
+	var countries := _repository.get_category("countries")
+	var provinces := _repository.get_category("provinces")
+	var province_totals: Dictionary = {}
+	for key: String in provinces.keys():
+		var owner := str((provinces[key] as Dictionary).get("owner", ""))
+		province_totals[owner] = int(province_totals.get(owner, 0)) + int(provinces[key]["population"])
+	for tag: String in countries.keys():
+		var country: Dictionary = countries[tag]
+		assert_gt(int(country["population"]), 0, "population de %s" % tag)
+		assert_gt(float(country["economy"]["gdp_billion_usd"]), 0.0, "PIB de %s" % tag)
+		assert_almost_eq(float(province_totals.get(tag, 0)), float(country["population"]),
+			maxf(float(country["population"]) * 0.001, 10.0), "population des provinces de %s" % tag)
+	assert_eq((countries["USA"]["organizations"] as Array).has("nato"), true)
+	assert_eq((countries["TWN"]["organizations"] as Array).has("un"), false, "Taïwan hors ONU")
+
+
 func test_each_country_capital_belongs_to_it() -> void:
 	var countries := _repository.get_category("countries")
 	for tag: String in countries.keys():
