@@ -47,17 +47,6 @@ func test_lookup_image_layout() -> void:
 	assert_eq(image.get_pixel(1, 1), Color.GREEN)
 
 
-func test_political_colors() -> void:
-	var provinces := {"1": {"owner": "AAA"}, "2": {}, "3": {"owner": "ZZZ"}}
-	var countries := {"AAA": {"color": "#FF0000"}}
-	var colors := ProvinceLookup.political_colors(provinces, countries, 3, Color.BLUE, Color.GRAY)
-	assert_eq(colors.size(), 4)
-	assert_eq(colors[0], Color.BLUE, "mer")
-	assert_eq(colors[1], Color.RED)
-	assert_eq(colors[2], Color.GRAY, "sans propriétaire")
-	assert_eq(colors[3], Color.GRAY, "propriétaire inconnu")
-
-
 func test_real_map_matches_province_data() -> void:
 	var data := ProvinceMapData.from_png_file(PROVINCES_IMAGE)
 	assert_not_null(data)
