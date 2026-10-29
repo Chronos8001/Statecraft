@@ -1,0 +1,71 @@
+{
+  "natural_earth_version": "v5.1.2",
+  "width": 16384,
+  "height": 8192,
+
+  "min_province_pixels": 16,
+  "micro_province_radius": 2,
+  "gap_fill_passes": 4,
+  "max_lake_scalerank": 1,
+
+  "tag_renames": { "SDS": "SSD", "PSX": "PSE" },
+  "unowned_units": ["ATA", "PGA"],
+  "unit_owners": { "PSX": "PSX", "SAH": "MAR", "KAS": "IND", "USG": "CUB", "KAB": "KAZ" },
+  "unit_controllers": { "USG": "USA", "KAB": "RUS" },
+
+  "province_overrides": {
+    "RUS-283":  { "owner": "UKR", "controller": "RUS", "note": "Crimée" },
+    "RUS-5482": { "owner": "UKR", "controller": "RUS", "note": "Sébastopol" },
+    "UKR-329":  { "controller": "RUS", "note": "Louhansk" },
+    "UKR-327":  { "controller": "RUS", "note": "Donetsk" }
+  },
+
+  "country_name_overrides": {
+    "CHN": { "en": "China", "fr": "Chine" },
+    "USA": { "en": "United States", "fr": "États-Unis" },
+    "PSE": { "en": "Palestine", "fr": "Palestine" }
+  },
+
+  "province_name_overrides": {
+    "BRA-599": { "en": "Federal District", "fr": "District fédéral" }
+  },
+
+  "political_palette": ["#C97B63", "#D8B25C", "#8FB16A", "#5E9E9A", "#6F8CC4", "#9C7BB8", "#C9789E", "#B89268", "#7FA8C9"],
+  "political_variation": 0.12,
+
+  "population_scale": 1.065,
+  "population_city_share": 0.6,
+  "city_core_share": 0.3,
+  "urban_density_km2": 1500,
+
+  "income_infrastructure": {
+    "1. High income: OECD": 8,
+    "2. High income: nonOECD": 7,
+    "3. Upper middle income": 5,
+    "4. Lower middle income": 4,
+    "5. Low income": 2
+  },
+  "default_infrastructure": 3,
+  "urban_infrastructure_bonus": 1,
+
+  "terrain_downscale": 4,
+  "terrain_min_share": 0.3,
+  "terrain_regions": [
+    ["Plain", "plains"],
+    ["Lowland", "plains"],
+    ["Basin", "plains"],
+    ["Valley", "plains"],
+    ["Plateau", "hills"],
+    ["Foothills", "hills"],
+    ["Desert", "desert"],
+    ["Wetlands", "marsh"],
+    ["Delta", "marsh"],
+    ["Tundra", "tundra"],
+    ["Range/mtn", "mountains"]
+  ],
+  "climate_latitudes": { "tundra": 64, "forest": 50, "steppe": 40, "savanna": 22, "jungle": 10 },
+  "terrain_population_factor": {
+    "plains": 1.0, "hills": 0.8, "mountains": 0.4, "forest": 0.6, "jungle": 0.5, "desert": 0.1,
+    "marsh": 0.5, "savanna": 0.7, "steppe": 0.5, "tundra": 0.05, "urban": 1.0
+  }
+}

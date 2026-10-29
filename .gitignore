@@ -36,3 +36,8 @@ desktop.ini
 
 # --- Exécutable Godot local ---
 /Godot/
+
+# --- Outil de génération de carte ---
+/tools/map_gen/cache/
+/tools/map_gen/out/
+__pycache__/
