@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://ui/game/game_screen.gd" id="1_game"]
 [ext_resource type="PackedScene" path="res://map/map_view.tscn" id="2_map"]
 [ext_resource type="PackedScene" path="res://ui/game/province_info_panel.tscn" id="3_info"]
 [ext_resource type="PackedScene" path="res://ui/game/country_info_panel.tscn" id="6_country"]
+[ext_resource type="PackedScene" path="res://ui/game/top_bar.tscn" id="7_topbar"]
 [ext_resource type="PackedScene" path="res://ui/game/map_mode_bar.tscn" id="4_bar"]
 [ext_resource type="PackedScene" path="res://ui/game/map_legend.tscn" id="5_legend"]
 
@@ -46,6 +47,31 @@ layout_mode = 1
 unique_name_in_owner = true
 layout_mode = 1
 
+[node name="TopBar" parent="." instance=ExtResource("7_topbar")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="NotificationLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+auto_translate_mode = 2
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 64.0
+offset_right = 400.0
+offset_bottom = 100.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.5, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+
 [node name="LoadingLabel" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
@@ -69,9 +95,9 @@ unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 1
 offset_left = 12.0
-offset_top = 8.0
+offset_top = 56.0
 offset_right = 700.0
-offset_bottom = 36.0
+offset_bottom = 84.0
 mouse_filter = 2
 theme_override_colors/font_color = Color(0.9, 0.93, 0.97, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)

@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://ui/game/top_bar.gd" id="1_bar"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar"]
+bg_color = Color(0.055, 0.07, 0.1, 0.96)
+border_width_bottom = 1
+border_color = Color(0.25, 0.32, 0.42, 1)
+content_margin_left = 14.0
+content_margin_top = 6.0
+content_margin_right = 14.0
+content_margin_bottom = 6.0
+
+[node name="TopBar" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bar")
+script = ExtResource("1_bar")
+
+[node name="Row" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="DateLabel" type="Label" parent="Row"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="PauseButton" type="Button" parent="Row"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+tooltip_text = "TOPBAR_PAUSE_TOOLTIP"
+focus_mode = 0
+
+[node name="SlowerButton" type="Button" parent="Row"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+tooltip_text = "TOPBAR_SLOWER_TOOLTIP"
+focus_mode = 0
+text = "−"
+
+[node name="SpeedLabel" type="Label" parent="Row"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.78, 0.4, 1)
+
+[node name="FasterButton" type="Button" parent="Row"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+tooltip_text = "TOPBAR_FASTER_TOOLTIP"
+focus_mode = 0
+text = "+"
+
+[node name="Spacer" type="Control" parent="Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CountryLabel" type="Label" parent="Row"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="Separator" type="VSeparator" parent="Row"]
+layout_mode = 2
+
+[node name="StatsRow" type="HBoxContainer" parent="Row"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
