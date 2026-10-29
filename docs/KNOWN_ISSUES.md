@@ -15,3 +15,4 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Quelques noms français de Natural Earth sont approximatifs ; corrections possibles dans `tools/map_gen/config.json`. | 1 | Ouvert |
 | 🟢 | Carte crénelée en zoom arrière (pas de mipmaps) et pixelisée en zoom maximal ; les frontières lissées arrivent avec l'étape 1e. | 1e | Ouvert |
 | 🟢 | La carte demande une carte graphique acceptant les textures 16384 px et ~270 Mo de mémoire vidéo ; chargement ~3 s, rechargée à chaque nouvelle partie. | 1 | Ouvert |
+| 🟢 | Modes PIB/hab., idéologie et alliances limités aux 5 pays détaillés ; relations et stabilité neutres ; ressources vides. Ils se rempliront avec les étapes 3, 4c, 5 et 6. | 3–6 | Ouvert |

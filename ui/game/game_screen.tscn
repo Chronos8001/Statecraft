@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://ui/game/game_screen.gd" id="1_game"]
 [ext_resource type="PackedScene" path="res://map/map_view.tscn" id="2_map"]
 [ext_resource type="PackedScene" path="res://ui/game/province_info_panel.tscn" id="3_info"]
+[ext_resource type="PackedScene" path="res://ui/game/map_mode_bar.tscn" id="4_bar"]
+[ext_resource type="PackedScene" path="res://ui/game/map_legend.tscn" id="5_legend"]
 
 [node name="GameScreen" type="Control"]
 layout_mode = 3
@@ -28,6 +30,14 @@ unique_name_in_owner = true
 layout_mode = 1
 
 [node name="ProvinceInfoPanel" parent="." instance=ExtResource("3_info")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="MapModeBar" parent="." instance=ExtResource("4_bar")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="MapLegend" parent="." instance=ExtResource("5_legend")]
 unique_name_in_owner = true
 layout_mode = 1
 

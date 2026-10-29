@@ -35,3 +35,26 @@ INFO_COASTAL,Coastal,Côtière
 INFO_RESOURCES,Resources,Ressources
 INFO_RESOURCES_NONE,None,Aucune
 INFO_NEIGHBORS,Neighbouring provinces,Provinces voisines
+MAPMODE_POLITICAL,Political,Politique
+MAPMODE_TERRAIN,Terrain,Terrain
+MAPMODE_POPULATION,Population,Population
+MAPMODE_GDP_PER_CAPITA,GDP per capita,PIB/hab.
+MAPMODE_IDEOLOGY,Ideology,Idéologie
+MAPMODE_ALLIANCES,Alliances,Alliances
+MAPMODE_RELATIONS,Relations,Relations
+MAPMODE_RESOURCES,Resources,Ressources
+MAPMODE_INFRASTRUCTURE,Infrastructure,Infrastructures
+MAPMODE_MILITARY_CONTROL,Military control,Contrôle militaire
+MAPMODE_STABILITY,Stability,Stabilité
+MAPMODE_UNIT_DENSITY,%s /km²,%s hab./km²
+MAPMODE_UNIT_USD,$%s,%s $
+LEGEND_NO_DATA,No data,Pas de données
+LEGEND_UNOWNED,No owner,Sans propriétaire
+LEGEND_NONE,None,Aucune
+LEGEND_OCCUPIED,Occupied territory,Territoire occupé
+LEGEND_PLAYER,Your country,Votre pays
+LEGEND_HOSTILE,Hostile,Hostile
+LEGEND_NEUTRAL,Neutral,Neutre
+LEGEND_FRIENDLY,Friendly,Amical
+LEGEND_POLITICAL_HINT,Each country has its own colour.,Chaque pays a sa couleur.
+LEGEND_CONTROL_HINT,Colour of the controlling country.,Couleur du pays qui contrôle la province.

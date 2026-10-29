@@ -53,7 +53,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Panneau d'info de la province
 
 **1d. Modes de carte**
-- [ ] Politique, terrain, population, PIB/hab., idéologie, alliances, relations, ressources, infrastructures, contrôle militaire, stabilité
+- [x] Politique, terrain, population, PIB/hab., idéologie, alliances, relations, ressources, infrastructures, contrôle militaire, stabilité
 
 **1e. Frontières et noms**
 - [ ] Frontières de pays (épaisses) et de provinces (fines)

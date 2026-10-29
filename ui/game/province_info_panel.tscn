@@ -54,6 +54,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 size_flags_vertical = 0
+focus_mode = 0
 text = "COMMON_CLOSE_SYMBOL"
 flat = true
 
