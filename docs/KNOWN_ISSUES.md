@@ -25,8 +25,10 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Drapeaux tous au format 4:3 : les proportions officielles (Suisse carrée, Qatar allongé, Népal) ne sont pas respectées. Un nouveau drapeau demande d'activer les mipmaps dans son fichier `.import`. | 3 | Ouvert |
 | 🟢 | Difficulté approchée : elle ne tient compte que du PIB, de l'armée et des défis ; beaucoup de petits pays sont « difficiles ». À revoir avec l'économie, la stabilité et la diplomatie. | 4–6 | Ouvert |
 | 🟢 | Les défis de départ sont descriptifs : ils n'ont pas encore d'effet en jeu. | 4–9 | Ouvert |
-| 🟠 | Solde budgétaire primaire figé jusqu'au budget (4b) : l'Argentine et le Liban remboursent toute leur dette en quelques années, la dette de l'Ukraine (déficit de guerre) dépasse 200 % du PIB en 2035. | 4b | Ouvert |
 | 🟢 | Charge d'intérêts de départ plafonnée à 6 % du PIB (Brésil, Égypte, pays à taux très élevés) : moins lourde que la réalité pour quelques pays. | 4a | Ouvert |
 | 🟢 | Les pays de l'IA appellent le FMI dès qu'ils font défaut (règle provisoire en attendant l'IA de l'étape 12). | 12 | Ouvert |
 | 🟢 | Le mode de carte PIB/hab. utilise encore les chiffres de départ, pas ceux de la simulation. | 13 | Ouvert |
 | 🟢 | Inflation de départ : dernière année connue sur Wikipédia (2024) sauf corrections fin 2025 ; taux du shilling du Somaliland saisi à la main ; 56 pays sans note officielle (note estimée). | 4a | Ouvert |
+| 🟢 | Budgets en partie estimés : la répartition des recettes entre impôts, la santé, les retraites et les petits postes suivent des profils par niveau de revenu (valeurs saisies pour les grands pays) ; « administration et autres » regroupe le reste (prestations familiales, logement…). | 4b | Ouvert |
+| 🟢 | La dette de l'Ukraine approche encore 190 % du PIB en 2035 (déficit de guerre financé par emprunt ; l'aide étrangère n'existe pas encore). | 6 | Ouvert |
+| 🟢 | Les champs du panneau Budget affichent les décimales avec un point, même en français. | 13 | Ouvert |

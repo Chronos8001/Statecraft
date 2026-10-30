@@ -13,7 +13,8 @@ const MIN_COUNTRY_COUNT := 190
 const MIN_PROVINCE_COUNT := 4000
 const LOCALIZATION_DIR := "res://data/localization"
 const TRANSLATED_CATEGORIES := ["countries", "provinces", "sea_zones", "straits", "ideologies", "regimes",
-	"terrains", "resources", "traits", "challenges", "economy_sectors"]
+	"terrains", "resources", "traits", "challenges", "economy_sectors", "budget_taxes", "budget_spending",
+	"social_groups"]
 const MIN_SEA_ZONE_COUNT := 150
 
 const LocalizationScript := preload("res://core/localization/localization.gd")
@@ -332,11 +333,17 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 	date.month = 1
 	date.day = 1
 	state.setup(2026, date)
-	WorldSetup.populate(state, _repository.get_category("countries"), _repository.get_category("currencies"), settings)
+	var budget_definitions := {"taxes": _repository.get_category("budget_taxes"),
+		"spending": _repository.get_category("budget_spending"),
+		"settings": _repository.get_value("defines", "budget", {})}
+	WorldSetup.populate(state, _repository.get_category("countries"), _repository.get_category("currencies"), settings,
+		budget_definitions)
+	var budget_system := BudgetSystem.new()
 	var system := EconomySystem.new(_repository.get_category("economy_sectors"))
 	var crises := 0
 	for month: int in 120:
 		state.date.month = month % 12 + 1
+		budget_system.on_month(state)
 		system.on_month(state)
 		for event: Dictionary in state.events:
 			if event["type"] == EconomySystem.EVENT_DEBT_CRISIS:
@@ -357,3 +364,18 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 		assert_between(economy.inflation, 0.0, 6.0, "inflation de %s" % tag)
 		assert_between(economy.growth, -1.0, 7.0, "croissance de %s" % tag)
 	assert_lt(crises, 30, "trop de crises de la dette")
+	# Les pays de l'IA ne soldent pas leur dette et ne la laissent pas exploser.
+	for tag: String in ["ARG", "LBN"]:
+		var economy: EconomyState = state.countries[tag].economy
+		assert_gt(economy.debt_ratio(state.get_currency(economy.currency)), 0.05, "dette de %s" % tag)
+	var ukraine: EconomyState = state.countries["UKR"].economy
+	assert_lt(ukraine.debt_ratio(state.get_currency(ukraine.currency)), 2.5, "dette de l'Ukraine")
+
+
+func test_every_budget_matches_its_country() -> void:
+	var taxes := _repository.get_category("budget_taxes")
+	var lines := _repository.get_category("budget_spending")
+	for tag: String in _repository.get_category("countries").keys():
+		var budget: Dictionary = _repository.get_category("countries")[tag]["budget"]
+		assert_eq((budget["taxes"] as Dictionary).size(), taxes.size(), "impôts de %s" % tag)
+		assert_eq((budget["spending"] as Dictionary).size(), lines.size(), "dépenses de %s" % tag)

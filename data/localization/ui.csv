@@ -169,3 +169,32 @@ NOTIFY_DEBT_CRISIS,Sovereign default: the debt is restructured and markets are c
 NOTIFY_CRISIS_ENDED,Back on the markets with a %s rating,Retour sur les marchés avec la note %s
 NOTIFY_IMF_PROGRAM,IMF programme signed,Programme du FMI signé
 NOTIFY_IMF_ENDED,IMF programme completed,Programme du FMI terminé
+# --- Budget ---
+TOPBAR_BUDGET,Budget,Budget
+TOPBAR_BUDGET_TOOLTIP,"Taxes, public spending and deficit","Impôts, dépenses publiques et déficit"
+TOPBAR_BALANCE_VALUE,%s$%s bn/yr,%s%s Md$/an
+TOPBAR_BALANCE_TOOLTIP,Annual budget balance (surplus or deficit),Solde budgétaire annuel (excédent ou déficit)
+BUDGET_TITLE,State budget,Budget de l'État
+BUDGET_REVENUE,Revenue,Recettes
+BUDGET_SPENDING,Spending (% of GDP),Dépenses (% du PIB)
+BUDGET_TOTALS,Totals,Totaux
+BUDGET_EFFECTS,Expected effects,Effets attendus
+BUDGET_EFFECTS_HINT,"Compared with the budget of January 2026, per year. Effects marked * will apply once the corresponding systems exist.","Par rapport au budget de janvier 2026, par an. Les effets marqués * joueront quand les systèmes correspondants existeront."
+BUDGET_EFFECT_PENDING,%s *,%s *
+BUDGET_EFFECT_GROWTH,Growth (points),Croissance (points)
+BUDGET_EFFECT_UNEMPLOYMENT,Unemployment (points),Chômage (points)
+BUDGET_EFFECT_INFLATION,Inflation (points),Inflation (points)
+BUDGET_EFFECT_STABILITY,Stability,Stabilité
+BUDGET_EFFECT_RESEARCH,Research,Recherche
+BUDGET_EFFECT_MILITARY,Military power,Puissance militaire
+BUDGET_EFFECT_INFLUENCE,Influence,Influence
+BUDGET_TOTAL_REVENUE,Total revenue,Recettes totales
+BUDGET_TOTAL_SPENDING,Total spending,Dépenses totales
+BUDGET_IMF_EFFORT,Effort required by the IMF,Effort exigé par le FMI
+BUDGET_AMOUNT_VALUE,%s%% · $%s bn,%s %% · %s Md$
+BUDGET_BRACKET_TOOLTIP,Rate of income tax bracket %d,Taux de la tranche %d de l'impôt sur le revenu
+BUDGET_SPENDING_TOOLTIP,Annual spending as a share of GDP,Dépense annuelle en part du PIB
+BUDGET_MONETARY_FINANCING,Money printing,Création monétaire
+BUDGET_MONETARY_FINANCING_TOOLTIP,"The central bank finances part of the deficit (% of GDP per year): less debt, but more inflation and a weaker currency.","La banque centrale finance une partie du déficit (% du PIB par an) : moins de dette, mais plus d'inflation et une monnaie plus faible."
+BUDGET_RESET,Reset,Rétablir
+BUDGET_RESET_TOOLTIP,Go back to the budget in force,Revenir au budget en vigueur

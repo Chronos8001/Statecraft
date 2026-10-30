@@ -14,8 +14,9 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	sim = SimState.new()
 	sim.setup(p_seed, get_start_date(), player_tag)
 	WorldSetup.populate(sim, DataLoader.get_category("countries"), DataLoader.get_category("currencies"),
-		DataLoader.get_define("economy", {}))
+		DataLoader.get_define("economy", {}), budget_definitions())
 	scheduler = SimScheduler.new()
+	scheduler.add_system(BudgetSystem.new())
 	scheduler.add_system(EconomySystem.new(DataLoader.get_category("economy_sectors")))
 	_pending_commands.clear()
 	is_game_running = true
@@ -42,6 +43,14 @@ func advance_hour() -> void:
 		EventBus.month_passed.emit(date)
 	if flags & GameDate.CHANGED_YEAR:
 		EventBus.year_passed.emit(date)
+
+
+func budget_definitions() -> Dictionary:
+	return {
+		"taxes": DataLoader.get_category("budget_taxes"),
+		"spending": DataLoader.get_category("budget_spending"),
+		"settings": DataLoader.get_define("budget", {}),
+	}
 
 
 func get_start_date() -> GameDate:

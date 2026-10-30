@@ -7,8 +7,11 @@ extends RefCounted
 const BILLION := 1.0e9
 
 
-static func populate(state: SimState, countries: Dictionary, currencies: Dictionary, settings: Dictionary) -> void:
+## budget_definitions : {taxes, spending, settings} (catégories budget_taxes, budget_spending, defines.budget).
+static func populate(state: SimState, countries: Dictionary, currencies: Dictionary, settings: Dictionary,
+		budget_definitions: Dictionary = {}) -> void:
 	state.economy_settings = settings
+	state.budget_definitions = budget_definitions
 	state.countries.clear()
 	state.currencies.clear()
 	var ratings := CreditRating.new(settings)
@@ -32,6 +35,7 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 		var country := CountryState.new()
 		country.tag = tag
 		_setup_economy(country, countries[tag], state, ratings, settings)
+		_setup_budget(country, countries[tag], state)
 		state.countries[tag] = country
 	_calibrate_currencies(state, settings)
 
@@ -108,6 +112,46 @@ static func _setup_economy(country: CountryState, data: Dictionary, state: SimSt
 		economy.foreign_debt_rate *= economy.debt_rate_factor
 	# Solde primaire : le solde réel de 2025 auquel on rajoute les intérêts calculés.
 	economy.primary_balance = float(source.get("budget_balance", 0.0)) + economy.interest_burden(currency)
+	economy.start_primary_balance = economy.primary_balance
+	economy.start_debt_ratio = economy.debt_ratio(currency)
+
+
+## Budget de départ : taux réels, recettes par point de taux, et dépenses ajustées dans la même proportion
+## pour retrouver exactement le solde primaire de départ.
+static func _setup_budget(country: CountryState, data: Dictionary, state: SimState) -> void:
+	if state.budget_definitions.is_empty():
+		return
+	var budget := country.economy.budget
+	var source: Dictionary = data.get("budget", {})
+	var taxes: Dictionary = state.budget_definitions.get("taxes", {})
+	var weights: Array = (state.budget_definitions.get("settings", {}) as Dictionary).get("income_bracket_weights", [])
+	var tax_data: Dictionary = source.get("taxes", {})
+	for tax_id: Variant in taxes.keys():
+		var entry: Dictionary = tax_data.get(tax_id, {})
+		var revenue := float(entry.get("revenue", 0.0))
+		var rate := 0.0
+		if str(tax_id) == BudgetModel.INCOME_TAX:
+			for value: Variant in entry.get("brackets", []):
+				budget.income_brackets.append(float(value))
+			while budget.income_brackets.size() < weights.size():
+				budget.income_brackets.append(0.0)
+			budget.start_income_brackets = budget.income_brackets.duplicate()
+			rate = BudgetModel.average_income_rate(budget.income_brackets, weights)
+		else:
+			rate = float(entry.get("rate", 0.0))
+			budget.tax_rates[tax_id] = rate
+			budget.start_tax_rates[tax_id] = rate
+		budget.revenue_per_point[tax_id] = revenue / rate if rate > 0.0 \
+			else float((taxes[tax_id] as Dictionary).get("default_revenue_per_point", 0.0))
+	for line_id: Variant in (state.budget_definitions.get("spending", {}) as Dictionary).keys():
+		budget.spending[line_id] = float((source.get("spending", {}) as Dictionary).get(line_id, 0.0))
+	budget.revenues = BudgetModel.revenues(budget, taxes, weights)
+	var total := budget.total_spending()
+	var target := budget.total_revenue() - country.economy.primary_balance
+	if total > 0.0 and target > 0.0:
+		for line_id: Variant in budget.spending.keys():
+			budget.spending[line_id] = float(budget.spending[line_id]) * target / total
+	budget.start_spending = budget.spending.duplicate()
 
 
 static func clamp_neutral(value: float, settings: Dictionary) -> float:

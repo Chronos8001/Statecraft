@@ -61,3 +61,20 @@ python tools/country_gen/generate_economy.py
 ```
 
 `country_lookup.py` regroupe le code commun aux deux outils (pages Wikipédia, noms des pays).
+
+## Budget de l'État (`generate_budget.py`)
+
+Écrit `data/countries/budget.json` (fusionné avec `countries.json`) : taux et recettes de 7 impôts, dépenses de 14 postes en % du PIB. Pages Wikipédia dans leur version du 1er janvier 2026.
+
+| Donnée | Source |
+|---|---|
+| Recettes et dépenses totales | *List of countries by government budget* (FMI) |
+| Taux de l'impôt sur le revenu (plus bas, plus haut), des sociétés, TVA | *List of countries by tax rates* ; tranches intermédiaires interpolées |
+| Défense | *List of countries with highest military expenditures* (% du PIB) |
+| Éducation | *List of countries by spending on education as percentage of GDP* |
+
+Le reste vient de `budget_config.json` : répartition des recettes entre impôts selon le niveau de revenu (les rentes pétrolières alimentent les taxes sur les ressources), prix du carbone, droits de douane, taux de cotisations, profils de dépenses par niveau de revenu et valeurs saisies pour les grands pays (santé, retraites, aide internationale…). Le poste « administration et autres » complète jusqu'au total du FMI ; le jeu ajuste ensuite toutes les dépenses pour retrouver exactement le solde de départ.
+
+```sh
+python tools/country_gen/generate_budget.py
+```

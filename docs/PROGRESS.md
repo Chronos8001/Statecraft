@@ -98,7 +98,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Validation : choisir n'importe quel pays et démarrer la partie
 
 ## Étape 4 — Économie 🟨
-**4a. Macroéconomie**
+**4a. Macroéconomie** (validée le 2026-10-30)
 - [x] Situation économique réelle au 1er janvier 2026 pour les 199 pays et 143 monnaies (`tools/country_gen/generate_economy.py`)
 - [x] PIB par secteur (agriculture, industrie, énergie, services, tech, finance, tourisme, armement)
 - [x] Croissance, inflation, chômage, taux directeur (règle de Taylor), banque centrale indépendante ou sous contrôle du joueur
@@ -107,10 +107,12 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Panneau Économie et économie en cours de partie dans la fiche des pays
 
 **4b. Budget de l'État**
-- [ ] Recettes : impôt sur le revenu (tranches), IS, TVA, taxe carbone, douanes, cotisations, taxes sur ressources
-- [ ] Dépenses : santé, éducation, retraites, chômage, police, justice, défense, recherche, infrastructures, environnement, culture, aide internationale, renseignement, administration
-- [ ] Effets de chaque ligne (groupes sociaux, croissance, stabilité, recherche, armée)
-- [ ] Déficit → dette ; création monétaire → inflation
+- [x] Recettes : impôt sur le revenu (4 tranches), IS, TVA, taxe carbone, douanes, cotisations, taxes sur ressources (taux réels, `tools/country_gen/generate_budget.py`)
+- [x] Dépenses : santé, éducation, retraites, chômage, police, justice, défense, recherche, infrastructures, environnement, culture, aide internationale, renseignement, administration
+- [x] Effets de chaque ligne en données : croissance, chômage et inflation appliqués ; groupes sociaux, stabilité, recherche, armée et influence calculés, en attente de leurs systèmes
+- [x] Déficit → dette ; création monétaire → inflation (banque centrale sous contrôle du gouvernement)
+- [x] Règle provisoire de l'IA : dépenses ajustées selon l'évolution de la dette
+- [x] Panneau Budget avec aperçu en direct, solde annuel dans la barre supérieure
 
 **4c. Ressources et commerce**
 - [ ] Ressources stratégiques (pétrole, gaz, uranium, charbon, terres rares, lithium, cobalt, semi-conducteurs, blé, acier, eau)

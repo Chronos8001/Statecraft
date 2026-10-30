@@ -28,6 +28,7 @@ var _notification_timer: SceneTreeTimer
 @onready var _legend: MapLegend = %MapLegend
 @onready var _selection_panel: CountrySelectionPanel = %CountrySelectionPanel
 @onready var _economy_panel: EconomyPanel = %EconomyPanel
+@onready var _budget_panel: BudgetPanel = %BudgetPanel
 
 
 func _ready() -> void:
@@ -49,6 +50,7 @@ func _ready() -> void:
 	_selection_panel.country_selected.connect(_on_country_selected)
 	_selection_panel.play_requested.connect(_on_play_requested)
 	_top_bar.economy_requested.connect(_economy_panel.toggle)
+	_top_bar.budget_requested.connect(_budget_panel.toggle)
 	EventBus.sim_event_raised.connect(_on_sim_event)
 	EventBus.month_passed.connect(_on_month_passed)
 	EventBus.year_passed.connect(_on_year_passed)
@@ -73,10 +75,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		_cycle_map_mode(-1 if event.is_action_pressed("ui_focus_prev") else 1)
 	elif event.is_action_pressed("ui_cancel"):
 		get_viewport().set_input_as_handled()
-		if _info_panel.visible or _country_panel.visible or _economy_panel.visible:
+		if _info_panel.visible or _country_panel.visible or _economy_panel.visible or _budget_panel.visible:
 			_info_panel.close()
 			_country_panel.close()
 			_economy_panel.close()
+			_budget_panel.close()
 		else:
 			get_tree().change_scene_to_file(TITLE_SCENE)
 
