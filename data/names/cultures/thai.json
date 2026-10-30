@@ -1,0 +1,10 @@
+{
+  "thai": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.2,
+    "male_names": ["Somchai", "Somsak", "Prasert", "Chaiwat", "Thanakorn", "Wanchai", "Kittisak", "Surachai", "Boonsong", "Pichai", "Nattapong", "Apichart", "Sakchai", "Weerasak", "Teerapat", "Chatchai", "Pongsak", "Narong"],
+    "female_names": ["Siriporn", "Kanokwan", "Sudarat", "Pornthip", "Ratana", "Wanida", "Chutima", "Nittaya", "Duangjai", "Supaporn", "Kanyarat", "Pimchanok"],
+    "family_names": ["Charoenpong", "Rattanakorn", "Siriwat", "Thongchai", "Wongsakul", "Srisuk", "Boonmee", "Kaewmanee", "Phromsuk", "Chaiyasit", "Rungrueang", "Sangsuwan", "Thammasak", "Phonprasert", "Wattanapong", "Jitprasert", "Kongkaew", "Pattanakul", "Saengthong", "Intharachai"]
+  }
+}

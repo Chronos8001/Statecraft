@@ -1,0 +1,10 @@
+{
+  "turkish": {
+    "name_order": "given_first",
+    "party_style": "turkish",
+    "female_share": 0.15,
+    "male_names": ["Mehmet", "Mustafa", "Ahmet", "Ali", "Hüseyin", "Hasan", "İbrahim", "Murat", "Ömer", "Yusuf", "Kemal", "Selim", "Burak", "Emre", "Kadir", "Tuncay", "Erhan", "Volkan", "Levent", "Cengiz", "Orhan", "Tahsin", "Ersin", "Ünal"],
+    "female_names": ["Ayşe", "Fatma", "Emine", "Zeynep", "Elif", "Hatice", "Meral", "Selin", "Gülşen", "Nilüfer", "Derya", "Sevgi", "Aylin", "Ebru", "Pınar", "Tülay"],
+    "family_names": ["Yılmaz", "Kaya", "Demir", "Şahin", "Çelik", "Yıldız", "Aydın", "Öztürk", "Arslan", "Doğan", "Kılıç", "Aslan", "Çetin", "Kara", "Koç", "Kurt", "Özkan", "Şimşek", "Polat", "Korkmaz", "Karaca", "Ateş", "Tekin", "Bulut", "Güneş", "Erdem", "Akın", "Uysal"]
+  }
+}

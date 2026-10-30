@@ -1,0 +1,10 @@
+{
+  "persian": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.08,
+    "male_names": ["Mohammad", "Ali", "Hossein", "Reza", "Mahmoud", "Mehdi", "Hassan", "Abbas", "Ahmad", "Saeed", "Majid", "Hamid", "Javad", "Masoud", "Mohsen", "Gholamreza", "Esmail", "Abdul Ghani", "Amanullah", "Nasrullah", "Fazlullah", "Abdul Kabir", "Rahmatullah", "Ziaullah"],
+    "female_names": ["Maryam", "Fatemeh", "Zahra", "Masoumeh", "Leila", "Shirin", "Parvin", "Mahnaz", "Roya", "Soheila", "Nasrin", "Farzaneh"],
+    "family_names": ["Ahmadi", "Mohammadi", "Hosseini", "Rezaei", "Moradi", "Karimi", "Jafari", "Rahimi", "Sadeghi", "Tehrani", "Shirazi", "Esfahani", "Ghorbani", "Heydari", "Kazemi", "Nazari", "Rostami", "Kandahari", "Helmandi", "Zadran", "Wardak", "Popalzai", "Noorzai", "Achakzai", "Hotak", "Ghilzai"]
+  }
+}

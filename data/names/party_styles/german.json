@@ -1,0 +1,13 @@
+{
+  "german": {
+    "stopwords": ["für", "und", "der", "die", "das", "des"],
+    "names": {
+      "left": ["Linke Allianz", "Partei der Arbeit", "Sozialistische Union", "Bündnis für soziale Gerechtigkeit"],
+      "social_democrat": ["Soziale Volkspartei", "Sozialdemokratische Union", "Partei der Solidarität", "Fortschrittliche Arbeitspartei"],
+      "green": ["Grüne Allianz", "Ökologische Bürgerliste", "Bündnis Zukunft Umwelt"],
+      "liberal": ["Liberale Bürgerpartei", "Freiheitliche Union", "Bürgerbewegung Fortschritt", "Neue Mitte", "Demokratische Reformpartei"],
+      "conservative": ["Christlich-Bürgerliche Union", "Bürgerliche Volkspartei", "Union der Mitte", "Konservative Volksunion", "Christliche Volksallianz"],
+      "national": ["Heimatpartei", "Bündnis Vaterland", "Freiheitliche Heimatunion", "Patriotische Volkspartei", "Souveräne Bürgerallianz"]
+    }
+  }
+}

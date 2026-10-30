@@ -1,0 +1,10 @@
+{
+  "georgian": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.25,
+    "male_names": ["Giorgi", "Davit", "Irakli", "Levan", "Nikoloz", "Zurab", "Mamuka", "Shalva", "Tamaz", "Kakha", "Lasha", "Vakhtang", "Revaz", "Otar", "Gela", "Archil"],
+    "female_names": ["Nino", "Tamar", "Ketevan", "Mariam", "Salome", "Eka", "Natia", "Tinatin", "Maia", "Ana", "Sophio", "Lela"],
+    "family_names": ["Beridze", "Kapanadze", "Gelashvili", "Lomidze", "Tsiklauri", "Kvaratskhelia", "Nadiradze", "Abashidze", "Chikovani", "Dolidze", "Mchedlishvili", "Japaridze", "Bakradze", "Gogoladze", "Natsvlishvili", "Khutsishvili", "Javakhishvili", "Tsereteli"]
+  }
+}

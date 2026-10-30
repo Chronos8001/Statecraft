@@ -1,0 +1,11 @@
+{
+  "czech": {
+    "name_order": "given_first",
+    "party_style": "czech",
+    "female_share": 0.3,
+    "male_names": ["Jan", "Petr", "Jiří", "Pavel", "Martin", "Tomáš", "Jaroslav", "Miroslav", "Zdeněk", "Václav", "Michal", "Lukáš", "Ondřej", "Vít", "Marek", "Jozef", "Peter", "Ľubomír", "Juraj", "Milan", "Igor", "Robert"],
+    "female_names": ["Jana", "Eva", "Hana", "Lenka", "Kateřina", "Lucie", "Markéta", "Alena", "Petra", "Zuzana", "Veronika", "Monika", "Ivana", "Martina", "Lucia", "Mária", "Jarmila"],
+    "family_names": ["Novotný", "Svoboda", "Dvořák", "Černý", "Procházka", "Kučera", "Veselý", "Horák", "Němec", "Marek", "Pokorný", "Pospíšil", "Hájek", "Jelínek", "Růžička", "Beneš", "Fiala", "Sedláček", "Doležal", "Zeman", "Kolář", "Navrátil", "Horváth", "Kováč", "Varga", "Tóth", "Baláž", "Szabó", "Molnár", "Lukáč"],
+    "female_family_names": ["Novotná", "Svobodová", "Dvořáková", "Černá", "Procházková", "Kučerová", "Veselá", "Horáková", "Němcová", "Marková", "Pokorná", "Pospíšilová", "Hájková", "Jelínková", "Růžičková", "Benešová", "Fialová", "Sedláčková", "Doležalová", "Zemanová", "Kolářová", "Navrátilová", "Horváthová", "Kováčová", "Vargová", "Tóthová", "Balážová", "Szabóová", "Molnárová", "Lukáčová"]
+  }
+}

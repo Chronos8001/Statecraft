@@ -6,7 +6,7 @@ var _info: CountryInfo
 
 @onready var _name_label: Label = %NameLabel
 @onready var _tag_label: Label = %TagLabel
-@onready var _swatch: ColorRect = %CountrySwatch
+@onready var _flag: TextureRect = %FlagRect
 @onready var _stats_grid: GridContainer = %StatsGrid
 @onready var _close_button: Button = %CloseButton
 
@@ -33,13 +33,14 @@ func _refresh() -> void:
 	var locale := Localization.get_locale()
 	_name_label.text = tr(_info.name_key)
 	_tag_label.text = _info.tag
-	_swatch.color = _info.color
+	_flag.texture = CountryFlags.texture_for(_info.flag_path, _info.color)
 	_clear_rows(_stats_grid)
 	_add_row(_stats_grid, "COUNTRY_INFO_CAPITAL", tr(_info.capital_name_key) if not _info.capital_name_key.is_empty() else "")
 	_add_row(_stats_grid, "COUNTRY_INFO_REGIME", _translated(_info.regime_name_key))
-	_add_row(_stats_grid, "COUNTRY_INFO_HEAD_OF_STATE", _info.head_of_state_name)
-	if _info.head_of_government_name != _info.head_of_state_name:
-		_add_row(_stats_grid, "COUNTRY_INFO_HEAD_OF_GOVERNMENT", _info.head_of_government_name)
+	_add_row(_stats_grid, "COUNTRY_INFO_HEAD_OF_STATE", _leader(_info.head_of_state_name, _info.head_of_state_age))
+	if _info.has_separate_head_of_government:
+		_add_row(_stats_grid, "COUNTRY_INFO_HEAD_OF_GOVERNMENT",
+			_leader(_info.head_of_government_name, _info.head_of_government_age))
 	if _info.ruling_party_name != null:
 		_add_row(_stats_grid, "COUNTRY_INFO_RULING_PARTY", Localization.pick_text(_info.ruling_party_name))
 	_add_row(_stats_grid, "COUNTRY_INFO_COALITION", _join_texts(_info.coalition_names))
@@ -60,6 +61,13 @@ func _refresh() -> void:
 		_add_row(_stats_grid, "COUNTRY_INFO_OCCUPIED", tr("COUNTRY_INFO_PROVINCE_COUNT") % _info.occupied_count)
 	if _info.occupying_count > 0:
 		_add_row(_stats_grid, "COUNTRY_INFO_OCCUPYING", tr("COUNTRY_INFO_PROVINCE_COUNT") % _info.occupying_count)
+
+
+## « Nom (âge) » ; le nom seul si l'âge est inconnu.
+func _leader(leader_name: String, age: int) -> String:
+	if leader_name.is_empty() or age == CountryInfo.UNKNOWN_AGE:
+		return leader_name
+	return tr("COUNTRY_INFO_LEADER_VALUE") % [leader_name, age]
 
 
 func _translated(key: String) -> String:

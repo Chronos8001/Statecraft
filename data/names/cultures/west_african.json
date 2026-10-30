@@ -1,0 +1,10 @@
+{
+  "west_african": {
+    "name_order": "given_first",
+    "party_style": "french",
+    "female_share": 0.15,
+    "male_names": ["Mamadou", "Ousmane", "Abdoulaye", "Moussa", "Ibrahim", "Amadou", "Boubacar", "Souleymane", "Seydou", "Abdourahmane", "Mahamadou", "Issa", "Oumar", "Cheick", "Lamine", "Aliou", "Modibo", "Hamidou", "Salif", "Lassina", "Adama", "Yacouba", "Kodjo", "Komi", "Yao", "Sidi"],
+    "female_names": ["Aminata", "Fatoumata", "Mariam", "Aïssata", "Kadiatou", "Ramatoulaye", "Djénéba", "Awa", "Fanta", "Hadja", "Ndèye", "Coumba", "Rokia", "Salimata", "Bintou"],
+    "family_names": ["Diallo", "Keïta", "Coulibaly", "Sangaré", "Konaté", "Touré", "Camara", "Cissé", "Sow", "Ba", "Ndiaye", "Diop", "Fall", "Sy", "Kane", "Sarr", "Gueye", "Ouédraogo", "Sawadogo", "Kaboré", "Zongo", "Maïga", "Djibo", "Boukar", "Abakar", "Hamadou", "Agbo", "Kpodar", "Koffi", "Kouassi", "Bamba", "Kouyaté", "Doumbia", "Diarra", "Dembélé", "Sidibé", "Tall", "Ould Cheikh", "Ould Ahmed"]
+  }
+}

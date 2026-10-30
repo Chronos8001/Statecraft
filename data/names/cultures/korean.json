@@ -1,0 +1,10 @@
+{
+  "korean": {
+    "name_order": "family_first",
+    "party_style": "international",
+    "female_share": 0.15,
+    "male_names": ["Min-jun", "Seo-jun", "Jae-hyun", "Sung-ho", "Dong-hoon", "Young-soo", "Jin-woo", "Hyun-woo", "Kyung-ho", "Sang-woo", "Tae-hoon", "Chul-soo", "Myung-soo", "Jong-hyuk", "Kwang-su", "Yong-ho", "Song-chol", "Chang-ho"],
+    "female_names": ["Ji-yeon", "Soo-jin", "Hye-jin", "Mi-kyung", "Eun-ji", "Yoon-hee", "Kyung-hwa", "Ok-joo", "Sun-hee", "Hyo-jin", "Yu-jin", "Song-hui"],
+    "family_names": ["Kim", "Lee", "Park", "Choi", "Jung", "Kang", "Cho", "Yoon", "Jang", "Lim", "Han", "Oh", "Seo", "Shin", "Kwon", "Hwang", "Ahn", "Song", "Hong", "Ryu", "Nam", "Baek", "Ri", "Pak", "Chon"]
+  }
+}

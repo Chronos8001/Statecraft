@@ -7,7 +7,8 @@
       "camera",
       "map_colors",
       "map_style",
-      "province"
+      "province",
+      "characters"
     ],
     "properties": {
       "game": {
@@ -97,7 +98,8 @@
           "edge_scroll_margin",
           "edge_scroll_speed",
           "start_center",
-          "start_zoom"
+          "start_zoom",
+          "capital_zoom"
         ],
         "properties": {
           "max_zoom": {
@@ -132,6 +134,10 @@
             }
           },
           "start_zoom": {
+            "type": "number",
+            "min": 0
+          },
+          "capital_zoom": {
             "type": "number",
             "min": 0
           }
@@ -336,6 +342,122 @@
             "min": 1
           }
         }
+      },
+      "characters": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "reference_year",
+          "min_age",
+          "max_age",
+          "default_female_share",
+          "trait_chance",
+          "min_skill",
+          "max_skill",
+          "skills",
+          "party_group_fallbacks",
+          "party_color_spread"
+        ],
+        "properties": {
+          "reference_year": {
+            "type": "int",
+            "min": 1
+          },
+          "min_age": {
+            "type": "int",
+            "min": 18
+          },
+          "max_age": {
+            "type": "int",
+            "min": 18
+          },
+          "default_female_share": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "trait_chance": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "min_skill": {
+            "type": "int",
+            "min": 0,
+            "max": 10
+          },
+          "max_skill": {
+            "type": "int",
+            "min": 0,
+            "max": 10
+          },
+          "skills": {
+            "type": "array",
+            "min_items": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "party_group_fallbacks": {
+            "type": "object",
+            "values": {
+              "type": "string",
+              "enum": [
+                "left",
+                "social_democrat",
+                "green",
+                "liberal",
+                "conservative",
+                "national",
+                "power",
+                "religious"
+              ]
+            }
+          },
+          "party_color_spread": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          }
+        }
+      },
+      "country_selection": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "gdp_weight",
+          "military_weight",
+          "power_floor",
+          "difficulty_thresholds",
+          "difficulty_colors"
+        ],
+        "properties": {
+          "gdp_weight": {
+            "type": "number",
+            "min": 0
+          },
+          "military_weight": {
+            "type": "number",
+            "min": 0
+          },
+          "power_floor": {
+            "type": "number"
+          },
+          "difficulty_thresholds": {
+            "type": "array",
+            "min_items": 4,
+            "items": {
+              "type": "number"
+            }
+          },
+          "difficulty_colors": {
+            "type": "array",
+            "min_items": 5,
+            "items": {
+              "type": "color"
+            }
+          }
+        }
       }
     }
   },
@@ -347,7 +469,8 @@
       "strict": true,
       "required": [
         "name_key",
-        "color"
+        "color",
+        "party_group"
       ],
       "properties": {
         "name_key": {
@@ -355,6 +478,19 @@
         },
         "color": {
           "type": "color"
+        },
+        "party_group": {
+          "type": "string",
+          "enum": [
+            "left",
+            "social_democrat",
+            "green",
+            "liberal",
+            "conservative",
+            "national",
+            "power",
+            "religious"
+          ]
         }
       }
     }
@@ -435,7 +571,13 @@
       "required": [
         "name_key",
         "color",
-        "capital"
+        "capital",
+        "regime",
+        "population",
+        "economy",
+        "military",
+        "organizations",
+        "culture"
       ],
       "properties": {
         "name_key": {
@@ -443,7 +585,8 @@
           "pattern": "^COUNTRY_[A-Z]{3}$"
         },
         "flag": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^res://.+[.](svg|png)$"
         },
         "color": {
           "type": "color"
@@ -527,6 +670,26 @@
             "type": "string",
             "ref": "names#organizations"
           }
+        },
+        "culture": {
+          "type": "string",
+          "ref": "names/cultures"
+        },
+        "challenges": {
+          "type": "array",
+          "unique_items": true,
+          "items": {
+            "type": "string",
+            "ref": "challenges"
+          }
+        },
+        "difficulty": {
+          "type": "int",
+          "min": 1,
+          "max": 5
+        },
+        "limited_recognition": {
+          "type": "bool"
         }
       }
     }
@@ -649,7 +812,8 @@
             "birth_year",
             "gender",
             "country",
-            "ideology"
+            "ideology",
+            "culture"
           ],
           "properties": {
             "first_name": {
@@ -681,7 +845,8 @@
               "type": "array",
               "unique_items": true,
               "items": {
-                "type": "string"
+                "type": "string",
+                "ref": "traits"
               }
             },
             "skills": {
@@ -709,6 +874,14 @@
                   "max": 10
                 }
               }
+            },
+            "culture": {
+              "type": "string",
+              "ref": "names/cultures"
+            },
+            "party": {
+              "type": "string",
+              "ref": "names#parties"
             }
           }
         }
@@ -777,7 +950,8 @@
                 "economic_union",
                 "economic_forum",
                 "security",
-                "cartel"
+                "cartel",
+                "regional"
               ]
             },
             "founded": {
@@ -1044,6 +1218,197 @@
           "items": {
             "type": "int",
             "ref": "provinces"
+          }
+        }
+      }
+    }
+  },
+  "traits": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "group"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^TRAIT_[A-Z_]+$"
+        },
+        "group": {
+          "type": "string",
+          "enum": [
+            "temperament",
+            "style",
+            "background",
+            "orientation"
+          ]
+        },
+        "random": {
+          "type": "bool"
+        }
+      }
+    }
+  },
+  "names/cultures": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_order",
+        "party_style",
+        "female_share",
+        "male_names",
+        "female_names",
+        "family_names"
+      ],
+      "properties": {
+        "name_order": {
+          "type": "string",
+          "enum": [
+            "given_first",
+            "family_first"
+          ]
+        },
+        "party_style": {
+          "type": "string",
+          "ref": "names/party_styles"
+        },
+        "female_share": {
+          "type": "number",
+          "min": 0,
+          "max": 1
+        },
+        "family_name_count": {
+          "type": "int",
+          "min": 1,
+          "max": 3
+        },
+        "male_names": {
+          "type": "array",
+          "min_items": 1,
+          "unique_items": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "female_names": {
+          "type": "array",
+          "min_items": 1,
+          "unique_items": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "family_names": {
+          "type": "array",
+          "min_items": 1,
+          "unique_items": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "female_family_names": {
+          "type": "array",
+          "min_items": 1,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "names/party_styles": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "names"
+      ],
+      "properties": {
+        "stopwords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "names": {
+          "type": "object",
+          "keys_pattern": "^(left|social_democrat|green|liberal|conservative|national|power|religious)$",
+          "values": {
+            "type": "array",
+            "min_items": 1,
+            "unique_items": true,
+            "items": {
+              "type": "loc_string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "challenges": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "description_key",
+        "weight"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^CHALLENGE_[A-Z_]+$"
+        },
+        "description_key": {
+          "type": "string",
+          "pattern": "^CHALLENGE_[A-Z_]+_DESC$"
+        },
+        "weight": {
+          "type": "number",
+          "min": 0
+        },
+        "rule": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "debt_above",
+                "gdp_per_capita_below",
+                "occupied_provinces",
+                "limited_recognition",
+                "coalition_partners_at_least",
+                "regime",
+                "landlocked",
+                "military_below"
+              ]
+            },
+            "threshold": {
+              "type": "number"
+            },
+            "regimes": {
+              "type": "array",
+              "min_items": 1,
+              "items": {
+                "type": "string",
+                "ref": "regimes"
+              }
+            }
           }
         }
       }

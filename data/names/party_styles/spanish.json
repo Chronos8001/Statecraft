@@ -1,0 +1,14 @@
+{
+  "spanish": {
+    "stopwords": ["de", "del", "la", "el", "los", "las", "por", "para", "y"],
+    "names": {
+      "left": ["Frente Popular Unido", "Partido de los Trabajadores del Pueblo", "Movimiento Socialista Popular", "Unidad de Izquierda", "Frente Revolucionario del Pueblo", "Partido Comunista Unido", "Alianza Bolivariana del Pueblo"],
+      "social_democrat": ["Partido Socialdemócrata", "Alianza Progresista", "Movimiento de Renovación Social", "Partido Socialista Popular", "Convergencia Ciudadana", "Unión Democrática Progresista", "Partido Liberación Ciudadana"],
+      "green": ["Partido Verde Ciudadano", "Alianza Verde", "Movimiento Tierra Viva"],
+      "liberal": ["Partido Liberal Republicano", "Alianza Ciudadana", "Movimiento Cívico Nacional", "Partido del Centro Democrático", "Fuerza Republicana", "Renovación Democrática", "Nueva Alianza Ciudadana", "Unidad de la Esperanza"],
+      "conservative": ["Partido Popular Republicano", "Unión Conservadora", "Partido Nacional Democrático", "Alianza por la República", "Unión Demócrata Cristiana", "Fuerza Nacional", "Partido del Orden", "Renovación Republicana"],
+      "national": ["Movimiento Patria Libre", "Partido Soberanía Nacional", "Frente Patriótico", "Libertad Primero", "Acción Nacional Republicana", "Patria y Orden"],
+      "power": ["Partido de la Revolución Nacional", "Frente Nacional de Reconstrucción", "Movimiento de Unidad Nacional", "Partido de la Concordia"]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "chinese": {
+    "name_order": "family_first",
+    "party_style": "international",
+    "female_share": 0.1,
+    "male_names": ["Jianguo", "Zhiwen", "Weimin", "Guoqiang", "Hongwei", "Jianhua", "Xiaoming", "Wenjie", "Zhenhua", "Haifeng", "Yongming", "Dexin", "Shaojun", "Lichang", "Zhaoxing", "Chengwu", "Mingzhe", "Qingshan", "Yaozu", "Wenbo", "Chih-wei", "Chia-hung", "Kuo-cheng", "Wen-tsung"],
+    "female_names": ["Xiuying", "Lihua", "Hongmei", "Yanping", "Jing", "Meiling", "Xiaoyan", "Chunhua", "Huifang", "Lan", "Ya-ting", "Shu-fen", "Mei-hua", "Hsiao-ling"],
+    "family_names": ["Wei", "Liang", "Zhou", "Xu", "Sun", "Ma", "Zhu", "Hu", "Guo", "He", "Gao", "Lin", "Luo", "Zheng", "Xie", "Tang", "Han", "Feng", "Deng", "Cao", "Peng", "Zeng", "Xiao", "Tian", "Dong", "Pan", "Yuan", "Cai", "Jiang", "Yu", "Du", "Ye", "Cheng", "Lü", "Ding", "Shen", "Ren", "Yao", "Lu", "Fu", "Zhong"]
+  }
+}

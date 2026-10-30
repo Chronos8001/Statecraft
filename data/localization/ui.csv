@@ -68,6 +68,7 @@ COUNTRY_INFO_CAPITAL,Capital,Capitale
 COUNTRY_INFO_REGIME,Government,Régime
 COUNTRY_INFO_HEAD_OF_STATE,Head of state,Chef de l'État
 COUNTRY_INFO_HEAD_OF_GOVERNMENT,Head of government,Chef du gouvernement
+COUNTRY_INFO_LEADER_VALUE,"%s (age %d)","%s (%d ans)"
 COUNTRY_INFO_RULING_PARTY,Ruling party,Parti au pouvoir
 COUNTRY_INFO_COALITION,Coalition partners,Partenaires de coalition
 COUNTRY_INFO_IDEOLOGY,Ideology,Idéologie
@@ -110,3 +111,21 @@ TOPBAR_INFLUENCE,Influence,Influence
 TOPBAR_UNKNOWN,—,—
 NOTIFY_NEW_MONTH,New month: %s %d,Nouveau mois : %s %d
 NOTIFY_NEW_YEAR,Happy new year %d!,Bonne année %d !
+# --- Sélection du pays ---
+SELECTION_TITLE,Choose your country,Choisissez votre pays
+SELECTION_HINT,"Click a country on the map or in the list. Esc: back to the main menu.","Cliquez sur un pays sur la carte ou dans la liste. Échap : retour au menu."
+SELECTION_SEARCH,Search for a country…,Rechercher un pays…
+SELECTION_ALL_DIFFICULTIES,All difficulties,Toutes les difficultés
+SELECTION_DIFFICULTY_TOOLTIP,Show only the countries of one difficulty level,N'afficher que les pays d'un niveau de difficulté
+SELECTION_SHOW_LIMITED,Unrecognized entities,Entités non reconnues
+SELECTION_SHOW_LIMITED_TOOLTIP,"Advanced mode: also offer states recognized by almost no one (Northern Cyprus, Somaliland).","Mode avancé : proposer aussi les États que presque personne ne reconnaît (Chypre du Nord, Somaliland)."
+SELECTION_COUNT,%d countries,%d pays
+SELECTION_NONE,No country selected,Aucun pays choisi
+SELECTION_DIFFICULTY_VALUE,Difficulty: %s,Difficulté : %s
+SELECTION_CHALLENGES,Starting challenges,Défis de départ
+SELECTION_PLAY,Play,Jouer
+DIFFICULTY_1,Very easy,Très facile
+DIFFICULTY_2,Easy,Facile
+DIFFICULTY_3,Normal,Normale
+DIFFICULTY_4,Hard,Difficile
+DIFFICULTY_5,Very hard,Très difficile

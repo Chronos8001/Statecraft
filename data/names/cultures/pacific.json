@@ -1,0 +1,10 @@
+{
+  "pacific": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.15,
+    "male_names": ["Sitiveni", "Josaia", "Peter", "James", "Manasa", "Isikeli", "Tevita", "Sione", "Viliami", "Tomasi", "Iakobo", "Lisiate", "Kaveinga", "Taniela", "Semisi", "Joseph", "Andrew", "Charles", "Moses", "Benjamin", "Wilson", "Tuala", "Ioane", "Paulo"],
+    "female_names": ["Losana", "Mere", "Salote", "Litea", "Ana", "Mele", "Seini", "Vika", "Adi", "Makereta", "Luisa", "Talei", "Akanesi", "Lagi"],
+    "family_names": ["Naivalu", "Waqanivalu", "Tuilagi", "Koroivuki", "Vakatale", "Tamanisau", "Raikadroka", "Ligairi", "Fifita", "Havili", "Taufa", "Kepu", "Fonoti", "Lauina", "Seiuli", "Puna", "Aufai", "Leota", "Toleafoa", "Kumul", "Kaupa", "Wapi", "Tetabo", "Kirata", "Anote", "Ruben", "Tabai", "Jitiam", "Lokeijak", "Ngirmang"]
+  }
+}

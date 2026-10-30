@@ -1,0 +1,10 @@
+{
+  "horn_african": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.2,
+    "male_names": ["Mulatu", "Tesfaye", "Yohannes", "Berhane", "Gebre", "Haile", "Mesfin", "Dawit", "Tewodros", "Alemayehu", "Osman", "Sebhat", "Solomon", "Fikru", "Bereket"],
+    "female_names": ["Aster", "Meaza", "Tsehay", "Almaz", "Hirut", "Selamawit", "Birtukan", "Adanech"],
+    "family_names": ["Mekonnen", "Teshome", "Gebremedhin", "Tsegaye", "Bekele", "Woldemariam", "Hailemariam", "Alemu", "Abebe", "Desta", "Kebede", "Tadesse", "Girma", "Tekle", "Mengistu", "Asfaw", "Woldegiorgis", "Ayele"]
+  }
+}

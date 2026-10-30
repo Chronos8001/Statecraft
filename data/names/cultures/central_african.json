@@ -1,0 +1,10 @@
+{
+  "central_african": {
+    "name_order": "given_first",
+    "party_style": "french",
+    "female_share": 0.15,
+    "male_names": ["Jean-Pierre", "Félix", "Joseph", "Denis", "Faustin", "Évariste", "Brice", "Clotaire", "Théodore", "Paul-Henri", "Léon", "Augustin", "Didier", "Anicet", "Firmin", "Gabriel", "Thierry", "Jean-Marie", "Pascal", "Alphonse", "Eugène", "Hilaire", "Gervais", "Prosper"],
+    "female_names": ["Jeanine", "Judith", "Marie-Thérèse", "Annie", "Rose", "Brigitte", "Chantal", "Clarisse", "Esther", "Francine", "Ghislaine", "Henriette", "Joséphine", "Pélagie"],
+    "family_names": ["Mbemba", "Ndong", "Mba Abessole", "Nsue", "Esono", "Nsengiyumva", "Habimana", "Mukamana", "Niyonzima", "Hakizimana", "Tshibangu", "Mulumba", "Kalonji", "Ilunga", "Mbuyi", "Kasongo", "Lukusa", "Ngoy", "Ondongo", "Moukoko", "Ngoma", "Fouda", "Mbarga", "Essomba", "Ngono", "Etoundi", "Nkodo", "Dondra", "Mboutou", "Nzouzi", "Mabiala", "Malonga", "Bouanga", "Yangongo", "Ngaïkosset", "Feïkéram"]
+  }
+}

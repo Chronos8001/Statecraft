@@ -81,6 +81,107 @@
       "kind": "security",
       "founded": 2001,
       "color": "#C0533A"
+    },
+    "au": {
+      "name": {
+        "en": "African Union",
+        "fr": "Union africaine"
+      },
+      "abbreviation": {
+        "en": "AU",
+        "fr": "UA"
+      },
+      "kind": "regional",
+      "founded": 2002,
+      "color": "#3E8E41"
+    },
+    "arab_league": {
+      "name": {
+        "en": "Arab League",
+        "fr": "Ligue arabe"
+      },
+      "abbreviation": {
+        "en": "AL",
+        "fr": "LA"
+      },
+      "kind": "regional",
+      "founded": 1945,
+      "color": "#2E7D5B"
+    },
+    "asean": {
+      "name": {
+        "en": "Association of Southeast Asian Nations",
+        "fr": "Association des nations de l'Asie du Sud-Est"
+      },
+      "abbreviation": {
+        "en": "ASEAN",
+        "fr": "ASEAN"
+      },
+      "kind": "regional",
+      "founded": 1967,
+      "color": "#2D6BB5"
+    },
+    "opec": {
+      "name": {
+        "en": "Organization of the Petroleum Exporting Countries",
+        "fr": "Organisation des pays exportateurs de pétrole"
+      },
+      "abbreviation": {
+        "en": "OPEC",
+        "fr": "OPEP"
+      },
+      "kind": "cartel",
+      "founded": 1960,
+      "color": "#B8862E"
+    },
+    "csto": {
+      "name": {
+        "en": "Collective Security Treaty Organization",
+        "fr": "Organisation du traité de sécurité collective"
+      },
+      "abbreviation": {
+        "en": "CSTO",
+        "fr": "OTSC"
+      },
+      "kind": "military_alliance",
+      "founded": 1992,
+      "color": "#A23B3B"
+    },
+    "mercosur": {
+      "name": {
+        "en": "Mercosur",
+        "fr": "Mercosur"
+      },
+      "abbreviation": "Mercosur",
+      "kind": "economic_union",
+      "founded": 1991,
+      "color": "#3C7FB0"
+    },
+    "gcc": {
+      "name": {
+        "en": "Gulf Cooperation Council",
+        "fr": "Conseil de coopération du Golfe"
+      },
+      "abbreviation": {
+        "en": "GCC",
+        "fr": "CCG"
+      },
+      "kind": "regional",
+      "founded": 1981,
+      "color": "#6E8B3D"
+    },
+    "eaeu": {
+      "name": {
+        "en": "Eurasian Economic Union",
+        "fr": "Union économique eurasiatique"
+      },
+      "abbreviation": {
+        "en": "EAEU",
+        "fr": "UEEA"
+      },
+      "kind": "economic_union",
+      "founded": 2015,
+      "color": "#8E5A9E"
     }
   }
 }

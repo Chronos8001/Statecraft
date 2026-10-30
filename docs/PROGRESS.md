@@ -7,7 +7,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 | 0 | Fondations du projet | ✅ | v0.0.0 | 2026-10-29 | v0.0.0 |
 | 1 | La carte du monde | ✅ | v0.1.0 | 2026-10-29 | v0.1.0 |
 | 2 | Temps et boucle de simulation | ✅ | v0.2.0 | 2026-10-29 | v0.2.0 |
-| 3 | Les pays en 2026 | ⬜ | v0.3.0 | | |
+| 3 | Les pays en 2026 | ✅ | v0.3.0 | 2026-10-30 | v0.3.0 |
 | 4 | Économie | ⬜ | v0.4.0 | | |
 | 5 | Politique intérieure | ⬜ | v0.5.0 | | |
 | 6 | Diplomatie | ⬜ | v0.6.0 | | |
@@ -71,14 +71,31 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Barre supérieure : date, vitesse, trésorerie, stabilité, soutien populaire, puissance militaire, influence (valeurs « — » en attendant les systèmes)
 - [x] Validation : le temps défile, les événements mensuels se déclenchent
 
-## Étape 3 — Les pays en 2026 ⬜
-- [ ] `countries.json` : nom, tag, drapeau, capitale, couleur, régime, dirigeants (id fictifs), parti au pouvoir, idéologie, PIB, dette/PIB, population, armée, organisations
-- [ ] Données réalistes de janvier 2026 (précises pour les grandes puissances, approchées pour les autres)
-- [ ] `characters.json` : personnages fictifs équivalents aux vrais
-- [ ] Fichiers de noms (`data/names/*.json`) et générateur de noms par culture
-- [ ] `organizations.json` pour les organisations internationales
-- [ ] Écran de sélection du pays : carte, filtres par difficulté, résumé, défis de départ
-- [ ] Validation : choisir n'importe quel pays et démarrer la partie
+## Étape 3 — Les pays en 2026 ✅ (validée le 2026-10-30, v0.3.0)
+**3a. Données réelles**
+- [x] Population, PIB (FMI 2026), dette (FMI 2025), effectifs militaires (IISS) pour les 199 pays, depuis Wikipédia
+- [x] Régimes et organisations au 1er janvier 2026 (ONU, OTAN, UE, G7, G20, BRICS, OCS, UA, Ligue arabe, ASEAN, OPEP, OTSC, Mercosur, CCG, UEEA)
+- [x] Population des provinces ajustée au total de chaque pays
+
+**3b. Dirigeants et partis fictifs** (validée le 2026-10-30)
+- [x] Générateur de noms par culture (`data/names/cultures/*.json`, 56 cultures) et de noms de partis (`data/names/party_styles/*.json`, 17 langues)
+- [x] Dirigeants des 30 pays majeurs écrits à la main, 169 autres générés (même âge, sexe, idéologie) par `tools/leader_gen/`
+- [x] Partis au pouvoir et coalitions fictifs, idéologie dominante
+- [x] Traits de personnage (tempérament, style, parcours, orientation)
+- [x] Fiche du pays : âge des dirigeants, ordre des noms selon la culture
+
+**3c. Drapeaux** (validée le 2026-10-30)
+- [x] Drapeaux des 199 pays (SVG au format 4:3) générés par `tools/flag_gen/`
+- [x] Drapeau dans la fiche du pays et dans la barre supérieure
+
+**3d. Sélection du pays** (validée le 2026-10-30)
+- [x] Écran de sélection sur la carte : liste avec drapeaux, recherche, filtre par difficulté, résumé du pays, défis de départ
+- [x] Difficulté calculée (puissance économique et militaire, défis) avec retouches possibles ; 5 niveaux
+- [x] Défis écrits pour les 30 pays majeurs (et le Myanmar, le Soudan), défis génériques déduits des données pour les autres
+- [x] Entités non reconnues (Chypre du Nord, Somaliland) proposées en mode avancé
+- [x] La partie démarre sur le pays choisi, caméra centrée sur sa capitale
+
+- [x] Validation : choisir n'importe quel pays et démarrer la partie
 
 ## Étape 4 — Économie ⬜
 **4a. Macroéconomie**

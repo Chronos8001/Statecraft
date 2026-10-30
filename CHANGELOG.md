@@ -6,6 +6,32 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-10-30
+
+### Ajouté
+- Données réelles des 199 pays (source Wikipédia) : population, PIB nominal (FMI 2026), dette publique (FMI 2025), effectifs militaires actifs et de réserve.
+- Régimes et appartenance aux organisations internationales au 1er janvier 2026 ; 8 nouvelles organisations (Union africaine, Ligue arabe, ASEAN, OPEP, OTSC, Mercosur, CCG, UEEA).
+- Outil de génération des données des pays (`tools/country_gen/`).
+- Dirigeants fictifs (chef de l'État, chef du gouvernement), partis au pouvoir, coalitions et idéologie dominante des 199 pays, calqués sur la situation au 1er janvier 2026 (âge, sexe, idéologie, coalitions) : 30 pays majeurs écrits à la main, les autres générés.
+- Générateur de noms par culture (56 cultures) et de noms de partis (17 langues), réutilisable en cours de partie.
+- Traits de personnage : tempérament, style de gouvernement, parcours, orientation.
+- Outil de génération des dirigeants et partis (`tools/leader_gen/`).
+- Drapeaux des 199 pays, affichés dans la fiche du pays et dans la barre supérieure ; drapeaux en usage de fait au 1er janvier 2026 (Afghanistan, Syrie).
+- Outil de génération des drapeaux (`tools/flag_gen/`).
+- Écran de sélection du pays : liste avec drapeaux, recherche, filtre par difficulté (très facile à très difficile), résumé du pays et défis de départ ; clic sur la carte ou dans la liste.
+- Défis de départ : écrits pour les grandes puissances et les pays en crise, déduits des données pour les autres (dette, pauvreté, occupation, coalition, enclavement…).
+- Mode avancé : Chypre du Nord et le Somaliland jouables en cochant « Entités non reconnues ».
+
+### Modifié
+- La population des provinces correspond désormais exactement au total de leur pays.
+- Fiche du pays : âge des dirigeants, noms dans l'ordre de leur culture (« Wei Jianguo »), chef du gouvernement masqué quand il s'agit du chef de l'État.
+- Le mode de carte « idéologie » couvre désormais tous les pays.
+- Fiche du pays : le drapeau remplace le carré de couleur.
+- « Nouvelle partie » ouvre l'écran de sélection ; la partie démarre sur le pays choisi, caméra centrée sur sa capitale.
+
+### Corrigé
+- Fiche du pays : l'âge des dirigeants (« 49 ans ») n'est plus coupé en fin de ligne.
+
 ## [0.2.0] - 2026-10-29
 
 ### Ajouté
@@ -56,7 +82,8 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Suivi du projet : `docs/PROGRESS.md`, `docs/DECISIONS.md`, `docs/KNOWN_ISSUES.md`.
 - Configuration Git : `.gitignore` et `.gitattributes` (fins de ligne LF, fichiers binaires).
 
-[Unreleased]: https://github.com/Chronos8001/Statecraft/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/Chronos8001/Statecraft/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.3.0
 [0.2.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.2.0
 [0.1.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.1.0
 [0.0.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.0.0

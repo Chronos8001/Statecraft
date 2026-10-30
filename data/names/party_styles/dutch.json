@@ -1,0 +1,13 @@
+{
+  "dutch": {
+    "stopwords": ["voor", "en", "de", "het", "van"],
+    "names": {
+      "left": ["Socialistisch Verbond", "Partij van Arbeid en Vrede", "Linkse Alliantie"],
+      "social_democrat": ["Sociaaldemocratische Beweging", "Partij voor Solidariteit", "Vooruitstrevende Volkspartij", "Rood Verbond"],
+      "green": ["Groene Alliantie", "Partij voor Natuur en Toekomst", "Groen Verbond"],
+      "liberal": ["Liberale Volksbeweging", "Democratisch Midden", "Vrije Burgerpartij", "Liberaal Forum", "Burgerbeweging Vooruit"],
+      "conservative": ["Christelijk Volksverbond", "Nieuw Burgerverbond", "Christelijk Middenappel", "Landelijk Burgerverbond"],
+      "national": ["Partij voor Volk en Vaderland", "Vlaams Volksfront", "Nationaal Verbond", "Vaderlandse Partij"]
+    }
+  }
+}

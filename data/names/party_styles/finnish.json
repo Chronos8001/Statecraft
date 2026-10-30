@@ -1,0 +1,13 @@
+{
+  "finnish": {
+    "stopwords": ["ja"],
+    "names": {
+      "left": ["Vasemmistoyhteys", "Vasakliit"],
+      "social_democrat": ["Sosialidemokraattinen Liitto", "Sotsiaaldemokraatlik Liit", "Työväen Puolue"],
+      "green": ["Vihreä Yhteys", "Roheline Liit"],
+      "liberal": ["Keskiliitto", "Liberaalinen Kansanpuolue", "Uuendusliit", "Keskerakond Uus"],
+      "conservative": ["Kansallinen Yhteys", "Kodumaa Liit", "Kristillinen Kansanliitto"],
+      "national": ["Suomalaisten Liitto", "Rahvuslik Erakond"]
+    }
+  }
+}

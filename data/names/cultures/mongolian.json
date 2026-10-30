@@ -1,0 +1,10 @@
+{
+  "mongolian": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.2,
+    "male_names": ["Batbayar", "Gombojav", "Ganbaatar", "Tsend", "Amarsaikhan", "Sukhbaatar", "Temuulen", "Bat-Ochir", "Erdenebileg", "Munkh-Orgil", "Dashdorj", "Gantumur"],
+    "female_names": ["Narantuya", "Altantsetseg", "Sarangerel", "Bolormaa", "Enkhjargal", "Tsetsegmaa", "Munkhtuya", "Odgerel"],
+    "family_names": ["Bat-Erdene", "Dorjsuren", "Gantulga", "Purevdorj", "Tserendorj", "Namjil", "Bayarsaikhan", "Tumurbaatar", "Erdenebat", "Otgonbayar", "Jargalsaikhan", "Altangerel"]
+  }
+}

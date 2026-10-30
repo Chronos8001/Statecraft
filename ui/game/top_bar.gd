@@ -16,6 +16,7 @@ var _stat_values: Array[Label] = []
 @onready var _faster_button: Button = %FasterButton
 @onready var _speed_label: Label = %SpeedLabel
 @onready var _country_label: Label = %CountryLabel
+@onready var _flag_rect: TextureRect = %FlagRect
 @onready var _stats_row: HBoxContainer = %StatsRow
 
 
@@ -71,5 +72,9 @@ func _update_country() -> void:
 	var tag := str(GameState.sim.player_tag)
 	var country := DataLoader.get_entry("countries", tag)
 	_country_label.text = tr(str(country.get("name_key", ""))) if not country.is_empty() else tr("TOPBAR_NO_COUNTRY")
+	_flag_rect.visible = not country.is_empty()
+	if not country.is_empty():
+		_flag_rect.texture = CountryFlags.texture_for(CountryFlags.path_for(tag, country),
+			Color.html(str(country.get("color", "#808080"))))
 	for value_label: Label in _stat_values:
 		value_label.text = tr("TOPBAR_UNKNOWN")

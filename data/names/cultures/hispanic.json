@@ -1,0 +1,11 @@
+{
+  "hispanic": {
+    "name_order": "given_first",
+    "party_style": "spanish",
+    "female_share": 0.35,
+    "family_name_count": 2,
+    "male_names": ["José", "Juan", "Carlos", "Luis", "Miguel", "Javier", "Francisco", "Alejandro", "Fernando", "Jorge", "Ricardo", "Eduardo", "Andrés", "Diego", "Rafael", "Sergio", "Gustavo", "Álvaro", "Ernesto", "Raúl", "Héctor", "Gonzalo", "Rodrigo", "Mauricio", "Esteban", "Julio", "Arturo", "Ignacio"],
+    "female_names": ["María", "Carmen", "Ana", "Isabel", "Laura", "Lucía", "Patricia", "Verónica", "Claudia", "Gabriela", "Paula", "Adriana", "Mónica", "Alejandra", "Daniela", "Carolina", "Beatriz", "Rosario", "Silvia", "Marcela", "Teresa", "Yolanda", "Natalia", "Lorena"],
+    "family_names": ["Aguilar", "Barrios", "Cabrera", "Delgado", "Escobar", "Figueroa", "Galindo", "Herrera", "Ibarra", "Jiménez", "Lozano", "Medina", "Navarro", "Ochoa", "Paredes", "Quintero", "Robles", "Salazar", "Toledo", "Urrutia", "Valdés", "Zamora", "Arriaga", "Bustos", "Cuevas", "Duarte", "Espinoza", "Fuentes", "Guzmán", "Ledesma", "Montoya", "Núñez", "Olivares", "Pacheco", "Ríos", "Saavedra", "Tapia", "Vega", "Villalobos", "Carrasco"]
+  }
+}

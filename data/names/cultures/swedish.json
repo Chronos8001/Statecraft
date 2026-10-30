@@ -1,0 +1,10 @@
+{
+  "swedish": {
+    "name_order": "given_first",
+    "party_style": "nordic",
+    "female_share": 0.45,
+    "male_names": ["Erik", "Lars", "Anders", "Johan", "Magnus", "Henrik", "Mikael", "Fredrik", "Nils", "Per", "Jonas", "Tobias", "Gustav", "Oskar", "Karl", "Björn", "Ulf", "Stefan"],
+    "female_names": ["Anna", "Karin", "Maria", "Eva", "Kristina", "Helena", "Sofia", "Linnea", "Ebba", "Malin", "Ulrika", "Åsa", "Johanna", "Elisabeth"],
+    "family_names": ["Lindqvist", "Bergström", "Holmberg", "Sandberg", "Ekström", "Lundgren", "Nyström", "Sjöberg", "Wallin", "Åberg", "Engström", "Forsberg", "Hedlund", "Blomqvist", "Sundberg", "Lindahl", "Nordin", "Strömberg"]
+  }
+}

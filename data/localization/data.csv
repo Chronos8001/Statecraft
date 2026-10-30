@@ -48,3 +48,181 @@ RESOURCE_SEMICONDUCTORS,Semiconductors,Semi-conducteurs
 RESOURCE_WHEAT,Wheat,Blé
 RESOURCE_STEEL,Steel,Acier
 RESOURCE_WATER,Water,Eau
+
+# --- Traits des personnages ---
+TRAIT_CAUTIOUS,Cautious,Prudent
+TRAIT_COMBATIVE,Combative,Combatif
+TRAIT_PRAGMATIC,Pragmatic,Pragmatique
+TRAIT_AMBITIOUS,Ambitious,Ambitieux
+TRAIT_MODERATE,Moderate,Modéré
+TRAIT_CHARISMATIC,Charismatic,Charismatique
+TRAIT_LOYAL,Loyal,Loyal
+TRAIT_PARANOID,Paranoid,Paranoïaque
+TRAIT_STUBBORN,Stubborn,Obstiné
+TRAIT_IDEALIST,Idealist,Idéaliste
+TRAIT_POPULIST,Populist,Populiste
+TRAIT_TECHNOCRAT,Technocrat,Technocrate
+TRAIT_COMMUNICATOR,Communicator,Communicant
+TRAIT_NEGOTIATOR,Negotiator,Négociateur
+TRAIT_DEALMAKER,Dealmaker,Homme de deals
+TRAIT_CENTRALIZER,Centralizer,Centralisateur
+TRAIT_REFORMER,Reformer,Réformateur
+TRAIT_STRATEGIST,Strategist,Stratège
+TRAIT_PARTY_MAN,Party loyalist,Homme d'appareil
+TRAIT_DIPLOMAT,Diplomat,Diplomate
+TRAIT_ADMINISTRATOR,Administrator,Gestionnaire
+TRAIT_HARDLINER,Hardliner,Partisan de la ligne dure
+TRAIT_UNION_LEADER,Former union leader,Ancien syndicaliste
+TRAIT_MILITARY_OFFICER,Former officer,Ancien officier
+TRAIT_BUSINESSMAN,Business background,Issu des affaires
+TRAIT_LAWYER,Lawyer,Juriste
+TRAIT_ACADEMIC,Academic,Universitaire
+TRAIT_ECONOMIST,Economist,Économiste
+TRAIT_CAREER_DIPLOMAT,Career diplomat,Diplomate de carrière
+TRAIT_ACTIVIST,Former activist,Ancien militant
+TRAIT_SECURITY_SERVICES,Security services veteran,Ancien des services de sécurité
+TRAIT_RELIGIOUS_SCHOLAR,Religious scholar,Lettré religieux
+TRAIT_ROYAL,Royal,Membre de la famille royale
+TRAIT_EUROPHILE,Europhile,Europhile
+TRAIT_EUROSCEPTIC,Eurosceptic,Eurosceptique
+TRAIT_ATLANTICIST,Atlanticist,Atlantiste
+TRAIT_PRO_RUSSIAN,Pro-Russian,Prorusse
+TRAIT_PRO_CHINESE,Pro-Chinese,Prochinois
+TRAIT_ANTI_WESTERN,Anti-Western,Antioccidental
+TRAIT_NON_ALIGNED,Non-aligned,Non-aligné
+TRAIT_FISCAL_HAWK,Fiscal hawk,Rigueur budgétaire
+# --- Défis de départ ---
+CHALLENGE_HIGH_DEBT,Heavy public debt,Dette publique lourde
+CHALLENGE_HIGH_DEBT_DESC,"Public debt exceeds a year of national output: borrowing is expensive and markets are watching.","La dette publique dépasse une année de production nationale : emprunter coûte cher et les marchés surveillent."
+CHALLENGE_POVERTY,Widespread poverty,Pauvreté généralisée
+CHALLENGE_POVERTY_DESC,"Very low income per person: few resources for the state and high expectations from the population.","Revenu par habitant très faible : peu de moyens pour l'État et de fortes attentes de la population."
+CHALLENGE_OCCUPIED_TERRITORY,Occupied territory,Territoire occupé
+CHALLENGE_OCCUPIED_TERRITORY_DESC,"Part of the national territory is controlled by a foreign power.","Une partie du territoire national est contrôlée par une puissance étrangère."
+CHALLENGE_LIMITED_RECOGNITION,Limited recognition,Reconnaissance limitée
+CHALLENGE_LIMITED_RECOGNITION_DESC,"Few states recognize your independence: diplomacy and trade are hampered.","Peu d'États reconnaissent votre indépendance : diplomatie et commerce sont entravés."
+CHALLENGE_FRAGILE_COALITION,Coalition government,Gouvernement de coalition
+CHALLENGE_FRAGILE_COALITION_DESC,"The government relies on several parties that must be kept on board.","Le gouvernement repose sur plusieurs partis qu'il faut ménager."
+CHALLENGE_FAILED_STATE,Collapsed state,État effondré
+CHALLENGE_FAILED_STATE_DESC,"The central authority controls little of the country: armed groups, famine and displacement.","Le pouvoir central contrôle peu du pays : groupes armés, famine et déplacés."
+CHALLENGE_MILITARY_RULE,Military rule,Pouvoir militaire
+CHALLENGE_MILITARY_RULE_DESC,"A junta holds power: international isolation and contested legitimacy.","Une junte tient le pouvoir : isolement international et légitimité contestée."
+CHALLENGE_LANDLOCKED,Landlocked,Pays enclavé
+CHALLENGE_LANDLOCKED_DESC,"No access to the sea: trade depends on the goodwill of neighbors.","Aucun accès à la mer : le commerce dépend du bon vouloir des voisins."
+CHALLENGE_NO_ARMY,No army,Pas d'armée
+CHALLENGE_NO_ARMY_DESC,"The country has no armed forces of its own and relies on others for its defense.","Le pays n'a pas d'armée et compte sur d'autres pour sa défense."
+CHALLENGE_CIVIL_WAR,Civil war,Guerre civile
+CHALLENGE_CIVIL_WAR_DESC,"Armed groups control whole regions and fight the government.","Des groupes armés tiennent des régions entières et combattent le pouvoir."
+CHALLENGE_USA_POLARIZATION,Deep polarization,Polarisation profonde
+CHALLENGE_USA_POLARIZATION_DESC,"A country split into two camps that distrust each other; every reform is a battle.","Un pays coupé en deux camps qui se méfient l'un de l'autre ; chaque réforme est une bataille."
+CHALLENGE_USA_CHINA_RIVALRY,Rivalry with China,Rivalité avec la Chine
+CHALLENGE_USA_CHINA_RIVALRY_DESC,"Trade war and technology race with the other superpower.","Guerre commerciale et course technologique avec l'autre superpuissance."
+CHALLENGE_CHN_PROPERTY_CRISIS,Property crisis,Crise immobilière
+CHALLENGE_CHN_PROPERTY_CRISIS_DESC,"Indebted developers, falling prices and slowing growth.","Promoteurs surendettés, prix en baisse et croissance qui ralentit."
+CHALLENGE_CHN_AGING,Aging population,Vieillissement
+CHALLENGE_CHN_AGING_DESC,"The population is shrinking and aging before reaching the wealth of developed countries.","La population diminue et vieillit avant d'avoir atteint la richesse des pays développés."
+CHALLENGE_CHN_TAIWAN,The Taiwan question,La question de Taïwan
+CHALLENGE_CHN_TAIWAN_DESC,"Reunification remains a national goal, at the risk of a confrontation with the United States.","La réunification reste un objectif national, au risque d'une confrontation avec les États-Unis."
+CHALLENGE_FRA_HUNG_PARLIAMENT,Hung parliament,Assemblée sans majorité
+CHALLENGE_FRA_HUNG_PARLIAMENT_DESC,"No bloc holds a majority: governments fall one after another and budgets pass with difficulty.","Aucun bloc n'a la majorité : les gouvernements tombent les uns après les autres et les budgets passent difficilement."
+CHALLENGE_DEU_INDUSTRY,Industry under strain,Industrie en difficulté
+CHALLENGE_DEU_INDUSTRY_DESC,"Expensive energy, Chinese competition and a slow car transition weigh on the economic model.","Énergie chère, concurrence chinoise et transition automobile lente pèsent sur le modèle économique."
+CHALLENGE_GBR_STAGNATION,Weak growth,Croissance faible
+CHALLENGE_GBR_STAGNATION_DESC,"Stagnant productivity, strained public services and little fiscal room.","Productivité en panne, services publics sous tension et peu de marge budgétaire."
+CHALLENGE_RUS_WAR,War in Ukraine,Guerre en Ukraine
+CHALLENGE_RUS_WAR_DESC,"A long and costly war that mobilizes the economy and the army.","Une guerre longue et coûteuse qui mobilise l'économie et l'armée."
+CHALLENGE_RUS_SANCTIONS,International sanctions,Sanctions internationales
+CHALLENGE_RUS_SANCTIONS_DESC,"Cut off from Western markets and technologies, dependent on a few partners.","Coupée des marchés et technologies occidentaux, dépendante de quelques partenaires."
+CHALLENGE_UKR_WAR,Invaded country,Pays envahi
+CHALLENGE_UKR_WAR_DESC,"A war for survival against a much larger neighbor.","Une guerre pour la survie face à un voisin bien plus grand."
+CHALLENGE_UKR_FOREIGN_AID,Dependence on foreign aid,Dépendance à l'aide étrangère
+CHALLENGE_UKR_FOREIGN_AID_DESC,"The budget and the army depend on aid from allies, whose support can waver.","Le budget et l'armée dépendent de l'aide des alliés, dont le soutien peut faiblir."
+CHALLENGE_JPN_AGING,Aging and shrinking population,Population vieillissante et en déclin
+CHALLENGE_JPN_AGING_DESC,"The oldest population in the world: labor shortages and rising social spending.","La population la plus âgée du monde : pénurie de main-d'œuvre et dépenses sociales en hausse."
+CHALLENGE_JPN_SECURITY,Tense neighborhood,Voisinage tendu
+CHALLENGE_JPN_SECURITY_DESC,"North Korean missiles and Chinese naval pressure push toward rearmament.","Missiles nord-coréens et pression navale chinoise poussent au réarmement."
+CHALLENGE_IND_JOBS,Jobs for the young,Emploi des jeunes
+CHALLENGE_IND_JOBS_DESC,"Millions of young people enter the labor market every year.","Des millions de jeunes arrivent chaque année sur le marché du travail."
+CHALLENGE_IND_BORDERS,Disputed borders,Frontières disputées
+CHALLENGE_IND_BORDERS_DESC,"Recurring tensions with Pakistan and China along disputed borders.","Tensions récurrentes avec le Pakistan et la Chine le long de frontières contestées."
+CHALLENGE_BRA_INEQUALITY,Deep inequality,Fortes inégalités
+CHALLENGE_BRA_INEQUALITY_DESC,"Very unequal income distribution, urban violence and pressure on public finances.","Revenus très inégaux, violence urbaine et finances publiques sous pression."
+CHALLENGE_BRA_AMAZON,Protecting the Amazon,Protéger l'Amazonie
+CHALLENGE_BRA_AMAZON_DESC,"Deforestation is watched by the whole world and divides the country.","La déforestation est surveillée par le monde entier et divise le pays."
+CHALLENGE_ITA_STAGNATION,Stagnation,Stagnation
+CHALLENGE_ITA_STAGNATION_DESC,"Two decades of weak growth and one of the oldest populations in Europe.","Deux décennies de croissance faible et l'une des populations les plus âgées d'Europe."
+CHALLENGE_ESP_MINORITY_GOVERNMENT,Minority government,Gouvernement minoritaire
+CHALLENGE_ESP_MINORITY_GOVERNMENT_DESC,"Each vote depends on small regional parties.","Chaque vote dépend de petits partis régionaux."
+CHALLENGE_ESP_REGIONS,Regional tensions,Tensions régionales
+CHALLENGE_ESP_REGIONS_DESC,"Independence movements remain strong in some regions.","Les mouvements indépendantistes restent forts dans certaines régions."
+CHALLENGE_CAN_US_TRADE,Tariffs from the south,Droits de douane du voisin
+CHALLENGE_CAN_US_TRADE_DESC,"Three quarters of exports go to the United States, which is raising its tariffs.","Les trois quarts des exportations vont aux États-Unis, qui relèvent leurs droits de douane."
+CHALLENGE_CAN_HOUSING,Housing crisis,Crise du logement
+CHALLENGE_CAN_HOUSING_DESC,"Housing prices out of reach in the big cities.","Des logements hors de prix dans les grandes villes."
+CHALLENGE_AUS_BALANCE,Between two powers,Entre deux puissances
+CHALLENGE_AUS_BALANCE_DESC,"China is the main customer, the United States the main ally.","La Chine est le premier client, les États-Unis le premier allié."
+CHALLENGE_AUS_COMMODITIES,Commodity-dependent,Dépendance aux matières premières
+CHALLENGE_AUS_COMMODITIES_DESC,"Wealth relies on mining exports and their prices.","La richesse repose sur les exportations minières et leurs prix."
+CHALLENGE_KOR_NORTH_THREAT,Threat from the North,Menace du Nord
+CHALLENGE_KOR_NORTH_THREAT_DESC,"A nuclear-armed neighbor a few dozen kilometers from the capital.","Un voisin doté de l'arme nucléaire à quelques dizaines de kilomètres de la capitale."
+CHALLENGE_KOR_BIRTH_RATE,Lowest birth rate in the world,Natalité la plus basse du monde
+CHALLENGE_KOR_BIRTH_RATE_DESC,"Fewer than one child per woman: the population is about to shrink fast.","Moins d'un enfant par femme : la population va bientôt diminuer rapidement."
+CHALLENGE_MEX_CARTELS,Cartels,Cartels
+CHALLENGE_MEX_CARTELS_DESC,"Drug cartels control entire regions and challenge the state.","Les cartels de la drogue contrôlent des régions entières et défient l'État."
+CHALLENGE_MEX_US_TRADE,Trade dependence,Dépendance commerciale
+CHALLENGE_MEX_US_TRADE_DESC,"The economy depends on the United States, which uses tariffs as leverage.","L'économie dépend des États-Unis, qui se servent des droits de douane comme levier."
+CHALLENGE_IDN_ARCHIPELAGO,A vast archipelago,Un immense archipel
+CHALLENGE_IDN_ARCHIPELAGO_DESC,"Thousands of islands to connect, govern and defend.","Des milliers d'îles à relier, gouverner et défendre."
+CHALLENGE_IDN_COMMODITIES,Commodity exports,Exportations de matières premières
+CHALLENGE_IDN_COMMODITIES_DESC,"Coal, palm oil and nickel: growth follows world prices.","Charbon, huile de palme et nickel : la croissance suit les cours mondiaux."
+CHALLENGE_TUR_INFLATION,High inflation,Inflation élevée
+CHALLENGE_TUR_INFLATION_DESC,"Prices are still rising fast and the currency remains fragile.","Les prix montent encore vite et la monnaie reste fragile."
+CHALLENGE_TUR_BORDERS,Unstable borders,Frontières instables
+CHALLENGE_TUR_BORDERS_DESC,"Syria, Iraq and the Kurdish question weigh on security.","La Syrie, l'Irak et la question kurde pèsent sur la sécurité."
+CHALLENGE_SAU_OIL,Life after oil,L'après-pétrole
+CHALLENGE_SAU_OIL_DESC,"The economy must diversify before oil revenue declines.","L'économie doit se diversifier avant le déclin des revenus pétroliers."
+CHALLENGE_SAU_RIVALRY,Regional rivalry,Rivalité régionale
+CHALLENGE_SAU_RIVALRY_DESC,"Competition with Iran for influence across the Middle East.","Concurrence avec l'Iran pour l'influence au Moyen-Orient."
+CHALLENGE_IRN_SANCTIONS,Crippling sanctions,Sanctions écrasantes
+CHALLENGE_IRN_SANCTIONS_DESC,"Oil exports restricted, inflation and a collapsing currency.","Exportations de pétrole limitées, inflation et monnaie en chute."
+CHALLENGE_IRN_CONFRONTATION,Open confrontation,Confrontation ouverte
+CHALLENGE_IRN_CONFRONTATION_DESC,"After the strikes of 2025, the threat of a new war with Israel and the United States remains.","Après les frappes de 2025, la menace d'une nouvelle guerre avec Israël et les États-Unis demeure."
+CHALLENGE_ISR_GAZA,Fragile ceasefire,Cessez-le-feu fragile
+CHALLENGE_ISR_GAZA_DESC,"The Gaza ceasefire may collapse; the northern and eastern fronts stay tense.","Le cessez-le-feu à Gaza peut céder ; les fronts nord et est restent tendus."
+CHALLENGE_ISR_ISOLATION,Diplomatic isolation,Isolement diplomatique
+CHALLENGE_ISR_ISOLATION_DESC,"The war has deeply damaged the country's international image.","La guerre a profondément dégradé l'image du pays dans le monde."
+CHALLENGE_EGY_DEBT,Foreign debt,Dette extérieure
+CHALLENGE_EGY_DEBT_DESC,"Heavy debt in foreign currency, high inflation and a program with the IMF.","Lourde dette en devises, inflation forte et programme avec le FMI."
+CHALLENGE_EGY_NEIGHBORS,Neighbors at war,Voisins en guerre
+CHALLENGE_EGY_NEIGHBORS_DESC,"Gaza, Sudan and Libya: crises on every border, and Suez Canal revenue hit.","Gaza, le Soudan et la Libye : des crises à chaque frontière, et les revenus du canal de Suez touchés."
+CHALLENGE_NGA_INSECURITY,Insecurity,Insécurité
+CHALLENGE_NGA_INSECURITY_DESC,"Jihadist groups in the northeast, bandits in the northwest, kidnappings everywhere.","Groupes djihadistes au nord-est, bandits au nord-ouest, enlèvements partout."
+CHALLENGE_NGA_OIL,Oil dependence,Dépendance au pétrole
+CHALLENGE_NGA_OIL_DESC,"Oil provides most foreign currency, but production and refining are faltering.","Le pétrole fournit l'essentiel des devises, mais la production et le raffinage peinent."
+CHALLENGE_ZAF_UNEMPLOYMENT,Mass unemployment,Chômage de masse
+CHALLENGE_ZAF_UNEMPLOYMENT_DESC,"One worker in three has no job, and far more among the young.","Un actif sur trois est sans emploi, et bien plus chez les jeunes."
+CHALLENGE_ZAF_ENERGY,Power and transport,Électricité et transports
+CHALLENGE_ZAF_ENERGY_DESC,"Power cuts, failing railways and ports slow the economy.","Coupures de courant, chemins de fer et ports défaillants freinent l'économie."
+CHALLENGE_PAK_ECONOMY,Economic crisis,Crise économique
+CHALLENGE_PAK_ECONOMY_DESC,"Debt, low reserves and repeated IMF bailouts.","Dette, réserves faibles et plans de sauvetage du FMI à répétition."
+CHALLENGE_PAK_BORDERS,Two hostile borders,Deux frontières hostiles
+CHALLENGE_PAK_BORDERS_DESC,"Rivalry with India and armed groups on the Afghan border.","Rivalité avec l'Inde et groupes armés à la frontière afghane."
+CHALLENGE_ARG_AUSTERITY,Austerity,Austérité
+CHALLENGE_ARG_AUSTERITY_DESC,"Inflation is falling, but harsh spending cuts test public patience.","L'inflation recule, mais des coupes sévères mettent la patience des Argentins à l'épreuve."
+CHALLENGE_ARG_DEBT,Debt and the IMF,Dette et FMI
+CHALLENGE_ARG_DEBT_DESC,"The largest debtor of the IMF, with a long history of defaults.","Premier débiteur du FMI, avec une longue histoire de défauts de paiement."
+CHALLENGE_POL_RUSSIAN_THREAT,On the front line,En première ligne
+CHALLENGE_POL_RUSSIAN_THREAT_DESC,"Borders with Russia and Belarus: sabotage, drones and massive rearmament.","Frontières avec la Russie et la Biélorussie : sabotages, drones et réarmement massif."
+CHALLENGE_POL_COHABITATION,Cohabitation,Cohabitation
+CHALLENGE_POL_COHABITATION_DESC,"The president and the government come from opposing camps and veto each other.","Le président et le gouvernement viennent de camps opposés et se bloquent mutuellement."
+CHALLENGE_PRK_ISOLATION,Total isolation,Isolement total
+CHALLENGE_PRK_ISOLATION_DESC,"Under international sanctions, with Russia and China as the only partners.","Sous sanctions internationales, avec pour seuls partenaires la Russie et la Chine."
+CHALLENGE_PRK_SHORTAGES,Shortages,Pénuries
+CHALLENGE_PRK_SHORTAGES_DESC,"Food and energy shortages while the military absorbs most resources.","Pénuries de nourriture et d'énergie alors que l'armée absorbe l'essentiel des ressources."
+CHALLENGE_TWN_INVASION_THREAT,Threat of invasion,Menace d'invasion
+CHALLENGE_TWN_INVASION_THREAT_DESC,"Beijing claims the island and its military exercises are growing.","Pékin revendique l'île et ses manœuvres militaires s'intensifient."
+CHALLENGE_TWN_ISOLATION,Few formal allies,Peu d'alliés officiels
+CHALLENGE_TWN_ISOLATION_DESC,"Only about a dozen states recognize the island; its power lies in semiconductors.","Une douzaine d'États seulement reconnaissent l'île ; sa force tient aux semi-conducteurs."
+CHALLENGE_VNM_SOUTH_CHINA_SEA,South China Sea,Mer de Chine méridionale
+CHALLENGE_VNM_SOUTH_CHINA_SEA_DESC,"Islands and waters disputed with China.","Îles et eaux disputées avec la Chine."
+CHALLENGE_VNM_EXPORTS,Export-led economy,Économie tournée vers l'export
+CHALLENGE_VNM_EXPORTS_DESC,"Growth depends on factories working for American and European markets.","La croissance dépend d'usines travaillant pour les marchés américain et européen."

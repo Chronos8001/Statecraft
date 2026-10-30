@@ -1,0 +1,11 @@
+{
+  "bulgarian": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.35,
+    "male_names": ["Georgi", "Dimitar", "Ivan", "Nikolay", "Petar", "Stefan", "Hristo", "Todor", "Krasimir", "Rumen", "Plamen", "Boyko", "Kiril", "Valentin", "Zoran", "Dragi", "Hristijan", "Gjorge", "Nikola", "Vladimir"],
+    "female_names": ["Maria", "Elena", "Ivanka", "Desislava", "Tsvetelina", "Rositsa", "Galina", "Snezhana", "Daniela", "Kristina", "Biljana", "Teodora", "Vesna", "Gordana", "Radmila"],
+    "family_names": ["Ivanov", "Georgiev", "Dimitrov", "Petrov", "Nikolov", "Hristov", "Stoyanov", "Todorov", "Angelov", "Iliev", "Kolev", "Marinov", "Yordanov", "Atanasov", "Stefanovski", "Trajkovski", "Nikolovski", "Petrovski", "Janevski", "Kostovski"],
+    "female_family_names": ["Ivanova", "Georgieva", "Dimitrova", "Petrova", "Nikolova", "Hristova", "Stoyanova", "Todorova", "Angelova", "Ilieva", "Koleva", "Marinova", "Yordanova", "Atanasova", "Stefanovska", "Trajkovska", "Nikolovska", "Petrovska", "Janevska", "Kostovska"]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "croatian": {
+    "stopwords": ["i", "za", "na"],
+    "names": {
+      "left": ["Radnička Fronta", "Lijeva Alijansa", "Partija Rada"],
+      "social_democrat": ["Socijaldemokratska Unija", "Stranka Solidarnosti", "Narodni Pokret Napretka", "Socialna Zveza"],
+      "green": ["Zeleni Pokret", "Zelena Budućnost"],
+      "liberal": ["Građanski Savez", "Liberalna Stranka", "Pokret Slobode", "Stranka Promjene", "Gibanje Prihodnost"],
+      "conservative": ["Demokratska Zajednica Rada", "Narodni Savez", "Napredna Narodna Stranka", "Narodna Unija", "Demokratska Zveza"],
+      "national": ["Pokret Domovine", "Narodni Savez Otadžbine", "Stranka Prava i Reda", "Pokret Otadžbina"],
+      "power": ["Savez za Stabilnost", "Demokratska Partija Jedinstva", "Stranka Građanske Akcije"]
+    }
+  }
+}

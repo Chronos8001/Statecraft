@@ -31,7 +31,8 @@
       8900.0,
       2600.0
     ],
-    "start_zoom": 0.35
+    "start_zoom": 0.35,
+    "capital_zoom": 1.0
   },
   "map_colors": {
     "sea": "#132235",
@@ -74,5 +75,48 @@
   },
   "province": {
     "max_infrastructure": 10
+  },
+  "characters": {
+    "reference_year": 2026,
+    "min_age": 38,
+    "max_age": 72,
+    "default_female_share": 0.25,
+    "trait_chance": 0.75,
+    "min_skill": 2,
+    "max_skill": 8,
+    "skills": [
+      "administration",
+      "diplomacy",
+      "economy",
+      "military"
+    ],
+    "party_group_fallbacks": {
+      "religious": "conservative",
+      "power": "national",
+      "national": "conservative",
+      "green": "social_democrat",
+      "left": "social_democrat",
+      "social_democrat": "liberal",
+      "conservative": "liberal"
+    },
+    "party_color_spread": 0.25
+  },
+  "country_selection": {
+    "gdp_weight": 1.0,
+    "military_weight": 0.5,
+    "power_floor": 2.5,
+    "difficulty_thresholds": [
+      6.0,
+      5.0,
+      3.8,
+      2.0
+    ],
+    "difficulty_colors": [
+      "#4CAF50",
+      "#9CCC65",
+      "#E0C341",
+      "#E8893A",
+      "#D9483B"
+    ]
   }
 }

@@ -1,0 +1,109 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://ui/game/country_selection_panel.gd" id="1_selection"]
+[ext_resource type="PackedScene" path="res://ui/game/country_summary.tscn" id="2_summary"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.07, 0.09, 0.125, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25, 0.32, 0.42, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="CountrySelectionPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_selection")
+
+[node name="ListPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 356.0
+offset_bottom = -16.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="ListPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+
+[node name="Content" type="VBoxContainer" parent="ListPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="ListPanel/Margin/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 24
+text = "SELECTION_TITLE"
+
+[node name="HintLabel" type="Label" parent="ListPanel/Margin/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.51, 0.6, 1)
+theme_override_font_sizes/font_size = 13
+text = "SELECTION_HINT"
+autowrap_mode = 3
+
+[node name="SearchEdit" type="LineEdit" parent="ListPanel/Margin/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "SELECTION_SEARCH"
+clear_button_enabled = true
+
+[node name="DifficultyOption" type="OptionButton" parent="ListPanel/Margin/Content"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "SELECTION_DIFFICULTY_TOOLTIP"
+
+[node name="LimitedCheck" type="CheckBox" parent="ListPanel/Margin/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "SELECTION_SHOW_LIMITED_TOOLTIP"
+text = "SELECTION_SHOW_LIMITED"
+
+[node name="CountryList" type="ItemList" parent="ListPanel/Margin/Content"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+
+[node name="CountLabel" type="Label" parent="ListPanel/Margin/Content"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.51, 0.6, 1)
+theme_override_font_sizes/font_size = 13
+
+[node name="CountrySummary" parent="." instance=ExtResource("2_summary")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -436.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 2

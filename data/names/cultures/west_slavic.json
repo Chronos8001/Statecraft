@@ -1,0 +1,11 @@
+{
+  "west_slavic": {
+    "name_order": "given_first",
+    "party_style": "polish",
+    "female_share": 0.3,
+    "male_names": ["Piotr", "Krzysztof", "Andrzej", "Tomasz", "Paweł", "Marcin", "Michał", "Grzegorz", "Jarosław", "Rafał", "Wojciech", "Jakub", "Łukasz", "Bartosz", "Mateusz", "Szymon", "Kamil", "Przemysław", "Radosław", "Zbigniew"],
+    "female_names": ["Anna", "Katarzyna", "Małgorzata", "Agnieszka", "Barbara", "Ewa", "Joanna", "Magdalena", "Monika", "Dorota", "Beata", "Aleksandra", "Karolina", "Marta", "Izabela", "Jolanta", "Elżbieta", "Grażyna"],
+    "family_names": ["Kowalczyk", "Wiśniewski", "Lewandowski", "Zieliński", "Szymański", "Woźniak", "Dąbrowski", "Kozłowski", "Jankowski", "Mazur", "Kwiatkowski", "Krawczyk", "Piotrowski", "Grabowski", "Pawlak", "Michalski", "Nowakowski", "Adamczyk", "Dudek", "Zając", "Wieczorek", "Jabłoński", "Majewski", "Olszewski", "Jaworski", "Malinowski", "Stępień", "Górski", "Rutkowski", "Sikora"],
+    "female_family_names": ["Kowalczyk", "Wiśniewska", "Lewandowska", "Zielińska", "Szymańska", "Woźniak", "Dąbrowska", "Kozłowska", "Jankowska", "Mazur", "Kwiatkowska", "Krawczyk", "Piotrowska", "Grabowska", "Pawlak", "Michalska", "Nowakowska", "Adamczyk", "Dudek", "Zając", "Wieczorek", "Jabłońska", "Majewska", "Olszewska", "Jaworska", "Malinowska", "Stępień", "Górska", "Rutkowska", "Sikora"]
+  }
+}

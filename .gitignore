@@ -41,3 +41,5 @@ desktop.ini
 /tools/map_gen/cache/
 /tools/map_gen/out/
 __pycache__/
+/tools/country_gen/cache/
+/tools/flag_gen/cache/

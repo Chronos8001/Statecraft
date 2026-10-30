@@ -1,0 +1,10 @@
+{
+  "west_african_coast": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.2,
+    "male_names": ["Olusegun", "Adewale", "Chukwuemeka", "Ifeanyi", "Ikechukwu", "Aminu", "Abubakar", "Babajide", "Kwame", "Kofi", "Kwesi", "Yaw", "Nana", "Joseph", "Emmanuel", "Samuel", "Ernest", "George", "Adama", "Abdoulie", "Ousainou", "Jeremiah", "Tunde", "Femi", "Obinna", "Kwabena"],
+    "female_names": ["Ngozi", "Folake", "Adaeze", "Chiamaka", "Amina", "Hadiza", "Funmilayo", "Akosua", "Ama", "Efua", "Abena", "Isatou", "Fatou", "Yvonne", "Comfort", "Blessing"],
+    "family_names": ["Adeyemi", "Okonkwo", "Nwosu", "Okafor", "Balogun", "Adebayo", "Ogunleye", "Eze", "Danjuma", "Bello", "Yusuf", "Ibrahim", "Mensah", "Owusu", "Boateng", "Asante", "Osei", "Agyeman", "Appiah", "Darko", "Ansah", "Kamara", "Koroma", "Bangura", "Sesay", "Conteh", "Kollie", "Kpoto", "Jallow", "Ceesay", "Sanneh", "Njie", "Okeke", "Oyelaran", "Amadi", "Ekwueme"]
+  }
+}
