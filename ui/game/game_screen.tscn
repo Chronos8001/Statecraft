@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=11 format=3]
 
 [ext_resource type="Script" path="res://ui/game/game_screen.gd" id="1_game"]
 [ext_resource type="PackedScene" path="res://map/map_view.tscn" id="2_map"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" path="res://ui/game/map_legend.tscn" id="5_legend"]
 [ext_resource type="PackedScene" path="res://ui/game/country_selection_panel.tscn" id="8_selection"]
 [ext_resource type="PackedScene" path="res://ui/game/economy_panel.tscn" id="9_economy"]
+[ext_resource type="PackedScene" path="res://ui/game/budget_panel.tscn" id="10_budget"]
 
 [node name="GameScreen" type="Control"]
 layout_mode = 3
@@ -50,6 +51,11 @@ unique_name_in_owner = true
 layout_mode = 1
 
 [node name="TopBar" parent="." instance=ExtResource("7_topbar")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="BudgetPanel" parent="." instance=ExtResource("10_budget")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1

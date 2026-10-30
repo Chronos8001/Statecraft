@@ -1,0 +1,190 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://ui/game/budget_panel.gd" id="1_budget"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.07, 0.09, 0.125, 0.97)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25, 0.32, 0.42, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="BudgetPanel" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 280.0
+offset_top = 70.0
+offset_right = -40.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+script = ExtResource("1_budget")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 16
+
+[node name="Content" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="HBoxContainer" parent="Margin/Content"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="FlagRect" type="TextureRect" parent="Margin/Content/Header"]
+unique_name_in_owner = true
+texture_filter = 4
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TitleLabel" type="Label" parent="Margin/Content/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 24
+text = "BUDGET_TITLE"
+
+[node name="NameLabel" type="Label" parent="Margin/Content/Header"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.62, 0.68, 0.76, 1)
+
+[node name="CloseButton" type="Button" parent="Margin/Content/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+focus_mode = 0
+text = "COMMON_CLOSE_SYMBOL"
+flat = true
+
+[node name="Separator" type="HSeparator" parent="Margin/Content"]
+layout_mode = 2
+
+[node name="Columns" type="HBoxContainer" parent="Margin/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="TaxesColumn" type="VBoxContainer" parent="Margin/Content/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TaxesTitle" type="Label" parent="Margin/Content/Columns/TaxesColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+text = "BUDGET_REVENUE"
+
+[node name="TaxesScroll" type="ScrollContainer" parent="Margin/Content/Columns/TaxesColumn"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="TaxesGrid" type="GridContainer" parent="Margin/Content/Columns/TaxesColumn/TaxesScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 6
+columns = 3
+
+[node name="TotalsTitle" type="Label" parent="Margin/Content/Columns/TaxesColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+text = "BUDGET_TOTALS"
+
+[node name="TotalsGrid" type="GridContainer" parent="Margin/Content/Columns/TaxesColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="SpendingColumn" type="VBoxContainer" parent="Margin/Content/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpendingTitle" type="Label" parent="Margin/Content/Columns/SpendingColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+text = "BUDGET_SPENDING"
+
+[node name="SpendingScroll" type="ScrollContainer" parent="Margin/Content/Columns/SpendingColumn"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="SpendingGrid" type="GridContainer" parent="Margin/Content/Columns/SpendingColumn/SpendingScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 6
+columns = 3
+
+[node name="EffectsColumn" type="VBoxContainer" parent="Margin/Content/Columns"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="EffectsTitle" type="Label" parent="Margin/Content/Columns/EffectsColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+text = "BUDGET_EFFECTS"
+
+[node name="EffectsHint" type="Label" parent="Margin/Content/Columns/EffectsColumn"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.51, 0.6, 1)
+theme_override_font_sizes/font_size = 13
+text = "BUDGET_EFFECTS_HINT"
+autowrap_mode = 3
+
+[node name="EffectsScroll" type="ScrollContainer" parent="Margin/Content/Columns/EffectsColumn"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="EffectsGrid" type="GridContainer" parent="Margin/Content/Columns/EffectsColumn/EffectsScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Margin/Content"]
+layout_mode = 2
+alignment = 2
+theme_override_constants/separation = 10
+
+[node name="ResetButton" type="Button" parent="Margin/Content/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "BUDGET_RESET_TOOLTIP"
+text = "BUDGET_RESET"
+
+[node name="ApplyButton" type="Button" parent="Margin/Content/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+focus_mode = 0
+text = "ECONOMY_APPLY"
