@@ -16,7 +16,16 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Notifications des changements de note, des défauts de paiement et des programmes du FMI du pays joué.
 - Outil de génération des données macroéconomiques (`tools/country_gen/generate_economy.py`).
 
+- Budget de l'État : 7 impôts (dont l'impôt sur le revenu en 4 tranches) et 14 postes de dépense, aux taux et montants réels de 2026.
+- Effets de chaque impôt et de chaque dépense : croissance, chômage, inflation, et effets attendus sur la stabilité, la recherche, l'armée, l'influence et 10 groupes sociaux.
+- Création monétaire pour les pays dont le gouvernement contrôle la banque centrale.
+- Les pays de l'IA ajustent leurs dépenses selon l'évolution de leur dette.
+- Panneau Budget (bouton dans la barre supérieure) : réglage des impôts et des dépenses, aperçu des recettes, du solde et des effets avant d'appliquer.
+- Outil de génération des budgets (`tools/country_gen/generate_budget.py`).
+
 ### Modifié
+- Le solde budgétaire dépend désormais du budget ; la relance budgétaire soutient la croissance à court terme.
+- Barre supérieure : la trésorerie affiche le solde budgétaire annuel du pays joué.
 - La fiche du pays et le résumé de l'écran de sélection affichent la croissance, l'inflation, la monnaie et la note du pays en cours de partie.
 
 ## [0.3.0] - 2026-10-30
