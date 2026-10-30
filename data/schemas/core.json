@@ -501,7 +501,8 @@
           "max_start_interest_burden",
           "min_estimated_rating",
           "max_rating_offset",
-          "max_inflation_excess"
+          "max_inflation_excess",
+          "fiscal_multiplier"
         ],
         "properties": {
           "ratings": {
@@ -944,6 +945,67 @@
           "max_inflation_excess": {
             "type": "number",
             "min": 0
+          },
+          "fiscal_multiplier": {
+            "type": "number",
+            "min": 0
+          }
+        }
+      },
+      "budget": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "income_bracket_weights",
+          "monetary_financing_inflation",
+          "max_monetary_financing",
+          "max_economic_effect",
+          "ai"
+        ],
+        "properties": {
+          "income_bracket_weights": {
+            "type": "array",
+            "min_items": 1,
+            "items": {
+              "type": "number",
+              "min": 0
+            }
+          },
+          "monetary_financing_inflation": {
+            "type": "number",
+            "min": 0
+          },
+          "max_monetary_financing": {
+            "type": "number",
+            "min": 0
+          },
+          "max_economic_effect": {
+            "type": "number",
+            "min": 0
+          },
+          "ai": {
+            "type": "object",
+            "strict": true,
+            "required": [
+              "debt_response",
+              "max_adjustment_per_year",
+              "min_spending_share"
+            ],
+            "properties": {
+              "debt_response": {
+                "type": "number",
+                "min": 0
+              },
+              "max_adjustment_per_year": {
+                "type": "number",
+                "min": 0
+              },
+              "min_spending_share": {
+                "type": "number",
+                "min": 0,
+                "max": 1
+              }
+            }
           }
         }
       }
@@ -1066,7 +1128,8 @@
         "military",
         "organizations",
         "culture",
-        "currency"
+        "currency",
+        "budget"
       ],
       "properties": {
         "name_key": {
@@ -1250,6 +1313,54 @@
         "currency": {
           "type": "string",
           "ref": "currencies"
+        },
+        "budget": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "taxes",
+            "spending"
+          ],
+          "properties": {
+            "taxes": {
+              "type": "object",
+              "keys_ref": "budget_taxes",
+              "values": {
+                "type": "object",
+                "strict": true,
+                "required": [
+                  "revenue"
+                ],
+                "properties": {
+                  "rate": {
+                    "type": "number",
+                    "min": 0
+                  },
+                  "revenue": {
+                    "type": "number",
+                    "min": 0
+                  },
+                  "brackets": {
+                    "type": "array",
+                    "min_items": 1,
+                    "items": {
+                      "type": "number",
+                      "min": 0,
+                      "max": 100
+                    }
+                  }
+                }
+              }
+            },
+            "spending": {
+              "type": "object",
+              "keys_ref": "budget_spending",
+              "values": {
+                "type": "number",
+                "min": 0
+              }
+            }
+          }
         }
       }
     }
@@ -2045,6 +2156,170 @@
           "type": "number",
           "min": -20,
           "max": 20
+        }
+      }
+    }
+  },
+  "social_groups": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^GROUP_[A-Z_]+$"
+        }
+      }
+    }
+  },
+  "budget_taxes": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "unit",
+        "min",
+        "max",
+        "elasticity",
+        "default_revenue_per_point",
+        "effects"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^TAX_[A-Z_]+$"
+        },
+        "unit": {
+          "type": "string",
+          "enum": [
+            "percent",
+            "dollars_per_ton"
+          ]
+        },
+        "min": {
+          "type": "number",
+          "min": 0
+        },
+        "max": {
+          "type": "number",
+          "min": 0
+        },
+        "elasticity": {
+          "type": "number",
+          "min": 0
+        },
+        "default_revenue_per_point": {
+          "type": "number",
+          "min": 0
+        },
+        "effects": {
+          "type": "object",
+          "strict": true,
+          "properties": {
+            "growth": {
+              "type": "number"
+            },
+            "unemployment": {
+              "type": "number"
+            },
+            "inflation": {
+              "type": "number"
+            },
+            "stability": {
+              "type": "number"
+            },
+            "research": {
+              "type": "number"
+            },
+            "military": {
+              "type": "number"
+            },
+            "influence": {
+              "type": "number"
+            },
+            "groups": {
+              "type": "object",
+              "keys_ref": "social_groups",
+              "values": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "bracket_groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "keys_ref": "social_groups",
+            "values": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    }
+  },
+  "budget_spending": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "max",
+        "effects"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^SPENDING_[A-Z_]+$"
+        },
+        "max": {
+          "type": "number",
+          "min": 0
+        },
+        "effects": {
+          "type": "object",
+          "strict": true,
+          "properties": {
+            "growth": {
+              "type": "number"
+            },
+            "unemployment": {
+              "type": "number"
+            },
+            "inflation": {
+              "type": "number"
+            },
+            "stability": {
+              "type": "number"
+            },
+            "research": {
+              "type": "number"
+            },
+            "military": {
+              "type": "number"
+            },
+            "influence": {
+              "type": "number"
+            },
+            "groups": {
+              "type": "object",
+              "keys_ref": "social_groups",
+              "values": {
+                "type": "number"
+              }
+            }
+          }
         }
       }
     }

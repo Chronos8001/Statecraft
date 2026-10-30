@@ -235,3 +235,37 @@ SECTOR_SERVICES,Services,Services
 SECTOR_TECH,Technology,Technologies
 SECTOR_FINANCE,Finance,Finance
 SECTOR_TOURISM,Tourism,Tourisme
+# --- Impôts ---
+TAX_INCOME,Income tax,Impôt sur le revenu
+TAX_CORPORATE,Corporate tax,Impôt sur les sociétés
+TAX_VAT,VAT / sales tax,TVA
+TAX_CARBON,Carbon tax,Taxe carbone
+TAX_CUSTOMS,Customs duties,Droits de douane
+TAX_CONTRIBUTIONS,Social contributions,Cotisations sociales
+TAX_RESOURCES,Natural resource taxes,Taxes sur les ressources naturelles
+# --- Dépenses publiques ---
+SPENDING_HEALTH,Health,Santé
+SPENDING_EDUCATION,Education,Éducation
+SPENDING_PENSIONS,Pensions,Retraites
+SPENDING_UNEMPLOYMENT,Unemployment benefits,Assurance chômage
+SPENDING_POLICE,Police,Police
+SPENDING_JUSTICE,Justice,Justice
+SPENDING_DEFENSE,Defence,Défense
+SPENDING_RESEARCH,Research,Recherche
+SPENDING_INFRASTRUCTURE,Infrastructure,Infrastructures
+SPENDING_ENVIRONMENT,Environment,Environnement
+SPENDING_CULTURE,Culture,Culture
+SPENDING_FOREIGN_AID,Foreign aid,Aide internationale
+SPENDING_INTELLIGENCE,Intelligence,Renseignement
+SPENDING_ADMINISTRATION,Administration and other,Administration et autres
+# --- Groupes sociaux ---
+GROUP_WORKERS,Workers,Ouvriers
+GROUP_MIDDLE_CLASS,Middle class,Classes moyennes
+GROUP_ELITES,Business elites,Élites économiques
+GROUP_FARMERS,Farmers,Agriculteurs
+GROUP_RETIREES,Retirees,Retraités
+GROUP_YOUTH,Youth,Jeunes
+GROUP_MILITARY,Military,Militaires
+GROUP_RELIGIOUS,Religious groups,Religieux
+GROUP_MINORITIES,Minorities,Minorités
+GROUP_ECOLOGISTS,Environmentalists,Écologistes
