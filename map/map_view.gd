@@ -86,6 +86,14 @@ func set_province_owners(provinces: Dictionary, countries: Dictionary) -> void:
 	_material.set_shader_parameter("province_owners", ImageTexture.create_from_image(ProvinceLookup.build_image(owners)))
 
 
+## Centre la caméra sur une position de carte.
+func focus_on(map_position: Vector2, p_zoom: float) -> void:
+	if camera == null:
+		return
+	camera.look_at(map_position, p_zoom)
+	_update_camera()
+
+
 ## Éclaire toutes les provinces d'un pays ("" = aucun).
 func set_selected_country(tag: String) -> void:
 	_material.set_shader_parameter("selected_country", int(_country_indices.get(tag, NO_SELECTION)))

@@ -16,12 +16,16 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Outil de génération des dirigeants et partis (`tools/leader_gen/`).
 - Drapeaux des 199 pays, affichés dans la fiche du pays et dans la barre supérieure ; drapeaux en usage de fait au 1er janvier 2026 (Afghanistan, Syrie).
 - Outil de génération des drapeaux (`tools/flag_gen/`).
+- Écran de sélection du pays : liste avec drapeaux, recherche, filtre par difficulté (très facile à très difficile), résumé du pays et défis de départ ; clic sur la carte ou dans la liste.
+- Défis de départ : écrits pour les grandes puissances et les pays en crise, déduits des données pour les autres (dette, pauvreté, occupation, coalition, enclavement…).
+- Mode avancé : Chypre du Nord et le Somaliland jouables en cochant « Entités non reconnues ».
 
 ### Modifié
 - La population des provinces correspond désormais exactement au total de leur pays.
 - Fiche du pays : âge des dirigeants, noms dans l'ordre de leur culture (« Wei Jianguo »), chef du gouvernement masqué quand il s'agit du chef de l'État.
 - Le mode de carte « idéologie » couvre désormais tous les pays.
 - Fiche du pays : le drapeau remplace le carré de couleur.
+- « Nouvelle partie » ouvre l'écran de sélection ; la partie démarre sur le pays choisi, caméra centrée sur sa capitale.
 
 ### Corrigé
 - Fiche du pays : l'âge des dirigeants (« 49 ans ») n'est plus coupé en fin de ligne.

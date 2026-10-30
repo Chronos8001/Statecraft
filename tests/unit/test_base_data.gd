@@ -13,7 +13,7 @@ const MIN_COUNTRY_COUNT := 190
 const MIN_PROVINCE_COUNT := 4000
 const LOCALIZATION_DIR := "res://data/localization"
 const TRANSLATED_CATEGORIES := ["countries", "provinces", "sea_zones", "straits", "ideologies", "regimes",
-	"terrains", "resources", "traits"]
+	"terrains", "resources", "traits", "challenges"]
 const MIN_SEA_ZONE_COUNT := 150
 
 const LocalizationScript := preload("res://core/localization/localization.gd")
@@ -254,3 +254,56 @@ func test_no_flag_without_country() -> void:
 	for file_name: String in DirAccess.get_files_at(flag_dir):
 		if file_name.get_extension() == "svg":
 			assert_true(countries.has(file_name.get_basename()), "drapeau en trop : %s" % file_name)
+
+
+func _selection() -> CountrySelection:
+	return CountrySelection.build(_repository.get_category("countries"), _repository.get_category("provinces"),
+		_repository.get_category("challenges"), _repository.get_value("defines", "country_selection", {}))
+
+
+func test_challenge_descriptions_are_translated() -> void:
+	var challenges := _repository.get_category("challenges")
+	for challenge_id: String in challenges.keys():
+		var key := str(challenges[challenge_id]["description_key"])
+		for locale: String in ["en", "fr"]:
+			assert_true((_messages[locale] as Dictionary).has(key), "%s (%s)" % [key, locale])
+
+
+func test_every_country_has_a_difficulty() -> void:
+	var selection := _selection()
+	var per_level: Dictionary = {}
+	for tag: String in _repository.get_category("countries").keys():
+		var level := int(selection.difficulties.get(tag, 0))
+		assert_between(level, CountrySelection.MIN_DIFFICULTY, CountrySelection.MAX_DIFFICULTY, tag)
+		per_level[level] = int(per_level.get(level, 0)) + 1
+	for level: int in range(CountrySelection.MIN_DIFFICULTY, CountrySelection.MAX_DIFFICULTY + 1):
+		assert_gt(int(per_level.get(level, 0)), 0, "aucun pays de difficulté %d" % level)
+
+
+func test_difficulty_follows_power_and_crises() -> void:
+	var selection := _selection()
+	for tag: String in ["USA", "CHN"]:
+		assert_eq(selection.difficulties[tag], CountrySelection.MIN_DIFFICULTY, tag)
+	for tag: String in ["UKR", "SOM", "YEM"]:
+		assert_eq(selection.difficulties[tag], CountrySelection.MAX_DIFFICULTY, tag)
+	assert_lt(int(selection.difficulties["FRA"]), int(selection.difficulties["BEL"]))
+
+
+func test_major_countries_have_written_challenges() -> void:
+	var countries := _repository.get_category("countries")
+	var selection := _selection()
+	for tag: String in MAJOR_COUNTRIES:
+		assert_true((countries[tag] as Dictionary).has("challenges"), tag)
+		assert_gt((selection.challenges[tag] as Array).size(), 1, tag)
+
+
+func test_unrecognized_entities_need_advanced_mode() -> void:
+	var selection := _selection()
+	var standard := selection.playable_tags(false)
+	var advanced := selection.playable_tags(true)
+	assert_eq(advanced.size(), _repository.get_category("countries").size())
+	for tag: String in ["CYN", "SOL"]:
+		assert_false(standard.has(tag), tag)
+		assert_true(advanced.has(tag), tag)
+	for tag: String in ["TWN", "KOS", "PSE"]:
+		assert_true(standard.has(tag), tag)
