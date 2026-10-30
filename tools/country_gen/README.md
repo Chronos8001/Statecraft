@@ -12,6 +12,8 @@ Complète `data/countries/countries.json` avec les données réelles des pays au
 | Effectifs militaires | Wikipédia, *List of countries by number of military and paramilitary personnel* (IISS) |
 | Régime, organisations | `config.json` (situation au 1er janvier 2026, saisie à la main) |
 
+Les dirigeants, partis et idéologies ne sont pas dans `countries.json` : voir `tools/leader_gen/`.
+
 Les pages sont mises en cache dans `tools/country_gen/cache/` (non versionné). La population et le PIB des territoires rattachés (Hong Kong, Groenland, Porto Rico…) sont ajoutés à leur pays.
 
 ## Lancer

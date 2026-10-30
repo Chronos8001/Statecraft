@@ -533,7 +533,8 @@
         "population",
         "economy",
         "military",
-        "organizations"
+        "organizations",
+        "culture"
       ],
       "properties": {
         "name_key": {
@@ -625,6 +626,10 @@
             "type": "string",
             "ref": "names#organizations"
           }
+        },
+        "culture": {
+          "type": "string",
+          "ref": "names/cultures"
         }
       }
     }
@@ -747,7 +752,8 @@
             "birth_year",
             "gender",
             "country",
-            "ideology"
+            "ideology",
+            "culture"
           ],
           "properties": {
             "first_name": {
@@ -808,6 +814,14 @@
                   "max": 10
                 }
               }
+            },
+            "culture": {
+              "type": "string",
+              "ref": "names/cultures"
+            },
+            "party": {
+              "type": "string",
+              "ref": "names#parties"
             }
           }
         }

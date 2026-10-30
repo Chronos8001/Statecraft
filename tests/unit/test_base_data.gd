@@ -1,12 +1,19 @@
 extends GutTest
 ## Vérifie que les données livrées avec le jeu sont valides et cohérentes.
 
-const DETAILED_COUNTRIES := ["BRA", "CHN", "DEU", "FRA", "USA"]
+## Les 30 pays majeurs, dont les dirigeants et partis sont écrits à la main.
+const MAJOR_COUNTRIES := ["ARG", "AUS", "BRA", "CAN", "CHN", "DEU", "EGY", "ESP", "FRA", "GBR", "IDN", "IND",
+	"IRN", "ISR", "ITA", "JPN", "KOR", "MEX", "NGA", "PAK", "POL", "PRK", "RUS", "SAU", "TUR", "TWN", "UKR",
+	"USA", "VNM", "ZAF"]
+const MIN_LEADER_AGE := 30
+const MAX_LEADER_AGE := 95
+const MIN_CULTURE_COUNT := 40
+const FINAL_PARTY_GROUP := "liberal"
 const MIN_COUNTRY_COUNT := 190
 const MIN_PROVINCE_COUNT := 4000
 const LOCALIZATION_DIR := "res://data/localization"
 const TRANSLATED_CATEGORIES := ["countries", "provinces", "sea_zones", "straits", "ideologies", "regimes",
-	"terrains", "resources"]
+	"terrains", "resources", "traits"]
 const MIN_SEA_ZONE_COUNT := 150
 
 const LocalizationScript := preload("res://core/localization/localization.gd")
@@ -33,8 +40,8 @@ func test_world_is_covered() -> void:
 	var countries := _repository.get_category("countries")
 	assert_gt(countries.size(), MIN_COUNTRY_COUNT)
 	assert_gt(_repository.get_category("provinces").size(), MIN_PROVINCE_COUNT)
-	for tag: String in DETAILED_COUNTRIES:
-		assert_true((countries[tag] as Dictionary).has("head_of_state"), "%s détaillé" % tag)
+	for tag: String in MAJOR_COUNTRIES:
+		assert_true(countries.has(tag), tag)
 
 
 func test_every_country_has_real_data() -> void:
@@ -124,14 +131,80 @@ func test_neighbors_are_symmetric() -> void:
 	assert_eq(broken, 0)
 
 
+func test_every_country_has_leaders() -> void:
+	var countries := _repository.get_category("countries")
+	for tag: String in countries.keys():
+		var country: Dictionary = countries[tag]
+		assert_true(country.has("head_of_state"), "chef de l'État de %s" % tag)
+		assert_true(country.has("head_of_government"), "chef du gouvernement de %s" % tag)
+		assert_true(country.has("ideology"), "idéologie de %s" % tag)
+
+
+## Un chef de l'État étranger n'est admis que s'il est aussi chef de l'État de son propre pays
+## (royaumes du Commonwealth, coprince d'Andorre).
 func test_characters_belong_to_their_country() -> void:
 	var characters: Dictionary = _repository.resolve_ref("names#characters")
 	var countries := _repository.get_category("countries")
 	for tag: String in countries.keys():
-		for role: String in ["head_of_state", "head_of_government"]:
-			if (countries[tag] as Dictionary).has(role):
-				var character: Dictionary = characters[countries[tag][role]]
-				assert_eq(character["country"], tag, "%s de %s" % [role, tag])
+		var country: Dictionary = countries[tag]
+		var head_of_government: Dictionary = characters[country["head_of_government"]]
+		assert_eq(head_of_government["country"], tag, "chef du gouvernement de %s" % tag)
+		var head_of_state: Dictionary = characters[country["head_of_state"]]
+		var home: Dictionary = countries[head_of_state["country"]]
+		assert_eq(home["head_of_state"], country["head_of_state"], "chef de l'État de %s" % tag)
+
+
+func test_leaders_have_plausible_ages() -> void:
+	var characters: Dictionary = _repository.resolve_ref("names#characters")
+	var year := int(_repository.get_value("defines", "game.start_date.year", 0))
+	for character_id: String in characters.keys():
+		var age := year - int(characters[character_id]["birth_year"])
+		assert_between(age, MIN_LEADER_AGE, MAX_LEADER_AGE, character_id)
+
+
+func test_parties_are_consistent() -> void:
+	var characters: Dictionary = _repository.resolve_ref("names#characters")
+	var parties: Dictionary = _repository.resolve_ref("names#parties")
+	var countries := _repository.get_category("countries")
+	for party_id: String in parties.keys():
+		var party: Dictionary = parties[party_id]
+		assert_true(party.has("leader"), "chef de %s" % party_id)
+		var leader: Dictionary = characters[party["leader"]]
+		assert_eq(leader.get("party", ""), party_id, "chef de %s membre du parti" % party_id)
+		assert_eq(leader["country"], party["country"], "chef de %s" % party_id)
+	for tag: String in countries.keys():
+		var country: Dictionary = countries[tag]
+		var governing: Array = (country.get("coalition_partners", []) as Array).duplicate()
+		if country.has("ruling_party"):
+			governing.append(country["ruling_party"])
+		else:
+			assert_false(country.has("coalition_partners"), "coalition sans parti au pouvoir : %s" % tag)
+		for party_id: Variant in governing:
+			assert_eq(parties[party_id]["country"], tag, "%s gouverne %s" % [party_id, tag])
+
+
+func test_no_two_characters_share_a_name() -> void:
+	var characters: Dictionary = _repository.resolve_ref("names#characters")
+	var seen: Dictionary = {}
+	for character_id: String in characters.keys():
+		var character: Dictionary = characters[character_id]
+		var full_name := "%s %s" % [character["first_name"], character["last_name"]]
+		assert_false(seen.has(full_name), "%s / %s : %s" % [character_id, seen.get(full_name, ""), full_name])
+		seen[full_name] = character_id
+
+
+func test_cultures_are_usable() -> void:
+	var cultures := _repository.get_category("names/cultures")
+	var styles := _repository.get_category("names/party_styles")
+	assert_gt(cultures.size(), MIN_CULTURE_COUNT)
+	for culture_id: String in cultures.keys():
+		var culture: Dictionary = cultures[culture_id]
+		if culture.has("female_family_names"):
+			assert_eq((culture["female_family_names"] as Array).size(), (culture["family_names"] as Array).size(),
+				"formes féminines de %s alignées" % culture_id)
+		var style: Dictionary = styles[culture["party_style"]]
+		assert_true((style["names"] as Dictionary).has(FINAL_PARTY_GROUP),
+			"le style %s doit couvrir le groupe de repli final" % culture["party_style"])
 
 
 func test_start_date_is_january_first_2026() -> void:
