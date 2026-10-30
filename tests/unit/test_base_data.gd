@@ -222,3 +222,16 @@ func test_every_name_key_is_translated() -> void:
 				if not (_messages[locale] as Dictionary).has(key):
 					missing.append("%s (%s)" % [key, locale])
 	assert_eq(missing.size(), 0, str(missing.slice(0, 10)))
+
+
+func test_country_sheet_shows_leaders_for_every_country() -> void:
+	var countries := _repository.get_category("countries")
+	var year := int(_repository.get_value("defines", "game.start_date.year", 0))
+	for tag: String in countries.keys():
+		var info := CountryInfo.build(tag, countries, _repository.get_category("provinces"),
+			_repository.get_category("names"), _repository.get_category("regimes"),
+			_repository.get_category("ideologies"), _repository.get_category("names/cultures"), year)
+		assert_false(info.head_of_state_name.is_empty(), "chef de l'État de %s" % tag)
+		assert_false(info.head_of_government_name.is_empty(), "chef du gouvernement de %s" % tag)
+		assert_ne(info.head_of_state_age, CountryInfo.UNKNOWN_AGE, "âge du chef de l'État de %s" % tag)
+		assert_false(info.ideology_name_key.is_empty(), "idéologie de %s" % tag)
