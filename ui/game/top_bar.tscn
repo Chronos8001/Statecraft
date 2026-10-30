@@ -68,6 +68,15 @@ text = "+"
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="FlagRect" type="TextureRect" parent="Row"]
+unique_name_in_owner = true
+texture_filter = 4
+custom_minimum_size = Vector2(32, 24)
+layout_mode = 2
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
 [node name="CountryLabel" type="Label" parent="Row"]
 unique_name_in_owner = true
 auto_translate_mode = 2
