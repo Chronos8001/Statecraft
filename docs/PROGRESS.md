@@ -84,15 +84,18 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Traits de personnage (tempérament, style, parcours, orientation)
 - [x] Fiche du pays : âge des dirigeants, ordre des noms selon la culture
 
-**3c. Drapeaux**
+**3c. Drapeaux** (validée le 2026-10-30)
 - [x] Drapeaux des 199 pays (SVG au format 4:3) générés par `tools/flag_gen/`
 - [x] Drapeau dans la fiche du pays et dans la barre supérieure
 
 **3d. Sélection du pays**
-- [ ] Écran de sélection : carte, filtres par difficulté, résumé du pays, défis de départ
-- [ ] La partie démarre sur le pays choisi, caméra centrée sur sa capitale
+- [x] Écran de sélection sur la carte : liste avec drapeaux, recherche, filtre par difficulté, résumé du pays, défis de départ
+- [x] Difficulté calculée (puissance économique et militaire, défis) avec retouches possibles ; 5 niveaux
+- [x] Défis écrits pour les 30 pays majeurs (et le Myanmar, le Soudan), défis génériques déduits des données pour les autres
+- [x] Entités non reconnues (Chypre du Nord, Somaliland) proposées en mode avancé
+- [x] La partie démarre sur le pays choisi, caméra centrée sur sa capitale
 
-- [ ] Validation : choisir n'importe quel pays et démarrer la partie
+- [x] Validation : choisir n'importe quel pays et démarrer la partie
 
 ## Étape 4 — Économie ⬜
 **4a. Macroéconomie**
