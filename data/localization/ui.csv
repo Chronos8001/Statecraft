@@ -129,3 +129,43 @@ DIFFICULTY_2,Easy,Facile
 DIFFICULTY_3,Normal,Normale
 DIFFICULTY_4,Hard,Difficile
 DIFFICULTY_5,Very hard,Très difficile
+# --- Économie ---
+TOPBAR_ECONOMY,Economy,Économie
+TOPBAR_ECONOMY_TOOLTIP,"Growth, inflation, central bank, debt and credit rating","Croissance, inflation, banque centrale, dette et note souveraine"
+ECONOMY_TITLE,Economy,Économie
+ECONOMY_GROWTH,Growth,Croissance
+ECONOMY_INFLATION,Inflation,Inflation
+ECONOMY_INFLATION_VALUE,%s%% (target %s%%),%s %% (cible %s %%)
+ECONOMY_UNEMPLOYMENT,Unemployment,Chômage
+ECONOMY_CURRENCY,Currency,Monnaie
+ECONOMY_EXCHANGE_VALUE,%s %s per $,%s %s pour 1 $
+ECONOMY_PEGGED_VALUE,"%s, pegged to the %s","%s, ancrée au %s"
+ECONOMY_POLICY_RATE,Policy rate,Taux directeur
+ECONOMY_CENTRAL_BANK,Central bank,Banque centrale
+ECONOMY_CENTRAL_BANK_INDEPENDENT,Independent,Indépendante
+ECONOMY_CENTRAL_BANK_GOVERNMENT,Controlled by the government,Sous contrôle du gouvernement
+ECONOMY_CENTRAL_BANK_PEGGED,Follows the peg,Suit l'ancrage de la monnaie
+ECONOMY_CENTRAL_BANK_UNION,Monetary union (independent),Union monétaire (indépendante)
+ECONOMY_DEBT_VALUE,%s%% of GDP (%s%% in foreign currency),%s %% du PIB (%s %% en devises)
+ECONOMY_BUDGET_BALANCE,Budget balance,Solde budgétaire
+ECONOMY_INTEREST,Interest payments,Charge d'intérêts
+ECONOMY_GDP_SHARE_VALUE,%s%% of GDP,%s %% du PIB
+ECONOMY_BORROWING_RATE,Borrowing rate,Taux d'emprunt
+ECONOMY_RATING,Credit rating,Note souveraine
+ECONOMY_RATING_ESTIMATED,%s (estimated),%s (estimée)
+ECONOMY_STATUS,Situation,Situation
+ECONOMY_STATUS_CRISIS,Sovereign default (%d months left),Défaut de paiement (encore %d mois)
+ECONOMY_STATUS_IMF,IMF programme (%d months left),Programme du FMI (encore %d mois)
+ECONOMY_PERCENT_VALUE,%s%%,%s %%
+ECONOMY_SET_RATE,Set the policy rate,Fixer le taux directeur
+ECONOMY_SET_RATE_TOOLTIP,"Lower rates boost growth and jobs, but raise inflation and weaken the currency.","Des taux bas soutiennent la croissance et l'emploi, mais font monter l'inflation et baisser la monnaie."
+ECONOMY_APPLY,Apply,Appliquer
+ECONOMY_REQUEST_IMF,Request IMF assistance,Demander l'aide du FMI
+ECONOMY_REQUEST_IMF_TOOLTIP,"Cheaper loans and a better rating, in exchange for budget cuts that slow growth for three years.","Prêts moins chers et meilleure note, en échange d'économies budgétaires qui freinent la croissance pendant trois ans."
+ECONOMY_SECTORS,Economic sectors,Secteurs de l'économie
+NOTIFY_RATING_UP,Credit rating upgraded from %s to %s,Note souveraine relevée de %s à %s
+NOTIFY_RATING_DOWN,Credit rating downgraded from %s to %s,Note souveraine abaissée de %s à %s
+NOTIFY_DEBT_CRISIS,Sovereign default: the debt is restructured and markets are closed,Défaut de paiement : la dette est restructurée et les marchés se ferment
+NOTIFY_CRISIS_ENDED,Back on the markets with a %s rating,Retour sur les marchés avec la note %s
+NOTIFY_IMF_PROGRAM,IMF programme signed,Programme du FMI signé
+NOTIFY_IMF_ENDED,IMF programme completed,Programme du FMI terminé

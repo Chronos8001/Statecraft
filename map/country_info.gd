@@ -35,6 +35,13 @@ var active_personnel: float = MISSING
 var organization_abbreviations: Array = []
 var occupied_count: int = 0
 var occupying_count: int = 0
+## Économie en cours de partie (apply_economy) ; has_economy reste faux sans simulation.
+var has_economy: bool = false
+var growth: float = 0.0
+var inflation: float = 0.0
+var rating_id: String = ""
+var rating_estimated: bool = false
+var currency_code: String = ""
 
 
 ## Renvoie null si le pays n'existe pas. current_year sert au calcul de l'âge des dirigeants.
@@ -110,3 +117,23 @@ static func age_of(character: Dictionary, current_year: int) -> int:
 	if current_year <= 0 or not character.has("birth_year"):
 		return UNKNOWN_AGE
 	return current_year - int(character["birth_year"])
+
+
+## Remplace les chiffres de départ par ceux de la simulation (PIB, dette) et ajoute croissance, inflation et note.
+func apply_economy(state: SimState) -> void:
+	var country := state.get_country(tag)
+	if country == null:
+		return
+	var economy := country.economy
+	var currency := state.get_currency(economy.currency)
+	if currency == null:
+		return
+	has_economy = true
+	gdp_billion_usd = economy.gdp_usd(currency)
+	gdp_per_capita = economy.gdp_per_capita_usd(currency)
+	debt_to_gdp = economy.debt_ratio(currency)
+	growth = economy.growth
+	inflation = economy.inflation
+	rating_id = CreditRating.new(state.economy_settings).id_of(economy.rating)
+	rating_estimated = economy.rating_estimated
+	currency_code = currency.code

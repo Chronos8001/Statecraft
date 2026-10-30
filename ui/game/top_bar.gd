@@ -1,6 +1,8 @@
 class_name TopBar
 extends PanelContainer
-## Barre supérieure : date, contrôle du temps et ressources clés du pays joué.
+## Barre supérieure : date, contrôle du temps, accès aux panneaux et ressources clés du pays joué.
+
+signal economy_requested
 
 const STAT_KEYS := ["TOPBAR_TREASURY", "TOPBAR_STABILITY", "TOPBAR_SUPPORT", "TOPBAR_MILITARY", "TOPBAR_INFLUENCE"]
 const PIP_ON := "■"
@@ -18,12 +20,14 @@ var _stat_values: Array[Label] = []
 @onready var _country_label: Label = %CountryLabel
 @onready var _flag_rect: TextureRect = %FlagRect
 @onready var _stats_row: HBoxContainer = %StatsRow
+@onready var _economy_button: Button = %EconomyButton
 
 
 func _ready() -> void:
 	_pause_button.pressed.connect(GameClock.toggle_pause)
 	_slower_button.pressed.connect(func() -> void: GameClock.set_speed(GameClock.speed - 1))
 	_faster_button.pressed.connect(func() -> void: GameClock.set_speed(GameClock.speed + 1))
+	_economy_button.pressed.connect(func() -> void: economy_requested.emit())
 	EventBus.hour_passed.connect(func(_date: GameDate) -> void: _update_date())
 	EventBus.game_speed_changed.connect(func(_speed: int) -> void: _update_speed())
 	EventBus.game_pause_changed.connect(func(_paused: bool) -> void: _update_speed())
