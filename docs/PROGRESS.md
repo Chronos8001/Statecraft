@@ -78,9 +78,11 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Population des provinces ajustée au total de chaque pays
 
 **3b. Dirigeants et partis fictifs**
-- [ ] Générateur de noms par culture (`data/names/cultures/*.json`)
-- [ ] Dirigeants des ~30 pays majeurs écrits à la main, autres générés (même âge, sexe, idéologie)
-- [ ] Partis au pouvoir et coalitions fictifs, idéologie dominante
+- [x] Générateur de noms par culture (`data/names/cultures/*.json`, 56 cultures) et de noms de partis (`data/names/party_styles/*.json`, 17 langues)
+- [x] Dirigeants des 30 pays majeurs écrits à la main, 169 autres générés (même âge, sexe, idéologie) par `tools/leader_gen/`
+- [x] Partis au pouvoir et coalitions fictifs, idéologie dominante
+- [x] Traits de personnage (tempérament, style, parcours, orientation)
+- [x] Fiche du pays : âge des dirigeants, ordre des noms selon la culture
 
 **3c. Drapeaux**
 - [ ] Drapeaux des pays
