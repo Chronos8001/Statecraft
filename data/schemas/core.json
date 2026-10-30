@@ -458,6 +458,494 @@
             }
           }
         }
+      },
+      "economy": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "ratings",
+          "rating_spreads",
+          "rating_model",
+          "rating_review_months",
+          "rating_hysteresis",
+          "reference_currency",
+          "neutral_real_rate",
+          "neutral_rate_convergence",
+          "rate_sensitivity",
+          "output_gap_decay",
+          "inflation_adjustment",
+          "phillips_slope",
+          "credibility_independent",
+          "credibility_dependent",
+          "depreciation_passthrough",
+          "okun_coefficient",
+          "unemployment_adjustment",
+          "taylor_inflation_weight",
+          "taylor_gap_weight",
+          "dependent_inflation_weight",
+          "rate_smoothing",
+          "max_rate_step",
+          "min_policy_rate",
+          "max_policy_rate",
+          "fx_rate_sensitivity",
+          "long_run_growth",
+          "potential_convergence",
+          "debt_maturity_months",
+          "growth_bounds",
+          "inflation_bounds",
+          "unemployment_bounds",
+          "crisis",
+          "imf",
+          "neutral_real_rate_bounds",
+          "max_real_rate_gap",
+          "max_start_interest_burden",
+          "min_estimated_rating",
+          "max_rating_offset",
+          "max_inflation_excess"
+        ],
+        "properties": {
+          "ratings": {
+            "type": "array",
+            "min_items": 2,
+            "unique_items": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "SD",
+                "C",
+                "CC",
+                "CCC-",
+                "CCC",
+                "CCC+",
+                "B-",
+                "B",
+                "B+",
+                "BB-",
+                "BB",
+                "BB+",
+                "BBB-",
+                "BBB",
+                "BBB+",
+                "A-",
+                "A",
+                "A+",
+                "AA-",
+                "AA",
+                "AA+",
+                "AAA"
+              ]
+            }
+          },
+          "rating_spreads": {
+            "type": "array",
+            "min_items": 2,
+            "items": {
+              "type": "number",
+              "min": 0
+            }
+          },
+          "rating_model": {
+            "type": "object",
+            "strict": true,
+            "required": [
+              "base",
+              "gdp_per_capita_log",
+              "debt",
+              "inflation_excess",
+              "growth",
+              "real_interest_burden",
+              "imf_bonus"
+            ],
+            "properties": {
+              "base": {
+                "type": "number"
+              },
+              "gdp_per_capita_log": {
+                "type": "number"
+              },
+              "debt": {
+                "type": "number"
+              },
+              "inflation_excess": {
+                "type": "number"
+              },
+              "growth": {
+                "type": "number"
+              },
+              "real_interest_burden": {
+                "type": "number"
+              },
+              "imf_bonus": {
+                "type": "number"
+              }
+            }
+          },
+          "rating_review_months": {
+            "type": "int",
+            "min": 1
+          },
+          "rating_hysteresis": {
+            "type": "number",
+            "min": 0
+          },
+          "reference_currency": {
+            "type": "string",
+            "ref": "currencies"
+          },
+          "neutral_real_rate": {
+            "type": "number"
+          },
+          "neutral_rate_convergence": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "rate_sensitivity": {
+            "type": "number",
+            "min": 0
+          },
+          "output_gap_decay": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "inflation_adjustment": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "phillips_slope": {
+            "type": "number",
+            "min": 0
+          },
+          "credibility_independent": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "credibility_dependent": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "depreciation_passthrough": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "okun_coefficient": {
+            "type": "number",
+            "min": 0
+          },
+          "unemployment_adjustment": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "taylor_inflation_weight": {
+            "type": "number",
+            "min": 0
+          },
+          "taylor_gap_weight": {
+            "type": "number",
+            "min": 0
+          },
+          "dependent_inflation_weight": {
+            "type": "number",
+            "min": 0
+          },
+          "rate_smoothing": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "max_rate_step": {
+            "type": "number",
+            "min": 0
+          },
+          "min_policy_rate": {
+            "type": "number"
+          },
+          "max_policy_rate": {
+            "type": "number",
+            "min": 0
+          },
+          "fx_rate_sensitivity": {
+            "type": "number",
+            "min": 0
+          },
+          "long_run_growth": {
+            "type": "object",
+            "strict": true,
+            "required": [
+              "base",
+              "slope",
+              "min",
+              "max"
+            ],
+            "properties": {
+              "base": {
+                "type": "number"
+              },
+              "slope": {
+                "type": "number"
+              },
+              "min": {
+                "type": "number"
+              },
+              "max": {
+                "type": "number"
+              }
+            }
+          },
+          "potential_convergence": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "debt_maturity_months": {
+            "type": "int",
+            "min": 1
+          },
+          "growth_bounds": {
+            "type": "array",
+            "min_items": 2,
+            "items": {
+              "type": "number"
+            }
+          },
+          "inflation_bounds": {
+            "type": "array",
+            "min_items": 2,
+            "items": {
+              "type": "number"
+            }
+          },
+          "unemployment_bounds": {
+            "type": "array",
+            "min_items": 2,
+            "items": {
+              "type": "number"
+            }
+          },
+          "crisis": {
+            "type": "object",
+            "strict": true,
+            "required": [
+              "max_rating",
+              "monthly_probability_per_notch",
+              "growth_shock",
+              "duration_months",
+              "depreciation",
+              "inflation_shock",
+              "haircut",
+              "recovery_rating",
+              "interest_burden_trigger"
+            ],
+            "properties": {
+              "max_rating": {
+                "type": "string",
+                "enum": [
+                  "SD",
+                  "C",
+                  "CC",
+                  "CCC-",
+                  "CCC",
+                  "CCC+",
+                  "B-",
+                  "B",
+                  "B+",
+                  "BB-",
+                  "BB",
+                  "BB+",
+                  "BBB-",
+                  "BBB",
+                  "BBB+",
+                  "A-",
+                  "A",
+                  "A+",
+                  "AA-",
+                  "AA",
+                  "AA+",
+                  "AAA"
+                ]
+              },
+              "monthly_probability_per_notch": {
+                "type": "number",
+                "min": 0,
+                "max": 1
+              },
+              "growth_shock": {
+                "type": "number"
+              },
+              "duration_months": {
+                "type": "int",
+                "min": 1
+              },
+              "depreciation": {
+                "type": "number",
+                "min": 0,
+                "max": 1
+              },
+              "inflation_shock": {
+                "type": "number",
+                "min": 0
+              },
+              "haircut": {
+                "type": "number",
+                "min": 0,
+                "max": 1
+              },
+              "recovery_rating": {
+                "type": "string",
+                "enum": [
+                  "SD",
+                  "C",
+                  "CC",
+                  "CCC-",
+                  "CCC",
+                  "CCC+",
+                  "B-",
+                  "B",
+                  "B+",
+                  "BB-",
+                  "BB",
+                  "BB+",
+                  "BBB-",
+                  "BBB",
+                  "BBB+",
+                  "A-",
+                  "A",
+                  "A+",
+                  "AA-",
+                  "AA",
+                  "AA+",
+                  "AAA"
+                ]
+              },
+              "interest_burden_trigger": {
+                "type": "number",
+                "min": 0
+              }
+            }
+          },
+          "imf": {
+            "type": "object",
+            "strict": true,
+            "required": [
+              "max_rating",
+              "rate",
+              "duration_months",
+              "austerity_per_year",
+              "max_austerity",
+              "growth_drag",
+              "cooldown_months"
+            ],
+            "properties": {
+              "max_rating": {
+                "type": "string",
+                "enum": [
+                  "SD",
+                  "C",
+                  "CC",
+                  "CCC-",
+                  "CCC",
+                  "CCC+",
+                  "B-",
+                  "B",
+                  "B+",
+                  "BB-",
+                  "BB",
+                  "BB+",
+                  "BBB-",
+                  "BBB",
+                  "BBB+",
+                  "A-",
+                  "A",
+                  "A+",
+                  "AA-",
+                  "AA",
+                  "AA+",
+                  "AAA"
+                ]
+              },
+              "rate": {
+                "type": "number",
+                "min": 0
+              },
+              "duration_months": {
+                "type": "int",
+                "min": 1
+              },
+              "austerity_per_year": {
+                "type": "number",
+                "min": 0
+              },
+              "max_austerity": {
+                "type": "number",
+                "min": 0
+              },
+              "growth_drag": {
+                "type": "number",
+                "min": 0
+              },
+              "cooldown_months": {
+                "type": "int",
+                "min": 0
+              }
+            }
+          },
+          "neutral_real_rate_bounds": {
+            "type": "array",
+            "min_items": 2,
+            "items": {
+              "type": "number"
+            }
+          },
+          "max_real_rate_gap": {
+            "type": "number",
+            "min": 0
+          },
+          "max_start_interest_burden": {
+            "type": "number",
+            "min": 0
+          },
+          "min_estimated_rating": {
+            "type": "string",
+            "enum": [
+              "SD",
+              "C",
+              "CC",
+              "CCC-",
+              "CCC",
+              "CCC+",
+              "B-",
+              "B",
+              "B+",
+              "BB-",
+              "BB",
+              "BB+",
+              "BBB-",
+              "BBB",
+              "BBB+",
+              "A-",
+              "A",
+              "A+",
+              "AA-",
+              "AA",
+              "AA+",
+              "AAA"
+            ]
+          },
+          "max_rating_offset": {
+            "type": "number",
+            "min": 0
+          },
+          "max_inflation_excess": {
+            "type": "number",
+            "min": 0
+          }
+        }
       }
     }
   },
@@ -577,7 +1065,8 @@
         "economy",
         "military",
         "organizations",
-        "culture"
+        "culture",
+        "currency"
       ],
       "properties": {
         "name_key": {
@@ -632,7 +1121,13 @@
           "strict": true,
           "required": [
             "gdp_billion_usd",
-            "debt_to_gdp"
+            "debt_to_gdp",
+            "growth",
+            "inflation",
+            "unemployment",
+            "budget_balance",
+            "sectors",
+            "foreign_debt_share"
           ],
           "properties": {
             "gdp_billion_usd": {
@@ -642,6 +1137,67 @@
             "debt_to_gdp": {
               "type": "number",
               "min": 0
+            },
+            "growth": {
+              "type": "number",
+              "min": -50,
+              "max": 50
+            },
+            "inflation": {
+              "type": "number",
+              "min": -50,
+              "max": 5000
+            },
+            "unemployment": {
+              "type": "number",
+              "min": 0,
+              "max": 100
+            },
+            "budget_balance": {
+              "type": "number",
+              "min": -100,
+              "max": 100
+            },
+            "rating": {
+              "type": "string",
+              "enum": [
+                "SD",
+                "C",
+                "CC",
+                "CCC-",
+                "CCC",
+                "CCC+",
+                "B-",
+                "B",
+                "B+",
+                "BB-",
+                "BB",
+                "BB+",
+                "BBB-",
+                "BBB",
+                "BBB+",
+                "A-",
+                "A",
+                "A+",
+                "AA-",
+                "AA",
+                "AA+",
+                "AAA"
+              ]
+            },
+            "foreign_debt_share": {
+              "type": "number",
+              "min": 0,
+              "max": 1
+            },
+            "sectors": {
+              "type": "object",
+              "keys_ref": "economy_sectors",
+              "values": {
+                "type": "number",
+                "min": 0,
+                "max": 1
+              }
             }
           }
         },
@@ -690,6 +1246,10 @@
         },
         "limited_recognition": {
           "type": "bool"
+        },
+        "currency": {
+          "type": "string",
+          "ref": "currencies"
         }
       }
     }
@@ -1410,6 +1970,81 @@
               }
             }
           }
+        }
+      }
+    }
+  },
+  "currencies": {
+    "type": "object",
+    "keys_pattern": "^[a-z]{3}$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "code",
+        "usd_rate",
+        "inflation_target",
+        "peg",
+        "policy_rate",
+        "independent",
+        "issuer"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "usd_rate": {
+          "type": "number",
+          "min": 1e-06
+        },
+        "inflation_target": {
+          "type": "number",
+          "min": 0,
+          "max": 50
+        },
+        "peg": {
+          "type": "string",
+          "pattern": "^([a-z]{3})?$"
+        },
+        "policy_rate": {
+          "type": "number",
+          "min": 0,
+          "max": 200
+        },
+        "independent": {
+          "type": "bool"
+        },
+        "issuer": {
+          "type": "string",
+          "pattern": "^([A-Z]{3})?$"
+        }
+      }
+    }
+  },
+  "economy_sectors": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "color",
+        "trend"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^SECTOR_[A-Z_]+$"
+        },
+        "color": {
+          "type": "color"
+        },
+        "trend": {
+          "type": "number",
+          "min": -20,
+          "max": 20
         }
       }
     }

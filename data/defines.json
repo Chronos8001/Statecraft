@@ -118,5 +118,135 @@
       "#E8893A",
       "#D9483B"
     ]
+  },
+  "economy": {
+    "ratings": [
+      "SD",
+      "C",
+      "CC",
+      "CCC-",
+      "CCC",
+      "CCC+",
+      "B-",
+      "B",
+      "B+",
+      "BB-",
+      "BB",
+      "BB+",
+      "BBB-",
+      "BBB",
+      "BBB+",
+      "A-",
+      "A",
+      "A+",
+      "AA-",
+      "AA",
+      "AA+",
+      "AAA"
+    ],
+    "rating_spreads": [
+      20.0,
+      18.0,
+      15.0,
+      12.5,
+      10.5,
+      8.5,
+      6.5,
+      5.5,
+      4.5,
+      3.6,
+      3.0,
+      2.4,
+      1.9,
+      1.5,
+      1.2,
+      0.9,
+      0.7,
+      0.5,
+      0.3,
+      0.2,
+      0.1,
+      0.0
+    ],
+    "rating_model": {
+      "base": 4.9,
+      "gdp_per_capita_log": 3.2,
+      "debt": -1.8,
+      "inflation_excess": -0.19,
+      "growth": 0.1,
+      "real_interest_burden": -0.3,
+      "imf_bonus": 1.0
+    },
+    "rating_review_months": 6,
+    "rating_hysteresis": 1.0,
+    "max_rating_offset": 6.0,
+    "max_inflation_excess": 30.0,
+    "min_estimated_rating": "CCC+",
+    "reference_currency": "usd",
+    "neutral_real_rate": 1.0,
+    "neutral_rate_convergence": 0.005,
+    "neutral_real_rate_bounds": [
+      -10.0,
+      10.0
+    ],
+    "rate_sensitivity": 0.35,
+    "max_real_rate_gap": 10.0,
+    "output_gap_decay": 0.05,
+    "inflation_adjustment": 0.08,
+    "phillips_slope": 0.3,
+    "credibility_independent": 0.8,
+    "credibility_dependent": 0.3,
+    "depreciation_passthrough": 0.15,
+    "okun_coefficient": 0.4,
+    "unemployment_adjustment": 0.08,
+    "taylor_inflation_weight": 0.5,
+    "taylor_gap_weight": 0.5,
+    "dependent_inflation_weight": 0.1,
+    "rate_smoothing": 0.15,
+    "max_rate_step": 0.5,
+    "min_policy_rate": 0.0,
+    "max_policy_rate": 100.0,
+    "fx_rate_sensitivity": 0.3,
+    "long_run_growth": {
+      "base": 6.0,
+      "slope": 1.0,
+      "min": 1.0,
+      "max": 6.0
+    },
+    "potential_convergence": 0.01,
+    "debt_maturity_months": 72,
+    "max_start_interest_burden": 6.0,
+    "growth_bounds": [
+      -20.0,
+      20.0
+    ],
+    "inflation_bounds": [
+      -10.0,
+      2000.0
+    ],
+    "unemployment_bounds": [
+      0.5,
+      50.0
+    ],
+    "crisis": {
+      "max_rating": "CCC+",
+      "monthly_probability_per_notch": 0.004,
+      "growth_shock": -6.0,
+      "duration_months": 18,
+      "depreciation": 0.3,
+      "inflation_shock": 10.0,
+      "haircut": 0.3,
+      "recovery_rating": "B-",
+      "interest_burden_trigger": 15.0
+    },
+    "imf": {
+      "max_rating": "BB-",
+      "rate": 4.0,
+      "duration_months": 36,
+      "austerity_per_year": 1.0,
+      "max_austerity": 3.0,
+      "growth_drag": 0.5,
+      "cooldown_months": 60
+    }
   }
 }

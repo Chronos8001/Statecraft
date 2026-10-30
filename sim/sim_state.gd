@@ -8,6 +8,14 @@ var game_seed: int = 0
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var date: GameDate = GameDate.new()
 var player_tag: StringName = &""
+## tag → CountryState (rempli par WorldSetup au début de la partie).
+var countries: Dictionary = {}
+## identifiant → CurrencyState.
+var currencies: Dictionary = {}
+## Section « economy » de defines.json, utilisée par les systèmes et les commandes économiques.
+var economy_settings: Dictionary = {}
+## Événements de simulation du dernier tick ({type, tag, …}), transmis à l'interface puis vidés.
+var events: Array[Dictionary] = []
 
 
 func setup(p_seed: int, start_date: GameDate, p_player_tag: StringName = &"") -> void:
@@ -15,3 +23,17 @@ func setup(p_seed: int, start_date: GameDate, p_player_tag: StringName = &"") ->
 	rng.seed = p_seed
 	date = start_date.copy()
 	player_tag = p_player_tag
+
+
+func get_country(tag: String) -> CountryState:
+	return countries.get(tag)
+
+
+func get_currency(currency_id: String) -> CurrencyState:
+	return currencies.get(currency_id)
+
+
+func add_event(type: StringName, tag: String, details: Dictionary = {}) -> void:
+	var event := {"type": type, "tag": tag}
+	event.merge(details)
+	events.append(event)

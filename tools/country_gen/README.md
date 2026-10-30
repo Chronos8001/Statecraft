@@ -33,3 +33,31 @@ Le script liste les lignes de Wikipédia non reconnues et les valeurs estimées 
 - `dependency_owners` : territoires rattachés à un pays.
 - `no_army` : pays sans armée.
 - `manual_values` : valeurs corrigées à la main (PIB, dette).
+
+## Données macroéconomiques (`generate_economy.py`)
+
+Écrit `data/countries/economy.json` (fusionné avec `countries.json` au chargement) et `data/currencies/currencies.json`. Les pages Wikipédia sont lues **dans leur version du 1er janvier 2026**.
+
+| Donnée | Source |
+|---|---|
+| Croissance réelle | *List of countries by real GDP growth rate* (FMI) |
+| Inflation | *List of countries by inflation rate* (dernière année connue), corrigée à la main fin 2025 pour la Turquie, l'Argentine, le Nigeria, l'Égypte, le Ghana et la Russie (`manual_inflation`) |
+| Chômage | *List of countries by unemployment rate* (FMI, sinon Banque mondiale, sinon CIA) |
+| Taux directeurs | *List of countries by central bank interest rates* ; estimés (inflation + taux réel neutre) quand ils manquent |
+| Note souveraine | *List of countries by credit rating* : S&P, puis Fitch, puis Moody's ; notes retirées ignorées ; le jeu estime les autres |
+| Solde budgétaire | *List of countries by government budget* (FMI, prêt/emprunt net en % du PIB) |
+| Secteurs | *List of countries by GDP sector composition* (agriculture, industrie, services) et rentes pétrolières, gazières et charbonnières |
+| Taux de change | currency-api au 1er janvier 2026 (`exchange_rates_url`) |
+
+Réglages (`economy_config.json`) :
+- `currencies`, `currency_issuers`, `pegs` : monnaie de chaque pays, pays émetteur, ancrages (dollar, euro, roupie, rand) ;
+- `dependent_central_banks`, `independent_central_banks`, `dependent_regimes` : banques centrales sous contrôle du gouvernement ;
+- `inflation_targets` : cibles d'inflation ;
+- `sectors` : règles qui détachent l'énergie, l'armement, la technologie, la finance et le tourisme de l'industrie et des services ;
+- `foreign_debt` : part de la dette publique en devises.
+
+```sh
+python tools/country_gen/generate_economy.py
+```
+
+`country_lookup.py` regroupe le code commun aux deux outils (pages Wikipédia, noms des pays).

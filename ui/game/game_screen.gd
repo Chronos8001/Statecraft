@@ -27,6 +27,7 @@ var _notification_timer: SceneTreeTimer
 @onready var _mode_bar: MapModeBar = %MapModeBar
 @onready var _legend: MapLegend = %MapLegend
 @onready var _selection_panel: CountrySelectionPanel = %CountrySelectionPanel
+@onready var _economy_panel: EconomyPanel = %EconomyPanel
 
 
 func _ready() -> void:
@@ -47,6 +48,8 @@ func _ready() -> void:
 	_selection_panel.visible = false
 	_selection_panel.country_selected.connect(_on_country_selected)
 	_selection_panel.play_requested.connect(_on_play_requested)
+	_top_bar.economy_requested.connect(_economy_panel.toggle)
+	EventBus.sim_event_raised.connect(_on_sim_event)
 	EventBus.month_passed.connect(_on_month_passed)
 	EventBus.year_passed.connect(_on_year_passed)
 	_thread = Thread.new()
@@ -70,9 +73,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		_cycle_map_mode(-1 if event.is_action_pressed("ui_focus_prev") else 1)
 	elif event.is_action_pressed("ui_cancel"):
 		get_viewport().set_input_as_handled()
-		if _info_panel.visible or _country_panel.visible:
+		if _info_panel.visible or _country_panel.visible or _economy_panel.visible:
 			_info_panel.close()
 			_country_panel.close()
+			_economy_panel.close()
 		else:
 			get_tree().change_scene_to_file(TITLE_SCENE)
 
@@ -159,6 +163,24 @@ func _on_month_passed(date: GameDate) -> void:
 		_notify(tr("NOTIFY_NEW_MONTH") % [tr(DateFormat.month_key(date.month)), date.year])
 
 
+## Événements économiques du pays joué : changement de note, défaut de paiement, FMI.
+func _on_sim_event(event: Dictionary) -> void:
+	if str(event.get("tag", "")) != str(GameState.sim.player_tag):
+		return
+	match event.get("type"):
+		EconomySystem.EVENT_RATING_CHANGED:
+			var key := "NOTIFY_RATING_UP" if bool(event.get("upgrade", false)) else "NOTIFY_RATING_DOWN"
+			_notify(tr(key) % [event.get("old", ""), event.get("new", "")])
+		EconomySystem.EVENT_DEBT_CRISIS:
+			_notify(tr("NOTIFY_DEBT_CRISIS"))
+		EconomySystem.EVENT_CRISIS_ENDED:
+			_notify(tr("NOTIFY_CRISIS_ENDED") % event.get("new", ""))
+		EconomySystem.EVENT_IMF_PROGRAM:
+			_notify(tr("NOTIFY_IMF_PROGRAM"))
+		EconomySystem.EVENT_IMF_ENDED:
+			_notify(tr("NOTIFY_IMF_ENDED"))
+
+
 func _on_year_passed(date: GameDate) -> void:
 	_notify(tr("NOTIFY_NEW_YEAR") % date.year)
 
@@ -206,6 +228,7 @@ func _on_province_clicked(province_id: int) -> void:
 	if info == null:
 		_show_province(province_id)
 		return
+	info.apply_economy(GameState.sim)
 	_info_panel.close()
 	_map_view.set_selected_province(MapView.NO_SELECTION)
 	_map_view.set_selected_country(owner)

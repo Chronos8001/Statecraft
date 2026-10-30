@@ -21,6 +21,9 @@ signal game_saved(path: String)
 signal game_loaded(path: String)
 @warning_ignore("unused_signal")
 signal command_executed(command: Command)
+## Événement de simulation ({type, tag, …}) : changement de note, crise de la dette, programme du FMI…
+@warning_ignore("unused_signal")
+signal sim_event_raised(event: Dictionary)
 
 # --- Temps ---
 @warning_ignore("unused_signal")

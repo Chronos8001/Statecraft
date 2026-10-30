@@ -6,6 +6,19 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 ## [Unreleased]
 
+### Ajouté
+- Simulation macroéconomique mensuelle des 199 pays : croissance, inflation, chômage, PIB par secteur (8 secteurs), dette publique, note souveraine.
+- Situation économique réelle au 1er janvier 2026 (FMI, Banque mondiale, S&P, Fitch, Moody's, taux de change du jour) ; notes estimées pour les pays non notés.
+- 143 monnaies réelles : taux de change face au dollar, unions monétaires (euro, francs CFA, dollar des Caraïbes orientales), ancrages (dollar, euro, roupie indienne, rand).
+- Banques centrales : taux directeur fixé par la règle de Taylor ; quand la banque centrale dépend du gouvernement, le joueur fixe lui-même le taux.
+- Dette en monnaie locale et en devises, taux d'emprunt selon la note, crises de la dette (défaut, restructuration, chute de la monnaie) et programmes du FMI.
+- Panneau Économie (bouton dans la barre supérieure) : chiffres clés, banque centrale, dette, note, secteurs ; fixer le taux directeur, demander l'aide du FMI.
+- Notifications des changements de note, des défauts de paiement et des programmes du FMI du pays joué.
+- Outil de génération des données macroéconomiques (`tools/country_gen/generate_economy.py`).
+
+### Modifié
+- La fiche du pays et le résumé de l'écran de sélection affichent la croissance, l'inflation, la monnaie et la note du pays en cours de partie.
+
 ## [0.3.0] - 2026-10-30
 
 ### Ajouté

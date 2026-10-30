@@ -226,3 +226,12 @@ CHALLENGE_VNM_SOUTH_CHINA_SEA,South China Sea,Mer de Chine méridionale
 CHALLENGE_VNM_SOUTH_CHINA_SEA_DESC,"Islands and waters disputed with China.","Îles et eaux disputées avec la Chine."
 CHALLENGE_VNM_EXPORTS,Export-led economy,Économie tournée vers l'export
 CHALLENGE_VNM_EXPORTS_DESC,"Growth depends on factories working for American and European markets.","La croissance dépend d'usines travaillant pour les marchés américain et européen."
+# --- Secteurs de l'économie ---
+SECTOR_AGRICULTURE,Agriculture,Agriculture
+SECTOR_INDUSTRY,Industry,Industrie
+SECTOR_ENERGY,Energy,Énergie
+SECTOR_ARMAMENT,Arms industry,Armement
+SECTOR_SERVICES,Services,Services
+SECTOR_TECH,Technology,Technologies
+SECTOR_FINANCE,Finance,Finance
+SECTOR_TOURISM,Tourism,Tourisme

@@ -8,7 +8,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 | 1 | La carte du monde | ✅ | v0.1.0 | 2026-10-29 | v0.1.0 |
 | 2 | Temps et boucle de simulation | ✅ | v0.2.0 | 2026-10-29 | v0.2.0 |
 | 3 | Les pays en 2026 | ✅ | v0.3.0 | 2026-10-30 | v0.3.0 |
-| 4 | Économie | ⬜ | v0.4.0 | | |
+| 4 | Économie | 🟨 | v0.4.0 | | |
 | 5 | Politique intérieure | ⬜ | v0.5.0 | | |
 | 6 | Diplomatie | ⬜ | v0.6.0 | | |
 | 7 | Militaire (version simplifiée) | ⬜ | v0.7.0 | | |
@@ -97,12 +97,14 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 
 - [x] Validation : choisir n'importe quel pays et démarrer la partie
 
-## Étape 4 — Économie ⬜
+## Étape 4 — Économie 🟨
 **4a. Macroéconomie**
-- [ ] PIB par secteur (agriculture, industrie, énergie, services, tech, finance, tourisme, armement)
-- [ ] Croissance, inflation, chômage, taux directeur, banque centrale indépendante ou non
-- [ ] Monnaie et taux de change
-- [ ] Dette publique, notation souveraine (AAA → défaut), taux d'emprunt, crise de la dette, FMI
+- [x] Situation économique réelle au 1er janvier 2026 pour les 199 pays et 143 monnaies (`tools/country_gen/generate_economy.py`)
+- [x] PIB par secteur (agriculture, industrie, énergie, services, tech, finance, tourisme, armement)
+- [x] Croissance, inflation, chômage, taux directeur (règle de Taylor), banque centrale indépendante ou sous contrôle du joueur
+- [x] Monnaie et taux de change, unions monétaires et ancrages
+- [x] Dette publique (locale et en devises), notation souveraine (AAA → défaut), taux d'emprunt, crise de la dette, FMI
+- [x] Panneau Économie et économie en cours de partie dans la fiche des pays
 
 **4b. Budget de l'État**
 - [ ] Recettes : impôt sur le revenu (tranches), IS, TVA, taxe carbone, douanes, cotisations, taxes sur ressources
