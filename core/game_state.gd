@@ -13,7 +13,10 @@ var _pending_commands: Array[Command] = []
 func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	sim = SimState.new()
 	sim.setup(p_seed, get_start_date(), player_tag)
+	WorldSetup.populate(sim, DataLoader.get_category("countries"), DataLoader.get_category("currencies"),
+		DataLoader.get_define("economy", {}))
 	scheduler = SimScheduler.new()
+	scheduler.add_system(EconomySystem.new(DataLoader.get_category("economy_sectors")))
 	_pending_commands.clear()
 	is_game_running = true
 	GameLog.info(SOURCE, "Nouvelle partie : graine %d, date %s." % [p_seed, sim.date.format_iso()])
@@ -26,6 +29,10 @@ func advance_hour() -> void:
 	var flags := scheduler.tick(sim)
 	var date := sim.date
 	EventBus.hour_passed.emit(date)
+	var events := sim.events
+	sim.events = []
+	for event: Dictionary in events:
+		EventBus.sim_event_raised.emit(event)
 	if flags & GameDate.CHANGED_DAY:
 		EventBus.day_passed.emit(date)
 	if flags & GameDate.CHANGED_WEEK:

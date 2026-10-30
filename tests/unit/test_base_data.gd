@@ -13,7 +13,7 @@ const MIN_COUNTRY_COUNT := 190
 const MIN_PROVINCE_COUNT := 4000
 const LOCALIZATION_DIR := "res://data/localization"
 const TRANSLATED_CATEGORIES := ["countries", "provinces", "sea_zones", "straits", "ideologies", "regimes",
-	"terrains", "resources", "traits", "challenges"]
+	"terrains", "resources", "traits", "challenges", "economy_sectors"]
 const MIN_SEA_ZONE_COUNT := 150
 
 const LocalizationScript := preload("res://core/localization/localization.gd")
@@ -307,3 +307,53 @@ func test_unrecognized_entities_need_advanced_mode() -> void:
 		assert_true(advanced.has(tag), tag)
 	for tag: String in ["TWN", "KOS", "PSE"]:
 		assert_true(standard.has(tag), tag)
+
+
+func test_every_country_has_a_valid_currency() -> void:
+	var currencies := _repository.get_category("currencies")
+	for currency_id: String in currencies.keys():
+		var peg := str(currencies[currency_id]["peg"])
+		assert_true(peg.is_empty() or currencies.has(peg), "ancrage de %s" % currency_id)
+	var sectors := _repository.get_category("economy_sectors")
+	for tag: String in _repository.get_category("countries").keys():
+		var economy: Dictionary = _repository.get_category("countries")[tag]["economy"]
+		var total := 0.0
+		for share: Variant in (economy["sectors"] as Dictionary).values():
+			total += float(share)
+		assert_almost_eq(total, 1.0, 0.01, "secteurs de %s" % tag)
+		assert_eq((economy["sectors"] as Dictionary).size(), sectors.size(), "secteurs de %s" % tag)
+
+
+func test_world_economy_stays_stable_for_ten_years() -> void:
+	var settings: Dictionary = _repository.get_value("defines", "economy", {})
+	var state := SimState.new()
+	var date := GameDate.new()
+	date.year = 2026
+	date.month = 1
+	date.day = 1
+	state.setup(2026, date)
+	WorldSetup.populate(state, _repository.get_category("countries"), _repository.get_category("currencies"), settings)
+	var system := EconomySystem.new(_repository.get_category("economy_sectors"))
+	var crises := 0
+	for month: int in 120:
+		state.date.month = month % 12 + 1
+		system.on_month(state)
+		for event: Dictionary in state.events:
+			if event["type"] == EconomySystem.EVENT_DEBT_CRISIS:
+				crises += 1
+		state.events.clear()
+	var inflation_bounds: Array = settings["inflation_bounds"]
+	for tag: String in state.countries.keys():
+		var economy: EconomyState = state.countries[tag].economy
+		var currency := state.get_currency(economy.currency)
+		assert_false(is_nan(economy.real_gdp) or is_nan(economy.inflation) or is_nan(economy.debt_ratio(currency)), tag)
+		assert_gt(economy.real_gdp, 0.0, tag)
+		assert_between(economy.inflation, float(inflation_bounds[0]), 100.0, "inflation de %s" % tag)
+		assert_between(economy.debt_ratio(currency), 0.0, 4.0, "dette de %s" % tag)
+		assert_between(currency.policy_rate, 0.0, 100.0, "taux de %s" % currency.id)
+	for tag: String in ["USA", "CHN", "DEU", "FRA", "JPN", "GBR", "IND"]:
+		var economy: EconomyState = state.countries[tag].economy
+		assert_false(economy.in_crisis(), "%s ne doit pas faire défaut" % tag)
+		assert_between(economy.inflation, 0.0, 6.0, "inflation de %s" % tag)
+		assert_between(economy.growth, -1.0, 7.0, "croissance de %s" % tag)
+	assert_lt(crises, 30, "trop de crises de la dette")
