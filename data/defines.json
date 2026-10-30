@@ -74,5 +74,30 @@
   },
   "province": {
     "max_infrastructure": 10
+  },
+  "characters": {
+    "reference_year": 2026,
+    "min_age": 38,
+    "max_age": 72,
+    "default_female_share": 0.25,
+    "trait_chance": 0.75,
+    "min_skill": 2,
+    "max_skill": 8,
+    "skills": [
+      "administration",
+      "diplomacy",
+      "economy",
+      "military"
+    ],
+    "party_group_fallbacks": {
+      "religious": "conservative",
+      "power": "national",
+      "national": "conservative",
+      "green": "social_democrat",
+      "left": "social_democrat",
+      "social_democrat": "liberal",
+      "conservative": "liberal"
+    },
+    "party_color_spread": 0.25
   }
 }

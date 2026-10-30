@@ -1,0 +1,10 @@
+{
+  "southern_african": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.3,
+    "male_names": ["Sipho", "Bongani", "Themba", "Mandla", "Sifiso", "Lwazi", "Kagiso", "Tumelo", "Tshepo", "Kabelo", "Neo", "Lesego", "Tatenda", "Farai", "Tendai", "Kudakwashe", "Tinashe", "Mpho", "Thabiso", "Teboho", "Mbuso", "Sibusiso", "Vusi", "Andile", "Johannes"],
+    "female_names": ["Naledi", "Thandi", "Nomvula", "Thoko", "Zanele", "Nandi", "Palesa", "Refilwe", "Dineo", "Busisiwe", "Rumbidzai", "Nyasha", "Chipo", "Ndapewa", "Ndeshi", "Lineo"],
+    "family_names": ["Ndlovu", "Nkosi", "Mokoena", "Khumalo", "Mahlangu", "Mthembu", "Sithole", "Molefe", "Ntuli", "Shabalala", "Mabaso", "Cele", "Gumede", "Hadebe", "Radebe", "Masilela", "Seretse", "Kgosi", "Mogale", "Tau", "Moyo", "Ncube", "Sibanda", "Dube", "Chikwanha", "Mutasa", "Shikongo", "Amupolo", "Haufiku", "Nghipondoka", "Letsie", "Mofokeng", "Tsabedze", "Magagula"]
+  }
+}

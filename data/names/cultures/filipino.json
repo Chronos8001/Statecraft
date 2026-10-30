@@ -1,0 +1,10 @@
+{
+  "filipino": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.25,
+    "male_names": ["Jose", "Juan", "Ramon", "Emmanuel", "Manuel", "Antonio", "Francisco", "Gilberto", "Rolando", "Lito", "Joel", "Edgardo", "Teodoro", "Ronald", "Arnel", "Danilo", "Renato", "Ernesto", "Romeo", "Virgilio"],
+    "female_names": ["Maria", "Grace", "Pia", "Cynthia", "Liza", "Ana Theresia", "Rosario", "Marites", "Lourdes", "Josefina", "Analyn", "Rowena", "Charmaine"],
+    "family_names": ["Santos", "Reyes", "Cruz", "Bautista", "Ocampo", "Mendoza", "Torres", "Castillo", "Villanueva", "Ramos", "Navarro", "Dela Cruz", "Salvador", "Soriano", "Macaraeg", "Dimaculangan", "Estrella", "Tolentino", "Manalo", "Panganiban", "Dizon", "Lacsamana", "Sison", "Mercado"]
+  }
+}

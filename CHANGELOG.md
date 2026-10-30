@@ -10,9 +10,15 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Données réelles des 199 pays (source Wikipédia) : population, PIB nominal (FMI 2026), dette publique (FMI 2025), effectifs militaires actifs et de réserve.
 - Régimes et appartenance aux organisations internationales au 1er janvier 2026 ; 8 nouvelles organisations (Union africaine, Ligue arabe, ASEAN, OPEP, OTSC, Mercosur, CCG, UEEA).
 - Outil de génération des données des pays (`tools/country_gen/`).
+- Dirigeants fictifs (chef de l'État, chef du gouvernement), partis au pouvoir, coalitions et idéologie dominante des 199 pays, calqués sur la situation au 1er janvier 2026 (âge, sexe, idéologie, coalitions) : 30 pays majeurs écrits à la main, les autres générés.
+- Générateur de noms par culture (56 cultures) et de noms de partis (17 langues), réutilisable en cours de partie.
+- Traits de personnage : tempérament, style de gouvernement, parcours, orientation.
+- Outil de génération des dirigeants et partis (`tools/leader_gen/`).
 
 ### Modifié
 - La population des provinces correspond désormais exactement au total de leur pays.
+- Fiche du pays : âge des dirigeants, noms dans l'ordre de leur culture (« Wei Jianguo »), chef du gouvernement masqué quand il s'agit du chef de l'État.
+- Le mode de carte « idéologie » couvre désormais tous les pays.
 
 ## [0.2.0] - 2026-10-29
 

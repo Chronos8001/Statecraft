@@ -1,0 +1,10 @@
+{
+  "vietnamese": {
+    "name_order": "family_first",
+    "party_style": "international",
+    "female_share": 0.15,
+    "male_names": ["Văn Hùng", "Minh Tuấn", "Quốc Bảo", "Đức Thắng", "Văn Thanh", "Xuân Phúc", "Thanh Long", "Minh Chính", "Đình Huệ", "Văn Thưởng", "Hồng Quân", "Trọng Nghĩa", "Văn Nên", "Quang Vinh", "Thành Đạt", "Hữu Phước"],
+    "female_names": ["Thị Mai", "Thị Lan", "Thị Hương", "Thị Hà", "Thị Thanh", "Kim Ngân", "Thị Kim", "Thị Bích", "Thị Thu", "Thị Hồng"],
+    "family_names": ["Nguyễn", "Trần", "Lê", "Phạm", "Hoàng", "Huỳnh", "Phan", "Vũ", "Võ", "Đặng", "Bùi", "Đỗ", "Hồ", "Ngô", "Dương", "Lý", "Trương", "Đinh", "Lương", "Mai"]
+  }
+}

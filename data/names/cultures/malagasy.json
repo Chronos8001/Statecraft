@@ -1,0 +1,10 @@
+{
+  "malagasy": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.2,
+    "male_names": ["Hery", "Didier", "Christian", "Michael", "Rivo", "Mamy", "Jean-Louis", "Tojo", "Haja", "Fidy", "Lova", "Tahina"],
+    "female_names": ["Lalao", "Christine", "Voahangy", "Hanitra", "Mialy", "Fara", "Vola", "Haingo"],
+    "family_names": ["Rakotovao", "Randrianarisoa", "Rasolofonirina", "Andrianjaka", "Rakotomalala", "Razafindrabe", "Randriamahefa", "Rabemananjara", "Raharinirina", "Andriamasinoro", "Rakotondrabe", "Ramanantsoa", "Rasoanaivo", "Andriamanjato"]
+  }
+}

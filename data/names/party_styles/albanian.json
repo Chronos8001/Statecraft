@@ -1,0 +1,13 @@
+{
+  "albanian": {
+    "stopwords": ["e", "i", "për", "të"],
+    "names": {
+      "left": ["Partia e Punës", "Lëvizja e Majtë"],
+      "social_democrat": ["Partia Socialiste e Bashkuar", "Lëvizja Popullore", "Aleanca Socialdemokrate"],
+      "green": ["Partia e Gjelbër"],
+      "liberal": ["Lidhja Qytetare", "Aleanca për Ndryshim", "Lëvizja Liberale"],
+      "conservative": ["Partia Demokratike Kombëtare", "Aleanca për Ardhmërinë", "Bashkimi Demokrat"],
+      "national": ["Aleanca Kombëtare", "Fronti Kombëtar"]
+    }
+  }
+}

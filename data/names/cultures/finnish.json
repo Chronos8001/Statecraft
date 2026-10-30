@@ -1,0 +1,10 @@
+{
+  "finnish": {
+    "name_order": "given_first",
+    "party_style": "finnish",
+    "female_share": 0.45,
+    "male_names": ["Juha", "Matti", "Antti", "Mikko", "Jussi", "Ville", "Timo", "Kari", "Pekka", "Jari", "Petteri", "Sami", "Tuomas", "Heikki", "Jaakko", "Mart", "Jüri", "Kristjan", "Tõnis", "Andres"],
+    "female_names": ["Anna-Maja", "Sanna", "Riikka", "Tiina", "Päivi", "Minna", "Hanna", "Elina", "Satu", "Kaisa", "Laura", "Johanna", "Kersti", "Liina", "Kadri", "Piret", "Maarja"],
+    "family_names": ["Virtanen", "Korhonen", "Nieminen", "Mäkinen", "Hämäläinen", "Laine", "Heikkinen", "Koskinen", "Järvinen", "Lehtonen", "Salminen", "Rantanen", "Karjalainen", "Lindroos", "Tamm", "Saar", "Sepp", "Mägi", "Kask", "Kukk", "Rebane", "Ilves"]
+  }
+}

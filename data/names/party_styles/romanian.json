@@ -1,0 +1,13 @@
+{
+  "romanian": {
+    "stopwords": ["și", "pentru", "a", "al"],
+    "names": {
+      "left": ["Partidul Muncii", "Stânga Unită"],
+      "social_democrat": ["Partidul Social Democrat Unit", "Alianța Socialiștilor", "Partidul Solidarității Europene"],
+      "green": ["Partidul Verde", "Alianța Ecologistă"],
+      "liberal": ["Partidul Liberal Unit", "Uniunea Reformei", "Reînnoirea Democratică", "Partidul Reformei"],
+      "conservative": ["Partidul Popular Creștin", "Alianța Conservatoare", "Uniunea Democrată"],
+      "national": ["Mișcarea pentru Patrie", "Partidul Suveranității", "Mișcarea Patriotică"]
+    }
+  }
+}

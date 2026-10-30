@@ -1,0 +1,11 @@
+{
+  "lithuanian": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.4,
+    "male_names": ["Gintautas", "Andrius", "Mindaugas", "Darius", "Tomas", "Vytautas", "Saulius", "Arvydas", "Rimantas", "Linas", "Paulius", "Žygimantas"],
+    "female_names": ["Rasa", "Ingrida", "Dalia", "Aušra", "Vilija", "Jūratė", "Inga", "Laima", "Rūta", "Agnė", "Eglė", "Giedrė"],
+    "family_names": ["Kazlauskas", "Petrauskas", "Jankauskas", "Stankevičius", "Vasiliauskas", "Žukauskas", "Butkus", "Paulauskas", "Urbonas", "Navickas", "Kavaliauskas", "Rimkus"],
+    "female_family_names": ["Kazlauskienė", "Petrauskienė", "Jankauskienė", "Stankevičienė", "Vasiliauskienė", "Žukauskienė", "Butkienė", "Paulauskienė", "Urbonienė", "Navickienė", "Kavaliauskienė", "Rimkienė"]
+  }
+}

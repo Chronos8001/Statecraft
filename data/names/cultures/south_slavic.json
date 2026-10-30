@@ -1,0 +1,10 @@
+{
+  "south_slavic": {
+    "name_order": "given_first",
+    "party_style": "croatian",
+    "female_share": 0.3,
+    "male_names": ["Aleksandar", "Miloš", "Nikola", "Dragan", "Zoran", "Milan", "Goran", "Ivan", "Marko", "Tomislav", "Davor", "Damir", "Željko", "Branko", "Dejan", "Nenad", "Vladimir", "Janez", "Matej", "Andrej", "Mirko", "Siniša", "Bojan", "Emir", "Haris", "Denis"],
+    "female_names": ["Jelena", "Marija", "Ana", "Ivana", "Snežana", "Gordana", "Vesna", "Dragana", "Maja", "Tanja", "Mirjana", "Sanja", "Nataša", "Biljana", "Tatjana", "Lejla", "Amra", "Urška", "Mojca"],
+    "family_names": ["Petrović", "Jovanović", "Nikolić", "Marković", "Đorđević", "Stojanović", "Ilić", "Pavlović", "Milošević", "Stanković", "Kovačević", "Babić", "Marić", "Jurić", "Horvat", "Knežević", "Vuković", "Perić", "Tomić", "Matić", "Božić", "Grgić", "Hadžić", "Begović", "Delić", "Mehmedović", "Novak", "Kranjc", "Zupan", "Potočnik", "Kos", "Vidmar"]
+  }
+}

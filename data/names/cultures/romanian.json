@@ -1,0 +1,10 @@
+{
+  "romanian": {
+    "name_order": "given_first",
+    "party_style": "romanian",
+    "female_share": 0.3,
+    "male_names": ["Ion", "Andrei", "Mihai", "Alexandru", "Gheorghe", "Vasile", "Constantin", "Florin", "Adrian", "Cristian", "Marius", "Dan", "Bogdan", "Cătălin", "Sorin", "Radu", "Victor", "Igor", "Vlad", "Ștefan", "Dorin", "Octavian"],
+    "female_names": ["Maria", "Elena", "Ioana", "Ana", "Mihaela", "Andreea", "Cristina", "Gabriela", "Daniela", "Raluca", "Monica", "Simona", "Corina", "Natalia", "Irina", "Diana", "Alina"],
+    "family_names": ["Popescu", "Ionescu", "Dumitrescu", "Stoica", "Stan", "Gheorghiu", "Munteanu", "Constantinescu", "Marinescu", "Tudor", "Moldovan", "Rusu", "Lungu", "Dobre", "Barbu", "Nistor", "Florea", "Ciobanu", "Preda", "Toma", "Cojocaru", "Ceban", "Gavrilă", "Manole"]
+  }
+}

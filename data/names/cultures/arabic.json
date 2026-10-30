@@ -1,0 +1,10 @@
+{
+  "arabic": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.08,
+    "male_names": ["Mohammed", "Ahmed", "Abdullah", "Khalid", "Faisal", "Saud", "Hamad", "Nasser", "Sultan", "Hassan", "Hussein", "Ali", "Omar", "Youssef", "Ibrahim", "Mahmoud", "Mustafa", "Karim", "Tariq", "Walid", "Samir", "Nabil", "Abdelaziz", "Adel", "Fouad", "Salem", "Rashid", "Majid", "Bassam", "Jamal", "Ziad", "Hisham", "Anas", "Murad", "Yasser"],
+    "female_names": ["Fatima", "Aisha", "Mariam", "Layla", "Nour", "Salma", "Huda", "Rania", "Amal", "Samira", "Leila", "Yasmina", "Hanan", "Dalia", "Najla", "Mona", "Rasha", "Lina", "Souad", "Khadija"],
+    "family_names": ["Al-Mansouri", "Al-Hashimi", "Al-Shamsi", "Al-Otaibi", "Al-Dosari", "Al-Harbi", "Al-Mutairi", "Al-Saadi", "Al-Khatib", "Haddad", "Khoury", "Haddadin", "Masri", "Saleh", "Mansour", "Abdelrahman", "Hamdan", "Darwish", "Farouk", "Sabry", "Ghanem", "Zaidan", "Al-Amiri", "Al-Jubouri", "Al-Obeidi", "Al-Rubaie", "Barakat", "Kassem", "Shalabi", "Al-Kuwari", "Al-Naimi", "Al-Habsi", "Al-Rawahi", "Al-Zahrani", "Al-Ghamdi", "Al-Shehhi"]
+  }
+}

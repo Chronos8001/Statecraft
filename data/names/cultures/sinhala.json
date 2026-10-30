@@ -1,0 +1,10 @@
+{
+  "sinhala": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.2,
+    "male_names": ["Dinesh", "Prasanna", "Nimal", "Lakshman", "Chaminda", "Udaya", "Tissa", "Gamini", "Ruwan", "Nalin", "Kapila", "Sunil", "Upul", "Janaka", "Asanka", "Thilina"],
+    "female_names": ["Pavithra", "Sudarshini", "Rohini", "Kumari", "Dilrukshi", "Nirosha", "Sriyani", "Chamari", "Nadeesha", "Inoka"],
+    "family_names": ["Perera", "Fernando", "de Silva", "Jayasuriya", "Gunawardena", "Bandara", "Herath", "Ratnayake", "Wijesinghe", "Amarasekara", "Liyanage", "Weerasinghe", "Karunaratne", "Samarasinghe", "Abeysekera", "Ekanayake", "Kumarasinghe", "Siriwardena"]
+  }
+}

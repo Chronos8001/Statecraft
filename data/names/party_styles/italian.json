@@ -1,0 +1,13 @@
+{
+  "italian": {
+    "stopwords": ["per", "e", "il", "la", "di", "del", "della", "dei", "l"],
+    "names": {
+      "left": ["Sinistra Unita", "Partito del Lavoro", "Rinascita Popolare"],
+      "social_democrat": ["Partito Democratico Progressista", "Alleanza Sociale", "Movimento Riformista"],
+      "green": ["Alleanza Verde", "Ecologia Civica"],
+      "liberal": ["Centro Liberale", "Iniziativa Civica", "Alleanza Riformatrice", "Movimento Civico"],
+      "conservative": ["Unione Popolare Moderata", "Nuova Democrazia Cristiana", "Popolari per la Nazione", "Centro Cristiano Unito"],
+      "national": ["Fratellanza Nazionale", "Lega Federale del Nord", "Movimento Patria", "Destra Sociale"]
+    }
+  }
+}

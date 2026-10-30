@@ -1,0 +1,10 @@
+{
+  "khmer_lao": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.15,
+    "male_names": ["Sokha", "Vannak", "Rithy", "Sophal", "Chanthol", "Kosal", "Piseth", "Dara", "Sovann", "Bounthong", "Phankham", "Khamphoui", "Vilay", "Somphone", "Bounleuang", "Sengphet"],
+    "female_names": ["Sokunthea", "Chanthy", "Sreymom", "Bopha", "Malis", "Sothea", "Pany", "Keomany", "Viengkham", "Bounmy"],
+    "family_names": ["Chea", "Kong", "Sok", "Keo", "Chhun", "Prak", "Mam", "Nhem", "Ouk", "Tep", "Vongsa", "Phommavong", "Keomanivong", "Chanthavong", "Inthavong", "Souvannarath", "Douangchanh", "Sayavong"]
+  }
+}

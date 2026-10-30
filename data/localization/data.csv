@@ -48,3 +48,46 @@ RESOURCE_SEMICONDUCTORS,Semiconductors,Semi-conducteurs
 RESOURCE_WHEAT,Wheat,Blé
 RESOURCE_STEEL,Steel,Acier
 RESOURCE_WATER,Water,Eau
+
+# --- Traits des personnages ---
+TRAIT_CAUTIOUS,Cautious,Prudent
+TRAIT_COMBATIVE,Combative,Combatif
+TRAIT_PRAGMATIC,Pragmatic,Pragmatique
+TRAIT_AMBITIOUS,Ambitious,Ambitieux
+TRAIT_MODERATE,Moderate,Modéré
+TRAIT_CHARISMATIC,Charismatic,Charismatique
+TRAIT_LOYAL,Loyal,Loyal
+TRAIT_PARANOID,Paranoid,Paranoïaque
+TRAIT_STUBBORN,Stubborn,Obstiné
+TRAIT_IDEALIST,Idealist,Idéaliste
+TRAIT_POPULIST,Populist,Populiste
+TRAIT_TECHNOCRAT,Technocrat,Technocrate
+TRAIT_COMMUNICATOR,Communicator,Communicant
+TRAIT_NEGOTIATOR,Negotiator,Négociateur
+TRAIT_DEALMAKER,Dealmaker,Homme de deals
+TRAIT_CENTRALIZER,Centralizer,Centralisateur
+TRAIT_REFORMER,Reformer,Réformateur
+TRAIT_STRATEGIST,Strategist,Stratège
+TRAIT_PARTY_MAN,Party loyalist,Homme d'appareil
+TRAIT_DIPLOMAT,Diplomat,Diplomate
+TRAIT_ADMINISTRATOR,Administrator,Gestionnaire
+TRAIT_HARDLINER,Hardliner,Partisan de la ligne dure
+TRAIT_UNION_LEADER,Former union leader,Ancien syndicaliste
+TRAIT_MILITARY_OFFICER,Former officer,Ancien officier
+TRAIT_BUSINESSMAN,Business background,Issu des affaires
+TRAIT_LAWYER,Lawyer,Juriste
+TRAIT_ACADEMIC,Academic,Universitaire
+TRAIT_ECONOMIST,Economist,Économiste
+TRAIT_CAREER_DIPLOMAT,Career diplomat,Diplomate de carrière
+TRAIT_ACTIVIST,Former activist,Ancien militant
+TRAIT_SECURITY_SERVICES,Security services veteran,Ancien des services de sécurité
+TRAIT_RELIGIOUS_SCHOLAR,Religious scholar,Lettré religieux
+TRAIT_ROYAL,Royal,Membre de la famille royale
+TRAIT_EUROPHILE,Europhile,Europhile
+TRAIT_EUROSCEPTIC,Eurosceptic,Eurosceptique
+TRAIT_ATLANTICIST,Atlanticist,Atlantiste
+TRAIT_PRO_RUSSIAN,Pro-Russian,Prorusse
+TRAIT_PRO_CHINESE,Pro-Chinese,Prochinois
+TRAIT_ANTI_WESTERN,Anti-Western,Antioccidental
+TRAIT_NON_ALIGNED,Non-aligned,Non-aligné
+TRAIT_FISCAL_HAWK,Fiscal hawk,Rigueur budgétaire

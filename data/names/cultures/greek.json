@@ -1,0 +1,11 @@
+{
+  "greek": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.25,
+    "male_names": ["Georgios", "Dimitrios", "Konstantinos", "Ioannis", "Nikolaos", "Panagiotis", "Christos", "Vasileios", "Athanasios", "Evangelos", "Michalis", "Stavros", "Andreas", "Kostas", "Spyros", "Theodoros", "Nikos", "Charalambos"],
+    "female_names": ["Maria", "Eleni", "Aikaterini", "Vasiliki", "Sofia", "Angeliki", "Dimitra", "Georgia", "Ioanna", "Despina", "Anna", "Konstantina", "Niki", "Theodora"],
+    "family_names": ["Papadopoulos", "Georgiou", "Oikonomou", "Dimitriou", "Konstantinidis", "Karamanos", "Vlachos", "Antoniou", "Christodoulou", "Makris", "Nikolaidis", "Pappas", "Stavrou", "Theodorou", "Angelopoulos", "Lambrou", "Michailidis", "Panagiotou", "Zervas", "Kyriakou", "Andreou", "Charalambous"],
+    "female_family_names": ["Papadopoulou", "Georgiou", "Oikonomou", "Dimitriou", "Konstantinidou", "Karamanou", "Vlachou", "Antoniou", "Christodoulou", "Makri", "Nikolaidou", "Pappa", "Stavrou", "Theodorou", "Angelopoulou", "Lambrou", "Michailidou", "Panagiotou", "Zerva", "Kyriakou", "Andreou", "Charalambous"]
+  }
+}

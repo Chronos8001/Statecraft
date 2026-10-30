@@ -1,0 +1,10 @@
+{
+  "albanian": {
+    "name_order": "given_first",
+    "party_style": "albanian",
+    "female_share": 0.3,
+    "male_names": ["Arben", "Besnik", "Ilir", "Gentian", "Artan", "Fatmir", "Agron", "Bujar", "Dritan", "Ermal", "Florian", "Gëzim", "Kujtim", "Lulzim", "Shpëtim", "Valon", "Albin", "Blerim", "Driton", "Ylber"],
+    "female_names": ["Albana", "Besa", "Drita", "Elira", "Fjolla", "Lindita", "Mimoza", "Teuta", "Vjosa", "Blerta", "Arta", "Donika", "Edona", "Majlinda"],
+    "family_names": ["Hoxhaj", "Krasniqi", "Beqiri", "Gashi", "Shala", "Morina", "Kelmendi", "Bytyqi", "Dervishi", "Leka", "Marku", "Gjoka", "Kola", "Prifti", "Shehu", "Dushku", "Basha", "Rexhepi", "Mehmeti", "Hasani", "Bajrami", "Zeka"]
+  }
+}

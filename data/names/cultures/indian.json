@@ -1,0 +1,10 @@
+{
+  "indian": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.15,
+    "male_names": ["Rajesh", "Suresh", "Ramesh", "Anil", "Sunil", "Vijay", "Arvind", "Ashok", "Manoj", "Rakesh", "Sanjay", "Amit", "Vikram", "Prakash", "Devendra", "Jagdish", "Harish", "Ravi", "Pradeep", "Gopal", "Mahendra", "Ram", "Bishnu", "Krishna", "Dinesh", "Anand", "Satish", "Hemant", "Deepak"],
+    "female_names": ["Sunita", "Anita", "Kavita", "Priya", "Pooja", "Meena", "Rekha", "Shobha", "Lakshmi", "Nirmala", "Uma", "Asha", "Geeta", "Savitri", "Kamala", "Sita", "Usha", "Radhika"],
+    "family_names": ["Sharma", "Verma", "Gupta", "Mishra", "Pandey", "Tiwari", "Yadav", "Shah", "Mehta", "Joshi", "Desai", "Reddy", "Rao", "Nair", "Menon", "Pillai", "Iyer", "Chauhan", "Rathore", "Thakur", "Bhatt", "Kulkarni", "Deshpande", "Chaturvedi", "Saxena", "Agarwal", "Malhotra", "Kapoor", "Sinha", "Prasad", "Shrestha", "Thapa", "Gurung", "Adhikari", "Ramdin", "Seegobin", "Boodhoo", "Dookhun"]
+  }
+}

@@ -80,7 +80,7 @@ Exemple : `{"FRA": {"population": 70000000}}` ne change que la population de la 
 
 ## Carte et sources des données
 
-La carte des provinces est générée par `tools/map_gen/` (voir son [README](tools/map_gen/README.md)) à partir de **Natural Earth** (domaine public) et des populations de **Wikidata / Wikipédia** (CC0). Les données des pays (population, PIB, dette, armées) viennent des tableaux de **Wikipédia** via `tools/country_gen/` (voir son [README](tools/country_gen/README.md)). Les images de carte sont stockées avec **Git LFS** : installer Git LFS avant de cloner le dépôt.
+La carte des provinces est générée par `tools/map_gen/` (voir son [README](tools/map_gen/README.md)) à partir de **Natural Earth** (domaine public) et des populations de **Wikidata / Wikipédia** (CC0). Les données des pays (population, PIB, dette, armées) viennent des tableaux de **Wikipédia** via `tools/country_gen/` (voir son [README](tools/country_gen/README.md)). Les dirigeants et partis, tous fictifs, sont écrits à la main pour les 30 pays majeurs et générés par `tools/leader_gen/` pour les autres (voir son [README](tools/leader_gen/README.md)). Les images de carte sont stockées avec **Git LFS** : installer Git LFS avant de cloner le dépôt.
 
 ## Suivi du projet
 

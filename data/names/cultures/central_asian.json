@@ -1,0 +1,11 @@
+{
+  "central_asian": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.15,
+    "male_names": ["Nurlan", "Askar", "Yerlan", "Bakhyt", "Daniyar", "Rustam", "Timur", "Bakhtiyor", "Jamshid", "Sardor", "Ulugbek", "Almazbek", "Kanat", "Elchin", "Rauf", "Farid", "Ramiz", "Ziyodullo", "Azamat", "Bekzod", "Dastan", "Farrukh", "Murat", "Sherzod"],
+    "female_names": ["Aigerim", "Gulnara", "Dinara", "Saule", "Zarina", "Malika", "Dilnoza", "Nigora", "Aizhan", "Roza", "Gulbahor", "Leyla", "Sevil", "Aynur", "Nargiz", "Madina"],
+    "family_names": ["Abdullayev", "Baimukhanov", "Dzhaksybekov", "Ergeshev", "Ismoilov", "Jumabekov", "Kasymov", "Mamedov", "Nazarov", "Omarov", "Rakhimov", "Sadykov", "Usmanov", "Yusupov", "Zhumabayev", "Hasanov", "Guliyev", "Huseynov", "Ismayilov", "Mammadov", "Atayev", "Berdiyev", "Saparov", "Sharipov", "Toktogulov", "Beknazarov", "Kurbanov", "Nurmatov", "Seitkaliyev", "Tursunov"],
+    "female_family_names": ["Abdullayeva", "Baimukhanova", "Dzhaksybekova", "Ergesheva", "Ismoilova", "Jumabekova", "Kasymova", "Mamedova", "Nazarova", "Omarova", "Rakhimova", "Sadykova", "Usmanova", "Yusupova", "Zhumabayeva", "Hasanova", "Guliyeva", "Huseynova", "Ismayilova", "Mammadova", "Atayeva", "Berdiyeva", "Saparova", "Sharipova", "Toktogulova", "Beknazarova", "Kurbanova", "Nurmatova", "Seitkaliyeva", "Tursunova"]
+  }
+}

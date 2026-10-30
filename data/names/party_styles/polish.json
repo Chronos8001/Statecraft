@@ -1,0 +1,13 @@
+{
+  "polish": {
+    "stopwords": ["i", "dla", "na", "w"],
+    "names": {
+      "left": ["Lewica Pracy", "Partia Pracy", "Unia Lewicy"],
+      "social_democrat": ["Sojusz Demokratyczny", "Polska Partia Socjalna", "Nowa Lewica Społeczna"],
+      "green": ["Zieloni Razem", "Partia Zielonej Przyszłości"],
+      "liberal": ["Ruch Obywatelski Polska", "Ruch Nowoczesny", "Polska Centrum", "Unia Swobód"],
+      "conservative": ["Ład i Rodzina", "Polskie Stronnictwo Wiejskie", "Chrześcijańska Unia Narodowa", "Zjednoczeni dla Polski"],
+      "national": ["Ruch Narodowo-Wolnościowy", "Ruch Ojczyzny", "Front Suwerenności"]
+    }
+  }
+}

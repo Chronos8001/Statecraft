@@ -1,0 +1,13 @@
+{
+  "hungarian": {
+    "stopwords": ["és", "a", "az"],
+    "names": {
+      "left": ["Munkás Szövetség", "Baloldali Szövetség"],
+      "social_democrat": ["Demokratikus Unió", "Magyar Szociális Párt"],
+      "green": ["Zöld Jövő", "Zöld Szövetség"],
+      "liberal": ["Szabad Polgárok Pártja", "Megújulás Mozgalom", "Polgári Szövetség"],
+      "conservative": ["Nemzeti Polgári Szövetség", "Keresztény Polgári Unió", "Magyar Polgári Unió"],
+      "national": ["Hazafias Mozgalom", "Nemzeti Radikális Párt", "Magyar Szuverenitás Párt"]
+    }
+  }
+}

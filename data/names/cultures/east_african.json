@@ -1,0 +1,10 @@
+{
+  "east_african": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.25,
+    "male_names": ["John", "Daniel", "Samuel", "Moses", "Paul", "Joseph", "Godfrey", "Abel", "Peter", "David", "Stephen", "Charles", "Patrick", "Simon", "Kennedy", "Wycliffe", "Geoffrey", "Isaac", "Emmanuel", "Benson", "Julius", "Francis", "Michael", "Gabriel", "Lual", "Akol"],
+    "female_names": ["Martha", "Joyce", "Anne", "Rebecca", "Mary", "Grace", "Esther", "Nancy", "Winnie", "Faith", "Margaret", "Agnes", "Rose", "Lucy", "Beatrice", "Halima", "Mwanaisha", "Zainabu"],
+    "family_names": ["Kamau", "Mwangi", "Otieno", "Odhiambo", "Kiprono", "Chebet", "Wanjiru", "Njoroge", "Ochieng", "Mutua", "Kariuki", "Wekesa", "Kiplagat", "Mugisha", "Tumusiime", "Okello", "Ssempala", "Byaruhanga", "Kato", "Nsubuga", "Mwakalinga", "Massawe", "Shirima", "Mushi", "Mrema", "Kombo", "Mbwana", "Lado", "Wani", "Ajak", "Majok", "Bol"]
+  }
+}

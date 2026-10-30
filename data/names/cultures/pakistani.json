@@ -1,0 +1,10 @@
+{
+  "pakistani": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.1,
+    "male_names": ["Muhammad", "Ahsan", "Faisal", "Ishaq", "Khawaja", "Murad", "Pervaiz", "Hamza", "Mohsin", "Raja", "Shafqat", "Tariq", "Usman", "Asim", "Sarfraz", "Junaid", "Waqar", "Adnan", "Kamran", "Saad", "Fawad", "Zubair"],
+    "female_names": ["Hina", "Shazia", "Ayesha", "Sadia", "Faryal", "Nusrat", "Rubina", "Samina", "Uzma", "Asma", "Mehwish", "Nadia"],
+    "family_names": ["Malik", "Qureshi", "Chaudhry", "Butt", "Abbasi", "Hashmi", "Sheikh", "Rana", "Bhatti", "Awan", "Leghari", "Mazari", "Durrani", "Afridi", "Khattak", "Mengal", "Jatoi", "Soomro", "Raja", "Warraich", "Gondal", "Cheema", "Tarar", "Kazmi"]
+  }
+}

@@ -142,7 +142,8 @@ func _on_province_clicked(province_id: int) -> void:
 	var owner := str(province.get("owner", ""))
 	var info := CountryInfo.build(owner, DataLoader.get_category("countries"),
 		DataLoader.get_category("provinces"), DataLoader.get_category("names"),
-		DataLoader.get_category("regimes"), DataLoader.get_category("ideologies"))
+		DataLoader.get_category("regimes"), DataLoader.get_category("ideologies"),
+		DataLoader.get_category("names/cultures"), GameState.sim.date.year)
 	if info == null:
 		_show_province(province_id)
 		return

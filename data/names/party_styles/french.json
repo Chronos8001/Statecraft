@@ -1,0 +1,15 @@
+{
+  "french": {
+    "stopwords": ["de", "du", "des", "la", "le", "les", "pour", "et", "en", "à", "au"],
+    "names": {
+      "left": ["Parti des travailleurs unis", "Front populaire d'émancipation", "Union de la gauche révolutionnaire", "Mouvement pour le socialisme populaire", "Parti du travail et du peuple", "Gauche rassemblée"],
+      "social_democrat": ["Parti social-démocrate du progrès", "Rassemblement pour le progrès social", "Union des forces progressistes", "Mouvement pour la justice sociale", "Parti de la solidarité", "Alliance progressiste", "Convention démocratique du peuple"],
+      "green": ["Alliance écologique", "Mouvement Terre commune", "Parti vert pour demain", "Écologie solidaire"],
+      "liberal": ["Mouvement pour le renouveau", "Alliance citoyenne", "Union des démocrates", "Rassemblement des républicains modérés", "Union pour le changement", "Mouvement démocrate et républicain", "Initiative citoyenne", "Alliance pour la démocratie et le progrès", "Avenir commun"],
+      "conservative": ["Rassemblement pour la nation", "Union pour la nation", "Parti démocratique national", "Union des républicains", "Rassemblement démocratique", "Alliance pour le développement", "Parti de l'ordre et du progrès"],
+      "national": ["Front de la patrie", "Mouvement pour la souveraineté", "Rassemblement patriotique", "Alliance nationale", "Union des patriotes"],
+      "power": ["Union pour la concorde", "Rassemblement du peuple", "Parti de la concorde nationale", "Mouvement pour la refondation", "Alliance présidentielle", "Rassemblement pour la stabilité", "Mouvement patriotique pour le renouveau"],
+      "religious": ["Parti de la foi", "Mouvement des croyants", "Union pour la justice et la foi"]
+    }
+  }
+}

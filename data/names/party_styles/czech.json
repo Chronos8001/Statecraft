@@ -1,0 +1,13 @@
+{
+  "czech": {
+    "stopwords": ["a", "pro", "za", "na"],
+    "names": {
+      "left": ["Strana Práce", "Levicová Aliance"],
+      "social_democrat": ["Sociálně Demokratická Unie", "Hlas Pracujících", "Sociálne Hnutie"],
+      "green": ["Zelená Aliance", "Strana Zelené Budoucnosti"],
+      "liberal": ["Občanská Aliance", "Liberálne Hnutie", "Nezávislí Starostové Spolu", "Hnutí Pro Změnu", "Občianska Sloboda"],
+      "conservative": ["Občanská Demokratická Unie", "Křesťanská Unie", "Kresťanskodemokratické Spoločenstvo", "Aliance Pro Česko"],
+      "national": ["Hnutí Přímé Vůle", "Slovenská Vlastenecká Strana", "Hnutí Vlast", "Národná Obroda"]
+    }
+  }
+}

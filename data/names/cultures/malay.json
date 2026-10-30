@@ -1,0 +1,10 @@
+{
+  "malay": {
+    "name_order": "given_first",
+    "party_style": "malay",
+    "female_share": 0.2,
+    "male_names": ["Ahmad", "Muhammad", "Mohd", "Abdul", "Ismail", "Hamzah", "Saifuddin", "Azman", "Faizal", "Khairul", "Shahrul", "Budi", "Agus", "Bambang", "Dedi", "Hendra", "Yudi", "Rizal", "Fahmi", "Arief", "Teguh", "Wahyu", "Bayu", "Haris", "Iskandar"],
+    "female_names": ["Siti", "Nurul", "Fatimah", "Aminah", "Zuraida", "Rina", "Dewi", "Retno", "Wulan", "Ratna", "Ani", "Yanti", "Hannah", "Sri", "Intan", "Melati"],
+    "family_names": ["Abdullah", "Rahman", "Hashim", "Ibrahim", "Ismail", "Yusof", "Osman", "Salleh", "Mahmud", "Zainal", "Hassan", "Aziz", "Kamaruddin", "Ramli", "Sulaiman", "Wibowo", "Santoso", "Hartono", "Susanto", "Kusuma", "Setiawan", "Pratama", "Nugroho", "Purnomo", "Wijaya", "Halim", "Saputra", "Hidayat", "Siregar", "Simatupang", "Sitompul", "Lubis"]
+  }
+}

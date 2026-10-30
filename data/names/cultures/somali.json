@@ -1,0 +1,11 @@
+{
+  "somali": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.1,
+    "family_name_count": 2,
+    "male_names": ["Abdi", "Abdirahman", "Ahmed", "Ali", "Hassan", "Mohamed", "Mahamoud", "Muse", "Omar", "Ismail", "Yusuf", "Abdillahi", "Ilyas", "Hamza", "Daher", "Abdiwali"],
+    "female_names": ["Amina", "Fadumo", "Hodan", "Ladan", "Maryan", "Sahra", "Asha", "Deqa", "Hibo", "Khadra", "Nimco", "Ubah"],
+    "family_names": ["Abdi", "Aden", "Ahmed", "Dahir", "Farah", "Hirsi", "Jama", "Nur", "Osman", "Samatar", "Warsame", "Yusuf", "Ali", "Bileh", "Doualeh", "Houmed", "Omar", "Gure", "Elmi", "Shire"]
+  }
+}
