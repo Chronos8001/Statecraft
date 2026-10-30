@@ -10,6 +10,7 @@ const UNKNOWN_AGE := -1
 var tag: String = ""
 var name_key: String = ""
 var color: Color = Color.TRANSPARENT
+var flag_path: String = ""
 var capital_id: int = 0
 var capital_name_key: String = ""
 var regime_name_key: String = ""
@@ -47,6 +48,7 @@ static func build(p_tag: String, countries: Dictionary, provinces: Dictionary, n
 	info.tag = p_tag
 	info.name_key = str(country.get("name_key", ""))
 	info.color = Color.html(str(country.get("color", "#000000")))
+	info.flag_path = CountryFlags.path_for(p_tag, country)
 	info.capital_id = int(country.get("capital", 0))
 	info.capital_name_key = str((provinces.get(str(info.capital_id), {}) as Dictionary).get("name_key", ""))
 	info.regime_name_key = str((regimes.get(str(country.get("regime", "")), {}) as Dictionary).get("name_key", ""))

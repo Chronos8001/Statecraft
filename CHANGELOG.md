@@ -14,11 +14,17 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Générateur de noms par culture (56 cultures) et de noms de partis (17 langues), réutilisable en cours de partie.
 - Traits de personnage : tempérament, style de gouvernement, parcours, orientation.
 - Outil de génération des dirigeants et partis (`tools/leader_gen/`).
+- Drapeaux des 199 pays, affichés dans la fiche du pays et dans la barre supérieure ; drapeaux en usage de fait au 1er janvier 2026 (Afghanistan, Syrie).
+- Outil de génération des drapeaux (`tools/flag_gen/`).
 
 ### Modifié
 - La population des provinces correspond désormais exactement au total de leur pays.
 - Fiche du pays : âge des dirigeants, noms dans l'ordre de leur culture (« Wei Jianguo »), chef du gouvernement masqué quand il s'agit du chef de l'État.
 - Le mode de carte « idéologie » couvre désormais tous les pays.
+- Fiche du pays : le drapeau remplace le carré de couleur.
+
+### Corrigé
+- Fiche du pays : l'âge des dirigeants (« 49 ans ») n'est plus coupé en fin de ligne.
 
 ## [0.2.0] - 2026-10-29
 

@@ -542,7 +542,8 @@
           "pattern": "^COUNTRY_[A-Z]{3}$"
         },
         "flag": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^res://.+[.](svg|png)$"
         },
         "color": {
           "type": "color"

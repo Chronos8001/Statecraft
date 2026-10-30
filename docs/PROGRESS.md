@@ -77,7 +77,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Régimes et organisations au 1er janvier 2026 (ONU, OTAN, UE, G7, G20, BRICS, OCS, UA, Ligue arabe, ASEAN, OPEP, OTSC, Mercosur, CCG, UEEA)
 - [x] Population des provinces ajustée au total de chaque pays
 
-**3b. Dirigeants et partis fictifs**
+**3b. Dirigeants et partis fictifs** (validée le 2026-10-30)
 - [x] Générateur de noms par culture (`data/names/cultures/*.json`, 56 cultures) et de noms de partis (`data/names/party_styles/*.json`, 17 langues)
 - [x] Dirigeants des 30 pays majeurs écrits à la main, 169 autres générés (même âge, sexe, idéologie) par `tools/leader_gen/`
 - [x] Partis au pouvoir et coalitions fictifs, idéologie dominante
@@ -85,7 +85,8 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Fiche du pays : âge des dirigeants, ordre des noms selon la culture
 
 **3c. Drapeaux**
-- [ ] Drapeaux des pays
+- [x] Drapeaux des 199 pays (SVG au format 4:3) générés par `tools/flag_gen/`
+- [x] Drapeau dans la fiche du pays et dans la barre supérieure
 
 **3d. Sélection du pays**
 - [ ] Écran de sélection : carte, filtres par difficulté, résumé du pays, défis de départ

@@ -68,7 +68,7 @@ COUNTRY_INFO_CAPITAL,Capital,Capitale
 COUNTRY_INFO_REGIME,Government,Régime
 COUNTRY_INFO_HEAD_OF_STATE,Head of state,Chef de l'État
 COUNTRY_INFO_HEAD_OF_GOVERNMENT,Head of government,Chef du gouvernement
-COUNTRY_INFO_LEADER_VALUE,"%s (age %d)","%s (%d ans)"
+COUNTRY_INFO_LEADER_VALUE,"%s (age %d)","%s (%d ans)"
 COUNTRY_INFO_RULING_PARTY,Ruling party,Parti au pouvoir
 COUNTRY_INFO_COALITION,Coalition partners,Partenaires de coalition
 COUNTRY_INFO_IDEOLOGY,Ideology,Idéologie

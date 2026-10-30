@@ -33,6 +33,14 @@ func _countries() -> Dictionary:
 	}
 
 
+func test_flag_path() -> void:
+	var countries := _countries()
+	countries["BBB"]["flag"] = "res://custom/bbb.png"
+	assert_eq(CountryInfo.build("AAA", countries, PROVINCES, NAMES, REGIMES, IDEOLOGIES).flag_path,
+		"res://assets/flags/AAA.svg")
+	assert_eq(CountryInfo.build("BBB", countries, PROVINCES, NAMES, REGIMES, IDEOLOGIES).flag_path, "res://custom/bbb.png")
+
+
 func test_unknown_country() -> void:
 	assert_null(CountryInfo.build("", _countries(), PROVINCES, NAMES, REGIMES, IDEOLOGIES))
 	assert_null(CountryInfo.build("ZZZ", _countries(), PROVINCES, NAMES, REGIMES, IDEOLOGIES))
