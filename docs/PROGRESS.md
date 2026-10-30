@@ -7,7 +7,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 | 0 | Fondations du projet | ✅ | v0.0.0 | 2026-10-29 | v0.0.0 |
 | 1 | La carte du monde | ✅ | v0.1.0 | 2026-10-29 | v0.1.0 |
 | 2 | Temps et boucle de simulation | ✅ | v0.2.0 | 2026-10-29 | v0.2.0 |
-| 3 | Les pays en 2026 | 🟨 | v0.3.0 | | |
+| 3 | Les pays en 2026 | ✅ | v0.3.0 | 2026-10-30 | v0.3.0 |
 | 4 | Économie | ⬜ | v0.4.0 | | |
 | 5 | Politique intérieure | ⬜ | v0.5.0 | | |
 | 6 | Diplomatie | ⬜ | v0.6.0 | | |
@@ -71,7 +71,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Barre supérieure : date, vitesse, trésorerie, stabilité, soutien populaire, puissance militaire, influence (valeurs « — » en attendant les systèmes)
 - [x] Validation : le temps défile, les événements mensuels se déclenchent
 
-## Étape 3 — Les pays en 2026 🟨
+## Étape 3 — Les pays en 2026 ✅ (validée le 2026-10-30, v0.3.0)
 **3a. Données réelles**
 - [x] Population, PIB (FMI 2026), dette (FMI 2025), effectifs militaires (IISS) pour les 199 pays, depuis Wikipédia
 - [x] Régimes et organisations au 1er janvier 2026 (ONU, OTAN, UE, G7, G20, BRICS, OCS, UA, Ligue arabe, ASEAN, OPEP, OTSC, Mercosur, CCG, UEEA)
@@ -88,7 +88,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Drapeaux des 199 pays (SVG au format 4:3) générés par `tools/flag_gen/`
 - [x] Drapeau dans la fiche du pays et dans la barre supérieure
 
-**3d. Sélection du pays**
+**3d. Sélection du pays** (validée le 2026-10-30)
 - [x] Écran de sélection sur la carte : liste avec drapeaux, recherche, filtre par difficulté, résumé du pays, défis de départ
 - [x] Difficulté calculée (puissance économique et militaire, défis) avec retouches possibles ; 5 niveaux
 - [x] Défis écrits pour les 30 pays majeurs (et le Myanmar, le Soudan), défis génériques déduits des données pour les autres

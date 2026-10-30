@@ -6,6 +6,8 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-10-30
+
 ### Ajouté
 - Données réelles des 199 pays (source Wikipédia) : population, PIB nominal (FMI 2026), dette publique (FMI 2025), effectifs militaires actifs et de réserve.
 - Régimes et appartenance aux organisations internationales au 1er janvier 2026 ; 8 nouvelles organisations (Union africaine, Ligue arabe, ASEAN, OPEP, OTSC, Mercosur, CCG, UEEA).
@@ -80,7 +82,8 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Suivi du projet : `docs/PROGRESS.md`, `docs/DECISIONS.md`, `docs/KNOWN_ISSUES.md`.
 - Configuration Git : `.gitignore` et `.gitattributes` (fins de ligne LF, fichiers binaires).
 
-[Unreleased]: https://github.com/Chronos8001/Statecraft/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/Chronos8001/Statecraft/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.3.0
 [0.2.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.2.0
 [0.1.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.1.0
 [0.0.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.0.0
