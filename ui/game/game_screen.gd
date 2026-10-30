@@ -1,5 +1,6 @@
 extends Control
-## Écran de jeu : charge la carte dans un thread puis l'affiche. Échap revient à l'écran titre.
+## Écran de jeu : charge la carte dans un thread puis l'affiche. Sans pays joué, commence par
+## la sélection du pays (temps arrêté). Échap revient à l'écran titre.
 
 const SOURCE := "GameScreen"
 const TITLE_SCENE := "res://ui/title/title_screen.tscn"
@@ -25,6 +26,7 @@ var _notification_timer: SceneTreeTimer
 
 @onready var _mode_bar: MapModeBar = %MapModeBar
 @onready var _legend: MapLegend = %MapLegend
+@onready var _selection_panel: CountrySelectionPanel = %CountrySelectionPanel
 
 
 func _ready() -> void:
@@ -42,6 +44,9 @@ func _ready() -> void:
 	_mode_bar.mode_selected.connect(set_map_mode)
 	_mode_bar.visible = false
 	_legend.visible = false
+	_selection_panel.visible = false
+	_selection_panel.country_selected.connect(_on_country_selected)
+	_selection_panel.play_requested.connect(_on_play_requested)
 	EventBus.month_passed.connect(_on_month_passed)
 	EventBus.year_passed.connect(_on_year_passed)
 	_thread = Thread.new()
@@ -55,6 +60,11 @@ func _process(_delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if _is_selecting():
+		if event.is_action_pressed("ui_cancel"):
+			get_viewport().set_input_as_handled()
+			get_tree().change_scene_to_file(TITLE_SCENE)
+		return
 	if event.is_action_pressed("ui_focus_next") or event.is_action_pressed("ui_focus_prev"):
 		get_viewport().set_input_as_handled()
 		_cycle_map_mode(-1 if event.is_action_pressed("ui_focus_prev") else 1)
@@ -84,11 +94,11 @@ func _finish_loading() -> void:
 		return
 	_map_view.setup(data, _mode_context.new_colors())
 	set_map_mode(_current_mode_id)
-	_mode_bar.visible = true
-	_top_bar.visible = true
-	_top_bar.refresh()
 	_loading_label.visible = false
-	GameClock.set_running(true)
+	if GameState.sim.player_tag.is_empty():
+		_enter_selection()
+	else:
+		_start_playing()
 	GameLog.info(SOURCE, "Carte %d × %d chargée en %d ms." % [data.width, data.height,
 		Time.get_ticks_msec() - _load_started_ms])
 	# Les textures partent vers la carte graphique au rendu suivant.
@@ -96,6 +106,52 @@ func _finish_loading() -> void:
 	await get_tree().process_frame
 	GameLog.info(SOURCE, "Mémoire graphique des textures : %d Mo." % roundi(
 		Performance.get_monitor(Performance.RENDER_TEXTURE_MEM_USED) / BYTES_PER_MEGABYTE))
+
+
+func _is_selecting() -> bool:
+	return _selection_panel.visible
+
+
+## Sélection du pays : le temps reste arrêté, seuls la carte et les panneaux de choix sont affichés.
+func _enter_selection() -> void:
+	GameClock.set_running(false)
+	_top_bar.visible = false
+	_mode_bar.visible = false
+	_legend.visible = false
+	_debug_label.visible = false
+	_selection_panel.visible = true
+
+
+func _start_playing() -> void:
+	_selection_panel.visible = false
+	_debug_label.visible = true
+	_mode_bar.visible = true
+	set_map_mode(_current_mode_id)
+	_top_bar.visible = true
+	_top_bar.refresh()
+	GameClock.set_running(true)
+
+
+## Démarre la partie sur le pays choisi, caméra centrée sur sa capitale.
+func _on_play_requested(tag: String) -> void:
+	GameState.new_game(GameState.sim.game_seed, StringName(tag))
+	_map_view.set_selected_country("")
+	_focus_capital(tag, float(DataLoader.get_define("camera.capital_zoom")))
+	_start_playing()
+
+
+## Pays choisi dans la liste ou sur la carte : mis en évidence ; depuis la liste, la carte se centre dessus.
+func _on_country_selected(tag: String, from_list: bool) -> void:
+	_map_view.set_selected_country(tag)
+	if from_list and _map_view.camera != null:
+		_focus_capital(tag, _map_view.camera.zoom)
+
+
+func _focus_capital(tag: String, zoom: float) -> void:
+	var capital := int(DataLoader.get_entry("countries", tag).get("capital", 0))
+	var center: Array = DataLoader.get_entry("provinces", str(capital)).get("center", [])
+	if center.size() >= 2:
+		_map_view.focus_on(Vector2(float(center[0]), float(center[1])), zoom)
 
 
 func _on_month_passed(date: GameDate) -> void:
@@ -140,6 +196,9 @@ func _cycle_map_mode(step: int) -> void:
 func _on_province_clicked(province_id: int) -> void:
 	var province: Dictionary = DataLoader.get_entry("provinces", str(province_id))
 	var owner := str(province.get("owner", ""))
+	if _is_selecting():
+		_selection_panel.select_country(owner)
+		return
 	var info := CountryInfo.build(owner, DataLoader.get_category("countries"),
 		DataLoader.get_category("provinces"), DataLoader.get_category("names"),
 		DataLoader.get_category("regimes"), DataLoader.get_category("ideologies"),
@@ -155,6 +214,8 @@ func _on_province_clicked(province_id: int) -> void:
 
 ## Double-clic (ou clic sur une mer ou une terre sans propriétaire) : fiche de la province ou de la zone.
 func _show_province(province_id: int) -> void:
+	if _is_selecting():
+		return
 	var info := ProvinceInfo.build(province_id, DataLoader.get_category("provinces"),
 		DataLoader.get_category("countries"), DataLoader.get_category("terrains"),
 		DataLoader.get_category("resources"), DataLoader.get_category("sea_zones"),
