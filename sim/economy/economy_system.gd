@@ -119,8 +119,10 @@ static func step_country(economy: EconomyState, currency: CurrencyState, state: 
 	economy.potential_growth += (long_run - economy.potential_growth) * float(settings["potential_convergence"])
 	economy.neutral_real_rate += (float(settings["neutral_real_rate"]) - economy.neutral_real_rate) \
 		* float(settings["neutral_rate_convergence"])
-	var growth := economy.potential_growth + EconomyModel.demand_effect(currency.policy_rate, economy.inflation,
-		economy.neutral_real_rate, settings)
+	# Impulsion budgétaire : un solde primaire plus faible qu'au départ soutient la demande (et l'inverse).
+	var fiscal_impulse := float(settings["fiscal_multiplier"]) * (economy.start_primary_balance - economy.primary_balance)
+	var growth := economy.potential_growth + economy.budget_growth + fiscal_impulse \
+		+ EconomyModel.demand_effect(currency.policy_rate, economy.inflation, economy.neutral_real_rate, settings)
 	if economy.in_crisis():
 		growth += float(crisis["growth_shock"])
 	if economy.in_imf_program():
@@ -132,10 +134,11 @@ static func step_country(economy: EconomyState, currency: CurrencyState, state: 
 
 	var expected := EconomyModel.expected_inflation(economy.inflation, currency.inflation_target, currency.independent,
 		settings)
-	economy.inflation = clampf(EconomyModel.next_inflation(economy.inflation, expected, economy.output_gap,
+	economy.inflation = clampf(EconomyModel.next_inflation(economy.inflation, expected + economy.budget_inflation,
+		economy.output_gap,
 		currency.last_depreciation, settings), float(inflation_bounds[0]), float(inflation_bounds[1]))
-	economy.unemployment = clampf(EconomyModel.next_unemployment(economy.unemployment, economy.natural_unemployment,
-		economy.output_gap, settings), float(unemployment_bounds[0]), float(unemployment_bounds[1]))
+	economy.unemployment = clampf(EconomyModel.next_unemployment(economy.unemployment,
+		economy.natural_unemployment + economy.budget_unemployment, economy.output_gap, settings), float(unemployment_bounds[0]), float(unemployment_bounds[1]))
 	economy.price_level *= 1.0 + economy.inflation / EconomyModel.PERCENT / EconomyModel.MONTHS_PER_YEAR
 	economy.sectors = EconomyModel.next_sector_shares(economy.sectors, sector_trends)
 	if economy.in_imf_program():
@@ -164,7 +167,9 @@ static func _accrue_debt(economy: EconomyState, currency: CurrencyState, state: 
 
 	var months := EconomyModel.MONTHS_PER_YEAR
 	var fx := currency.fx_factor()
-	var deficit := -economy.budget_balance(currency) / EconomyModel.PERCENT * economy.nominal_gdp() / months
+	# La création monétaire finance une partie du déficit sans nouvel emprunt.
+	var deficit := (-economy.budget_balance(currency) - economy.budget.monetary_financing) / EconomyModel.PERCENT \
+		* economy.nominal_gdp() / months
 	var total := economy.total_debt(currency)
 	var foreign_share := economy.foreign_debt * fx / total if total > 0.0 else 0.0
 	economy.local_debt = maxf(economy.local_debt + deficit * (1.0 - foreign_share), 0.0)

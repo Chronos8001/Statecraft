@@ -14,6 +14,8 @@ var countries: Dictionary = {}
 var currencies: Dictionary = {}
 ## Section « economy » de defines.json, utilisée par les systèmes et les commandes économiques.
 var economy_settings: Dictionary = {}
+## Impôts, postes de dépense et réglages du budget : {taxes, spending, settings}.
+var budget_definitions: Dictionary = {}
 ## Événements de simulation du dernier tick ({type, tag, …}), transmis à l'interface puis vidés.
 var events: Array[Dictionary] = []
 

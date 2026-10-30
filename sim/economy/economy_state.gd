@@ -34,8 +34,16 @@ var foreign_debt_rate: float = 0.0
 ## Rapport entre le taux payé sur la dette et le taux du marché (inférieur à 1 pour les pays dont la dette
 ## a été émise à de meilleures conditions que les taux actuels ; calé au départ).
 var debt_rate_factor: float = 1.0
-## Solde primaire (hors intérêts) en % du PIB ; fixé tant que le budget détaillé n'existe pas.
+## Solde primaire (hors intérêts) en % du PIB, calculé chaque mois à partir du budget.
 var primary_balance: float = 0.0
+## Solde primaire et dette (rapport au PIB) au départ : références de l'impulsion budgétaire et de l'IA.
+var start_primary_balance: float = 0.0
+var start_debt_ratio: float = 0.0
+var budget: BudgetState = BudgetState.new()
+## Effets économiques du budget (points de croissance, de chômage, d'inflation), recopiés par BudgetSystem.
+var budget_growth: float = 0.0
+var budget_unemployment: float = 0.0
+var budget_inflation: float = 0.0
 
 ## Note souveraine (indice dans CreditRating) et écart propre au pays, calé au départ.
 var rating: int = 0
