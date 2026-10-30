@@ -235,3 +235,22 @@ func test_country_sheet_shows_leaders_for_every_country() -> void:
 		assert_false(info.head_of_government_name.is_empty(), "chef du gouvernement de %s" % tag)
 		assert_ne(info.head_of_state_age, CountryInfo.UNKNOWN_AGE, "âge du chef de l'État de %s" % tag)
 		assert_false(info.ideology_name_key.is_empty(), "idéologie de %s" % tag)
+
+
+func test_every_country_has_a_flag() -> void:
+	var countries := _repository.get_category("countries")
+	for tag: String in countries.keys():
+		var path := CountryFlags.path_for(tag, countries[tag])
+		assert_true(CountryFlags.has_image(path), "drapeau de %s" % tag)
+		var texture := load(path) as Texture2D
+		if texture != null:
+			assert_eq(texture.get_width() * CountryFlags.ASPECT.y, texture.get_height() * CountryFlags.ASPECT.x,
+				"proportions 4:3 du drapeau de %s" % tag)
+
+
+func test_no_flag_without_country() -> void:
+	var countries := _repository.get_category("countries")
+	var flag_dir := CountryFlags.DEFAULT_PATH.get_base_dir()
+	for file_name: String in DirAccess.get_files_at(flag_dir):
+		if file_name.get_extension() == "svg":
+			assert_true(countries.has(file_name.get_basename()), "drapeau en trop : %s" % file_name)
