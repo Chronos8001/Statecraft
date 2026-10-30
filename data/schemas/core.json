@@ -98,7 +98,8 @@
           "edge_scroll_margin",
           "edge_scroll_speed",
           "start_center",
-          "start_zoom"
+          "start_zoom",
+          "capital_zoom"
         ],
         "properties": {
           "max_zoom": {
@@ -133,6 +134,10 @@
             }
           },
           "start_zoom": {
+            "type": "number",
+            "min": 0
+          },
+          "capital_zoom": {
             "type": "number",
             "min": 0
           }
@@ -415,6 +420,44 @@
             "max": 1
           }
         }
+      },
+      "country_selection": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "gdp_weight",
+          "military_weight",
+          "power_floor",
+          "difficulty_thresholds",
+          "difficulty_colors"
+        ],
+        "properties": {
+          "gdp_weight": {
+            "type": "number",
+            "min": 0
+          },
+          "military_weight": {
+            "type": "number",
+            "min": 0
+          },
+          "power_floor": {
+            "type": "number"
+          },
+          "difficulty_thresholds": {
+            "type": "array",
+            "min_items": 4,
+            "items": {
+              "type": "number"
+            }
+          },
+          "difficulty_colors": {
+            "type": "array",
+            "min_items": 5,
+            "items": {
+              "type": "color"
+            }
+          }
+        }
       }
     }
   },
@@ -631,6 +674,22 @@
         "culture": {
           "type": "string",
           "ref": "names/cultures"
+        },
+        "challenges": {
+          "type": "array",
+          "unique_items": true,
+          "items": {
+            "type": "string",
+            "ref": "challenges"
+          }
+        },
+        "difficulty": {
+          "type": "int",
+          "min": 1,
+          "max": 5
+        },
+        "limited_recognition": {
+          "type": "bool"
         }
       }
     }
@@ -1289,6 +1348,66 @@
             "unique_items": true,
             "items": {
               "type": "loc_string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "challenges": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "description_key",
+        "weight"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^CHALLENGE_[A-Z_]+$"
+        },
+        "description_key": {
+          "type": "string",
+          "pattern": "^CHALLENGE_[A-Z_]+_DESC$"
+        },
+        "weight": {
+          "type": "number",
+          "min": 0
+        },
+        "rule": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "debt_above",
+                "gdp_per_capita_below",
+                "occupied_provinces",
+                "limited_recognition",
+                "coalition_partners_at_least",
+                "regime",
+                "landlocked",
+                "military_below"
+              ]
+            },
+            "threshold": {
+              "type": "number"
+            },
+            "regimes": {
+              "type": "array",
+              "min_items": 1,
+              "items": {
+                "type": "string",
+                "ref": "regimes"
+              }
             }
           }
         }
