@@ -1,0 +1,15 @@
+{
+  "malay": {
+    "stopwords": ["dan", "untuk"],
+    "names": {
+      "left": ["Parti Rakyat Sosialis", "Gerakan Buruh Bersatu"],
+      "social_democrat": ["Parti Demokrasi Rakyat", "Gerakan Perjuangan Rakyat", "Parti Keadilan Bersama", "Parti Sosial Demokrat"],
+      "green": ["Parti Hijau Nusantara"],
+      "liberal": ["Gerakan Perubahan", "Parti Harapan Baru", "Partai Kebangsaan Bersatu", "Partai Nusantara Maju"],
+      "conservative": ["Pertubuhan Bangsa Bersatu", "Partai Karya Pembangunan", "Barisan Rakyat Raya", "Partai Amanat Bangsa"],
+      "national": ["Partai Garuda Raya", "Parti Pribumi Nusantara", "Gerakan Tanah Air"],
+      "power": ["Parti Perpaduan Nasional", "Gerakan Kesatuan Bangsa"],
+      "religious": ["Parti Ummah Bersatu", "Partai Keadilan dan Iman", "Gerakan Islam Nusantara"]
+    }
+  }
+}

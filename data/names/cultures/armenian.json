@@ -1,0 +1,10 @@
+{
+  "armenian": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.25,
+    "male_names": ["Aram", "Armen", "Arsen", "Davit", "Gagik", "Hayk", "Karen", "Levon", "Narek", "Ruben", "Sargis", "Tigran", "Vahagn", "Vardan", "Samvel", "Hovhannes"],
+    "female_names": ["Anahit", "Ani", "Armine", "Gayane", "Hasmik", "Lilit", "Mariam", "Nune", "Siranush", "Tatevik", "Zaruhi", "Astghik"],
+    "family_names": ["Avetisyan", "Babayan", "Danielyan", "Grigoryan", "Hakobyan", "Harutyunyan", "Karapetyan", "Khachatryan", "Manukyan", "Mkrtchyan", "Petrosyan", "Poghosyan", "Sahakyan", "Sargsyan", "Ter-Petrosyan", "Vardanyan", "Zakaryan", "Galstyan"]
+  }
+}

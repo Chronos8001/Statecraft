@@ -1,0 +1,10 @@
+{
+  "hungarian": {
+    "name_order": "given_first",
+    "party_style": "hungarian",
+    "female_share": 0.2,
+    "male_names": ["László", "István", "Zoltán", "Gábor", "Péter", "Tamás", "Attila", "Csaba", "Zsolt", "Sándor", "Balázs", "Ferenc", "János", "Gergely", "Tibor", "Miklós", "Lajos", "Ákos"],
+    "female_names": ["Katalin", "Erzsébet", "Ildikó", "Judit", "Zsuzsanna", "Mária", "Éva", "Andrea", "Krisztina", "Anikó", "Ágnes", "Eszter", "Edit", "Rita"],
+    "family_names": ["Nagy", "Kovács", "Tóth", "Szabó", "Horváth", "Varga", "Kiss", "Molnár", "Németh", "Farkas", "Balogh", "Papp", "Takács", "Juhász", "Lakatos", "Mészáros", "Oláh", "Simon", "Rácz", "Fekete", "Szilágyi", "Török", "Fehér", "Balázs"]
+  }
+}

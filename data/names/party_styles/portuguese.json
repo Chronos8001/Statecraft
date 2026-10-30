@@ -1,0 +1,14 @@
+{
+  "portuguese": {
+    "stopwords": ["de", "do", "da", "dos", "das", "e", "o", "a", "pela", "pelo"],
+    "names": {
+      "left": ["Partido dos Trabalhadores Unidos", "Frente Popular de Emancipação", "Movimento Socialista Popular", "Partido Comunista Unido"],
+      "social_democrat": ["Partido da Frente Social", "Partido Socialista Democrático", "Aliança Progressista", "Movimento Democrático Popular", "Partido da Unidade e Progresso"],
+      "green": ["Partido Verde Ecologista", "Movimento Terra Viva"],
+      "liberal": ["Movimento Cidadão", "Partido Liberal Renovador", "Aliança Democrática", "Iniciativa Cívica", "Partido da Renovação Democrática"],
+      "conservative": ["Partido Social Nacional", "União do Centro", "União Republicana", "Partido Popular Cristão", "Aliança pela República"],
+      "national": ["Movimento Pátria", "Partido Soberania", "Basta Portugal", "Partido Liberal Patriota"],
+      "power": ["Movimento Popular de Unidade", "Frente de Unidade Nacional", "Partido da Unidade Nacional"]
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "east_slavic": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.2,
+    "male_names": ["Aleksandr", "Sergei", "Dmitri", "Andrei", "Vladimir", "Nikolai", "Mikhail", "Igor", "Oleg", "Yuri", "Viktor", "Pavel", "Konstantin", "Gennadi", "Valeri", "Anatoli", "Boris", "Roman", "Maksim", "Denys", "Oleksandr", "Mykola", "Taras", "Bohdan", "Volodymyr", "Aliaksandr"],
+    "female_names": ["Elena", "Olga", "Tatiana", "Natalia", "Irina", "Svetlana", "Anna", "Marina", "Yekaterina", "Valentina", "Galina", "Lyudmila", "Yulia", "Oksana", "Iryna", "Nataliya", "Halyna", "Maryna"],
+    "family_names": ["Volkov", "Sokolov", "Morozov", "Lebedev", "Kozlov", "Novikov", "Orlov", "Belov", "Zaitsev", "Pavlov", "Semyonov", "Golubev", "Vinogradov", "Bogdanov", "Vorobyov", "Fyodorov", "Gusev", "Titov", "Kuzmin", "Kudryavtsev", "Baranov", "Kulikov", "Alekseev", "Stepanov", "Nikitin", "Sorokin", "Tarasov", "Belyaev", "Komarov", "Gromov"],
+    "female_family_names": ["Volkova", "Sokolova", "Morozova", "Lebedeva", "Kozlova", "Novikova", "Orlova", "Belova", "Zaitseva", "Pavlova", "Semyonova", "Golubeva", "Vinogradova", "Bogdanova", "Vorobyova", "Fyodorova", "Guseva", "Titova", "Kuzmina", "Kudryavtseva", "Baranova", "Kulikova", "Alekseeva", "Stepanova", "Nikitina", "Sorokina", "Tarasova", "Belyaeva", "Komarova", "Gromova"]
+  }
+}

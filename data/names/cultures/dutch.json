@@ -1,0 +1,10 @@
+{
+  "dutch": {
+    "name_order": "given_first",
+    "party_style": "dutch",
+    "female_share": 0.35,
+    "male_names": ["Jan", "Pieter", "Willem", "Maarten", "Hendrik", "Bas", "Joost", "Ruud", "Sander", "Thijs", "Frank", "Erik", "Jeroen", "Wouter", "Bram", "Koen", "Dirk", "Geert-Jan", "Rob", "Stijn", "Bart", "Pieterjan", "Jelle", "Hugo"],
+    "female_names": ["Anke", "Marieke", "Ingrid", "Femke", "Sanne", "Esther", "Lotte", "Annemarie", "Petra", "Hanneke", "Mieke", "Karin", "Ellen", "Judith", "Sofie", "Liesbeth", "Inge", "Kathleen", "Nathalie", "Wendy"],
+    "family_names": ["van Dijk", "de Groot", "Bakker", "Visser", "Smit", "Meijer", "de Boer", "Mulder", "Bos", "Vos", "Peters", "Hendriks", "van Leeuwen", "Dekker", "Brouwer", "de Wit", "Dijkstra", "Smits", "de Graaf", "van der Meer", "Janssens", "Peeters", "Maes", "Claes", "Willems", "Goossens", "Wouters", "De Smet", "Vermeulen", "Van den Broeck", "Kuipers", "Verhoeven"]
+  }
+}

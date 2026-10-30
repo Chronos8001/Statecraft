@@ -7,7 +7,8 @@
       "camera",
       "map_colors",
       "map_style",
-      "province"
+      "province",
+      "characters"
     ],
     "properties": {
       "game": {
@@ -336,6 +337,84 @@
             "min": 1
           }
         }
+      },
+      "characters": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "reference_year",
+          "min_age",
+          "max_age",
+          "default_female_share",
+          "trait_chance",
+          "min_skill",
+          "max_skill",
+          "skills",
+          "party_group_fallbacks",
+          "party_color_spread"
+        ],
+        "properties": {
+          "reference_year": {
+            "type": "int",
+            "min": 1
+          },
+          "min_age": {
+            "type": "int",
+            "min": 18
+          },
+          "max_age": {
+            "type": "int",
+            "min": 18
+          },
+          "default_female_share": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "trait_chance": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "min_skill": {
+            "type": "int",
+            "min": 0,
+            "max": 10
+          },
+          "max_skill": {
+            "type": "int",
+            "min": 0,
+            "max": 10
+          },
+          "skills": {
+            "type": "array",
+            "min_items": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "party_group_fallbacks": {
+            "type": "object",
+            "values": {
+              "type": "string",
+              "enum": [
+                "left",
+                "social_democrat",
+                "green",
+                "liberal",
+                "conservative",
+                "national",
+                "power",
+                "religious"
+              ]
+            }
+          },
+          "party_color_spread": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          }
+        }
       }
     }
   },
@@ -347,7 +426,8 @@
       "strict": true,
       "required": [
         "name_key",
-        "color"
+        "color",
+        "party_group"
       ],
       "properties": {
         "name_key": {
@@ -355,6 +435,19 @@
         },
         "color": {
           "type": "color"
+        },
+        "party_group": {
+          "type": "string",
+          "enum": [
+            "left",
+            "social_democrat",
+            "green",
+            "liberal",
+            "conservative",
+            "national",
+            "power",
+            "religious"
+          ]
         }
       }
     }
@@ -686,7 +779,8 @@
               "type": "array",
               "unique_items": true,
               "items": {
-                "type": "string"
+                "type": "string",
+                "ref": "traits"
               }
             },
             "skills": {
@@ -1050,6 +1144,137 @@
           "items": {
             "type": "int",
             "ref": "provinces"
+          }
+        }
+      }
+    }
+  },
+  "traits": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "group"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^TRAIT_[A-Z_]+$"
+        },
+        "group": {
+          "type": "string",
+          "enum": [
+            "temperament",
+            "style",
+            "background",
+            "orientation"
+          ]
+        },
+        "random": {
+          "type": "bool"
+        }
+      }
+    }
+  },
+  "names/cultures": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_order",
+        "party_style",
+        "female_share",
+        "male_names",
+        "female_names",
+        "family_names"
+      ],
+      "properties": {
+        "name_order": {
+          "type": "string",
+          "enum": [
+            "given_first",
+            "family_first"
+          ]
+        },
+        "party_style": {
+          "type": "string",
+          "ref": "names/party_styles"
+        },
+        "female_share": {
+          "type": "number",
+          "min": 0,
+          "max": 1
+        },
+        "family_name_count": {
+          "type": "int",
+          "min": 1,
+          "max": 3
+        },
+        "male_names": {
+          "type": "array",
+          "min_items": 1,
+          "unique_items": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "female_names": {
+          "type": "array",
+          "min_items": 1,
+          "unique_items": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "family_names": {
+          "type": "array",
+          "min_items": 1,
+          "unique_items": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "female_family_names": {
+          "type": "array",
+          "min_items": 1,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "names/party_styles": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "names"
+      ],
+      "properties": {
+        "stopwords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "names": {
+          "type": "object",
+          "keys_pattern": "^(left|social_democrat|green|liberal|conservative|national|power|religious)$",
+          "values": {
+            "type": "array",
+            "min_items": 1,
+            "unique_items": true,
+            "items": {
+              "type": "loc_string"
+            }
           }
         }
       }

@@ -1,0 +1,10 @@
+{
+  "himalayan": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.2,
+    "male_names": ["Sonam", "Dorji", "Kinley", "Ugyen", "Karma", "Pema", "Namgay", "Tandin", "Kuenga", "Chimi", "Ngawang", "Phub"],
+    "female_names": ["Dechen", "Pema", "Tashi", "Yangchen", "Kinley", "Choden", "Sonam", "Dema"],
+    "family_names": ["Dorji", "Wangdi", "Tenzin", "Namgyel", "Penjor", "Rinzin", "Gyeltshen", "Lhendup", "Norbu", "Choephel", "Tshewang", "Dukpa"]
+  }
+}

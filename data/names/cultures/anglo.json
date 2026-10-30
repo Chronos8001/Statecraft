@@ -1,0 +1,10 @@
+{
+  "anglo": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.3,
+    "male_names": ["James", "Robert", "Michael", "David", "Richard", "Thomas", "Christopher", "Daniel", "Matthew", "Andrew", "Mark", "Stephen", "Paul", "Kevin", "Brian", "Gregory", "Patrick", "Douglas", "Graham", "Malcolm", "Gordon", "Neil", "Colin", "Duncan", "Liam", "Owen", "Gareth", "Desmond", "Winston", "Clifton"],
+    "female_names": ["Elizabeth", "Margaret", "Susan", "Karen", "Catherine", "Helen", "Sarah", "Rachel", "Fiona", "Alison", "Joanne", "Caroline", "Louise", "Patricia", "Deborah", "Gillian", "Rosalind", "Imogen", "Claire", "Natalie", "Joanna", "Marcia", "Beverley", "Simone"],
+    "family_names": ["Ashworth", "Brennan", "Caldwell", "Dunmore", "Ellison", "Fairbank", "Gilmore", "Hartley", "Ingram", "Kendrick", "Langford", "Mallory", "Northcott", "Oakley", "Pemberton", "Radcliffe", "Sinclair", "Thornton", "Underwood", "Whitmore", "Holloway", "Prescott", "Calloway", "Brampton", "Kingsley", "Lawford", "Marston", "Redfern", "Selwyn", "Tolliver", "Wexford", "Ashby", "Granger", "Stanhope", "McAllister", "O'Donoghue", "Fitzgerald", "Gallagher", "Campbell", "Rowntree"]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "hebrew": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.25,
+    "male_names": ["Avraham", "Yitzhak", "Moshe", "David", "Yossi", "Eli", "Amir", "Gideon", "Uri", "Shlomo", "Ariel", "Ofer", "Doron", "Eitan", "Nir", "Ronen", "Asher", "Yoav", "Dror", "Tomer"],
+    "female_names": ["Sarah", "Rachel", "Miri", "Tamar", "Orit", "Ayelet", "Michal", "Merav", "Yael", "Gila", "Limor", "Shira", "Noa", "Efrat"],
+    "family_names": ["Levinson", "Rosenthal", "Ben-Ami", "Shapira", "Avraham", "Golan", "Peretz", "Mizrahi", "Friedman", "Katz", "Biton", "Dahan", "Ohana", "Shalev", "Navon", "Harel", "Tzur", "Ben-Haim", "Lavi", "Segal", "Amsalem", "Elbaz", "Ashkenazi", "Zilber"]
+  }
+}

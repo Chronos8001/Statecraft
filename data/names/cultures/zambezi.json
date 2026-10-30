@@ -1,0 +1,10 @@
+{
+  "zambezi": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.25,
+    "male_names": ["Peter", "Lazarus", "Edgar", "Hakim", "Mwiya", "Chanda", "Mulenga", "Bwalya", "Chikondi", "Kondwani", "Mphatso", "Chisomo", "Gift", "Brian", "Felix", "Jacob"],
+    "female_names": ["Mutale", "Natasha", "Chileshe", "Mwila", "Thokozani", "Tiyamike", "Chifundo", "Grace", "Agness", "Mary", "Ruth", "Esnart"],
+    "family_names": ["Phiri", "Mwale", "Mulenga", "Zimba", "Chirwa", "Gondwe", "Nyirenda", "Tembo", "Kaunda", "Chilufya", "Mumba", "Sakala", "Kalaba", "Mhango", "Msiska", "Kumwenda"]
+  }
+}

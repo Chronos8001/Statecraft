@@ -1,0 +1,10 @@
+{
+  "maghrebi": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.15,
+    "male_names": ["Mohamed", "Ahmed", "Youssef", "Karim", "Rachid", "Mourad", "Hichem", "Nabil", "Samir", "Khalid", "Abdelkader", "Abdelaziz", "Mustapha", "Lahcen", "Driss", "Hamza", "Mehdi", "Sofiane", "Brahim", "Noureddine"],
+    "female_names": ["Fatima", "Khadija", "Amina", "Nadia", "Samira", "Leïla", "Souad", "Naïma", "Zineb", "Meriem", "Houda", "Asma"],
+    "family_names": ["Benali", "Bensalem", "Chaouch", "El Amrani", "Bennani", "Tazi", "Ouali", "Jaziri", "Trabelsi", "Ben Youssef", "Belkacem", "Bouzid", "Haddadi", "Mansouri", "Cherif", "Amrouche", "Bouazza", "El Idrissi", "Berrada", "Guerfali", "Khelifi", "Mebarki", "Saidi", "Zerrouki"]
+  }
+}

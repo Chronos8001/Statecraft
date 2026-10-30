@@ -1,0 +1,10 @@
+{
+  "german": {
+    "name_order": "given_first",
+    "party_style": "german",
+    "female_share": 0.35,
+    "male_names": ["Matthias", "Friedhelm", "Jens", "Thomas", "Andreas", "Stefan", "Michael", "Markus", "Christian", "Tobias", "Florian", "Wolfgang", "Klaus", "Jürgen", "Dieter", "Hans-Peter", "Rainer", "Ulrich", "Bernd", "Dirk", "Holger", "Lars", "Sebastian", "Johannes", "Karl-Heinz", "Volker", "Reinhard", "Uwe"],
+    "female_names": ["Andrea", "Petra", "Sabine", "Claudia", "Katrin", "Susanne", "Ursula", "Monika", "Birgit", "Heike", "Anja", "Julia", "Kathrin", "Annette", "Martina", "Silke", "Franziska", "Annalena-Marie", "Dorothee", "Gabriele", "Christiane", "Brigitte", "Anke", "Stefanie"],
+    "family_names": ["Lehnhoff", "Strauch", "Kolbeck", "Brandauer", "Hellwig", "Kessler", "Lindemann", "Oberhauser", "Reinhardt", "Schellenberg", "Tiedemann", "Vogler", "Wendland", "Ziegler", "Baumgartner", "Dornbusch", "Eckhardt", "Falkenrath", "Gerlach", "Hartwig", "Imhof", "Jungmann", "Kranich", "Leutner", "Mahlberg", "Nordmann", "Pfeiffer", "Rautenberg", "Steinhauer", "Thalmann", "Ulbrich", "Wachtel", "Haberland", "Kirchhoff", "Brückner", "Sommerfeld", "Roth", "Engel", "Krämer", "Lorenz"]
+  }
+}

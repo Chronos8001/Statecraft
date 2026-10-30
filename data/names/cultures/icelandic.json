@@ -1,0 +1,11 @@
+{
+  "icelandic": {
+    "name_order": "given_first",
+    "party_style": "nordic",
+    "female_share": 0.45,
+    "male_names": ["Bjarni", "Sigurður", "Guðmundur", "Jón", "Einar", "Gunnar", "Kristján", "Ólafur", "Helgi", "Þórður", "Árni", "Hallgrímur"],
+    "female_names": ["Katrín", "Guðrún", "Sigríður", "Kristín", "Helga", "Ingibjörg", "Anna", "Þórdís", "Ragnheiður", "Hildur", "Steinunn", "Áslaug"],
+    "family_names": ["Gunnarsson", "Einarsson", "Magnússon", "Sveinsson", "Jónsson", "Sigurðsson", "Ólafsson", "Helgason", "Bjarnason", "Þórðarson", "Kristjánsson", "Hallsson"],
+    "female_family_names": ["Gunnarsdóttir", "Einarsdóttir", "Magnúsdóttir", "Sveinsdóttir", "Jónsdóttir", "Sigurðardóttir", "Ólafsdóttir", "Helgadóttir", "Bjarnadóttir", "Þórðardóttir", "Kristjánsdóttir", "Hallsdóttir"]
+  }
+}

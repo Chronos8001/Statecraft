@@ -1,0 +1,10 @@
+{
+  "italian": {
+    "name_order": "given_first",
+    "party_style": "italian",
+    "female_share": 0.3,
+    "male_names": ["Giuseppe", "Giovanni", "Antonio", "Marco", "Francesco", "Alessandro", "Luca", "Andrea", "Stefano", "Roberto", "Paolo", "Massimo", "Claudio", "Fabrizio", "Maurizio", "Sergio", "Enrico", "Gianluca", "Raffaele", "Vittorio", "Carlo", "Pierluigi", "Lorenzo", "Daniele"],
+    "female_names": ["Giulia", "Francesca", "Chiara", "Valentina", "Alessandra", "Elena", "Federica", "Silvia", "Paola", "Laura", "Daniela", "Simona", "Barbara", "Roberta", "Cristina", "Elisabetta", "Marta", "Lucia", "Anna Maria", "Mariastella"],
+    "family_names": ["Benedetti", "Caruso", "Colombo", "De Luca", "Esposito", "Ferraro", "Galli", "Lombardi", "Marchetti", "Moretti", "Pellegrini", "Rinaldi", "Romano", "Santoro", "Testa", "Vitale", "Barbieri", "Cattaneo", "Fontana", "Gentile", "Leone", "Martinelli", "Mazza", "Mantovani", "Parisi", "Ricci", "Sartori", "Serra", "Villa", "Bellini", "Donati", "Ferretti", "Guerra", "Orlandi", "Pagano", "Valentini"]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "nordic": {
+    "stopwords": ["och", "og", "for", "för"],
+    "names": {
+      "left": ["Vänsteralliansen", "Socialistisk Folkeforbund", "Rød Samling"],
+      "social_democrat": ["Socialdemokratiska Förbundet", "Arbeiderpartiet for Fellesskap", "Socialdemokratisk Forbund", "Jafnaðarbandalagið"],
+      "green": ["Gröna Förbundet", "Grønn Allianse", "Grønt Fremtid"],
+      "liberal": ["Liberala Förbundet", "Frisinnet Forbund", "Mittenalliansen", "Moderat Fremtid", "Frjálslynda Bandalagið"],
+      "conservative": ["Borgerliga Samlingen", "Konservativt Folkeforbund", "Høyre Samling", "Kristdemokratiska Förbundet", "Íhaldsbandalagið"],
+      "national": ["Folkets Parti", "Fremskrittsforbundet", "Danmarks Folkeforbund", "Sverigeförbundet"]
+    }
+  }
+}

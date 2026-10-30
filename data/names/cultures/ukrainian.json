@@ -1,0 +1,10 @@
+{
+  "ukrainian": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.3,
+    "male_names": ["Oleksandr", "Mykola", "Taras", "Bohdan", "Volodymyr", "Andrii", "Serhii", "Dmytro", "Yurii", "Oleh", "Vasyl", "Petro", "Ihor", "Roman", "Maksym", "Denys", "Ruslan", "Vitalii", "Mykhailo", "Stepan", "Kyrylo", "Ostap"],
+    "female_names": ["Iryna", "Oksana", "Nataliia", "Halyna", "Olena", "Tetiana", "Yuliia", "Svitlana", "Mariia", "Liudmyla", "Viktoriia", "Kateryna", "Olha", "Solomiia", "Khrystyna", "Larysa"],
+    "family_names": ["Kovalenko", "Bondarenko", "Tkachenko", "Kravchenko", "Oliinyk", "Shevchuk", "Polishchuk", "Lysenko", "Marchenko", "Savchenko", "Rudenko", "Moroz", "Melnychuk", "Petrenko", "Hrytsenko", "Kostenko", "Yaremchuk", "Danyliuk", "Hnatiuk", "Pavliuk", "Stetsenko", "Fedorenko", "Ostapchuk", "Sydorenko"]
+  }
+}

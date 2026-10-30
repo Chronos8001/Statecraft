@@ -1,0 +1,11 @@
+{
+  "portuguese": {
+    "name_order": "given_first",
+    "party_style": "portuguese",
+    "female_share": 0.3,
+    "family_name_count": 2,
+    "male_names": ["João", "José", "António", "Manuel", "Francisco", "Paulo", "Pedro", "Luís", "Carlos", "Rui", "Nuno", "Miguel", "Ricardo", "Fernando", "Sérgio", "Marcelo", "Rodrigo", "Gustavo", "Fábio", "Eduardo", "Augusto", "Vasco", "Joaquim", "Domingos", "Armindo", "Filipe"],
+    "female_names": ["Maria", "Ana", "Isabel", "Teresa", "Catarina", "Mariana", "Sofia", "Inês", "Beatriz", "Luísa", "Fernanda", "Cláudia", "Patrícia", "Raquel", "Helena", "Joana", "Tatiana", "Simone", "Luciana", "Marta", "Rosa", "Graça"],
+    "family_names": ["Almeida", "Antunes", "Barbosa", "Cardoso", "Carvalho", "Correia", "Costa", "Fonseca", "Gomes", "Lopes", "Machado", "Marques", "Martins", "Mendes", "Moreira", "Nogueira", "Pinto", "Ramos", "Ribeiro", "Rocha", "Sampaio", "Soares", "Tavares", "Teixeira", "Vieira", "Azevedo", "Brandão", "Coutinho", "Figueiredo", "Guimarães", "Leal", "Monteiro", "Pacheco", "Quaresma", "Sequeira", "Valadares"]
+  }
+}

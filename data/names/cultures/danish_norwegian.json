@@ -1,0 +1,10 @@
+{
+  "danish_norwegian": {
+    "name_order": "given_first",
+    "party_style": "nordic",
+    "female_share": 0.45,
+    "male_names": ["Lars", "Anders", "Henrik", "Rasmus", "Søren", "Morten", "Jakob", "Kristian", "Mads", "Thomas", "Ola", "Håkon", "Torbjørn", "Espen", "Eirik", "Knut", "Trond", "Sindre"],
+    "female_names": ["Mette", "Hanne", "Line", "Trine", "Camilla", "Ingvild", "Sigrid", "Ragnhild", "Kirsten", "Pernille", "Marianne", "Tone", "Siri", "Lise"],
+    "family_names": ["Halvorsen", "Bakke", "Haugland", "Lunde", "Strand", "Dahl", "Mikkelsen", "Kjær", "Lauridsen", "Thomsen", "Mortensen", "Dalsgaard", "Holm", "Bjerke", "Moen", "Aasen", "Riis", "Østergaard"]
+  }
+}

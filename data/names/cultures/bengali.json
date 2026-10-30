@@ -1,0 +1,10 @@
+{
+  "bengali": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.25,
+    "male_names": ["Mohammad", "Abdul", "Abul", "Mizanur", "Mahfuz", "Shafiqur", "Asif", "Salahuddin", "Rafiqul", "Anisul", "Kamal", "Jahangir", "Habibur", "Mostafa", "Tofail", "Shahidul", "Nurul", "Mahbub"],
+    "female_names": ["Rehana", "Sajeda", "Farida", "Nasrin", "Shirin", "Rumana", "Tahmina", "Salma", "Shamima", "Nasima", "Rokeya", "Sabina"],
+    "family_names": ["Rahman", "Hossain", "Islam", "Ahmed", "Chowdhury", "Uddin", "Alam", "Haque", "Karim", "Sarkar", "Mia", "Talukder", "Bhuiyan", "Mollah", "Siddique", "Majumder", "Khan", "Kabir", "Biswas", "Das"]
+  }
+}

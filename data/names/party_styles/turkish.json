@@ -1,0 +1,15 @@
+{
+  "turkish": {
+    "stopwords": ["ve"],
+    "names": {
+      "left": ["Emek Birliği", "Sol Birlik", "Halkın Kurtuluş Hareketi"],
+      "social_democrat": ["Halkçı Cumhuriyet Birliği", "Sosyal Demokrat Halk Birliği", "Toplumsal Demokrasi Hareketi", "Cumhuriyetçi Halk Cephesi"],
+      "green": ["Yeşil Gelecek Partisi"],
+      "liberal": ["Demokratik Yenilenme Birliği", "Atılım Hareketi", "Yeni Merkez Partisi"],
+      "conservative": ["Kalkınma ve Hizmet Birliği", "Milli Birlik Partisi", "Demokrat Halk Partisi", "Yeni Toplum Birliği"],
+      "national": ["Ülkü Birliği", "Vatan Cephesi", "Büyük Millet Partisi", "Milli Onur Hareketi"],
+      "power": ["Halk Birliği Partisi", "Milli Birlik Hareketi"],
+      "religious": ["İman ve Adalet Partisi", "Fazilet Hareketi"]
+    }
+  }
+}

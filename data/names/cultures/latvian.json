@@ -1,0 +1,11 @@
+{
+  "latvian": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.45,
+    "male_names": ["Jānis", "Andris", "Edgars", "Kārlis", "Raimonds", "Māris", "Aivars", "Valdis", "Artis", "Gatis", "Uldis", "Arturs"],
+    "female_names": ["Ilze", "Dace", "Inese", "Baiba", "Sandra", "Zanda", "Evija", "Liene", "Agnese", "Kristīne", "Ieva", "Līga"],
+    "family_names": ["Bērziņš", "Kalniņš", "Ozoliņš", "Liepiņš", "Krūmiņš", "Zariņš", "Vītols", "Kļaviņš", "Jansons", "Kalējs", "Lapiņš", "Siliņš"],
+    "female_family_names": ["Bērziņa", "Kalniņa", "Ozoliņa", "Liepiņa", "Krūmiņa", "Zariņa", "Vītola", "Kļaviņa", "Jansone", "Kalēja", "Lapiņa", "Siliņa"]
+  }
+}

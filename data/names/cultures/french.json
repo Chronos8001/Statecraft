@@ -1,0 +1,10 @@
+{
+  "french": {
+    "name_order": "given_first",
+    "party_style": "french",
+    "female_share": 0.35,
+    "male_names": ["Arnaud", "Thibault", "Maxime", "Julien", "Nicolas", "Olivier", "Laurent", "Philippe", "Christophe", "Sébastien", "Guillaume", "Antoine", "Benoît", "Frédéric", "Jérôme", "Mathieu", "Pascal", "Bertrand", "Didier", "Hervé", "Yannick", "Gilles", "Thierry", "Étienne", "Cédric", "Raphaël", "Alain", "Bernard"],
+    "female_names": ["Isabelle", "Nathalie", "Sophie", "Valérie", "Catherine", "Sandrine", "Céline", "Hélène", "Claire", "Agnès", "Élodie", "Aurélie", "Florence", "Laurence", "Christine", "Marion", "Juliette", "Delphine", "Véronique", "Anne-Laure", "Mathilde", "Pauline", "Brigitte", "Solène"],
+    "family_names": ["Delcourt", "Roussel", "Vasseur", "Lefèvre", "Morel", "Garnier", "Fontaine", "Chevalier", "Rousseau", "Faure", "Blanchard", "Mercier", "Gauthier", "Perrin", "Marchand", "Dumont", "Lemaire", "Bertin", "Carpentier", "Lacroix", "Duval", "Renaud", "Clément", "Moulin", "Barbier", "Lambert", "Arnoux", "Vidal", "Picard", "Leclerc", "Masson", "Guérin", "Brunet", "Hamon", "Tessier", "Charpentier", "Delmas", "Fabre", "Bonnet", "Courtois"]
+  }
+}

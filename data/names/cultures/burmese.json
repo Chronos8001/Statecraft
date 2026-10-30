@@ -1,0 +1,10 @@
+{
+  "burmese": {
+    "name_order": "given_first",
+    "party_style": "international",
+    "female_share": 0.1,
+    "male_names": ["Min", "Aung", "Kyaw", "Thein", "Than", "Soe", "Myint", "Zaw", "Htun", "Naing", "Win", "Tin"],
+    "female_names": ["Aye", "Khin", "Mya", "Nu", "Su", "Thandar", "Yin", "Ei"],
+    "family_names": ["Tun Oo", "Kyaw Swe", "Myo Thant", "Zaw Min", "Than Htay", "Thein Zaw", "Aung Naing", "Htay Win", "Kyaw Lwin", "Nyi Nyi", "Maung Maung", "Hla Tun", "Ko Ko", "Zeya Aung", "Thura Win", "Myat Thu"]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "japanese": {
+    "name_order": "family_first",
+    "party_style": "international",
+    "female_share": 0.15,
+    "male_names": ["Hiroshi", "Takashi", "Kenji", "Shinji", "Yoshiaki", "Katsuya", "Toshiyuki", "Kōji", "Masahiro", "Kazuo", "Tetsuo", "Yūsuke", "Hideo", "Akira", "Naoki", "Daisuke", "Yasuo", "Ryōta", "Shigeo", "Kenta", "Seiji", "Makoto"],
+    "female_names": ["Yōko", "Keiko", "Yumiko", "Sachiko", "Tomoko", "Noriko", "Kyōko", "Mayumi", "Chieko", "Akiko", "Michiko", "Haruka", "Naoko", "Emiko"],
+    "family_names": ["Takamura", "Kurosawa", "Morikawa", "Nishiyama", "Hayakawa", "Iwamoto", "Kanazawa", "Matsuoka", "Ōtsuka", "Sakaguchi", "Tsukamoto", "Yoshimura", "Fujisaki", "Hirano", "Ishikawa", "Kobayashi", "Murata", "Nakagawa", "Okamoto", "Shimizu", "Takeda", "Uchida", "Wada", "Yamaguchi", "Aoki", "Endō", "Hasegawa", "Inoue", "Kondō", "Maeda"]
+  }
+}
