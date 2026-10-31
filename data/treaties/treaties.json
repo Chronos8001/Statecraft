@@ -1,0 +1,16 @@
+{
+  "non_aggression": {"name_key": "TREATY_NON_AGGRESSION", "relation_bonus": 5, "break_relation": -20, "break_trust": -20,
+    "acceptance": {"base": 25, "relation": 0.5, "trust": 0.2, "min_relation": -40}},
+  "mutual_defense": {"name_key": "TREATY_MUTUAL_DEFENSE", "relation_bonus": 15, "break_relation": -40, "break_trust": -35,
+    "acceptance": {"base": -40, "relation": 0.6, "trust": 0.4, "power": 10, "same_regime": 10, "min_relation": 50}},
+  "free_trade": {"name_key": "TREATY_FREE_TRADE", "relation_bonus": 8, "break_relation": -15, "break_trust": -10,
+    "acceptance": {"base": 0, "relation": 0.5, "trust": 0.1, "trade": 150, "min_relation": 0}},
+  "military_cooperation": {"name_key": "TREATY_MILITARY_COOPERATION", "relation_bonus": 8, "break_relation": -15, "break_trust": -15,
+    "acceptance": {"base": -10, "relation": 0.6, "trust": 0.2, "power": 5, "min_relation": 20}},
+  "military_access": {"name_key": "TREATY_MILITARY_ACCESS", "relation_bonus": 5, "break_relation": -20, "break_trust": -15,
+    "acceptance": {"base": -30, "relation": 0.5, "trust": 0.3, "power": 10, "min_relation": 30}},
+  "intelligence_sharing": {"name_key": "TREATY_INTELLIGENCE_SHARING", "relation_bonus": 8, "break_relation": -20, "break_trust": -30,
+    "acceptance": {"base": -30, "relation": 0.5, "trust": 0.5, "same_regime": 10, "min_relation": 40}},
+  "open_border": {"name_key": "TREATY_OPEN_BORDER", "relation_bonus": 8, "break_relation": -15, "break_trust": -10,
+    "acceptance": {"base": -20, "relation": 0.5, "trust": 0.2, "wealth_gap": -15, "min_relation": 30}}
+}

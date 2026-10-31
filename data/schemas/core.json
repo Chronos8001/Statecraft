@@ -3739,5 +3739,127 @@
         }
       }
     }
+  },
+  "treaties": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "relation_bonus",
+        "break_relation",
+        "break_trust",
+        "acceptance"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^TREATY_[A-Z_]+$"
+        },
+        "relation_bonus": {
+          "type": "number"
+        },
+        "break_relation": {
+          "type": "number"
+        },
+        "break_trust": {
+          "type": "number"
+        },
+        "acceptance": {
+          "type": "object",
+          "values": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  },
+  "diplomacy": {
+    "type": "object",
+    "strict": true,
+    "required": [
+      "treaties",
+      "no_embassy",
+      "recognition"
+    ],
+    "properties": {
+      "treaties": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "list"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "min_items": 3,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "no_embassy": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "list"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "min_items": 2,
+              "items": {
+                "type": "string",
+                "ref": "countries"
+              }
+            }
+          }
+        }
+      },
+      "recognition": {
+        "type": "object",
+        "values": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "parent"
+          ],
+          "properties": {
+            "parent": {
+              "type": "string",
+              "ref": "countries"
+            },
+            "recognized_by": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "ref": "countries"
+              }
+            },
+            "not_recognized_by": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "ref": "countries"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
