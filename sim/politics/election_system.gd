@@ -122,8 +122,7 @@ static func hold_presidential(country: CountryState, state: SimState) -> void:
 	var politics := country.politics
 	var settings := settings_of(state)
 	var definitions: Dictionary = state.politics_definitions.get("parties", {})
-	var incumbent_party := str((state.politics_definitions.get("characters", {}) as Dictionary).get(
-		politics.head_of_state, {}).get("party", ""))
+	var incumbent_party := str(GovernmentSystem.character(state, politics.head_of_state).get("party", ""))
 	var result := {"kind": KIND_PRESIDENTIAL, "year": state.date.year, "month": state.date.month,
 		"government_changed": false}
 	var winner := incumbent_party
@@ -139,6 +138,8 @@ static func hold_presidential(country: CountryState, state: SimState) -> void:
 		var outcome := ElectionModel.presidential(scores, positions, politics.two_rounds, settings)
 		winner = str(outcome["winner"])
 		result["rounds"] = outcome["rounds"]
+		if not winner.is_empty() and winner == incumbent_party and term_limited(politics):
+			_install_successor(country, state, winner)
 		if not winner.is_empty() and winner != incumbent_party:
 			var leader := str((definitions.get(winner, {}) as Dictionary).get("leader", ""))
 			if not leader.is_empty():
@@ -182,6 +183,7 @@ static func apply_government(country: CountryState, state: SimState, government:
 		var change := float(affinity.get(new_ruling.party_group, 0.0)) - float(affinity.get(old_group, 0.0))
 		society.start_satisfaction[group_id] = float(society.start_satisfaction[group_id]) + change
 	politics.ideology = new_ruling.ideology
+	GovernmentSystem.form_cabinet(country, state)
 	if politics.executive == PoliticsState.EXECUTIVE_PARLIAMENTARY:
 		var leader := str((state.politics_definitions.get("parties", {}) as Dictionary).get(new_ruling.id, {}).get(
 			"leader", ""))
@@ -216,6 +218,21 @@ static func _largest_party(politics: PoliticsState) -> String:
 static func _add_months(year: int, month: int, months: int) -> Array[int]:
 	var index := year * MONTHS_PER_YEAR + month - 1 + months
 	return [index / MONTHS_PER_YEAR, index % MONTHS_PER_YEAR + 1]
+
+
+## Le parti du président sortant garde la présidence avec un nouveau candidat.
+static func _install_successor(country: CountryState, state: SimState, party_id: String) -> void:
+	var politics := country.politics
+	var successor := GovernmentModel.make_character(state, country, party_id, "%s|president|%d|%d" % [country.tag,
+		state.date.year, state.date.month])
+	if successor.is_empty():
+		return
+	var character_id := "%s%d" % [GovernmentSystem.CHARACTER_PREFIX, state.next_character_id]
+	state.next_character_id += 1
+	state.characters[character_id] = successor
+	if politics.head_of_government == politics.head_of_state and politics.executive == PoliticsState.EXECUTIVE_PRESIDENTIAL:
+		politics.head_of_government = character_id
+	politics.head_of_state = character_id
 
 
 ## Le président en place ne peut pas se représenter.

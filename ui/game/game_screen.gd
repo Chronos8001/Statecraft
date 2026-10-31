@@ -37,6 +37,7 @@ var _notification_timer: SceneTreeTimer
 @onready var _society_panel: SocietyPanel = %SocietyPanel
 @onready var _politics_panel: PoliticsPanel = %PoliticsPanel
 @onready var _laws_panel: LawsPanel = %LawsPanel
+@onready var _government_panel: GovernmentPanel = %GovernmentPanel
 
 
 func _ready() -> void:
@@ -66,6 +67,7 @@ func _ready() -> void:
 	_top_bar.society_requested.connect(_society_panel.toggle)
 	_top_bar.politics_requested.connect(_politics_panel.toggle)
 	_top_bar.laws_requested.connect(_laws_panel.toggle)
+	_top_bar.government_requested.connect(_government_panel.toggle)
 	EventBus.sim_event_raised.connect(_on_sim_event)
 	EventBus.month_passed.connect(_on_month_passed)
 	EventBus.command_executed.connect(func(_command: Command) -> void: _refresh_live_map_mode())
@@ -93,7 +95,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		var panels: Array[InfoPanel] = [_info_panel, _country_panel, _economy_panel, _budget_panel, _markets_panel,
 			_trade_panel, _energy_panel, _investment_panel, _society_panel,
-			_politics_panel, _laws_panel]
+			_politics_panel, _laws_panel, _government_panel]
 		if panels.any(func(panel: InfoPanel) -> bool: return panel.visible):
 			for panel: InfoPanel in panels:
 				panel.close()
@@ -245,6 +247,12 @@ func _on_sim_event(event: Dictionary) -> void:
 			var law: Dictionary = (GameState.sim.politics_definitions.get("laws", {}) as Dictionary).get(str(event.get("law", "")), {})
 			var key := "NOTIFY_LAW_PASSED" if event.get("type") == ChangeLawCommand.EVENT_LAW_PASSED else "NOTIFY_LAW_REJECTED"
 			_notify(tr(key) % tr(str(law.get("name_key", ""))))
+		GovernmentSystem.EVENT_SCANDAL, GovernmentSystem.EVENT_RESIGNATION:
+			var portfolio: Dictionary = (GameState.sim.politics_definitions.get("portfolios", {}) as Dictionary).get(
+				str(event.get("portfolio", "")), {})
+			var key := "NOTIFY_MINISTER_SCANDAL" if event.get("type") == GovernmentSystem.EVENT_SCANDAL \
+				else "NOTIFY_MINISTER_RESIGNED"
+			_notify(tr(key) % tr(str(portfolio.get("name_key", ""))))
 		PoliticsSystem.EVENT_PROMISE:
 			var group := DataLoader.get_entry("social_groups", str(event.get("group", "")))
 			var key := "NOTIFY_PROMISE_KEPT" if str(event.get("outcome", "")) == "kept" else "NOTIFY_PROMISE_BROKEN"

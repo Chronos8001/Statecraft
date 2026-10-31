@@ -186,8 +186,11 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Limites de mandats réelles (un, deux ou aucun) : un président sortant qui ne peut se représenter perd l'avantage du sortant
 - [x] État d'urgence de six mois : stabilité en hausse, croissance en baisse, légitimité qui s'use, élections repoussées
 
-**5f. Gouvernement**
-- [ ] Ministres (compétence, loyauté, idéologie, corruption), remaniements, scandales
+**5f. Gouvernement** (en test)
+- [x] 8 portefeuilles ; ministres créés pour chaque pays (compétence, loyauté, idéologie, corruption), répartis entre les partis du gouvernement selon leurs sièges
+- [x] Compétence → croissance, stabilité, légitimité, corruption, groupes sociaux (par rapport au cabinet de départ) ; corruption des ministres → corruption du pays
+- [x] Remaniement parmi trois candidats ; nouveau cabinet après une alternance ; successeur quand le président ne peut pas se représenter
+- [x] Scandales des ministres corrompus et démissions des moins loyaux
 
 **5g. Crises**
 - [ ] Grèves, manifestations, émeutes, coups d'État, guerre civile

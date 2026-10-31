@@ -33,7 +33,10 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 - Constitution : réformes des mandats, du mode de scrutin, du seuil et de la forme du pouvoir (2/3 de la chambre ou référendum), limites de mandats présidentiels réelles, état d'urgence.
 
+- Gouvernement : huit ministres par pays (compétence, loyauté, corruption), remaniements, scandales et démissions ; panneau Ministres.
+
 ### Modifié
+- Libellés raccourcis dans la barre supérieure (Entreprises, Ministres).
 - La fiche pays et le mode de carte des idéologies suivent les changements de gouvernement.
 - Les effets du budget sur la stabilité et les groupes sociaux s'appliquent désormais.
 - La barre supérieure masque les indicateurs qui ne sont pas encore calculés.

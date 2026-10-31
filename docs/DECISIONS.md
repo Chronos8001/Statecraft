@@ -111,3 +111,6 @@
 | 2026-10-31 | Réformes constitutionnelles décrites comme des lois (options, positions) avec une valeur appliquée au système politique ; 2/3 des sièges ou référendum | Réutilise le vote des lois | Système à part |
 | 2026-10-31 | Référendum : les électeurs de chaque parti suivent sa position (0 à 100 % de oui), plus 0,3 point par point de soutien populaire au-dessus de 50 | Résultat lisible et lié à la popularité du pouvoir | Vote par groupe social |
 | 2026-10-31 | État d'urgence : +8 de stabilité visée, -0,3 point de croissance, -0,8 de légitimité par mois en démocratie, élections repoussées | Outil de crise utile mais coûteux | Pas de durée maximale |
+| 2026-10-31 | Ministres et successeurs créés par la simulation (générateur de noms, graine de la partie) et rangés dans l'état de la partie | Reproductible, sauvegardable, sans gonfler les données | Ministres écrits dans les données |
+| 2026-10-31 | Candidats calculés à la demande à partir d'un compteur par pays : les mêmes tant que personne n'est nommé | L'interface peut les afficher sans modifier la partie | Liste de candidats stockée |
+| 2026-10-31 | Effets du cabinet mesurés par rapport au cabinet de départ ; scandale = 0,4 %/mois × corruption / 50 × presse | Neutre au départ, la corruption a un coût visible | Effets absolus |

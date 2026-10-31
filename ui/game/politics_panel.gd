@@ -108,13 +108,12 @@ func _fill_summary(politics: PoliticsState) -> void:
 			NumberFormat.integer(politics.seats, locale)])
 		_add_row(_summary_grid, "POLITICS_GOVERNMENT_POLL", tr("ECONOMY_PERCENT_VALUE")
 			% NumberFormat.decimal(politics.government_poll(), 1, locale))
-	var characters := DataLoader.repository.resolve_ref("names#characters")
 	var cultures := DataLoader.get_category("names/cultures")
-	_add_row(_summary_grid, "POLITICS_HEAD_OF_STATE", NameGenerator.full_name(characters.get(politics.head_of_state, {}),
-		cultures))
+	_add_row(_summary_grid, "POLITICS_HEAD_OF_STATE", NameGenerator.full_name(
+		GovernmentSystem.character(GameState.sim, politics.head_of_state), cultures))
 	if politics.head_of_government != politics.head_of_state:
 		_add_row(_summary_grid, "POLITICS_HEAD_OF_GOVERNMENT", NameGenerator.full_name(
-			characters.get(politics.head_of_government, {}), cultures))
+			GovernmentSystem.character(GameState.sim, politics.head_of_government), cultures))
 	_add_row(_summary_grid, "POLITICS_SYSTEM", _system_text(politics, locale))
 	_add_row(_summary_grid, "POLITICS_LAST_ELECTION", _date_text(politics.election_year, politics.election_month))
 	if politics.suspended:

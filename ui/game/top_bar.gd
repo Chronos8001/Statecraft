@@ -11,6 +11,7 @@ signal investment_requested
 signal society_requested
 signal politics_requested
 signal laws_requested
+signal government_requested
 
 const TREASURY_INDEX := 0
 const STABILITY_INDEX := 1
@@ -41,6 +42,7 @@ var _stat_values: Array[Label] = []
 @onready var _society_button: Button = %SocietyButton
 @onready var _politics_button: Button = %PoliticsButton
 @onready var _laws_button: Button = %LawsButton
+@onready var _government_button: Button = %GovernmentButton
 
 
 func _ready() -> void:
@@ -56,6 +58,7 @@ func _ready() -> void:
 	_society_button.pressed.connect(func() -> void: society_requested.emit())
 	_politics_button.pressed.connect(func() -> void: politics_requested.emit())
 	_laws_button.pressed.connect(func() -> void: laws_requested.emit())
+	_government_button.pressed.connect(func() -> void: government_requested.emit())
 	EventBus.month_passed.connect(func(_date: GameDate) -> void: _update_country())
 	EventBus.command_executed.connect(func(_command: Command) -> void: _update_country())
 	EventBus.hour_passed.connect(func(_date: GameDate) -> void: _update_date())

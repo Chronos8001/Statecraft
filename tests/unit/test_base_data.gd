@@ -14,7 +14,7 @@ const MIN_PROVINCE_COUNT := 4000
 const LOCALIZATION_DIR := "res://data/localization"
 const TRANSLATED_CATEGORIES := ["countries", "provinces", "sea_zones", "straits", "ideologies", "regimes",
 	"terrains", "resources", "traits", "challenges", "economy_sectors", "budget_taxes", "budget_spending",
-	"social_groups", "trade_agreements", "energy_sources", "buildings", "laws", "constitution"]
+	"social_groups", "trade_agreements", "energy_sources", "buildings", "laws", "constitution", "portfolios"]
 const MIN_SEA_ZONE_COUNT := 150
 
 const LocalizationScript := preload("res://core/localization/localization.gd")
@@ -351,9 +351,15 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 			"provinces": GameState.country_provinces(_repository.get_category("provinces")),
 			"laws": _repository.get_category("laws"),
 			"constitution": _repository.get_category("constitution"),
+			"portfolios": _repository.get_category("portfolios"),
+			"names": {"cultures": _repository.get_category("names/cultures"),
+				"party_styles": _repository.get_category("names/party_styles"),
+				"ideologies": _repository.get_category("ideologies"), "traits": _repository.get_category("traits"),
+				"settings": _repository.get_value("defines", "characters", {})},
 			"settings": _repository.get_value("defines", "politics", {})})
 	var investment_system := InvestmentSystem.new()
 	var society_system := SocietySystem.new()
+	var government_system := GovernmentSystem.new()
 	var politics_system := PoliticsSystem.new()
 	var election_system := ElectionSystem.new()
 	var energy_system := EnergySystem.new()
@@ -371,6 +377,7 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 		investment_system.on_month(state)
 		budget_system.on_month(state)
 		system.on_month(state)
+		government_system.on_month(state)
 		society_system.on_month(state)
 		politics_system.on_month(state)
 		election_system.on_month(state)

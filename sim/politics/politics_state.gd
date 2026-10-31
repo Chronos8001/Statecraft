@@ -29,6 +29,8 @@ var democratic: bool = false
 var executive: String = EXECUTIVE_PARLIAMENTARY
 ## Régime politique en cours (identifiant de data/regimes), modifiable par une réforme constitutionnelle.
 var regime: String = ""
+## Culture des noms du pays (ministres, successeurs).
+var culture: String = ""
 ## Nombre de mandats présidentiels autorisés (0 : pas de limite) et mandats déjà accomplis par le président.
 var term_limit: int = 0
 var terms_served: int = 1

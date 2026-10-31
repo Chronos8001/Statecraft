@@ -720,3 +720,11 @@ CONSTITUTION_EXECUTIVE,Form of government,Forme du pouvoir exécutif
 CONSTITUTION_EXECUTIVE_PARLIAMENTARY,Parliamentary,Parlementaire
 CONSTITUTION_EXECUTIVE_SEMI_PRESIDENTIAL,Semi-presidential,Semi-présidentiel
 CONSTITUTION_EXECUTIVE_PRESIDENTIAL,Presidential,Présidentiel
+PORTFOLIO_FINANCE,Finance,Finances
+PORTFOLIO_INTERIOR,Interior,Intérieur
+PORTFOLIO_FOREIGN,Foreign affairs,Affaires étrangères
+PORTFOLIO_DEFENSE,Defence,Défense
+PORTFOLIO_JUSTICE,Justice,Justice
+PORTFOLIO_HEALTH,Health,Santé
+PORTFOLIO_EDUCATION,Education,Éducation
+PORTFOLIO_ENVIRONMENT,Environment,Environnement
