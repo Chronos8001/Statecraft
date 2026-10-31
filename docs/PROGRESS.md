@@ -152,15 +152,24 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Une stabilité en baisse freine la croissance
 - [x] Panneau Société, stabilité et soutien dans la barre supérieure, modes de carte « Stabilité » et « Soutien populaire »
 
-**5b. Partis, parlements, sondages** (en test)
+**5b. Partis, parlements, sondages** (validée le 2026-10-31)
 - [x] Chambre basse des 199 pays : composition réelle au 1er janvier 2026 pour 67 pays (sièges, dernier scrutin, sondages), règles pour les autres ; chambres sans partis, dissoutes ou de façade
 - [x] 528 partis d'opposition fictifs avec leur chef (`tools/parliament_gen/`), gouvernements et coalitions réels
 - [x] Sondages mensuels : chaque parti puise dans les groupes sociaux proches de ses idées, le gouvernement suit la satisfaction de ses électeurs ; calés sur les sondages de janvier 2026
 - [x] Sondages non publiés dans les régimes non démocratiques (opinion estimée par le pouvoir)
 - [x] Panneau Politique : hémicycle, gouvernement majoritaire ou minoritaire, partis, chefs, sièges, scores et tendances
 
-**5c. Élections**
-- [ ] Calendrier réel, campagnes, résultats par région, fraude
+**5c1. Élections** (en test)
+- [x] Calendrier réel : prochaines législatives et présidentielles connues au 1er janvier 2026 (Portugal, Hongrie, Colombie, Brésil, États-Unis…), sinon fin du mandat ; élections suspendues en Ukraine
+- [x] Mode de scrutin réel : proportionnelle (D'Hondt et seuil), majoritaire (prime au premier par province), mixte
+- [x] Résultats par province (villes et campagnes, penchants locaux), mode de carte « Parti en tête »
+- [x] Formation du gouvernement : majorité sortante, sinon coalition des partis proches ; cordon sanitaire (Allemagne, France, Belgique, Autriche)
+- [x] Présidentielle à un ou deux tours, reports de voix selon la proximité ; le président forme le gouvernement en régime présidentiel
+- [x] Alternance : nouveaux dirigeants, idéologie au pouvoir, attentes des groupes sociaux ; le joueur garde son pays
+- [x] Scrutins de façade dans les régimes non démocratiques ; élections anticipées (dissolution)
+
+**5c2. Campagne et fraude**
+- [ ] Budget de campagne, meetings, promesses ; fraude avec risque de scandale
 
 **5d. Lois**
 - [ ] Catalogue de 80+ lois, vote au parlement

@@ -20,7 +20,14 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Panneau Politique (bouton dans la barre supérieure) : hémicycle, majorité du gouvernement, partis, chefs, sièges, dernier scrutin et sondages.
 - Outil de génération des parlements et des partis d'opposition (`tools/parliament_gen/`).
 
+- Élections législatives et présidentielles au calendrier réel, avec le mode de scrutin de chaque pays (proportionnelle avec seuil, majoritaire, mixte) et des résultats par province.
+- Formation du gouvernement après les législatives (majorité sortante ou coalition des partis proches, cordon sanitaire dans quatre pays) ; présidentielles à un ou deux tours avec reports de voix.
+- Alternance : nouveaux dirigeants, nouvelle idéologie au pouvoir, attentes des groupes sociaux revues ; le joueur garde la main sur son pays.
+- Élections anticipées (dissolution de la chambre basse) ; scrutins de façade dans les régimes non démocratiques.
+- Mode de carte « Parti en tête » ; calendrier, mode de scrutin et dernier résultat dans le panneau Politique ; notifications des élections.
+
 ### Modifié
+- La fiche pays et le mode de carte des idéologies suivent les changements de gouvernement.
 - Les effets du budget sur la stabilité et les groupes sociaux s'appliquent désormais.
 - La barre supérieure masque les indicateurs qui ne sont pas encore calculés.
 

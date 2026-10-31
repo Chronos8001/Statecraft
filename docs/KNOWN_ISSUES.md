@@ -46,5 +46,8 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Le panneau Société recouvre la légende de la carte. | 13 | Ouvert |
 | 🟢 | Parlements : 132 pays sur règles (taille, majorité, opposition et date du dernier scrutin estimées) ; pour les 67 pays saisis, sièges arrondis et petits partis regroupés ; sondages de janvier 2026 saisis pour une vingtaine de pays seulement. Pas encore de chambre haute. | 5b | Ouvert |
 | 🟢 | Les sondages incluant des indécis sont ramenés à 100 % (au Japon, le parti au pouvoir part à 44 %). | 5b | Ouvert |
-| 🟢 | Le Chili garde sa chambre sortante jusqu'en mars 2026 alors que les élections de novembre 2025 ont eu lieu ; les chambres dissoutes attendent les élections (5c). | 5c | Ouvert |
+| 🟢 | Le Chili garde sa chambre et son gouvernement sortants (élections de novembre et décembre 2025 non reprises). | 5c1 | Ouvert |
+| 🟢 | Scrutin à deux tours (France) traité comme un scrutin majoritaire à un tour : pas de front républicain, le premier parti peut obtenir une large majorité. | 5c1 | Ouvert |
+| 🟢 | Peu d'alternances (une cinquantaine en 10 ans dans le monde) : les sondages bougent peu sans action du joueur ; à revoir avec la campagne (5c2) et les crises (5g). | 5c1 | Ouvert |
+| 🟢 | En régime présidentiel, le nouveau président gouverne avec son seul parti (pas de coalition présidentielle). | 5c1 | Ouvert |
 
