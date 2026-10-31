@@ -50,6 +50,11 @@ var resource_inflation: float = 0.0
 ## Valeur de la production de ressources par rapport à la normale (1 au départ) : indexe les taxes
 ## sur les ressources.
 var resource_price_index: float = 1.0
+## Effets du commerce (surtaxes, embargos, accords quittés) : points de croissance et d'inflation,
+## recettes douanières supplémentaires en % du PIB. Recopiés par TradeSystem.
+var trade_growth: float = 0.0
+var trade_inflation: float = 0.0
+var trade_customs: float = 0.0
 
 ## Note souveraine (indice dans CreditRating) et écart propre au pays, calé au départ.
 var rating: int = 0

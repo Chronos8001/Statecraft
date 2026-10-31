@@ -13,6 +13,8 @@ var consumption: Dictionary = {}
 var blocked_share: Dictionary = {}
 ## Part des besoins non couverte à cause du prix (0 à 1) : lue par les chaînes d'approvisionnement.
 var shortage: Dictionary = {}
+## Part des achats qui venait de fournisseurs sous embargo (0 à 1), par ressource.
+var embargo_premium: Dictionary = {}
 var water_renewable: float = 0.0
 var water_withdrawal_ratio: float = 0.0
 

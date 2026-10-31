@@ -22,6 +22,9 @@ var markets: Dictionary = {}
 var closed_straits: Dictionary = {}
 ## Routes des détroits, chaînes d'approvisionnement des secteurs et réglages : {straits, sectors, settings}.
 var resource_definitions: Dictionary = {}
+var trade: TradeState = TradeState.new()
+## Section « trade » de defines.json.
+var trade_settings: Dictionary = {}
 ## Événements de simulation du dernier tick ({type, tag, …}), transmis à l'interface puis vidés.
 var events: Array[Dictionary] = []
 

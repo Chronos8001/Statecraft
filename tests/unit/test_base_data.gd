@@ -14,7 +14,7 @@ const MIN_PROVINCE_COUNT := 4000
 const LOCALIZATION_DIR := "res://data/localization"
 const TRANSLATED_CATEGORIES := ["countries", "provinces", "sea_zones", "straits", "ideologies", "regimes",
 	"terrains", "resources", "traits", "challenges", "economy_sectors", "budget_taxes", "budget_spending",
-	"social_groups"]
+	"social_groups", "trade_agreements"]
 const MIN_SEA_ZONE_COUNT := 150
 
 const LocalizationScript := preload("res://core/localization/localization.gd")
@@ -339,15 +339,19 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 	var resource_definitions := {"straits": _repository.get_category("straits"),
 		"sectors": _repository.get_category("economy_sectors"),
 		"settings": _repository.get_value("defines", "resources", {})}
+	var trade_definitions := {"agreements": _repository.get_category("trade_agreements"),
+		"settings": _repository.get_value("defines", "trade", {})}
 	WorldSetup.populate(state, _repository.get_category("countries"), _repository.get_category("currencies"), settings,
-		budget_definitions, _repository.get_category("resources"), resource_definitions)
+		budget_definitions, _repository.get_category("resources"), resource_definitions, trade_definitions)
 	var resource_system := ResourceSystem.new()
+	var trade_system := TradeSystem.new()
 	var budget_system := BudgetSystem.new()
 	var system := EconomySystem.new(_repository.get_category("economy_sectors"))
 	var crises := 0
 	for month: int in 120:
 		state.date.month = month % 12 + 1
 		resource_system.on_month(state)
+		trade_system.on_month(state)
 		budget_system.on_month(state)
 		system.on_month(state)
 		for event: Dictionary in state.events:
@@ -409,3 +413,22 @@ func test_resources_are_consistent() -> void:
 	assert_gt(producing_provinces, 500, "provinces productrices")
 	assert_true((countries["SAU"]["resources"] as Dictionary).has("oil"))
 	assert_true((countries["COD"]["resources"] as Dictionary).has("cobalt"))
+
+
+func test_trade_is_consistent() -> void:
+	var countries := _repository.get_category("countries")
+	for tag: String in countries.keys():
+		var partners: Dictionary = countries[tag]["trade"]["partners"]
+		assert_false(partners.has(tag), "%s commerce avec lui-même" % tag)
+		if tag != "VAT":
+			assert_gt(partners.size(), 0, "partenaires de %s" % tag)
+	var mexico: Dictionary = countries["MEX"]["trade"]["partners"]
+	var best := ""
+	for partner: String in mexico.keys():
+		if best.is_empty() or float(mexico[partner]) > float(mexico[best]):
+			best = partner
+	assert_eq(best, "USA", "premier client du Mexique")
+	var agreements := _repository.get_category("trade_agreements")
+	assert_true((agreements["eu_single_market"]["members"] as Array).has("FRA"))
+	assert_true((agreements["usmca"]["members"] as Array).has("MEX"))
+	assert_true((countries["USA"]["trade"]["surcharges"] as Dictionary).has("CHN"), "surtaxes de 2026")
