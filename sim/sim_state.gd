@@ -33,8 +33,16 @@ var projects: Array[Dictionary] = []
 var next_project_id: int = 0
 ## Section « investment » de defines.json.
 var investment_settings: Dictionary = {}
+## Groupes sociaux, régimes, idéologies et réglages de la société : {groups, regimes, ideologies, settings}.
+var society_definitions: Dictionary = {}
+## Partis (names#parties) et réglages de la vie politique : {parties, settings}.
+var politics_definitions: Dictionary = {}
 ## Section « trade » de defines.json.
 var trade_settings: Dictionary = {}
+## Personnages créés pendant la partie (ministres, successeurs) : identifiant → personnage.
+var characters: Dictionary = {}
+var next_character_id: int = 0
+var next_crisis_id: int = 0
 ## Événements de simulation du dernier tick ({type, tag, …}), transmis à l'interface puis vidés.
 var events: Array[Dictionary] = []
 

@@ -106,6 +106,34 @@ tooltip_text = "TOPBAR_INVESTMENT_TOOLTIP"
 focus_mode = 0
 text = "TOPBAR_INVESTMENT"
 
+[node name="SocietyButton" type="Button" parent="Row"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "TOPBAR_SOCIETY_TOOLTIP"
+focus_mode = 0
+text = "TOPBAR_SOCIETY"
+
+[node name="PoliticsButton" type="Button" parent="Row"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "TOPBAR_POLITICS_TOOLTIP"
+focus_mode = 0
+text = "TOPBAR_POLITICS"
+
+[node name="LawsButton" type="Button" parent="Row"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "TOPBAR_LAWS_TOOLTIP"
+focus_mode = 0
+text = "TOPBAR_LAWS"
+
+[node name="GovernmentButton" type="Button" parent="Row"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "TOPBAR_GOVERNMENT_TOOLTIP"
+focus_mode = 0
+text = "TOPBAR_GOVERNMENT"
+
 [node name="Spacer" type="Control" parent="Row"]
 layout_mode = 2
 size_flags_horizontal = 3

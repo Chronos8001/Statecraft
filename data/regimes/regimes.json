@@ -1,12 +1,12 @@
 {
-  "parliamentary_republic":    { "name_key": "REGIME_PARLIAMENTARY_REPUBLIC",    "democratic": true },
-  "presidential_republic":     { "name_key": "REGIME_PRESIDENTIAL_REPUBLIC",     "democratic": true },
-  "semi_presidential_republic": { "name_key": "REGIME_SEMI_PRESIDENTIAL_REPUBLIC", "democratic": true },
-  "constitutional_monarchy":   { "name_key": "REGIME_CONSTITUTIONAL_MONARCHY",   "democratic": true },
-  "absolute_monarchy":         { "name_key": "REGIME_ABSOLUTE_MONARCHY",         "democratic": false },
-  "authoritarian":             { "name_key": "REGIME_AUTHORITARIAN",             "democratic": false },
-  "one_party_state":           { "name_key": "REGIME_ONE_PARTY_STATE",           "democratic": false },
-  "theocracy":                 { "name_key": "REGIME_THEOCRACY",                 "democratic": false },
-  "military_junta":            { "name_key": "REGIME_MILITARY_JUNTA",            "democratic": false },
-  "failed_state":              { "name_key": "REGIME_FAILED_STATE",              "democratic": false }
+  "parliamentary_republic": {"name_key": "REGIME_PARLIAMENTARY_REPUBLIC", "democratic": true, "group_influence": {}},
+  "presidential_republic": {"name_key": "REGIME_PRESIDENTIAL_REPUBLIC", "democratic": true, "group_influence": {}},
+  "semi_presidential_republic": {"name_key": "REGIME_SEMI_PRESIDENTIAL_REPUBLIC", "democratic": true, "group_influence": {}},
+  "constitutional_monarchy": {"name_key": "REGIME_CONSTITUTIONAL_MONARCHY", "democratic": true, "group_influence": {}},
+  "absolute_monarchy": {"name_key": "REGIME_ABSOLUTE_MONARCHY", "democratic": false, "group_influence": {"elites": 2.0, "religious": 1.5, "military": 1.5, "workers": 0.5, "youth": 0.5}, "legitimacy": 60.0},
+  "authoritarian": {"name_key": "REGIME_AUTHORITARIAN", "democratic": false, "group_influence": {"elites": 1.5, "military": 2.5, "workers": 0.6, "youth": 0.5, "minorities": 0.5}, "legitimacy": 45.0},
+  "one_party_state": {"name_key": "REGIME_ONE_PARTY_STATE", "democratic": false, "group_influence": {"military": 2.0, "elites": 1.2, "youth": 0.5, "minorities": 0.4}, "legitimacy": 55.0},
+  "theocracy": {"name_key": "REGIME_THEOCRACY", "democratic": false, "group_influence": {"religious": 4.0, "military": 1.5, "youth": 0.4, "minorities": 0.3}, "legitimacy": 40.0},
+  "military_junta": {"name_key": "REGIME_MILITARY_JUNTA", "democratic": false, "group_influence": {"military": 5.0, "elites": 1.5, "youth": 0.4, "workers": 0.5}, "legitimacy": 25.0},
+  "failed_state": {"name_key": "REGIME_FAILED_STATE", "democratic": false, "group_influence": {"military": 3.0, "minorities": 1.5}, "legitimacy": 15.0}
 }

@@ -12,14 +12,13 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Terrain estimé (régions géographiques + latitude). | 1 | Ouvert |
 | 🟢 | Quelques noms français de Natural Earth sont approximatifs ; corrections possibles dans `tools/map_gen/config.json`. | 1 | Ouvert |
 | 🟢 | La carte demande une carte graphique acceptant les textures 16384 px et ~270 Mo de mémoire vidéo ; chargement ~3 s, rechargée à chaque nouvelle partie. | 1 | Ouvert |
-| 🟢 | Modes relations et stabilité neutres ; ressources vides. Ils se rempliront avec les étapes 4c, 5 et 6. | 4–6 | Ouvert |
+| 🟢 | Mode relations neutre ; il se remplira avec la diplomatie. | 6 | Ouvert |
 | 🟢 | Les noms de pays voisins peuvent se chevaucher (pas encore d'évitement des collisions). | 13 | Ouvert |
 | 🟢 | En zoom maximal, les contours suivent la précision de l'image (~2 km par pixel) : lissés mais encore un peu anguleux. | 1 | Ouvert |
 | 🟢 | Secteurs d'océan de tailles inégales ; rives du détroit de Taïwan trop larges (provinces de l'intérieur incluses). | 1 | Ouvert |
-| 🟢 | Les ressources de la barre supérieure (trésorerie, stabilité, soutien, puissance militaire, influence) affichent « — » jusqu'aux étapes économie, politique, militaire et diplomatie. | 4–7 | Ouvert |
+| 🟢 | Puissance militaire et influence masquées dans la barre supérieure jusqu'aux étapes militaire et diplomatie. | 6–7 | Ouvert |
 | 🟢 | Population de l'Ukraine (28,7 millions, territoire contrôlé) répartie aussi sur les provinces occupées ; PIB et dette estimés pour quelques pays sans source (Corée du Nord, Somaliland, Chypre du Nord, Syrie…). | 3 | Ouvert |
 | 🟢 | Pas encore de portraits des personnages (portraits génériques prévus avec l'interface). | 13 | Ouvert |
-| 🟢 | Seuls les partis au pouvoir et leurs partenaires existent ; l'opposition, les scores et les sondages arrivent avec la politique intérieure. | 5 | Ouvert |
 | 🟢 | Une seule culture de noms par pays : les pays multilingues (Belgique, Suisse, Bosnie-Herzégovine…) ont des noms d'une seule langue. Les noms de partis génériques (style international) se répètent d'un pays à l'autre. | 3 | Ouvert |
 | 🟢 | Années de naissance approximatives pour quelques dirigeants peu documentés (Tonga, Saint-Marin, Burundi, Guinée-Bissau…) ; gouvernements de transition au 1er janvier 2026 (Pays-Bas, Bulgarie, Thaïlande, Kosovo) à revérifier. | 3 | Ouvert |
 | 🟢 | Drapeaux tous au format 4:3 : les proportions officielles (Suisse carrée, Qatar allongé, Népal) ne sont pas respectées. Un nouveau drapeau demande d'activer les mipmaps dans son fichier `.import`. | 3 | Ouvert |
@@ -42,3 +41,18 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟠 | Un mois de simulation prend environ 340 ms (marché des ressources, budget, électricité) : à-coup sensible en vitesse maximale ; calculs à étaler sur plusieurs images ou fils de calcul. | 15 | Ouvert |
 | 🟢 | Parts publiques en partie estimées par des règles ; les pays de l'IA ne nationalisent ni ne privatisent (étape 12). Les effets sur les groupes sociaux sont décrits mais appliqués à l'étape 5. | 4d2 | Ouvert |
 | 🟢 | Fonds souverains : rendement fixe, pas encore de placements ciblés par pays (diplomatie, étape 6). | 6 | Ouvert |
+| 🟢 | Société estimée : parts des groupes calculées par règles ; popularité saisie pour 30 grands pays seulement ; place de la religion estimée pour une quarantaine de pays absents de l'enquête Gallup ; micro-États souvent sur valeurs par défaut. | 5a | Ouvert |
+| 🟢 | Sans action du joueur, la stabilité dérive encore jusqu'à ±14 points en 10 ans dans quelques pays (Timor oriental, Angola, Palestine) sous l'effet de l'économie. | 5a | Ouvert |
+| 🟢 | Le panneau Société recouvre la légende de la carte. | 13 | Ouvert |
+| 🟢 | Parlements : 132 pays sur règles (taille, majorité, opposition et date du dernier scrutin estimées) ; pour les 67 pays saisis, sièges arrondis et petits partis regroupés ; sondages de janvier 2026 saisis pour une vingtaine de pays seulement. Pas encore de chambre haute. | 5b | Ouvert |
+| 🟢 | Les sondages incluant des indécis sont ramenés à 100 % (au Japon, le parti au pouvoir part à 44 %). | 5b | Ouvert |
+| 🟢 | Le Chili garde sa chambre et son gouvernement sortants (élections de novembre et décembre 2025 non reprises). | 5c1 | Ouvert |
+| 🟢 | Scrutin à deux tours (France) traité comme un scrutin majoritaire à un tour : pas de front républicain, le premier parti peut obtenir une large majorité. | 5c1 | Ouvert |
+| 🟢 | Peu d'alternances (une cinquantaine en 10 ans dans le monde) : les sondages bougent peu sans action du joueur ; à revoir avec la campagne (5c2) et les crises (5g). | 5c1 | Ouvert |
+| 🟢 | En régime présidentiel, le nouveau président gouverne avec son seul parti (pas de coalition présidentielle). | 5c1 | Ouvert |
+| 🟢 | Fraude découverte : scandale sur la stabilité et la légitimité, mais pas encore de manifestations ni de contestation des résultats (5g). | 5c2 | Ouvert |
+| 🟢 | Situation des lois en 2026 approchée par règles : listes de pays pour les cas connus (peine de mort, mariage homosexuel, cannabis, service militaire…), valeur par défaut ailleurs. Les pays de l'IA ne changent pas encore de lois (étape 12). | 5d | Ouvert |
+| 🟢 | La barre supérieure est pleine à 1600 px de large : elle déborde sur les écrans plus étroits (refonte prévue à l'étape 13). | 13 | Ouvert |
+| 🟢 | Les ministres de l'IA ne sont jamais remaniés volontairement (seulement après scandale ou démission). | 12 | Ouvert |
+| 🟢 | Les guerres civiles n'ont pas encore de fronts ni de provinces tenues par les rebelles (étape 7) ; elles finissent par une chance mensuelle quand la stabilité remonte. | 7 | Ouvert |
+| 🟢 | Une désinformation démasquée contre un pays étranger ne dégrade pas encore les relations (diplomatie, étape 6) ; les pays de l'IA n'utilisent ni propagande ni désinformation (étape 12). | 6 / 12 | Ouvert |

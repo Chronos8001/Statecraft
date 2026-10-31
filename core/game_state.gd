@@ -15,14 +15,23 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	sim.setup(p_seed, get_start_date(), player_tag)
 	WorldSetup.populate(sim, DataLoader.get_category("countries"), DataLoader.get_category("currencies"),
 		DataLoader.get_define("economy", {}), budget_definitions(), DataLoader.get_category("resources"),
-		resource_definitions(), trade_definitions(), energy_definitions(), DataLoader.get_define("investment", {}))
+		resource_definitions(), trade_definitions(), energy_definitions(), DataLoader.get_define("investment", {}),
+		society_definitions(), politics_definitions())
 	scheduler = SimScheduler.new()
+	scheduler.add_system(LawSystem.new())
+	scheduler.add_system(ConstitutionSystem.new())
 	scheduler.add_system(InvestmentSystem.new())
 	scheduler.add_system(EnergySystem.new())
 	scheduler.add_system(ResourceSystem.new())
 	scheduler.add_system(TradeSystem.new())
 	scheduler.add_system(BudgetSystem.new())
 	scheduler.add_system(EconomySystem.new(DataLoader.get_category("economy_sectors")))
+	scheduler.add_system(GovernmentSystem.new())
+	scheduler.add_system(CrisisSystem.new())
+	scheduler.add_system(MediaSystem.new())
+	scheduler.add_system(SocietySystem.new())
+	scheduler.add_system(PoliticsSystem.new())
+	scheduler.add_system(ElectionSystem.new())
 	_pending_commands.clear()
 	is_game_running = true
 	GameLog.info(SOURCE, "Nouvelle partie : graine %d, date %s." % [p_seed, sim.date.format_iso()])
@@ -86,6 +95,49 @@ func energy_definitions() -> Dictionary:
 		"mine_outputs": mine_outputs,
 		"settings": DataLoader.get_define("energy", {}),
 	}
+
+
+func society_definitions() -> Dictionary:
+	return {
+		"groups": DataLoader.get_category("social_groups"),
+		"regimes": DataLoader.get_category("regimes"),
+		"ideologies": DataLoader.get_category("ideologies"),
+		"settings": DataLoader.get_define("society", {}),
+	}
+
+
+func politics_definitions() -> Dictionary:
+	return {
+		"parties": DataLoader.repository.resolve_ref("names#parties"),
+		"characters": DataLoader.repository.resolve_ref("names#characters"),
+		"provinces": country_provinces(DataLoader.get_category("provinces")),
+		"laws": DataLoader.get_category("laws"),
+		"constitution": DataLoader.get_category("constitution"),
+		"portfolios": DataLoader.get_category("portfolios"),
+		"crises": DataLoader.get_category("crises"),
+		"names": {"cultures": DataLoader.get_category("names/cultures"),
+			"party_styles": DataLoader.get_category("names/party_styles"),
+			"ideologies": DataLoader.get_category("ideologies"), "traits": DataLoader.get_category("traits"),
+			"settings": DataLoader.get_define("characters", {})},
+		"settings": DataLoader.get_define("politics", {}),
+	}
+
+
+## Provinces de chaque pays pour les résultats régionaux : tag → [[id, population, superficie], …], triées.
+static func country_provinces(provinces: Dictionary) -> Dictionary:
+	var result: Dictionary = {}
+	var ids: Array = provinces.keys()
+	ids.sort_custom(func(a: String, b: String) -> bool: return int(a) < int(b))
+	for province_id: String in ids:
+		var province: Dictionary = provinces[province_id]
+		var owner := str(province.get("owner", ""))
+		if owner.is_empty():
+			continue
+		if not result.has(owner):
+			result[owner] = []
+		(result[owner] as Array).append([province_id, int(province.get("population", 0)),
+			float(province.get("area_km2", 1.0))])
+	return result
 
 
 func get_start_date() -> GameDate:

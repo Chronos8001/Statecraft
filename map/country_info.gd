@@ -137,3 +137,33 @@ func apply_economy(state: SimState) -> void:
 	rating_id = CreditRating.new(state.economy_settings).id_of(economy.rating)
 	rating_estimated = economy.rating_estimated
 	currency_code = currency.code
+
+
+## Dirigeants, parti au pouvoir, coalition et idéologie de la partie en cours (après les élections).
+func apply_politics(state: SimState, names: Dictionary, ideologies: Dictionary, cultures: Dictionary) -> void:
+	var country := state.get_country(tag)
+	if country == null:
+		return
+	var politics := country.politics
+	var parties: Dictionary = names.get("parties", {})
+	if not politics.head_of_state.is_empty():
+		var head_of_state := GovernmentSystem.character(state, politics.head_of_state)
+		var head_of_government := GovernmentSystem.character(state, politics.head_of_government)
+		head_of_state_name = NameGenerator.full_name(head_of_state, cultures)
+		head_of_state_age = age_of(head_of_state, state.date.year)
+		head_of_government_name = NameGenerator.full_name(head_of_government, cultures)
+		head_of_government_age = age_of(head_of_government, state.date.year)
+		has_separate_head_of_government = politics.head_of_government != politics.head_of_state
+	if not politics.government.is_empty():
+		ruling_party_name = (parties.get(politics.government[0], {}) as Dictionary).get("name", ruling_party_name)
+		coalition_names.clear()
+		for party_id: String in politics.government.slice(1):
+			var party: Dictionary = parties.get(party_id, {})
+			if party.has("name"):
+				coalition_names.append(party["name"])
+	var regimes := DataLoader.get_category("regimes")
+	if regimes.has(politics.regime):
+		regime_name_key = str((regimes[politics.regime] as Dictionary).get("name_key", regime_name_key))
+	if not politics.ideology.is_empty():
+		ideology_name_key = str((ideologies.get(politics.ideology, {}) as Dictionary).get("name_key", ideology_name_key))
+

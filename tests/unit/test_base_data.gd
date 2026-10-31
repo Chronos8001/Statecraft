@@ -14,7 +14,7 @@ const MIN_PROVINCE_COUNT := 4000
 const LOCALIZATION_DIR := "res://data/localization"
 const TRANSLATED_CATEGORIES := ["countries", "provinces", "sea_zones", "straits", "ideologies", "regimes",
 	"terrains", "resources", "traits", "challenges", "economy_sectors", "budget_taxes", "budget_spending",
-	"social_groups", "trade_agreements", "energy_sources", "buildings"]
+	"social_groups", "trade_agreements", "energy_sources", "buildings", "laws", "constitution", "portfolios", "crises"]
 const MIN_SEA_ZONE_COUNT := 150
 
 const LocalizationScript := preload("res://core/localization/localization.gd")
@@ -343,8 +343,28 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 		"settings": _repository.get_value("defines", "trade", {})}
 	WorldSetup.populate(state, _repository.get_category("countries"), _repository.get_category("currencies"), settings,
 		budget_definitions, _repository.get_category("resources"), resource_definitions, trade_definitions,
-		_energy_definitions(), _repository.get_value("defines", "investment", {}))
+		_energy_definitions(), _repository.get_value("defines", "investment", {}), {
+			"groups": _repository.get_category("social_groups"), "regimes": _repository.get_category("regimes"),
+			"ideologies": _repository.get_category("ideologies"), "settings": _repository.get_value("defines", "society", {})},
+		{"parties": _repository.resolve_ref("names#parties"),
+			"characters": _repository.resolve_ref("names#characters"),
+			"provinces": GameState.country_provinces(_repository.get_category("provinces")),
+			"laws": _repository.get_category("laws"),
+			"constitution": _repository.get_category("constitution"),
+			"portfolios": _repository.get_category("portfolios"),
+			"crises": _repository.get_category("crises"),
+			"names": {"cultures": _repository.get_category("names/cultures"),
+				"party_styles": _repository.get_category("names/party_styles"),
+				"ideologies": _repository.get_category("ideologies"), "traits": _repository.get_category("traits"),
+				"settings": _repository.get_value("defines", "characters", {})},
+			"settings": _repository.get_value("defines", "politics", {})})
 	var investment_system := InvestmentSystem.new()
+	var society_system := SocietySystem.new()
+	var government_system := GovernmentSystem.new()
+	var crisis_system := CrisisSystem.new()
+	var media_system := MediaSystem.new()
+	var politics_system := PoliticsSystem.new()
+	var election_system := ElectionSystem.new()
 	var energy_system := EnergySystem.new()
 	var resource_system := ResourceSystem.new()
 	var trade_system := TradeSystem.new()
@@ -353,12 +373,19 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 	var crises := 0
 	for month: int in 120:
 		state.date.month = month % 12 + 1
+		state.date.year = 2026 + month / 12
 		energy_system.on_month(state)
 		resource_system.on_month(state)
 		trade_system.on_month(state)
 		investment_system.on_month(state)
 		budget_system.on_month(state)
 		system.on_month(state)
+		government_system.on_month(state)
+		crisis_system.on_month(state)
+		media_system.on_month(state)
+		society_system.on_month(state)
+		politics_system.on_month(state)
+		election_system.on_month(state)
 		for event: Dictionary in state.events:
 			if event["type"] == EconomySystem.EVENT_DEBT_CRISIS:
 				crises += 1
@@ -389,6 +416,23 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 		if country.energy.blackout > 0.0:
 			blackouts += 1
 	assert_lt(blackouts, 10, "l'IA garde de la marge électrique")
+	# La société reste dans ses bornes et ne s'effondre pas sans raison chez les grandes puissances.
+	for country: CountryState in state.countries.values():
+		var society := country.society
+		assert_false(is_nan(society.support) or is_nan(society.stability), country.tag)
+		assert_between(society.support, 0.0, 100.0, "soutien de %s" % country.tag)
+		assert_between(society.stability, 0.0, 100.0, "stabilité de %s" % country.tag)
+	for tag: String in ["USA", "CHN", "DEU", "FRA", "JPN", "GBR", "IND"]:
+		var society: SocietyState = state.countries[tag].society
+		assert_gt(society.stability, society.start_stability - 15.0, "stabilité de %s" % tag)
+		assert_between(society.support, society.start_support - 20.0, society.start_support + 20.0, "soutien de %s" % tag)
+	for country: CountryState in state.countries.values():
+		var total := country.politics.other_poll
+		for party: PartyState in country.politics.parties.values():
+			assert_false(is_nan(party.poll), party.id)
+			total += party.poll
+		if not country.politics.parties.is_empty():
+			assert_almost_eq(total, 100.0, 0.01, "sondages de %s" % country.tag)
 	var ukraine: EconomyState = state.countries["UKR"].economy
 	assert_lt(ukraine.debt_ratio(state.get_currency(ukraine.currency)), 2.5, "dette de l'Ukraine")
 
@@ -472,3 +516,46 @@ func test_investment_data() -> void:
 	assert_eq(float(countries["SAU"]["investment"]["public_ownership"]["energy"]), 1.0)
 	assert_gt(float(countries["NOR"]["investment"]["sovereign_fund"]), 1000.0)
 	assert_eq(str(countries["RUS"]["investment"]["fdi_policy"]), "restricted")
+
+
+func test_parliaments_are_consistent() -> void:
+	var parties := _repository.resolve_ref("names#parties")
+	var countries := _repository.get_category("countries")
+	for tag: String in countries.keys():
+		var country: Dictionary = countries[tag]
+		var parliament: Dictionary = country["parliament"]
+		var seats := int(parliament["other_seats"])
+		for party_id: String in (parliament["parties"] as Dictionary).keys():
+			seats += int(parliament["parties"][party_id]["seats"])
+			assert_eq(str(parties[party_id]["country"]), tag, "%s siège en %s" % [party_id, tag])
+		assert_eq(seats, int(parliament["seats"]), "sièges de %s" % tag)
+		var government: Array = parliament["government"]
+		if country.has("ruling_party"):
+			assert_true(government.has(country["ruling_party"]), "parti au pouvoir de %s au gouvernement" % tag)
+		for party_id: Variant in country.get("coalition_partners", []):
+			assert_true(government.has(party_id), "partenaire %s au gouvernement" % party_id)
+		for party_id: Variant in government:
+			assert_true((parliament["parties"] as Dictionary).has(party_id), "%s dans la chambre de %s" % [party_id, tag])
+
+
+
+func test_party_abbreviations_are_unique_in_each_country() -> void:
+	var seen: Dictionary = {}
+	for party_id: String in _repository.resolve_ref("names#parties").keys():
+		var party: Dictionary = _repository.resolve_ref("names#parties")[party_id]
+		var key := "%s|%s" % [party["country"], str(party["abbreviation"]).to_upper()]
+		assert_false(seen.has(key), "sigle en double : %s (%s)" % [key, party_id])
+		seen[key] = true
+
+
+func test_law_start_rules_name_real_countries() -> void:
+	var countries := _repository.get_category("countries")
+	var laws := _repository.get_category("laws")
+	for law_id: String in laws.keys():
+		var options: Array = (laws[law_id]["options"] as Array).map(func(option: Dictionary) -> String: return str(option["id"]))
+		assert_true(options.has(str(laws[law_id]["start"]["default"])), law_id)
+		for rule: Dictionary in laws[law_id]["start"]["rules"]:
+			assert_true(options.has(str(rule["option"])), "%s : %s" % [law_id, rule["option"]])
+			for tag: Variant in rule.get("countries", []):
+				assert_true(countries.has(tag), "%s : pays inconnu %s" % [law_id, tag])
+

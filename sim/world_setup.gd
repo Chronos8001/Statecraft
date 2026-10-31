@@ -5,6 +5,7 @@ extends RefCounted
 ## propres à chaque pays reprennent la situation réelle du 1er janvier 2026.
 
 const BILLION := 1.0e9
+const PRESIDENTIAL_REGIME := "presidential_republic"
 
 
 ## budget_definitions : {taxes, spending, settings} (catégories budget_taxes, budget_spending, defines.budget).
@@ -12,7 +13,8 @@ const BILLION := 1.0e9
 static func populate(state: SimState, countries: Dictionary, currencies: Dictionary, settings: Dictionary,
 		budget_definitions: Dictionary = {}, resources: Dictionary = {}, resource_definitions: Dictionary = {},
 		trade_definitions: Dictionary = {}, energy_definitions: Dictionary = {},
-		investment_settings: Dictionary = {}) -> void:
+		investment_settings: Dictionary = {}, society_definitions: Dictionary = {},
+		politics_definitions: Dictionary = {}) -> void:
 	state.economy_settings = settings
 	state.investment_settings = investment_settings
 	state.budget_definitions = budget_definitions
@@ -61,6 +63,161 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 		for tag: String in tags:
 			_setup_energy(state.countries[tag], countries[tag], state)
 		_place_start_buildings(state)
+	state.society_definitions = society_definitions
+	if not society_definitions.is_empty():
+		for tag: String in tags:
+			_setup_society(state.countries[tag], countries[tag], state)
+	state.politics_definitions = politics_definitions
+	if not politics_definitions.is_empty():
+		for tag: String in tags:
+			_setup_politics(state.countries[tag], countries[tag], state)
+			_setup_laws(state.countries[tag], countries[tag], state)
+			_setup_constitution(state.countries[tag], countries[tag])
+			MediaSystem.refresh_media(state.countries[tag], (politics_definitions.get("settings", {}) as Dictionary).get(
+				"media", {}))
+			if not (politics_definitions.get("portfolios", {}) as Dictionary).is_empty():
+				GovernmentSystem.form_cabinet(state.countries[tag], state)
+				GovernmentSystem.set_start(state.countries[tag], state)
+		var crisis_settings: Dictionary = (politics_definitions.get("settings", {}) as Dictionary).get("crises", {})
+		var civil_war: Dictionary = (politics_definitions.get("crises", {}) as Dictionary).get(CrisisSystem.CIVIL_WAR, {})
+		for tag: Variant in crisis_settings.get("start_civil_wars", []):
+			if state.countries.has(tag) and not civil_war.is_empty():
+				CrisisSystem.start_civil_war(state.countries[tag], state, civil_war, true)
+				CrisisSystem.refresh_effects(state.countries[tag], state)
+
+
+## Lois de départ, selon les règles de chaque loi (pays cités, régime, démocratie, revenu).
+static func _setup_laws(country: CountryState, data: Dictionary, state: SimState) -> void:
+	var definitions: Dictionary = state.politics_definitions.get("laws", {})
+	if definitions.is_empty():
+		return
+	var regime: Dictionary = (state.society_definitions.get("regimes", {}) as Dictionary).get(str(data.get("regime", "")), {})
+	var context := {"tag": country.tag, "democratic": bool(regime.get("democratic", false)),
+		"democracy": country.society.democracy_index,
+		"gdp_per_capita": country.economy.gdp_per_capita_usd(state.get_currency(country.economy.currency))
+			if state.get_currency(country.economy.currency) != null else 0.0}
+	for law_id: String in definitions.keys():
+		country.laws[law_id] = LawModel.start_option(definitions[law_id], context)
+	country.start_laws = country.laws.duplicate()
+
+
+static func _setup_constitution(country: CountryState, data: Dictionary) -> void:
+	var constitution: Dictionary = data.get("constitution", {})
+	country.constitution = ConstitutionModel.start_options(country.politics, str(constitution.get("term_limit", "none")))
+
+
+## Chambre basse de départ ; les sondages de départ sont ramenés à 100 % avec les petits partis, puis
+## l'attrait de chaque parti est calé sur eux.
+static func _setup_politics(country: CountryState, data: Dictionary, state: SimState) -> void:
+	var source: Dictionary = data.get("parliament", {})
+	if source.is_empty():
+		return
+	var definitions := state.politics_definitions
+	var party_data: Dictionary = definitions.get("parties", {})
+	var ideologies: Dictionary = state.society_definitions.get("ideologies", {})
+	var politics := country.politics
+	politics.seats = int(source.get("seats", 0))
+	politics.other_seats = int(source.get("other_seats", 0))
+	politics.other_vote = float(source.get("other_vote", 0.0))
+	politics.other_poll = float(source.get("other_poll", 0.0))
+	var election: Dictionary = source.get("election", {})
+	politics.election_year = int(election.get("year", 0))
+	politics.election_month = int(election.get("month", 1))
+	politics.term_years = int(source.get("term_years", 0))
+	politics.dissolved = bool(source.get("dissolved", false))
+	var regime: Dictionary = (state.society_definitions.get("regimes", {}) as Dictionary).get(str(data.get("regime", "")), {})
+	politics.democratic = bool(regime.get("democratic", false))
+	politics.regime = str(data.get("regime", ""))
+	politics.culture = str(data.get("culture", ""))
+	var constitution: Dictionary = data.get("constitution", {})
+	politics.term_limit = int(ConstitutionModel.TERM_LIMITS.get(str(constitution.get("term_limit", "none")), 0))
+	politics.terms_served = int(constitution.get("terms_served", 1))
+	politics.polls_published = politics.democratic
+	politics.executive = PoliticsState.EXECUTIVE_PRESIDENTIAL if str(data.get("regime", "")) == PRESIDENTIAL_REGIME \
+		else PoliticsState.EXECUTIVE_PARLIAMENTARY
+	politics.suspended = bool(source.get("suspended", false))
+	politics.cordon = bool(source.get("cordon", false))
+	var system: Dictionary = source.get("system", {})
+	politics.system_type = str(system.get("type", PoliticsState.SYSTEM_PROPORTIONAL))
+	politics.threshold = float(system.get("threshold", 0.0))
+	politics.list_share = float(system.get("list_share", 0.0))
+	var next: Dictionary = source.get("next_election", {})
+	politics.next_election_year = int(next.get("year", politics.election_year + politics.term_years))
+	politics.next_election_month = int(next.get("month", politics.election_month))
+	var presidency: Dictionary = source.get("presidency", {})
+	politics.has_presidency = not presidency.is_empty()
+	if politics.has_presidency:
+		politics.presidential_year = int((presidency["election"] as Dictionary)["year"])
+		politics.presidential_month = int((presidency["election"] as Dictionary)["month"])
+		politics.presidential_term = int(presidency.get("term_years", 0))
+		politics.two_rounds = bool(presidency.get("two_rounds", false))
+		politics.next_presidential_year = int((presidency["next_election"] as Dictionary)["year"])
+		politics.next_presidential_month = int((presidency["next_election"] as Dictionary)["month"])
+	politics.head_of_state = str(data.get("head_of_state", ""))
+	politics.head_of_government = str(data.get("head_of_government", politics.head_of_state))
+	politics.ideology = str(data.get("ideology", ""))
+	for party_id: Variant in source.get("government", []):
+		politics.government.append(str(party_id))
+	var parties: Dictionary = source.get("parties", {})
+	var poll_total := 0.0
+	for party_id: Variant in parties.keys():
+		var entry: Dictionary = parties[party_id]
+		var party := PartyState.new()
+		party.id = str(party_id)
+		party.ideology = str((party_data.get(party_id, {}) as Dictionary).get("ideology", ""))
+		party.party_group = str((ideologies.get(party.ideology, {}) as Dictionary).get("party_group", ""))
+		party.seats = int(entry.get("seats", 0))
+		party.vote = float(entry.get("vote", 0.0))
+		party.start_poll = float(entry.get("poll", 0.0))
+		poll_total += party.start_poll
+		politics.parties[party.id] = party
+	var available := PoliticsModel.PERCENT - politics.other_poll
+	for party: PartyState in politics.parties.values():
+		party.start_poll = party.start_poll / poll_total * available if poll_total > 0.0 else 0.0
+		party.poll = party.start_poll
+		party.previous_poll = party.poll
+	if not country.society.group_shares.is_empty():
+		PoliticsModel.calibrate(politics, country.society, state.society_definitions.get("groups", {}),
+			definitions.get("settings", {}))
+
+
+## Société de départ : satisfaction des groupes calée sur la popularité du gouvernement, influence selon
+## le régime, stabilité et corruption réelles, légitimité selon le régime et l'indice de démocratie.
+static func _setup_society(country: CountryState, data: Dictionary, state: SimState) -> void:
+	var source: Dictionary = data.get("society", {})
+	if source.is_empty():
+		return
+	var definitions := state.society_definitions
+	var groups: Dictionary = definitions.get("groups", {})
+	var settings: Dictionary = definitions.get("settings", {})
+	var regime: Dictionary = (definitions.get("regimes", {}) as Dictionary).get(str(data.get("regime", "")), {})
+	var ideology: Dictionary = (definitions.get("ideologies", {}) as Dictionary).get(str(data.get("ideology", "")), {})
+	var society := country.society
+	var shares: Dictionary = source.get("groups", {})
+	var total := 0.0
+	for group_id: Variant in groups.keys():
+		total += float(shares.get(group_id, 0.0))
+	for group_id: Variant in groups.keys():
+		society.group_shares[group_id] = float(shares.get(group_id, 0.0)) / total if total > 0.0 else 0.0
+	society.influence = SocietyModel.influence_weights(society.group_shares, groups, regime.get("group_influence", {}))
+	society.start_satisfaction = SocietyModel.start_satisfaction(float(source.get("approval", 0.0)),
+		society.group_shares, groups, str(ideology.get("party_group", "")),
+		settings.get("start_satisfaction_bounds", [0.0, SocietyModel.PERCENT]))
+	society.satisfaction = society.start_satisfaction.duplicate()
+	society.support = SocietyModel.weighted(society.satisfaction, society.group_shares)
+	society.start_support = society.support
+	society.stability = float(source.get("stability", 0.0))
+	society.start_stability = society.stability
+	society.corruption = float(source.get("corruption", 0.0))
+	society.start_corruption = society.corruption
+	society.democracy_index = float(source.get("democracy", 0.0))
+	var legitimacy_settings: Dictionary = settings.get("legitimacy", {})
+	society.legitimacy = SocietyModel.start_legitimacy(bool(regime.get("democratic", false)), society.democracy_index,
+		float(regime.get("legitimacy", legitimacy_settings.get("default_regime_legitimacy", 0.0))), legitimacy_settings)
+	society.start_legitimacy = society.legitimacy
+	society.start_unemployment = country.economy.unemployment
+	society.start_inflation = country.economy.inflation
+	society.start_growth = country.economy.growth
 
 
 static func _setup_investment(country: CountryState, data: Dictionary) -> void:

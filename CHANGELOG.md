@@ -6,6 +6,47 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-10-31
+
+### Ajouté
+- 10 groupes sociaux par pays (ouvriers, classes moyennes, élites économiques, agriculteurs, retraités, jeunes, militaires, religieux, minorités, écologistes) : part de la population, poids politique selon le régime, satisfaction.
+- La satisfaction des groupes part de la popularité réelle du gouvernement et réagit au budget, au chômage, à l'inflation, à la croissance, aux coupures d'électricité et aux nationalisations.
+- Indicateurs nationaux : stabilité (Fragile States Index 2024), soutien populaire, légitimité (régime et Democracy Index), corruption (indice de perception de la corruption 2024). Une stabilité en baisse freine la croissance.
+- Panneau Société (bouton dans la barre supérieure) ; stabilité et soutien populaire affichés dans la barre supérieure.
+- Mode de carte « Soutien populaire » ; le mode « Stabilité » suit la partie en cours.
+- Outil de génération des sociétés (`tools/country_gen/generate_society.py`).
+
+- Chambre basse de chaque pays : composition réelle au 1er janvier 2026 pour 67 pays (sièges, dernier scrutin, sondages de janvier 2026), estimée pour les autres ; chambres sans partis, dissoutes (Bangladesh, Thaïlande, Népal) ou dominées par un parti unique.
+- 528 partis d'opposition fictifs, chacun avec son chef, aux côtés des partis au pouvoir et de leurs partenaires.
+- Sondages mensuels : chaque parti puise ses voix dans les groupes sociaux proches de ses idées ; les partis au gouvernement suivent la satisfaction de leurs électeurs. Pas de sondage publié dans les régimes non démocratiques.
+- Panneau Politique (bouton dans la barre supérieure) : hémicycle, majorité du gouvernement, partis, chefs, sièges, dernier scrutin et sondages.
+- Outil de génération des parlements et des partis d'opposition (`tools/parliament_gen/`).
+
+- Élections législatives et présidentielles au calendrier réel, avec le mode de scrutin de chaque pays (proportionnelle avec seuil, majoritaire, mixte) et des résultats par province.
+- Formation du gouvernement après les législatives (majorité sortante ou coalition des partis proches, cordon sanitaire dans quatre pays) ; présidentielles à un ou deux tours avec reports de voix.
+- Alternance : nouveaux dirigeants, nouvelle idéologie au pouvoir, attentes des groupes sociaux revues ; le joueur garde la main sur son pays.
+- Élections anticipées (dissolution de la chambre basse) ; scrutins de façade dans les régimes non démocratiques.
+- Mode de carte « Parti en tête » ; calendrier, mode de scrutin et dernier résultat dans le panneau Politique ; notifications des élections.
+
+- Campagne électorale dans les six mois qui précèdent un scrutin : financement, meetings en province, promesses aux groupes sociaux (tenues ou rompues après l'élection), fraude avec risque de scandale.
+
+- 86 lois réformables (peine de mort, service militaire, immigration, avortement, port d'armes, liberté de la presse, internet, âge de la retraite, salaire minimum, temps de travail, nucléaire civil, cannabis…), avec la situation réelle de chaque pays en 2026.
+- Vote des lois à la chambre basse selon les idées de chaque parti ; décret dans les régimes non démocratiques. Panneau Lois avec aperçu du vote et des effets.
+
+- Constitution : réformes des mandats, du mode de scrutin, du seuil et de la forme du pouvoir (2/3 de la chambre ou référendum), limites de mandats présidentiels réelles, état d'urgence.
+
+- Gouvernement : huit ministres par pays (compétence, loyauté, corruption), remaniements, scandales et démissions ; panneau Ministres.
+
+- Crises intérieures : grèves, manifestations, émeutes (concéder, négocier ou réprimer), coups d'État et guerres civiles ; mode de carte « Troubles ».
+
+- Médias et opinion : la liberté de la presse et des réseaux sociaux pèse sur les scandales et les sondages ; propagande et désinformation (opposition ou pays étranger).
+
+### Modifié
+- Libellés raccourcis dans la barre supérieure (Entreprises, Ministres).
+- La fiche pays et le mode de carte des idéologies suivent les changements de gouvernement.
+- Les effets du budget sur la stabilité et les groupes sociaux s'appliquent désormais.
+- La barre supérieure masque les indicateurs qui ne sont pas encore calculés.
+
 ## [0.4.0] - 2026-10-31
 
 ### Ajouté

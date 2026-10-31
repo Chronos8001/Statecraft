@@ -1349,7 +1349,8 @@
       "strict": true,
       "required": [
         "name_key",
-        "democratic"
+        "democratic",
+        "group_influence"
       ],
       "properties": {
         "name_key": {
@@ -1357,6 +1358,19 @@
         },
         "democratic": {
           "type": "bool"
+        },
+        "group_influence": {
+          "type": "object",
+          "keys_ref": "social_groups",
+          "values": {
+            "type": "number",
+            "min": 0
+          }
+        },
+        "legitimacy": {
+          "type": "number",
+          "min": 0,
+          "max": 100
         }
       }
     }
@@ -1485,7 +1499,10 @@
         "water",
         "trade",
         "energy",
-        "investment"
+        "investment",
+        "society",
+        "parliament",
+        "constitution"
       ],
       "properties": {
         "name_key": {
@@ -1845,6 +1862,285 @@
             "sovereign_fund": {
               "type": "number",
               "min": 0
+            }
+          }
+        },
+        "society": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "groups",
+            "stability",
+            "corruption",
+            "democracy",
+            "approval"
+          ],
+          "properties": {
+            "groups": {
+              "type": "object",
+              "keys_ref": "social_groups",
+              "values": {
+                "type": "number",
+                "min": 0,
+                "max": 1
+              }
+            },
+            "stability": {
+              "type": "number",
+              "min": 0,
+              "max": 100
+            },
+            "corruption": {
+              "type": "number",
+              "min": 0,
+              "max": 100
+            },
+            "democracy": {
+              "type": "number",
+              "min": 0,
+              "max": 10
+            },
+            "approval": {
+              "type": "number",
+              "min": 0,
+              "max": 100
+            }
+          }
+        },
+        "parliament": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "seats",
+            "parties",
+            "government",
+            "other_seats",
+            "other_vote",
+            "other_poll",
+            "election",
+            "term_years",
+            "system",
+            "next_election"
+          ],
+          "properties": {
+            "seats": {
+              "type": "int",
+              "min": 1
+            },
+            "parties": {
+              "type": "object",
+              "keys_ref": "names#parties",
+              "values": {
+                "type": "object",
+                "strict": true,
+                "required": [
+                  "seats",
+                  "vote",
+                  "poll"
+                ],
+                "properties": {
+                  "seats": {
+                    "type": "int",
+                    "min": 0
+                  },
+                  "vote": {
+                    "type": "number",
+                    "min": 0,
+                    "max": 100
+                  },
+                  "poll": {
+                    "type": "number",
+                    "min": 0,
+                    "max": 100
+                  }
+                }
+              }
+            },
+            "government": {
+              "type": "array",
+              "unique_items": true,
+              "items": {
+                "type": "string",
+                "ref": "names#parties"
+              }
+            },
+            "other_seats": {
+              "type": "int",
+              "min": 0
+            },
+            "other_vote": {
+              "type": "number",
+              "min": 0,
+              "max": 100
+            },
+            "other_poll": {
+              "type": "number",
+              "min": 0,
+              "max": 100
+            },
+            "election": {
+              "type": "object",
+              "strict": true,
+              "required": [
+                "year",
+                "month"
+              ],
+              "properties": {
+                "year": {
+                  "type": "int",
+                  "min": 1990,
+                  "max": 2026
+                },
+                "month": {
+                  "type": "int",
+                  "min": 1,
+                  "max": 12
+                }
+              }
+            },
+            "term_years": {
+              "type": "int",
+              "min": 1,
+              "max": 10
+            },
+            "dissolved": {
+              "type": "bool"
+            },
+            "system": {
+              "type": "object",
+              "strict": true,
+              "required": [
+                "type"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "proportional",
+                    "majoritarian",
+                    "mixed"
+                  ]
+                },
+                "threshold": {
+                  "type": "number",
+                  "min": 0,
+                  "max": 20
+                },
+                "list_share": {
+                  "type": "number",
+                  "min": 0,
+                  "max": 1
+                }
+              }
+            },
+            "next_election": {
+              "type": "object",
+              "strict": true,
+              "required": [
+                "year",
+                "month"
+              ],
+              "properties": {
+                "year": {
+                  "type": "int",
+                  "min": 1990,
+                  "max": 2040
+                },
+                "month": {
+                  "type": "int",
+                  "min": 1,
+                  "max": 12
+                }
+              }
+            },
+            "suspended": {
+              "type": "bool"
+            },
+            "presidency": {
+              "type": "object",
+              "strict": true,
+              "required": [
+                "election",
+                "term_years",
+                "two_rounds",
+                "next_election"
+              ],
+              "properties": {
+                "election": {
+                  "type": "object",
+                  "strict": true,
+                  "required": [
+                    "year",
+                    "month"
+                  ],
+                  "properties": {
+                    "year": {
+                      "type": "int",
+                      "min": 1990,
+                      "max": 2040
+                    },
+                    "month": {
+                      "type": "int",
+                      "min": 1,
+                      "max": 12
+                    }
+                  }
+                },
+                "term_years": {
+                  "type": "int",
+                  "min": 1,
+                  "max": 10
+                },
+                "two_rounds": {
+                  "type": "bool"
+                },
+                "next_election": {
+                  "type": "object",
+                  "strict": true,
+                  "required": [
+                    "year",
+                    "month"
+                  ],
+                  "properties": {
+                    "year": {
+                      "type": "int",
+                      "min": 1990,
+                      "max": 2040
+                    },
+                    "month": {
+                      "type": "int",
+                      "min": 1,
+                      "max": 12
+                    }
+                  }
+                }
+              }
+            },
+            "cordon": {
+              "type": "bool"
+            }
+          }
+        },
+        "constitution": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "term_limit",
+            "terms_served"
+          ],
+          "properties": {
+            "term_limit": {
+              "type": "string",
+              "enum": [
+                "one",
+                "two",
+                "none"
+              ]
+            },
+            "terms_served": {
+              "type": "int",
+              "min": 0,
+              "max": 10
             }
           }
         }
@@ -2209,7 +2505,8 @@
             "relations",
             "resources",
             "control",
-            "trade"
+            "trade",
+            "vote"
           ]
         },
         "value": {
@@ -2257,6 +2554,9 @@
           "items": {
             "type": "string"
           }
+        },
+        "hint_color": {
+          "type": "color"
         }
       }
     }
@@ -2686,12 +2986,56 @@
       "type": "object",
       "strict": true,
       "required": [
-        "name_key"
+        "name_key",
+        "influence",
+        "affinity",
+        "reactions"
       ],
       "properties": {
         "name_key": {
           "type": "string",
           "pattern": "^GROUP_[A-Z_]+$"
+        },
+        "influence": {
+          "type": "number",
+          "min": 0
+        },
+        "affinity": {
+          "type": "object",
+          "keys_pattern": "^[a-z_]+$",
+          "values": {
+            "type": "number",
+            "min": -100,
+            "max": 100
+          }
+        },
+        "reactions": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "unemployment",
+            "inflation",
+            "growth",
+            "blackout",
+            "public_ownership"
+          ],
+          "properties": {
+            "unemployment": {
+              "type": "number"
+            },
+            "inflation": {
+              "type": "number"
+            },
+            "growth": {
+              "type": "number"
+            },
+            "blackout": {
+              "type": "number"
+            },
+            "public_ownership": {
+              "type": "number"
+            }
+          }
         }
       }
     }
@@ -3028,6 +3372,359 @@
           "min": 0
         },
         "requires_resource": {
+          "type": "bool"
+        }
+      }
+    }
+  },
+  "laws": {
+    "type": "object",
+    "keys_pattern": "^[a-z0-9_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "category",
+        "options",
+        "start"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^LAW_[A-Z0-9_]+$"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "justice",
+            "society",
+            "freedoms",
+            "security",
+            "immigration",
+            "labour",
+            "economy",
+            "health_education",
+            "environment",
+            "governance"
+          ]
+        },
+        "options": {
+          "type": "array",
+          "min_items": 2,
+          "items": {
+            "type": "object",
+            "strict": true,
+            "required": [
+              "id",
+              "name_key",
+              "effects",
+              "positions"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name_key": {
+                "type": "string"
+              },
+              "effects": {
+                "type": "object",
+                "strict": true,
+                "properties": {
+                  "groups": {
+                    "type": "object",
+                    "keys_ref": "social_groups",
+                    "values": {
+                      "type": "number"
+                    }
+                  },
+                  "stability": {
+                    "type": "number"
+                  },
+                  "growth": {
+                    "type": "number"
+                  },
+                  "legitimacy": {
+                    "type": "number"
+                  },
+                  "corruption": {
+                    "type": "number"
+                  },
+                  "budget": {
+                    "type": "number"
+                  }
+                }
+              },
+              "positions": {
+                "type": "object",
+                "keys_pattern": "^[a-z_]+$",
+                "values": {
+                  "type": "number",
+                  "min": -2,
+                  "max": 2
+                }
+              }
+            }
+          }
+        },
+        "start": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "default",
+            "rules"
+          ],
+          "properties": {
+            "default": {
+              "type": "string"
+            },
+            "rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "strict": true,
+                "required": [
+                  "option"
+                ],
+                "properties": {
+                  "option": {
+                    "type": "string"
+                  },
+                  "countries": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "democratic": {
+                    "type": "bool"
+                  },
+                  "democracy_max": {
+                    "type": "number"
+                  },
+                  "gdp_pc_max": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "constitution": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "presidential_only",
+        "options"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^CONSTITUTION_[A-Z_]+$"
+        },
+        "presidential_only": {
+          "type": "bool"
+        },
+        "options": {
+          "type": "array",
+          "min_items": 2,
+          "items": {
+            "type": "object",
+            "strict": true,
+            "required": [
+              "id",
+              "name_key",
+              "value",
+              "legitimacy",
+              "positions"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name_key": {
+                "type": "string"
+              },
+              "value": {
+                "type": "any"
+              },
+              "legitimacy": {
+                "type": "number"
+              },
+              "positions": {
+                "type": "object",
+                "keys_pattern": "^[a-z_]+$",
+                "values": {
+                  "type": "number",
+                  "min": -2,
+                  "max": 2
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "portfolios": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "skill",
+        "trait_bonus",
+        "effects"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^PORTFOLIO_[A-Z_]+$"
+        },
+        "skill": {
+          "type": "string",
+          "enum": [
+            "administration",
+            "diplomacy",
+            "economy",
+            "military"
+          ]
+        },
+        "trait_bonus": {
+          "type": "object",
+          "keys_ref": "traits",
+          "values": {
+            "type": "number"
+          }
+        },
+        "effects": {
+          "type": "object",
+          "strict": true,
+          "properties": {
+            "growth": {
+              "type": "number"
+            },
+            "stability": {
+              "type": "number"
+            },
+            "legitimacy": {
+              "type": "number"
+            },
+            "corruption": {
+              "type": "number"
+            },
+            "groups": {
+              "type": "object",
+              "keys_ref": "social_groups",
+              "values": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "crises": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "kind",
+        "groups",
+        "trigger",
+        "chance",
+        "duration",
+        "severity",
+        "effects",
+        "responses"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^CRISIS_[A-Z_]+$"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "group",
+            "country"
+          ]
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "ref": "social_groups"
+          }
+        },
+        "trigger": {
+          "type": "object",
+          "strict": true,
+          "properties": {
+            "satisfaction_drop": {
+              "type": "number"
+            },
+            "stability_drop": {
+              "type": "number"
+            },
+            "stability_below": {
+              "type": "number"
+            },
+            "legitimacy_below": {
+              "type": "number"
+            },
+            "months": {
+              "type": "int"
+            }
+          }
+        },
+        "chance": {
+          "type": "number",
+          "min": 0,
+          "max": 1
+        },
+        "duration": {
+          "type": "array",
+          "min_items": 2,
+          "items": {
+            "type": "int",
+            "min": 1
+          }
+        },
+        "severity": {
+          "type": "int",
+          "min": 1
+        },
+        "effects": {
+          "type": "object",
+          "strict": true,
+          "properties": {
+            "growth": {
+              "type": "number"
+            },
+            "stability": {
+              "type": "number"
+            },
+            "legitimacy": {
+              "type": "number"
+            }
+          }
+        },
+        "responses": {
           "type": "bool"
         }
       }

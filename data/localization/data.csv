@@ -343,3 +343,392 @@ BUILDING_MINE,Mine,Mine
 BUILDING_REFINERY,Refinery,Raffinerie
 BUILDING_PORT,Port,Port
 BUILDING_DATA_CENTER,Data center,Data center
+LAW_DEATH_PENALTY,Death penalty,Peine de mort
+LAW_DEATH_PENALTY_ABOLISHED,Abolished,Abolie
+LAW_DEATH_PENALTY_EXCEPTIONAL,Exceptional crimes only,Crimes exceptionnels
+LAW_DEATH_PENALTY_ACTIVE,Applied,Appliquée
+LAW_PRISON_POLICY,Prison policy,Politique carcérale
+LAW_PRISON_POLICY_REHABILITATION,Rehabilitation,Réinsertion
+LAW_PRISON_POLICY_STANDARD,Standard,Classique
+LAW_PRISON_POLICY_HARSH,Harsh sentences,Peines lourdes
+LAW_POLICE_POWERS,Police powers,Pouvoirs de la police
+LAW_POLICE_POWERS_LIMITED,Limited,Encadrés
+LAW_POLICE_POWERS_STANDARD,Standard,Classiques
+LAW_POLICE_POWERS_EXTENDED,Extended,Étendus
+LAW_JUDICIAL_INDEPENDENCE,Judicial independence,Indépendance de la justice
+LAW_JUDICIAL_INDEPENDENCE_INDEPENDENT,Independent,Indépendante
+LAW_JUDICIAL_INDEPENDENCE_PARTIAL,Partial,Partielle
+LAW_JUDICIAL_INDEPENDENCE_CONTROLLED,Controlled by the government,Aux ordres du pouvoir
+LAW_DRUG_POLICY,Drug policy,Politique des drogues
+LAW_DRUG_POLICY_DECRIMINALIZED,Decriminalized,Dépénalisée
+LAW_DRUG_POLICY_STANDARD,Prohibition,Prohibition
+LAW_DRUG_POLICY_WAR_ON_DRUGS,War on drugs,Guerre à la drogue
+LAW_CANNABIS,Cannabis,Cannabis
+LAW_CANNABIS_LEGAL,Legal,Légal
+LAW_CANNABIS_MEDICAL,Medical use only,Usage médical
+LAW_CANNABIS_PROHIBITED,Prohibited,Interdit
+LAW_ANTI_CORRUPTION,Anti-corruption agency,Agence anticorruption
+LAW_ANTI_CORRUPTION_STRONG,Strong and independent,Forte et indépendante
+LAW_ANTI_CORRUPTION_STANDARD,Standard,Classique
+LAW_ANTI_CORRUPTION_NONE,None,Aucune
+LAW_SURVEILLANCE,State surveillance,Surveillance par l'État
+LAW_SURVEILLANCE_BANNED,Banned without a judge,Interdite sans juge
+LAW_SURVEILLANCE_TARGETED,Targeted,Ciblée
+LAW_SURVEILLANCE_MASS,Mass surveillance,Surveillance de masse
+LAW_SAME_SEX_MARRIAGE,Same-sex couples,Couples de même sexe
+LAW_SAME_SEX_MARRIAGE_MARRIAGE,Marriage,Mariage
+LAW_SAME_SEX_MARRIAGE_CIVIL_UNION,Civil union,Union civile
+LAW_SAME_SEX_MARRIAGE_NONE,No recognition,Pas de reconnaissance
+LAW_SAME_SEX_MARRIAGE_CRIMINALIZED,Criminalised,Pénalisés
+LAW_ABORTION,Abortion,Avortement
+LAW_ABORTION_ON_REQUEST,On request,Sur demande
+LAW_ABORTION_LIMITED,Limited cases,Cas limités
+LAW_ABORTION_BANNED,Banned,Interdit
+LAW_EUTHANASIA,Assisted dying,Fin de vie
+LAW_EUTHANASIA_LEGAL,Legal,Autorisée
+LAW_EUTHANASIA_BANNED,Banned,Interdite
+LAW_GENDER_EQUALITY,Gender equality,Égalité femmes-hommes
+LAW_GENDER_EQUALITY_QUOTAS,Quotas and active policy,Quotas et politique active
+LAW_GENDER_EQUALITY_STANDARD,Equal rights,Égalité en droit
+LAW_GENDER_EQUALITY_RESTRICTED,Restricted rights for women,Droits des femmes restreints
+LAW_MINORITY_RIGHTS,Minority rights,Droits des minorités
+LAW_MINORITY_RIGHTS_AUTONOMY,Cultural and regional autonomy,Autonomie culturelle et régionale
+LAW_MINORITY_RIGHTS_PROTECTED,Protected,Protégés
+LAW_MINORITY_RIGHTS_STANDARD,No special status,Sans statut particulier
+LAW_MINORITY_RIGHTS_RESTRICTED,Restricted,Restreints
+LAW_OFFICIAL_LANGUAGES,Official languages,Langues officielles
+LAW_OFFICIAL_LANGUAGES_MULTIPLE,Several official languages,Plusieurs langues officielles
+LAW_OFFICIAL_LANGUAGES_SINGLE,One official language,Une seule langue officielle
+LAW_RELIGION_STATE,State and religion,État et religion
+LAW_RELIGION_STATE_SECULAR_STRICT,Strict secularism,Laïcité stricte
+LAW_RELIGION_STATE_SECULAR,Secular state,État laïque
+LAW_RELIGION_STATE_STATE_RELIGION,State religion,Religion d'État
+LAW_RELIGION_STATE_THEOCRATIC,Religious law,Loi religieuse
+LAW_RELIGIOUS_EDUCATION,Religion at school,Religion à l'école
+LAW_RELIGIOUS_EDUCATION_NONE,None,Aucune
+LAW_RELIGIOUS_EDUCATION_OPTIONAL,Optional,Facultative
+LAW_RELIGIOUS_EDUCATION_MANDATORY,Mandatory,Obligatoire
+LAW_DRESS_CODE,Dress code,Code vestimentaire
+LAW_DRESS_CODE_FREE,Free,Libre
+LAW_DRESS_CODE_RELIGIOUS_SYMBOLS_BANNED,Religious symbols banned in public services,Signes religieux interdits dans les services publics
+LAW_DRESS_CODE_RELIGIOUS_RULES,Religious dress rules,Tenue religieuse imposée
+LAW_PROSTITUTION,Prostitution,Prostitution
+LAW_PROSTITUTION_LEGAL,Legal and regulated,Légale et encadrée
+LAW_PROSTITUTION_ABOLITIONIST,Clients penalised,Clients pénalisés
+LAW_PROSTITUTION_BANNED,Banned,Interdite
+LAW_GAMBLING,Gambling,Jeux d'argent
+LAW_GAMBLING_LEGAL,Legal,Autorisés
+LAW_GAMBLING_RESTRICTED,Restricted,Encadrés
+LAW_GAMBLING_BANNED,Banned,Interdits
+LAW_ALCOHOL,Alcohol,Alcool
+LAW_ALCOHOL_FREE,Free,Libre
+LAW_ALCOHOL_RESTRICTED,Restricted,Encadré
+LAW_ALCOHOL_BANNED,Banned,Interdit
+LAW_PRESS_FREEDOM,Press freedom,Liberté de la presse
+LAW_PRESS_FREEDOM_FREE,Free,Libre
+LAW_PRESS_FREEDOM_REGULATED,Regulated,Encadrée
+LAW_PRESS_FREEDOM_CENSORED,Censored,Censurée
+LAW_PRESS_FREEDOM_STATE_MONOPOLY,State monopoly,Monopole d'État
+LAW_INTERNET,Internet,Internet
+LAW_INTERNET_OPEN,Open,Libre
+LAW_INTERNET_FILTERED,Filtered,Filtré
+LAW_INTERNET_CENSORED,Censored,Censuré
+LAW_INTERNET_INTRANET,National intranet,Intranet national
+LAW_SOCIAL_NETWORKS,Social networks,Réseaux sociaux
+LAW_SOCIAL_NETWORKS_FREE,Free,Libres
+LAW_SOCIAL_NETWORKS_MODERATED,Moderated by law,Modérés par la loi
+LAW_SOCIAL_NETWORKS_RESTRICTED,Restricted,Restreints
+LAW_ASSEMBLY,Freedom of assembly,Liberté de manifester
+LAW_ASSEMBLY_FREE,Free,Libre
+LAW_ASSEMBLY_DECLARED,Prior notice,Déclaration préalable
+LAW_ASSEMBLY_RESTRICTED,Restricted,Restreinte
+LAW_ASSEMBLY_BANNED,Banned,Interdite
+LAW_POLITICAL_PARTIES,Political parties,Partis politiques
+LAW_POLITICAL_PARTIES_FREE,Free,Libres
+LAW_POLITICAL_PARTIES_RESTRICTED,Restricted,Restreints
+LAW_POLITICAL_PARTIES_SINGLE,Single party,Parti unique
+LAW_POLITICAL_PARTIES_NONE,No parties,Aucun parti
+LAW_NGO_FUNDING,Foreign funding of NGOs,Financement étranger des ONG
+LAW_NGO_FUNDING_FREE,Free,Libre
+LAW_NGO_FUNDING_REGISTERED,Registered,Déclaré
+LAW_NGO_FUNDING_FOREIGN_AGENTS,'Foreign agent' label,Étiquette « agent de l'étranger »
+LAW_RIGHT_TO_STRIKE,Right to strike,Droit de grève
+LAW_RIGHT_TO_STRIKE_BROAD,Broad,Large
+LAW_RIGHT_TO_STRIKE_REGULATED,Regulated,Encadré
+LAW_RIGHT_TO_STRIKE_BANNED,Banned,Interdit
+LAW_WHISTLEBLOWERS,Whistleblower protection,Protection des lanceurs d'alerte
+LAW_WHISTLEBLOWERS_STRONG,Strong,Forte
+LAW_WHISTLEBLOWERS_WEAK,Weak,Faible
+LAW_CONSCRIPTION,Military service,Service militaire
+LAW_CONSCRIPTION_NONE,Professional army,Armée de métier
+LAW_CONSCRIPTION_SELECTIVE,Selective,Sélectif
+LAW_CONSCRIPTION_UNIVERSAL,Universal,Universel
+LAW_GUN_OWNERSHIP,Gun ownership,Port d'armes
+LAW_GUN_OWNERSHIP_FREE,Free,Libre
+LAW_GUN_OWNERSHIP_LICENSED,Licensed,Sous licence
+LAW_GUN_OWNERSHIP_BANNED,Banned,Interdit
+LAW_BORDER_CONTROL,Border controls,Contrôle des frontières
+LAW_BORDER_CONTROL_OPEN,Open borders,Frontières ouvertes
+LAW_BORDER_CONTROL_STANDARD,Standard,Classique
+LAW_BORDER_CONTROL_STRICT,Strict,Strict
+LAW_ANTI_TERROR,Anti-terror laws,Lois antiterroristes
+LAW_ANTI_TERROR_STANDARD,Standard,Classiques
+LAW_ANTI_TERROR_EXTENDED,Exceptional powers,Pouvoirs d'exception
+LAW_VETERANS,Veterans' benefits,Anciens combattants
+LAW_VETERANS_GENEROUS,Generous,Généreuses
+LAW_VETERANS_STANDARD,Standard,Classiques
+LAW_PRIVATE_MILITARY,Private military companies,Sociétés militaires privées
+LAW_PRIVATE_MILITARY_BANNED,Banned,Interdites
+LAW_PRIVATE_MILITARY_REGULATED,Regulated,Encadrées
+LAW_PRIVATE_MILITARY_ALLOWED,Allowed,Autorisées
+LAW_MILITARY_POLICE,Army in internal security,Armée et sécurité intérieure
+LAW_MILITARY_POLICE_NONE,No role,Aucun rôle
+LAW_MILITARY_POLICE_AUXILIARY,Auxiliary role,Rôle d'appoint
+LAW_MILITARY_POLICE_LEADING,Leading role,Rôle principal
+LAW_CYBER_SECURITY,Cyber defence,Cyberdéfense
+LAW_CYBER_SECURITY_STRONG,Strong agency,Agence puissante
+LAW_CYBER_SECURITY_STANDARD,Standard,Classique
+LAW_IMMIGRATION,Immigration,Immigration
+LAW_IMMIGRATION_OPEN,Open,Ouverte
+LAW_IMMIGRATION_SELECTIVE,Selective,Choisie
+LAW_IMMIGRATION_RESTRICTIVE,Restrictive,Restrictive
+LAW_IMMIGRATION_CLOSED,Closed,Fermée
+LAW_ASYLUM,Asylum,Droit d'asile
+LAW_ASYLUM_GENEROUS,Generous,Généreux
+LAW_ASYLUM_STANDARD,Standard,Classique
+LAW_ASYLUM_RESTRICTIVE,Restrictive,Restrictif
+LAW_CITIZENSHIP,Citizenship,Nationalité
+LAW_CITIZENSHIP_JUS_SOLI,Birthright (soil),Droit du sol
+LAW_CITIZENSHIP_MIXED,Mixed,Mixte
+LAW_CITIZENSHIP_JUS_SANGUINIS,Blood only,Droit du sang
+LAW_WORK_VISAS,Work visas,Visas de travail
+LAW_WORK_VISAS_OPEN,Open,Ouverts
+LAW_WORK_VISAS_QUOTA,Quotas,Quotas
+LAW_WORK_VISAS_CLOSED,Closed,Fermés
+LAW_INTEGRATION,Integration,Intégration
+LAW_INTEGRATION_MULTICULTURAL,Multiculturalism,Multiculturalisme
+LAW_INTEGRATION_CIVIC,Civic integration,Intégration civique
+LAW_INTEGRATION_ASSIMILATION,Assimilation,Assimilation
+LAW_MINIMUM_WAGE,Minimum wage,Salaire minimum
+LAW_MINIMUM_WAGE_HIGH,High,Élevé
+LAW_MINIMUM_WAGE_MODERATE,Moderate,Modéré
+LAW_MINIMUM_WAGE_NONE,None,Aucun
+LAW_WORKING_HOURS,Working week,Durée du travail
+LAW_WORKING_HOURS_H32,32 hours,32 heures
+LAW_WORKING_HOURS_H35,35 hours,35 heures
+LAW_WORKING_HOURS_H40,40 hours,40 heures
+LAW_WORKING_HOURS_H48,48 hours,48 heures
+LAW_RETIREMENT_AGE,Retirement age,Âge de la retraite
+LAW_RETIREMENT_AGE_R60,60,60 ans
+LAW_RETIREMENT_AGE_R62,62,62 ans
+LAW_RETIREMENT_AGE_R65,65,65 ans
+LAW_RETIREMENT_AGE_R67,67,67 ans
+LAW_UNEMPLOYMENT_BENEFITS,Unemployment benefits,Assurance chômage
+LAW_UNEMPLOYMENT_BENEFITS_GENEROUS,Generous,Généreuse
+LAW_UNEMPLOYMENT_BENEFITS_STANDARD,Standard,Classique
+LAW_UNEMPLOYMENT_BENEFITS_MINIMAL,Minimal,Minimale
+LAW_UNION_RIGHTS,Trade unions,Syndicats
+LAW_UNION_RIGHTS_STRONG,Strong,Forts
+LAW_UNION_RIGHTS_STANDARD,Standard,Classiques
+LAW_UNION_RIGHTS_WEAK,Weak,Faibles
+LAW_CHILD_LABOUR,Child labour,Travail des enfants
+LAW_CHILD_LABOUR_BANNED,Strictly banned,Strictement interdit
+LAW_CHILD_LABOUR_TOLERATED,Tolerated,Toléré
+LAW_PAID_LEAVE,Paid leave,Congés payés
+LAW_PAID_LEAVE_GENEROUS,Five weeks or more,Cinq semaines ou plus
+LAW_PAID_LEAVE_STANDARD,Four weeks,Quatre semaines
+LAW_PAID_LEAVE_MINIMAL,Minimal,Minimaux
+LAW_DISMISSAL,Dismissal rules,Licenciements
+LAW_DISMISSAL_PROTECTIVE,Protective,Protecteurs
+LAW_DISMISSAL_STANDARD,Standard,Classiques
+LAW_DISMISSAL_FLEXIBLE,Flexible,Souples
+LAW_GIG_ECONOMY,Platform workers,Travailleurs des plateformes
+LAW_GIG_ECONOMY_EMPLOYEES,Treated as employees,Salariés
+LAW_GIG_ECONOMY_FREE,Self-employed,Indépendants
+LAW_PARENTAL_LEAVE,Parental leave,Congé parental
+LAW_PARENTAL_LEAVE_LONG,Long and shared,Long et partagé
+LAW_PARENTAL_LEAVE_STANDARD,Standard,Classique
+LAW_PARENTAL_LEAVE_SHORT,Short,Court
+LAW_PRICE_CONTROLS,Price controls,Contrôle des prix
+LAW_PRICE_CONTROLS_NONE,Free prices,Prix libres
+LAW_PRICE_CONTROLS_ESSENTIALS,Essential goods,Produits essentiels
+LAW_PRICE_CONTROLS_BROAD,Broad,Larges
+LAW_RENT_CONTROL,Rent control,Encadrement des loyers
+LAW_RENT_CONTROL_STRICT,Strict,Strict
+LAW_RENT_CONTROL_MODERATE,Moderate,Modéré
+LAW_RENT_CONTROL_NONE,None,Aucun
+LAW_CAPITAL_CONTROLS,Capital controls,Contrôle des capitaux
+LAW_CAPITAL_CONTROLS_NONE,None,Aucun
+LAW_CAPITAL_CONTROLS_PARTIAL,Partial,Partiel
+LAW_CAPITAL_CONTROLS_STRICT,Strict,Strict
+LAW_FOREIGN_LAND,Land sales to foreigners,Vente de terres aux étrangers
+LAW_FOREIGN_LAND_FREE,Free,Libre
+LAW_FOREIGN_LAND_RESTRICTED,Restricted,Restreinte
+LAW_FOREIGN_LAND_BANNED,Banned,Interdite
+LAW_BANKING,Banking regulation,Régulation bancaire
+LAW_BANKING_STRICT,Strict,Stricte
+LAW_BANKING_STANDARD,Standard,Classique
+LAW_BANKING_LIGHT,Light,Légère
+LAW_ANTITRUST,Competition law,Droit de la concurrence
+LAW_ANTITRUST_STRONG,Strong,Fort
+LAW_ANTITRUST_STANDARD,Standard,Classique
+LAW_ANTITRUST_WEAK,Weak,Faible
+LAW_FARM_SUBSIDIES,Farm subsidies,Aides agricoles
+LAW_FARM_SUBSIDIES_HIGH,High,Élevées
+LAW_FARM_SUBSIDIES_MODERATE,Moderate,Modérées
+LAW_FARM_SUBSIDIES_LOW,Low,Faibles
+LAW_FUEL_SUBSIDIES,Fuel subsidies,Subventions aux carburants
+LAW_FUEL_SUBSIDIES_HIGH,High,Élevées
+LAW_FUEL_SUBSIDIES_MODERATE,Moderate,Modérées
+LAW_FUEL_SUBSIDIES_NONE,None,Aucune
+LAW_TAX_ENFORCEMENT,Tax enforcement,Lutte contre la fraude fiscale
+LAW_TAX_ENFORCEMENT_STRICT,Strict,Stricte
+LAW_TAX_ENFORCEMENT_STANDARD,Standard,Classique
+LAW_TAX_ENFORCEMENT_LAX,Lax,Laxiste
+LAW_PROPERTY_RIGHTS,Property rights,Droit de propriété
+LAW_PROPERTY_RIGHTS_STRONG,Strong,Forts
+LAW_PROPERTY_RIGHTS_STANDARD,Standard,Classiques
+LAW_PROPERTY_RIGHTS_WEAK,Weak,Faibles
+LAW_HEALTHCARE,Health system,Système de santé
+LAW_HEALTHCARE_UNIVERSAL,Universal public cover,Couverture publique universelle
+LAW_HEALTHCARE_MIXED,Mixed,Mixte
+LAW_HEALTHCARE_PRIVATE,Private,Privé
+LAW_VACCINATION,Vaccination,Vaccination
+LAW_VACCINATION_MANDATORY,Mandatory for children,Obligatoire pour les enfants
+LAW_VACCINATION_RECOMMENDED,Recommended,Recommandée
+LAW_TOBACCO,Tobacco,Tabac
+LAW_TOBACCO_STRICT,Strict,Strict
+LAW_TOBACCO_STANDARD,Standard,Classique
+LAW_TOBACCO_LAX,Lax,Laxiste
+LAW_EDUCATION_COST,Public universities,Universités publiques
+LAW_EDUCATION_COST_FREE,Free,Gratuites
+LAW_EDUCATION_COST_SUBSIDIZED,Low fees,Frais modérés
+LAW_EDUCATION_COST_PAID,Full fees,Frais élevés
+LAW_SCHOOL_LEAVING_AGE,School-leaving age,Scolarité obligatoire
+LAW_SCHOOL_LEAVING_AGE_S18,Until 18,Jusqu'à 18 ans
+LAW_SCHOOL_LEAVING_AGE_S16,Until 16,Jusqu'à 16 ans
+LAW_SCHOOL_LEAVING_AGE_S14,Until 14,Jusqu'à 14 ans
+LAW_UNIVERSITY_ACCESS,University access,Accès à l'université
+LAW_UNIVERSITY_ACCESS_OPEN,Open,Ouvert
+LAW_UNIVERSITY_ACCESS_SELECTIVE,Selective,Sélectif
+LAW_PRIVATE_SCHOOLS,Private schools,Écoles privées
+LAW_PRIVATE_SCHOOLS_FREE,Free,Libres
+LAW_PRIVATE_SCHOOLS_REGULATED,Regulated,Encadrées
+LAW_PRIVATE_SCHOOLS_BANNED,Banned,Interdites
+LAW_SEX_EDUCATION,Sex education,Éducation sexuelle
+LAW_SEX_EDUCATION_COMPREHENSIVE,Comprehensive,Complète
+LAW_SEX_EDUCATION_LIMITED,Limited,Limitée
+LAW_SEX_EDUCATION_NONE,None,Aucune
+LAW_NUCLEAR_POWER,Civil nuclear power,Nucléaire civil
+LAW_NUCLEAR_POWER_BANNED,Banned,Interdit
+LAW_NUCLEAR_POWER_PHASE_OUT,Phase-out,Sortie progressive
+LAW_NUCLEAR_POWER_ALLOWED,Allowed,Autorisé
+LAW_NUCLEAR_POWER_EXPANSION,Expansion,Relance
+LAW_CARBON_TAX,Carbon tax,Taxe carbone
+LAW_CARBON_TAX_HIGH,High,Élevée
+LAW_CARBON_TAX_MODERATE,Moderate,Modérée
+LAW_CARBON_TAX_NONE,None,Aucune
+LAW_COMBUSTION_CARS,Petrol and diesel cars,Voitures thermiques
+LAW_COMBUSTION_CARS_BAN,Sales banned from 2035,Vente interdite dès 2035
+LAW_COMBUSTION_CARS_INCENTIVES,Incentives for electric cars,Aides aux voitures électriques
+LAW_COMBUSTION_CARS_FREE,No restriction,Pas de restriction
+LAW_DEFORESTATION,Forests,Forêts
+LAW_DEFORESTATION_PROTECTED,Strictly protected,Strictement protégées
+LAW_DEFORESTATION_REGULATED,Regulated logging,Exploitation encadrée
+LAW_DEFORESTATION_FREE,Free logging,Exploitation libre
+LAW_FRACKING,Shale gas,Gaz de schiste
+LAW_FRACKING_BANNED,Banned,Interdit
+LAW_FRACKING_ALLOWED,Allowed,Autorisé
+LAW_PLASTICS,Single-use plastics,Plastiques jetables
+LAW_PLASTICS_BANNED,Banned,Interdits
+LAW_PLASTICS_TAXED,Taxed,Taxés
+LAW_PLASTICS_FREE,Free,Libres
+LAW_ANIMAL_WELFARE,Animal welfare,Bien-être animal
+LAW_ANIMAL_WELFARE_STRICT,Strict,Strict
+LAW_ANIMAL_WELFARE_STANDARD,Standard,Classique
+LAW_ANIMAL_WELFARE_MINIMAL,Minimal,Minimal
+LAW_GMO,GM crops,OGM
+LAW_GMO_BANNED,Banned,Interdits
+LAW_GMO_REGULATED,Regulated,Encadrés
+LAW_GMO_FREE,Free,Libres
+LAW_LOBBYING,Lobbying,Lobbying
+LAW_LOBBYING_STRICT,Strict register,Registre strict
+LAW_LOBBYING_REGISTERED,Registered,Déclaré
+LAW_LOBBYING_FREE,Free,Libre
+LAW_PARTY_FUNDING,Party funding,Financement des partis
+LAW_PARTY_FUNDING_PUBLIC,Public,Public
+LAW_PARTY_FUNDING_MIXED,Mixed with caps,Mixte et plafonné
+LAW_PARTY_FUNDING_PRIVATE,Private and unlimited,Privé et illimité
+LAW_VOTING_AGE,Voting age,Âge du droit de vote
+LAW_VOTING_AGE_V16,16,16 ans
+LAW_VOTING_AGE_V18,18,18 ans
+LAW_VOTING_AGE_V21,21,21 ans
+LAW_COMPULSORY_VOTING,Compulsory voting,Vote obligatoire
+LAW_COMPULSORY_VOTING_YES,Yes,Oui
+LAW_COMPULSORY_VOTING_NO,No,Non
+LAW_DECENTRALIZATION,Territorial organisation,Organisation territoriale
+LAW_DECENTRALIZATION_FEDERAL,Federal,Fédérale
+LAW_DECENTRALIZATION_REGIONAL,Regionalised,Régionalisée
+LAW_DECENTRALIZATION_CENTRALIZED,Centralised,Centralisée
+LAW_CIVIL_SERVICE,Civil service recruitment,Recrutement des fonctionnaires
+LAW_CIVIL_SERVICE_MERIT,Competitive exams,Concours
+LAW_CIVIL_SERVICE_MIXED,Mixed,Mixte
+LAW_CIVIL_SERVICE_PATRONAGE,Political patronage,Clientélisme
+LAW_TERM_LIMITS_LOCAL,Local term limits,Cumul des mandats
+LAW_TERM_LIMITS_LOCAL_BANNED,Banned,Interdit
+LAW_TERM_LIMITS_LOCAL_ALLOWED,Allowed,Autorisé
+LAW_REFERENDUM_INITIATIVE,Citizens' initiative,Référendum d'initiative citoyenne
+LAW_REFERENDUM_INITIATIVE_YES,Yes,Oui
+LAW_REFERENDUM_INITIATIVE_NO,No,Non
+LAW_OPEN_DATA,Government transparency,Transparence de l'administration
+LAW_OPEN_DATA_OPEN,Open data,Données ouvertes
+LAW_OPEN_DATA_LIMITED,Limited,Limitée
+LAW_OPEN_DATA_SECRET,Secrecy,Secret
+LAW_CATEGORY_JUSTICE,Justice,Justice
+LAW_CATEGORY_SOCIETY,Society and rights,Société et droits
+LAW_CATEGORY_FREEDOMS,Freedoms,Libertés
+LAW_CATEGORY_SECURITY,Security,Sécurité
+LAW_CATEGORY_IMMIGRATION,Immigration,Immigration
+LAW_CATEGORY_LABOUR,Labour,Travail
+LAW_CATEGORY_ECONOMY,Economy,Économie
+LAW_CATEGORY_HEALTH_EDUCATION,Health and education,Santé et éducation
+LAW_CATEGORY_ENVIRONMENT,Environment,Environnement
+LAW_CATEGORY_GOVERNANCE,Institutions,Institutions
+CONSTITUTION_PRESIDENTIAL_TERM_LIMIT,Presidential term limit,Limite des mandats présidentiels
+CONSTITUTION_PRESIDENTIAL_TERM_LIMIT_ONE,One term,Un mandat
+CONSTITUTION_PRESIDENTIAL_TERM_LIMIT_TWO,Two terms,Deux mandats
+CONSTITUTION_PRESIDENTIAL_TERM_LIMIT_NONE,No limit,Pas de limite
+CONSTITUTION_PRESIDENTIAL_TERM,Presidential term,Durée du mandat présidentiel
+CONSTITUTION_PRESIDENTIAL_TERM_T4,4 years,4 ans
+CONSTITUTION_PRESIDENTIAL_TERM_T5,5 years,5 ans
+CONSTITUTION_PRESIDENTIAL_TERM_T6,6 years,6 ans
+CONSTITUTION_PRESIDENTIAL_TERM_T7,7 years,7 ans
+CONSTITUTION_LEGISLATIVE_TERM,Length of the legislature,Durée de la législature
+CONSTITUTION_LEGISLATIVE_TERM_T2,2 years,2 ans
+CONSTITUTION_LEGISLATIVE_TERM_T3,3 years,3 ans
+CONSTITUTION_LEGISLATIVE_TERM_T4,4 years,4 ans
+CONSTITUTION_LEGISLATIVE_TERM_T5,5 years,5 ans
+CONSTITUTION_ELECTORAL_SYSTEM,Electoral system,Mode de scrutin
+CONSTITUTION_ELECTORAL_SYSTEM_PROPORTIONAL,Proportional,Proportionnelle
+CONSTITUTION_ELECTORAL_SYSTEM_MIXED,Mixed,Mixte
+CONSTITUTION_ELECTORAL_SYSTEM_MAJORITARIAN,First past the post,Majoritaire
+CONSTITUTION_THRESHOLD,Electoral threshold,Seuil électoral
+CONSTITUTION_THRESHOLD_LOW,Low (2%),Bas (2 %)
+CONSTITUTION_THRESHOLD_MEDIUM,Medium (5%),Moyen (5 %)
+CONSTITUTION_THRESHOLD_HIGH,High (10%),Élevé (10 %)
+CONSTITUTION_EXECUTIVE,Form of government,Forme du pouvoir exécutif
+CONSTITUTION_EXECUTIVE_PARLIAMENTARY,Parliamentary,Parlementaire
+CONSTITUTION_EXECUTIVE_SEMI_PRESIDENTIAL,Semi-presidential,Semi-présidentiel
+CONSTITUTION_EXECUTIVE_PRESIDENTIAL,Presidential,Présidentiel
+PORTFOLIO_FINANCE,Finance,Finances
+PORTFOLIO_INTERIOR,Interior,Intérieur
+PORTFOLIO_FOREIGN,Foreign affairs,Affaires étrangères
+PORTFOLIO_DEFENSE,Defence,Défense
+PORTFOLIO_JUSTICE,Justice,Justice
+PORTFOLIO_HEALTH,Health,Santé
+PORTFOLIO_EDUCATION,Education,Éducation
+PORTFOLIO_ENVIRONMENT,Environment,Environnement
+CRISIS_STRIKE,Strike,Grève
+CRISIS_DEMONSTRATION,Demonstrations,Manifestations
+CRISIS_RIOT,Riots,Émeutes
+CRISIS_CIVIL_WAR,Civil war,Guerre civile

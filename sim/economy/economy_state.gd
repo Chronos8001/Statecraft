@@ -57,6 +57,17 @@ var trade_inflation: float = 0.0
 var trade_customs: float = 0.0
 ## Effet des coupures d'électricité sur la croissance (points) et dépenses des chantiers (% du PIB).
 var energy_growth: float = 0.0
+## Croissance perdue quand la stabilité baisse (société).
+var society_growth: float = 0.0
+## Effets des lois sur la croissance (points de %/an) et coût budgétaire des lois (% du PIB).
+var law_growth: float = 0.0
+var law_spending: float = 0.0
+## Croissance perdue pendant l'état d'urgence.
+var emergency_growth: float = 0.0
+## Effet de la compétence du ministre des Finances sur la croissance.
+var cabinet_growth: float = 0.0
+## Croissance perdue à cause des crises (grèves, émeutes, guerre civile).
+var crisis_growth: float = 0.0
 var project_spending: float = 0.0
 ## Propriété publique, IDE et fonds souverain ; effets sur la croissance (points) et les recettes (% du PIB).
 var investment: InvestmentState = InvestmentState.new()

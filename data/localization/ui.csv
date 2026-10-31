@@ -319,7 +319,7 @@ BUDGET_PROJECTS,Public investment (projects),Investissements publics (chantiers)
 NOTIFY_PROJECT_DONE,%s completed in %s,%s achevé(e) : %s
 NOTIFY_BLACKOUT,Blackouts: electricity demand exceeds supply,Coupures d'électricité : la demande dépasse la production
 # --- Investissements ---
-TOPBAR_INVESTMENT,Investment,Investissements
+TOPBAR_INVESTMENT,Investment,Entreprises
 TOPBAR_INVESTMENT_TOOLTIP,"State-owned companies, foreign investment and sovereign fund","Entreprises publiques, investissements étrangers et fonds souverain"
 INVEST_TITLE,Investment,Investissements
 INVEST_OWNERSHIP,State ownership by sector,Part publique par secteur
@@ -352,3 +352,204 @@ BUDGET_PUBLIC_REVENUE,State company profits,Bénéfices des entreprises publique
 NOTIFY_NATIONALIZED,Nationalization: %s,Nationalisation : %s
 NOTIFY_EXPROPRIATED,Expropriation: %s — investors flee,Expropriation : %s — les investisseurs fuient
 NOTIFY_PRIVATIZED,Privatization: %s,Privatisation : %s
+TOPBAR_SOCIETY,Society,Société
+TOPBAR_SOCIETY_TOOLTIP,"Social groups, stability, popular support and legitimacy","Groupes sociaux, stabilité, soutien populaire et légitimité"
+TOPBAR_SCORE_VALUE,%d,%d
+TOPBAR_STABILITY_TOOLTIP,Stability of the country (out of 100),Stabilité du pays (sur 100)
+TOPBAR_SUPPORT_TOOLTIP,Popular support for the government (out of 100),Soutien populaire au gouvernement (sur 100)
+MAPMODE_SUPPORT,Popular support,Soutien populaire
+MAPMODE_UNIT_SCORE,%s / 100,%s / 100
+SOCIETY_TITLE,Society,Société
+SOCIETY_INDICATORS,National indicators,Indicateurs nationaux
+SOCIETY_STABILITY,Stability,Stabilité
+SOCIETY_SUPPORT,Popular support,Soutien populaire
+SOCIETY_LEGITIMACY,Legitimacy,Légitimité
+SOCIETY_CORRUPTION,Corruption,Corruption
+SOCIETY_DEMOCRACY,Democracy index,Indice de démocratie
+SOCIETY_DEMOCRACY_VALUE,%s / 10,%s / 10
+SOCIETY_SCORE_VALUE,%d / 100,%d / 100
+SOCIETY_SCORE_START_VALUE,%d / 100 (start: %d),%d / 100 (départ : %d)
+SOCIETY_GROUPS,Social groups,Groupes sociaux
+SOCIETY_GROUP,Group,Groupe
+SOCIETY_POPULATION,Population,Population
+SOCIETY_INFLUENCE,Weight,Poids politique
+SOCIETY_SATISFACTION,Satisfaction,Satisfaction
+SOCIETY_SATISFACTION_TOOLTIP,Satisfaction in January 2026: %d / 100,Satisfaction en janvier 2026 : %d / 100
+SOCIETY_GROUPS_HINT,"Groups react to the budget, unemployment, inflation, growth, power cuts and nationalisations. Their political weight depends on their size, their own influence and the regime. Stability follows the satisfaction of the most influential groups; when it falls, growth slows.","Les groupes réagissent au budget, au chômage, à l'inflation, à la croissance, aux coupures d'électricité et aux nationalisations. Leur poids politique dépend de leur nombre, de leur influence propre et du régime. La stabilité suit la satisfaction des groupes les plus influents ; quand elle baisse, la croissance ralentit."
+TOPBAR_POLITICS,Politics,Politique
+TOPBAR_POLITICS_TOOLTIP,"Parliament, government and polls","Parlement, gouvernement et sondages"
+POLITICS_TITLE,Politics,Politique
+POLITICS_CHAMBER,Lower house,Chambre basse
+POLITICS_SEATS_VALUE,%s seats,%s sièges
+POLITICS_STATUS,Status,Situation
+POLITICS_DISSOLVED,"Dissolved, elections pending","Dissoute, élections à venir"
+POLITICS_GOVERNMENT,Government,Gouvernement
+POLITICS_MAJORITY_VALUE,Majority: %s / %s,Majoritaire : %s / %s
+POLITICS_MINORITY_VALUE,Minority: %s / %s,Minoritaire : %s / %s
+POLITICS_GOVERNMENT_POLL,Government parties in polls,Partis du gouvernement dans les sondages
+POLITICS_LAST_ELECTION,Last election,Dernières élections
+POLITICS_NEXT_ELECTION,Next election due,Prochaines élections au plus tard
+POLITICS_PARTIES,Parties,Partis
+POLITICS_PARTY,Party,Parti
+POLITICS_LEADER,Leader,Chef
+POLITICS_SEATS,Seats,Sièges
+POLITICS_VOTE,Last vote,Dernier scrutin
+POLITICS_POLL,Polls,Sondages
+POLITICS_POLL_TOOLTIP,Polls in January 2026: %s%%,Sondages en janvier 2026 : %s %%
+POLITICS_GOVERNMENT_MARK,★,★
+POLITICS_OTHERS,Others and independents,Autres et indépendants
+POLITICS_POLLS_HINT,"★ party in government. Each party draws votes from the social groups close to its ideology; government parties rise or fall with the satisfaction of these groups. Seats only change at elections.","★ parti au gouvernement. Chaque parti puise ses voix dans les groupes sociaux proches de ses idées ; les partis au gouvernement montent ou baissent avec la satisfaction de ces groupes. Les sièges ne changent qu'aux élections."
+POLITICS_POLLS_HIDDEN,"★ party in government. No independent polls are published in this country: the figures are the regime's own estimate of public opinion.","★ parti au gouvernement. Aucun sondage indépendant n'est publié dans ce pays : les chiffres sont l'estimation de l'opinion par le pouvoir."
+MAPMODE_VOTE,Leading party,Parti en tête
+LEGEND_VOTE_HINT,Party leading in each province (current polls),Parti en tête dans chaque province (sondages du moment)
+LEGEND_NO_PARTIES,No parties or no parliament,Pas de partis ou pas de parlement
+POLITICS_HEAD_OF_STATE,Head of state,Chef de l'État
+POLITICS_HEAD_OF_GOVERNMENT,Head of government,Chef du gouvernement
+POLITICS_SYSTEM,Electoral system,Mode de scrutin
+POLITICS_SYSTEM_PROPORTIONAL,Proportional,Proportionnelle
+POLITICS_SYSTEM_MAJORITARIAN,First past the post,Majoritaire
+POLITICS_SYSTEM_MIXED,Mixed,Mixte
+POLITICS_THRESHOLD_VALUE,threshold %s%%,seuil %s %%
+POLITICS_NEXT_PRESIDENTIAL,Next presidential election,Prochaine présidentielle
+POLITICS_SUSPENDED,Suspended (martial law),Suspendues (loi martiale)
+POLITICS_LAST_RESULT,Last result,Dernier résultat
+POLITICS_RESULT_LEGISLATIVE,"Legislative, %s: %s first","Législatives, %s : %s en tête"
+POLITICS_RESULT_PRESIDENTIAL,"Presidential, %s: %s elected","Présidentielle, %s : %s élu"
+POLITICS_RESULT_CHANGE,change of government,alternance
+POLITICS_EARLY_ELECTION,Call early elections,Élections anticipées
+POLITICS_EARLY_TOOLTIP,Dissolve the lower house: elections in two months.,Dissoudre la chambre basse : élections dans deux mois.
+POLITICS_EARLY_NO_CHAMBER,No elected lower house.,Pas de chambre basse élue.
+POLITICS_EARLY_NOT_ALLOWED,Only possible in a parliamentary democracy.,Possible seulement dans une démocratie parlementaire.
+POLITICS_EARLY_TOO_SOON,Too soon after the last election (12 months minimum).,Trop tôt après le dernier scrutin (12 mois minimum).
+POLITICS_EARLY_ALREADY_PLANNED,Elections are already planned.,Des élections sont déjà prévues.
+NOTIFY_LEGISLATIVE_WON,Legislative elections: %s comes first.,Législatives : %s arrive en tête.
+NOTIFY_PRESIDENTIAL_WON,Presidential election: the %s candidate is elected.,Présidentielle : le candidat du %s est élu.
+NOTIFY_NEW_GOVERNMENT,New government led by %s.,Nouveau gouvernement dirigé par %s.
+NOTIFY_GOVERNMENT_STAYS,The government stays in office.,Le gouvernement reste en place.
+NOTIFY_ELECTION_MANAGED,Elections held: the regime keeps its majority.,Élections tenues : le pouvoir garde sa majorité.
+CAMPAIGN_TITLE,Election campaign,Campagne électorale
+CAMPAIGN_ELECTION,Next vote,Prochain scrutin
+CAMPAIGN_SPENT,Campaign spending,Dépenses de campagne
+CAMPAIGN_BONUS,Boost for the ruling party,Gain pour le parti au pouvoir
+CAMPAIGN_RALLIES,Rallies held,Meetings tenus
+CAMPAIGN_FUND,Fund,Financer
+CAMPAIGN_FUND_TOOLTIP,"Public money for the ruling party's campaign, added to the debt. The more you spend, the less each billion brings.","Argent public pour la campagne du parti au pouvoir, ajouté à la dette. Plus on dépense, moins chaque milliard rapporte."
+CAMPAIGN_RALLY,Hold a rally,Tenir un meeting
+CAMPAIGN_PROMISE,Promise,Promettre
+CAMPAIGN_PROMISE_TO,Promise to: %s,Promesse : %s
+CAMPAIGN_PROMISE_PENDING,until the vote,jusqu'au scrutin
+CAMPAIGN_PROMISE_DEADLINE,to keep before %s,à tenir avant %s
+CAMPAIGN_FRAUD_TOOLTIP,"Rig the next vote. The more massive the fraud, the more likely it is to be discovered, especially in a solid democracy with a free press.","Truquer le prochain scrutin. Plus la fraude est massive, plus elle risque d'être découverte, surtout dans une démocratie solide à la presse libre."
+CAMPAIGN_FRAUD_0,No fraud,Pas de fraude
+CAMPAIGN_FRAUD_1,Discreet fraud,Fraude discrète
+CAMPAIGN_FRAUD_2,Large-scale fraud,Fraude importante
+CAMPAIGN_FRAUD_3,Massive fraud,Fraude massive
+CAMPAIGN_NO_PARTY,No ruling party.,Pas de parti au pouvoir.
+CAMPAIGN_NOT_STARTED,The campaign opens six months before a vote.,La campagne s'ouvre six mois avant un scrutin.
+CAMPAIGN_INVALID_AMOUNT,Invalid choice.,Choix non valable.
+CAMPAIGN_SPENDING_LIMIT,Spending limit reached.,Plafond de dépenses atteint.
+CAMPAIGN_NOT_OWN_PROVINCE,This province is not yours.,Cette province n'est pas à vous.
+CAMPAIGN_RALLY_DONE,A rally has already been held there.,Un meeting y a déjà eu lieu.
+CAMPAIGN_RALLY_THIS_MONTH,One rally per month.,Un meeting par mois.
+CAMPAIGN_UNKNOWN_GROUP,Unknown group.,Groupe inconnu.
+CAMPAIGN_ALREADY_PROMISED,Already promised to this group.,Déjà promis à ce groupe.
+CAMPAIGN_TOO_MANY_PROMISES,Three promises at most.,Trois promesses au plus.
+CAMPAIGN_FRAUD_USELESS,The regime already controls the vote.,Le pouvoir contrôle déjà le scrutin.
+NOTIFY_FRAUD_DETECTED,Electoral fraud uncovered in %s!,Fraude électorale découverte : %s !
+NOTIFY_PROMISE_KEPT,Promise kept to: %s.,Promesse tenue : %s.
+NOTIFY_PROMISE_BROKEN,Promise broken: %s are furious.,Promesse rompue : %s furieux.
+TOPBAR_LAWS,Laws,Lois
+TOPBAR_LAWS_TOOLTIP,"Laws in force and bills before the chamber","Lois en vigueur et projets de loi"
+LAWS_TITLE,Laws,Lois
+LAWS_LAW,Law,Loi
+LAWS_CURRENT,In force,En vigueur
+LAWS_CHANGE,Reform,Réformer
+LAWS_PROPOSE,Propose,Proposer
+LAWS_COOLDOWN_VALUE,Cannot be changed for %d more months,Ne peut être modifiée avant %d mois
+LAWS_DECREE,The regime decides alone (decree).,Le pouvoir décide seul (décret).
+LAWS_VOTE_VALUE,Expected vote: %d for / %d against (%d needed),Vote attendu : %d pour / %d contre (%d nécessaires)
+LAWS_PASSES,The bill would pass.,Le texte serait adopté.
+LAWS_FAILS,The bill would be rejected.,Le texte serait rejeté.
+LAWS_EFFECTS_VALUE,Effects: %s,Effets : %s
+LAWS_NO_EFFECT,none,aucun
+LAWS_EFFECT_STABILITY,Stability,Stabilité
+LAWS_EFFECT_GROWTH,Growth,Croissance
+LAWS_EFFECT_LEGITIMACY,Legitimacy,Légitimité
+LAWS_EFFECT_CORRUPTION,Corruption,Corruption
+LAWS_EFFECT_BUDGET,Cost (% of GDP),Coût (% du PIB)
+LAWS_INVALID,Invalid choice.,Choix non valable.
+LAWS_ALREADY,Already in force.,Déjà en vigueur.
+LAWS_COOLDOWN,This law was voted on recently.,Cette loi a été votée récemment.
+NOTIFY_LAW_PASSED,Law passed: %s.,Loi adoptée : %s.
+NOTIFY_LAW_REJECTED,Bill rejected by the chamber: %s.,Projet rejeté par la chambre : %s.
+LAW_CATEGORY_CONSTITUTION,Constitution,Constitution
+CONSTITUTION_REFERENDUM,Referendum,Référendum
+CONSTITUTION_REFERENDUM_TOOLTIP,Ask the people: vote in two months.,Consulter le peuple : vote dans deux mois.
+CONSTITUTION_REFERENDUM_ESTIMATE,Referendum: about %s%% yes expected.,Référendum : environ %s %% de oui attendus.
+CONSTITUTION_REFERENDUM_PENDING_VALUE,Referendum planned: %s.,Référendum prévu : %s.
+CONSTITUTION_NO_PRESIDENCY,No elected president.,Pas de président élu.
+CONSTITUTION_NOT_REPUBLIC,Only for republics.,Réservé aux républiques.
+CONSTITUTION_REFERENDUM_PENDING,A referendum is already planned.,Un référendum est déjà prévu.
+CONSTITUTION_NO_REFERENDUM,No free referendum under this regime.,Pas de référendum libre sous ce régime.
+CONSTITUTION_NO_MAJORITY,The government has no majority in the chamber.,Le gouvernement n'a pas de majorité à la chambre.
+CONSTITUTION_EMERGENCY_ON,State of emergency: %d months left,État d'urgence : encore %d mois
+CONSTITUTION_EMERGENCY_OFF,No state of emergency,Pas d'état d'urgence
+CONSTITUTION_EMERGENCY_DECLARE,Declare a state of emergency,Déclarer l'état d'urgence
+CONSTITUTION_EMERGENCY_LIFT,Lift the state of emergency,Lever l'état d'urgence
+CONSTITUTION_EMERGENCY_TOOLTIP,"Six months: more stability, less growth, elections postponed; legitimacy erodes in a democracy.","Six mois : plus de stabilité, moins de croissance, élections repoussées ; la légitimité s'use en démocratie."
+NOTIFY_REFORM_ADOPTED,Constitutional reform adopted: %s.,Réforme constitutionnelle adoptée : %s.
+NOTIFY_REFORM_REJECTED,Constitutional reform rejected: %s.,Réforme constitutionnelle rejetée : %s.
+NOTIFY_REFERENDUM_CALLED,Referendum called: vote in two months.,Référendum convoqué : vote dans deux mois.
+NOTIFY_REFERENDUM_YES,Referendum: yes wins with %s%%.,Référendum : le oui l'emporte avec %s %%.
+NOTIFY_REFERENDUM_NO,Referendum: no wins (%s%% yes).,Référendum : le non l'emporte (%s %% de oui).
+NOTIFY_EMERGENCY_ON,State of emergency declared.,État d'urgence déclaré.
+NOTIFY_EMERGENCY_OFF,State of emergency over.,Fin de l'état d'urgence.
+TOPBAR_GOVERNMENT,Cabinet,Ministres
+TOPBAR_GOVERNMENT_TOOLTIP,Ministers and reshuffles,Ministres et remaniements
+GOVERNMENT_TITLE,Cabinet,Gouvernement
+GOVERNMENT_PORTFOLIO,Portfolio,Portefeuille
+GOVERNMENT_MINISTER,Minister,Ministre
+GOVERNMENT_PARTY,Party,Parti
+GOVERNMENT_COMPETENCE,Competence,Compétence
+GOVERNMENT_LOYALTY,Loyalty,Loyauté
+GOVERNMENT_CORRUPTION,Corruption,Corruption
+GOVERNMENT_RESHUFFLE,Reshuffle,Remaniement
+GOVERNMENT_APPOINT,Appoint,Nommer
+GOVERNMENT_APPOINT_TOOLTIP,Each reshuffle costs a little stability.,Chaque remaniement coûte un peu de stabilité.
+GOVERNMENT_CANDIDATE_VALUE,"%s (%s), competence %d, loyalty %d, corruption %d","%s (%s), compétence %d, loyauté %d, corruption %d"
+GOVERNMENT_NO_PARTY,no party,sans parti
+GOVERNMENT_HINT,"Competence (0 to 10) drives each portfolio: growth (finance), stability (interior), legitimacy (foreign affairs), the military (defence), corruption (justice), retirees and workers (health), young people (education), ecologists (environment). Corrupt ministers risk scandals; disloyal ones may resign.","La compétence (0 à 10) agit sur chaque portefeuille : croissance (Finances), stabilité (Intérieur), légitimité (Affaires étrangères), militaires (Défense), corruption (Justice), retraités et ouvriers (Santé), jeunes (Éducation), écologistes (Environnement). Les ministres corrompus risquent le scandale ; les moins loyaux peuvent démissionner."
+NOTIFY_MINISTER_SCANDAL,Scandal: the minister resigns (%s).,Scandale : le ministre démissionne (%s).
+NOTIFY_MINISTER_RESIGNED,A minister resigns (%s).,Un ministre démissionne (%s).
+CRISES_TITLE,Unrest,Crises
+CRISES_NONE,No unrest.,Aucune crise en cours.
+CRISES_CONCEDE,Concede,Concéder
+CRISES_NEGOTIATE,Negotiate,Négocier
+CRISES_REPRESS,Repress,Réprimer
+CRISES_CONCEDE_TOOLTIP,"Give in: ends the crisis, costs 0.1% of GDP, the group is satisfied for a year.","Céder : fin de la crise, coût de 0,1 % du PIB, le groupe est satisfait pendant un an."
+CRISES_NEGOTIATE_TOOLTIP,"Negotiate: the crisis lasts half as long, small cost, small gain for the group.","Négocier : la crise dure deux fois moins longtemps, petit coût, petit gain pour le groupe."
+CRISES_REPRESS_TOOLTIP,"Repress: immediate end, but legitimacy falls and the group's anger lasts.","Réprimer : fin immédiate, mais la légitimité baisse et la colère du groupe dure."
+CRISES_CONCEDE_DONE,Concessions made,Concessions faites
+CRISES_NEGOTIATE_DONE,Negotiating,Négociations en cours
+CRISES_REPRESS_DONE,Repressed,Réprimée
+MAPMODE_UNREST,Unrest,Troubles
+MAPMODE_UNIT_UNREST,%s,%s
+NOTIFY_UNREST,%s: %s.,%s : %s.
+NOTIFY_CIVIL_WAR,Civil war breaks out in %s!,Guerre civile : %s !
+NOTIFY_COUP_SUCCESS,Military coup in %s: a junta takes power.,Coup d'État : %s passe aux mains d'une junte.
+NOTIFY_COUP_FAILED,Failed coup attempt in %s.,Tentative de coup d'État déjouée : %s.
+MEDIA_TITLE,Media and opinion,Médias et opinion
+MEDIA_PROPAGANDA_0,No propaganda,Pas de propagande
+MEDIA_PROPAGANDA_1,Light propaganda,Propagande légère
+MEDIA_PROPAGANDA_2,Heavy propaganda,Propagande soutenue
+MEDIA_PROPAGANDA_3,Massive propaganda,Propagande massive
+MEDIA_COST_VALUE,%s%% of GDP per month,%s %% du PIB par mois
+MEDIA_PROPAGANDA_TOOLTIP,"Paid each month: every group is a little more satisfied and the ruling party gains in the polls. More effective when the press is muzzled; erodes legitimacy in a democracy with a free press.","Payée chaque mois : tous les groupes sont un peu plus satisfaits et le parti au pouvoir gagne dans les sondages. Plus efficace quand la presse est muselée ; elle use la légitimité d'une démocratie à la presse libre."
+MEDIA_DISINFORMATION,Disinformation,Désinformation
+MEDIA_DISINFORMATION_TOOLTIP,"Smear the main opposition party, or destabilise a foreign country for six months. Risk of exposure (legitimacy).","Salir le premier parti d'opposition, ou déstabiliser un pays étranger pendant six mois. Risque d'être démasqué (légitimité)."
+MEDIA_TARGET_OPPOSITION,Our own opposition,Notre opposition
+MEDIA_COOLDOWN,Too soon after the last operation.,Trop tôt après la dernière opération.
+MEDIA_INVALID_TARGET,Invalid target.,Cible non valable.
+MEDIA_NO_OPPOSITION,No opposition party.,Pas de parti d'opposition.
+NOTIFY_DISINFORMATION_DONE,Disinformation operation carried out.,Opération de désinformation menée.
+NOTIFY_DISINFORMATION_EXPOSED,Our disinformation operation has been exposed!,Notre opération de désinformation a été démasquée !

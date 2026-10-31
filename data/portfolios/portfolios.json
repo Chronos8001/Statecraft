@@ -1,0 +1,10 @@
+{
+  "finance": {"name_key": "PORTFOLIO_FINANCE", "skill": "economy", "trait_bonus": {"economist": 2, "businessman": 1, "technocrat": 1}, "effects": {"growth": 0.05}},
+  "interior": {"name_key": "PORTFOLIO_INTERIOR", "skill": "administration", "trait_bonus": {"security_services": 2, "administrator": 1}, "effects": {"stability": 0.6}},
+  "foreign": {"name_key": "PORTFOLIO_FOREIGN", "skill": "diplomacy", "trait_bonus": {"career_diplomat": 2, "diplomat": 1, "negotiator": 1}, "effects": {"legitimacy": 0.3}},
+  "defense": {"name_key": "PORTFOLIO_DEFENSE", "skill": "military", "trait_bonus": {"military_officer": 2, "strategist": 1}, "effects": {"groups": {"military": 1.0}}},
+  "justice": {"name_key": "PORTFOLIO_JUSTICE", "skill": "administration", "trait_bonus": {"lawyer": 2, "reformer": 1}, "effects": {"corruption": -1.0}},
+  "health": {"name_key": "PORTFOLIO_HEALTH", "skill": "administration", "trait_bonus": {"academic": 1, "administrator": 1}, "effects": {"groups": {"retirees": 0.6, "workers": 0.4}}},
+  "education": {"name_key": "PORTFOLIO_EDUCATION", "skill": "administration", "trait_bonus": {"academic": 2, "reformer": 1}, "effects": {"groups": {"youth": 0.8, "middle_class": 0.3}}},
+  "environment": {"name_key": "PORTFOLIO_ENVIRONMENT", "skill": "administration", "trait_bonus": {"activist": 2, "academic": 1}, "effects": {"groups": {"ecologists": 1.0}}}
+}
