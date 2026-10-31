@@ -1062,6 +1062,61 @@
             "max": 10
           }
         }
+      },
+      "trade": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "trade_elasticity",
+          "import_passthrough",
+          "tariff_growth_cost",
+          "embargo_tariff",
+          "customs_collection",
+          "resale_share",
+          "embargo_premium",
+          "max_economic_effect",
+          "max_trade_gain"
+        ],
+        "properties": {
+          "trade_elasticity": {
+            "type": "number",
+            "min": 0
+          },
+          "import_passthrough": {
+            "type": "number",
+            "min": 0
+          },
+          "tariff_growth_cost": {
+            "type": "number",
+            "min": 0
+          },
+          "embargo_tariff": {
+            "type": "number",
+            "min": 0
+          },
+          "customs_collection": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "resale_share": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "embargo_premium": {
+            "type": "number",
+            "min": 0
+          },
+          "max_economic_effect": {
+            "type": "number",
+            "min": 0
+          },
+          "max_trade_gain": {
+            "type": "number",
+            "min": 1
+          }
+        }
       }
     }
   },
@@ -1236,7 +1291,8 @@
         "currency",
         "budget",
         "resources",
-        "water"
+        "water",
+        "trade"
       ],
       "properties": {
         "name_key": {
@@ -1506,6 +1562,42 @@
             "withdrawal_ratio": {
               "type": "number",
               "min": 0
+            }
+          }
+        },
+        "trade": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "exports",
+            "imports",
+            "partners"
+          ],
+          "properties": {
+            "exports": {
+              "type": "number",
+              "min": 0
+            },
+            "imports": {
+              "type": "number",
+              "min": 0
+            },
+            "surcharges": {
+              "type": "object",
+              "keys_pattern": "^([A-Z]{3}|default)$",
+              "values": {
+                "type": "number",
+                "min": 0,
+                "max": 1000
+              }
+            },
+            "partners": {
+              "type": "object",
+              "keys_ref": "countries",
+              "values": {
+                "type": "number",
+                "min": 0
+              }
             }
           }
         }
@@ -1869,7 +1961,8 @@
             "alliance",
             "relations",
             "resources",
-            "control"
+            "control",
+            "trade"
           ]
         },
         "value": {
@@ -1908,6 +2001,15 @@
           "type": "number",
           "min": 0,
           "max": 1
+        },
+        "embargo_color": {
+          "type": "color"
+        },
+        "legend_keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     }
@@ -2489,6 +2591,42 @@
                 "type": "number"
               }
             }
+          }
+        }
+      }
+    }
+  },
+  "trade_agreements": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "kind",
+        "members"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^TRADE_AGREEMENT_[A-Z_]+$"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "customs_union",
+            "free_trade",
+            "partial"
+          ]
+        },
+        "members": {
+          "type": "array",
+          "min_items": 2,
+          "unique_items": true,
+          "items": {
+            "type": "string",
+            "ref": "countries"
           }
         }
       }

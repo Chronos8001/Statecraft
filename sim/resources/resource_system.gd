@@ -31,6 +31,7 @@ func on_month(state: SimState) -> void:
 	var tags: Array = state.countries.keys()
 	tags.sort()
 	update_blocked_shares(state, tags)
+	add_embargo_blocks(state)
 	for tag: String in tags:
 		_grow_bases(state.countries[tag], state)
 	var ids: Array = state.markets.keys()
@@ -56,6 +57,47 @@ static func update_blocked_shares(state: SimState, tags: Array) -> void:
 					continue
 				var blocked := country.resources.blocked_share
 				blocked[resource_id] = minf(float(blocked.get(resource_id, 0.0)) + float(shares[tag]), 1.0)
+
+
+## Embargos : l'exportateur visé perd les achats du pays qui l'impose (part des importations nettes
+## mondiales), sauf ce qui est revendu ailleurs ; le pays qui l'impose garde une prime et une pénurie
+## pour la part de ses achats qui venait de ce fournisseur (embargo_premiums).
+static func add_embargo_blocks(state: SimState) -> void:
+	var trade := state.trade
+	var settings := state.trade_settings
+	var resale := float(settings.get("resale_share", 0.0))
+	for tag: String in state.countries.keys():
+		(state.countries[tag] as CountryState).resources.embargo_premium.clear()
+	if trade.embargoes.is_empty():
+		return
+	var world_imports: Dictionary = {}
+	for country: CountryState in state.countries.values():
+		for resource_id: Variant in country.resources.consumption_base.keys():
+			var net := float(country.resources.consumption_base[resource_id]) \
+				- float(country.resources.production_base.get(resource_id, 0.0))
+			if net > 0.0:
+				world_imports[resource_id] = float(world_imports.get(resource_id, 0.0)) + net
+	for source: String in trade.embargoes.keys():
+		var importer := state.get_country(source)
+		if importer == null:
+			continue
+		for target: String in (trade.embargoes[source] as Dictionary).keys():
+			var exporter := state.get_country(target)
+			if exporter == null:
+				continue
+			for resource_id: String in state.markets.keys():
+				if not trade.is_embargoed(source, target, resource_id):
+					continue
+				var net_imports := float(importer.resources.consumption_base.get(resource_id, 0.0)) \
+					- float(importer.resources.production_base.get(resource_id, 0.0))
+				if net_imports <= 0.0 or float(world_imports.get(resource_id, 0.0)) <= 0.0:
+					continue
+				var lost := net_imports / float(world_imports[resource_id]) * (1.0 - resale)
+				var blocked := exporter.resources.blocked_share
+				blocked[resource_id] = minf(float(blocked.get(resource_id, 0.0)) + lost, 1.0)
+				var share := float(TradeModel.supplier_shares(state, source, resource_id, false).get(target, 0.0))
+				var premium := importer.resources.embargo_premium
+				premium[resource_id] = minf(float(premium.get(resource_id, 0.0)) + share, 1.0)
 
 
 static func _grow_bases(country: CountryState, state: SimState) -> void:
@@ -99,7 +141,9 @@ static func clear_market(market: MarketState, state: SimState, tags: Array, sett
 		var used := ResourceModel.demand(float(entry["needs"]), ratio, market.demand_elasticity)
 		resources.production[market.resource_id] = produced
 		resources.consumption[market.resource_id] = used
-		resources.shortage[market.resource_id] = ResourceModel.shortage(ratio, market.demand_elasticity)
+		var embargo_share := float(resources.embargo_premium.get(market.resource_id, 0.0))
+		resources.shortage[market.resource_id] = minf(ResourceModel.shortage(ratio, market.demand_elasticity)
+			+ embargo_share * float(state.trade_settings.get("embargo_premium", 0.0)), 1.0)
 		market.supply += produced
 		market.demand += used
 
@@ -127,7 +171,10 @@ static func apply_effects(country: CountryState, state: SimState, settings: Dict
 		var capacity := float(resources.production_base.get(resource_id, 0.0))
 		var needs := float(resources.consumption_base.get(resource_id, 0.0))
 		windfall += ((produced - used) * ratio - (capacity - needs)) * market.unit_value
-		cost += used * (ratio - 1.0) * market.unit_value
+		# Payer plus cher les fournisseurs restants quand on boycotte une partie des siens.
+		var premium := float(resources.embargo_premium.get(resource_id, 0.0)) \
+			* float(state.trade_settings.get("embargo_premium", 0.0))
+		cost += used * ((ratio - 1.0) + ratio * premium) * market.unit_value
 		produced_value += produced * ratio * market.unit_value
 		capacity_value += capacity * market.unit_value
 	var limit := float(settings.get("max_economic_effect", INF))

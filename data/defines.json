@@ -278,5 +278,16 @@
     "supply_chain_penalty": 20.0,
     "max_economic_effect": 4.0,
     "water_stress_threshold": 0.4
+  },
+  "trade": {
+    "trade_elasticity": 4.0,
+    "import_passthrough": 0.5,
+    "tariff_growth_cost": 0.1,
+    "embargo_tariff": 100.0,
+    "customs_collection": 0.7,
+    "resale_share": 0.7,
+    "embargo_premium": 0.2,
+    "max_economic_effect": 3.0,
+    "max_trade_gain": 1.5
   }
 }

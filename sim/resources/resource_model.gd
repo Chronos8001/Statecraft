@@ -23,10 +23,31 @@ static func available_supply(capacity: float, needs: float, ratio: float, market
 	return produced - exports * clampf(blocked_share, 0.0, 1.0)
 
 
-## Excès d'offre mondiale à un prix relatif donné. entries : [{capacity, needs, blocked}].
+## Excès d'offre mondiale à un prix relatif donné. Les pays sans exportations bloquées sont regroupés
+## (capacités et besoins totaux) : seuls les pays bloqués sont évalués un par un.
+## entries : [{capacity, needs, blocked}].
 static func excess_supply(entries: Array, ratio: float, market: MarketState) -> float:
-	var total := 0.0
+	var grouped := group_entries(entries)
+	return _grouped_excess(grouped, ratio, market)
+
+
+## {capacity, needs} des pays non bloqués et liste des pays bloqués.
+static func group_entries(entries: Array) -> Dictionary:
+	var capacity := 0.0
+	var needs := 0.0
+	var blocked: Array = []
 	for entry: Dictionary in entries:
+		if float(entry["blocked"]) > 0.0:
+			blocked.append(entry)
+		else:
+			capacity += float(entry["capacity"])
+			needs += float(entry["needs"])
+	return {"capacity": capacity, "needs": needs, "blocked": blocked}
+
+
+static func _grouped_excess(grouped: Dictionary, ratio: float, market: MarketState) -> float:
+	var total := supply(float(grouped["capacity"]), ratio, market.supply_elasticity) 		- demand(float(grouped["needs"]), ratio, market.demand_elasticity)
+	for entry: Dictionary in grouped["blocked"]:
 		total += available_supply(float(entry["capacity"]), float(entry["needs"]), ratio, market,
 			float(entry["blocked"])) - demand(float(entry["needs"]), ratio, market.demand_elasticity)
 	return total
@@ -34,11 +55,12 @@ static func excess_supply(entries: Array, ratio: float, market: MarketState) -> 
 
 ## Prix relatif d'équilibre (prix / prix de départ), borné.
 static func equilibrium_ratio(entries: Array, market: MarketState, bounds: Array, iterations: int) -> float:
+	var grouped := group_entries(entries)
 	var low := log(float(bounds[0]))
 	var high := log(float(bounds[1]))
 	for step: int in iterations:
 		var middle := (low + high) * 0.5
-		if excess_supply(entries, exp(middle), market) > 0.0:
+		if _grouped_excess(grouped, exp(middle), market) > 0.0:
 			high = middle
 		else:
 			low = middle

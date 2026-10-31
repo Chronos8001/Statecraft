@@ -30,7 +30,16 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Panneau Marchés (bouton dans la barre supérieure) : prix, variation, grands producteurs, autosuffisance du pays joué, stress hydrique ; fermeture des détroits en version de développement.
 - Outil de génération des ressources (`tools/country_gen/generate_resources.py`).
 
+- Commerce extérieur : échanges entre les 199 pays (modèle gravitaire calé sur leur ouverture réelle), 49 accords commerciaux en vigueur au 1er janvier 2026, surtaxes douanières réelles (États-Unis, Chine, Canada).
+- Mesures commerciales : surtaxe contre un pays, embargo (tout le commerce ou une ressource), sortie d'un accord. Effets sur les prix, la croissance des deux pays et les recettes douanières.
+- Embargos sur les ressources : l'exportateur visé perd des débouchés, le pays qui l'impose paie plus cher et connaît des pénuries le temps de changer de fournisseurs.
+- Panneau Commerce (bouton dans la barre supérieure) : principaux partenaires et droits dans les deux sens, dépendances par ressource, mesures en vigueur, accords.
+- Mode de carte « Commerce » : poids de chaque pays dans les échanges du pays joué, embargos en rouge.
+- Outil de génération du commerce (`tools/country_gen/generate_trade.py`).
+
 ### Modifié
+- Le marché des ressources calcule ses prix bien plus vite (pays sans blocage regroupés).
+- Le droit de douane habituel des États-Unis est le droit hors surtaxes (3,3 %) ; les surtaxes de 2025 sont comptées à part.
 - Le mode de carte « ressources » montre la ressource principale des 1 326 provinces productrices.
 - Le solde budgétaire dépend désormais du budget ; la relance budgétaire soutient la croissance à court terme.
 - Barre supérieure : la trésorerie affiche le solde budgétaire annuel du pays joué.

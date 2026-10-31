@@ -35,3 +35,6 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Ressources : consommations estimées pour le charbon, les métaux et les semi-conducteurs (grands consommateurs saisis, reste selon le PIB industriel) ; blé par habitant ; données de quelques années (pétrole 2023, blé 2022, uranium 2022). Hors des régions saisies, la place des ressources dans les provinces est approchée. | 4c1 | Ouvert |
 | 🟢 | Routes des détroits estimées ; la fermeture de Malacca bloque des exportations au lieu de les rallonger. | 4c1 | Ouvert |
 | 🟢 | La fermeture des détroits n'est possible qu'en version de développement (blocus militaires à l'étape 7, événements à l'étape 9). | 7 / 9 | Ouvert |
+| 🟢 | Échanges estimés par un modèle gravitaire : des écarts avec la réalité subsistent (ex. la Russie fait encore 46 % de son commerce avec la Chine, l'Allemagne achète son gaz surtout aux États-Unis). Le commerce de services n'est pas distingué. | 4c2 | Ouvert |
+| 🟢 | Les pays de l'IA ne prennent encore aucune mesure commerciale (ni riposte aux surtaxes) : étape 12. | 12 | Ouvert |
+| 🟢 | Un mois de simulation prend environ 150 ms (budget et ressources surtout) : léger à-coup en vitesse maximale. | 15 | Ouvert |

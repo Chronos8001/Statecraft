@@ -10,7 +10,8 @@ const BILLION := 1.0e9
 ## budget_definitions : {taxes, spending, settings} (catégories budget_taxes, budget_spending, defines.budget).
 ## resources : catégorie « resources » ; resource_definitions : {straits, sectors, settings}.
 static func populate(state: SimState, countries: Dictionary, currencies: Dictionary, settings: Dictionary,
-		budget_definitions: Dictionary = {}, resources: Dictionary = {}, resource_definitions: Dictionary = {}) -> void:
+		budget_definitions: Dictionary = {}, resources: Dictionary = {}, resource_definitions: Dictionary = {},
+		trade_definitions: Dictionary = {}) -> void:
 	state.economy_settings = settings
 	state.budget_definitions = budget_definitions
 	state.resource_definitions = resource_definitions
@@ -47,6 +48,8 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 		_setup_resources(country, countries[tag], state)
 		state.countries[tag] = country
 	_calibrate_currencies(state, settings)
+	if not trade_definitions.is_empty():
+		_setup_trade(state, countries, trade_definitions)
 
 
 static func _create_market(resource_id: String, data: Dictionary) -> MarketState:
@@ -77,6 +80,38 @@ static func _setup_resources(country: CountryState, data: Dictionary, state: Sim
 	var water: Dictionary = data.get("water", {})
 	resources.water_renewable = float(water.get("renewable", 0.0))
 	resources.water_withdrawal_ratio = float(water.get("withdrawal_ratio", 0.0))
+
+
+## Commerce de départ : accords, surtaxes et flux du modèle gravitaire (données « trade.partners »).
+## trade_definitions : {agreements, settings}.
+static func _setup_trade(state: SimState, countries: Dictionary, definitions: Dictionary) -> void:
+	var trade := TradeState.new()
+	state.trade = trade
+	var settings: Dictionary = definitions.get("settings", {})
+	state.trade_settings = settings
+	for agreement_id: String in (definitions.get("agreements", {}) as Dictionary).keys():
+		var agreement: Dictionary = definitions["agreements"][agreement_id]
+		trade.agreements[agreement_id] = {"kind": str(agreement["kind"]), "members": (agreement["members"] as Array).duplicate()}
+	trade.refresh_pair_kinds(TradeModel.KIND_ORDER)
+	var tags: Array = countries.keys()
+	tags.sort()
+	for tag: String in tags:
+		var data: Dictionary = (countries[tag] as Dictionary).get("trade", {})
+		trade.start_gdp[tag] = maxf(TradeSystem.current_gdp(state, tag), 0.001)
+		trade.surcharges[tag] = (data.get("surcharges", {}) as Dictionary).duplicate()
+		var row: Dictionary = {}
+		var partners: Dictionary = data.get("partners", {})
+		for partner: Variant in partners.keys():
+			if countries.has(partner):
+				row[str(partner)] = float(partners[partner])
+		trade.start_flows[tag] = row
+	for exporter: String in tags:
+		var tariffs: Dictionary = {}
+		for importer: String in (trade.start_flows[exporter] as Dictionary).keys():
+			tariffs[importer] = TradeModel.tariff(trade, exporter, importer, TradeSystem.base_tariff(state, importer),
+				settings)
+		trade.start_tariffs[exporter] = tariffs
+	TradeSystem.refresh_tariff_changes(state)
 
 
 static func _create_currency(currency_id: String, data: Dictionary) -> CurrencyState:

@@ -238,3 +238,43 @@ UNIT_QUANTITY_COBALT,%s kt,%s kt
 UNIT_QUANTITY_SEMICONDUCTORS,$%s bn,%s Md$
 UNIT_QUANTITY_WHEAT,%s Mt,%s Mt
 UNIT_QUANTITY_STEEL,%s Mt,%s Mt
+# --- Commerce ---
+TOPBAR_TRADE,Trade,Commerce
+TOPBAR_TRADE_TOOLTIP,"Partners, dependencies, tariffs, embargoes and trade agreements","Partenaires, dépendances, droits de douane, embargos et accords commerciaux"
+MAPMODE_TRADE,Trade,Commerce
+LEGEND_EMBARGO,Embargo,Embargo
+LEGEND_TRADE_NONE,Little or no trade,Peu ou pas d'échanges
+LEGEND_TRADE_SMALL,2% of our trade,2 % de nos échanges
+LEGEND_TRADE_MEDIUM,8% of our trade,8 % de nos échanges
+LEGEND_TRADE_LARGE,20% or more,20 % ou plus
+TRADE_TITLE,Trade,Commerce extérieur
+TRADE_PARTNERS,Main partners,Principaux partenaires
+TRADE_PARTNER,Partner,Partenaire
+TRADE_VOLUME,Trade (both ways),Échanges (dans les deux sens)
+TRADE_SHARE,Share,Part
+TRADE_OUR_TARIFF,Our tariff,Nos droits
+TRADE_THEIR_TARIFF,Their tariff,Leurs droits
+TRADE_EMBARGO,Embargo,Embargo
+TRADE_DEPENDENCIES,Dependencies,Dépendances
+TRADE_DEPENDENCY_VALUE,%s%% imported: %s,Importé à %s %% : %s
+TRADE_ACTIONS,Trade measures,Mesures commerciales
+TRADE_TARGET_TOOLTIP,Country targeted by the measure,Pays visé par la mesure
+TRADE_SURCHARGE,Tariff surcharge on its goods,Surtaxe sur ses produits
+TRADE_SURCHARGE_TOOLTIP,"Added to our usual tariff: more customs revenue and protection, but higher prices and less trade for both countries.","S'ajoute à nos droits habituels : plus de recettes et de protection, mais des prix plus élevés et moins d'échanges pour les deux pays."
+TRADE_IMPOSE_EMBARGO,Impose embargo,Décréter un embargo
+TRADE_LIFT_EMBARGO,Lift,Lever
+TRADE_EMBARGO_TOOLTIP,"Stop buying from and selling to this country (all goods or one resource). Our suppliers must be replaced: shortages for a while.","Ne plus rien acheter ni vendre à ce pays (tout ou une ressource). Il faut remplacer nos fournisseurs : pénuries pendant un temps."
+TRADE_ALL_GOODS,All trade,Tout le commerce
+TRADE_MEASURES,Measures in force,Mesures en vigueur
+TRADE_NO_MEASURE,No surcharge or embargo.,Aucune surtaxe ni aucun embargo.
+TRADE_EVERYONE,all other countries,tous les autres pays
+TRADE_OUR_SURCHARGE,We tax goods from %s: +%s%%,Nous taxons les produits de %s : +%s %%
+TRADE_THEIR_SURCHARGE,%s taxes our goods: +%s%%,%s taxe nos produits : +%s %%
+TRADE_OUR_EMBARGO,Our embargo on %s: %s,Notre embargo contre %s : %s
+TRADE_THEIR_EMBARGO,Embargo by %s: %s,Embargo de %s : %s
+TRADE_AGREEMENTS,Trade agreements,Accords commerciaux
+TRADE_AGREEMENT_VALUE,%s (%d members),%s (%d membres)
+TRADE_NO_AGREEMENT,No trade agreement.,Aucun accord commercial.
+TRADE_LEAVE,Leave,Quitter
+TRADE_LEAVE_TOOLTIP,"Tariffs with the former partners go back to normal. Joining an agreement will require negotiation (diplomacy).","Les droits avec les anciens partenaires redeviennent normaux. Rejoindre un accord demandera une négociation (diplomatie)."
+NOTIFY_AGREEMENT_LEFT,We have left %s,Nous avons quitté l'accord : %s

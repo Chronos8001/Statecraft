@@ -6,6 +6,7 @@ extends SimSystem
 
 const PRIORITY := -10
 const RESOURCE_TAXES := "resource_taxes"
+const CUSTOMS := "customs"
 
 
 func get_id() -> StringName:
@@ -43,6 +44,9 @@ static func update_budget(country: CountryState, state: SimState) -> void:
 	# Les taxes sur les ressources suivent la valeur de la production (prix et volumes).
 	if budget.revenues.has(RESOURCE_TAXES):
 		budget.revenues[RESOURCE_TAXES] = float(budget.revenues[RESOURCE_TAXES]) * economy.resource_price_index
+	# Surtaxes et accords quittés rapportent des droits de douane en plus (ou en moins).
+	if budget.revenues.has(CUSTOMS):
+		budget.revenues[CUSTOMS] = maxf(float(budget.revenues[CUSTOMS]) + economy.trade_customs, 0.0)
 	economy.primary_balance = budget.total_revenue() - budget.total_spending() + economy.austerity
 	budget.effects = BudgetModel.effects(budget, taxes, spending, settings)
 	economy.budget_growth = float(budget.effects.get("growth", 0.0))
