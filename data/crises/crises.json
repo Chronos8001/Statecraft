@@ -1,0 +1,16 @@
+{
+  "strike": {"name_key": "CRISIS_STRIKE", "kind": "group", "groups": ["workers", "middle_class", "farmers"],
+    "trigger": {"satisfaction_drop": 8.0}, "chance": 0.08, "duration": [1, 3], "severity": 1,
+    "effects": {"growth": -0.4, "stability": -2.0, "legitimacy": 0.0}, "responses": true},
+  "demonstration": {"name_key": "CRISIS_DEMONSTRATION", "kind": "group",
+    "groups": ["youth", "middle_class", "minorities", "ecologists", "religious", "retirees"],
+    "trigger": {"satisfaction_drop": 10.0}, "chance": 0.06, "duration": [1, 2], "severity": 1,
+    "effects": {"growth": -0.1, "stability": -3.0, "legitimacy": -1.0}, "responses": true},
+  "riot": {"name_key": "CRISIS_RIOT", "kind": "group", "groups": ["youth", "workers", "minorities"],
+    "trigger": {"satisfaction_drop": 15.0, "stability_drop": 8.0}, "chance": 0.08, "duration": [1, 2], "severity": 2,
+    "effects": {"growth": -0.6, "stability": -6.0, "legitimacy": -2.0}, "responses": true},
+  "civil_war": {"name_key": "CRISIS_CIVIL_WAR", "kind": "country", "groups": [],
+    "trigger": {"stability_below": 15.0, "stability_drop": 20.0, "legitimacy_below": 30.0, "months": 6},
+    "chance": 1.0, "duration": [24, 120], "severity": 5,
+    "effects": {"growth": -8.0, "stability": -25.0, "legitimacy": -10.0}, "responses": false}
+}

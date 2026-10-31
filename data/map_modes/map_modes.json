@@ -189,6 +189,32 @@
     "hint_color": "#C8CDD4",
     "order": 13
   },
+  "unrest": {
+    "name_key": "MAPMODE_UNREST",
+    "kind": "country_gradient",
+    "value": "unrest",
+    "logarithmic": false,
+    "unit_key": "MAPMODE_UNIT_UNREST",
+    "stops": [
+      [
+        0,
+        "#3C8C52"
+      ],
+      [
+        1,
+        "#E0C25A"
+      ],
+      [
+        3,
+        "#D9763A"
+      ],
+      [
+        5,
+        "#9E2B25"
+      ]
+    ],
+    "order": 14
+  },
   "trade": {
     "name_key": "MAPMODE_TRADE",
     "kind": "trade",
@@ -218,6 +244,6 @@
       "LEGEND_TRADE_MEDIUM",
       "LEGEND_TRADE_LARGE"
     ],
-    "order": 14
+    "order": 15
   }
 }
