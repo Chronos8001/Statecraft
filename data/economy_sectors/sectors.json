@@ -1,10 +1,10 @@
 {
-  "agriculture": {"name_key": "SECTOR_AGRICULTURE", "color": "#8DB255", "trend": -1.5},
-  "industry": {"name_key": "SECTOR_INDUSTRY", "color": "#7F8C9A", "trend": -0.5},
-  "energy": {"name_key": "SECTOR_ENERGY", "color": "#C9893A", "trend": -0.5},
-  "armament": {"name_key": "SECTOR_ARMAMENT", "color": "#8A5A44", "trend": 0.0},
-  "services": {"name_key": "SECTOR_SERVICES", "color": "#4F8CC9", "trend": 0.3},
-  "tech": {"name_key": "SECTOR_TECH", "color": "#6FC3D9", "trend": 3.0},
-  "finance": {"name_key": "SECTOR_FINANCE", "color": "#C9B23A", "trend": 0.5},
-  "tourism": {"name_key": "SECTOR_TOURISM", "color": "#D96F9B", "trend": 0.8}
+  "agriculture": {"name_key": "SECTOR_AGRICULTURE", "color": "#8DB255", "trend": -1.5, "inputs": {"oil": 0.2, "gas": 0.2}},
+  "industry": {"name_key": "SECTOR_INDUSTRY", "color": "#7F8C9A", "trend": -0.5, "inputs": {"steel": 0.3, "oil": 0.15, "gas": 0.15, "coal": 0.1, "cobalt": 0.05, "lithium": 0.05}},
+  "energy": {"name_key": "SECTOR_ENERGY", "color": "#C9893A", "trend": -0.5, "inputs": {"uranium": 0.2, "coal": 0.2, "gas": 0.2}},
+  "armament": {"name_key": "SECTOR_ARMAMENT", "color": "#8A5A44", "trend": 0.0, "inputs": {"steel": 0.3, "semiconductors": 0.3, "rare_earths": 0.2}},
+  "services": {"name_key": "SECTOR_SERVICES", "color": "#4F8CC9", "trend": 0.3, "inputs": {"oil": 0.05}},
+  "tech": {"name_key": "SECTOR_TECH", "color": "#6FC3D9", "trend": 3.0, "inputs": {"semiconductors": 0.5, "rare_earths": 0.2, "lithium": 0.1}},
+  "finance": {"name_key": "SECTOR_FINANCE", "color": "#C9B23A", "trend": 0.5, "inputs": {}},
+  "tourism": {"name_key": "SECTOR_TOURISM", "color": "#D96F9B", "trend": 0.8, "inputs": {"oil": 0.2}}
 }

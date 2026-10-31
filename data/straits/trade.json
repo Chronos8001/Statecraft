@@ -1,0 +1,16 @@
+{
+  "hormuz": {"trade": {"oil": {"IRQ": 0.95, "KWT": 1.0, "QAT": 1.0, "BHR": 1.0, "IRN": 0.9, "ARE": 0.65, "SAU": 0.65},
+    "gas": {"QAT": 1.0, "ARE": 0.8, "IRN": 0.5}}},
+  "malacca": {"trade": {"oil": {"SAU": 0.2, "IRQ": 0.25, "ARE": 0.2, "KWT": 0.25, "QAT": 0.2, "IRN": 0.2, "OMN": 0.3},
+    "gas": {"QAT": 0.3}, "coal": {"IDN": 0.1}}},
+  "bab_el_mandeb": {"trade": {"oil": {"SAU": 0.1, "IRQ": 0.1}, "gas": {"QAT": 0.1}}},
+  "suez": {"trade": {"oil": {"SAU": 0.05, "IRQ": 0.1}, "gas": {"QAT": 0.05}}},
+  "bosphorus": {"trade": {"oil": {"KAZ": 0.8, "RUS": 0.15, "AZE": 0.3}, "wheat": {"UKR": 0.9, "RUS": 0.6}}},
+  "dardanelles": {"trade": {"oil": {"KAZ": 0.8, "RUS": 0.15, "AZE": 0.3}, "wheat": {"UKR": 0.9, "RUS": 0.6}}},
+  "kerch": {"trade": {"oil": {"RUS": 0.03}, "wheat": {"UKR": 0.1, "RUS": 0.1}}},
+  "oresund": {"trade": {"oil": {"RUS": 0.35}, "coal": {"RUS": 0.1}}},
+  "panama": {"trade": {"wheat": {"USA": 0.3}, "gas": {"USA": 0.1}}},
+  "gibraltar": {"trade": {"oil": {"DZA": 0.2, "LBY": 0.2}}},
+  "sunda": {"trade": {"coal": {"IDN": 0.2}}},
+  "lombok": {"trade": {"coal": {"IDN": 0.1, "AUS": 0.05}}}
+}
