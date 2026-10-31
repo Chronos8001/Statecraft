@@ -9,6 +9,7 @@ const BAD_COLOR := Color(0.95, 0.5, 0.45)
 var _tag: String = ""
 var _treaty_ids: Array[String] = []
 var _aid_kinds: Array[String] = []
+var _party_ids: Array[String] = []
 
 @onready var _title_label: Label = %TitleLabel
 @onready var _flag_rect: TextureRect = %FlagRect
@@ -23,6 +24,10 @@ var _aid_kinds: Array[String] = []
 @onready var _aid_duration: OptionButton = %AidDurationOption
 @onready var _aid_button: Button = %AidButton
 @onready var _aid_label: Label = %AidLabel
+@onready var _influence_label: Label = %InfluenceLabel
+@onready var _party_option: OptionButton = %PartyOption
+@onready var _support_button: Button = %SupportButton
+@onready var _influence_grid: GridContainer = %InfluenceGrid
 @onready var _treaty_option: OptionButton = %TreatyOption
 @onready var _propose_button: Button = %ProposeButton
 @onready var _opinion_label: Label = %OpinionLabel
@@ -37,6 +42,10 @@ func _ready() -> void:
 			_submit(ProposeTreatyCommand.new(GameState.sim.player_tag, _tag, _treaty_ids[_treaty_option.selected])))
 	_aid_kind_option.item_selected.connect(func(_index: int) -> void: _update_aid())
 	_aid_button.pressed.connect(_on_aid_pressed)
+	_party_option.item_selected.connect(func(_index: int) -> void: _update_support())
+	_support_button.pressed.connect(func() -> void:
+		if _party_option.selected >= 0 and _party_option.selected < _party_ids.size():
+			_submit(InfluenceCommand.new(GameState.sim.player_tag, _tag, "support_party", _party_ids[_party_option.selected])))
 	EventBus.locale_changed.connect(func(_locale: String) -> void: refresh())
 	EventBus.month_passed.connect(func(_date: GameDate) -> void: refresh())
 	EventBus.command_executed.connect(func(_command: Command) -> void: refresh())
@@ -79,6 +88,7 @@ func refresh() -> void:
 	_fill_treaties(state, player)
 	_fill_sanctions(state, player)
 	_fill_aid(state, player)
+	_fill_influence(state, player)
 	_fill_actions(state)
 	_fill_proposal(state, player)
 
@@ -170,6 +180,58 @@ func _on_aid_pressed() -> void:
 		return
 	_submit(AidCommand.new(state.player_tag, _tag, _aid_kinds[_aid_kind_option.selected], _aid_amount.value,
 		int(durations[_aid_duration.selected])))
+
+
+## Influence des deux pays l'un chez l'autre, partis à soutenir et actions payées en points.
+func _fill_influence(state: SimState, player: String) -> void:
+	_clear_rows(_influence_grid)
+	var locale := Localization.get_locale()
+	var lines: PackedStringArray = [
+		tr("DIPLOMACY_INFLUENCE_VALUE") % [roundi(InfluenceSystem.influence(state, player, _tag)),
+			roundi(InfluenceSystem.influence(state, _tag, player))],
+		tr("DIPLOMACY_INFLUENCE_POINTS") % NumberFormat.decimal(float(state.diplomacy.influence_points.get(player, 0.0)),
+			0, locale)]
+	if state.diplomacy.bases.has(DiplomacyState.opinion_key(player, _tag)):
+		lines.append(tr("DIPLOMACY_OUR_BASE"))
+	if state.diplomacy.bases.has(DiplomacyState.opinion_key(_tag, player)):
+		lines.append(tr("DIPLOMACY_THEIR_BASE"))
+	_influence_label.text = "\n".join(lines)
+	var parties := DataLoader.repository.resolve_ref("names#parties")
+	var previous := _party_ids[_party_option.selected] if _party_option.selected >= 0 \
+		and _party_option.selected < _party_ids.size() else ""
+	_party_ids.clear()
+	_party_option.clear()
+	var country := state.get_country(_tag)
+	for party: PartyState in country.politics.parties.values():
+		_party_ids.append(party.id)
+		_party_option.add_item("%s (%s %%)" % [str((parties.get(party.id, {}) as Dictionary).get("abbreviation", party.id)),
+			NumberFormat.decimal(party.poll, 0, locale)])
+	var index := _party_ids.find(previous)
+	_party_option.select(index if index >= 0 else (0 if not _party_ids.is_empty() else -1))
+	_party_option.get_parent().visible = not _party_ids.is_empty()
+	_update_support()
+	var costs: Dictionary = InfluenceSystem.settings_of(state).get("actions", {})
+	for action: String in ["fund_opposition", "soft_power", "open_base", "close_base"]:
+		var refusal := InfluenceCommand.new(state.player_tag, _tag, action).refusal_reason(state)
+		if refusal == "DIPLOMACY_ALREADY":
+			continue
+		var button := Button.new()
+		button.text = tr("DIPLOMACY_INFLUENCE_%s" % action.to_upper()) % roundi(float((costs.get(action, {}) as Dictionary).get(
+			"cost", 0.0)))
+		button.focus_mode = Control.FOCUS_NONE
+		button.disabled = not refusal.is_empty()
+		button.tooltip_text = tr(refusal) if not refusal.is_empty() else tr("DIPLOMACY_INFLUENCE_%s_TOOLTIP" % action.to_upper())
+		button.pressed.connect(func() -> void: _submit(InfluenceCommand.new(state.player_tag, _tag, action)))
+		_influence_grid.add_child(button)
+
+
+func _update_support() -> void:
+	var state := GameState.sim
+	var party := _party_ids[_party_option.selected] if _party_option.selected >= 0 \
+		and _party_option.selected < _party_ids.size() else ""
+	var refusal := InfluenceCommand.new(state.player_tag, _tag, "support_party", party).refusal_reason(state)
+	_support_button.disabled = not refusal.is_empty()
+	_support_button.tooltip_text = tr(refusal) if not refusal.is_empty() else tr("DIPLOMACY_SUPPORT_PARTY_TOOLTIP")
 
 
 ## Boutons d'action ; une action impossible est grisée avec la raison en info-bulle.

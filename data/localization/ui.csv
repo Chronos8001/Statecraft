@@ -103,9 +103,9 @@ TOPBAR_PAUSE_TOOLTIP,Pause / resume (Space),Pause / reprise (Espace)
 TOPBAR_SLOWER_TOOLTIP,Slower (- or 1 to 5),Plus lent (- ou 1 à 5)
 TOPBAR_FASTER_TOOLTIP,Faster (+ or 1 to 5),Plus rapide (+ ou 1 à 5)
 TOPBAR_NO_COUNTRY,Observer,Observateur
-TOPBAR_TREASURY,Treasury,Trésorerie
+TOPBAR_TREASURY,Balance,Solde
 TOPBAR_STABILITY,Stability,Stabilité
-TOPBAR_SUPPORT,Popular support,Soutien populaire
+TOPBAR_SUPPORT,Support,Soutien
 TOPBAR_MILITARY,Military power,Puissance militaire
 TOPBAR_INFLUENCE,Influence,Influence
 TOPBAR_UNKNOWN,—,—
@@ -678,3 +678,24 @@ AID_MILITARY_ADVISORS_TOOLTIP,"We pay; its stability rises, but its public sees 
 AID_INVALID_AMOUNT,Choose an amount and a duration.,Choisissez un montant et une durée.
 NOTIFY_AID_GIVEN,%s accepted by %s.,%s acceptée par %s.
 NOTIFY_AID_REFUSED,%s refused by %s.,%s refusée par %s.
+DIPLOMACY_INFLUENCE,Influence,Influence
+DIPLOMACY_INFLUENCE_VALUE,Our influence there: %d / 100. Its influence here: %d / 100.,Notre influence chez lui : %d / 100. Son influence chez nous : %d / 100.
+DIPLOMACY_INFLUENCE_POINTS,Our influence points: %s.,Nos points d'influence : %s.
+DIPLOMACY_OUR_BASE,We have a military base there.,Nous y avons une base militaire.
+DIPLOMACY_THEIR_BASE,It has a military base on our soil.,Il a une base militaire sur notre sol.
+DIPLOMACY_SUPPORT_PARTY,Support (20 pts),Soutenir (20 pts)
+DIPLOMACY_SUPPORT_PARTY_TOOLTIP,"The party gains in the polls; supporting an opposition party angers the government, more so if it is exposed.","Le parti progresse dans les sondages ; soutenir un parti d'opposition fâche le gouvernement, surtout si c'est démasqué."
+DIPLOMACY_INFLUENCE_FUND_OPPOSITION,Fund the opposition (%d pts),Financer l'opposition (%d pts)
+DIPLOMACY_INFLUENCE_SOFT_POWER,Cultural influence (%d pts),Influence culturelle (%d pts)
+DIPLOMACY_INFLUENCE_OPEN_BASE,Open a military base (%d pts),Ouvrir une base militaire (%d pts)
+DIPLOMACY_INFLUENCE_CLOSE_BASE,Close our base (%d pts),Fermer notre base (%d pts)
+DIPLOMACY_INFLUENCE_FUND_OPPOSITION_TOOLTIP,"The government's stability falls and the main opposition party rises. Risk of exposure.","La stabilité du gouvernement baisse et le premier parti d'opposition progresse. Risque d'être démasqué."
+DIPLOMACY_INFLUENCE_SOFT_POWER_TOOLTIP,Its public's opinion of us improves.,L'opinion de sa population sur nous progresse.
+DIPLOMACY_INFLUENCE_OPEN_BASE_TOOLTIP,"Lasting influence (+15). Needs a military-access treaty or good relations.","Influence durable (+15). Demande un traité d'accès militaire ou de bonnes relations."
+DIPLOMACY_INFLUENCE_CLOSE_BASE_TOOLTIP,Our influence falls.,Notre influence baisse.
+INFLUENCE_NOT_ENOUGH,Not enough influence points.,Pas assez de points d'influence.
+INFLUENCE_NO_PARTY,Choose a party.,Choisissez un parti.
+INFLUENCE_BASE_REFUSED,"Relations too poor, and no military-access treaty.","Relations insuffisantes, et pas de traité d'accès militaire."
+TOPBAR_INFLUENCE_TOOLTIP,"Influence points, earned each month (economic weight, diplomacy budget)","Points d'influence, gagnés chaque mois (poids économique, budget de la diplomatie)"
+MAPMODE_INFLUENCE,Our influence,Notre influence
+NOTIFY_INFLUENCE_EXPOSED,Our interference in %s has been exposed!,Notre ingérence a été démasquée : %s !
