@@ -145,11 +145,10 @@ func apply_politics(state: SimState, names: Dictionary, ideologies: Dictionary, 
 	if country == null:
 		return
 	var politics := country.politics
-	var characters: Dictionary = names.get("characters", {})
 	var parties: Dictionary = names.get("parties", {})
 	if not politics.head_of_state.is_empty():
-		var head_of_state: Dictionary = characters.get(politics.head_of_state, {})
-		var head_of_government: Dictionary = characters.get(politics.head_of_government, head_of_state)
+		var head_of_state := GovernmentSystem.character(state, politics.head_of_state)
+		var head_of_government := GovernmentSystem.character(state, politics.head_of_government)
 		head_of_state_name = NameGenerator.full_name(head_of_state, cultures)
 		head_of_state_age = age_of(head_of_state, state.date.year)
 		head_of_government_name = NameGenerator.full_name(head_of_government, cultures)

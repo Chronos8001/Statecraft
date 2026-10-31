@@ -17,3 +17,10 @@ var law_cooldowns: Dictionary = {}
 var law_effects: Dictionary = {}
 ## Constitution : réforme → option en vigueur.
 var constitution: Dictionary = {}
+## Gouvernement : portefeuille → identifiant du ministre, compétence et corruption moyenne du cabinet de
+## départ, effets du cabinet par rapport au départ, et compteur de tirages des candidats.
+var cabinet: Dictionary = {}
+var start_competence: Dictionary = {}
+var start_minister_corruption: float = 0.0
+var cabinet_effects: Dictionary = {}
+var cabinet_generation: int = 0

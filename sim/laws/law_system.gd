@@ -34,6 +34,11 @@ static func apply_effects(country: CountryState, state: SimState) -> void:
 	country.law_effects = effects
 	country.economy.law_growth = float(effects.get("growth", 0.0))
 	country.economy.law_spending = float(effects.get("budget", 0.0))
+	refresh_corruption(country)
+
+
+## Corruption du pays : celle de départ, plus les effets des lois et des ministres.
+static func refresh_corruption(country: CountryState) -> void:
 	var society := country.society
-	society.corruption = clampf(society.start_corruption + float(effects.get("corruption", 0.0)), 0.0,
-		SocietyModel.PERCENT)
+	society.corruption = clampf(society.start_corruption + float(country.law_effects.get("corruption", 0.0))
+		+ float(country.cabinet_effects.get("corruption", 0.0)), 0.0, SocietyModel.PERCENT)

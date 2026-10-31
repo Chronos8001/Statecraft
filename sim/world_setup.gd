@@ -73,6 +73,9 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 			_setup_politics(state.countries[tag], countries[tag], state)
 			_setup_laws(state.countries[tag], countries[tag], state)
 			_setup_constitution(state.countries[tag], countries[tag])
+			if not (politics_definitions.get("portfolios", {}) as Dictionary).is_empty():
+				GovernmentSystem.form_cabinet(state.countries[tag], state)
+				GovernmentSystem.set_start(state.countries[tag], state)
 
 
 ## Lois de départ, selon les règles de chaque loi (pays cités, régime, démocratie, revenu).
@@ -117,6 +120,7 @@ static func _setup_politics(country: CountryState, data: Dictionary, state: SimS
 	var regime: Dictionary = (state.society_definitions.get("regimes", {}) as Dictionary).get(str(data.get("regime", "")), {})
 	politics.democratic = bool(regime.get("democratic", false))
 	politics.regime = str(data.get("regime", ""))
+	politics.culture = str(data.get("culture", ""))
 	var constitution: Dictionary = data.get("constitution", {})
 	politics.term_limit = int(ConstitutionModel.TERM_LIMITS.get(str(constitution.get("term_limit", "none")), 0))
 	politics.terms_served = int(constitution.get("terms_served", 1))
