@@ -1501,7 +1501,8 @@
         "energy",
         "investment",
         "society",
-        "parliament"
+        "parliament",
+        "constitution"
       ],
       "properties": {
         "name_key": {
@@ -2117,6 +2118,29 @@
             },
             "cordon": {
               "type": "bool"
+            }
+          }
+        },
+        "constitution": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "term_limit",
+            "terms_served"
+          ],
+          "properties": {
+            "term_limit": {
+              "type": "string",
+              "enum": [
+                "one",
+                "two",
+                "none"
+              ]
+            },
+            "terms_served": {
+              "type": "int",
+              "min": 0,
+              "max": 10
             }
           }
         }
@@ -3482,6 +3506,66 @@
                   "gdp_pc_max": {
                     "type": "number"
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "constitution": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "presidential_only",
+        "options"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^CONSTITUTION_[A-Z_]+$"
+        },
+        "presidential_only": {
+          "type": "bool"
+        },
+        "options": {
+          "type": "array",
+          "min_items": 2,
+          "items": {
+            "type": "object",
+            "strict": true,
+            "required": [
+              "id",
+              "name_key",
+              "value",
+              "legitimacy",
+              "positions"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name_key": {
+                "type": "string"
+              },
+              "value": {
+                "type": "any"
+              },
+              "legitimacy": {
+                "type": "number"
+              },
+              "positions": {
+                "type": "object",
+                "keys_pattern": "^[a-z_]+$",
+                "values": {
+                  "type": "number",
+                  "min": -2,
+                  "max": 2
                 }
               }
             }

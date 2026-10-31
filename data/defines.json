@@ -398,7 +398,8 @@
       "min_months_between_elections": 12,
       "cordon_groups": [
         "national"
-      ]
+      ],
+      "open_seat_penalty": 0.05
     },
     "campaign": {
       "campaign_months": 6,
@@ -440,6 +441,18 @@
       "government_discipline": 1.0,
       "cooldown_months": 12,
       "rejected_cooldown_months": 6
+    },
+    "constitution": {
+      "required_share": 0.6667,
+      "referendum_delay_months": 2,
+      "referendum_government_effect": 0.3,
+      "cooldown_months": 24,
+      "emergency_months": 6,
+      "emergency_stability": 8.0,
+      "emergency_legitimacy_per_month": 0.8,
+      "emergency_growth": -0.3,
+      "new_presidency_delay_months": 6,
+      "default_list_share": 0.5
     }
   }
 }
