@@ -54,6 +54,16 @@ var aid_definitions: Dictionary = {}
 ## Forces armées : modules remplaçables (modèle, combats, IA) et réglages (defines.military).
 var military: MilitaryRegistry = MilitaryRegistry.new()
 var military_settings: Dictionary = {}
+## Contrôle des provinces : id → pays contrôleur ; provinces disputées : id → {by, share} (part tenue par « by »).
+var province_control: Dictionary = {}
+var contested: Dictionary = {}
+## Voisins terrestres de chaque province (identifiants en texte), calculés au départ.
+var province_neighbors: Dictionary = {}
+## Groupes d'armées : id → ArmyGroup.
+var army_groups: Dictionary = {}
+var next_army_group_id: int = 1
+## Taille de l'image de la carte (pixels), pour les distances entre provinces.
+var map_size: Vector2 = Vector2(360.0, 180.0)
 ## Personnages créés pendant la partie (ministres, successeurs) : identifiant → personnage.
 var characters: Dictionary = {}
 var next_character_id: int = 0

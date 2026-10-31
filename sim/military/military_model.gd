@@ -51,6 +51,16 @@ func setup_country(country: CountryState, data: Dictionary, state: SimState) -> 
 	military.power = power(military, settings)
 
 
+## Après les forces de tous les pays : groupes d'armées placés selon les menaces.
+func setup_world(state: SimState, countries: Dictionary) -> void:
+	ArmyGroupModel.setup_start(state, countries)
+
+
+## Un jour : déplacements des groupes d'armées.
+func update_day(state: SimState) -> void:
+	ArmyGroupModel.update_day(state)
+
+
 ## Un mois : équipement, entraînement, moral, effets de la mobilisation et puissance.
 func update_country(country: CountryState, state: SimState) -> void:
 	var military := country.military

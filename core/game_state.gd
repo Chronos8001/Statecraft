@@ -23,7 +23,7 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 			"organization_rules": DataLoader.get_category("organization_rules"),
 			"sanctions": DataLoader.get_category("sanctions"),
 			"aid": DataLoader.get_category("aid")},
-		{"settings": DataLoader.get_define("military", {})})
+		{"settings": DataLoader.get_define("military", {}), "map_size": map_size()})
 	scheduler = SimScheduler.new()
 	scheduler.add_system(LawSystem.new())
 	scheduler.add_system(ConstitutionSystem.new())
@@ -151,6 +151,12 @@ static func country_provinces(provinces: Dictionary) -> Dictionary:
 		(result[owner] as Array).append([province_id, int(province.get("population", 0)),
 			float(province.get("area_km2", 1.0))])
 	return result
+
+
+## Taille de l'image de la carte (pixels).
+func map_size() -> Vector2:
+	var info: Dictionary = DataLoader.get_category("map").get("map", {})
+	return Vector2(float(info.get("width", 360)), float(info.get("height", 180)))
 
 
 func get_start_date() -> GameDate:
