@@ -582,5 +582,13 @@
         "cooldown_months": 6
       }
     }
+  },
+  "diplomacy": {
+    "relation_return": 0.02,
+    "opinion_follow": 0.1,
+    "opinion_noise": 8.0,
+    "trust_base": 50.0,
+    "trust_per_relation": 0.4,
+    "trust_return": 0.01
   }
 }
