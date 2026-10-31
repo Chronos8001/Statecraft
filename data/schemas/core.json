@@ -3573,5 +3573,66 @@
         }
       }
     }
+  },
+  "portfolios": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "skill",
+        "trait_bonus",
+        "effects"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^PORTFOLIO_[A-Z_]+$"
+        },
+        "skill": {
+          "type": "string",
+          "enum": [
+            "administration",
+            "diplomacy",
+            "economy",
+            "military"
+          ]
+        },
+        "trait_bonus": {
+          "type": "object",
+          "keys_ref": "traits",
+          "values": {
+            "type": "number"
+          }
+        },
+        "effects": {
+          "type": "object",
+          "strict": true,
+          "properties": {
+            "growth": {
+              "type": "number"
+            },
+            "stability": {
+              "type": "number"
+            },
+            "legitimacy": {
+              "type": "number"
+            },
+            "corruption": {
+              "type": "number"
+            },
+            "groups": {
+              "type": "object",
+              "keys_ref": "social_groups",
+              "values": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

@@ -453,6 +453,36 @@
       "emergency_growth": -0.3,
       "new_presidency_delay_months": 6,
       "default_list_share": 0.5
+    },
+    "government": {
+      "loyalty_base": 55.0,
+      "loyalty_spread": 15.0,
+      "junior_partner_loyalty": -10.0,
+      "trait_loyalty": {
+        "loyal": 30.0,
+        "party_man": 10.0,
+        "ambitious": -20.0,
+        "paranoid": -5.0
+      },
+      "corruption_share": 0.8,
+      "corruption_spread": 20.0,
+      "trait_corruption": {
+        "businessman": 10.0,
+        "idealist": -15.0,
+        "reformer": -10.0,
+        "technocrat": -5.0
+      },
+      "corruption_effect": 0.25,
+      "candidates": 3,
+      "reshuffle_stability": 0.5,
+      "scandal_chance": 0.004,
+      "scandal_stability": 2.0,
+      "scandal_start_stability": 0.5,
+      "scandal_poll": 0.05,
+      "resignation_loyalty": 30.0,
+      "resignation_chance": 0.01,
+      "average_competence": 5.0,
+      "max_competence": 10.0
     }
   }
 }
