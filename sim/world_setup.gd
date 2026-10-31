@@ -87,9 +87,12 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 				CrisisSystem.start_civil_war(state.countries[tag], state, civil_war, true)
 				CrisisSystem.refresh_effects(state.countries[tag], state)
 	state.military_settings = military_definitions.get("settings", {})
+	state.map_size = military_definitions.get("map_size", state.map_size)
+	ControlSystem.setup_start(state)
 	if not state.military_settings.is_empty():
 		for tag: String in tags:
 			state.military.model.setup_country(state.countries[tag], countries[tag], state)
+		state.military.model.setup_world(state, countries)
 
 
 ## Relations de départ (données « relations » de chaque pays, symétriques), traités de 2026, ambassades et

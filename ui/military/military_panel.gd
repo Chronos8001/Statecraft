@@ -1,7 +1,10 @@
 class_name MilitaryPanel
 extends InfoPanel
-## Panneau Armée du pays joué : puissance, effectifs, budget de défense, branches (symboles OTAN), capacités
-## spéciales, arsenal nucléaire, priorités d'équipement et mobilisation.
+## Panneau Armée du pays joué : puissance, effectifs, budget de défense, branches (symboles OTAN), groupes
+## d'armées, capacités spéciales, arsenal nucléaire, priorités d'équipement et mobilisation.
+
+## « Voir » sur un groupe d'armées : la carte se centre dessus.
+signal group_focus_requested(group_id: int)
 
 const HEADER_COLOR := Color(0.92, 0.95, 0.98)
 const BRANCH_HEADERS := ["", "MILITARY_BRANCH", "MILITARY_PERSONNEL", "MILITARY_LEVEL", "MILITARY_TRAINING",
@@ -11,6 +14,8 @@ const MOBILIZATION_KEYS := ["MILITARY_MOBILIZATION_0", "MILITARY_MOBILIZATION_1"
 const LEVEL_DECIMALS := 2
 const PERCENT := 100.0
 const PRIORITY_STEP := 1.0
+const GROUP_HEADERS := ["", "MILITARY_GROUP", "MILITARY_LOCATION", "MILITARY_PERSONNEL", "MILITARY_STATUS", ""]
+const THOUSAND := 1000.0
 
 var military_ui: MilitaryUI = MilitaryUI.new()
 var _priority_spins: Dictionary = {}
@@ -18,6 +23,7 @@ var _priority_spins: Dictionary = {}
 @onready var _summary_grid: GridContainer = %SummaryGrid
 @onready var _branches_grid: GridContainer = %BranchesGrid
 @onready var _special_grid: GridContainer = %SpecialGrid
+@onready var _groups_grid: GridContainer = %GroupsGrid
 @onready var _mobilization_option: OptionButton = %MobilizationOption
 @onready var _mobilization_button: Button = %MobilizationButton
 @onready var _priorities_button: Button = %PrioritiesButton
@@ -33,6 +39,7 @@ func _ready() -> void:
 	_priorities_button.pressed.connect(func() -> void: _submit(_priorities_command()))
 	EventBus.locale_changed.connect(func(_locale: String) -> void: refresh())
 	EventBus.month_passed.connect(func(_date: GameDate) -> void: refresh())
+	EventBus.day_passed.connect(func(_date: GameDate) -> void: _refresh_moving())
 	EventBus.command_executed.connect(func(_command: Command) -> void: refresh())
 	visible = false
 
@@ -51,6 +58,7 @@ func refresh() -> void:
 	_clear_rows(_summary_grid)
 	_clear_rows(_branches_grid)
 	_clear_rows(_special_grid)
+	_clear_rows(_groups_grid)
 	_priority_spins.clear()
 	var state := GameState.sim
 	var country := state.get_country(str(state.player_tag))
@@ -72,6 +80,7 @@ func refresh() -> void:
 	_add_row(_summary_grid, "MILITARY_NUCLEAR", NumberFormat.integer(military.nuclear_warheads, locale)
 		if military.nuclear_warheads > 0 else tr("MILITARY_NONE"))
 	_fill_branches(military, personnel, locale)
+	_fill_groups(country, locale)
 	for key: String in SPECIAL_KEYS:
 		_add_row(_special_grid, "MILITARY_SPECIAL_%s" % key.to_upper(),
 			tr("SOCIETY_SCORE_VALUE") % roundi(float(military.special.get(key, 0.0))))
@@ -121,6 +130,54 @@ func _fill_branches(military: MilitaryState, personnel: float, locale: String) -
 		spin.value_changed.connect(func(_value_now: float) -> void: _update_buttons())
 		_priority_spins[branch] = spin
 		_branches_grid.add_child(spin)
+
+
+func _fill_groups(country: CountryState, locale: String) -> void:
+	_groups_grid.columns = GROUP_HEADERS.size()
+	for key: String in GROUP_HEADERS:
+		var header := Label.new()
+		header.text = key
+		header.add_theme_color_override("font_color", HEADER_COLOR)
+		_groups_grid.add_child(header)
+	var state := GameState.sim
+	for group: ArmyGroup in ArmyGroupModel.groups_of(state, country.tag):
+		var symbol := NatoSymbol.new()
+		symbol.echelon = NatoSymbol.ARMY_GROUP
+		symbol.tooltip_text = tr("MILITARY_SYMBOL_TOOLTIP")
+		_groups_grid.add_child(symbol)
+		var name_label := Label.new()
+		name_label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+		name_label.text = military_ui.group_name(group)
+		name_label.add_theme_color_override("font_color", LABEL_COLOR)
+		_groups_grid.add_child(name_label)
+		_groups_grid.add_child(_value(_province_name(group.province)))
+		_groups_grid.add_child(_value(NumberFormat.integer(roundi(group.personnel(country.military,
+			ArmyGroupModel.reserve_share(state))), locale)))
+		var days := group.days_left
+		for index: int in range(1, group.path.size()):
+			days += ArmyGroupModel.travel_days(state, group.path[index - 1], group.path[index])
+		_groups_grid.add_child(_value(tr("MILITARY_MOVING") % [_province_name(group.destination), days]
+			if group.is_moving() else tr("MILITARY_STATIONED")))
+		var button := Button.new()
+		button.text = "MILITARY_SHOW"
+		button.focus_mode = Control.FOCUS_NONE
+		var group_id := group.id
+		button.pressed.connect(func() -> void: group_focus_requested.emit(group_id))
+		_groups_grid.add_child(button)
+
+
+func _province_name(province_id: String) -> String:
+	return tr(str(DataLoader.get_entry("provinces", province_id).get("name_key", "")))
+
+
+## Chaque jour, seulement si un groupe du pays joué est en marche (la liste change).
+func _refresh_moving() -> void:
+	if not visible:
+		return
+	for group: ArmyGroup in ArmyGroupModel.groups_of(GameState.sim, str(GameState.sim.player_tag)):
+		if group.is_moving() or group.days_left > 0:
+			refresh()
+			return
 
 
 func _priorities_command() -> SetDefensePrioritiesCommand:

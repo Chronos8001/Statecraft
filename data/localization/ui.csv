@@ -783,3 +783,25 @@ MILITARY_HINT,"Equipment wears out and grows more expensive every year: the defe
 MAPMODE_MILITARY_POWER,Military power,Puissance militaire
 MAPMODE_UNIT_POINTS,%s pts,%s pts
 NOTIFY_MOBILIZATION,%s changes its mobilisation: %s.,%s change sa mobilisation : %s.
+ARMY_GROUP_NAME,%s Army Group,%s groupe d'armées
+ORDINAL_1,1st,1er
+ORDINAL_2,2nd,2e
+ORDINAL_3,3rd,3e
+ORDINAL_N,%dth,%de
+ARMY_THOUSANDS,%sk,%s k
+MILITARY_GROUPS,Army groups,Groupes d'armées
+MILITARY_GROUP,Army group,Groupe d'armées
+MILITARY_LOCATION,Location,Position
+MILITARY_STATUS,Status,État
+MILITARY_STATIONED,Stationed,En position
+MILITARY_MOVING,Moving to %s (%d days),En marche vers %s (%d j)
+MILITARY_SHOW,Show,Voir
+MILITARY_GROUPS_HINT,"Click an army group on the map to select it, then right-click a province you control to send it there overland.","Cliquez sur un groupe d'armées sur la carte pour le sélectionner, puis faites un clic droit sur une province que vous contrôlez pour l'y envoyer par la route."
+NOTIFY_ARMY_SELECTED,%s selected: right-click a province to move it.,%s sélectionné : clic droit sur une province pour le déplacer.
+NOTIFY_ARMY_FOREIGN,%s of %s: %s soldiers.,%s (%s) : %s soldats.
+NOTIFY_ARMY_ARRIVED,%s has reached %s.,Le %s est arrivé : %s.
+ARMY_INVALID,Not possible,Impossible
+ARMY_ALREADY_THERE,The army group is already there,Le groupe d'armées y est déjà
+ARMY_NOT_CONTROLLED,Army groups can only move to provinces we control,Un groupe d'armées ne va que dans une province que nous contrôlons
+ARMY_UNREACHABLE,No land route through our territory,Aucune route terrestre par notre territoire
+INFO_CONTESTED,Contested: %s holds %d%%,Disputée : %s en tient %d %%

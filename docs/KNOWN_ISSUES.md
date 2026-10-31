@@ -8,7 +8,7 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | « Charger » reste désactivé tant que la sauvegarde n'existe pas. | 14 | Ouvert |
 | 🟢 | Le chargement des JSON et CSV dans un jeu exporté (fichier `.pck`) n'a pas encore été vérifié. | 14 | Ouvert |
 | 🟠 | Découpage déséquilibré : 250 provinces au Royaume-Uni (Londres déjà regroupée), 193 en Slovénie, 68 à Malte, contre 51 en Chine. D'autres regroupements possibles via `province_merges`. | 1 | Ouvert |
-| 🟠 | Contrôle partiel impossible à la province : Zaporijjia et Kherson restent sous contrôle ukrainien. Les autres conflits de 2026 (Soudan, Myanmar, Yémen, Sahel…) ne sont pas encore représentés. | 3 / 7 | Ouvert |
+| 🟢 | Front de 2026 en Ukraine approché par des parts de province (Zaporijjia 75 % et Kherson 25 % tenus par la Russie, Kharkiv 3 %, Donetsk 20 % encore ukrainien). Les autres conflits de 2026 (Soudan, Myanmar, Yémen, Sahel…) ne sont pas encore représentés. | 7 | Ouvert |
 | 🟢 | Terrain estimé (régions géographiques + latitude). | 1 | Ouvert |
 | 🟢 | Quelques noms français de Natural Earth sont approximatifs ; corrections possibles dans `tools/map_gen/config.json`. | 1 | Ouvert |
 | 🟢 | La carte demande une carte graphique acceptant les textures 16384 px et ~270 Mo de mémoire vidéo ; chargement ~3 s, rechargée à chaque nouvelle partie. | 1 | Ouvert |
@@ -62,3 +62,5 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Revendications sans cession possible avant l'étape 7 ; Kouriles, îles disputées en mer de Chine et Sahara occidental non représentés (pas de province distincte ou pas d'État revendiquant). | 6g / 7 | Ouvert |
 | 🟢 | Armées de départ en partie estimées (niveau d'équipement selon la dépense par soldat hors des 44 armées saisies) ; réservistes de l'Ukraine à zéro dans les données (les mobilisés comptent dans l'active). | 7a | Ouvert |
 | 🟢 | Sans nouveaux programmes d'aide (IA de l'étape 12), l'équipement de l'armée ukrainienne s'use quand l'aide de 2026 s'arrête (puissance 117 → 57 en 2031). | 7c / 12 | Ouvert |
+| 🟢 | Les groupes d'armées ne traversent que le territoire de leur pays : pas encore de passage par un allié ni de transport par mer (7c / 7d). Le placement de départ peut laisser deux groupes dans des provinces voisines sur un front. | 7c / 7d | Ouvert |
+| 🟢 | La création d'une partie prend environ 3 à 4 s (forces armées et groupes d'armées compris). | 15 | Ouvert |

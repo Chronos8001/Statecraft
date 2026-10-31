@@ -8,8 +8,14 @@ signal camera_changed
 signal province_clicked(province_id: int)
 ## Double-clic gauche.
 signal province_double_clicked(province_id: int)
+## Clic gauche sur un pion de groupe d'armées.
+signal army_group_clicked(group_id: int)
+## Clic droit (sans glisser) sur la carte : ordre de déplacement du groupe sélectionné.
+signal province_right_clicked(province_id: int)
 
 const NO_SELECTION := -1
+## Au-delà de ce déplacement (pixels), un clic droit devient un glissement de la carte.
+const CLICK_TOLERANCE := 5.0
 
 var camera: MapCameraState
 var selected_province: int = NO_SELECTION
@@ -17,6 +23,8 @@ var _country_indices: Dictionary = {}
 var map_data: ProvinceMapData
 var _material: ShaderMaterial
 var _dragging: bool = false
+var _right_press: Vector2 = Vector2.ZERO
+var _right_moved: float = 0.0
 var _zoom_step: float = 1.0
 var _key_zoom_rate: float = 0.0
 var _key_pan_speed: float = 0.0
@@ -29,6 +37,7 @@ var _province_border_full_zoom: float = 0.0
 @onready var _surface: ColorRect = $Surface
 @onready var _labels: CountryLabelLayer = $Labels
 @onready var _straits: StraitLayer = $Straits
+@onready var _armies: ArmyLayer = $Armies
 
 
 func _ready() -> void:
@@ -68,6 +77,7 @@ func setup(data: ProvinceMapData, colors: PackedColorArray) -> void:
 		float(DataLoader.get_define("map_style.label_max_bend")), owner_at),
 		DataLoader.get_category("countries"), camera)
 	_straits.setup(DataLoader.get_category("straits"), camera)
+	_armies.setup(camera)
 	_update_camera()
 	set_process(true)
 
@@ -84,6 +94,11 @@ func set_province_owners(provinces: Dictionary, countries: Dictionary) -> void:
 	var owners := ProvinceLookup.owner_indices(provinces, countries, DataLoader.get_category("sea_zones"),
 		int(DataLoader.get_category("map")["map"]["max_id"]))
 	_material.set_shader_parameter("province_owners", ImageTexture.create_from_image(ProvinceLookup.build_image(owners)))
+
+
+## Pions des groupes d'armées (voir ArmyLayer).
+func set_army_tokens(tokens: Array[Dictionary]) -> void:
+	_armies.set_tokens(tokens)
 
 
 ## Centre la caméra sur une position de carte.
@@ -119,6 +134,11 @@ func _gui_input(event: InputEvent) -> void:
 		match button.button_index:
 			MOUSE_BUTTON_LEFT:
 				if button.pressed:
+					var group_id := _armies.token_at(button.position)
+					if group_id >= 0:
+						army_group_clicked.emit(group_id)
+						accept_event()
+						return
 					var province_id := province_at_screen(button.position)
 					if button.double_click:
 						province_double_clicked.emit(province_id)
@@ -133,9 +153,16 @@ func _gui_input(event: InputEvent) -> void:
 					_update_camera()
 				accept_event()
 			MOUSE_BUTTON_RIGHT, MOUSE_BUTTON_MIDDLE:
+				if button.button_index == MOUSE_BUTTON_RIGHT:
+					if button.pressed:
+						_right_press = button.position
+						_right_moved = 0.0
+					elif _right_moved < CLICK_TOLERANCE:
+						province_right_clicked.emit(province_at_screen(button.position))
 				_dragging = button.pressed
 				accept_event()
 	elif event is InputEventMouseMotion and _dragging:
+		_right_moved += (event as InputEventMouseMotion).relative.length()
 		camera.pan_screen((event as InputEventMouseMotion).relative)
 		_update_camera()
 		accept_event()
@@ -209,4 +236,5 @@ func _update_camera() -> void:
 		smoothstep(_province_border_min_zoom, _province_border_full_zoom, camera.zoom))
 	_labels.queue_redraw()
 	_straits.queue_redraw()
+	_armies.queue_redraw()
 	camera_changed.emit()

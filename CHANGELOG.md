@@ -12,11 +12,14 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Service militaire (armée professionnelle ou de conscription), réservistes, mobilisation partielle ou générale (Ukraine et Russie mobilisées en 2026).
 - Panneau Armée (bouton « Armée »), puissance militaire dans la barre supérieure, mode de carte « Puissance militaire ». Symboles d'unités au standard OTAN.
 - Outil de génération des forces armées (`tools/country_gen/generate_military.py`).
+- Groupes d'armées sur la carte (symboles OTAN : bleu pour nous et nos alliés, rouge pour les pays hostiles, vert pour les neutres), placés sur les fronts et face aux voisins hostiles ; sélection et déplacement par clic droit ; liste dans le panneau Armée.
+- Contrôle des provinces suivi pendant la partie, avec des provinces disputées tenues en partie : front réel de 2026 en Ukraine (Zaporijjia, Kherson, Kharkiv, Donetsk).
 
 ### Modifié
 - La puissance militaire compte dans la puissance d'un pays pour la diplomatie.
 - Les dépenses de défense et de renseignement renforcent les capacités spéciales (effet affiché dans le panneau Budget).
 - Barre supérieure plus compacte (date abrégée, texte plus petit).
+- Le mode de carte « Contrôle militaire » et la fiche province montrent le contrôle de la partie en cours (parts disputées comprises).
 
 ## [0.6.0] - 2026-10-31
 

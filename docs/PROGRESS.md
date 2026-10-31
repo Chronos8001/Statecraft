@@ -248,7 +248,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Tension mondiale (55 en 2026) qui monte avec ultimatums, revendications, coups d'État, guerres civiles et sanctions ; seuils qui débloquent revendications, ultimatums, embargos totaux et exclusion des paiements
 
 ## Étape 7 — Militaire (version simplifiée) 🟨
-**7a. Forces armées et mobilisation** (en attente de validation)
+**7a. Forces armées et mobilisation** (validée le 2026-11-01)
 - [x] Branches terre / air / mer (pas de marine sans littoral) + capacités spéciales (forces spéciales, missiles, cyber) et arsenaux nucléaires réels (SIPRI 2025)
 - [x] Effectifs, niveau d'équipement (1 à 5), entraînement, moral : règles selon la dépense par soldat + valeurs saisies pour 44 grandes armées
 - [x] Équipement entretenu par le budget de la défense et les armes reçues (ventes et dons de l'étape 6), coût qui monte chaque année ; répartition des crédits entre les armées
@@ -256,9 +256,11 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Puissance militaire (barre supérieure, mode de carte) prise en compte dans la puissance diplomatique
 - [x] Modules remplaçables `MilitaryModel`, `WarResolver`, `MilitaryAI` (registre `MilitaryRegistry`) et `MilitaryUI` ; symboles d'unités OTAN (APP-6)
 
-**7b. Groupes d'armées et contrôle des provinces**
-- [ ] Pions « groupe d'armées » par région sur la carte (symboles OTAN)
-- [ ] Contrôle des provinces (occupation), front réel de 2026 en Ukraine
+**7b. Groupes d'armées et contrôle des provinces** (en attente de validation)
+- [x] Pions « groupe d'armées » sur la carte (symboles OTAN : ami, hostile, neutre), placés selon les menaces : front, voisins hostiles, réserve à la capitale
+- [x] Sélection d'un groupe et ordre de marche au clic droit, par voie de terre (40 km par jour) ; liste des groupes dans le panneau Armée
+- [x] Contrôle des provinces dans la partie, provinces disputées tenues en partie (changement de contrôleur progressif) ; front réel de 2026 en Ukraine (Zaporijjia, Kherson, Kharkiv, Donetsk)
+- [x] Mode de carte « Contrôle militaire » et fiche province suivent la partie
 
 **7c. Guerre**
 - [ ] Déclaration de guerre, justification, buts de guerre, coût diplomatique ; guerre Russie–Ukraine en cours au départ

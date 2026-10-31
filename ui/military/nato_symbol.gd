@@ -3,6 +3,7 @@ extends Control
 ## Symbole d'unité au standard OTAN (APP-6) : cadre selon l'appartenance et le milieu, icône de l'arme et
 ## marque de taille (échelon) au-dessus du cadre. Couleurs dans les données (defines.military_symbols).
 ## Milieux : « land » (terre), « air », « sea » (surface). Appartenances : ami, hostile, neutre, inconnu.
+## draw_symbol() dessine le même symbole sur n'importe quel calque (pions de la carte).
 
 const LAND := "land"
 const AIR := "air"
@@ -15,12 +16,14 @@ const UNKNOWN := "unknown"
 const INFANTRY := "infantry"
 const ARMOUR := "armour"
 const MECHANIZED := "mechanized"
+## Marque de taille d'un groupe d'armées.
+const ARMY_GROUP := "XXXXX"
 ## Proportions du cadre (APP-6 : rectangle ami 3:2, carré neutre, losange hostile).
 const FRIEND_RATIO := 1.5
 const ECHELON_SPACE := 0.28
 const LINE_WIDTH := 2.0
-const ICON_INSET := 0.0
 const ARC_POINTS := 24
+const MIN_FONT_SIZE := 7.0
 
 var domain: String = LAND:
 	set(value):
@@ -48,36 +51,41 @@ func _init() -> void:
 
 
 func _draw() -> void:
-	var colors: Dictionary = DataLoader.get_define("military_symbols", {})
-	var fill := Color.html(str(colors.get(affiliation, "#80E0FF")))
+	draw_symbol(self, Rect2(Vector2.ZERO, size), domain, affiliation, icon, echelon,
+		DataLoader.get_define("military_symbols", {}), get_theme_default_font())
+
+
+## Dessine un symbole dans rect (marque de taille comprise).
+static func draw_symbol(canvas: CanvasItem, rect: Rect2, p_domain: String, p_affiliation: String, p_icon: String,
+		p_echelon: String, colors: Dictionary, font: Font, width: float = LINE_WIDTH) -> void:
+	var fill := Color.html(str(colors.get(p_affiliation, "#80E0FF")))
 	var line := Color.html(str(colors.get("line", "#000000")))
-	var top := size.y * ECHELON_SPACE if not echelon.is_empty() else 0.0
-	var area := Rect2(Vector2(LINE_WIDTH, top + LINE_WIDTH), size - Vector2(LINE_WIDTH * 2.0, top + LINE_WIDTH * 2.0))
-	var frame := _frame(area)
-	draw_colored_polygon(frame, fill)
+	var top := rect.size.y * ECHELON_SPACE if not p_echelon.is_empty() else 0.0
+	var area := Rect2(rect.position + Vector2(width, top + width), rect.size - Vector2(width * 2.0, top + width * 2.0))
+	var frame := _frame(area, p_domain, p_affiliation)
+	canvas.draw_colored_polygon(frame, fill)
 	var outline := frame.duplicate()
 	outline.append(frame[0])
-	draw_polyline(outline, line, LINE_WIDTH, true)
-	_draw_icon(_icon_box(area), line)
-	if not echelon.is_empty():
-		var font := get_theme_default_font()
-		var font_size := int(maxf(top * 0.9, 8.0))
-		var text_size := font.get_string_size(echelon, HORIZONTAL_ALIGNMENT_CENTER, -1, font_size)
-		draw_string(font, Vector2((size.x - text_size.x) / 2.0, top * 0.85), echelon, HORIZONTAL_ALIGNMENT_LEFT, -1,
-			font_size, line)
+	canvas.draw_polyline(outline, line, width, true)
+	_draw_icon(canvas, _icon_box(area, p_domain, p_affiliation), p_domain, p_icon, line, width)
+	if not p_echelon.is_empty() and font != null:
+		var font_size := int(maxf(top * 0.9, MIN_FONT_SIZE))
+		var text_size := font.get_string_size(p_echelon, HORIZONTAL_ALIGNMENT_CENTER, -1, font_size)
+		canvas.draw_string(font, rect.position + Vector2((rect.size.x - text_size.x) / 2.0, top * 0.85), p_echelon,
+			HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, line)
 
 
 ## Contour du cadre selon le milieu et l'appartenance.
-func _frame(area: Rect2) -> PackedVector2Array:
+static func _frame(area: Rect2, p_domain: String, p_affiliation: String) -> PackedVector2Array:
 	var center := area.get_center()
-	if affiliation == HOSTILE:
+	if p_affiliation == HOSTILE:
 		var half := minf(area.size.x, area.size.y) / 2.0
 		return PackedVector2Array([center + Vector2(0, -half), center + Vector2(half, 0), center + Vector2(0, half),
 			center + Vector2(-half, 0)])
-	if affiliation == NEUTRAL or affiliation == UNKNOWN:
+	if p_affiliation == NEUTRAL or p_affiliation == UNKNOWN:
 		var side := minf(area.size.x, area.size.y)
 		return _rect_points(Rect2(center - Vector2(side, side) / 2.0, Vector2(side, side)))
-	match domain:
+	match p_domain:
 		AIR:
 			# Ami, aérien : arc ouvert vers le bas.
 			var radius := minf(area.size.x / 2.0, area.size.y)
@@ -100,46 +108,52 @@ func _frame(area: Rect2) -> PackedVector2Array:
 
 
 ## Zone de l'icône à l'intérieur du cadre.
-func _icon_box(area: Rect2) -> Rect2:
+static func _icon_box(area: Rect2, p_domain: String, p_affiliation: String) -> Rect2:
 	var center := area.get_center()
-	if domain == AIR and affiliation == FRIEND:
+	if p_domain == AIR and p_affiliation == FRIEND:
 		var radius := minf(area.size.x / 2.0, area.size.y)
 		return Rect2(Vector2(center.x - radius * 0.6, area.end.y - radius * 0.7), Vector2(radius * 1.2, radius * 0.5))
 	var side := minf(area.size.x, area.size.y)
-	var width := side * (FRIEND_RATIO if domain == LAND and affiliation == FRIEND else 1.0)
-	var box := Rect2(center - Vector2(width, side) / 2.0, Vector2(width, side))
-	return box.grow(-side * 0.18) if affiliation != HOSTILE else box.grow(-side * 0.3)
+	if p_affiliation == FRIEND and p_domain == LAND:
+		var height := minf(area.size.y, area.size.x / FRIEND_RATIO)
+		return Rect2(center - Vector2(height * FRIEND_RATIO, height) / 2.0, Vector2(height * FRIEND_RATIO, height))
+	var box := Rect2(center - Vector2(side, side) / 2.0, Vector2(side, side))
+	return box.grow(-side * 0.18) if p_affiliation != HOSTILE else box.grow(-side * 0.3)
 
 
-func _draw_icon(box: Rect2, color: Color) -> void:
-	match domain:
+static func _draw_icon(canvas: CanvasItem, box: Rect2, p_domain: String, p_icon: String, color: Color,
+		width: float) -> void:
+	match p_domain:
 		AIR:
 			# Aéronef à voilure fixe : deux boucles reliées (forme d'hélice).
 			var radius := Vector2(box.size.x / 4.0, box.size.y / 2.0)
-			_draw_ellipse(box.position + Vector2(radius.x, radius.y), radius, color)
-			_draw_ellipse(box.position + Vector2(radius.x * 3.0, radius.y), radius, color)
+			_draw_ellipse(canvas, box.position + Vector2(radius.x, radius.y), radius, color, width)
+			_draw_ellipse(canvas, box.position + Vector2(radius.x * 3.0, radius.y), radius, color, width)
 		SEA:
 			# Bâtiment de surface : coque stylisée.
 			var y := box.position.y + box.size.y * 0.55
-			draw_polyline(PackedVector2Array([box.position + Vector2(0, box.size.y * 0.35),
+			canvas.draw_polyline(PackedVector2Array([box.position + Vector2(0, box.size.y * 0.35),
 				Vector2(box.position.x + box.size.x * 0.2, y), Vector2(box.end.x - box.size.x * 0.2, y),
-				Vector2(box.end.x, box.position.y + box.size.y * 0.35)]), color, LINE_WIDTH, true)
-			draw_line(Vector2(box.get_center().x, y), Vector2(box.get_center().x, box.position.y), color, LINE_WIDTH, true)
+				Vector2(box.end.x, box.position.y + box.size.y * 0.35)]), color, width, true)
+			canvas.draw_line(Vector2(box.get_center().x, y), Vector2(box.get_center().x, box.position.y), color, width,
+				true)
 		_:
-			if icon == INFANTRY or icon == MECHANIZED:
-				draw_line(box.position, box.end, color, LINE_WIDTH, true)
-				draw_line(Vector2(box.position.x, box.end.y), Vector2(box.end.x, box.position.y), color, LINE_WIDTH, true)
-			if icon == ARMOUR or icon == MECHANIZED:
-				var inner := box.grow_individual(-box.size.x * 0.1, -box.size.y * 0.25, -box.size.x * 0.1, -box.size.y * 0.25)
-				_draw_ellipse(inner.get_center(), inner.size / 2.0, color)
+			if p_icon == INFANTRY or p_icon == MECHANIZED:
+				canvas.draw_line(box.position, box.end, color, width, true)
+				canvas.draw_line(Vector2(box.position.x, box.end.y), Vector2(box.end.x, box.position.y), color, width,
+					true)
+			if p_icon == ARMOUR or p_icon == MECHANIZED:
+				var inner := box.grow_individual(-box.size.x * 0.1, -box.size.y * 0.25, -box.size.x * 0.1,
+					-box.size.y * 0.25)
+				_draw_ellipse(canvas, inner.get_center(), inner.size / 2.0, color, width)
 
 
-func _draw_ellipse(center: Vector2, radius: Vector2, color: Color) -> void:
+static func _draw_ellipse(canvas: CanvasItem, center: Vector2, radius: Vector2, color: Color, width: float) -> void:
 	var points := PackedVector2Array()
 	for index: int in ARC_POINTS * 2 + 1:
 		var angle := TAU * float(index) / (ARC_POINTS * 2)
 		points.append(center + Vector2(cos(angle) * radius.x, sin(angle) * radius.y))
-	draw_polyline(points, color, LINE_WIDTH, true)
+	canvas.draw_polyline(points, color, width, true)
 
 
 static func _rect_points(rect: Rect2) -> PackedVector2Array:

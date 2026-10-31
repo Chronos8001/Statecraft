@@ -40,8 +40,11 @@ func _refresh() -> void:
 		_country_label.text = tr(_info.sea_kind_key)
 	else:
 		_country_label.text = tr(_info.owner_name_key) if has_owner else tr("INFO_UNOWNED")
-	_occupation_label.visible = _info.is_occupied
-	_occupation_label.text = tr("INFO_OCCUPIED_BY") % tr(_info.controller_name_key)
+	_occupation_label.visible = _info.is_occupied or _info.contested_share > 0.0
+	_occupation_label.text = tr("INFO_OCCUPIED_BY") % tr(_info.controller_name_key) if _info.is_occupied else ""
+	if _info.contested_share > 0.0:
+		_occupation_label.text += ("\n" if _info.is_occupied else "") + tr("INFO_CONTESTED") % [
+			tr(_info.contested_name_key), roundi(_info.contested_share * 100.0)]
 	_capital_label.visible = _info.is_capital
 
 	_clear_rows(_stats_grid)
