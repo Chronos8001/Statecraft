@@ -559,3 +559,15 @@ func test_law_start_rules_name_real_countries() -> void:
 			for tag: Variant in rule.get("countries", []):
 				assert_true(countries.has(tag), "%s : pays inconnu %s" % [law_id, tag])
 
+
+
+func test_relations_are_symmetric_and_realistic() -> void:
+	var countries := _repository.get_category("countries")
+	for tag: String in countries.keys():
+		var relations: Dictionary = countries[tag]["relations"]
+		for other: String in relations.keys():
+			assert_eq(float(countries[other]["relations"].get(tag, 0.0)), float(relations[other]), "%s-%s" % [tag, other])
+	assert_lt(float(countries["RUS"]["relations"]["UKR"]), -80.0)
+	assert_gt(float(countries["FRA"]["relations"]["DEU"]), 70.0)
+	assert_lt(float(countries["IND"]["relations"]["PAK"]), -50.0)
+	assert_gt(float(countries["USA"]["relations"]["GBR"]), 70.0)

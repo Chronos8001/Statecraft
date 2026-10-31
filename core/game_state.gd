@@ -16,7 +16,7 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	WorldSetup.populate(sim, DataLoader.get_category("countries"), DataLoader.get_category("currencies"),
 		DataLoader.get_define("economy", {}), budget_definitions(), DataLoader.get_category("resources"),
 		resource_definitions(), trade_definitions(), energy_definitions(), DataLoader.get_define("investment", {}),
-		society_definitions(), politics_definitions())
+		society_definitions(), politics_definitions(), DataLoader.get_define("diplomacy", {}))
 	scheduler = SimScheduler.new()
 	scheduler.add_system(LawSystem.new())
 	scheduler.add_system(ConstitutionSystem.new())
@@ -32,6 +32,7 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	scheduler.add_system(SocietySystem.new())
 	scheduler.add_system(PoliticsSystem.new())
 	scheduler.add_system(ElectionSystem.new())
+	scheduler.add_system(DiplomacySystem.new())
 	_pending_commands.clear()
 	is_game_running = true
 	GameLog.info(SOURCE, "Nouvelle partie : graine %d, date %s." % [p_seed, sim.date.format_iso()])

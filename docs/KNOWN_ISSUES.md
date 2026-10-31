@@ -12,7 +12,6 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Terrain estimé (régions géographiques + latitude). | 1 | Ouvert |
 | 🟢 | Quelques noms français de Natural Earth sont approximatifs ; corrections possibles dans `tools/map_gen/config.json`. | 1 | Ouvert |
 | 🟢 | La carte demande une carte graphique acceptant les textures 16384 px et ~270 Mo de mémoire vidéo ; chargement ~3 s, rechargée à chaque nouvelle partie. | 1 | Ouvert |
-| 🟢 | Mode relations neutre ; il se remplira avec la diplomatie. | 6 | Ouvert |
 | 🟢 | Les noms de pays voisins peuvent se chevaucher (pas encore d'évitement des collisions). | 13 | Ouvert |
 | 🟢 | En zoom maximal, les contours suivent la précision de l'image (~2 km par pixel) : lissés mais encore un peu anguleux. | 1 | Ouvert |
 | 🟢 | Secteurs d'océan de tailles inégales ; rives du détroit de Taïwan trop larges (provinces de l'intérieur incluses). | 1 | Ouvert |
@@ -56,3 +55,4 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Les ministres de l'IA ne sont jamais remaniés volontairement (seulement après scandale ou démission). | 12 | Ouvert |
 | 🟢 | Les guerres civiles n'ont pas encore de fronts ni de provinces tenues par les rebelles (étape 7) ; elles finissent par une chance mensuelle quand la stabilité remonte. | 7 | Ouvert |
 | 🟢 | Une désinformation démasquée contre un pays étranger ne dégrade pas encore les relations (diplomatie, étape 6) ; les pays de l'IA n'utilisent ni propagande ni désinformation (étape 12). | 6 / 12 | Ouvert |
+| 🟢 | Relations de départ estimées par règles hors des 183 paires saisies ; quelques valeurs peuvent surprendre entre petits pays éloignés. | 6a | Ouvert |

@@ -1502,7 +1502,8 @@
         "investment",
         "society",
         "parliament",
-        "constitution"
+        "constitution",
+        "relations"
       ],
       "properties": {
         "name_key": {
@@ -2142,6 +2143,15 @@
               "min": 0,
               "max": 10
             }
+          }
+        },
+        "relations": {
+          "type": "object",
+          "keys_ref": "countries",
+          "values": {
+            "type": "number",
+            "min": -100,
+            "max": 100
           }
         }
       }

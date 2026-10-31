@@ -39,6 +39,9 @@ var society_definitions: Dictionary = {}
 var politics_definitions: Dictionary = {}
 ## Section « trade » de defines.json.
 var trade_settings: Dictionary = {}
+## Relations entre pays et section « diplomacy » de defines.json.
+var diplomacy: DiplomacyState = DiplomacyState.new()
+var diplomacy_settings: Dictionary = {}
 ## Personnages créés pendant la partie (ministres, successeurs) : identifiant → personnage.
 var characters: Dictionary = {}
 var next_character_id: int = 0

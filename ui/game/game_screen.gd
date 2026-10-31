@@ -8,7 +8,7 @@ const DEGREES_PER_TURN := 360.0
 const DEGREES_HALF_TURN := 180.0
 const BYTES_PER_MEGABYTE := 1048576.0
 const DEFAULT_MAP_MODE := "political"
-const LIVE_MAP_MODES := ["trade", "stability", "support", "vote", "ideology", "unrest"]
+const LIVE_MAP_MODES := ["trade", "stability", "support", "vote", "ideology", "unrest", "relations"]
 
 var _thread: Thread
 var _load_started_ms: int = 0
@@ -348,6 +348,7 @@ func _on_province_clicked(province_id: int) -> void:
 	info.apply_economy(GameState.sim)
 	info.apply_politics(GameState.sim, DataLoader.get_category("names"), DataLoader.get_category("ideologies"),
 		DataLoader.get_category("names/cultures"))
+	info.apply_diplomacy(GameState.sim)
 	_info_panel.close()
 	_map_view.set_selected_province(MapView.NO_SELECTION)
 	_map_view.set_selected_country(owner)

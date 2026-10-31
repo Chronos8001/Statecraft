@@ -139,6 +139,26 @@ func apply_economy(state: SimState) -> void:
 	currency_code = currency.code
 
 
+## Relations avec le pays du joueur (has_diplomacy reste faux pour le pays joué ou sans joueur).
+var has_diplomacy: bool = false
+var relation: float = 0.0
+var trust: float = 0.0
+## Opinion de la population de ce pays envers nous, et de la nôtre envers lui.
+var opinion_of_player: float = 0.0
+var player_opinion: float = 0.0
+
+
+func apply_diplomacy(state: SimState) -> void:
+	var player := str(state.player_tag)
+	if player.is_empty() or player == tag or state.diplomacy_settings.is_empty() or state.get_country(tag) == null:
+		return
+	has_diplomacy = true
+	relation = state.diplomacy.relation(player, tag)
+	trust = state.diplomacy.trust(player, tag)
+	opinion_of_player = state.diplomacy.opinion(tag, player)
+	player_opinion = state.diplomacy.opinion(player, tag)
+
+
 ## Dirigeants, parti au pouvoir, coalition et idéologie de la partie en cours (après les élections).
 func apply_politics(state: SimState, names: Dictionary, ideologies: Dictionary, cultures: Dictionary) -> void:
 	var country := state.get_country(tag)

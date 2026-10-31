@@ -120,3 +120,7 @@
 | 2026-10-31 | Médias rattachés aux lois existantes (presse, réseaux sociaux) plutôt qu'à un indice séparé | Une seule source de vérité, réformable par le joueur | Indice de liberté de la presse importé |
 | 2026-10-31 | Propagande : coût mensuel de 0,01 à 0,06 % du PIB ; efficacité × (1 + 0,5 × (1 - liberté de la presse)) ; légitimité usée en démocratie | Outil tentant pour les régimes autoritaires, risqué ailleurs | Effet uniforme |
 | 2026-10-31 | Désinformation contre un pays étranger : malus temporaire sur tous ses groupes et sa stabilité ; découverte selon la presse de la cible | Prépare le renseignement (étape 11) et la diplomatie (étape 6) | Attendre l'étape 11 |
+| 2026-10-31 | Étape 6 découpée en 7 sous-étapes : 6a relations, 6b actions et traités, 6c organisations, 6d sanctions, 6e aide, 6f influence, 6g revendications et tension mondiale | Sous-étapes validées séparément | Quatre grosses sous-étapes |
+| 2026-10-31 | Relations de départ calculées (organisations +5 à +35, commerce jusqu'à +20, régimes ±10, frontière +5, blocs opposés -40) puis 183 paires réelles saisies | Toutes les paires crédibles, grandes rivalités fidèles | Matrice saisie à la main |
+| 2026-10-31 | Seuls les écarts avec 2026 sont stockés et mis à jour (retour de 2 % par mois, opinion qui suit à 10 % par mois) | 19 701 paires sans coût mensuel | Matrice complète recalculée |
+| 2026-10-31 | Réponses de l'IA aux propositions par règles d'intérêt lisibles, en attendant l'IA de l'étape 12 | Le joueur peut prévoir la réponse | Seuil de relations seul |
