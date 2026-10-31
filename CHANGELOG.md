@@ -6,6 +6,8 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-10-31
+
 ### Ajouté
 - Simulation macroéconomique mensuelle des 199 pays : croissance, inflation, chômage, PIB par secteur (8 secteurs), dette publique, note souveraine.
 - Situation économique réelle au 1er janvier 2026 (FMI, Banque mondiale, S&P, Fitch, Moody's, taux de change du jour) ; notes estimées pour les pays non notés.
@@ -137,7 +139,8 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Suivi du projet : `docs/PROGRESS.md`, `docs/DECISIONS.md`, `docs/KNOWN_ISSUES.md`.
 - Configuration Git : `.gitignore` et `.gitattributes` (fins de ligne LF, fichiers binaires).
 
-[Unreleased]: https://github.com/Chronos8001/Statecraft/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/Chronos8001/Statecraft/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.4.0
 [0.3.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.3.0
 [0.2.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.2.0
 [0.1.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.1.0
