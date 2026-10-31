@@ -37,4 +37,6 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | La fermeture des détroits n'est possible qu'en version de développement (blocus militaires à l'étape 7, événements à l'étape 9). | 7 / 9 | Ouvert |
 | 🟢 | Échanges estimés par un modèle gravitaire : des écarts avec la réalité subsistent (ex. la Russie fait encore 46 % de son commerce avec la Chine, l'Allemagne achète son gaz surtout aux États-Unis). Le commerce de services n'est pas distingué. | 4c2 | Ouvert |
 | 🟢 | Les pays de l'IA ne prennent encore aucune mesure commerciale (ni riposte aux surtaxes) : étape 12. | 12 | Ouvert |
-| 🟢 | Un mois de simulation prend environ 150 ms (budget et ressources surtout) : léger à-coup en vitesse maximale. | 15 | Ouvert |
+| 🟢 | Parc de départ placé selon la population et le relief : des centrales peuvent se retrouver dans une capitale (deux centrales nucléaires à Paris). Seuls les centrales, les mines et un port par pays sont placés au départ. | 4d1 | Ouvert |
+| 🟢 | Le charbon se stabilise environ 25 % au-dessus de son prix de départ (forte demande d'électricité de la Chine et de l'Inde). | 4d1 | Ouvert |
+| 🟠 | Un mois de simulation prend environ 340 ms (marché des ressources, budget, électricité) : à-coup sensible en vitesse maximale ; calculs à étaler sur plusieurs images ou fils de calcul. | 15 | Ouvert |
