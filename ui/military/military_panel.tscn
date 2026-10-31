@@ -94,6 +94,27 @@ size_flags_horizontal = 8
 focus_mode = 0
 text = "MILITARY_APPLY_PRIORITIES"
 
+[node name="GroupsTitle" type="Label" parent="Margin/Content/Scroll/Details"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+text = "MILITARY_GROUPS"
+
+[node name="GroupsGrid" type="GridContainer" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 14
+theme_override_constants/v_separation = 6
+columns = 6
+
+[node name="GroupsHint" type="Label" parent="Margin/Content/Scroll/Details"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.51, 0.6, 1)
+theme_override_font_sizes/font_size = 13
+text = "MILITARY_GROUPS_HINT"
+autowrap_mode = 3
+
 [node name="SpecialTitle" type="Label" parent="Margin/Content/Scroll/Details"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)

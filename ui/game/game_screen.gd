@@ -9,7 +9,7 @@ const DEGREES_HALF_TURN := 180.0
 const BYTES_PER_MEGABYTE := 1048576.0
 const DEFAULT_MAP_MODE := "political"
 const LIVE_MAP_MODES := ["trade", "stability", "support", "vote", "ideology", "unrest", "relations", "influence", "claims",
-	"military_power"]
+	"military_power", "military_control"]
 
 var _thread: Thread
 var _load_started_ms: int = 0
@@ -20,6 +20,8 @@ var _notification_timer: SceneTreeTimer
 ## Interface militaire remplaçable (mods, DLC) et son panneau Armée.
 var _military_ui: MilitaryUI = MilitaryUI.new()
 var _military_panel: InfoPanel
+## Groupe d'armées sélectionné (-1 : aucun) : un clic droit sur la carte l'envoie dans la province visée.
+var _selected_group: int = -1
 
 @onready var _map_view: MapView = %MapView
 @onready var _loading_label: Label = %LoadingLabel
@@ -53,6 +55,10 @@ func _ready() -> void:
 	_load_started_ms = Time.get_ticks_msec()
 	_map_view.province_clicked.connect(_on_province_clicked)
 	_map_view.province_double_clicked.connect(_show_province)
+	_map_view.army_group_clicked.connect(_on_army_group_clicked)
+	_map_view.province_right_clicked.connect(_on_province_right_clicked)
+	EventBus.day_passed.connect(func(_date: GameDate) -> void: _refresh_armies())
+	EventBus.command_executed.connect(func(_command: Command) -> void: _refresh_armies())
 	_info_panel.closed.connect(func() -> void: _map_view.set_selected_province(MapView.NO_SELECTION))
 	_country_panel.closed.connect(func() -> void: _map_view.set_selected_country(""))
 	_map_modes = MapModeRegistry.from_definitions(DataLoader.get_category("map_modes"))
@@ -78,6 +84,8 @@ func _ready() -> void:
 	if _military_panel is MilitaryPanel:
 		(_military_panel as MilitaryPanel).military_ui = _military_ui
 	_government_panel.add_sibling(_military_panel)
+	if _military_panel.has_signal("group_focus_requested"):
+		_military_panel.connect("group_focus_requested", _focus_army_group)
 	_top_bar.military_requested.connect(func() -> void: _military_panel.call("toggle"))
 	_top_bar.world_requested.connect(_world_panel.toggle)
 	_country_panel.diplomacy_requested.connect(func(tag: String) -> void:
@@ -171,6 +179,8 @@ func _start_playing() -> void:
 	set_map_mode(_current_mode_id)
 	_top_bar.visible = true
 	_top_bar.refresh()
+	_selected_group = -1
+	_refresh_armies()
 	GameClock.set_running(true)
 
 
@@ -233,6 +243,12 @@ func _on_sim_event(event: Dictionary) -> void:
 		var mobilizing := DataLoader.get_entry("countries", str(event.get("tag", "")))
 		_notify(tr("NOTIFY_MOBILIZATION") % [tr(str(mobilizing.get("name_key", ""))),
 			tr("MILITARY_MOBILIZATION_%d" % int(event.get("level", 0))).to_lower()])
+		return
+	if event.get("type") == ArmyGroupModel.EVENT_ARRIVED and str(event.get("tag", "")) == str(GameState.sim.player_tag):
+		var arrived: ArmyGroup = GameState.sim.army_groups.get(int(event.get("group", -1)))
+		if arrived != null:
+			_notify(tr("NOTIFY_ARMY_ARRIVED") % [_military_ui.group_name(arrived), tr(str(DataLoader.get_entry(
+				"provinces", arrived.province).get("name_key", "")))])
 		return
 	if event.get("type") == ElectionSystem.EVENT_FRAUD_DETECTED:
 		var country := DataLoader.get_entry("countries", str(event.get("tag", "")))
@@ -425,8 +441,106 @@ func _show_province(province_id: int) -> void:
 		_map_view.set_selected_province(MapView.NO_SELECTION)
 		_info_panel.close()
 		return
+	_apply_live_control(info, str(province_id))
 	_map_view.set_selected_province(province_id)
 	_info_panel.show_province(info)
+
+
+## Contrôle de la partie en cours (occupations, provinces disputées) à la place des données de départ.
+func _apply_live_control(info: ProvinceInfo, province_id: String) -> void:
+	var state := GameState.sim
+	if info.is_sea_zone or state.province_control.is_empty() or not state.province_control.has(province_id):
+		return
+	info.controller_tag = ControlSystem.controller(state, province_id)
+	info.controller_name_key = str(DataLoader.get_entry("countries", info.controller_tag).get("name_key", ""))
+	info.is_occupied = not info.owner_tag.is_empty() and info.controller_tag != info.owner_tag
+	var contest: Dictionary = state.contested.get(province_id, {})
+	if not contest.is_empty():
+		info.contested_name_key = str(DataLoader.get_entry("countries", str(contest["by"])).get("name_key", ""))
+		info.contested_share = float(contest["share"])
+
+
+## Pions des groupes d'armées : symbole selon l'appartenance au pays joué, effectifs, trajet.
+func _refresh_armies() -> void:
+	if _is_selecting() or _map_view.camera == null:
+		return
+	var state := GameState.sim
+	var player := str(state.player_tag)
+	var provinces := DataLoader.get_category("provinces")
+	var reserve_share := ArmyGroupModel.reserve_share(state)
+	var hostile := float(DataLoader.get_define("military_symbols.hostile_relation", -50.0))
+	var locale := Localization.get_locale()
+	var tokens: Array[Dictionary] = []
+	var own: Array[Dictionary] = []
+	for group: ArmyGroup in state.army_groups.values():
+		var country := state.get_country(group.owner)
+		if country == null or country.military == null:
+			continue
+		var affiliation := NatoSymbol.NEUTRAL
+		if not player.is_empty():
+			if ControlSystem.allied(state, player, group.owner):
+				affiliation = NatoSymbol.FRIEND
+			elif state.diplomacy.relation(player, group.owner) < hostile:
+				affiliation = NatoSymbol.HOSTILE
+		var path: Array = []
+		for step: String in group.path:
+			path.append(_province_center(provinces, step))
+		var token := {"id": group.id, "position": _province_center(provinces, group.province), "affiliation": affiliation,
+			"label": tr("ARMY_THOUSANDS") % NumberFormat.integer(roundi(group.personnel(country.military, reserve_share)
+				/ 1000.0), locale), "selected": group.id == _selected_group, "path": path}
+		# Les pions du pays joué sont dessinés par-dessus les autres.
+		if group.owner == player:
+			own.append(token)
+		else:
+			tokens.append(token)
+	tokens.append_array(own)
+	_map_view.set_army_tokens(tokens)
+
+
+static func _province_center(provinces: Dictionary, province_id: String) -> Vector2:
+	var center: Array = (provinces.get(province_id, {}) as Dictionary).get("center", [0.0, 0.0])
+	return Vector2(float(center[0]), float(center[1]))
+
+
+func _on_army_group_clicked(group_id: int) -> void:
+	var state := GameState.sim
+	var group: ArmyGroup = state.army_groups.get(group_id)
+	if group == null:
+		return
+	var country := state.get_country(group.owner)
+	var name := _military_ui.group_name(group)
+	if group.owner == str(state.player_tag):
+		_selected_group = -1 if _selected_group == group_id else group_id
+		if _selected_group >= 0:
+			_notify(tr("NOTIFY_ARMY_SELECTED") % name)
+	else:
+		var owner_name := tr(str(DataLoader.get_entry("countries", group.owner).get("name_key", "")))
+		_notify(tr("NOTIFY_ARMY_FOREIGN") % [name, owner_name, NumberFormat.integer(roundi(
+			group.personnel(country.military, ArmyGroupModel.reserve_share(state))), Localization.get_locale())])
+	_refresh_armies()
+
+
+func _on_province_right_clicked(province_id: int) -> void:
+	if _selected_group < 0 or province_id <= 0:
+		return
+	var command := MoveArmyGroupCommand.new(GameState.sim.player_tag, _selected_group, str(province_id))
+	var refusal := command.refusal_reason(GameState.sim)
+	if not refusal.is_empty():
+		_notify(tr(refusal))
+		return
+	if GameState.submit_command(command) and GameClock.is_paused:
+		GameState.process_commands()
+
+
+## Centre la carte sur un groupe d'armées du pays joué et le sélectionne.
+func _focus_army_group(group_id: int) -> void:
+	var group: ArmyGroup = GameState.sim.army_groups.get(group_id)
+	if group == null:
+		return
+	_selected_group = group_id
+	_map_view.focus_on(_province_center(DataLoader.get_category("provinces"), group.province),
+		maxf(_map_view.camera.zoom, float(DataLoader.get_define("camera.capital_zoom"))))
+	_refresh_armies()
 
 
 func _update_debug() -> void:
