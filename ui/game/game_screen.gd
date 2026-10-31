@@ -260,6 +260,8 @@ func _on_sim_event(event: Dictionary) -> void:
 			var key := "NOTIFY_MINISTER_SCANDAL" if event.get("type") == GovernmentSystem.EVENT_SCANDAL \
 				else "NOTIFY_MINISTER_RESIGNED"
 			_notify(tr(key) % tr(str(portfolio.get("name_key", ""))))
+		MediaSystem.EVENT_DISINFORMATION:
+			_notify(tr("NOTIFY_DISINFORMATION_EXPOSED" if bool(event.get("exposed", false)) else "NOTIFY_DISINFORMATION_DONE"))
 		CrisisSystem.EVENT_STARTED:
 			var definition: Dictionary = (GameState.sim.politics_definitions.get("crises", {}) as Dictionary).get(
 				str(event.get("crisis", "")), {})

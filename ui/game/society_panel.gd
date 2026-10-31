@@ -15,11 +15,22 @@ const GROUP_HEADERS := ["SOCIETY_GROUP", "SOCIETY_POPULATION", "SOCIETY_INFLUENC
 @onready var _indicators_grid: GridContainer = %IndicatorsGrid
 @onready var _groups_grid: GridContainer = %GroupsGrid
 @onready var _crises_box: VBoxContainer = %CrisesBox
+@onready var _media_grid: GridContainer = %MediaGrid
+@onready var _propaganda_option: OptionButton = %PropagandaOption
+@onready var _propaganda_button: Button = %PropagandaButton
+@onready var _target_option: OptionButton = %TargetOption
+@onready var _disinformation_button: Button = %DisinformationButton
+## Cibles de désinformation dans l'ordre de la liste ("" : l'opposition du pays).
+var _targets: Array[String] = []
 @onready var _close_button: Button = %CloseButton
 
 
 func _ready() -> void:
 	_close_button.pressed.connect(close)
+	_propaganda_button.pressed.connect(func() -> void:
+		_submit(SetPropagandaCommand.new(GameState.sim.player_tag, maxi(_propaganda_option.selected, 0))))
+	_disinformation_button.pressed.connect(_on_disinformation_pressed)
+	_target_option.item_selected.connect(func(_index: int) -> void: _update_disinformation())
 	_groups_grid.columns = GROUP_COLUMNS
 	EventBus.locale_changed.connect(func(_locale: String) -> void: refresh())
 	EventBus.month_passed.connect(func(_date: GameDate) -> void: refresh())
@@ -45,6 +56,7 @@ func refresh() -> void:
 		return
 	_fill_indicators(country.society)
 	_fill_crises(country)
+	_fill_media(country)
 	_fill_groups(country.society)
 
 
@@ -111,6 +123,66 @@ func _fill_crises(country: CountryState) -> void:
 			done.add_theme_color_override("font_color", LABEL_COLOR)
 			row.add_child(done)
 		_crises_box.add_child(row)
+
+
+## Presse et réseaux (lois), propagande et désinformation.
+func _fill_media(country: CountryState) -> void:
+	_clear_rows(_media_grid)
+	var state := GameState.sim
+	var laws: Dictionary = state.politics_definitions.get("laws", {})
+	var settings := MediaSystem.settings_of(state)
+	for law_key: String in ["press_law", "networks_law"]:
+		var law_id := str(settings.get(law_key, ""))
+		if laws.has(law_id):
+			var option := LawModel.option_of(laws[law_id], str(country.laws.get(law_id, "")))
+			_add_row(_media_grid, str(laws[law_id]["name_key"]), tr(str(option.get("name_key", ""))))
+	var propaganda: Dictionary = settings.get("propaganda", {})
+	var costs: Array = propaganda.get("cost_share", [])
+	_propaganda_option.clear()
+	for level: int in SetPropagandaCommand.MAX_LEVEL + 1:
+		var cost := float(costs[level]) if level < costs.size() else 0.0
+		_propaganda_option.add_item(tr("MEDIA_PROPAGANDA_%d" % level) + (" (%s)" % (tr("MEDIA_COST_VALUE") % NumberFormat.decimal(
+			cost, 2, Localization.get_locale())) if cost > 0.0 else ""))
+	_propaganda_option.select(country.propaganda_level)
+	var previous := _targets[_target_option.selected] if _target_option.selected >= 0 \
+		and _target_option.selected < _targets.size() else "@"
+	_targets.clear()
+	_target_option.clear()
+	_targets.append("")
+	_target_option.add_item(tr("MEDIA_TARGET_OPPOSITION"))
+	var names: Array = []
+	for tag: String in state.countries.keys():
+		if tag != country.tag:
+			names.append([tr(str(DataLoader.get_entry("countries", tag).get("name_key", tag))), tag])
+	names.sort_custom(func(a: Array, b: Array) -> bool: return str(a[0]).naturalnocasecmp_to(str(b[0])) < 0)
+	for entry: Array in names:
+		_targets.append(str(entry[1]))
+		_target_option.add_item(str(entry[0]))
+	var index := _targets.find(previous)
+	_target_option.select(index if index >= 0 else 0)
+	_update_disinformation()
+
+
+func _target_command() -> DisinformationCommand:
+	var target := _targets[_target_option.selected] if _target_option.selected >= 0 \
+		and _target_option.selected < _targets.size() else ""
+	return DisinformationCommand.new(GameState.sim.player_tag, target,
+		MediaSystem.KIND_SMEAR if target.is_empty() else MediaSystem.KIND_DESTABILIZE)
+
+
+func _update_disinformation() -> void:
+	var refusal := _target_command().refusal_reason(GameState.sim)
+	_disinformation_button.disabled = not refusal.is_empty()
+	_disinformation_button.tooltip_text = tr(refusal) if not refusal.is_empty() else ""
+
+
+func _on_disinformation_pressed() -> void:
+	_submit(_target_command())
+
+
+func _submit(command: Command) -> void:
+	if GameState.submit_command(command) and GameClock.is_paused:
+		GameState.process_commands()
 
 
 func _fill_groups(society: SocietyState) -> void:
