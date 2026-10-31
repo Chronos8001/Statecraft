@@ -173,8 +173,12 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Promesses à un groupe social : satisfaction immédiate ; tenues si le budget suit, rompues sinon (sanction durable)
 - [x] Fraude à trois niveaux : points en plus pour le parti au pouvoir, découverte selon la démocratie et la presse, scandale (stabilité, légitimité)
 
-**5d. Lois**
-- [ ] Catalogue de 80+ lois, vote au parlement
+**5d. Lois** (en test)
+- [x] Catalogue de 86 lois en 10 catégories (justice, société, libertés, sécurité, immigration, travail, économie, santé et éducation, environnement, institutions), 255 options
+- [x] Situation de départ de chaque pays par règles (listes de pays réelles, régime, démocratie, revenu)
+- [x] Effets mesurés par rapport au départ : groupes sociaux, stabilité, croissance, légitimité, corruption, budget
+- [x] Vote de la chambre basse selon les positions des familles politiques et la discipline gouvernementale ; décret hors démocratie ; délai avant de revenir sur une loi
+- [x] Panneau Lois : aperçu du vote et des effets avant de proposer
 
 **5e. Constitution**
 - [ ] Réformes, référendums, limites de mandats, état d'urgence

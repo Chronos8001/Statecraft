@@ -458,3 +458,27 @@ CAMPAIGN_FRAUD_USELESS,The regime already controls the vote.,Le pouvoir contrôl
 NOTIFY_FRAUD_DETECTED,Electoral fraud uncovered in %s!,Fraude électorale découverte : %s !
 NOTIFY_PROMISE_KEPT,Promise kept to: %s.,Promesse tenue : %s.
 NOTIFY_PROMISE_BROKEN,Promise broken: %s are furious.,Promesse rompue : %s furieux.
+TOPBAR_LAWS,Laws,Lois
+TOPBAR_LAWS_TOOLTIP,"Laws in force and bills before the chamber","Lois en vigueur et projets de loi"
+LAWS_TITLE,Laws,Lois
+LAWS_LAW,Law,Loi
+LAWS_CURRENT,In force,En vigueur
+LAWS_CHANGE,Reform,Réformer
+LAWS_PROPOSE,Propose,Proposer
+LAWS_COOLDOWN_VALUE,Cannot be changed for %d more months,Ne peut être modifiée avant %d mois
+LAWS_DECREE,The regime decides alone (decree).,Le pouvoir décide seul (décret).
+LAWS_VOTE_VALUE,Expected vote: %d for / %d against (%d needed),Vote attendu : %d pour / %d contre (%d nécessaires)
+LAWS_PASSES,The bill would pass.,Le texte serait adopté.
+LAWS_FAILS,The bill would be rejected.,Le texte serait rejeté.
+LAWS_EFFECTS_VALUE,Effects: %s,Effets : %s
+LAWS_NO_EFFECT,none,aucun
+LAWS_EFFECT_STABILITY,Stability,Stabilité
+LAWS_EFFECT_GROWTH,Growth,Croissance
+LAWS_EFFECT_LEGITIMACY,Legitimacy,Légitimité
+LAWS_EFFECT_CORRUPTION,Corruption,Corruption
+LAWS_EFFECT_BUDGET,Cost (% of GDP),Coût (% du PIB)
+LAWS_INVALID,Invalid choice.,Choix non valable.
+LAWS_ALREADY,Already in force.,Déjà en vigueur.
+LAWS_COOLDOWN,This law was voted on recently.,Cette loi a été votée récemment.
+NOTIFY_LAW_PASSED,Law passed: %s.,Loi adoptée : %s.
+NOTIFY_LAW_REJECTED,Bill rejected by the chamber: %s.,Projet rejeté par la chambre : %s.

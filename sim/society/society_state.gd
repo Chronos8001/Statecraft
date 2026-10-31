@@ -20,6 +20,7 @@ var start_stability: float = 0.0
 var legitimacy: float = 0.0
 var start_legitimacy: float = 0.0
 var corruption: float = 0.0
+var start_corruption: float = 0.0
 ## Indice de démocratie (0 à 10) au départ.
 var democracy_index: float = 0.0
 ## Situation économique de départ, à laquelle les groupes comparent la situation du moment.

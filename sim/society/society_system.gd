@@ -58,19 +58,22 @@ static func update_country(country: CountryState, state: SimState) -> void:
 	var budget_effects: Dictionary = country.economy.budget.effects
 	var budget_groups: Dictionary = budget_effects.get(BudgetModel.GROUPS, {})
 	var current := changes(country, settings)
+	var law_groups: Dictionary = country.law_effects.get(LawModel.GROUPS, {})
 	for group_id: Variant in society.satisfaction.keys():
 		var reactions: Dictionary = (groups.get(group_id, {}) as Dictionary).get("reactions", {})
 		var target := SocietyModel.satisfaction_target(float(society.start_satisfaction[group_id]),
-			float(budget_groups.get(group_id, 0.0)) + float(society.bonuses.get(group_id, 0.0)), SocietyModel.reaction(reactions, current, max_loss, max_gain,
+			float(budget_groups.get(group_id, 0.0)) + float(society.bonuses.get(group_id, 0.0))
+			+ float(law_groups.get(group_id, 0.0)), SocietyModel.reaction(reactions, current, max_loss, max_gain,
 			gain_factor), bounds)
 		society.satisfaction[group_id] = SocietyModel.approach(float(society.satisfaction[group_id]), target, rate)
 	society.support = SocietyModel.weighted(society.satisfaction, society.group_shares)
 	var stability_settings: Dictionary = settings.get("stability", {})
-	var stability_target := SocietyModel.stability_target(society, float(budget_effects.get("stability", 0.0)),
+	var stability_target := SocietyModel.stability_target(society, float(budget_effects.get("stability", 0.0))
+		+ float(country.law_effects.get("stability", 0.0)),
 		stability_settings)
 	society.stability = SocietyModel.approach(society.stability, stability_target,
 		float(stability_settings.get("adjustment", 1.0)))
 	var legitimacy_settings: Dictionary = settings.get("legitimacy", {})
 	society.legitimacy = SocietyModel.approach(society.legitimacy, SocietyModel.legitimacy_target(society,
-		legitimacy_settings), float(legitimacy_settings.get("adjustment", 1.0)))
+		legitimacy_settings, float(country.law_effects.get("legitimacy", 0.0))), float(legitimacy_settings.get("adjustment", 1.0)))
 	country.economy.society_growth = SocietyModel.growth_penalty(society, stability_settings)

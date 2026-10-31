@@ -3352,5 +3352,142 @@
         }
       }
     }
+  },
+  "laws": {
+    "type": "object",
+    "keys_pattern": "^[a-z0-9_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "category",
+        "options",
+        "start"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^LAW_[A-Z0-9_]+$"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "justice",
+            "society",
+            "freedoms",
+            "security",
+            "immigration",
+            "labour",
+            "economy",
+            "health_education",
+            "environment",
+            "governance"
+          ]
+        },
+        "options": {
+          "type": "array",
+          "min_items": 2,
+          "items": {
+            "type": "object",
+            "strict": true,
+            "required": [
+              "id",
+              "name_key",
+              "effects",
+              "positions"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name_key": {
+                "type": "string"
+              },
+              "effects": {
+                "type": "object",
+                "strict": true,
+                "properties": {
+                  "groups": {
+                    "type": "object",
+                    "keys_ref": "social_groups",
+                    "values": {
+                      "type": "number"
+                    }
+                  },
+                  "stability": {
+                    "type": "number"
+                  },
+                  "growth": {
+                    "type": "number"
+                  },
+                  "legitimacy": {
+                    "type": "number"
+                  },
+                  "corruption": {
+                    "type": "number"
+                  },
+                  "budget": {
+                    "type": "number"
+                  }
+                }
+              },
+              "positions": {
+                "type": "object",
+                "keys_pattern": "^[a-z_]+$",
+                "values": {
+                  "type": "number",
+                  "min": -2,
+                  "max": 2
+                }
+              }
+            }
+          }
+        },
+        "start": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "default",
+            "rules"
+          ],
+          "properties": {
+            "default": {
+              "type": "string"
+            },
+            "rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "strict": true,
+                "required": [
+                  "option"
+                ],
+                "properties": {
+                  "option": {
+                    "type": "string"
+                  },
+                  "countries": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "democratic": {
+                    "type": "bool"
+                  },
+                  "democracy_max": {
+                    "type": "number"
+                  },
+                  "gdp_pc_max": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

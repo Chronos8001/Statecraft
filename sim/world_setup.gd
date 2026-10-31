@@ -71,6 +71,22 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 	if not politics_definitions.is_empty():
 		for tag: String in tags:
 			_setup_politics(state.countries[tag], countries[tag], state)
+			_setup_laws(state.countries[tag], countries[tag], state)
+
+
+## Lois de départ, selon les règles de chaque loi (pays cités, régime, démocratie, revenu).
+static func _setup_laws(country: CountryState, data: Dictionary, state: SimState) -> void:
+	var definitions: Dictionary = state.politics_definitions.get("laws", {})
+	if definitions.is_empty():
+		return
+	var regime: Dictionary = (state.society_definitions.get("regimes", {}) as Dictionary).get(str(data.get("regime", "")), {})
+	var context := {"tag": country.tag, "democratic": bool(regime.get("democratic", false)),
+		"democracy": country.society.democracy_index,
+		"gdp_per_capita": country.economy.gdp_per_capita_usd(state.get_currency(country.economy.currency))
+			if state.get_currency(country.economy.currency) != null else 0.0}
+	for law_id: String in definitions.keys():
+		country.laws[law_id] = LawModel.start_option(definitions[law_id], context)
+	country.start_laws = country.laws.duplicate()
 
 
 ## Chambre basse de départ ; les sondages de départ sont ramenés à 100 % avec les petits partis, puis
@@ -171,6 +187,7 @@ static func _setup_society(country: CountryState, data: Dictionary, state: SimSt
 	society.stability = float(source.get("stability", 0.0))
 	society.start_stability = society.stability
 	society.corruption = float(source.get("corruption", 0.0))
+	society.start_corruption = society.corruption
 	society.democracy_index = float(source.get("democracy", 0.0))
 	var legitimacy_settings: Dictionary = settings.get("legitimacy", {})
 	society.legitimacy = SocietyModel.start_legitimacy(bool(regime.get("democratic", false)), society.democracy_index,

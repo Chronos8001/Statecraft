@@ -435,6 +435,11 @@
         15.0,
         30.0
       ]
+    },
+    "laws": {
+      "government_discipline": 1.0,
+      "cooldown_months": 12,
+      "rejected_cooldown_months": 6
     }
   }
 }

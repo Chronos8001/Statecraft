@@ -87,8 +87,9 @@ static func start_legitimacy(democratic: bool, democracy_index: float, regime_le
 	return clampf(regime_legitimacy, 0.0, PERCENT)
 
 
-static func legitimacy_target(society: SocietyState, settings: Dictionary) -> float:
-	return clampf(society.start_legitimacy
+## extra : points de légitimité venus d'ailleurs (lois).
+static func legitimacy_target(society: SocietyState, settings: Dictionary, extra: float = 0.0) -> float:
+	return clampf(society.start_legitimacy + extra
 		+ float(settings.get("per_support_point", 0.0)) * (society.support - society.start_support)
 		+ float(settings.get("per_stability_point", 0.0)) * (society.stability - society.start_stability), 0.0, PERCENT)
 

@@ -104,3 +104,7 @@
 | 2026-10-31 | Campagne réservée au parti au pouvoir du joueur ; l'IA ne fait pas campagne avant l'étape 12 | Les autres partis suivent leurs électeurs dans les sondages | Campagnes de tous les partis |
 | 2026-10-31 | Promesse tenue si, après le scrutin, les effets du budget sur le groupe atteignent 2 points avant 24 mois | Lien direct avec le budget existant, sans catalogue de promesses | Promesses détaillées par mesure |
 | 2026-10-31 | Fraude : 2,5, 6 ou 12 points pris aux autres partis ; découverte 20 à 90 % × (0,3 + 0,7 × démocratie / 10) × presse | Tentante mais risquée en démocratie, inutile dans les régimes de façade | Fraude par province |
+| 2026-10-31 | Lois décrites en données (options, effets, positions des familles politiques, règles de départ) ; effets mesurés par rapport à l'option de départ | Neutre au départ, catalogue extensible par les mods | Lois codées |
+| 2026-10-31 | Vote : un parti vote pour s'il préfère la nouvelle option ; les partis du gouvernement suivent sauf si l'écart de position dépasse 1 ; petits partis abstentionnistes ; majorité absolue des sièges | Simple et prévisible, aperçu possible avant le vote | Vote par député |
+| 2026-10-31 | Délai de 12 mois après une réforme adoptée, 6 mois après un rejet | Évite les allers-retours | Pas de délai |
+| 2026-10-31 | Test de chargement de tous les scripts | Les erreurs de typage de l'interface échappaient aux tests | Vérification manuelle |
