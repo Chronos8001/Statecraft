@@ -20,8 +20,11 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 - Aide internationale : aide économique et humanitaire, prêts remboursés avec intérêts, ventes et dons d'armes, conseillers militaires ; programmes d'aide réels de 2026 (financement de l'Ukraine, aide américaine au Proche-Orient…).
 
+- Sphères d'influence : points d'influence, influence de chaque pays chez les autres, soutien à un parti, financement de l'opposition, influence culturelle, bases militaires ; mode de carte « Notre influence ».
+
 ### Modifié
 - Fiche pays plus large.
+- Barre supérieure : indicateur d'influence affiché, libellés « Solde » et « Soutien » raccourcis ; l'effet du budget sur l'influence joue désormais.
 - Nouvelle partie plus rapide (création des ministres et des sanctions).
 - La vitesse du jeu ne s'affiche plus qu'en pastilles dans la barre supérieure (détail en info-bulle).
 

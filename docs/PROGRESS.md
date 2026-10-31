@@ -236,8 +236,11 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Programmes réels de 2026 (UE et Japon pour l'Ukraine, armes allemandes et britanniques, États-Unis pour Israël, l'Égypte et la Jordanie…) ; armes reçues comptées pour l'étape 7
 - [x] Section Aide du panneau Diplomatie
 
-**6f. Sphères d'influence**
-- [ ] Points d'influence : soutenir un parti, financer l'opposition, ouvrir des bases
+**6f. Sphères d'influence** (en test)
+- [x] Points d'influence : revenu selon le poids économique et le budget de la diplomatie ; affichés dans la barre supérieure
+- [x] Influence d'un pays dans un autre (commerce, bases, alliances, aide) qui pèse sur les traités, l'aide, les adhésions et les votes à l'ONU
+- [x] Actions : soutenir un parti, financer l'opposition, influence culturelle, ouvrir ou fermer une base ; risque d'être démasqué
+- [x] Mode de carte « Notre influence » ; section Influence du panneau Diplomatie
 
 **6g. Revendications et tension mondiale**
 - [ ] Revendications territoriales, jauge de tension mondiale qui débloque des actions plus agressives

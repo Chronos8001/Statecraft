@@ -134,3 +134,5 @@
 | 2026-10-31 | Sanctions distinctes des embargos commerciaux du panneau Commerce (pas de double comptage) | Les deux outils restent lisibles | Sanctions qui coupent les flux |
 | 2026-10-31 | Aide : effets sur le pays aidé proportionnels à son poids dans le PIB (croissance 0,3 point par % du PIB pour l'aide économique) ; programmes de 2026 qui versent leur argent sans effet supplémentaire | La dette de l'Ukraine devient crédible, départ neutre | Aide sans flux d'argent |
 | 2026-10-31 | Armes vendues ou données comptées par pays (milliards de dollars) en attendant l'armée de l'étape 7 | Rien n'est perdu pour l'étape 7 | Ignorer les armes |
+| 2026-10-31 | Influence de départ = 50 × dépendance commerciale + 15 par base (accès militaire) + 10 par alliance ou programme d'aide ; poids dans les décisions de l'IA (0,2 à 0,5 point par point d'influence) | Les puissances ont déjà leurs sphères en 2026, l'influence sert concrètement | Influence sans effet |
+| 2026-10-31 | Revenu d'influence = 1 + 20 × racine de la part du PIB mondial + effet du budget, réserve plafonnée à 24 mois | Les grandes puissances dominent sans écraser les autres | Revenu proportionnel au PIB |

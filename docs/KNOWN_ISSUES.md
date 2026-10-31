@@ -15,7 +15,7 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Les noms de pays voisins peuvent se chevaucher (pas encore d'évitement des collisions). | 13 | Ouvert |
 | 🟢 | En zoom maximal, les contours suivent la précision de l'image (~2 km par pixel) : lissés mais encore un peu anguleux. | 1 | Ouvert |
 | 🟢 | Secteurs d'océan de tailles inégales ; rives du détroit de Taïwan trop larges (provinces de l'intérieur incluses). | 1 | Ouvert |
-| 🟢 | Puissance militaire et influence masquées dans la barre supérieure jusqu'aux étapes militaire et diplomatie. | 6–7 | Ouvert |
+| 🟢 | Puissance militaire masquée dans la barre supérieure jusqu'à l'étape militaire. | 7 | Ouvert |
 | 🟢 | Population de l'Ukraine (28,7 millions, territoire contrôlé) répartie aussi sur les provinces occupées ; PIB et dette estimés pour quelques pays sans source (Corée du Nord, Somaliland, Chypre du Nord, Syrie…). | 3 | Ouvert |
 | 🟢 | Pas encore de portraits des personnages (portraits génériques prévus avec l'interface). | 13 | Ouvert |
 | 🟢 | Une seule culture de noms par pays : les pays multilingues (Belgique, Suisse, Bosnie-Herzégovine…) ont des noms d'une seule langue. Les noms de partis génériques (style international) se répètent d'un pays à l'autre. | 3 | Ouvert |
@@ -59,3 +59,4 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Seul le traité de libre-échange a un effet économique ; défense mutuelle, accès et coopération militaires, renseignement et frontière ouverte ne jouent que sur les relations jusqu'aux étapes 7, 10 et 11. Les pays de l'IA ne proposent pas encore de traités (étape 12). | 6b | Ouvert |
 | 🟢 | Conseil de sécurité renouvelé sans respecter les groupes régionaux de l'ONU ; les pays de l'IA ne proposent pas encore de résolutions ni d'adhésions (étape 12) ; l'appartenance à l'OPEP n'agit pas encore sur la production de pétrole. | 6c | Ouvert |
 | 🟢 | Les sanctions agissent sur la croissance et l'inflation sans modifier les flux commerciaux ni bloquer les fonds souverains ; les pays de l'IA ne prennent pas de sanctions (étape 12). | 6d | Ouvert |
+| 🟢 | Les pays de l'IA accumulent des points d'influence sans les dépenser (étape 12) ; les bases n'ont pas encore d'effet militaire (étape 7). | 6f | Ouvert |
