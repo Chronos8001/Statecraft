@@ -7,6 +7,7 @@ signal budget_requested
 signal markets_requested
 signal trade_requested
 signal energy_requested
+signal investment_requested
 
 const TREASURY_INDEX := 0
 const STAT_KEYS := ["TOPBAR_TREASURY", "TOPBAR_STABILITY", "TOPBAR_SUPPORT", "TOPBAR_MILITARY", "TOPBAR_INFLUENCE"]
@@ -30,6 +31,7 @@ var _stat_values: Array[Label] = []
 @onready var _markets_button: Button = %MarketsButton
 @onready var _trade_button: Button = %TradeButton
 @onready var _energy_button: Button = %EnergyButton
+@onready var _investment_button: Button = %InvestmentButton
 
 
 func _ready() -> void:
@@ -41,6 +43,7 @@ func _ready() -> void:
 	_markets_button.pressed.connect(func() -> void: markets_requested.emit())
 	_trade_button.pressed.connect(func() -> void: trade_requested.emit())
 	_energy_button.pressed.connect(func() -> void: energy_requested.emit())
+	_investment_button.pressed.connect(func() -> void: investment_requested.emit())
 	EventBus.month_passed.connect(func(_date: GameDate) -> void: _update_country())
 	EventBus.command_executed.connect(func(_command: Command) -> void: _update_country())
 	EventBus.hour_passed.connect(func(_date: GameDate) -> void: _update_date())
@@ -65,7 +68,7 @@ func _build_stats() -> void:
 		_stats_row.add_child(name_label)
 		var value_label := Label.new()
 		value_label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-		value_label.custom_minimum_size.x = 40.0
+		value_label.custom_minimum_size.x = 24.0
 		_stats_row.add_child(value_label)
 		_stat_values.append(value_label)
 
