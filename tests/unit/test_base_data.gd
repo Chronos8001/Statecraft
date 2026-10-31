@@ -13,7 +13,8 @@ const MIN_COUNTRY_COUNT := 190
 const MIN_PROVINCE_COUNT := 4000
 const LOCALIZATION_DIR := "res://data/localization"
 const TRANSLATED_CATEGORIES := ["countries", "provinces", "sea_zones", "straits", "ideologies", "regimes",
-	"terrains", "resources", "traits", "challenges"]
+	"terrains", "resources", "traits", "challenges", "economy_sectors", "budget_taxes", "budget_spending",
+	"social_groups", "trade_agreements", "energy_sources", "buildings"]
 const MIN_SEA_ZONE_COUNT := 150
 
 const LocalizationScript := preload("res://core/localization/localization.gd")
@@ -307,3 +308,167 @@ func test_unrecognized_entities_need_advanced_mode() -> void:
 		assert_true(advanced.has(tag), tag)
 	for tag: String in ["TWN", "KOS", "PSE"]:
 		assert_true(standard.has(tag), tag)
+
+
+func test_every_country_has_a_valid_currency() -> void:
+	var currencies := _repository.get_category("currencies")
+	for currency_id: String in currencies.keys():
+		var peg := str(currencies[currency_id]["peg"])
+		assert_true(peg.is_empty() or currencies.has(peg), "ancrage de %s" % currency_id)
+	var sectors := _repository.get_category("economy_sectors")
+	for tag: String in _repository.get_category("countries").keys():
+		var economy: Dictionary = _repository.get_category("countries")[tag]["economy"]
+		var total := 0.0
+		for share: Variant in (economy["sectors"] as Dictionary).values():
+			total += float(share)
+		assert_almost_eq(total, 1.0, 0.01, "secteurs de %s" % tag)
+		assert_eq((economy["sectors"] as Dictionary).size(), sectors.size(), "secteurs de %s" % tag)
+
+
+func test_world_economy_stays_stable_for_ten_years() -> void:
+	var settings: Dictionary = _repository.get_value("defines", "economy", {})
+	var state := SimState.new()
+	var date := GameDate.new()
+	date.year = 2026
+	date.month = 1
+	date.day = 1
+	state.setup(2026, date)
+	var budget_definitions := {"taxes": _repository.get_category("budget_taxes"),
+		"spending": _repository.get_category("budget_spending"),
+		"settings": _repository.get_value("defines", "budget", {})}
+	var resource_definitions := {"straits": _repository.get_category("straits"),
+		"sectors": _repository.get_category("economy_sectors"),
+		"settings": _repository.get_value("defines", "resources", {})}
+	var trade_definitions := {"agreements": _repository.get_category("trade_agreements"),
+		"settings": _repository.get_value("defines", "trade", {})}
+	WorldSetup.populate(state, _repository.get_category("countries"), _repository.get_category("currencies"), settings,
+		budget_definitions, _repository.get_category("resources"), resource_definitions, trade_definitions,
+		_energy_definitions(), _repository.get_value("defines", "investment", {}))
+	var investment_system := InvestmentSystem.new()
+	var energy_system := EnergySystem.new()
+	var resource_system := ResourceSystem.new()
+	var trade_system := TradeSystem.new()
+	var budget_system := BudgetSystem.new()
+	var system := EconomySystem.new(_repository.get_category("economy_sectors"))
+	var crises := 0
+	for month: int in 120:
+		state.date.month = month % 12 + 1
+		energy_system.on_month(state)
+		resource_system.on_month(state)
+		trade_system.on_month(state)
+		investment_system.on_month(state)
+		budget_system.on_month(state)
+		system.on_month(state)
+		for event: Dictionary in state.events:
+			if event["type"] == EconomySystem.EVENT_DEBT_CRISIS:
+				crises += 1
+		state.events.clear()
+	var inflation_bounds: Array = settings["inflation_bounds"]
+	for tag: String in state.countries.keys():
+		var economy: EconomyState = state.countries[tag].economy
+		var currency := state.get_currency(economy.currency)
+		assert_false(is_nan(economy.real_gdp) or is_nan(economy.inflation) or is_nan(economy.debt_ratio(currency)), tag)
+		assert_gt(economy.real_gdp, 0.0, tag)
+		assert_between(economy.inflation, float(inflation_bounds[0]), 100.0, "inflation de %s" % tag)
+		assert_between(economy.debt_ratio(currency), 0.0, 4.0, "dette de %s" % tag)
+		assert_between(currency.policy_rate, 0.0, 100.0, "taux de %s" % currency.id)
+	for tag: String in ["USA", "CHN", "DEU", "FRA", "JPN", "GBR", "IND"]:
+		var economy: EconomyState = state.countries[tag].economy
+		assert_false(economy.in_crisis(), "%s ne doit pas faire défaut" % tag)
+		assert_between(economy.inflation, 0.0, 6.0, "inflation de %s" % tag)
+		assert_between(economy.growth, -1.0, 7.0, "croissance de %s" % tag)
+	assert_lt(crises, 30, "trop de crises de la dette")
+	# Les pays de l'IA ne soldent pas leur dette et ne la laissent pas exploser.
+	for tag: String in ["ARG", "LBN"]:
+		var economy: EconomyState = state.countries[tag].economy
+		assert_gt(economy.debt_ratio(state.get_currency(economy.currency)), 0.05, "dette de %s" % tag)
+	for resource_id: String in state.markets.keys():
+		assert_between((state.markets[resource_id] as MarketState).price_ratio(), 0.6, 1.5, "prix de %s" % resource_id)
+	var blackouts := 0
+	for country: CountryState in state.countries.values():
+		if country.energy.blackout > 0.0:
+			blackouts += 1
+	assert_lt(blackouts, 10, "l'IA garde de la marge électrique")
+	var ukraine: EconomyState = state.countries["UKR"].economy
+	assert_lt(ukraine.debt_ratio(state.get_currency(ukraine.currency)), 2.5, "dette de l'Ukraine")
+
+
+func test_every_budget_matches_its_country() -> void:
+	var taxes := _repository.get_category("budget_taxes")
+	var lines := _repository.get_category("budget_spending")
+	for tag: String in _repository.get_category("countries").keys():
+		var budget: Dictionary = _repository.get_category("countries")[tag]["budget"]
+		assert_eq((budget["taxes"] as Dictionary).size(), taxes.size(), "impôts de %s" % tag)
+		assert_eq((budget["spending"] as Dictionary).size(), lines.size(), "dépenses de %s" % tag)
+
+
+func test_resources_are_consistent() -> void:
+	var resources := _repository.get_category("resources")
+	var countries := _repository.get_category("countries")
+	for resource_id: String in resources.keys():
+		if not (resources[resource_id] as Dictionary).has("market"):
+			continue
+		var produced := 0.0
+		var used := 0.0
+		for tag: String in countries.keys():
+			var entry: Dictionary = (countries[tag]["resources"] as Dictionary).get(resource_id, {})
+			produced += float(entry.get("production", 0.0))
+			used += float(entry.get("consumption", 0.0))
+		assert_gt(produced, 0.0, resource_id)
+		assert_almost_eq(used / produced, 1.0, 0.01, "marché de %s équilibré au départ" % resource_id)
+	var producing_provinces := 0
+	for province: Dictionary in _repository.get_category("provinces").values():
+		if not (province.get("resources", {}) as Dictionary).is_empty():
+			producing_provinces += 1
+	assert_gt(producing_provinces, 500, "provinces productrices")
+	assert_true((countries["SAU"]["resources"] as Dictionary).has("oil"))
+	assert_true((countries["COD"]["resources"] as Dictionary).has("cobalt"))
+
+
+func test_trade_is_consistent() -> void:
+	var countries := _repository.get_category("countries")
+	for tag: String in countries.keys():
+		var partners: Dictionary = countries[tag]["trade"]["partners"]
+		assert_false(partners.has(tag), "%s commerce avec lui-même" % tag)
+		if tag != "VAT":
+			assert_gt(partners.size(), 0, "partenaires de %s" % tag)
+	var mexico: Dictionary = countries["MEX"]["trade"]["partners"]
+	var best := ""
+	for partner: String in mexico.keys():
+		if best.is_empty() or float(mexico[partner]) > float(mexico[best]):
+			best = partner
+	assert_eq(best, "USA", "premier client du Mexique")
+	var agreements := _repository.get_category("trade_agreements")
+	assert_true((agreements["eu_single_market"]["members"] as Array).has("FRA"))
+	assert_true((agreements["usmca"]["members"] as Array).has("MEX"))
+	assert_true((countries["USA"]["trade"]["surcharges"] as Dictionary).has("CHN"), "surtaxes de 2026")
+
+
+func _energy_definitions() -> Dictionary:
+	var mine_outputs: Dictionary = {}
+	var resources := _repository.get_category("resources")
+	for resource_id: String in resources.keys():
+		if (resources[resource_id] as Dictionary).has("mine_output"):
+			mine_outputs[resource_id] = float(resources[resource_id]["mine_output"])
+	return {"sources": _repository.get_category("energy_sources"), "buildings": _repository.get_category("buildings"),
+		"provinces": _repository.get_category("provinces"), "mine_outputs": mine_outputs,
+		"settings": _repository.get_value("defines", "energy", {})}
+
+
+func test_electricity_matches_reality() -> void:
+	var countries := _repository.get_category("countries")
+	var world := 0.0
+	for tag: String in countries.keys():
+		var generation: Dictionary = countries[tag]["energy"]["generation"]
+		assert_gt(generation.size(), 0, "électricité de %s" % tag)
+		for value: Variant in generation.values():
+			world += float(value)
+	assert_between(world, 28000.0, 34000.0, "production mondiale (TWh)")
+	assert_gt(float(countries["FRA"]["energy"]["generation"]["nuclear"]), 300.0)
+
+
+func test_investment_data() -> void:
+	var countries := _repository.get_category("countries")
+	assert_eq(float(countries["SAU"]["investment"]["public_ownership"]["energy"]), 1.0)
+	assert_gt(float(countries["NOR"]["investment"]["sovereign_fund"]), 1000.0)
+	assert_eq(str(countries["RUS"]["investment"]["fdi_policy"]), "restricted")

@@ -12,6 +12,7 @@ var _info: ProvinceInfo
 @onready var _capital_label: Label = %CapitalLabel
 @onready var _stats_grid: GridContainer = %StatsGrid
 @onready var _close_button: Button = %CloseButton
+@onready var _buildings: BuildingsSection = %BuildingsSection
 
 
 func _ready() -> void:
@@ -44,6 +45,7 @@ func _refresh() -> void:
 	_capital_label.visible = _info.is_capital
 
 	_clear_rows(_stats_grid)
+	_buildings.show_province("" if _info.is_sea_zone else str(_info.province_id))
 	if _info.is_sea_zone:
 		_add_row(_stats_grid, "INFO_AREA", tr("INFO_AREA_VALUE") % NumberFormat.integer(roundi(_info.area_km2), locale))
 		_add_row(_stats_grid, "INFO_SEA_NEIGHBORS", str(_info.neighbor_count))

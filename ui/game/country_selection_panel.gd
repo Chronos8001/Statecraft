@@ -51,6 +51,7 @@ func select_country(tag: String, from_list: bool = false) -> bool:
 	var info := CountryInfo.build(tag, DataLoader.get_category("countries"), DataLoader.get_category("provinces"),
 		DataLoader.get_category("names"), DataLoader.get_category("regimes"), DataLoader.get_category("ideologies"),
 		DataLoader.get_category("names/cultures"), GameState.sim.date.year)
+	info.apply_economy(GameState.sim)
 	var challenge_ids: Array[String] = selection.challenges.get(tag, [] as Array[String])
 	_summary.show_country(info, int(selection.difficulties[tag]), challenge_ids)
 	_select_in_list()

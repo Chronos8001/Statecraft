@@ -118,5 +118,215 @@
       "#E8893A",
       "#D9483B"
     ]
+  },
+  "economy": {
+    "ratings": [
+      "SD",
+      "C",
+      "CC",
+      "CCC-",
+      "CCC",
+      "CCC+",
+      "B-",
+      "B",
+      "B+",
+      "BB-",
+      "BB",
+      "BB+",
+      "BBB-",
+      "BBB",
+      "BBB+",
+      "A-",
+      "A",
+      "A+",
+      "AA-",
+      "AA",
+      "AA+",
+      "AAA"
+    ],
+    "rating_spreads": [
+      20.0,
+      18.0,
+      15.0,
+      12.5,
+      10.5,
+      8.5,
+      6.5,
+      5.5,
+      4.5,
+      3.6,
+      3.0,
+      2.4,
+      1.9,
+      1.5,
+      1.2,
+      0.9,
+      0.7,
+      0.5,
+      0.3,
+      0.2,
+      0.1,
+      0.0
+    ],
+    "rating_model": {
+      "base": 4.9,
+      "gdp_per_capita_log": 3.2,
+      "debt": -1.8,
+      "inflation_excess": -0.19,
+      "growth": 0.1,
+      "real_interest_burden": -0.3,
+      "imf_bonus": 1.0
+    },
+    "rating_review_months": 6,
+    "rating_hysteresis": 1.0,
+    "max_rating_offset": 6.0,
+    "max_inflation_excess": 30.0,
+    "min_estimated_rating": "CCC+",
+    "reference_currency": "usd",
+    "neutral_real_rate": 1.0,
+    "neutral_rate_convergence": 0.005,
+    "neutral_real_rate_bounds": [
+      -10.0,
+      10.0
+    ],
+    "rate_sensitivity": 0.35,
+    "max_real_rate_gap": 10.0,
+    "output_gap_decay": 0.05,
+    "inflation_adjustment": 0.08,
+    "phillips_slope": 0.3,
+    "credibility_independent": 0.8,
+    "credibility_dependent": 0.3,
+    "depreciation_passthrough": 0.15,
+    "okun_coefficient": 0.4,
+    "unemployment_adjustment": 0.08,
+    "taylor_inflation_weight": 0.5,
+    "taylor_gap_weight": 0.5,
+    "dependent_inflation_weight": 0.1,
+    "rate_smoothing": 0.15,
+    "max_rate_step": 0.5,
+    "min_policy_rate": 0.0,
+    "max_policy_rate": 100.0,
+    "fx_rate_sensitivity": 0.3,
+    "long_run_growth": {
+      "base": 6.0,
+      "slope": 1.0,
+      "min": 1.0,
+      "max": 6.0
+    },
+    "potential_convergence": 0.01,
+    "debt_maturity_months": 72,
+    "max_start_interest_burden": 6.0,
+    "growth_bounds": [
+      -20.0,
+      20.0
+    ],
+    "inflation_bounds": [
+      -10.0,
+      2000.0
+    ],
+    "unemployment_bounds": [
+      0.5,
+      50.0
+    ],
+    "crisis": {
+      "max_rating": "CCC+",
+      "monthly_probability_per_notch": 0.004,
+      "growth_shock": -6.0,
+      "duration_months": 18,
+      "depreciation": 0.3,
+      "inflation_shock": 10.0,
+      "haircut": 0.3,
+      "recovery_rating": "B-",
+      "interest_burden_trigger": 15.0
+    },
+    "imf": {
+      "max_rating": "BB-",
+      "rate": 4.0,
+      "duration_months": 36,
+      "austerity_per_year": 1.0,
+      "max_austerity": 3.0,
+      "growth_drag": 0.5,
+      "cooldown_months": 60
+    },
+    "fiscal_multiplier": 0.3
+  },
+  "budget": {
+    "income_bracket_weights": [
+      0.25,
+      0.35,
+      0.25,
+      0.15
+    ],
+    "monetary_financing_inflation": 1.5,
+    "max_monetary_financing": 10.0,
+    "max_economic_effect": 3.0,
+    "ai": {
+      "debt_response": 0.1,
+      "max_adjustment_per_year": 1.0,
+      "min_spending_share": 0.5
+    }
+  },
+  "resources": {
+    "price_bounds": [
+      0.1,
+      20.0
+    ],
+    "price_adjustment": 0.5,
+    "solver_iterations": 40,
+    "terms_of_trade_effect": 0.3,
+    "cost_passthrough": 0.3,
+    "supply_chain_penalty": 20.0,
+    "max_economic_effect": 4.0,
+    "water_stress_threshold": 0.4,
+    "long_run_supply_response": 5.0
+  },
+  "trade": {
+    "trade_elasticity": 4.0,
+    "import_passthrough": 0.5,
+    "tariff_growth_cost": 0.1,
+    "embargo_tariff": 100.0,
+    "customs_collection": 0.7,
+    "resale_share": 0.7,
+    "embargo_premium": 0.2,
+    "max_economic_effect": 3.0,
+    "max_trade_gain": 1.5
+  },
+  "energy": {
+    "demand_income_elasticity": 0.7,
+    "demand_trend": -0.5,
+    "blackout_growth_penalty": 25.0,
+    "max_economic_effect": 5.0,
+    "ai_target_margin": 1.15,
+    "ai_horizon_months": 36,
+    "ai_rich_gdp_per_capita": 30000,
+    "hours_per_year": 8760.0,
+    "start_mine_richness": 3,
+    "start_port_count": 1
+  },
+  "investment": {
+    "public_profit_rate": 0.03,
+    "public_inefficiency": 0.5,
+    "valuation_multiple": 1.5,
+    "privatization_discount": 0.8,
+    "expropriation": {
+      "rating_notches": 2,
+      "fdi_factor": 0.4,
+      "penalty_months": 60
+    },
+    "fdi_growth_effect": 0.3,
+    "fdi_attractiveness": {
+      "growth": 0.1,
+      "rating": 0.05,
+      "corporate_tax": -0.02
+    },
+    "fdi_policy_factors": {
+      "open": 1.0,
+      "screening": 0.7,
+      "restricted": 0.3
+    },
+    "fdi_adjustment": 0.1,
+    "fund_return": 5.0,
+    "fund_rating_weight": 0.5,
+    "max_economic_effect": 3.0
   }
 }

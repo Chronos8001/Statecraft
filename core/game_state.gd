@@ -13,7 +13,16 @@ var _pending_commands: Array[Command] = []
 func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	sim = SimState.new()
 	sim.setup(p_seed, get_start_date(), player_tag)
+	WorldSetup.populate(sim, DataLoader.get_category("countries"), DataLoader.get_category("currencies"),
+		DataLoader.get_define("economy", {}), budget_definitions(), DataLoader.get_category("resources"),
+		resource_definitions(), trade_definitions(), energy_definitions(), DataLoader.get_define("investment", {}))
 	scheduler = SimScheduler.new()
+	scheduler.add_system(InvestmentSystem.new())
+	scheduler.add_system(EnergySystem.new())
+	scheduler.add_system(ResourceSystem.new())
+	scheduler.add_system(TradeSystem.new())
+	scheduler.add_system(BudgetSystem.new())
+	scheduler.add_system(EconomySystem.new(DataLoader.get_category("economy_sectors")))
 	_pending_commands.clear()
 	is_game_running = true
 	GameLog.info(SOURCE, "Nouvelle partie : graine %d, date %s." % [p_seed, sim.date.format_iso()])
@@ -26,6 +35,10 @@ func advance_hour() -> void:
 	var flags := scheduler.tick(sim)
 	var date := sim.date
 	EventBus.hour_passed.emit(date)
+	var events := sim.events
+	sim.events = []
+	for event: Dictionary in events:
+		EventBus.sim_event_raised.emit(event)
 	if flags & GameDate.CHANGED_DAY:
 		EventBus.day_passed.emit(date)
 	if flags & GameDate.CHANGED_WEEK:
@@ -35,6 +48,44 @@ func advance_hour() -> void:
 		EventBus.month_passed.emit(date)
 	if flags & GameDate.CHANGED_YEAR:
 		EventBus.year_passed.emit(date)
+
+
+func budget_definitions() -> Dictionary:
+	return {
+		"taxes": DataLoader.get_category("budget_taxes"),
+		"spending": DataLoader.get_category("budget_spending"),
+		"settings": DataLoader.get_define("budget", {}),
+	}
+
+
+func resource_definitions() -> Dictionary:
+	return {
+		"straits": DataLoader.get_category("straits"),
+		"sectors": DataLoader.get_category("economy_sectors"),
+		"settings": DataLoader.get_define("resources", {}),
+	}
+
+
+func trade_definitions() -> Dictionary:
+	return {
+		"agreements": DataLoader.get_category("trade_agreements"),
+		"settings": DataLoader.get_define("trade", {}),
+	}
+
+
+func energy_definitions() -> Dictionary:
+	var mine_outputs: Dictionary = {}
+	var resources := DataLoader.get_category("resources")
+	for resource_id: String in resources.keys():
+		if (resources[resource_id] as Dictionary).has("mine_output"):
+			mine_outputs[resource_id] = float(resources[resource_id]["mine_output"])
+	return {
+		"sources": DataLoader.get_category("energy_sources"),
+		"buildings": DataLoader.get_category("buildings"),
+		"provinces": DataLoader.get_category("provinces"),
+		"mine_outputs": mine_outputs,
+		"settings": DataLoader.get_define("energy", {}),
+	}
 
 
 func get_start_date() -> GameDate:

@@ -6,6 +6,63 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-10-31
+
+### Ajouté
+- Simulation macroéconomique mensuelle des 199 pays : croissance, inflation, chômage, PIB par secteur (8 secteurs), dette publique, note souveraine.
+- Situation économique réelle au 1er janvier 2026 (FMI, Banque mondiale, S&P, Fitch, Moody's, taux de change du jour) ; notes estimées pour les pays non notés.
+- 143 monnaies réelles : taux de change face au dollar, unions monétaires (euro, francs CFA, dollar des Caraïbes orientales), ancrages (dollar, euro, roupie indienne, rand).
+- Banques centrales : taux directeur fixé par la règle de Taylor ; quand la banque centrale dépend du gouvernement, le joueur fixe lui-même le taux.
+- Dette en monnaie locale et en devises, taux d'emprunt selon la note, crises de la dette (défaut, restructuration, chute de la monnaie) et programmes du FMI.
+- Panneau Économie (bouton dans la barre supérieure) : chiffres clés, banque centrale, dette, note, secteurs ; fixer le taux directeur, demander l'aide du FMI.
+- Notifications des changements de note, des défauts de paiement et des programmes du FMI du pays joué.
+- Outil de génération des données macroéconomiques (`tools/country_gen/generate_economy.py`).
+
+- Budget de l'État : 7 impôts (dont l'impôt sur le revenu en 4 tranches) et 14 postes de dépense, aux taux et montants réels de 2026.
+- Effets de chaque impôt et de chaque dépense : croissance, chômage, inflation, et effets attendus sur la stabilité, la recherche, l'armée, l'influence et 10 groupes sociaux.
+- Création monétaire pour les pays dont le gouvernement contrôle la banque centrale.
+- Les pays de l'IA ajustent leurs dépenses selon l'évolution de leur dette.
+- Panneau Budget (bouton dans la barre supérieure) : réglage des impôts et des dépenses, aperçu des recettes, du solde et des effets avant d'appliquer.
+- Outil de génération des budgets (`tools/country_gen/generate_budget.py`).
+
+- Ressources stratégiques : production et consommation réelles de 2026 pour 10 ressources échangées (pétrole, gaz, charbon, uranium, terres rares, lithium, cobalt, semi-conducteurs, blé, acier) et l'eau.
+- Marché mondial : prix mensuel fixé par l'offre et la demande, qui suivent la croissance et les tendances (essor du lithium, déclin du charbon).
+- Détroits : chacun porte une part des exportations ; sa fermeture fait flamber les prix (Ormuz : pétrole presque triplé).
+- Effets des prix : gains ou pertes des exportateurs, inflation chez les importateurs, recettes des taxes sur les ressources, pénuries qui freinent les secteurs selon leurs chaînes d'approvisionnement.
+- Panneau Marchés (bouton dans la barre supérieure) : prix, variation, grands producteurs, autosuffisance du pays joué, stress hydrique ; fermeture des détroits en version de développement.
+- Outil de génération des ressources (`tools/country_gen/generate_resources.py`).
+
+- Commerce extérieur : échanges entre les 199 pays (modèle gravitaire calé sur leur ouverture réelle), 49 accords commerciaux en vigueur au 1er janvier 2026, surtaxes douanières réelles (États-Unis, Chine, Canada).
+- Mesures commerciales : surtaxe contre un pays, embargo (tout le commerce ou une ressource), sortie d'un accord. Effets sur les prix, la croissance des deux pays et les recettes douanières.
+- Embargos sur les ressources : l'exportateur visé perd des débouchés, le pays qui l'impose paie plus cher et connaît des pénuries le temps de changer de fournisseurs.
+- Panneau Commerce (bouton dans la barre supérieure) : principaux partenaires et droits dans les deux sens, dépendances par ressource, mesures en vigueur, accords.
+- Mode de carte « Commerce » : poids de chaque pays dans les échanges du pays joué, embargos en rouge.
+- Outil de génération du commerce (`tools/country_gen/generate_trade.py`).
+
+- Électricité : production réelle par source (charbon, gaz, pétrole, nucléaire, hydraulique, éolien, solaire, biomasse, géothermie) pour les 199 pays ; la demande suit la croissance ; coupures quand la demande dépasse la production, qui freinent la croissance.
+- Les centrales brûlent du charbon, du gaz, du pétrole et de l'uranium achetés sur le marché mondial : une pénurie de combustible réduit leur production.
+- Bâtiments dans les provinces : centrales (9 types), usines, mines, raffineries, ports, data centers. Parc de départ placé d'après la production réelle.
+- Chantiers : lancés depuis la fiche d'une province, payés chaque mois par le budget (ligne « investissements publics »), avec conditions (côte, relief, ressource exploitable) et abandon possible.
+- Les pays de l'IA construisent de nouvelles centrales pour garder une marge de production.
+- Panneau Énergie (bouton dans la barre supérieure) : mix, demande, marge, coupures, chantiers.
+- Outil de génération de l'électricité (`tools/country_gen/generate_energy.py`).
+
+- Entreprises publiques : part publique de chaque secteur pour les 199 pays. Nationalisation avec indemnisation (rachat financé par la dette) ou sans (expropriation : note dégradée, investisseurs en fuite), privatisation (vente qui rembourse la dette). Les entreprises publiques rapportent leurs bénéfices au budget mais sont moins efficaces.
+- Investissements directs étrangers : entrées réelles de départ, qui suivent l'attractivité du pays (croissance, note, impôt sur les sociétés) et sa politique d'ouverture (ouverte, contrôlée, restreinte), et soutiennent la croissance.
+- Fonds souverains réels (Chine, Émirats, Norvège, Singapour, Koweït, Arabie saoudite…) : rendement annuel, versements et retraits ; ils comptent en partie dans la dette nette pour la note souveraine.
+- Panneau Investissements (bouton dans la barre supérieure).
+- Outil de génération des données d'investissement (`tools/country_gen/generate_investment.py`).
+
+### Modifié
+- Barre supérieure plus compacte.
+- À long terme, l'offre de ressources suit leur prix (investissement minier quand les prix restent hauts).
+- Le marché des ressources calcule ses prix bien plus vite (pays sans blocage regroupés).
+- Le droit de douane habituel des États-Unis est le droit hors surtaxes (3,3 %) ; les surtaxes de 2025 sont comptées à part.
+- Le mode de carte « ressources » montre la ressource principale des 1 326 provinces productrices.
+- Le solde budgétaire dépend désormais du budget ; la relance budgétaire soutient la croissance à court terme.
+- Barre supérieure : la trésorerie affiche le solde budgétaire annuel du pays joué.
+- La fiche du pays et le résumé de l'écran de sélection affichent la croissance, l'inflation, la monnaie et la note du pays en cours de partie.
+
 ## [0.3.0] - 2026-10-30
 
 ### Ajouté
@@ -82,7 +139,8 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Suivi du projet : `docs/PROGRESS.md`, `docs/DECISIONS.md`, `docs/KNOWN_ISSUES.md`.
 - Configuration Git : `.gitignore` et `.gitattributes` (fins de ligne LF, fichiers binaires).
 
-[Unreleased]: https://github.com/Chronos8001/Statecraft/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/Chronos8001/Statecraft/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.4.0
 [0.3.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.3.0
 [0.2.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.2.0
 [0.1.0]: https://github.com/Chronos8001/Statecraft/releases/tag/v0.1.0

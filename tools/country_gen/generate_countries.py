@@ -17,110 +17,27 @@ from __future__ import annotations
 import json
 import statistics
 import sys
-import unicodedata
-import urllib.request
 from pathlib import Path
 
 TOOL_DIR = Path(__file__).resolve().parent
 ROOT = TOOL_DIR.parents[1]
-CACHE_DIR = TOOL_DIR / "cache"
 DATA_DIR = ROOT / "data"
-ADMIN0_PATH = ROOT / "tools" / "map_gen" / "cache" / "ne_10m_admin_0_countries.geojson"
-WIKIPEDIA_REST = "https://en.wikipedia.org/api/rest_v1/page/html/{page}"
-USER_AGENT = "StatecraftCountryGen/1.0 (https://github.com/Chronos8001/Statecraft)"
 MILLION = 1_000_000.0
 THOUSAND = 1000.0
 PERCENT = 100.0
 
 sys.path.insert(0, str(TOOL_DIR))
-from wiki_tables import parse_number, read_tables  # noqa: E402
-
-
-def normalize(name: str) -> str:
-    """Nom comparable : sans accents, notes, parenthèses, astérisques ni ponctuation."""
-    name = name.split("[")[0].split("(")[0].replace("*", "")
-    name = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
-    name = "".join(c if c.isalnum() else " " for c in name.lower())
-    words = [w for w in name.split() if w != "the"]
-    return " ".join(words)
-
-
-def fetch_page(page: str) -> str:
-    path = CACHE_DIR / (page.replace("(", "").replace(")", "") + ".html")
-    if not path.exists():
-        CACHE_DIR.mkdir(parents=True, exist_ok=True)
-        request = urllib.request.Request(WIKIPEDIA_REST.format(page=page), headers={"User-Agent": USER_AGENT})
-        with urllib.request.urlopen(request, timeout=60) as response:
-            path.write_bytes(response.read())
-    return path.read_text(encoding="utf-8")
-
-
-def find_table(tables: list[list[list[str]]], header_words: list[str]) -> list[list[str]]:
-    """Plus grand tableau dont l'en-tête contient tous les mots demandés."""
-    candidates = [t for t in tables if t and all(any(w.lower() in h.lower() for h in t[0]) for w in header_words)]
-    if not candidates:
-        raise SystemExit(f"Tableau introuvable : {header_words}")
-    return max(candidates, key=len)
-
-
-def column(table: list[list[str]], words: list[str]) -> int:
-    for index, header in enumerate(table[0]):
-        if all(w.lower() in header.lower() for w in words):
-            return index
-    raise SystemExit(f"Colonne introuvable : {words} dans {table[0]}")
+from country_lookup import CountryLookup, column, fetch_page, find_table  # noqa: E402
+from wiki_tables import read_tables  # noqa: E402
 
 
 def main() -> None:
     config = json.loads((TOOL_DIR / "config.json").read_text(encoding="utf-8"))
     countries_path = DATA_DIR / "countries" / "countries.json"
     countries: dict = json.loads(countries_path.read_text(encoding="utf-8"))
-    admin0 = {f["properties"]["ADM0_A3"]: f["properties"]
-              for f in json.loads(ADMIN0_PATH.read_text(encoding="utf-8"))["features"]}
-    renames = {"SSD": "SDS", "PSE": "PSX"}
-
-    # Noms reconnus pour chaque pays : Natural Earth + alias.
-    # Les alias explicites passent avant les noms Natural Earth.
-    lookup: dict[str, str] = {}
-    for tag, aliases in config["aliases"].items():
-        for name in aliases:
-            lookup[normalize(name)] = tag
-    for tag in countries:
-        row = admin0.get(renames.get(tag, tag), {})
-        for key in ("NAME", "NAME_LONG", "ADMIN", "FORMAL_EN", "NAME_EN", "BRK_NAME", "NAME_SORT", "GEOUNIT",
-                    "SOVEREIGNT"):
-            if row.get(key):
-                lookup.setdefault(normalize(row[key]), tag)
-
-    unmatched: dict[str, list[str]] = {}
-    dependencies = {normalize(name): owner for name, owner in config["dependency_owners"].items()}
-    ignored = {"world"}
-
-    def values_by_tag(table: list[list[str]], name_col: int, value_col: int, label: str,
-                      add_dependencies: bool = False) -> dict[str, float]:
-        """Valeur par pays ; les territoires rattachés (Hong Kong, Groenland…) s'ajoutent à leur pays si demandé."""
-        result: dict[str, float] = {}
-        extra: dict[str, float] = {}
-        for row in table[1:]:
-            if len(row) <= max(name_col, value_col):
-                continue
-            name = normalize(row[name_col])
-            tag = lookup.get(name)
-            value = parse_number(row[value_col])
-            if value is None:
-                continue
-            if tag is None:
-                if name in dependencies:
-                    extra[dependencies[name]] = extra.get(dependencies[name], 0.0) + value
-                elif name not in ignored:
-                    unmatched.setdefault(label, []).append(row[name_col])
-                continue
-            if tag not in result:
-                result[tag] = value
-        if add_dependencies:
-            for tag, value in extra.items():
-                if tag in result:
-                    result[tag] += value
-        return result
+    lookup = CountryLookup(countries, config["aliases"], config["dependency_owners"])
+    values_by_tag = lookup.values_by_tag
+    unmatched = lookup.unmatched
 
     pages = config["wikipedia_pages"]
     gdp_table = find_table(read_tables(fetch_page(pages["gdp"])), ["Country", "IMF"])
@@ -145,7 +62,7 @@ def main() -> None:
 
     estimated: dict[str, list[str]] = {}
     for tag, country in countries.items():
-        row = admin0.get(renames.get(tag, tag), {})
+        row = lookup.natural_earth(tag)
         if tag in population:
             country["population"] = int(population[tag])
         else:

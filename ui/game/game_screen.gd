@@ -8,6 +8,7 @@ const DEGREES_PER_TURN := 360.0
 const DEGREES_HALF_TURN := 180.0
 const BYTES_PER_MEGABYTE := 1048576.0
 const DEFAULT_MAP_MODE := "political"
+const LIVE_MAP_MODES := ["trade"]
 
 var _thread: Thread
 var _load_started_ms: int = 0
@@ -27,6 +28,12 @@ var _notification_timer: SceneTreeTimer
 @onready var _mode_bar: MapModeBar = %MapModeBar
 @onready var _legend: MapLegend = %MapLegend
 @onready var _selection_panel: CountrySelectionPanel = %CountrySelectionPanel
+@onready var _economy_panel: EconomyPanel = %EconomyPanel
+@onready var _budget_panel: BudgetPanel = %BudgetPanel
+@onready var _markets_panel: MarketsPanel = %MarketsPanel
+@onready var _trade_panel: TradePanel = %TradePanel
+@onready var _energy_panel: EnergyPanel = %EnergyPanel
+@onready var _investment_panel: InvestmentPanel = %InvestmentPanel
 
 
 func _ready() -> void:
@@ -47,7 +54,15 @@ func _ready() -> void:
 	_selection_panel.visible = false
 	_selection_panel.country_selected.connect(_on_country_selected)
 	_selection_panel.play_requested.connect(_on_play_requested)
+	_top_bar.economy_requested.connect(_economy_panel.toggle)
+	_top_bar.budget_requested.connect(_budget_panel.toggle)
+	_top_bar.markets_requested.connect(_markets_panel.toggle)
+	_top_bar.trade_requested.connect(_trade_panel.toggle)
+	_top_bar.energy_requested.connect(_energy_panel.toggle)
+	_top_bar.investment_requested.connect(_investment_panel.toggle)
+	EventBus.sim_event_raised.connect(_on_sim_event)
 	EventBus.month_passed.connect(_on_month_passed)
+	EventBus.command_executed.connect(func(_command: Command) -> void: _refresh_live_map_mode())
 	EventBus.year_passed.connect(_on_year_passed)
 	_thread = Thread.new()
 	_thread.start(func() -> ProvinceMapData: return ProvinceMapData.from_png_file(image_path))
@@ -70,9 +85,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		_cycle_map_mode(-1 if event.is_action_pressed("ui_focus_prev") else 1)
 	elif event.is_action_pressed("ui_cancel"):
 		get_viewport().set_input_as_handled()
-		if _info_panel.visible or _country_panel.visible:
-			_info_panel.close()
-			_country_panel.close()
+		var panels: Array[InfoPanel] = [_info_panel, _country_panel, _economy_panel, _budget_panel, _markets_panel,
+			_trade_panel, _energy_panel, _investment_panel]
+		if panels.any(func(panel: InfoPanel) -> bool: return panel.visible):
+			for panel: InfoPanel in panels:
+				panel.close()
 		else:
 			get_tree().change_scene_to_file(TITLE_SCENE)
 
@@ -154,9 +171,58 @@ func _focus_capital(tag: String, zoom: float) -> void:
 		_map_view.focus_on(Vector2(float(center[0]), float(center[1])), zoom)
 
 
+## Les modes qui dépendent de la partie (commerce) suivent les décisions et les mois.
+func _refresh_live_map_mode() -> void:
+	if LIVE_MAP_MODES.has(_current_mode_id):
+		set_map_mode(_current_mode_id)
+
+
 func _on_month_passed(date: GameDate) -> void:
+	_refresh_live_map_mode()
 	if date.month != 1:
 		_notify(tr("NOTIFY_NEW_MONTH") % [tr(DateFormat.month_key(date.month)), date.year])
+
+
+## Événements économiques du pays joué : changement de note, défaut de paiement, FMI.
+func _on_sim_event(event: Dictionary) -> void:
+	# Événements mondiaux : visibles quel que soit le pays joué.
+	match event.get("type"):
+		ResourceSystem.EVENT_STRAIT_CLOSED:
+			_notify(tr("NOTIFY_STRAIT_CLOSED") % tr(_strait_name_key(str(event.get("strait", "")))))
+			return
+		ResourceSystem.EVENT_STRAIT_OPENED:
+			_notify(tr("NOTIFY_STRAIT_OPENED") % tr(_strait_name_key(str(event.get("strait", "")))))
+			return
+	if str(event.get("tag", "")) != str(GameState.sim.player_tag):
+		return
+	match event.get("type"):
+		EconomySystem.EVENT_RATING_CHANGED:
+			var key := "NOTIFY_RATING_UP" if bool(event.get("upgrade", false)) else "NOTIFY_RATING_DOWN"
+			_notify(tr(key) % [event.get("old", ""), event.get("new", "")])
+		EconomySystem.EVENT_DEBT_CRISIS:
+			_notify(tr("NOTIFY_DEBT_CRISIS"))
+		EconomySystem.EVENT_CRISIS_ENDED:
+			_notify(tr("NOTIFY_CRISIS_ENDED") % event.get("new", ""))
+		EconomySystem.EVENT_IMF_PROGRAM:
+			_notify(tr("NOTIFY_IMF_PROGRAM"))
+		EconomySystem.EVENT_IMF_ENDED:
+			_notify(tr("NOTIFY_IMF_ENDED"))
+		EnergySystem.EVENT_PROJECT_DONE:
+			var building := DataLoader.get_entry("buildings", str(event.get("building", "")))
+			var province := DataLoader.get_entry("provinces", str(event.get("province", "")))
+			_notify(tr("NOTIFY_PROJECT_DONE") % [tr(str(building.get("name_key", ""))), tr(str(province.get("name_key", "")))])
+		InvestmentSystem.EVENT_NATIONALIZED, InvestmentSystem.EVENT_EXPROPRIATED, InvestmentSystem.EVENT_PRIVATIZED:
+			var sector := DataLoader.get_entry("economy_sectors", str(event.get("sector", "")))
+			_notify(tr("NOTIFY_%s" % str(event.get("type")).to_upper()) % tr(str(sector.get("name_key", ""))))
+		EnergySystem.EVENT_BLACKOUT:
+			_notify(tr("NOTIFY_BLACKOUT"))
+		TradeSystem.EVENT_AGREEMENT_LEFT:
+			var agreement := DataLoader.get_entry("trade_agreements", str(event.get("agreement", "")))
+			_notify(tr("NOTIFY_AGREEMENT_LEFT") % tr(str(agreement.get("name_key", ""))))
+
+
+func _strait_name_key(strait_id: String) -> String:
+	return str(DataLoader.get_entry("straits", strait_id).get("name_key", strait_id))
 
 
 func _on_year_passed(date: GameDate) -> void:
@@ -179,6 +245,7 @@ func set_map_mode(mode_id: String) -> void:
 	if mode == null or _map_view.camera == null:
 		return
 	_current_mode_id = mode_id
+	_mode_context.refresh_from_simulation(GameState.sim)
 	_map_view.set_province_colors(mode.compute_colors(_mode_context))
 	_mode_bar.set_current(mode_id)
 	_legend.show_mode(mode, _mode_context)
@@ -206,6 +273,7 @@ func _on_province_clicked(province_id: int) -> void:
 	if info == null:
 		_show_province(province_id)
 		return
+	info.apply_economy(GameState.sim)
 	_info_panel.close()
 	_map_view.set_selected_province(MapView.NO_SELECTION)
 	_map_view.set_selected_country(owner)

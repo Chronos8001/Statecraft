@@ -68,7 +68,8 @@
     "PSE": [
       "Palestine",
       "State of Palestine",
-      "West Bank and Gaza"
+      "West Bank and Gaza",
+      "West Bank and Gaza Strip"
     ],
     "TWN": [
       "Taiwan"
@@ -129,7 +130,8 @@
     ],
     "USA": [
       "United States",
-      "United States of America"
+      "United States of America",
+      "USA"
     ],
     "GBR": [
       "United Kingdom"
@@ -164,7 +166,8 @@
       "Dominican Republic"
     ],
     "ARE": [
-      "United Arab Emirates"
+      "United Arab Emirates",
+      "UAE"
     ]
   },
   "regimes": {

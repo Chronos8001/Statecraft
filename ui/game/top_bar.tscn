@@ -21,12 +21,12 @@ script = ExtResource("1_bar")
 
 [node name="Row" type="HBoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 6
 
 [node name="DateLabel" type="Label" parent="Row"]
 unique_name_in_owner = true
 auto_translate_mode = 2
-custom_minimum_size = Vector2(250, 0)
+custom_minimum_size = Vector2(205, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
 theme_override_font_sizes/font_size = 20
@@ -51,7 +51,7 @@ text = "−"
 [node name="SpeedLabel" type="Label" parent="Row"]
 unique_name_in_owner = true
 auto_translate_mode = 2
-custom_minimum_size = Vector2(190, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.78, 0.4, 1)
 
@@ -63,6 +63,48 @@ layout_mode = 2
 tooltip_text = "TOPBAR_FASTER_TOOLTIP"
 focus_mode = 0
 text = "+"
+
+[node name="EconomyButton" type="Button" parent="Row"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "TOPBAR_ECONOMY_TOOLTIP"
+focus_mode = 0
+text = "TOPBAR_ECONOMY"
+
+[node name="BudgetButton" type="Button" parent="Row"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "TOPBAR_BUDGET_TOOLTIP"
+focus_mode = 0
+text = "TOPBAR_BUDGET"
+
+[node name="MarketsButton" type="Button" parent="Row"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "TOPBAR_MARKETS_TOOLTIP"
+focus_mode = 0
+text = "TOPBAR_MARKETS"
+
+[node name="TradeButton" type="Button" parent="Row"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "TOPBAR_TRADE_TOOLTIP"
+focus_mode = 0
+text = "TOPBAR_TRADE"
+
+[node name="EnergyButton" type="Button" parent="Row"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "TOPBAR_ENERGY_TOOLTIP"
+focus_mode = 0
+text = "TOPBAR_ENERGY"
+
+[node name="InvestmentButton" type="Button" parent="Row"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "TOPBAR_INVESTMENT_TOOLTIP"
+focus_mode = 0
+text = "TOPBAR_INVESTMENT"
 
 [node name="Spacer" type="Control" parent="Row"]
 layout_mode = 2
@@ -90,4 +132,4 @@ layout_mode = 2
 [node name="StatsRow" type="HBoxContainer" parent="Row"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 5

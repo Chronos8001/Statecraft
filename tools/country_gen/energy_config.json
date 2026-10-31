@@ -1,0 +1,9 @@
+{
+  "as_of": "2026-01-01T00:00:00Z",
+  "wikipedia_page": "List_of_countries_by_electricity_production",
+  "source_columns": {"coal": 2, "gas": 3, "hydro": 4, "nuclear": 5, "wind": 6, "solar": 7, "oil": 8, "bioenergy": 9,
+    "geothermal": 10},
+  "rich_gdp_per_capita": 30000,
+  "twh_per_billion_gdp": {"rich": 0.25, "other": 0.4},
+  "default_mix": {"oil": 0.6, "gas": 0.2, "solar": 0.1, "hydro": 0.1}
+}

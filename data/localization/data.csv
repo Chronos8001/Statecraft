@@ -226,3 +226,120 @@ CHALLENGE_VNM_SOUTH_CHINA_SEA,South China Sea,Mer de Chine méridionale
 CHALLENGE_VNM_SOUTH_CHINA_SEA_DESC,"Islands and waters disputed with China.","Îles et eaux disputées avec la Chine."
 CHALLENGE_VNM_EXPORTS,Export-led economy,Économie tournée vers l'export
 CHALLENGE_VNM_EXPORTS_DESC,"Growth depends on factories working for American and European markets.","La croissance dépend d'usines travaillant pour les marchés américain et européen."
+# --- Secteurs de l'économie ---
+SECTOR_AGRICULTURE,Agriculture,Agriculture
+SECTOR_INDUSTRY,Industry,Industrie
+SECTOR_ENERGY,Energy,Énergie
+SECTOR_ARMAMENT,Arms industry,Armement
+SECTOR_SERVICES,Services,Services
+SECTOR_TECH,Technology,Technologies
+SECTOR_FINANCE,Finance,Finance
+SECTOR_TOURISM,Tourism,Tourisme
+# --- Impôts ---
+TAX_INCOME,Income tax,Impôt sur le revenu
+TAX_CORPORATE,Corporate tax,Impôt sur les sociétés
+TAX_VAT,VAT / sales tax,TVA
+TAX_CARBON,Carbon tax,Taxe carbone
+TAX_CUSTOMS,Customs duties,Droits de douane
+TAX_CONTRIBUTIONS,Social contributions,Cotisations sociales
+TAX_RESOURCES,Natural resource taxes,Taxes sur les ressources naturelles
+# --- Dépenses publiques ---
+SPENDING_HEALTH,Health,Santé
+SPENDING_EDUCATION,Education,Éducation
+SPENDING_PENSIONS,Pensions,Retraites
+SPENDING_UNEMPLOYMENT,Unemployment benefits,Assurance chômage
+SPENDING_POLICE,Police,Police
+SPENDING_JUSTICE,Justice,Justice
+SPENDING_DEFENSE,Defence,Défense
+SPENDING_RESEARCH,Research,Recherche
+SPENDING_INFRASTRUCTURE,Infrastructure,Infrastructures
+SPENDING_ENVIRONMENT,Environment,Environnement
+SPENDING_CULTURE,Culture,Culture
+SPENDING_FOREIGN_AID,Foreign aid,Aide internationale
+SPENDING_INTELLIGENCE,Intelligence,Renseignement
+SPENDING_ADMINISTRATION,Administration and other,Administration et autres
+# --- Groupes sociaux ---
+GROUP_WORKERS,Workers,Ouvriers
+GROUP_MIDDLE_CLASS,Middle class,Classes moyennes
+GROUP_ELITES,Business elites,Élites économiques
+GROUP_FARMERS,Farmers,Agriculteurs
+GROUP_RETIREES,Retirees,Retraités
+GROUP_YOUTH,Youth,Jeunes
+GROUP_MILITARY,Military,Militaires
+GROUP_RELIGIOUS,Religious groups,Religieux
+GROUP_MINORITIES,Minorities,Minorités
+GROUP_ECOLOGISTS,Environmentalists,Écologistes
+# --- Accords commerciaux ---
+TRADE_AGREEMENT_EU_SINGLE_MARKET,"EU Single Market","Marché unique européen"
+TRADE_AGREEMENT_EEA,"European Economic Area","Espace économique européen"
+TRADE_AGREEMENT_EFTA,"European Free Trade Association","Association européenne de libre-échange"
+TRADE_AGREEMENT_EU_SWITZERLAND,"EU-Switzerland agreements","Accords UE-Suisse"
+TRADE_AGREEMENT_EU_TURKEY,"EU-Turkey customs union","Union douanière UE-Turquie"
+TRADE_AGREEMENT_EU_UK,"EU-UK Trade and Cooperation Agreement","Accord de commerce UE-Royaume-Uni"
+TRADE_AGREEMENT_EU_JAPAN,"EU-Japan EPA","Accord UE-Japon"
+TRADE_AGREEMENT_EU_KOREA,"EU-Korea FTA","Accord UE-Corée du Sud"
+TRADE_AGREEMENT_EU_CANADA,"CETA (EU-Canada)","CETA (UE-Canada)"
+TRADE_AGREEMENT_EU_MEXICO,"EU-Mexico agreement","Accord UE-Mexique"
+TRADE_AGREEMENT_EU_VIETNAM,"EU-Vietnam FTA","Accord UE-Vietnam"
+TRADE_AGREEMENT_EU_SINGAPORE,"EU-Singapore FTA","Accord UE-Singapour"
+TRADE_AGREEMENT_EU_NEW_ZEALAND,"EU-New Zealand FTA","Accord UE-Nouvelle-Zélande"
+TRADE_AGREEMENT_EU_CHILE,"EU-Chile agreement","Accord UE-Chili"
+TRADE_AGREEMENT_EU_ANDEAN,"EU-Colombia, Peru, Ecuador agreement","Accord UE-Colombie, Pérou, Équateur"
+TRADE_AGREEMENT_EU_CENTRAL_AMERICA,"EU-Central America agreement","Accord UE-Amérique centrale"
+TRADE_AGREEMENT_EU_EASTERN_PARTNERS,"EU-Ukraine, Georgia, Moldova DCFTAs","Accords UE-Ukraine, Géorgie, Moldavie"
+TRADE_AGREEMENT_EU_MEDITERRANEAN,"Euro-Mediterranean agreements","Accords euro-méditerranéens"
+TRADE_AGREEMENT_EU_BALKANS,"EU-Western Balkans agreements","Accords UE-Balkans occidentaux"
+TRADE_AGREEMENT_EU_SOUTHERN_AFRICA,"EU-SADC EPA","Accord UE-Afrique australe"
+TRADE_AGREEMENT_USMCA,"USMCA","ACEUM (États-Unis, Mexique, Canada)"
+TRADE_AGREEMENT_KORUS,"KORUS FTA","Accord États-Unis-Corée du Sud"
+TRADE_AGREEMENT_US_AUSTRALIA,"US-Australia FTA","Accord États-Unis-Australie"
+TRADE_AGREEMENT_US_ISRAEL,"US-Israel FTA","Accord États-Unis-Israël"
+TRADE_AGREEMENT_US_SINGAPORE,"US-Singapore FTA","Accord États-Unis-Singapour"
+TRADE_AGREEMENT_CAFTA_DR,"CAFTA-DR","ALEAC-RD (États-Unis, Amérique centrale)"
+TRADE_AGREEMENT_US_LATIN_BILATERALS,"US-Chile, Colombia, Peru, Panama FTAs","Accords États-Unis-Chili, Colombie, Pérou, Panama"
+TRADE_AGREEMENT_US_MIDDLE_EAST,"US-Morocco, Jordan, Bahrain, Oman FTAs","Accords États-Unis-Maroc, Jordanie, Bahreïn, Oman"
+TRADE_AGREEMENT_MERCOSUR,"Mercosur","Mercosur"
+TRADE_AGREEMENT_ANDEAN_COMMUNITY,"Andean Community","Communauté andine"
+TRADE_AGREEMENT_PACIFIC_ALLIANCE,"Pacific Alliance","Alliance du Pacifique"
+TRADE_AGREEMENT_AFTA,"ASEAN Free Trade Area","Zone de libre-échange de l'ASEAN"
+TRADE_AGREEMENT_RCEP,"Regional Comprehensive Economic Partnership (RCEP)","Partenariat économique régional global (RCEP)"
+TRADE_AGREEMENT_CPTPP,"CPTPP","Accord de partenariat transpacifique global (PTPGP)"
+TRADE_AGREEMENT_EAEU,"Eurasian Economic Union","Union économique eurasiatique"
+TRADE_AGREEMENT_CIS_FTA,"CIS Free Trade Area","Zone de libre-échange de la CEI"
+TRADE_AGREEMENT_GCC,"GCC Customs Union","Union douanière du Golfe (CCG)"
+TRADE_AGREEMENT_GAFTA,"Greater Arab Free Trade Area","Grande zone arabe de libre-échange"
+TRADE_AGREEMENT_SACU,"Southern African Customs Union","Union douanière d'Afrique australe"
+TRADE_AGREEMENT_EAC,"East African Community","Communauté d'Afrique de l'Est"
+TRADE_AGREEMENT_ECOWAS,"ECOWAS","CEDEAO"
+TRADE_AGREEMENT_CEMAC,"CEMAC","CEMAC"
+TRADE_AGREEMENT_AFCFTA,"African Continental Free Trade Area","Zone de libre-échange continentale africaine"
+TRADE_AGREEMENT_SAFTA,"South Asian Free Trade Area","Zone de libre-échange d'Asie du Sud"
+TRADE_AGREEMENT_ANZCERTA,"Australia-New Zealand CER","Accord Australie-Nouvelle-Zélande"
+TRADE_AGREEMENT_CHINA_BILATERALS,"China's bilateral FTAs (Switzerland, Pakistan, Chile, Peru, Serbia…)","Accords de la Chine (Suisse, Pakistan, Chili, Pérou, Serbie…)"
+TRADE_AGREEMENT_INDIA_BILATERALS,"India's FTAs (UAE, Australia, EFTA, ASEAN…)","Accords de l'Inde (Émirats, Australie, AELE, ASEAN…)"
+TRADE_AGREEMENT_UK_BILATERALS,"UK FTAs (Australia, New Zealand, Switzerland…)","Accords du Royaume-Uni (Australie, Nouvelle-Zélande, Suisse…)"
+TRADE_AGREEMENT_KOREA_BILATERALS,"South Korea's FTAs (Turkey, Israel, Canada…)","Accords de la Corée du Sud (Turquie, Israël, Canada…)"
+# --- Énergie et bâtiments ---
+ENERGY_SOURCE_COAL,Coal,Charbon
+ENERGY_SOURCE_GAS,Gas,Gaz
+ENERGY_SOURCE_OIL,Oil,Pétrole
+ENERGY_SOURCE_NUCLEAR,Nuclear,Nucléaire
+ENERGY_SOURCE_HYDRO,Hydro,Hydraulique
+ENERGY_SOURCE_WIND,Wind,Éolien
+ENERGY_SOURCE_SOLAR,Solar,Solaire
+ENERGY_SOURCE_BIOENERGY,Bioenergy,Biomasse
+ENERGY_SOURCE_GEOTHERMAL,Geothermal,Géothermie
+BUILDING_COAL_PLANT,Coal power plant,Centrale à charbon
+BUILDING_GAS_PLANT,Gas power plant,Centrale à gaz
+BUILDING_OIL_PLANT,Oil-fired power plant,Centrale au fioul
+BUILDING_NUCLEAR_PLANT,Nuclear power plant,Centrale nucléaire
+BUILDING_HYDRO_DAM,Hydroelectric dam,Barrage hydroélectrique
+BUILDING_WIND_FARM,Wind farm,Parc éolien
+BUILDING_SOLAR_FARM,Solar farm,Centrale solaire
+BUILDING_BIO_PLANT,Biomass power plant,Centrale à biomasse
+BUILDING_GEOTHERMAL_PLANT,Geothermal power plant,Centrale géothermique
+BUILDING_FACTORY,Factory,Usine
+BUILDING_MINE,Mine,Mine
+BUILDING_REFINERY,Refinery,Raffinerie
+BUILDING_PORT,Port,Port
+BUILDING_DATA_CENTER,Data center,Data center

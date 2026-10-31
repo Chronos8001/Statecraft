@@ -1,0 +1,189 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://ui/game/trade_panel.gd" id="1_trade"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.07, 0.09, 0.125, 0.97)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25, 0.32, 0.42, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="TradePanel" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 280.0
+offset_top = 70.0
+offset_right = -40.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+script = ExtResource("1_trade")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 16
+
+[node name="Content" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="HBoxContainer" parent="Margin/Content"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Margin/Content/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 24
+text = "TRADE_TITLE"
+
+[node name="CloseButton" type="Button" parent="Margin/Content/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+focus_mode = 0
+text = "COMMON_CLOSE_SYMBOL"
+flat = true
+
+[node name="Separator" type="HSeparator" parent="Margin/Content"]
+layout_mode = 2
+
+[node name="Columns" type="HBoxContainer" parent="Margin/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 28
+
+[node name="Left" type="VBoxContainer" parent="Margin/Content/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PartnersTitle" type="Label" parent="Margin/Content/Columns/Left"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+text = "TRADE_PARTNERS"
+
+[node name="PartnersGrid" type="GridContainer" parent="Margin/Content/Columns/Left"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 18
+theme_override_constants/v_separation = 4
+columns = 5
+
+[node name="DependenciesTitle" type="Label" parent="Margin/Content/Columns/Left"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+text = "TRADE_DEPENDENCIES"
+
+[node name="DependenciesScroll" type="ScrollContainer" parent="Margin/Content/Columns/Left"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="DependenciesGrid" type="GridContainer" parent="Margin/Content/Columns/Left/DependenciesScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 18
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="Right" type="VBoxContainer" parent="Margin/Content/Columns"]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ActionsTitle" type="Label" parent="Margin/Content/Columns/Right"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+text = "TRADE_ACTIONS"
+
+[node name="TargetOption" type="OptionButton" parent="Margin/Content/Columns/Right"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "TRADE_TARGET_TOOLTIP"
+
+[node name="SurchargeRow" type="HBoxContainer" parent="Margin/Content/Columns/Right"]
+layout_mode = 2
+
+[node name="SurchargeLabel" type="Label" parent="Margin/Content/Columns/Right/SurchargeRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.62, 0.68, 0.76, 1)
+text = "TRADE_SURCHARGE"
+
+[node name="SurchargeSpin" type="SpinBox" parent="Margin/Content/Columns/Right/SurchargeRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+suffix = "%"
+tooltip_text = "TRADE_SURCHARGE_TOOLTIP"
+
+[node name="SurchargeButton" type="Button" parent="Margin/Content/Columns/Right/SurchargeRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "ECONOMY_APPLY"
+
+[node name="EmbargoRow" type="HBoxContainer" parent="Margin/Content/Columns/Right"]
+layout_mode = 2
+
+[node name="GoodsOption" type="OptionButton" parent="Margin/Content/Columns/Right/EmbargoRow"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+
+[node name="EmbargoButton" type="Button" parent="Margin/Content/Columns/Right/EmbargoRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "TRADE_EMBARGO_TOOLTIP"
+text = "TRADE_IMPOSE_EMBARGO"
+
+[node name="LiftButton" type="Button" parent="Margin/Content/Columns/Right/EmbargoRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "TRADE_LIFT_EMBARGO"
+
+[node name="MeasuresTitle" type="Label" parent="Margin/Content/Columns/Right"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+text = "TRADE_MEASURES"
+
+[node name="MeasuresBox" type="VBoxContainer" parent="Margin/Content/Columns/Right"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AgreementsTitle" type="Label" parent="Margin/Content/Columns/Right"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+text = "TRADE_AGREEMENTS"
+
+[node name="AgreementsScroll" type="ScrollContainer" parent="Margin/Content/Columns/Right"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="AgreementsBox" type="VBoxContainer" parent="Margin/Content/Columns/Right/AgreementsScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3

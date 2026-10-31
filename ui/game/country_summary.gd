@@ -71,6 +71,11 @@ func _refresh() -> void:
 			tr("COUNTRY_INFO_USD_VALUE") % NumberFormat.integer(roundi(_info.gdp_per_capita), locale))
 	if _info.debt_to_gdp >= 0.0:
 		_add_row(_stats_grid, "COUNTRY_INFO_DEBT", tr("COUNTRY_INFO_DEBT_VALUE") % roundi(_info.debt_to_gdp * 100.0))
+	if _info.has_economy:
+		_add_row(_stats_grid, "ECONOMY_INFLATION", tr("ECONOMY_PERCENT_VALUE") % NumberFormat.decimal(_info.inflation, 1,
+			locale))
+		_add_row(_stats_grid, "ECONOMY_RATING", tr("ECONOMY_RATING_ESTIMATED") % _info.rating_id
+			if _info.rating_estimated else _info.rating_id)
 	if _info.active_personnel >= 0.0:
 		_add_row(_stats_grid, "COUNTRY_INFO_ACTIVE_PERSONNEL", NumberFormat.integer(roundi(_info.active_personnel), locale))
 	var organizations := PackedStringArray()

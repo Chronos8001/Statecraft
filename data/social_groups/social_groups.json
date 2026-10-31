@@ -1,0 +1,12 @@
+{
+  "workers": {"name_key": "GROUP_WORKERS"},
+  "middle_class": {"name_key": "GROUP_MIDDLE_CLASS"},
+  "elites": {"name_key": "GROUP_ELITES"},
+  "farmers": {"name_key": "GROUP_FARMERS"},
+  "retirees": {"name_key": "GROUP_RETIREES"},
+  "youth": {"name_key": "GROUP_YOUTH"},
+  "military": {"name_key": "GROUP_MILITARY"},
+  "religious": {"name_key": "GROUP_RELIGIOUS"},
+  "minorities": {"name_key": "GROUP_MINORITIES"},
+  "ecologists": {"name_key": "GROUP_ECOLOGISTS"}
+}

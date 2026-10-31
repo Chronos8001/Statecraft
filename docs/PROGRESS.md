@@ -8,7 +8,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 | 1 | La carte du monde | ✅ | v0.1.0 | 2026-10-29 | v0.1.0 |
 | 2 | Temps et boucle de simulation | ✅ | v0.2.0 | 2026-10-29 | v0.2.0 |
 | 3 | Les pays en 2026 | ✅ | v0.3.0 | 2026-10-30 | v0.3.0 |
-| 4 | Économie | ⬜ | v0.4.0 | | |
+| 4 | Économie | ✅ | v0.4.0 | 2026-10-31 | v0.4.0 |
 | 5 | Politique intérieure | ⬜ | v0.5.0 | | |
 | 6 | Diplomatie | ⬜ | v0.6.0 | | |
 | 7 | Militaire (version simplifiée) | ⬜ | v0.7.0 | | |
@@ -97,29 +97,51 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 
 - [x] Validation : choisir n'importe quel pays et démarrer la partie
 
-## Étape 4 — Économie ⬜
-**4a. Macroéconomie**
-- [ ] PIB par secteur (agriculture, industrie, énergie, services, tech, finance, tourisme, armement)
-- [ ] Croissance, inflation, chômage, taux directeur, banque centrale indépendante ou non
-- [ ] Monnaie et taux de change
-- [ ] Dette publique, notation souveraine (AAA → défaut), taux d'emprunt, crise de la dette, FMI
+## Étape 4 — Économie ✅ (validée le 2026-10-31, v0.4.0)
+**4a. Macroéconomie** (validée le 2026-10-30)
+- [x] Situation économique réelle au 1er janvier 2026 pour les 199 pays et 143 monnaies (`tools/country_gen/generate_economy.py`)
+- [x] PIB par secteur (agriculture, industrie, énergie, services, tech, finance, tourisme, armement)
+- [x] Croissance, inflation, chômage, taux directeur (règle de Taylor), banque centrale indépendante ou sous contrôle du joueur
+- [x] Monnaie et taux de change, unions monétaires et ancrages
+- [x] Dette publique (locale et en devises), notation souveraine (AAA → défaut), taux d'emprunt, crise de la dette, FMI
+- [x] Panneau Économie et économie en cours de partie dans la fiche des pays
 
-**4b. Budget de l'État**
-- [ ] Recettes : impôt sur le revenu (tranches), IS, TVA, taxe carbone, douanes, cotisations, taxes sur ressources
-- [ ] Dépenses : santé, éducation, retraites, chômage, police, justice, défense, recherche, infrastructures, environnement, culture, aide internationale, renseignement, administration
-- [ ] Effets de chaque ligne (groupes sociaux, croissance, stabilité, recherche, armée)
-- [ ] Déficit → dette ; création monétaire → inflation
+**4b. Budget de l'État** (validée le 2026-10-31)
+- [x] Recettes : impôt sur le revenu (4 tranches), IS, TVA, taxe carbone, douanes, cotisations, taxes sur ressources (taux réels, `tools/country_gen/generate_budget.py`)
+- [x] Dépenses : santé, éducation, retraites, chômage, police, justice, défense, recherche, infrastructures, environnement, culture, aide internationale, renseignement, administration
+- [x] Effets de chaque ligne en données : croissance, chômage et inflation appliqués ; groupes sociaux, stabilité, recherche, armée et influence calculés, en attente de leurs systèmes
+- [x] Déficit → dette ; création monétaire → inflation (banque centrale sous contrôle du gouvernement)
+- [x] Règle provisoire de l'IA : dépenses ajustées selon l'évolution de la dette
+- [x] Panneau Budget avec aperçu en direct, solde annuel dans la barre supérieure
 
-**4c. Ressources et commerce**
-- [ ] Ressources stratégiques (pétrole, gaz, uranium, charbon, terres rares, lithium, cobalt, semi-conducteurs, blé, acier, eau)
-- [ ] Marché mondial à prix dynamiques et chocs (fermeture de détroit)
-- [ ] Accords commerciaux, zones de libre-échange, douanes, embargos, dépendances visibles
-- [ ] Chaînes d'approvisionnement simplifiées
+**4c1. Ressources et marché mondial** (validée le 2026-10-31)
+- [x] Ressources stratégiques (pétrole, gaz, uranium, charbon, terres rares, lithium, cobalt, semi-conducteurs, blé, acier, eau) : production et consommation réelles, réparties entre les provinces (`tools/country_gen/generate_resources.py`)
+- [x] Marché mondial à prix dynamiques (offre et demande) et chocs : fermeture d'un détroit
+- [x] Chaînes d'approvisionnement simplifiées : les pénuries freinent les secteurs qui en dépendent
+- [x] Effets sur l'économie : gains des exportateurs, inflation des importateurs, taxes sur les ressources
+- [x] Panneau Marchés, mode de carte des ressources
 
-**4d. Entreprises et investissements**
-- [ ] Entreprises publiques et privées par secteur ; nationalisation / privatisation
-- [ ] IDE, fonds souverains, construction de bâtiments (usines, centrales, ports, data centers, raffineries, mines)
-- [ ] Énergie : mix énergétique, production vs consommation, coupures
+**4c2. Commerce** (validée le 2026-10-31)
+- [x] Échanges entre pays (modèle gravitaire calé sur l'ouverture réelle, `tools/country_gen/generate_trade.py`)
+- [x] 49 accords commerciaux en vigueur au 1er janvier 2026 (unions douanières, zones de libre-échange, accords partiels)
+- [x] Droits de douane par partenaire : droits habituels hors accords, surtaxes réelles de 2026 (États-Unis, Chine, Canada)
+- [x] Mesures du joueur : surtaxe contre un pays, embargo (tout le commerce ou une ressource), sortie d'un accord
+- [x] Effets : inflation, croissance, recettes douanières ; embargos sur les ressources (débouchés perdus, pénuries)
+- [x] Dépendances visibles : panneau Commerce (partenaires, fournisseurs de chaque ressource), mode de carte « Commerce »
+
+**4d1. Énergie et bâtiments** (validée le 2026-10-31)
+- [x] Mix électrique réel par source (9 sources), demande, production maximale, coupures en cas de déficit
+- [x] Les centrales consomment charbon, gaz, pétrole et uranium sur le marché mondial ; pénurie de combustible → baisse de production
+- [x] Bâtiments dans les provinces : 9 types de centrales, usine, mine, raffinerie, port, data center ; parc de départ placé
+- [x] Chantiers : coût étalé payé par le budget, conditions (côte, relief, ressource, maximum), abandon possible
+- [x] Règle provisoire de l'IA : nouvelles centrales pour garder une marge sur la demande
+- [x] Panneau Énergie, construction depuis la fiche de province
+
+**4d2. Entreprises et investissements** (validée le 2026-10-31)
+- [x] Part publique de chaque secteur (règles et valeurs saisies) ; nationalisation avec ou sans indemnisation, privatisation
+- [x] IDE : entrées réelles, attractivité (croissance, note, impôt sur les sociétés, expropriations), politique d'ouverture
+- [x] Fonds souverains réels : rendement, versements et retraits, dette nette pour la note
+- [x] Panneau Investissements
 
 ## Étape 5 — Politique intérieure ⬜
 - [ ] Régimes (parlementaire, présidentiel, monarchies, autoritaire, parti unique, théocratie, junte, État failli)
