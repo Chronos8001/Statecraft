@@ -8,7 +8,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 | 1 | La carte du monde | ✅ | v0.1.0 | 2026-10-29 | v0.1.0 |
 | 2 | Temps et boucle de simulation | ✅ | v0.2.0 | 2026-10-29 | v0.2.0 |
 | 3 | Les pays en 2026 | ✅ | v0.3.0 | 2026-10-30 | v0.3.0 |
-| 4 | Économie | 🟨 | v0.4.0 | | |
+| 4 | Économie | ✅ | v0.4.0 | 2026-10-31 | v0.4.0 |
 | 5 | Politique intérieure | ⬜ | v0.5.0 | | |
 | 6 | Diplomatie | ⬜ | v0.6.0 | | |
 | 7 | Militaire (version simplifiée) | ⬜ | v0.7.0 | | |
@@ -97,7 +97,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 
 - [x] Validation : choisir n'importe quel pays et démarrer la partie
 
-## Étape 4 — Économie 🟨
+## Étape 4 — Économie ✅ (validée le 2026-10-31, v0.4.0)
 **4a. Macroéconomie** (validée le 2026-10-30)
 - [x] Situation économique réelle au 1er janvier 2026 pour les 199 pays et 143 monnaies (`tools/country_gen/generate_economy.py`)
 - [x] PIB par secteur (agriculture, industrie, énergie, services, tech, finance, tourisme, armement)
@@ -137,7 +137,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Règle provisoire de l'IA : nouvelles centrales pour garder une marge sur la demande
 - [x] Panneau Énergie, construction depuis la fiche de province
 
-**4d2. Entreprises et investissements**
+**4d2. Entreprises et investissements** (validée le 2026-10-31)
 - [x] Part publique de chaque secteur (règles et valeurs saisies) ; nationalisation avec ou sans indemnisation, privatisation
 - [x] IDE : entrées réelles, attractivité (croissance, note, impôt sur les sociétés, expropriations), politique d'ouverture
 - [x] Fonds souverains réels : rendement, versements et retraits, dette nette pour la note
