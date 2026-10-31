@@ -106,7 +106,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Dette publique (locale et en devises), notation souveraine (AAA → défaut), taux d'emprunt, crise de la dette, FMI
 - [x] Panneau Économie et économie en cours de partie dans la fiche des pays
 
-**4b. Budget de l'État**
+**4b. Budget de l'État** (validée le 2026-10-31)
 - [x] Recettes : impôt sur le revenu (4 tranches), IS, TVA, taxe carbone, douanes, cotisations, taxes sur ressources (taux réels, `tools/country_gen/generate_budget.py`)
 - [x] Dépenses : santé, éducation, retraites, chômage, police, justice, défense, recherche, infrastructures, environnement, culture, aide internationale, renseignement, administration
 - [x] Effets de chaque ligne en données : croissance, chômage et inflation appliqués ; groupes sociaux, stabilité, recherche, armée et influence calculés, en attente de leurs systèmes
@@ -114,11 +114,15 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Règle provisoire de l'IA : dépenses ajustées selon l'évolution de la dette
 - [x] Panneau Budget avec aperçu en direct, solde annuel dans la barre supérieure
 
-**4c. Ressources et commerce**
-- [ ] Ressources stratégiques (pétrole, gaz, uranium, charbon, terres rares, lithium, cobalt, semi-conducteurs, blé, acier, eau)
-- [ ] Marché mondial à prix dynamiques et chocs (fermeture de détroit)
-- [ ] Accords commerciaux, zones de libre-échange, douanes, embargos, dépendances visibles
-- [ ] Chaînes d'approvisionnement simplifiées
+**4c1. Ressources et marché mondial**
+- [x] Ressources stratégiques (pétrole, gaz, uranium, charbon, terres rares, lithium, cobalt, semi-conducteurs, blé, acier, eau) : production et consommation réelles, réparties entre les provinces (`tools/country_gen/generate_resources.py`)
+- [x] Marché mondial à prix dynamiques (offre et demande) et chocs : fermeture d'un détroit
+- [x] Chaînes d'approvisionnement simplifiées : les pénuries freinent les secteurs qui en dépendent
+- [x] Effets sur l'économie : gains des exportateurs, inflation des importateurs, taxes sur les ressources
+- [x] Panneau Marchés, mode de carte des ressources
+
+**4c2. Commerce**
+- [ ] Accords commerciaux, zones de libre-échange, douanes par partenaire, embargos, dépendances visibles
 
 **4d. Entreprises et investissements**
 - [ ] Entreprises publiques et privées par secteur ; nationalisation / privatisation

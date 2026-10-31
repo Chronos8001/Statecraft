@@ -16,6 +16,12 @@ var currencies: Dictionary = {}
 var economy_settings: Dictionary = {}
 ## Impôts, postes de dépense et réglages du budget : {taxes, spending, settings}.
 var budget_definitions: Dictionary = {}
+## identifiant de ressource → MarketState.
+var markets: Dictionary = {}
+## Détroits fermés au commerce (identifiant → true).
+var closed_straits: Dictionary = {}
+## Routes des détroits, chaînes d'approvisionnement des secteurs et réglages : {straits, sectors, settings}.
+var resource_definitions: Dictionary = {}
 ## Événements de simulation du dernier tick ({type, tag, …}), transmis à l'interface puis vidés.
 var events: Array[Dictionary] = []
 

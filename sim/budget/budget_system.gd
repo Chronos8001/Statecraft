@@ -5,6 +5,7 @@ extends SimSystem
 ##   2. recettes, solde primaire et effets du budget de chaque pays, utilisés ensuite par l'économie.
 
 const PRIORITY := -10
+const RESOURCE_TAXES := "resource_taxes"
 
 
 func get_id() -> StringName:
@@ -39,6 +40,9 @@ static func update_budget(country: CountryState, state: SimState) -> void:
 	var spending: Dictionary = state.budget_definitions.get("spending", {})
 	var settings: Dictionary = state.budget_definitions.get("settings", {})
 	budget.revenues = BudgetModel.revenues(budget, taxes, settings.get("income_bracket_weights", []))
+	# Les taxes sur les ressources suivent la valeur de la production (prix et volumes).
+	if budget.revenues.has(RESOURCE_TAXES):
+		budget.revenues[RESOURCE_TAXES] = float(budget.revenues[RESOURCE_TAXES]) * economy.resource_price_index
 	economy.primary_balance = budget.total_revenue() - budget.total_spending() + economy.austerity
 	budget.effects = BudgetModel.effects(budget, taxes, spending, settings)
 	economy.budget_growth = float(budget.effects.get("growth", 0.0))

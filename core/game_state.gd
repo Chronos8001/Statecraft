@@ -14,8 +14,10 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	sim = SimState.new()
 	sim.setup(p_seed, get_start_date(), player_tag)
 	WorldSetup.populate(sim, DataLoader.get_category("countries"), DataLoader.get_category("currencies"),
-		DataLoader.get_define("economy", {}), budget_definitions())
+		DataLoader.get_define("economy", {}), budget_definitions(), DataLoader.get_category("resources"),
+		resource_definitions())
 	scheduler = SimScheduler.new()
+	scheduler.add_system(ResourceSystem.new())
 	scheduler.add_system(BudgetSystem.new())
 	scheduler.add_system(EconomySystem.new(DataLoader.get_category("economy_sectors")))
 	_pending_commands.clear()
@@ -50,6 +52,14 @@ func budget_definitions() -> Dictionary:
 		"taxes": DataLoader.get_category("budget_taxes"),
 		"spending": DataLoader.get_category("budget_spending"),
 		"settings": DataLoader.get_define("budget", {}),
+	}
+
+
+func resource_definitions() -> Dictionary:
+	return {
+		"straits": DataLoader.get_category("straits"),
+		"sectors": DataLoader.get_category("economy_sectors"),
+		"settings": DataLoader.get_define("resources", {}),
 	}
 
 

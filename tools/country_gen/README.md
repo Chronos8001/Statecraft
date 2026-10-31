@@ -78,3 +78,23 @@ Le reste vient de `budget_config.json` : répartition des recettes entre impôts
 ```sh
 python tools/country_gen/generate_budget.py
 ```
+
+## Ressources stratégiques (`generate_resources.py`)
+
+Écrit `data/countries/resources.json` (production et consommation des 10 ressources échangées, eau renouvelable et taux de prélèvement) et `data/provinces/resources.json` (richesse de 1 à 10 des provinces productrices). Pages Wikipédia dans leur version du 1er janvier 2026.
+
+| Donnée | Source |
+|---|---|
+| Pétrole, gaz | *List of countries by oil production / consumption*, *natural gas production / consumption* |
+| Charbon | *List of countries by coal production* ; consommation saisie pour les grands consommateurs |
+| Uranium | *List of countries by uranium production* ; besoins des réacteurs d'après *Nuclear power by country* |
+| Acier | *List of countries by steel production* (consommation = production - exportations nettes) |
+| Blé | *List of countries by wheat production* ; consommation par habitant (`wheat_per_capita`) |
+| Eau | *List of countries by total renewable water resources* |
+| Terres rares, lithium, cobalt, semi-conducteurs | `resources_config.json` (USGS 2024, production de puces par lieu de fabrication) |
+
+La consommation mondiale de chaque ressource est ramenée à sa production (marché équilibré au départ). La production est répartie entre les provinces d'après les régions saisies dans `regions` (noms anglais des provinces), sinon selon le terrain et la surface (ressources extraites) ou la population (acier, semi-conducteurs).
+
+```sh
+python tools/country_gen/generate_resources.py
+```

@@ -336,13 +336,18 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 	var budget_definitions := {"taxes": _repository.get_category("budget_taxes"),
 		"spending": _repository.get_category("budget_spending"),
 		"settings": _repository.get_value("defines", "budget", {})}
+	var resource_definitions := {"straits": _repository.get_category("straits"),
+		"sectors": _repository.get_category("economy_sectors"),
+		"settings": _repository.get_value("defines", "resources", {})}
 	WorldSetup.populate(state, _repository.get_category("countries"), _repository.get_category("currencies"), settings,
-		budget_definitions)
+		budget_definitions, _repository.get_category("resources"), resource_definitions)
+	var resource_system := ResourceSystem.new()
 	var budget_system := BudgetSystem.new()
 	var system := EconomySystem.new(_repository.get_category("economy_sectors"))
 	var crises := 0
 	for month: int in 120:
 		state.date.month = month % 12 + 1
+		resource_system.on_month(state)
 		budget_system.on_month(state)
 		system.on_month(state)
 		for event: Dictionary in state.events:
@@ -368,6 +373,8 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 	for tag: String in ["ARG", "LBN"]:
 		var economy: EconomyState = state.countries[tag].economy
 		assert_gt(economy.debt_ratio(state.get_currency(economy.currency)), 0.05, "dette de %s" % tag)
+	for resource_id: String in state.markets.keys():
+		assert_between((state.markets[resource_id] as MarketState).price_ratio(), 0.8, 1.25, "prix de %s" % resource_id)
 	var ukraine: EconomyState = state.countries["UKR"].economy
 	assert_lt(ukraine.debt_ratio(state.get_currency(ukraine.currency)), 2.5, "dette de l'Ukraine")
 
@@ -379,3 +386,26 @@ func test_every_budget_matches_its_country() -> void:
 		var budget: Dictionary = _repository.get_category("countries")[tag]["budget"]
 		assert_eq((budget["taxes"] as Dictionary).size(), taxes.size(), "impôts de %s" % tag)
 		assert_eq((budget["spending"] as Dictionary).size(), lines.size(), "dépenses de %s" % tag)
+
+
+func test_resources_are_consistent() -> void:
+	var resources := _repository.get_category("resources")
+	var countries := _repository.get_category("countries")
+	for resource_id: String in resources.keys():
+		if not (resources[resource_id] as Dictionary).has("market"):
+			continue
+		var produced := 0.0
+		var used := 0.0
+		for tag: String in countries.keys():
+			var entry: Dictionary = (countries[tag]["resources"] as Dictionary).get(resource_id, {})
+			produced += float(entry.get("production", 0.0))
+			used += float(entry.get("consumption", 0.0))
+		assert_gt(produced, 0.0, resource_id)
+		assert_almost_eq(used / produced, 1.0, 0.01, "marché de %s équilibré au départ" % resource_id)
+	var producing_provinces := 0
+	for province: Dictionary in _repository.get_category("provinces").values():
+		if not (province.get("resources", {}) as Dictionary).is_empty():
+			producing_provinces += 1
+	assert_gt(producing_provinces, 500, "provinces productrices")
+	assert_true((countries["SAU"]["resources"] as Dictionary).has("oil"))
+	assert_true((countries["COD"]["resources"] as Dictionary).has("cobalt"))

@@ -23,7 +23,15 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Panneau Budget (bouton dans la barre supérieure) : réglage des impôts et des dépenses, aperçu des recettes, du solde et des effets avant d'appliquer.
 - Outil de génération des budgets (`tools/country_gen/generate_budget.py`).
 
+- Ressources stratégiques : production et consommation réelles de 2026 pour 10 ressources échangées (pétrole, gaz, charbon, uranium, terres rares, lithium, cobalt, semi-conducteurs, blé, acier) et l'eau.
+- Marché mondial : prix mensuel fixé par l'offre et la demande, qui suivent la croissance et les tendances (essor du lithium, déclin du charbon).
+- Détroits : chacun porte une part des exportations ; sa fermeture fait flamber les prix (Ormuz : pétrole presque triplé).
+- Effets des prix : gains ou pertes des exportateurs, inflation chez les importateurs, recettes des taxes sur les ressources, pénuries qui freinent les secteurs selon leurs chaînes d'approvisionnement.
+- Panneau Marchés (bouton dans la barre supérieure) : prix, variation, grands producteurs, autosuffisance du pays joué, stress hydrique ; fermeture des détroits en version de développement.
+- Outil de génération des ressources (`tools/country_gen/generate_resources.py`).
+
 ### Modifié
+- Le mode de carte « ressources » montre la ressource principale des 1 326 provinces productrices.
 - Le solde budgétaire dépend désormais du budget ; la relance budgétaire soutient la croissance à court terme.
 - Barre supérieure : la trésorerie affiche le solde budgétaire annuel du pays joué.
 - La fiche du pays et le résumé de l'écran de sélection affichent la croissance, l'inflation, la monnaie et la note du pays en cours de partie.

@@ -1008,6 +1008,60 @@
             }
           }
         }
+      },
+      "resources": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "price_bounds",
+          "price_adjustment",
+          "solver_iterations",
+          "terms_of_trade_effect",
+          "cost_passthrough",
+          "supply_chain_penalty",
+          "max_economic_effect",
+          "water_stress_threshold"
+        ],
+        "properties": {
+          "price_bounds": {
+            "type": "array",
+            "min_items": 2,
+            "items": {
+              "type": "number",
+              "min": 0
+            }
+          },
+          "price_adjustment": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "solver_iterations": {
+            "type": "int",
+            "min": 1
+          },
+          "terms_of_trade_effect": {
+            "type": "number",
+            "min": 0
+          },
+          "cost_passthrough": {
+            "type": "number",
+            "min": 0
+          },
+          "supply_chain_penalty": {
+            "type": "number",
+            "min": 0
+          },
+          "max_economic_effect": {
+            "type": "number",
+            "min": 0
+          },
+          "water_stress_threshold": {
+            "type": "number",
+            "min": 0,
+            "max": 10
+          }
+        }
       }
     }
   },
@@ -1105,6 +1159,57 @@
         },
         "color": {
           "type": "color"
+        },
+        "market": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "base_price",
+            "unit_value",
+            "price_unit_key",
+            "quantity_unit_key",
+            "demand_elasticity",
+            "supply_elasticity",
+            "income_elasticity",
+            "demand_trend",
+            "supply_trend"
+          ],
+          "properties": {
+            "base_price": {
+              "type": "number",
+              "min": 0
+            },
+            "unit_value": {
+              "type": "number",
+              "min": 0
+            },
+            "price_unit_key": {
+              "type": "string",
+              "pattern": "^UNIT_PRICE_[A-Z_]+$"
+            },
+            "quantity_unit_key": {
+              "type": "string",
+              "pattern": "^UNIT_QUANTITY_[A-Z_]+$"
+            },
+            "demand_elasticity": {
+              "type": "number",
+              "min": 0
+            },
+            "supply_elasticity": {
+              "type": "number",
+              "min": 0
+            },
+            "income_elasticity": {
+              "type": "number",
+              "min": 0
+            },
+            "demand_trend": {
+              "type": "number"
+            },
+            "supply_trend": {
+              "type": "number"
+            }
+          }
         }
       }
     }
@@ -1129,7 +1234,9 @@
         "organizations",
         "culture",
         "currency",
-        "budget"
+        "budget",
+        "resources",
+        "water"
       ],
       "properties": {
         "name_key": {
@@ -1359,6 +1466,46 @@
                 "type": "number",
                 "min": 0
               }
+            }
+          }
+        },
+        "resources": {
+          "type": "object",
+          "keys_ref": "resources",
+          "values": {
+            "type": "object",
+            "strict": true,
+            "required": [
+              "production",
+              "consumption"
+            ],
+            "properties": {
+              "production": {
+                "type": "number",
+                "min": 0
+              },
+              "consumption": {
+                "type": "number",
+                "min": 0
+              }
+            }
+          }
+        },
+        "water": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "renewable",
+            "withdrawal_ratio"
+          ],
+          "properties": {
+            "renewable": {
+              "type": "number",
+              "min": 0
+            },
+            "withdrawal_ratio": {
+              "type": "number",
+              "min": 0
             }
           }
         }
@@ -1890,6 +2037,19 @@
             "type": "int",
             "ref": "provinces"
           }
+        },
+        "trade": {
+          "type": "object",
+          "keys_ref": "resources",
+          "values": {
+            "type": "object",
+            "keys_ref": "countries",
+            "values": {
+              "type": "number",
+              "min": 0,
+              "max": 1
+            }
+          }
         }
       }
     }
@@ -2142,7 +2302,8 @@
       "required": [
         "name_key",
         "color",
-        "trend"
+        "trend",
+        "inputs"
       ],
       "properties": {
         "name_key": {
@@ -2156,6 +2317,15 @@
           "type": "number",
           "min": -20,
           "max": 20
+        },
+        "inputs": {
+          "type": "object",
+          "keys_ref": "resources",
+          "values": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          }
         }
       }
     }

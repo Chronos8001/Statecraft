@@ -29,6 +29,7 @@ var _notification_timer: SceneTreeTimer
 @onready var _selection_panel: CountrySelectionPanel = %CountrySelectionPanel
 @onready var _economy_panel: EconomyPanel = %EconomyPanel
 @onready var _budget_panel: BudgetPanel = %BudgetPanel
+@onready var _markets_panel: MarketsPanel = %MarketsPanel
 
 
 func _ready() -> void:
@@ -51,6 +52,7 @@ func _ready() -> void:
 	_selection_panel.play_requested.connect(_on_play_requested)
 	_top_bar.economy_requested.connect(_economy_panel.toggle)
 	_top_bar.budget_requested.connect(_budget_panel.toggle)
+	_top_bar.markets_requested.connect(_markets_panel.toggle)
 	EventBus.sim_event_raised.connect(_on_sim_event)
 	EventBus.month_passed.connect(_on_month_passed)
 	EventBus.year_passed.connect(_on_year_passed)
@@ -75,11 +77,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		_cycle_map_mode(-1 if event.is_action_pressed("ui_focus_prev") else 1)
 	elif event.is_action_pressed("ui_cancel"):
 		get_viewport().set_input_as_handled()
-		if _info_panel.visible or _country_panel.visible or _economy_panel.visible or _budget_panel.visible:
-			_info_panel.close()
-			_country_panel.close()
-			_economy_panel.close()
-			_budget_panel.close()
+		var panels: Array[InfoPanel] = [_info_panel, _country_panel, _economy_panel, _budget_panel, _markets_panel]
+		if panels.any(func(panel: InfoPanel) -> bool: return panel.visible):
+			for panel: InfoPanel in panels:
+				panel.close()
 		else:
 			get_tree().change_scene_to_file(TITLE_SCENE)
 
@@ -168,6 +169,14 @@ func _on_month_passed(date: GameDate) -> void:
 
 ## Événements économiques du pays joué : changement de note, défaut de paiement, FMI.
 func _on_sim_event(event: Dictionary) -> void:
+	# Événements mondiaux : visibles quel que soit le pays joué.
+	match event.get("type"):
+		ResourceSystem.EVENT_STRAIT_CLOSED:
+			_notify(tr("NOTIFY_STRAIT_CLOSED") % tr(_strait_name_key(str(event.get("strait", "")))))
+			return
+		ResourceSystem.EVENT_STRAIT_OPENED:
+			_notify(tr("NOTIFY_STRAIT_OPENED") % tr(_strait_name_key(str(event.get("strait", "")))))
+			return
 	if str(event.get("tag", "")) != str(GameState.sim.player_tag):
 		return
 	match event.get("type"):
@@ -182,6 +191,10 @@ func _on_sim_event(event: Dictionary) -> void:
 			_notify(tr("NOTIFY_IMF_PROGRAM"))
 		EconomySystem.EVENT_IMF_ENDED:
 			_notify(tr("NOTIFY_IMF_ENDED"))
+
+
+func _strait_name_key(strait_id: String) -> String:
+	return str(DataLoader.get_entry("straits", strait_id).get("name_key", strait_id))
 
 
 func _on_year_passed(date: GameDate) -> void:

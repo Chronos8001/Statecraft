@@ -121,7 +121,7 @@ static func step_country(economy: EconomyState, currency: CurrencyState, state: 
 		* float(settings["neutral_rate_convergence"])
 	# Impulsion budgétaire : un solde primaire plus faible qu'au départ soutient la demande (et l'inverse).
 	var fiscal_impulse := float(settings["fiscal_multiplier"]) * (economy.start_primary_balance - economy.primary_balance)
-	var growth := economy.potential_growth + economy.budget_growth + fiscal_impulse \
+	var growth := economy.potential_growth + economy.budget_growth + economy.resource_growth + fiscal_impulse \
 		+ EconomyModel.demand_effect(currency.policy_rate, economy.inflation, economy.neutral_real_rate, settings)
 	if economy.in_crisis():
 		growth += float(crisis["growth_shock"])
@@ -134,7 +134,7 @@ static func step_country(economy: EconomyState, currency: CurrencyState, state: 
 
 	var expected := EconomyModel.expected_inflation(economy.inflation, currency.inflation_target, currency.independent,
 		settings)
-	economy.inflation = clampf(EconomyModel.next_inflation(economy.inflation, expected + economy.budget_inflation,
+	economy.inflation = clampf(EconomyModel.next_inflation(economy.inflation, expected + economy.budget_inflation + economy.resource_inflation,
 		economy.output_gap,
 		currency.last_depreciation, settings), float(inflation_bounds[0]), float(inflation_bounds[1]))
 	economy.unemployment = clampf(EconomyModel.next_unemployment(economy.unemployment,

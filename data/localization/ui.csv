@@ -198,3 +198,43 @@ BUDGET_MONETARY_FINANCING,Money printing,Création monétaire
 BUDGET_MONETARY_FINANCING_TOOLTIP,"The central bank finances part of the deficit (% of GDP per year): less debt, but more inflation and a weaker currency.","La banque centrale finance une partie du déficit (% du PIB par an) : moins de dette, mais plus d'inflation et une monnaie plus faible."
 BUDGET_RESET,Reset,Rétablir
 BUDGET_RESET_TOOLTIP,Go back to the budget in force,Revenir au budget en vigueur
+# --- Marchés ---
+TOPBAR_MARKETS,Markets,Marchés
+TOPBAR_MARKETS_TOOLTIP,World prices of strategic resources,Prix mondiaux des ressources stratégiques
+MARKETS_TITLE,World resource markets,Marchés mondiaux des ressources
+MARKETS_HINT,"Monthly prices set by world supply and demand. Your balance: production / consumption. Self-sufficiency below 100%: you depend on imports.","Prix mensuels fixés par l'offre et la demande mondiales. Votre bilan : production / consommation. Autosuffisance sous 100 % : vous dépendez des importations."
+MARKETS_RESOURCE,Resource,Ressource
+MARKETS_PRICE,Price,Prix
+MARKETS_CHANGE,Since Jan. 2026,Depuis janv. 2026
+MARKETS_WORLD_PRODUCTION,World production,Production mondiale
+MARKETS_TOP_PRODUCERS,Top producers,Premiers producteurs
+MARKETS_OWN_BALANCE,Your production / consumption,Votre production / consommation
+MARKETS_SELF_SUFFICIENCY,Self-sufficiency,Autosuffisance
+MARKETS_BALANCE_VALUE,%s / %s,%s / %s
+MARKETS_PRODUCER_VALUE,%s %s%%,%s %s %%
+MARKETS_SHORTAGE_VALUE,(shortage %s%%),(pénurie %s %%)
+MARKETS_WATER_OK,"Water: withdrawals use %s%% of renewable resources.","Eau : les prélèvements utilisent %s %% des ressources renouvelables."
+MARKETS_WATER_STRESSED,"Water stress: withdrawals use %s%% of renewable resources.","Stress hydrique : les prélèvements utilisent %s %% des ressources renouvelables."
+MARKETS_DEBUG_STRAITS,[Development] Close straits to test supply shocks:,[Développement] Fermer des détroits pour tester les chocs :
+NOTIFY_STRAIT_CLOSED,%s is closed to shipping: prices are soaring,%s fermé à la navigation : les prix flambent
+NOTIFY_STRAIT_OPENED,%s is open to shipping again,%s rouvert à la navigation
+UNIT_PRICE_OIL,$%s/bbl,%s $/baril
+UNIT_PRICE_GAS,$%s per 1000 m³,%s $ les 1000 m³
+UNIT_PRICE_COAL,$%s/t,%s $/t
+UNIT_PRICE_URANIUM,$%s/t,%s $/t
+UNIT_PRICE_RARE_EARTHS,$%s/t,%s $/t
+UNIT_PRICE_LITHIUM,$%s/t,%s $/t
+UNIT_PRICE_COBALT,$%s/t,%s $/t
+UNIT_PRICE_SEMICONDUCTORS,Index %s,Indice %s
+UNIT_PRICE_WHEAT,$%s/t,%s $/t
+UNIT_PRICE_STEEL,$%s/t,%s $/t
+UNIT_QUANTITY_OIL,%s Mb/d,%s Mb/j
+UNIT_QUANTITY_GAS,%s bcm,%s Md m³
+UNIT_QUANTITY_COAL,%s Mt,%s Mt
+UNIT_QUANTITY_URANIUM,%s t,%s t
+UNIT_QUANTITY_RARE_EARTHS,%s kt,%s kt
+UNIT_QUANTITY_LITHIUM,%s kt,%s kt
+UNIT_QUANTITY_COBALT,%s kt,%s kt
+UNIT_QUANTITY_SEMICONDUCTORS,$%s bn,%s Md$
+UNIT_QUANTITY_WHEAT,%s Mt,%s Mt
+UNIT_QUANTITY_STEEL,%s Mt,%s Mt

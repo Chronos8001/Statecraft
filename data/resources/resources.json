@@ -2,52 +2,162 @@
   "oil": {
     "name_key": "RESOURCE_OIL",
     "strategic": true,
-    "color": "#2B2B2B"
+    "color": "#2B2B2B",
+    "market": {
+      "base_price": 62.0,
+      "unit_value": 22.63,
+      "price_unit_key": "UNIT_PRICE_OIL",
+      "quantity_unit_key": "UNIT_QUANTITY_OIL",
+      "demand_elasticity": 0.1,
+      "supply_elasticity": 0.08,
+      "income_elasticity": 0.4,
+      "demand_trend": -0.2,
+      "supply_trend": 0.9
+    }
   },
   "gas": {
     "name_key": "RESOURCE_GAS",
     "strategic": true,
-    "color": "#6FA8C7"
+    "color": "#6FA8C7",
+    "market": {
+      "base_price": 350.0,
+      "unit_value": 0.35,
+      "price_unit_key": "UNIT_PRICE_GAS",
+      "quantity_unit_key": "UNIT_QUANTITY_GAS",
+      "demand_elasticity": 0.15,
+      "supply_elasticity": 0.1,
+      "income_elasticity": 0.6,
+      "demand_trend": 0.2,
+      "supply_trend": 1.72
+    }
   },
   "uranium": {
     "name_key": "RESOURCE_URANIUM",
     "strategic": true,
-    "color": "#9BD14B"
+    "color": "#9BD14B",
+    "market": {
+      "base_price": 190000.0,
+      "unit_value": 0.00019,
+      "price_unit_key": "UNIT_PRICE_URANIUM",
+      "quantity_unit_key": "UNIT_QUANTITY_URANIUM",
+      "demand_elasticity": 0.05,
+      "supply_elasticity": 0.1,
+      "income_elasticity": 0.5,
+      "demand_trend": 2.0,
+      "supply_trend": 3.05
+    }
   },
   "coal": {
     "name_key": "RESOURCE_COAL",
     "strategic": true,
-    "color": "#5A4A3E"
+    "color": "#5A4A3E",
+    "market": {
+      "base_price": 110.0,
+      "unit_value": 0.11,
+      "price_unit_key": "UNIT_PRICE_COAL",
+      "quantity_unit_key": "UNIT_QUANTITY_COAL",
+      "demand_elasticity": 0.2,
+      "supply_elasticity": 0.15,
+      "income_elasticity": 0.2,
+      "demand_trend": -2.0,
+      "supply_trend": -1.26
+    }
   },
   "rare_earths": {
     "name_key": "RESOURCE_RARE_EARTHS",
     "strategic": true,
-    "color": "#B05CC4"
+    "color": "#B05CC4",
+    "market": {
+      "base_price": 5000.0,
+      "unit_value": 0.005,
+      "price_unit_key": "UNIT_PRICE_RARE_EARTHS",
+      "quantity_unit_key": "UNIT_QUANTITY_RARE_EARTHS",
+      "demand_elasticity": 0.2,
+      "supply_elasticity": 0.2,
+      "income_elasticity": 1.0,
+      "demand_trend": 5.0,
+      "supply_trend": 8.0
+    }
   },
   "lithium": {
     "name_key": "RESOURCE_LITHIUM",
     "strategic": true,
-    "color": "#E5E5E5"
+    "color": "#E5E5E5",
+    "market": {
+      "base_price": 53000.0,
+      "unit_value": 0.053,
+      "price_unit_key": "UNIT_PRICE_LITHIUM",
+      "quantity_unit_key": "UNIT_QUANTITY_LITHIUM",
+      "demand_elasticity": 0.3,
+      "supply_elasticity": 0.3,
+      "income_elasticity": 1.5,
+      "demand_trend": 15.0,
+      "supply_trend": 19.8
+    }
   },
   "cobalt": {
     "name_key": "RESOURCE_COBALT",
     "strategic": true,
-    "color": "#3D5FD1"
+    "color": "#3D5FD1",
+    "market": {
+      "base_price": 33000.0,
+      "unit_value": 0.033,
+      "price_unit_key": "UNIT_PRICE_COBALT",
+      "quantity_unit_key": "UNIT_QUANTITY_COBALT",
+      "demand_elasticity": 0.3,
+      "supply_elasticity": 0.2,
+      "income_elasticity": 1.0,
+      "demand_trend": 6.0,
+      "supply_trend": 9.0
+    }
   },
   "semiconductors": {
     "name_key": "RESOURCE_SEMICONDUCTORS",
     "strategic": true,
-    "color": "#3FB6A8"
+    "color": "#3FB6A8",
+    "market": {
+      "base_price": 1.0,
+      "unit_value": 1.0,
+      "price_unit_key": "UNIT_PRICE_SEMICONDUCTORS",
+      "quantity_unit_key": "UNIT_QUANTITY_SEMICONDUCTORS",
+      "demand_elasticity": 0.4,
+      "supply_elasticity": 0.2,
+      "income_elasticity": 1.2,
+      "demand_trend": 5.0,
+      "supply_trend": 8.6
+    }
   },
   "wheat": {
     "name_key": "RESOURCE_WHEAT",
     "strategic": true,
-    "color": "#E8C35A"
+    "color": "#E8C35A",
+    "market": {
+      "base_price": 230.0,
+      "unit_value": 0.23,
+      "price_unit_key": "UNIT_PRICE_WHEAT",
+      "quantity_unit_key": "UNIT_QUANTITY_WHEAT",
+      "demand_elasticity": 0.15,
+      "supply_elasticity": 0.15,
+      "income_elasticity": 0.2,
+      "demand_trend": 0.2,
+      "supply_trend": 0.92
+    }
   },
   "steel": {
     "name_key": "RESOURCE_STEEL",
     "strategic": true,
-    "color": "#8C96A3"
+    "color": "#8C96A3",
+    "market": {
+      "base_price": 500.0,
+      "unit_value": 0.5,
+      "price_unit_key": "UNIT_PRICE_STEEL",
+      "quantity_unit_key": "UNIT_QUANTITY_STEEL",
+      "demand_elasticity": 0.3,
+      "supply_elasticity": 0.3,
+      "income_elasticity": 0.6,
+      "demand_trend": 0.0,
+      "supply_trend": 2.04
+    }
   },
   "water": {
     "name_key": "RESOURCE_WATER",

@@ -44,6 +44,12 @@ var budget: BudgetState = BudgetState.new()
 var budget_growth: float = 0.0
 var budget_unemployment: float = 0.0
 var budget_inflation: float = 0.0
+## Effets des prix des ressources (points de croissance et d'inflation), recopiés par ResourceSystem.
+var resource_growth: float = 0.0
+var resource_inflation: float = 0.0
+## Valeur de la production de ressources par rapport à la normale (1 au départ) : indexe les taxes
+## sur les ressources.
+var resource_price_index: float = 1.0
 
 ## Note souveraine (indice dans CreditRating) et écart propre au pays, calé au départ.
 var rating: int = 0
