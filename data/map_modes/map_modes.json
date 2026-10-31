@@ -160,5 +160,36 @@
       ]
     ],
     "order": 11
+  },
+  "trade": {
+    "name_key": "MAPMODE_TRADE",
+    "kind": "trade",
+    "player_color": "#F2D16B",
+    "embargo_color": "#B23A3A",
+    "stops": [
+      [
+        0.0,
+        "#2A3140"
+      ],
+      [
+        0.02,
+        "#2F5F7A"
+      ],
+      [
+        0.08,
+        "#4B9BC4"
+      ],
+      [
+        0.2,
+        "#8FE0F0"
+      ]
+    ],
+    "legend_keys": [
+      "LEGEND_TRADE_NONE",
+      "LEGEND_TRADE_SMALL",
+      "LEGEND_TRADE_MEDIUM",
+      "LEGEND_TRADE_LARGE"
+    ],
+    "order": 12
   }
 }

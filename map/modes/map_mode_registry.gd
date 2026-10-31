@@ -41,6 +41,8 @@ static func create_mode(mode_id: String, definition: Dictionary) -> MapMode:
 			return ResourceMapMode.new(mode_id, definition)
 		"control":
 			return ControlMapMode.new(mode_id, definition)
+		"trade":
+			return TradeMapMode.new(mode_id, definition)
 	return null
 
 

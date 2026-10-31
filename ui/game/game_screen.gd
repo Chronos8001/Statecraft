@@ -8,6 +8,7 @@ const DEGREES_PER_TURN := 360.0
 const DEGREES_HALF_TURN := 180.0
 const BYTES_PER_MEGABYTE := 1048576.0
 const DEFAULT_MAP_MODE := "political"
+const LIVE_MAP_MODES := ["trade"]
 
 var _thread: Thread
 var _load_started_ms: int = 0
@@ -30,6 +31,7 @@ var _notification_timer: SceneTreeTimer
 @onready var _economy_panel: EconomyPanel = %EconomyPanel
 @onready var _budget_panel: BudgetPanel = %BudgetPanel
 @onready var _markets_panel: MarketsPanel = %MarketsPanel
+@onready var _trade_panel: TradePanel = %TradePanel
 
 
 func _ready() -> void:
@@ -53,8 +55,10 @@ func _ready() -> void:
 	_top_bar.economy_requested.connect(_economy_panel.toggle)
 	_top_bar.budget_requested.connect(_budget_panel.toggle)
 	_top_bar.markets_requested.connect(_markets_panel.toggle)
+	_top_bar.trade_requested.connect(_trade_panel.toggle)
 	EventBus.sim_event_raised.connect(_on_sim_event)
 	EventBus.month_passed.connect(_on_month_passed)
+	EventBus.command_executed.connect(func(_command: Command) -> void: _refresh_live_map_mode())
 	EventBus.year_passed.connect(_on_year_passed)
 	_thread = Thread.new()
 	_thread.start(func() -> ProvinceMapData: return ProvinceMapData.from_png_file(image_path))
@@ -77,7 +81,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		_cycle_map_mode(-1 if event.is_action_pressed("ui_focus_prev") else 1)
 	elif event.is_action_pressed("ui_cancel"):
 		get_viewport().set_input_as_handled()
-		var panels: Array[InfoPanel] = [_info_panel, _country_panel, _economy_panel, _budget_panel, _markets_panel]
+		var panels: Array[InfoPanel] = [_info_panel, _country_panel, _economy_panel, _budget_panel, _markets_panel,
+			_trade_panel]
 		if panels.any(func(panel: InfoPanel) -> bool: return panel.visible):
 			for panel: InfoPanel in panels:
 				panel.close()
@@ -162,7 +167,14 @@ func _focus_capital(tag: String, zoom: float) -> void:
 		_map_view.focus_on(Vector2(float(center[0]), float(center[1])), zoom)
 
 
+## Les modes qui dépendent de la partie (commerce) suivent les décisions et les mois.
+func _refresh_live_map_mode() -> void:
+	if LIVE_MAP_MODES.has(_current_mode_id):
+		set_map_mode(_current_mode_id)
+
+
 func _on_month_passed(date: GameDate) -> void:
+	_refresh_live_map_mode()
 	if date.month != 1:
 		_notify(tr("NOTIFY_NEW_MONTH") % [tr(DateFormat.month_key(date.month)), date.year])
 
@@ -191,6 +203,9 @@ func _on_sim_event(event: Dictionary) -> void:
 			_notify(tr("NOTIFY_IMF_PROGRAM"))
 		EconomySystem.EVENT_IMF_ENDED:
 			_notify(tr("NOTIFY_IMF_ENDED"))
+		TradeSystem.EVENT_AGREEMENT_LEFT:
+			var agreement := DataLoader.get_entry("trade_agreements", str(event.get("agreement", "")))
+			_notify(tr("NOTIFY_AGREEMENT_LEFT") % tr(str(agreement.get("name_key", ""))))
 
 
 func _strait_name_key(strait_id: String) -> String:
@@ -217,6 +232,7 @@ func set_map_mode(mode_id: String) -> void:
 	if mode == null or _map_view.camera == null:
 		return
 	_current_mode_id = mode_id
+	_mode_context.refresh_from_simulation(GameState.sim)
 	_map_view.set_province_colors(mode.compute_colors(_mode_context))
 	_mode_bar.set_current(mode_id)
 	_legend.show_mode(mode, _mode_context)

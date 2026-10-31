@@ -115,11 +115,25 @@ func test_control_mode_tints_occupied() -> void:
 	assert_eq(colors[2], Color.BLUE.lerp(Color.WHITE, 0.5), "occupée par BBB")
 
 
+func test_trade_mode_shows_partners_and_embargoes() -> void:
+	var definition := {"player_color": "#FFFFFF", "embargo_color": "#FF0000",
+		"stops": [[0.0, "#000000"], [1.0, "#00FF00"]]}
+	var context := _context()
+	context.player_tag = "BBB"
+	context.trade_shares = {"AAA": 1.0}
+	var colors := TradeMapMode.new("trade", definition).compute_colors(context)
+	assert_eq(colors[1], Color.GREEN, "premier partenaire")
+	context.embargoed = {"AAA": true}
+	colors = TradeMapMode.new("trade", definition).compute_colors(context)
+	assert_eq(colors[1], Color.RED, "embargo")
+
+
 func test_registry_builds_all_game_modes_in_order() -> void:
 	var registry := MapModeRegistry.from_definitions(DataLoader.get_category("map_modes"))
-	assert_eq(registry.modes.size(), 11)
+	assert_eq(registry.modes.size(), 12)
 	assert_eq(registry.modes[0].id, "political")
 	assert_eq(registry.index_of("stability"), 10)
+	assert_eq(registry.index_of("trade"), 11)
 	var context := MapModeContext.from_game_data()
 	for mode: MapMode in registry.modes:
 		assert_eq(mode.compute_colors(context).size(), context.max_id + 1, mode.id)
