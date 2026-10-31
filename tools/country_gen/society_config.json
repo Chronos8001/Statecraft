@@ -1,0 +1,244 @@
+{
+  "as_of": "2026-01-01T00:00:00Z",
+  "wikipedia_pages": {
+    "fragility": "List_of_countries_by_Fragile_States_Index",
+    "corruption": "Corruption_Perceptions_Index",
+    "democracy": "The_Economist_Democracy_Index",
+    "median_age": "List_of_countries_by_median_age",
+    "religion": "Importance_of_religion_by_country",
+    "diversity": "List_of_countries_by_ethnic_and_cultural_diversity_level",
+    "inequality": "List_of_countries_by_income_inequality"
+  },
+  "defaults": {
+    "fragility": 75.0,
+    "corruption_index": 35.0,
+    "democracy": 4.0,
+    "median_age": 30.0,
+    "religiosity": 0.6,
+    "fractionalization": 0.3,
+    "gini": 38.0
+  },
+  "manual": {
+    "comment": "Indicateurs saisis quand les tableaux n'ont pas le pays (religiosity : estimations proches des enquêtes Gallup).",
+    "TWN": {
+      "fragility": 25.0,
+      "democracy": 8.8,
+      "religiosity": 0.45
+    },
+    "KOS": {
+      "fragility": 65.0,
+      "democracy": 6.0
+    },
+    "PSE": {
+      "fragility": 85.0,
+      "democracy": 2.5
+    },
+    "CYN": {
+      "fragility": 55.0,
+      "democracy": 6.0
+    },
+    "SOL": {
+      "fragility": 80.0,
+      "democracy": 4.0
+    },
+    "VAT": {
+      "fragility": 10.0,
+      "democracy": 1.0,
+      "corruption_index": 70.0
+    },
+    "CHN": {
+      "religiosity": 0.1
+    },
+    "AUS": {
+      "religiosity": 0.32
+    },
+    "NLD": {
+      "religiosity": 0.33
+    },
+    "NOR": {
+      "religiosity": 0.21
+    },
+    "CZE": {
+      "religiosity": 0.21
+    },
+    "FIN": {
+      "religiosity": 0.28
+    },
+    "BEL": {
+      "religiosity": 0.33
+    },
+    "AUT": {
+      "religiosity": 0.4
+    },
+    "PRT": {
+      "religiosity": 0.72
+    },
+    "SVK": {
+      "religiosity": 0.5
+    },
+    "BGR": {
+      "religiosity": 0.34
+    },
+    "IRN": {
+      "religiosity": 0.83
+    },
+    "ETH": {
+      "religiosity": 0.98
+    },
+    "CUB": {
+      "religiosity": 0.4
+    },
+    "NZL": {
+      "religiosity": 0.33
+    },
+    "PRK": {
+      "religiosity": 0.05
+    },
+    "MMR": {
+      "religiosity": 0.96
+    },
+    "LAO": {
+      "religiosity": 0.85
+    },
+    "JOR": {
+      "religiosity": 0.95
+    },
+    "OMN": {
+      "religiosity": 0.95
+    },
+    "LBY": {
+      "religiosity": 0.97
+    },
+    "AGO": {
+      "religiosity": 0.88
+    },
+    "BEN": {
+      "religiosity": 0.95
+    },
+    "BFA": {
+      "religiosity": 0.97
+    },
+    "GIN": {
+      "religiosity": 0.97
+    },
+    "HTI": {
+      "religiosity": 0.96
+    },
+    "LBR": {
+      "religiosity": 0.95
+    },
+    "MDG": {
+      "religiosity": 0.95
+    },
+    "MOZ": {
+      "religiosity": 0.9
+    },
+    "PNG": {
+      "religiosity": 0.95
+    },
+    "SLE": {
+      "religiosity": 0.97
+    },
+    "TGO": {
+      "religiosity": 0.9
+    },
+    "SOM": {
+      "religiosity": 0.98
+    },
+    "SSD": {
+      "religiosity": 0.95
+    },
+    "COG": {
+      "religiosity": 0.9
+    },
+    "CAF": {
+      "religiosity": 0.92
+    }
+  },
+  "group_rules": {
+    "retirees": {
+      "per_year_over": 17.0,
+      "slope": 0.009,
+      "min": 0.02,
+      "max": 0.35
+    },
+    "youth": {
+      "base": 0.35,
+      "slope": 0.005,
+      "min": 0.08,
+      "max": 0.3
+    },
+    "farmers": {
+      "factor": 2.5,
+      "min": 0.01,
+      "max": 0.5
+    },
+    "military": {
+      "factor": 3.0,
+      "min": 0.003,
+      "max": 0.05
+    },
+    "religious": {
+      "factor": 0.2
+    },
+    "minorities": {
+      "factor": 0.25
+    },
+    "ecologists": {
+      "rich": 0.06,
+      "middle": 0.03,
+      "poor": 0.01
+    },
+    "elites": {
+      "base": 0.02,
+      "per_gini_point": 0.001,
+      "gini_reference": 30.0,
+      "min": 0.01,
+      "max": 0.06
+    },
+    "workers_share": {
+      "base": 0.7,
+      "slope": 0.07,
+      "min": 0.25,
+      "max": 0.75
+    },
+    "min_remainder": 0.15,
+    "rich_gdp_per_capita": 30000,
+    "middle_gdp_per_capita": 4000
+  },
+  "approval": {
+    "comment": "Popularité du gouvernement fin 2025 (sondages, %) pour les grands pays ; sinon 30 + 0,25 × stabilité.",
+    "USA": 41,
+    "CHN": 75,
+    "FRA": 22,
+    "DEU": 30,
+    "GBR": 22,
+    "JPN": 60,
+    "ITA": 43,
+    "CAN": 50,
+    "IND": 70,
+    "BRA": 47,
+    "RUS": 78,
+    "MEX": 70,
+    "KOR": 55,
+    "AUS": 48,
+    "ESP": 35,
+    "TUR": 38,
+    "IDN": 75,
+    "SAU": 70,
+    "ARG": 45,
+    "ZAF": 45,
+    "NGA": 30,
+    "PAK": 40,
+    "EGY": 50,
+    "IRN": 30,
+    "ISR": 35,
+    "UKR": 60,
+    "POL": 38,
+    "TWN": 40,
+    "VNM": 70,
+    "PRK": 85,
+    "default_base": 30.0,
+    "default_per_stability": 0.25
+  }
+}

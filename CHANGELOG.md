@@ -6,6 +6,18 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 ## [Unreleased]
 
+### Ajouté
+- 10 groupes sociaux par pays (ouvriers, classes moyennes, élites économiques, agriculteurs, retraités, jeunes, militaires, religieux, minorités, écologistes) : part de la population, poids politique selon le régime, satisfaction.
+- La satisfaction des groupes part de la popularité réelle du gouvernement et réagit au budget, au chômage, à l'inflation, à la croissance, aux coupures d'électricité et aux nationalisations.
+- Indicateurs nationaux : stabilité (Fragile States Index 2024), soutien populaire, légitimité (régime et Democracy Index), corruption (indice de perception de la corruption 2024). Une stabilité en baisse freine la croissance.
+- Panneau Société (bouton dans la barre supérieure) ; stabilité et soutien populaire affichés dans la barre supérieure.
+- Mode de carte « Soutien populaire » ; le mode « Stabilité » suit la partie en cours.
+- Outil de génération des sociétés (`tools/country_gen/generate_society.py`).
+
+### Modifié
+- Les effets du budget sur la stabilité et les groupes sociaux s'appliquent désormais.
+- La barre supérieure masque les indicateurs qui ne sont pas encore calculés.
+
 ## [0.4.0] - 2026-10-31
 
 ### Ajouté

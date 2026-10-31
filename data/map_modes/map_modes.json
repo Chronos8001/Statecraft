@@ -144,7 +144,7 @@
     "kind": "country_gradient",
     "value": "stability",
     "logarithmic": false,
-    "unit_key": "",
+    "unit_key": "MAPMODE_UNIT_SCORE",
     "stops": [
       [
         0,
@@ -160,6 +160,28 @@
       ]
     ],
     "order": 11
+  },
+  "support": {
+    "name_key": "MAPMODE_SUPPORT",
+    "kind": "country_gradient",
+    "value": "support",
+    "logarithmic": false,
+    "unit_key": "MAPMODE_UNIT_SCORE",
+    "stops": [
+      [
+        10,
+        "#7A2E5C"
+      ],
+      [
+        40,
+        "#D9A35B"
+      ],
+      [
+        70,
+        "#4F8FC0"
+      ]
+    ],
+    "order": 12
   },
   "trade": {
     "name_key": "MAPMODE_TRADE",
@@ -190,6 +212,6 @@
       "LEGEND_TRADE_MEDIUM",
       "LEGEND_TRADE_LARGE"
     ],
-    "order": 12
+    "order": 13
   }
 }

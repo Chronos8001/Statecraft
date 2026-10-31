@@ -14,6 +14,8 @@ var relations: Dictionary = {}
 ## Part de chaque pays dans les échanges du joueur (tag → 0..1) et pays sous embargo avec lui (tag → true).
 var trade_shares: Dictionary = {}
 var embargoed: Dictionary = {}
+## Valeurs de la partie en cours par pays, lues par les dégradés : nom → {tag: valeur} (stabilité, soutien…).
+var country_values: Dictionary = {}
 var player_tag: String = ""
 var max_id: int = 0
 var sea_color: Color = Color.BLACK
@@ -43,6 +45,7 @@ func refresh_from_simulation(state: SimState) -> void:
 	player_tag = str(state.player_tag)
 	trade_shares.clear()
 	embargoed.clear()
+	_refresh_society(state)
 	if player_tag.is_empty() or state.trade.start_flows.is_empty():
 		return
 	var totals := TradeSystem.partner_totals(state, player_tag)
@@ -55,6 +58,20 @@ func refresh_from_simulation(state: SimState) -> void:
 		if state.trade.trade_blocked(player_tag, tag) or not state.trade.embargo_goods(player_tag, tag).is_empty() \
 				or not state.trade.embargo_goods(tag, player_tag).is_empty():
 			embargoed[tag] = true
+
+
+func _refresh_society(state: SimState) -> void:
+	country_values.clear()
+	var stability: Dictionary = {}
+	var support: Dictionary = {}
+	for tag: String in state.countries.keys():
+		var society: SocietyState = (state.countries[tag] as CountryState).society
+		if not society.group_shares.is_empty():
+			stability[tag] = society.stability
+			support[tag] = society.support
+	if not stability.is_empty():
+		country_values["stability"] = stability
+		country_values["support"] = support
 
 
 ## Tableau de couleurs prêt à remplir : mer pour l'id 0 et les zones maritimes, « sans propriétaire » ailleurs.

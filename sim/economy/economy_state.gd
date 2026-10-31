@@ -57,6 +57,8 @@ var trade_inflation: float = 0.0
 var trade_customs: float = 0.0
 ## Effet des coupures d'électricité sur la croissance (points) et dépenses des chantiers (% du PIB).
 var energy_growth: float = 0.0
+## Croissance perdue quand la stabilité baisse (société).
+var society_growth: float = 0.0
 var project_spending: float = 0.0
 ## Propriété publique, IDE et fonds souverain ; effets sur la croissance (points) et les recettes (% du PIB).
 var investment: InvestmentState = InvestmentState.new()

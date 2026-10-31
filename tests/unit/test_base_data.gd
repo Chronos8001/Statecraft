@@ -343,8 +343,11 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 		"settings": _repository.get_value("defines", "trade", {})}
 	WorldSetup.populate(state, _repository.get_category("countries"), _repository.get_category("currencies"), settings,
 		budget_definitions, _repository.get_category("resources"), resource_definitions, trade_definitions,
-		_energy_definitions(), _repository.get_value("defines", "investment", {}))
+		_energy_definitions(), _repository.get_value("defines", "investment", {}), {
+			"groups": _repository.get_category("social_groups"), "regimes": _repository.get_category("regimes"),
+			"ideologies": _repository.get_category("ideologies"), "settings": _repository.get_value("defines", "society", {})})
 	var investment_system := InvestmentSystem.new()
+	var society_system := SocietySystem.new()
 	var energy_system := EnergySystem.new()
 	var resource_system := ResourceSystem.new()
 	var trade_system := TradeSystem.new()
@@ -359,6 +362,7 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 		investment_system.on_month(state)
 		budget_system.on_month(state)
 		system.on_month(state)
+		society_system.on_month(state)
 		for event: Dictionary in state.events:
 			if event["type"] == EconomySystem.EVENT_DEBT_CRISIS:
 				crises += 1
@@ -389,6 +393,16 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 		if country.energy.blackout > 0.0:
 			blackouts += 1
 	assert_lt(blackouts, 10, "l'IA garde de la marge électrique")
+	# La société reste dans ses bornes et ne s'effondre pas sans raison chez les grandes puissances.
+	for country: CountryState in state.countries.values():
+		var society := country.society
+		assert_false(is_nan(society.support) or is_nan(society.stability), country.tag)
+		assert_between(society.support, 0.0, 100.0, "soutien de %s" % country.tag)
+		assert_between(society.stability, 0.0, 100.0, "stabilité de %s" % country.tag)
+	for tag: String in ["USA", "CHN", "DEU", "FRA", "JPN", "GBR", "IND"]:
+		var society: SocietyState = state.countries[tag].society
+		assert_gt(society.stability, society.start_stability - 15.0, "stabilité de %s" % tag)
+		assert_between(society.support, society.start_support - 20.0, society.start_support + 20.0, "soutien de %s" % tag)
 	var ukraine: EconomyState = state.countries["UKR"].economy
 	assert_lt(ukraine.debt_ratio(state.get_currency(ukraine.currency)), 2.5, "dette de l'Ukraine")
 

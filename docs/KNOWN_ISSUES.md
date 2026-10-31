@@ -12,11 +12,11 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Terrain estimé (régions géographiques + latitude). | 1 | Ouvert |
 | 🟢 | Quelques noms français de Natural Earth sont approximatifs ; corrections possibles dans `tools/map_gen/config.json`. | 1 | Ouvert |
 | 🟢 | La carte demande une carte graphique acceptant les textures 16384 px et ~270 Mo de mémoire vidéo ; chargement ~3 s, rechargée à chaque nouvelle partie. | 1 | Ouvert |
-| 🟢 | Modes relations et stabilité neutres ; ressources vides. Ils se rempliront avec les étapes 4c, 5 et 6. | 4–6 | Ouvert |
+| 🟢 | Mode relations neutre ; il se remplira avec la diplomatie. | 6 | Ouvert |
 | 🟢 | Les noms de pays voisins peuvent se chevaucher (pas encore d'évitement des collisions). | 13 | Ouvert |
 | 🟢 | En zoom maximal, les contours suivent la précision de l'image (~2 km par pixel) : lissés mais encore un peu anguleux. | 1 | Ouvert |
 | 🟢 | Secteurs d'océan de tailles inégales ; rives du détroit de Taïwan trop larges (provinces de l'intérieur incluses). | 1 | Ouvert |
-| 🟢 | Les ressources de la barre supérieure (trésorerie, stabilité, soutien, puissance militaire, influence) affichent « — » jusqu'aux étapes économie, politique, militaire et diplomatie. | 4–7 | Ouvert |
+| 🟢 | Puissance militaire et influence masquées dans la barre supérieure jusqu'aux étapes militaire et diplomatie. | 6–7 | Ouvert |
 | 🟢 | Population de l'Ukraine (28,7 millions, territoire contrôlé) répartie aussi sur les provinces occupées ; PIB et dette estimés pour quelques pays sans source (Corée du Nord, Somaliland, Chypre du Nord, Syrie…). | 3 | Ouvert |
 | 🟢 | Pas encore de portraits des personnages (portraits génériques prévus avec l'interface). | 13 | Ouvert |
 | 🟢 | Seuls les partis au pouvoir et leurs partenaires existent ; l'opposition, les scores et les sondages arrivent avec la politique intérieure. | 5 | Ouvert |
@@ -42,3 +42,7 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟠 | Un mois de simulation prend environ 340 ms (marché des ressources, budget, électricité) : à-coup sensible en vitesse maximale ; calculs à étaler sur plusieurs images ou fils de calcul. | 15 | Ouvert |
 | 🟢 | Parts publiques en partie estimées par des règles ; les pays de l'IA ne nationalisent ni ne privatisent (étape 12). Les effets sur les groupes sociaux sont décrits mais appliqués à l'étape 5. | 4d2 | Ouvert |
 | 🟢 | Fonds souverains : rendement fixe, pas encore de placements ciblés par pays (diplomatie, étape 6). | 6 | Ouvert |
+| 🟢 | Société estimée : parts des groupes calculées par règles ; popularité saisie pour 30 grands pays seulement ; place de la religion estimée pour une quarantaine de pays absents de l'enquête Gallup ; micro-États souvent sur valeurs par défaut. | 5a | Ouvert |
+| 🟢 | Sans action du joueur, la stabilité dérive encore jusqu'à ±14 points en 10 ans dans quelques pays (Timor oriental, Angola, Palestine) sous l'effet de l'économie. | 5a | Ouvert |
+| 🟢 | Le panneau Société recouvre la légende de la carte. | 13 | Ouvert |
+

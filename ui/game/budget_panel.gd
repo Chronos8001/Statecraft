@@ -12,7 +12,9 @@ const RATE_STEP := 0.5
 const SPENDING_STEP := 0.1
 const CARBON_STEP := 5.0
 const ECONOMIC_KEYS := ["growth", "unemployment", "inflation"]
-const PENDING_KEYS := ["stability", "research", "military", "influence"]
+## Effets qui jouent dès maintenant hors économie (société) ; les autres attendent leurs étapes.
+const SOCIETY_KEYS := ["stability"]
+const PENDING_KEYS := ["research", "military", "influence"]
 const POSITIVE_COLOR := Color(0.55, 0.85, 0.55)
 const NEGATIVE_COLOR := Color(0.95, 0.5, 0.45)
 
@@ -193,13 +195,15 @@ func _show_effects(effects: Dictionary) -> void:
 	_clear_rows(_effects_grid)
 	for key: String in ECONOMIC_KEYS:
 		_add_effect("BUDGET_EFFECT_%s" % key.to_upper(), float(effects.get(key, 0.0)), key != "growth")
+	for key: String in SOCIETY_KEYS:
+		_add_effect("BUDGET_EFFECT_%s" % key.to_upper(), float(effects.get(key, 0.0)), false)
 	for key: String in PENDING_KEYS:
 		_add_effect("BUDGET_EFFECT_%s" % key.to_upper(), float(effects.get(key, 0.0)), false, true)
 	var groups: Dictionary = effects.get(BudgetModel.GROUPS, {})
 	var names := DataLoader.get_category("social_groups")
 	for group_id: String in names.keys():
 		if groups.has(group_id):
-			_add_effect(str((names[group_id] as Dictionary).get("name_key", group_id)), float(groups[group_id]), false, true)
+			_add_effect(str((names[group_id] as Dictionary).get("name_key", group_id)), float(groups[group_id]), false)
 
 
 ## inverted : une hausse est mauvaise (chômage, inflation). pending : effet appliqué par une étape future.

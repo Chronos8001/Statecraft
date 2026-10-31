@@ -7,3 +7,4 @@ var tag: String = ""
 var economy: EconomyState = EconomyState.new()
 var resources: CountryResources = CountryResources.new()
 var energy: EnergyState = EnergyState.new()
+var society: SocietyState = SocietyState.new()

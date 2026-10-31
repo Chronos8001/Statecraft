@@ -1,12 +1,12 @@
 {
-  "workers": {"name_key": "GROUP_WORKERS"},
-  "middle_class": {"name_key": "GROUP_MIDDLE_CLASS"},
-  "elites": {"name_key": "GROUP_ELITES"},
-  "farmers": {"name_key": "GROUP_FARMERS"},
-  "retirees": {"name_key": "GROUP_RETIREES"},
-  "youth": {"name_key": "GROUP_YOUTH"},
-  "military": {"name_key": "GROUP_MILITARY"},
-  "religious": {"name_key": "GROUP_RELIGIOUS"},
-  "minorities": {"name_key": "GROUP_MINORITIES"},
-  "ecologists": {"name_key": "GROUP_ECOLOGISTS"}
+  "workers": {"name_key": "GROUP_WORKERS", "influence": 1.0, "affinity": {"left": 12, "social_democrat": 8, "liberal": -6, "conservative": -4, "national": 2}, "reactions": {"unemployment": -4.0, "inflation": -2.0, "growth": 1.0, "blackout": -50.0, "public_ownership": 20.0}},
+  "middle_class": {"name_key": "GROUP_MIDDLE_CLASS", "influence": 1.5, "affinity": {"social_democrat": 4, "liberal": 6, "conservative": 4, "left": -6, "power": -4}, "reactions": {"unemployment": -2.5, "inflation": -2.5, "growth": 1.5, "blackout": -60.0, "public_ownership": -5.0}},
+  "elites": {"name_key": "GROUP_ELITES", "influence": 4.0, "affinity": {"liberal": 10, "conservative": 10, "power": 4, "left": -20, "social_democrat": -4}, "reactions": {"unemployment": -0.5, "inflation": -1.5, "growth": 3.0, "blackout": -40.0, "public_ownership": -60.0}},
+  "farmers": {"name_key": "GROUP_FARMERS", "influence": 1.2, "affinity": {"conservative": 6, "national": 6, "religious": 4, "green": -6, "liberal": -4}, "reactions": {"unemployment": -1.0, "inflation": -1.5, "growth": 1.0, "blackout": -30.0, "public_ownership": 5.0}},
+  "retirees": {"name_key": "GROUP_RETIREES", "influence": 1.3, "affinity": {"conservative": 6, "christian_democrat": 6, "social_democrat": 3, "green": -4, "left": -2}, "reactions": {"unemployment": -0.5, "inflation": -3.5, "growth": 0.5, "blackout": -60.0, "public_ownership": 0.0}},
+  "youth": {"name_key": "GROUP_YOUTH", "influence": 0.8, "affinity": {"green": 10, "left": 6, "liberal": 4, "conservative": -6, "power": -8, "religious": -6}, "reactions": {"unemployment": -5.0, "inflation": -1.0, "growth": 1.5, "blackout": -40.0, "public_ownership": 0.0}},
+  "military": {"name_key": "GROUP_MILITARY", "influence": 2.0, "affinity": {"national": 10, "power": 10, "conservative": 4, "green": -8, "left": -6}, "reactions": {"unemployment": 0.0, "inflation": -1.0, "growth": 0.5, "blackout": -20.0, "public_ownership": 0.0}},
+  "religious": {"name_key": "GROUP_RELIGIOUS", "influence": 1.5, "affinity": {"religious": 15, "conservative": 8, "national": 4, "liberal": -6, "left": -10, "green": -4}, "reactions": {"unemployment": -1.0, "inflation": -1.0, "growth": 0.5, "blackout": -30.0, "public_ownership": 0.0}},
+  "minorities": {"name_key": "GROUP_MINORITIES", "influence": 0.6, "affinity": {"social_democrat": 6, "left": 4, "liberal": 4, "national": -15, "religious": -6}, "reactions": {"unemployment": -3.0, "inflation": -1.5, "growth": 1.0, "blackout": -40.0, "public_ownership": 0.0}},
+  "ecologists": {"name_key": "GROUP_ECOLOGISTS", "influence": 1.0, "affinity": {"green": 20, "social_democrat": 4, "left": 2, "national": -8, "conservative": -4, "power": -6}, "reactions": {"unemployment": -1.0, "inflation": -0.5, "growth": 0.0, "blackout": -20.0, "public_ownership": 5.0}}
 }

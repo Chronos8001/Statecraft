@@ -8,14 +8,18 @@ signal markets_requested
 signal trade_requested
 signal energy_requested
 signal investment_requested
+signal society_requested
 
 const TREASURY_INDEX := 0
+const STABILITY_INDEX := 1
+const SUPPORT_INDEX := 2
 const STAT_KEYS := ["TOPBAR_TREASURY", "TOPBAR_STABILITY", "TOPBAR_SUPPORT", "TOPBAR_MILITARY", "TOPBAR_INFLUENCE"]
 const PIP_ON := "■"
 const PIP_OFF := "□"
 const PAUSE_SYMBOL := "❚❚"
 const PLAY_SYMBOL := "▶"
 
+var _stat_names: Array[Label] = []
 var _stat_values: Array[Label] = []
 
 @onready var _date_label: Label = %DateLabel
@@ -32,6 +36,7 @@ var _stat_values: Array[Label] = []
 @onready var _trade_button: Button = %TradeButton
 @onready var _energy_button: Button = %EnergyButton
 @onready var _investment_button: Button = %InvestmentButton
+@onready var _society_button: Button = %SocietyButton
 
 
 func _ready() -> void:
@@ -44,6 +49,7 @@ func _ready() -> void:
 	_trade_button.pressed.connect(func() -> void: trade_requested.emit())
 	_energy_button.pressed.connect(func() -> void: energy_requested.emit())
 	_investment_button.pressed.connect(func() -> void: investment_requested.emit())
+	_society_button.pressed.connect(func() -> void: society_requested.emit())
 	EventBus.month_passed.connect(func(_date: GameDate) -> void: _update_country())
 	EventBus.command_executed.connect(func(_command: Command) -> void: _update_country())
 	EventBus.hour_passed.connect(func(_date: GameDate) -> void: _update_date())
@@ -66,6 +72,7 @@ func _build_stats() -> void:
 		name_label.text = key
 		name_label.add_theme_color_override("font_color", InfoPanel.LABEL_COLOR)
 		_stats_row.add_child(name_label)
+		_stat_names.append(name_label)
 		var value_label := Label.new()
 		value_label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 		value_label.custom_minimum_size.x = 24.0
@@ -89,8 +96,8 @@ func _update_speed() -> void:
 	_faster_button.disabled = GameClock.speed >= GameClock.get_speed_count()
 
 
-## Pays joué et ses ressources. Trésorerie : solde budgétaire annuel ; les autres valeurs restent « — »
-## tant que les systèmes qui les calculent n'existent pas.
+## Pays joué et ses ressources. Trésorerie : solde budgétaire annuel ; stabilité et soutien populaire sur 100.
+## Les valeurs que rien ne calcule encore sont masquées.
 func _update_country() -> void:
 	var tag := str(GameState.sim.player_tag)
 	var country := DataLoader.get_entry("countries", tag)
@@ -110,3 +117,16 @@ func _update_country() -> void:
 			NumberFormat.integer(roundi(balance), Localization.get_locale())]
 		treasury.tooltip_text = tr("TOPBAR_BALANCE_TOOLTIP")
 		treasury.mouse_filter = Control.MOUSE_FILTER_STOP
+	if state != null and not state.society.group_shares.is_empty() and _stat_values.size() > SUPPORT_INDEX:
+		_set_score(_stat_values[STABILITY_INDEX], state.society.stability, "TOPBAR_STABILITY_TOOLTIP")
+		_set_score(_stat_values[SUPPORT_INDEX], state.society.support, "TOPBAR_SUPPORT_TOOLTIP")
+	for index: int in _stat_values.size():
+		var known := _stat_values[index].text != tr("TOPBAR_UNKNOWN")
+		_stat_names[index].visible = known
+		_stat_values[index].visible = known
+
+
+func _set_score(value_label: Label, value: float, tooltip_key: String) -> void:
+	value_label.text = tr("TOPBAR_SCORE_VALUE") % roundi(value)
+	value_label.tooltip_text = tr(tooltip_key)
+	value_label.mouse_filter = Control.MOUSE_FILTER_STOP

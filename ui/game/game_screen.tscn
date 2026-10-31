@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3]
+[gd_scene load_steps=16 format=3]
 
 [ext_resource type="Script" path="res://ui/game/game_screen.gd" id="1_game"]
 [ext_resource type="PackedScene" path="res://map/map_view.tscn" id="2_map"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" path="res://ui/game/trade_panel.tscn" id="12_trade"]
 [ext_resource type="PackedScene" path="res://ui/game/energy_panel.tscn" id="13_energy"]
 [ext_resource type="PackedScene" path="res://ui/game/investment_panel.tscn" id="14_investment"]
+[ext_resource type="PackedScene" path="res://ui/game/society_panel.tscn" id="15_society"]
 
 [node name="GameScreen" type="Control"]
 layout_mode = 3
@@ -60,6 +61,11 @@ visible = false
 layout_mode = 1
 
 [node name="InvestmentPanel" parent="." instance=ExtResource("14_investment")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="SocietyPanel" parent="." instance=ExtResource("15_society")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
