@@ -482,3 +482,25 @@ LAWS_ALREADY,Already in force.,Déjà en vigueur.
 LAWS_COOLDOWN,This law was voted on recently.,Cette loi a été votée récemment.
 NOTIFY_LAW_PASSED,Law passed: %s.,Loi adoptée : %s.
 NOTIFY_LAW_REJECTED,Bill rejected by the chamber: %s.,Projet rejeté par la chambre : %s.
+LAW_CATEGORY_CONSTITUTION,Constitution,Constitution
+CONSTITUTION_REFERENDUM,Referendum,Référendum
+CONSTITUTION_REFERENDUM_TOOLTIP,Ask the people: vote in two months.,Consulter le peuple : vote dans deux mois.
+CONSTITUTION_REFERENDUM_ESTIMATE,Referendum: about %s%% yes expected.,Référendum : environ %s %% de oui attendus.
+CONSTITUTION_REFERENDUM_PENDING_VALUE,Referendum planned: %s.,Référendum prévu : %s.
+CONSTITUTION_NO_PRESIDENCY,No elected president.,Pas de président élu.
+CONSTITUTION_NOT_REPUBLIC,Only for republics.,Réservé aux républiques.
+CONSTITUTION_REFERENDUM_PENDING,A referendum is already planned.,Un référendum est déjà prévu.
+CONSTITUTION_NO_REFERENDUM,No free referendum under this regime.,Pas de référendum libre sous ce régime.
+CONSTITUTION_NO_MAJORITY,The government has no majority in the chamber.,Le gouvernement n'a pas de majorité à la chambre.
+CONSTITUTION_EMERGENCY_ON,State of emergency: %d months left,État d'urgence : encore %d mois
+CONSTITUTION_EMERGENCY_OFF,No state of emergency,Pas d'état d'urgence
+CONSTITUTION_EMERGENCY_DECLARE,Declare a state of emergency,Déclarer l'état d'urgence
+CONSTITUTION_EMERGENCY_LIFT,Lift the state of emergency,Lever l'état d'urgence
+CONSTITUTION_EMERGENCY_TOOLTIP,"Six months: more stability, less growth, elections postponed; legitimacy erodes in a democracy.","Six mois : plus de stabilité, moins de croissance, élections repoussées ; la légitimité s'use en démocratie."
+NOTIFY_REFORM_ADOPTED,Constitutional reform adopted: %s.,Réforme constitutionnelle adoptée : %s.
+NOTIFY_REFORM_REJECTED,Constitutional reform rejected: %s.,Réforme constitutionnelle rejetée : %s.
+NOTIFY_REFERENDUM_CALLED,Referendum called: vote in two months.,Référendum convoqué : vote dans deux mois.
+NOTIFY_REFERENDUM_YES,Referendum: yes wins with %s%%.,Référendum : le oui l'emporte avec %s %%.
+NOTIFY_REFERENDUM_NO,Referendum: no wins (%s%% yes).,Référendum : le non l'emporte (%s %% de oui).
+NOTIFY_EMERGENCY_ON,State of emergency declared.,État d'urgence déclaré.
+NOTIFY_EMERGENCY_OFF,State of emergency over.,Fin de l'état d'urgence.
