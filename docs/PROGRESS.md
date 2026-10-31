@@ -10,7 +10,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 | 3 | Les pays en 2026 | ✅ | v0.3.0 | 2026-10-30 | v0.3.0 |
 | 4 | Économie | ✅ | v0.4.0 | 2026-10-31 | v0.4.0 |
 | 5 | Politique intérieure | ✅ | v0.5.0 | 2026-10-31 | v0.5.0 |
-| 6 | Diplomatie | ⬜ | v0.6.0 | | |
+| 6 | Diplomatie | 🟨 | v0.6.0 | | |
 | 7 | Militaire (version simplifiée) | ⬜ | v0.7.0 | | |
 | 8 | Recherche et technologie | ⬜ | v0.8.0 | | |
 | 9 | Arbres de décisions nationales et événements | ⬜ | v0.9.0 | | |
@@ -205,14 +205,30 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Propagande à trois niveaux (coût mensuel, satisfaction des groupes, sondages ; use la légitimité en démocratie)
 - [x] Désinformation : salir l'opposition ou déstabiliser un pays étranger, risque d'être démasqué
 
-## Étape 6 — Diplomatie ⬜
-- [ ] Relations bilatérales (-100 à +100), opinion publique étrangère, confiance
-- [ ] Actions : relations, visites d'État, ambassades, traités, reconnaissance, garanties, ultimatums
-- [ ] Organisations internationales : ONU (Assemblée, Conseil de sécurité, veto), alliances, unions, cartels ; adhésion, exclusion, création
-- [ ] Sanctions, gel d'avoirs, exclusion des systèmes de paiement
-- [ ] Aide économique, humanitaire, militaire, prêts, conseillers
-- [ ] Sphères d'influence et points d'influence
-- [ ] Revendications territoriales et jauge de tension mondiale
+## Étape 6 — Diplomatie 🟨
+
+**6a. Relations, opinion étrangère, confiance** (en test)
+- [x] Relations de départ entre tous les pays (organisations, commerce, régimes, frontières, blocs, 183 paires saisies), `tools/country_gen/generate_relations.py`
+- [x] Confiance et opinion publique d'un pays envers un autre ; retour lent vers le niveau naturel, l'opinion suit les relations avec retard
+- [x] Mode de carte « Relations » du pays joué ; relations, confiance et opinions dans la fiche pays
+
+**6b. Actions et traités**
+- [ ] Améliorer les relations, visites d'État, ambassades ; traités (non-agression, défense mutuelle, libre-échange, coopération militaire, accès militaire, renseignement, frontière ouverte) ; reconnaissance, garanties, ultimatums
+
+**6c. Organisations internationales**
+- [ ] ONU (Assemblée, Conseil de sécurité et veto, résolutions votées par l'IA), alliances, unions, organisations régionales, cartels ; adhésion, exclusion, création
+
+**6d. Sanctions**
+- [ ] Sanctions ciblées, sectorielles, totales ; gel d'avoirs ; exclusion des systèmes de paiement ; sanctions réelles de 2026
+
+**6e. Aide**
+- [ ] Aide économique et humanitaire, vente et don d'armes, prêts, conseillers militaires
+
+**6f. Sphères d'influence**
+- [ ] Points d'influence : soutenir un parti, financer l'opposition, ouvrir des bases
+
+**6g. Revendications et tension mondiale**
+- [ ] Revendications territoriales, jauge de tension mondiale qui débloque des actions plus agressives
 
 ## Étape 7 — Militaire (version simplifiée) ⬜
 **7a. Forces armées**
