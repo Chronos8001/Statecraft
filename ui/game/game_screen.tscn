@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3]
+[gd_scene load_steps=21 format=3]
 
 [ext_resource type="Script" path="res://ui/game/game_screen.gd" id="1_game"]
 [ext_resource type="PackedScene" path="res://map/map_view.tscn" id="2_map"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" path="res://ui/game/laws_panel.tscn" id="17_laws"]
 [ext_resource type="PackedScene" path="res://ui/game/government_panel.tscn" id="18_government"]
 [ext_resource type="PackedScene" path="res://ui/game/diplomacy_panel.tscn" id="19_diplomacy"]
+[ext_resource type="PackedScene" path="res://ui/game/world_panel.tscn" id="20_world"]
 
 [node name="GameScreen" type="Control"]
 layout_mode = 3
@@ -90,6 +91,11 @@ visible = false
 layout_mode = 1
 
 [node name="DiplomacyPanel" parent="." instance=ExtResource("19_diplomacy")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="WorldPanel" parent="." instance=ExtResource("20_world")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1

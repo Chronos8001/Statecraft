@@ -39,6 +39,7 @@ var _notification_timer: SceneTreeTimer
 @onready var _laws_panel: LawsPanel = %LawsPanel
 @onready var _government_panel: GovernmentPanel = %GovernmentPanel
 @onready var _diplomacy_panel: DiplomacyPanel = %DiplomacyPanel
+@onready var _world_panel: WorldPanel = %WorldPanel
 
 
 func _ready() -> void:
@@ -69,6 +70,7 @@ func _ready() -> void:
 	_top_bar.politics_requested.connect(_politics_panel.toggle)
 	_top_bar.laws_requested.connect(_laws_panel.toggle)
 	_top_bar.government_requested.connect(_government_panel.toggle)
+	_top_bar.world_requested.connect(_world_panel.toggle)
 	_country_panel.diplomacy_requested.connect(func(tag: String) -> void:
 		_country_panel.close()
 		_diplomacy_panel.show_country(tag))
@@ -99,7 +101,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		var panels: Array[InfoPanel] = [_info_panel, _country_panel, _economy_panel, _budget_panel, _markets_panel,
 			_trade_panel, _energy_panel, _investment_panel, _society_panel,
-			_politics_panel, _laws_panel, _government_panel, _diplomacy_panel]
+			_politics_panel, _laws_panel, _government_panel, _diplomacy_panel,
+			_world_panel]
 		if panels.any(func(panel: InfoPanel) -> bool: return panel.visible):
 			for panel: InfoPanel in panels:
 				panel.close()
@@ -273,6 +276,15 @@ func _on_sim_event(event: Dictionary) -> void:
 			var other := DataLoader.get_entry("countries", str(event.get("target", "")))
 			_notify(tr("NOTIFY_ULTIMATUM_ACCEPTED" if bool(event.get("accepted", false)) else "NOTIFY_ULTIMATUM_REFUSED")
 				% tr(str(other.get("name_key", ""))))
+		OrganizationSystem.EVENT_JOINED, OrganizationSystem.EVENT_JOIN_REFUSED, OrganizationSystem.EVENT_LEFT, \
+				OrganizationSystem.EVENT_CREATED, OrganizationSystem.EVENT_EXPELLED:
+			var organization: Dictionary = GameState.sim.diplomacy.organizations.get(str(event.get("organization", "")), {})
+			_notify(tr("NOTIFY_%s" % str(event.get("type")).to_upper()) % Localization.pick_text(
+				organization.get("name", "")))
+		OrganizationSystem.EVENT_RESOLUTION:
+			var target := DataLoader.get_entry("countries", str(event.get("target", "")))
+			_notify(tr("NOTIFY_RESOLUTION_PASSED" if bool(event.get("passed", false)) else "NOTIFY_RESOLUTION_FAILED")
+				% [tr(str(target.get("name_key", ""))), event.get("yes", 0), event.get("no", 0)])
 		MediaSystem.EVENT_DISINFORMATION:
 			_notify(tr("NOTIFY_DISINFORMATION_EXPOSED" if bool(event.get("exposed", false)) else "NOTIFY_DISINFORMATION_DONE"))
 		CrisisSystem.EVENT_STARTED:

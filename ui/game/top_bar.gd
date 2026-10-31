@@ -12,6 +12,7 @@ signal society_requested
 signal politics_requested
 signal laws_requested
 signal government_requested
+signal world_requested
 
 const TREASURY_INDEX := 0
 const STABILITY_INDEX := 1
@@ -43,6 +44,7 @@ var _stat_values: Array[Label] = []
 @onready var _politics_button: Button = %PoliticsButton
 @onready var _laws_button: Button = %LawsButton
 @onready var _government_button: Button = %GovernmentButton
+@onready var _world_button: Button = %WorldButton
 
 
 func _ready() -> void:
@@ -59,6 +61,7 @@ func _ready() -> void:
 	_politics_button.pressed.connect(func() -> void: politics_requested.emit())
 	_laws_button.pressed.connect(func() -> void: laws_requested.emit())
 	_government_button.pressed.connect(func() -> void: government_requested.emit())
+	_world_button.pressed.connect(func() -> void: world_requested.emit())
 	EventBus.month_passed.connect(func(_date: GameDate) -> void: _update_country())
 	EventBus.command_executed.connect(func(_command: Command) -> void: _update_country())
 	EventBus.hour_passed.connect(func(_date: GameDate) -> void: _update_date())
@@ -100,7 +103,9 @@ func _update_speed() -> void:
 	for level: int in range(1, GameClock.get_speed_count() + 1):
 		pips += PIP_ON if level <= GameClock.speed else PIP_OFF
 	var status := tr("TOPBAR_PAUSED") if GameClock.is_paused else tr("TOPBAR_SPEED") % GameClock.speed
-	_speed_label.text = "%s  %s" % [pips, status]
+	_speed_label.text = pips
+	_speed_label.tooltip_text = status
+	_speed_label.mouse_filter = Control.MOUSE_FILTER_STOP
 	_slower_button.disabled = GameClock.speed <= 1
 	_faster_button.disabled = GameClock.speed >= GameClock.get_speed_count()
 

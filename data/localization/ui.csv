@@ -599,3 +599,52 @@ NOTIFY_TREATY_REFUSED,Treaty refused: %s by %s.,Traité refusé : %s par %s.
 NOTIFY_TREATY_CANCELLED,Treaty broken: %s with %s.,Traité rompu : %s avec %s.
 NOTIFY_ULTIMATUM_ACCEPTED,%s gives in to our ultimatum.,%s cède à notre ultimatum.
 NOTIFY_ULTIMATUM_REFUSED,%s rejects our ultimatum.,%s rejette notre ultimatum.
+TOPBAR_WORLD,World,Monde
+TOPBAR_WORLD_TOOLTIP,"International organisations and the UN","Organisations internationales et ONU"
+WORLD_TITLE,World,Monde
+WORLD_KIND,Type,Type
+WORLD_MEMBERS,Members,Membres
+WORLD_DECISION,Decisions,Décisions
+WORLD_DECISION_MAJORITY,Majority,Majorité
+WORLD_DECISION_TWO_THIRDS,Two thirds,Deux tiers
+WORLD_DECISION_UNANIMITY,Unanimity,Unanimité
+WORLD_KIND_GLOBAL,Global organisation,Organisation mondiale
+WORLD_KIND_MILITARY_ALLIANCE,Military alliance,Alliance militaire
+WORLD_KIND_ECONOMIC_UNION,Economic union,Union économique
+WORLD_KIND_ECONOMIC_FORUM,Economic forum,Forum économique
+WORLD_KIND_SECURITY,Security organisation,Organisation de sécurité
+WORLD_KIND_CARTEL,Cartel,Cartel
+WORLD_KIND_REGIONAL,Regional organisation,Organisation régionale
+WORLD_JOIN,Apply to join,Demander l'adhésion
+WORLD_LEAVE,Leave,Quitter
+WORLD_JOIN_TOOLTIP,The members vote according to their relations with us.,Les membres votent selon leurs relations avec nous.
+WORLD_LEAVE_TOOLTIP,Relations with the members fall; an economic union also means leaving its market.,Les relations avec les membres baissent ; quitter une union économique fait aussi quitter son marché.
+WORLD_EXPEL,Propose expulsion,Proposer l'exclusion
+WORLD_INVITE,Invite,Inviter
+WORLD_VOTE_PASS,Expected: %d for / %d against — accepted,Attendu : %d pour / %d contre — accepté
+WORLD_VOTE_FAIL,Expected: %d for / %d against — rejected,Attendu : %d pour / %d contre — rejeté
+WORLD_VOTE_VETO,Expected: %d for / %d against — veto,Attendu : %d pour / %d contre — veto
+WORLD_UN,United Nations,Nations unies
+WORLD_COUNCIL_VALUE,Security Council: %s,Conseil de sécurité : %s
+WORLD_PERMANENT,(permanent),(permanent)
+WORLD_UNTIL,(until %d),(jusqu'en %d)
+WORLD_ASSEMBLY,General Assembly,Assemblée générale
+WORLD_COUNCIL,Security Council,Conseil de sécurité
+WORLD_RESOLUTION_PREVIEW,"Condemnation — General Assembly: %d for, %d against, %d abstentions. Security Council: %d for, %d against %s","Condamnation — Assemblée générale : %d pour, %d contre, %d abstentions. Conseil de sécurité : %d pour, %d contre %s"
+WORLD_VETO,(veto),(veto)
+WORLD_CREATE_TITLE,Create an organisation,Créer une organisation
+WORLD_NAME_PLACEHOLDER,Name,Nom
+WORLD_CREATE,Create,Créer
+ORGANIZATION_INVALID_NAME,Choose a name.,Choisissez un nom.
+ORGANIZATION_INVITATION_ONLY,Membership by invitation only.,Adhésion sur invitation seulement.
+ORGANIZATION_NOT_ELIGIBLE,Outside this organisation's area.,Hors de la zone de cette organisation.
+ORGANIZATION_NOT_MEMBER,We are not a member.,Nous ne sommes pas membres.
+ORGANIZATION_NOT_CUSTOM,Only for organisations created during the game.,Seulement pour les organisations créées en cours de partie.
+ORGANIZATION_NOT_IN_COUNCIL,We do not sit on the Security Council.,Nous ne siégeons pas au Conseil de sécurité.
+NOTIFY_ORGANIZATION_JOINED,Membership accepted: %s.,Adhésion acceptée : %s.
+NOTIFY_ORGANIZATION_JOIN_REFUSED,Membership refused: %s.,Adhésion refusée : %s.
+NOTIFY_ORGANIZATION_LEFT,We have left: %s.,Nous avons quitté : %s.
+NOTIFY_ORGANIZATION_CREATED,Organisation created: %s.,Organisation créée : %s.
+NOTIFY_ORGANIZATION_EXPELLED,Member expelled from %s.,Membre exclu de %s.
+NOTIFY_RESOLUTION_PASSED,UN resolution against %s adopted (%d for / %d against).,Résolution de l'ONU contre %s adoptée (%d pour / %d contre).
+NOTIFY_RESOLUTION_FAILED,UN resolution against %s rejected (%d for / %d against).,Résolution de l'ONU contre %s rejetée (%d pour / %d contre).
