@@ -8,6 +8,7 @@ const BAD_COLOR := Color(0.95, 0.5, 0.45)
 
 var _tag: String = ""
 var _treaty_ids: Array[String] = []
+var _aid_kinds: Array[String] = []
 
 @onready var _title_label: Label = %TitleLabel
 @onready var _flag_rect: TextureRect = %FlagRect
@@ -16,6 +17,12 @@ var _treaty_ids: Array[String] = []
 @onready var _actions_grid: GridContainer = %ActionsGrid
 @onready var _sanctions_grid: GridContainer = %SanctionsGrid
 @onready var _sanctions_label: Label = %SanctionsLabel
+@onready var _aid_programs: Label = %AidPrograms
+@onready var _aid_kind_option: OptionButton = %AidKindOption
+@onready var _aid_amount: SpinBox = %AidAmount
+@onready var _aid_duration: OptionButton = %AidDurationOption
+@onready var _aid_button: Button = %AidButton
+@onready var _aid_label: Label = %AidLabel
 @onready var _treaty_option: OptionButton = %TreatyOption
 @onready var _propose_button: Button = %ProposeButton
 @onready var _opinion_label: Label = %OpinionLabel
@@ -28,6 +35,8 @@ func _ready() -> void:
 	_propose_button.pressed.connect(func() -> void:
 		if _treaty_option.selected >= 0 and _treaty_option.selected < _treaty_ids.size():
 			_submit(ProposeTreatyCommand.new(GameState.sim.player_tag, _tag, _treaty_ids[_treaty_option.selected])))
+	_aid_kind_option.item_selected.connect(func(_index: int) -> void: _update_aid())
+	_aid_button.pressed.connect(_on_aid_pressed)
 	EventBus.locale_changed.connect(func(_locale: String) -> void: refresh())
 	EventBus.month_passed.connect(func(_date: GameDate) -> void: refresh())
 	EventBus.command_executed.connect(func(_command: Command) -> void: refresh())
@@ -69,6 +78,7 @@ func refresh() -> void:
 		_add_row(_summary_grid, "DIPLOMACY_GUARANTEED", tr("COMMON_YES"))
 	_fill_treaties(state, player)
 	_fill_sanctions(state, player)
+	_fill_aid(state, player)
 	_fill_actions(state)
 	_fill_proposal(state, player)
 
@@ -122,6 +132,44 @@ func _fill_sanctions(state: SimState, player: String) -> void:
 	var count := SanctionSystem.sanctioners_of(state, _tag).size()
 	_sanctions_label.text = tr("DIPLOMACY_SANCTIONED_COUNT") % [count, NumberFormat.decimal(
 		state.get_country(_tag).economy.sanction_growth, 2, Localization.get_locale())]
+
+
+## Programmes d'aide en cours entre les deux pays et proposition d'une nouvelle aide.
+func _fill_aid(state: SimState, player: String) -> void:
+	var lines: PackedStringArray = []
+	var locale := Localization.get_locale()
+	for program: Dictionary in AidSystem.programs_between(state, player, _tag):
+		var key := "DIPLOMACY_AID_GIVEN" if program["donor"] == player else "DIPLOMACY_AID_RECEIVED"
+		lines.append(tr(key) % [tr(str((state.aid_definitions.get(program["kind"], {}) as Dictionary).get("name_key", ""))),
+			NumberFormat.decimal(float(program["amount"]), 1, locale), int(program["months_left"])])
+	_aid_programs.text = "\n".join(lines) if not lines.is_empty() else tr("DIPLOMACY_NO_AID")
+	if _aid_kind_option.item_count == 0:
+		for kind: String in state.aid_definitions.keys():
+			_aid_kinds.append(kind)
+			_aid_kind_option.add_item(tr(str((state.aid_definitions[kind] as Dictionary)["name_key"])))
+		for months: Variant in AidSystem.settings_of(state).get("durations", []):
+			_aid_duration.add_item(tr("DIPLOMACY_AID_DURATION_%d" % int(months)))
+	_update_aid()
+
+
+func _update_aid() -> void:
+	var state := GameState.sim
+	if _aid_kind_option.selected < 0 or _aid_kinds.is_empty():
+		return
+	var kind := _aid_kinds[_aid_kind_option.selected]
+	var accepts := AidSystem.accepts(state, str(state.player_tag), _tag, kind)
+	_aid_label.text = tr("DIPLOMACY_AID_LIKELY_YES" if accepts else "DIPLOMACY_AID_LIKELY_NO")
+	_aid_label.add_theme_color_override("font_color", GOOD_COLOR if accepts else BAD_COLOR)
+	_aid_button.tooltip_text = tr("%s_TOOLTIP" % str((state.aid_definitions[kind] as Dictionary)["name_key"]))
+
+
+func _on_aid_pressed() -> void:
+	var state := GameState.sim
+	var durations: Array = AidSystem.settings_of(state).get("durations", [])
+	if _aid_kind_option.selected < 0 or _aid_duration.selected < 0 or _aid_duration.selected >= durations.size():
+		return
+	_submit(AidCommand.new(state.player_tag, _tag, _aid_kinds[_aid_kind_option.selected], _aid_amount.value,
+		int(durations[_aid_duration.selected])))
 
 
 ## Boutons d'action ; une action impossible est grisée avec la raison en info-bulle.
