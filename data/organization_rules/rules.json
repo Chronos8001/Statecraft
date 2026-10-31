@@ -1,0 +1,17 @@
+{
+  "un": {"decision": "majority", "eligible": "any", "relation_bonus": 0},
+  "nato": {"decision": "unanimity", "eligible": ["ALB", "AND", "AUT", "BEL", "BIH", "BGR", "BLR", "CHE", "CYP", "CZE", "DEU", "DNK", "ESP", "EST", "FIN", "FRA", "GBR", "GRC", "HRV", "HUN", "IRL", "ISL", "ITA", "KOS", "LIE", "LTU", "LUX", "LVA", "MCO", "MDA", "MKD", "MLT", "MNE", "NLD", "NOR", "POL", "PRT", "ROU", "RUS", "SMR", "SRB", "SVK", "SVN", "SWE", "UKR", "VAT", "CYN", "USA", "CAN"], "relation_bonus": 35, "vote_base": -25, "same_regime": 10},
+  "eu": {"decision": "unanimity", "eligible": ["ALB", "AND", "AUT", "BEL", "BIH", "BGR", "BLR", "CHE", "CYP", "CZE", "DEU", "DNK", "ESP", "EST", "FIN", "FRA", "GBR", "GRC", "HRV", "HUN", "IRL", "ISL", "ITA", "KOS", "LIE", "LTU", "LUX", "LVA", "MCO", "MDA", "MKD", "MLT", "MNE", "NLD", "NOR", "POL", "PRT", "ROU", "RUS", "SMR", "SRB", "SVK", "SVN", "SWE", "UKR", "VAT", "CYN"], "relation_bonus": 25, "vote_base": -20, "democratic": true, "trade_agreement": "eu_single_market"},
+  "brics": {"decision": "unanimity", "eligible": "any", "relation_bonus": 6, "vote_base": -10},
+  "g7": {"decision": "unanimity", "eligible": "any", "relation_bonus": 6, "vote_base": -40, "democratic": true},
+  "g20": {"decision": "unanimity", "eligible": "any", "relation_bonus": 6, "vote_base": -30},
+  "sco": {"decision": "unanimity", "eligible": ["AFG", "ARM", "AZE", "BHR", "BGD", "BTN", "BRN", "KHM", "CHN", "CYP", "GEO", "IND", "IDN", "IRN", "IRQ", "ISR", "JPN", "JOR", "KAZ", "KWT", "KGZ", "LAO", "LBN", "MYS", "MDV", "MNG", "MMR", "NPL", "PRK", "OMN", "PAK", "PSE", "PHL", "QAT", "RUS", "SAU", "SGP", "KOR", "LKA", "SYR", "TWN", "TJK", "THA", "TLS", "TUR", "TKM", "ARE", "UZB", "VNM", "YEM"], "relation_bonus": 10, "vote_base": -10},
+  "au": {"decision": "majority", "eligible": ["DZA", "AGO", "BEN", "BWA", "BFA", "BDI", "CPV", "CMR", "CAF", "TCD", "COM", "COD", "COG", "CIV", "DJI", "EGY", "GNQ", "ERI", "SWZ", "ETH", "GAB", "GMB", "GHA", "GIN", "GNB", "KEN", "LSO", "LBR", "LBY", "MDG", "MWI", "MLI", "MRT", "MUS", "MAR", "MOZ", "NAM", "NER", "NGA", "RWA", "STP", "SEN", "SYC", "SLE", "SOM", "ZAF", "SSD", "SDN", "TZA", "TGO", "TUN", "UGA", "ZMB", "ZWE", "SOL"], "relation_bonus": 8, "vote_base": 20},
+  "arab_league": {"decision": "majority", "eligible": ["DZA", "BHR", "COM", "DJI", "EGY", "IRQ", "JOR", "KWT", "LBN", "LBY", "MRT", "MAR", "OMN", "PSE", "QAT", "SAU", "SOM", "SDN", "SYR", "TUN", "ARE", "YEM"], "relation_bonus": 8, "vote_base": 20},
+  "asean": {"decision": "unanimity", "eligible": ["BRN", "KHM", "IDN", "LAO", "MYS", "MMR", "PHL", "SGP", "THA", "VNM", "TLS"], "relation_bonus": 8, "vote_base": 10},
+  "opec": {"decision": "unanimity", "eligible": "any", "relation_bonus": 5, "vote_base": 0},
+  "csto": {"decision": "unanimity", "eligible": ["ARM", "AZE", "BLR", "GEO", "KAZ", "KGZ", "MDA", "RUS", "TJK", "TKM", "UKR", "UZB"], "relation_bonus": 35, "vote_base": -15},
+  "mercosur": {"decision": "unanimity", "eligible": ["ARG", "BOL", "BRA", "CHL", "COL", "ECU", "GUY", "PRY", "PER", "SUR", "URY", "VEN"], "relation_bonus": 25, "vote_base": 0, "trade_agreement": "mercosur"},
+  "gcc": {"decision": "unanimity", "eligible": ["BHR", "KWT", "OMN", "QAT", "SAU", "ARE"], "relation_bonus": 8, "vote_base": 10},
+  "eaeu": {"decision": "unanimity", "eligible": ["ARM", "AZE", "BLR", "GEO", "KAZ", "KGZ", "MDA", "RUS", "TJK", "TKM", "UKR", "UZB"], "relation_bonus": 25, "vote_base": 0, "trade_agreement": "eaeu"}
+}

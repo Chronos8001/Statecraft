@@ -218,8 +218,11 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Réponse des pays de l'IA par un score d'intérêt visible avant de proposer ; rupture coûteuse en confiance ; le libre-échange devient un accord commercial
 - [x] Panneau Diplomatie ouvert depuis la fiche d'un pays
 
-**6c. Organisations internationales**
-- [ ] ONU (Assemblée, Conseil de sécurité et veto, résolutions votées par l'IA), alliances, unions, organisations régionales, cartels ; adhésion, exclusion, création
+**6c. Organisations internationales** (en test)
+- [x] 15 organisations jouables avec leurs règles (unanimité ou majorité, zone géographique, accord commercial lié)
+- [x] Adhésion votée par les membres, départ, exclusion aux deux tiers, création d'organisations et invitations
+- [x] ONU : Conseil de sécurité (5 permanents avec veto, 10 élus réels de 2026 renouvelés chaque année), résolutions de condamnation votées par tous les pays
+- [x] Panneau Monde ; carte des alliances et fiche pays suivent les appartenances
 
 **6d. Sanctions**
 - [ ] Sanctions ciblées, sectorielles, totales ; gel d'avoirs ; exclusion des systèmes de paiement ; sanctions réelles de 2026

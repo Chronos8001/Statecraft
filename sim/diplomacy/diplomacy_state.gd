@@ -26,6 +26,11 @@ var closed_embassies: Dictionary = {}
 var recognitions: Dictionary = {}
 ## Garanties d'indépendance : « G>T » → true quand G garantit T.
 var guarantees: Dictionary = {}
+## Organisations : identifiant → {kind, name, abbreviation, color, members, custom} ; prochain identifiant
+## d'organisation créée en jeu ; Conseil de sécurité : pays → dernière année du mandat (0 : membre permanent).
+var organizations: Dictionary = {}
+var next_organization_id: int = 0
+var security_council: Dictionary = {}
 ## Délais avant de refaire une action : « action|A|B » → mois.
 var cooldowns: Dictionary = {}
 ## Réglages : confiance de base et par point de relation, bruit de l'opinion de départ.

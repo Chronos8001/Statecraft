@@ -14,8 +14,11 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Actions diplomatiques (améliorer les relations, visite d'État, ambassades, reconnaissance des États contestés, garanties d'indépendance, ultimatums) et 7 types de traités, avec la situation réelle de 2026.
 - Panneau Diplomatie (bouton dans la fiche d'un pays) : traités en vigueur, actions, proposition de traité avec l'avis probable du pays.
 
+- Organisations internationales jouables : adhésion votée par les membres, départ, exclusion, création de nouvelles organisations ; ONU avec Conseil de sécurité, droit de veto et résolutions de condamnation. Panneau Monde.
+
 ### Modifié
 - Fiche pays plus large.
+- La vitesse du jeu ne s'affiche plus qu'en pastilles dans la barre supérieure (détail en info-bulle).
 
 ## [0.5.0] - 2026-10-31
 

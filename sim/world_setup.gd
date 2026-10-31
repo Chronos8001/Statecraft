@@ -96,6 +96,7 @@ static func _setup_diplomacy(state: SimState, countries: Dictionary, definitions
 	state.diplomacy_settings = settings
 	state.treaty_definitions = definitions.get("treaties", {})
 	state.diplomacy_start = definitions.get("start", {})
+	state.organization_rules = definitions.get("organization_rules", {})
 	diplomacy.trust_base = float(settings.get("trust_base", 50.0))
 	diplomacy.trust_per_relation = float(settings.get("trust_per_relation", 0.0))
 	diplomacy.opinion_noise = float(settings.get("opinion_noise", 0.0))
@@ -105,6 +106,7 @@ static func _setup_diplomacy(state: SimState, countries: Dictionary, definitions
 			if countries.has(other):
 				diplomacy.start_relations[DiplomacyState.pair_key(tag, str(other))] = float(relations[other])
 	DiplomacySystem.setup_start(state)
+	OrganizationSystem.setup_start(state, definitions.get("organizations", {}), countries)
 
 
 ## Lois de départ, selon les règles de chaque loi (pays cités, régime, démocratie, revenu).

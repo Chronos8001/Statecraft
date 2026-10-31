@@ -3782,7 +3782,8 @@
     "required": [
       "treaties",
       "no_embassy",
-      "recognition"
+      "recognition",
+      "security_council"
     ],
     "properties": {
       "treaties": {
@@ -3858,6 +3859,73 @@
               }
             }
           }
+        }
+      },
+      "security_council": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "permanent",
+          "elected"
+        ],
+        "properties": {
+          "permanent": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "ref": "countries"
+            }
+          },
+          "elected": {
+            "type": "object",
+            "keys_ref": "countries",
+            "values": {
+              "type": "int",
+              "min": 2026
+            }
+          }
+        }
+      }
+    }
+  },
+  "organization_rules": {
+    "type": "object",
+    "keys_ref": "names#organizations",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "decision",
+        "eligible",
+        "relation_bonus"
+      ],
+      "properties": {
+        "decision": {
+          "type": "string",
+          "enum": [
+            "majority",
+            "two_thirds",
+            "unanimity"
+          ]
+        },
+        "eligible": {
+          "type": "any"
+        },
+        "relation_bonus": {
+          "type": "number"
+        },
+        "vote_base": {
+          "type": "number"
+        },
+        "same_regime": {
+          "type": "number"
+        },
+        "democratic": {
+          "type": "bool"
+        },
+        "trade_agreement": {
+          "type": "string",
+          "ref": "trade_agreements"
         }
       }
     }
