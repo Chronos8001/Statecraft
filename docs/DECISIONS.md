@@ -117,3 +117,6 @@
 | 2026-10-31 | Crises déclenchées par une dégradation par rapport à 2026 (satisfaction d'un groupe, stabilité), pas par un seuil absolu | Les pays déjà fragiles ne s'embrasent pas dès le premier mois | Seuils absolus |
 | 2026-10-31 | Guerres civiles de 2026 présentes au départ sans effet supplémentaire (déjà comprises dans l'économie) ; leur fin améliore durablement la stabilité | Neutre au départ | Effets appliqués dès 2026 |
 | 2026-10-31 | Coup d'État réussi : junte, plus d'élections ni de gouvernement de partis, légitimité de la junte | Conséquence forte et lisible | Changement de dirigeant seulement |
+| 2026-10-31 | Médias rattachés aux lois existantes (presse, réseaux sociaux) plutôt qu'à un indice séparé | Une seule source de vérité, réformable par le joueur | Indice de liberté de la presse importé |
+| 2026-10-31 | Propagande : coût mensuel de 0,01 à 0,06 % du PIB ; efficacité × (1 + 0,5 × (1 - liberté de la presse)) ; légitimité usée en démocratie | Outil tentant pour les régimes autoritaires, risqué ailleurs | Effet uniforme |
+| 2026-10-31 | Désinformation contre un pays étranger : malus temporaire sur tous ses groupes et sa stabilité ; découverte selon la presse de la cible | Prépare le renseignement (étape 11) et la diplomatie (étape 6) | Attendre l'étape 11 |

@@ -199,8 +199,11 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Guerre civile après six mois d'effondrement ; guerres civiles de 2026 en cours (Soudan, Birmanie, Yémen, Somalie, Haïti)
 - [x] Section Crises du panneau Société, mode de carte « Troubles », notifications
 
-**5h. Médias et opinion**
-- [ ] Contrôle des médias, propagande, désinformation, réseaux sociaux
+**5h. Médias et opinion** (en test)
+- [x] Liberté de la presse (loi) : découverte des fraudes et scandales, efficacité de la propagande
+- [x] Réseaux sociaux (loi) : volatilité des sondages
+- [x] Propagande à trois niveaux (coût mensuel, satisfaction des groupes, sondages ; use la légitimité en démocratie)
+- [x] Désinformation : salir l'opposition ou déstabiliser un pays étranger, risque d'être démasqué
 
 ## Étape 6 — Diplomatie ⬜
 - [ ] Relations bilatérales (-100 à +100), opinion publique étrangère, confiance
