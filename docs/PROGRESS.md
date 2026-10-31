@@ -11,7 +11,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 | 4 | Économie | ✅ | v0.4.0 | 2026-10-31 | v0.4.0 |
 | 5 | Politique intérieure | ✅ | v0.5.0 | 2026-10-31 | v0.5.0 |
 | 6 | Diplomatie | ✅ | v0.6.0 | 2026-10-31 | v0.6.0 |
-| 7 | Militaire (version simplifiée) | ⬜ | v0.7.0 | | |
+| 7 | Militaire (version simplifiée) | 🟨 | v0.7.0 | | |
 | 8 | Recherche et technologie | ⬜ | v0.8.0 | | |
 | 9 | Arbres de décisions nationales et événements | ⬜ | v0.9.0 | | |
 | 10 | Société, démographie, climat | ⬜ | v0.10.0 | | |
@@ -247,26 +247,34 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Faire valoir, abandonner, revendiquer une province voisine ; mode de carte « Revendications »
 - [x] Tension mondiale (55 en 2026) qui monte avec ultimatums, revendications, coups d'État, guerres civiles et sanctions ; seuils qui débloquent revendications, ultimatums, embargos totaux et exclusion des paiements
 
-## Étape 7 — Militaire (version simplifiée) ⬜
-**7a. Forces armées**
-- [ ] Branches terre / air / mer + jauges spéciales (forces spéciales, missiles, cyber, nucléaire)
-- [ ] Effectifs, niveau d'équipement (1 à 5), entraînement, moral, budget par branche
-- [ ] Production simplifiée par points d'équipement ; accords de vente d'armes
-- [ ] Armée professionnelle / conscription, réservistes, mobilisation générale
-- [ ] Pions « groupe d'armées » par région sur la carte
+## Étape 7 — Militaire (version simplifiée) 🟨
+**7a. Forces armées et mobilisation** (en attente de validation)
+- [x] Branches terre / air / mer (pas de marine sans littoral) + capacités spéciales (forces spéciales, missiles, cyber) et arsenaux nucléaires réels (SIPRI 2025)
+- [x] Effectifs, niveau d'équipement (1 à 5), entraînement, moral : règles selon la dépense par soldat + valeurs saisies pour 44 grandes armées
+- [x] Équipement entretenu par le budget de la défense et les armes reçues (ventes et dons de l'étape 6), coût qui monte chaque année ; répartition des crédits entre les armées
+- [x] Service militaire (loi) : armée professionnelle, sélective ou de conscription ; réservistes ; mobilisation partielle ou générale (Ukraine et Russie mobilisées en 2026)
+- [x] Puissance militaire (barre supérieure, mode de carte) prise en compte dans la puissance diplomatique
+- [x] Modules remplaçables `MilitaryModel`, `WarResolver`, `MilitaryAI` (registre `MilitaryRegistry`) et `MilitaryUI` ; symboles d'unités OTAN (APP-6)
 
-**7b. Guerre**
-- [ ] Déclaration de guerre, justification, buts de guerre, coût diplomatique
-- [ ] Fronts automatiques, répartition des forces, postures par front
-- [ ] Résolution quotidienne par front (puissance, terrain, équipement, air, ravitaillement, moral)
-- [ ] Marine : contrôle des zones maritimes, blocus, débarquements
-- [ ] Actions ponctuelles : frappes de missiles, opérations spéciales, cyberattaques
-- [ ] Nucléaire : arsenal, niveau d'alerte, programmes secrets, conséquences
-- [ ] Fatigue de guerre, pertes, cessez-le-feu, conférence de paix, occupation, gouvernements fantoches
+**7b. Groupes d'armées et contrôle des provinces**
+- [ ] Pions « groupe d'armées » par région sur la carte (symboles OTAN)
+- [ ] Contrôle des provinces (occupation), front réel de 2026 en Ukraine
 
-**7c. Préparer le module avancé**
-- [ ] Interfaces remplaçables `MilitaryModel`, `WarResolver`, `MilitaryAI`, `MilitaryUI` dans un registre
-- [ ] Conversion des données militaires de base vers un modèle détaillé
+**7c. Guerre**
+- [ ] Déclaration de guerre, justification, buts de guerre, coût diplomatique ; guerre Russie–Ukraine en cours au départ
+- [ ] Fronts automatiques, répartition des forces, postures par front ; résolution quotidienne (puissance, terrain, équipement, air, ravitaillement, moral)
+- [ ] IA : défense, alliances, paix, et déclarations de guerre selon les revendications, la politique, les relations et le rapport de forces
+
+**7d. Marine et actions ponctuelles**
+- [ ] Contrôle des zones maritimes, blocus, débarquements
+- [ ] Frappes de missiles, opérations spéciales, cyberattaques
+
+**7e. Nucléaire**
+- [ ] Arsenal, niveau d'alerte, programmes secrets, conséquences
+
+**7f. Fin des guerres**
+- [ ] Fatigue de guerre, pertes, cessez-le-feu, conférence de paix, occupation, cessions, gouvernements fantoches
+- [ ] Conversion des données militaires de base vers un modèle détaillé (module avancé)
 
 ## Étape 8 — Recherche et technologie ⬜
 - [ ] Arbres : économie, industrie, énergie, militaire terre/air/mer, cyber, IA, spatial, biotech, santé, social

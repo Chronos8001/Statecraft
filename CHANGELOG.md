@@ -6,6 +6,18 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 ## [Unreleased]
 
+### Ajouté
+- Forces armées de chaque pays : armée de terre, de l'air et marine (effectifs, équipement de 1 à 5, entraînement, moral), forces spéciales, missiles, cyber et arsenaux nucléaires réels.
+- L'équipement s'entretient avec le budget de la défense et les armes reçues ; répartition des crédits entre les armées.
+- Service militaire (armée professionnelle ou de conscription), réservistes, mobilisation partielle ou générale (Ukraine et Russie mobilisées en 2026).
+- Panneau Armée (bouton « Armée »), puissance militaire dans la barre supérieure, mode de carte « Puissance militaire ». Symboles d'unités au standard OTAN.
+- Outil de génération des forces armées (`tools/country_gen/generate_military.py`).
+
+### Modifié
+- La puissance militaire compte dans la puissance d'un pays pour la diplomatie.
+- Les dépenses de défense et de renseignement renforcent les capacités spéciales (effet affiché dans le panneau Budget).
+- Barre supérieure plus compacte (date abrégée, texte plus petit).
+
 ## [0.6.0] - 2026-10-31
 
 ### Ajouté
