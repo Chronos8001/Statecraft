@@ -8,7 +8,7 @@ const DEGREES_PER_TURN := 360.0
 const DEGREES_HALF_TURN := 180.0
 const BYTES_PER_MEGABYTE := 1048576.0
 const DEFAULT_MAP_MODE := "political"
-const LIVE_MAP_MODES := ["trade", "stability", "support", "vote", "ideology"]
+const LIVE_MAP_MODES := ["trade", "stability", "support", "vote", "ideology", "unrest"]
 
 var _thread: Thread
 var _load_started_ms: int = 0
@@ -202,6 +202,13 @@ func _on_sim_event(event: Dictionary) -> void:
 		ResourceSystem.EVENT_STRAIT_OPENED:
 			_notify(tr("NOTIFY_STRAIT_OPENED") % tr(_strait_name_key(str(event.get("strait", "")))))
 			return
+	if event.get("type") == CrisisSystem.EVENT_COUP or (event.get("type") == CrisisSystem.EVENT_STARTED
+			and str(event.get("crisis", "")) == CrisisSystem.CIVIL_WAR):
+		var country := DataLoader.get_entry("countries", str(event.get("tag", "")))
+		var key := "NOTIFY_CIVIL_WAR" if event.get("type") == CrisisSystem.EVENT_STARTED \
+			else "NOTIFY_COUP_SUCCESS" if bool(event.get("success", false)) else "NOTIFY_COUP_FAILED"
+		_notify(tr(key) % tr(str(country.get("name_key", ""))))
+		return
 	if event.get("type") == ElectionSystem.EVENT_FRAUD_DETECTED:
 		var country := DataLoader.get_entry("countries", str(event.get("tag", "")))
 		_notify(tr("NOTIFY_FRAUD_DETECTED") % tr(str(country.get("name_key", ""))))
@@ -253,6 +260,11 @@ func _on_sim_event(event: Dictionary) -> void:
 			var key := "NOTIFY_MINISTER_SCANDAL" if event.get("type") == GovernmentSystem.EVENT_SCANDAL \
 				else "NOTIFY_MINISTER_RESIGNED"
 			_notify(tr(key) % tr(str(portfolio.get("name_key", ""))))
+		CrisisSystem.EVENT_STARTED:
+			var definition: Dictionary = (GameState.sim.politics_definitions.get("crises", {}) as Dictionary).get(
+				str(event.get("crisis", "")), {})
+			var group := DataLoader.get_entry("social_groups", str(event.get("group", "")))
+			_notify(tr("NOTIFY_UNREST") % [tr(str(definition.get("name_key", ""))), tr(str(group.get("name_key", "")))])
 		PoliticsSystem.EVENT_PROMISE:
 			var group := DataLoader.get_entry("social_groups", str(event.get("group", "")))
 			var key := "NOTIFY_PROMISE_KEPT" if str(event.get("outcome", "")) == "kept" else "NOTIFY_PROMISE_BROKEN"
