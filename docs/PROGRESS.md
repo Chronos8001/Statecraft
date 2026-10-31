@@ -180,8 +180,11 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Vote de la chambre basse selon les positions des familles politiques et la discipline gouvernementale ; décret hors démocratie ; délai avant de revenir sur une loi
 - [x] Panneau Lois : aperçu du vote et des effets avant de proposer
 
-**5e. Constitution**
-- [ ] Réformes, référendums, limites de mandats, état d'urgence
+**5e. Constitution** (en test)
+- [x] 6 réformes : limite et durée des mandats présidentiels, durée de la législature, mode de scrutin, seuil, forme du pouvoir exécutif
+- [x] Adoption aux 2/3 de la chambre ou par référendum (deux mois plus tard) ; décret hors démocratie
+- [x] Limites de mandats réelles (un, deux ou aucun) : un président sortant qui ne peut se représenter perd l'avantage du sortant
+- [x] État d'urgence de six mois : stabilité en hausse, croissance en baisse, légitimité qui s'use, élections repoussées
 
 **5f. Gouvernement**
 - [ ] Ministres (compétence, loyauté, idéologie, corruption), remaniements, scandales

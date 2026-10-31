@@ -31,6 +31,8 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - 86 lois réformables (peine de mort, service militaire, immigration, avortement, port d'armes, liberté de la presse, internet, âge de la retraite, salaire minimum, temps de travail, nucléaire civil, cannabis…), avec la situation réelle de chaque pays en 2026.
 - Vote des lois à la chambre basse selon les idées de chaque parti ; décret dans les régimes non démocratiques. Panneau Lois avec aperçu du vote et des effets.
 
+- Constitution : réformes des mandats, du mode de scrutin, du seuil et de la forme du pouvoir (2/3 de la chambre ou référendum), limites de mandats présidentiels réelles, état d'urgence.
+
 ### Modifié
 - La fiche pays et le mode de carte des idéologies suivent les changements de gouvernement.
 - Les effets du budget sur la stabilité et les groupes sociaux s'appliquent désormais.

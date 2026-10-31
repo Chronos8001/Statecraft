@@ -229,6 +229,18 @@ func _on_sim_event(event: Dictionary) -> void:
 			_notify(tr("NOTIFY_BLACKOUT"))
 		ElectionSystem.EVENT_ELECTION:
 			_notify(_election_text(event))
+		ConstitutionSystem.EVENT_REFORM_ADOPTED, ConstitutionSystem.EVENT_REFORM_REJECTED:
+			var reform := ConstitutionSystem.definition_of(GameState.sim, str(event.get("reform", "")))
+			var key := "NOTIFY_REFORM_ADOPTED" if event.get("type") == ConstitutionSystem.EVENT_REFORM_ADOPTED \
+				else "NOTIFY_REFORM_REJECTED"
+			_notify(tr(key) % tr(str(reform.get("name_key", ""))))
+		ConstitutionSystem.EVENT_REFERENDUM_CALLED:
+			_notify(tr("NOTIFY_REFERENDUM_CALLED"))
+		ConstitutionSystem.EVENT_REFERENDUM_HELD:
+			var key := "NOTIFY_REFERENDUM_YES" if bool(event.get("passed", false)) else "NOTIFY_REFERENDUM_NO"
+			_notify(tr(key) % NumberFormat.decimal(float(event.get("yes", 0.0)), 1, Localization.get_locale()))
+		ConstitutionSystem.EVENT_EMERGENCY:
+			_notify(tr("NOTIFY_EMERGENCY_ON" if bool(event.get("active", false)) else "NOTIFY_EMERGENCY_OFF"))
 		ChangeLawCommand.EVENT_LAW_PASSED, ChangeLawCommand.EVENT_LAW_REJECTED:
 			var law: Dictionary = (GameState.sim.politics_definitions.get("laws", {}) as Dictionary).get(str(event.get("law", "")), {})
 			var key := "NOTIFY_LAW_PASSED" if event.get("type") == ChangeLawCommand.EVENT_LAW_PASSED else "NOTIFY_LAW_REJECTED"

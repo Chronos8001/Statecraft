@@ -162,6 +162,9 @@ func apply_politics(state: SimState, names: Dictionary, ideologies: Dictionary, 
 			var party: Dictionary = parties.get(party_id, {})
 			if party.has("name"):
 				coalition_names.append(party["name"])
+	var regimes := DataLoader.get_category("regimes")
+	if regimes.has(politics.regime):
+		regime_name_key = str((regimes[politics.regime] as Dictionary).get("name_key", regime_name_key))
 	if not politics.ideology.is_empty():
 		ideology_name_key = str((ideologies.get(politics.ideology, {}) as Dictionary).get("name_key", ideology_name_key))
 

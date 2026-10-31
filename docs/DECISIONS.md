@@ -108,3 +108,6 @@
 | 2026-10-31 | Vote : un parti vote pour s'il préfère la nouvelle option ; les partis du gouvernement suivent sauf si l'écart de position dépasse 1 ; petits partis abstentionnistes ; majorité absolue des sièges | Simple et prévisible, aperçu possible avant le vote | Vote par député |
 | 2026-10-31 | Délai de 12 mois après une réforme adoptée, 6 mois après un rejet | Évite les allers-retours | Pas de délai |
 | 2026-10-31 | Test de chargement de tous les scripts | Les erreurs de typage de l'interface échappaient aux tests | Vérification manuelle |
+| 2026-10-31 | Réformes constitutionnelles décrites comme des lois (options, positions) avec une valeur appliquée au système politique ; 2/3 des sièges ou référendum | Réutilise le vote des lois | Système à part |
+| 2026-10-31 | Référendum : les électeurs de chaque parti suivent sa position (0 à 100 % de oui), plus 0,3 point par point de soutien populaire au-dessus de 50 | Résultat lisible et lié à la popularité du pouvoir | Vote par groupe social |
+| 2026-10-31 | État d'urgence : +8 de stabilité visée, -0,3 point de croissance, -0,8 de légitimité par mois en démocratie, élections repoussées | Outil de crise utile mais coûteux | Pas de durée maximale |
