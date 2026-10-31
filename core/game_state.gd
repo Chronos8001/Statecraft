@@ -21,11 +21,13 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 			"start": DataLoader.get_category("diplomacy"),
 			"organizations": DataLoader.repository.resolve_ref("names#organizations"),
 			"organization_rules": DataLoader.get_category("organization_rules"),
-			"sanctions": DataLoader.get_category("sanctions")})
+			"sanctions": DataLoader.get_category("sanctions"),
+			"aid": DataLoader.get_category("aid")})
 	scheduler = SimScheduler.new()
 	scheduler.add_system(LawSystem.new())
 	scheduler.add_system(ConstitutionSystem.new())
 	scheduler.add_system(InvestmentSystem.new())
+	scheduler.add_system(AidSystem.new())
 	scheduler.add_system(EnergySystem.new())
 	scheduler.add_system(ResourceSystem.new())
 	scheduler.add_system(TradeSystem.new())

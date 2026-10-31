@@ -659,3 +659,22 @@ WORLD_RESOLUTION_SANCTIONS,Sanctions (Security Council only),Sanctions (Conseil 
 ORGANIZATION_SANCTIONS_COUNCIL,Sanctions can only be decided by the Security Council.,Seul le Conseil de sécurité peut décider de sanctions.
 NOTIFY_SANCTION_IMPOSED,Sanction imposed: %s against %s.,Sanction imposée : %s contre %s.
 NOTIFY_SANCTION_LIFTED,Sanction lifted: %s against %s.,Sanction levée : %s contre %s.
+DIPLOMACY_AID,Aid,Aide
+DIPLOMACY_NO_AID,No aid programme between us.,Aucun programme d'aide entre nous.
+DIPLOMACY_AID_GIVEN,"We give: %s, %s bn, %d months left","Nous donnons : %s, %s Md$, encore %d mois"
+DIPLOMACY_AID_RECEIVED,"We receive: %s, %s bn, %d months left","Nous recevons : %s, %s Md$, encore %d mois"
+DIPLOMACY_AID_DURATION_1,Once,Une fois
+DIPLOMACY_AID_DURATION_12,Per year for 1 year,Par an pendant 1 an
+DIPLOMACY_AID_DURATION_60,Per year for 5 years,Par an pendant 5 ans
+DIPLOMACY_GIVE_AID,Offer,Proposer
+DIPLOMACY_AID_LIKELY_YES,This country would accept.,Ce pays accepterait.
+DIPLOMACY_AID_LIKELY_NO,This country would refuse (relations too poor).,Ce pays refuserait (relations trop mauvaises).
+AID_ECONOMIC_TOOLTIP,"Money paid from our debt: its growth and stability rise, and so do relations.","Argent payé sur notre dette : sa croissance et sa stabilité progressent, nos relations aussi."
+AID_HUMANITARIAN_TOOLTIP,"Accepted even by hostile countries: stability and its public's opinion of us rise.","Acceptée même par des pays hostiles : sa stabilité et l'opinion de sa population sur nous progressent."
+AID_LOAN_TOOLTIP,"Paid out at once, repaid over 5 years with 2% interest.","Versé en une fois, remboursé sur 5 ans avec 2 % d'intérêts."
+AID_ARMS_SALE_TOOLTIP,"It pays us; the weapons will strengthen its army.","Il nous paie ; les armes renforceront son armée."
+AID_ARMS_GIFT_TOOLTIP,"We pay; its army is strengthened and relations improve.","Nous payons ; son armée est renforcée et nos relations progressent."
+AID_MILITARY_ADVISORS_TOOLTIP,"We pay; its stability rises, but its public sees it badly.","Nous payons ; sa stabilité progresse, mais sa population le voit d'un mauvais œil."
+AID_INVALID_AMOUNT,Choose an amount and a duration.,Choisissez un montant et une durée.
+NOTIFY_AID_GIVEN,%s accepted by %s.,%s acceptée par %s.
+NOTIFY_AID_REFUSED,%s refused by %s.,%s refusée par %s.

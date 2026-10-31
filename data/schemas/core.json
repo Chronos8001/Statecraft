@@ -3784,7 +3784,8 @@
       "no_embassy",
       "recognition",
       "security_council",
-      "sanctions"
+      "sanctions",
+      "aid"
     ],
     "properties": {
       "treaties": {
@@ -3908,6 +3909,28 @@
             }
           }
         }
+      },
+      "aid": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "list"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "min_items": 5,
+              "items": {
+                "type": "any"
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -3982,6 +4005,65 @@
         },
         "cost": {
           "type": "number"
+        }
+      }
+    }
+  },
+  "aid": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "payer",
+        "cash",
+        "growth",
+        "stability",
+        "relation",
+        "opinion",
+        "min_relation",
+        "repay"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^AID_[A-Z_]+$"
+        },
+        "payer": {
+          "type": "string",
+          "enum": [
+            "donor",
+            "recipient"
+          ]
+        },
+        "cash": {
+          "type": "bool"
+        },
+        "growth": {
+          "type": "number"
+        },
+        "stability": {
+          "type": "number"
+        },
+        "relation": {
+          "type": "number"
+        },
+        "opinion": {
+          "type": "number"
+        },
+        "min_relation": {
+          "type": "number"
+        },
+        "repay": {
+          "type": "bool"
+        },
+        "military": {
+          "type": "bool"
+        },
+        "flat": {
+          "type": "bool"
         }
       }
     }

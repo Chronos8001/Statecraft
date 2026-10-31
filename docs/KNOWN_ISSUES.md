@@ -28,7 +28,7 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Le mode de carte PIB/hab. utilise encore les chiffres de départ, pas ceux de la simulation. | 13 | Ouvert |
 | 🟢 | Inflation de départ : dernière année connue sur Wikipédia (2024) sauf corrections fin 2025 ; taux du shilling du Somaliland saisi à la main ; 56 pays sans note officielle (note estimée). | 4a | Ouvert |
 | 🟢 | Budgets en partie estimés : la répartition des recettes entre impôts, la santé, les retraites et les petits postes suivent des profils par niveau de revenu (valeurs saisies pour les grands pays) ; « administration et autres » regroupe le reste (prestations familiales, logement…). | 4b | Ouvert |
-| 🟢 | La dette de l'Ukraine approche encore 190 % du PIB en 2035 (déficit de guerre financé par emprunt ; l'aide étrangère n'existe pas encore). | 6 | Ouvert |
+| 🟢 | L'aide étrangère à l'Ukraine (programmes de 2026) s'arrête au bout de deux ans : sa dette remonte ensuite vers 155 % du PIB en 2036, faute de nouveaux programmes décidés par l'IA (étape 12). | 12 | Ouvert |
 | 🟢 | Les champs du panneau Budget affichent les décimales avec un point, même en français. | 13 | Ouvert |
 | 🟢 | Ressources : consommations estimées pour le charbon, les métaux et les semi-conducteurs (grands consommateurs saisis, reste selon le PIB industriel) ; blé par habitant ; données de quelques années (pétrole 2023, blé 2022, uranium 2022). Hors des régions saisies, la place des ressources dans les provinces est approchée. | 4c1 | Ouvert |
 | 🟢 | Routes des détroits estimées ; la fermeture de Malacca bloque des exportations au lieu de les rallonger. | 4c1 | Ouvert |

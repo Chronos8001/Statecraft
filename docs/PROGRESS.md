@@ -230,8 +230,11 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Sanctions réelles de 2026 (Russie, Biélorussie, Iran, Corée du Nord, Cuba, Venezuela…), neutres au départ ; contre-sanctions russes
 - [x] Résolution de sanctions au Conseil de sécurité ; section Sanctions du panneau Diplomatie
 
-**6e. Aide**
-- [ ] Aide économique et humanitaire, vente et don d'armes, prêts, conseillers militaires
+**6e. Aide** (en test)
+- [x] 6 types d'aide : économique, humanitaire, prêt (remboursé avec intérêts), vente et don d'armes, conseillers militaires ; une fois, 1 an ou 5 ans
+- [x] Effets sur le pays aidé (croissance, stabilité) selon le poids de l'aide dans son PIB ; relations et opinion ; acceptation selon les relations
+- [x] Programmes réels de 2026 (UE et Japon pour l'Ukraine, armes allemandes et britanniques, États-Unis pour Israël, l'Égypte et la Jordanie…) ; armes reçues comptées pour l'étape 7
+- [x] Section Aide du panneau Diplomatie
 
 **6f. Sphères d'influence**
 - [ ] Points d'influence : soutenir un parti, financer l'opposition, ouvrir des bases

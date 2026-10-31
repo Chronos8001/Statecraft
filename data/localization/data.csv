@@ -744,3 +744,9 @@ SANCTION_SECTORAL,Sectoral sanctions,Sanctions sectorielles
 SANCTION_TOTAL,Total embargo,Embargo total
 SANCTION_ASSET_FREEZE,Asset freeze,Gel des avoirs
 SANCTION_PAYMENT_EXCLUSION,Payment system exclusion,Exclusion des systèmes de paiement
+AID_ECONOMIC,Economic aid,Aide économique
+AID_HUMANITARIAN,Humanitarian aid,Aide humanitaire
+AID_LOAN,Loan,Prêt
+AID_ARMS_SALE,Arms sale,Vente d'armes
+AID_ARMS_GIFT,Arms donation,Don d'armes
+AID_MILITARY_ADVISORS,Military advisers,Conseillers militaires

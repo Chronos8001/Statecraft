@@ -132,3 +132,5 @@
 | 2026-10-31 | Résolutions : chaque pays vote pour si ses relations avec l'auteur dépassent de 15 points celles avec la cible, contre dans le cas inverse | Votes lisibles et prévisibles | Votes par blocs saisis |
 | 2026-10-31 | Sanctions : effet sur la croissance (et l'inflation) de la cible = mesure × exposition (part du commerce de 2026 avec le pays qui sanctionne + poids financier de sa monnaie), saturation douce à 8 points | Effets proportionnés, levées toujours utiles même pour la Russie | Plafond strict |
 | 2026-10-31 | Sanctions distinctes des embargos commerciaux du panneau Commerce (pas de double comptage) | Les deux outils restent lisibles | Sanctions qui coupent les flux |
+| 2026-10-31 | Aide : effets sur le pays aidé proportionnels à son poids dans le PIB (croissance 0,3 point par % du PIB pour l'aide économique) ; programmes de 2026 qui versent leur argent sans effet supplémentaire | La dette de l'Ukraine devient crédible, départ neutre | Aide sans flux d'argent |
+| 2026-10-31 | Armes vendues ou données comptées par pays (milliards de dollars) en attendant l'armée de l'étape 7 | Rien n'est perdu pour l'étape 7 | Ignorer les armes |

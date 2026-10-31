@@ -139,6 +139,56 @@ theme_override_colors/font_color = Color(0.62, 0.68, 0.76, 1)
 theme_override_font_sizes/font_size = 13
 autowrap_mode = 3
 
+[node name="AidTitle" type="Label" parent="Margin/Content/Scroll/Details"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+text = "DIPLOMACY_AID"
+
+[node name="AidPrograms" type="Label" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+autowrap_mode = 3
+
+[node name="AidRow" type="HBoxContainer" parent="Margin/Content/Scroll/Details"]
+layout_mode = 2
+
+[node name="AidKindOption" type="OptionButton" parent="Margin/Content/Scroll/Details/AidRow"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+
+[node name="AidAmount" type="SpinBox" parent="Margin/Content/Scroll/Details/AidRow"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 0.1
+max_value = 1000.0
+step = 0.1
+value = 1.0
+suffix = "Md$"
+
+[node name="AidDurationOption" type="OptionButton" parent="Margin/Content/Scroll/Details/AidRow"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+focus_mode = 0
+
+[node name="AidButton" type="Button" parent="Margin/Content/Scroll/Details/AidRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "DIPLOMACY_GIVE_AID"
+
+[node name="AidLabel" type="Label" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+
 [node name="ActionsTitle" type="Label" parent="Margin/Content/Scroll/Details"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
