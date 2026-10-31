@@ -1,6 +1,7 @@
 class_name CountryGradientMapMode
 extends MapMode
-## Dégradé selon une valeur du pays propriétaire : « gdp_per_capita » ou un champ numérique du pays.
+## Dégradé selon une valeur du pays propriétaire : valeur de la partie en cours (stabilité, soutien), sinon
+## « gdp_per_capita » ou un champ numérique du pays.
 ## Pays sans cette donnée : couleur « pas de données ».
 
 const GDP_PER_CAPITA := "gdp_per_capita"
@@ -28,8 +29,9 @@ static func country_value(country: Dictionary, value_name: String) -> Variant:
 func compute_colors(context: MapModeContext) -> PackedColorArray:
 	var value_name := str(definition.get("value", ""))
 	var by_country: Dictionary = {}
+	var live: Dictionary = context.country_values.get(value_name, {})
 	for tag: String in context.countries.keys():
-		var value: Variant = country_value(context.countries[tag], value_name)
+		var value: Variant = live.get(tag) if not live.is_empty() else country_value(context.countries[tag], value_name)
 		by_country[tag] = context.no_data_color if value == null else _gradient.sample(float(value))
 	return _color_provinces(context, func(province: Dictionary) -> Color:
 		return by_country.get(str(province.get("owner", "")), context.unowned_color))

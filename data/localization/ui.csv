@@ -352,3 +352,27 @@ BUDGET_PUBLIC_REVENUE,State company profits,Bénéfices des entreprises publique
 NOTIFY_NATIONALIZED,Nationalization: %s,Nationalisation : %s
 NOTIFY_EXPROPRIATED,Expropriation: %s — investors flee,Expropriation : %s — les investisseurs fuient
 NOTIFY_PRIVATIZED,Privatization: %s,Privatisation : %s
+TOPBAR_SOCIETY,Society,Société
+TOPBAR_SOCIETY_TOOLTIP,"Social groups, stability, popular support and legitimacy","Groupes sociaux, stabilité, soutien populaire et légitimité"
+TOPBAR_SCORE_VALUE,%d,%d
+TOPBAR_STABILITY_TOOLTIP,Stability of the country (out of 100),Stabilité du pays (sur 100)
+TOPBAR_SUPPORT_TOOLTIP,Popular support for the government (out of 100),Soutien populaire au gouvernement (sur 100)
+MAPMODE_SUPPORT,Popular support,Soutien populaire
+MAPMODE_UNIT_SCORE,%s / 100,%s / 100
+SOCIETY_TITLE,Society,Société
+SOCIETY_INDICATORS,National indicators,Indicateurs nationaux
+SOCIETY_STABILITY,Stability,Stabilité
+SOCIETY_SUPPORT,Popular support,Soutien populaire
+SOCIETY_LEGITIMACY,Legitimacy,Légitimité
+SOCIETY_CORRUPTION,Corruption,Corruption
+SOCIETY_DEMOCRACY,Democracy index,Indice de démocratie
+SOCIETY_DEMOCRACY_VALUE,%s / 10,%s / 10
+SOCIETY_SCORE_VALUE,%d / 100,%d / 100
+SOCIETY_SCORE_START_VALUE,%d / 100 (start: %d),%d / 100 (départ : %d)
+SOCIETY_GROUPS,Social groups,Groupes sociaux
+SOCIETY_GROUP,Group,Groupe
+SOCIETY_POPULATION,Population,Population
+SOCIETY_INFLUENCE,Weight,Poids politique
+SOCIETY_SATISFACTION,Satisfaction,Satisfaction
+SOCIETY_SATISFACTION_TOOLTIP,Satisfaction in January 2026: %d / 100,Satisfaction en janvier 2026 : %d / 100
+SOCIETY_GROUPS_HINT,"Groups react to the budget, unemployment, inflation, growth, power cuts and nationalisations. Their political weight depends on their size, their own influence and the regime. Stability follows the satisfaction of the most influential groups; when it falls, growth slows.","Les groupes réagissent au budget, au chômage, à l'inflation, à la croissance, aux coupures d'électricité et aux nationalisations. Leur poids politique dépend de leur nombre, de leur influence propre et du régime. La stabilité suit la satisfaction des groupes les plus influents ; quand elle baisse, la croissance ralentit."
