@@ -145,6 +145,7 @@ static func start_civil_war(country: CountryState, state: SimState, definition: 
 		"months_left": state.rng.randi_range(int(duration[0]), int(duration[1]))})
 	state.next_crisis_id += 1
 	if not initial:
+		TensionSystem.add_event(state, "civil_war")
 		state.add_event(EVENT_STARTED, country.tag, {"crisis": CIVIL_WAR})
 
 
@@ -165,6 +166,7 @@ static func _check_coup(country: CountryState, state: SimState) -> void:
 		- society.legitimacy / SocietyModel.PERCENT
 	if state.rng.randf() < success:
 		install_junta(country, state)
+		TensionSystem.add_event(state, "coup")
 		state.add_event(EVENT_COUP, country.tag, {"success": true})
 	else:
 		society.stability = maxf(society.stability - float(settings.get("failure_stability", 0.0)), 0.0)

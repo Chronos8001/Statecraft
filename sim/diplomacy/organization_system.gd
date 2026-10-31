@@ -339,6 +339,7 @@ static func vote_resolution(state: SimState, body: String, proposer: String, tar
 		if country != null:
 			country.society.start_legitimacy += float(settings.get("%s_legitimacy" % body, 0.0))
 		if kind == RESOLUTION_SANCTIONS:
+			TensionSystem.add_event(state, "un_sanctions")
 			for member: Variant in members(state, UN):
 				if str(member) != target:
 					for measure: Variant in SanctionSystem.settings_of(state).get("un_measures", []):

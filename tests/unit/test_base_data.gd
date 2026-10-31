@@ -581,3 +581,13 @@ func test_start_sanctions_name_real_countries() -> void:
 			assert_true(str(tag) == "@eu" or countries.has(tag), "pays inconnu : %s" % tag)
 		for measure: Variant in entry[2]:
 			assert_true(measures.has(measure), "mesure inconnue : %s" % measure)
+
+
+func test_start_claims_target_real_provinces() -> void:
+	var countries := _repository.get_category("countries")
+	var provinces := _repository.get_category("provinces")
+	for entry: Variant in _repository.get_category("diplomacy")["claims"]["list"]:
+		assert_true(countries.has(entry[0]) and countries.has(entry[1]), "%s → %s" % [entry[0], entry[1]])
+		for province_id: Variant in entry[2]:
+			var province: Dictionary = provinces.get(str(int(province_id)), {})
+			assert_eq(str(province.get("owner", "")), str(entry[1]), "province %d" % int(province_id))

@@ -52,6 +52,9 @@ func refusal_reason(state: SimState) -> String:
 				return "DIPLOMACY_NOT_DISPUTED"
 			if diplomacy.recognizes(tag, target) == (action == "recognize"):
 				return "DIPLOMACY_ALREADY"
+		"ultimatum":
+			if not TensionSystem.unlocked(state, "ultimatum"):
+				return "TENSION_TOO_LOW"
 		"guarantee", "revoke_guarantee":
 			if diplomacy.guarantees_independence(tag, target) == (action == "guarantee"):
 				return "DIPLOMACY_ALREADY"

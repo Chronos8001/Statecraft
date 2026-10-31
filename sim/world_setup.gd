@@ -114,6 +114,7 @@ static func _setup_diplomacy(state: SimState, countries: Dictionary, definitions
 	if not state.aid_definitions.is_empty():
 		AidSystem.setup_start(state)
 	InfluenceSystem.setup_start(state)
+	TensionSystem.setup_start(state)
 
 
 ## Lois de départ, selon les règles de chaque loi (pays cités, régime, démocratie, revenu).

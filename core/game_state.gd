@@ -42,6 +42,7 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	scheduler.add_system(DiplomacySystem.new())
 	scheduler.add_system(OrganizationSystem.new())
 	scheduler.add_system(InfluenceSystem.new())
+	scheduler.add_system(TensionSystem.new())
 	_pending_commands.clear()
 	is_game_running = true
 	GameLog.info(SOURCE, "Nouvelle partie : graine %d, date %s." % [p_seed, sim.date.format_iso()])

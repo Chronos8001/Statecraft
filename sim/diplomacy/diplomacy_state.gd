@@ -45,6 +45,10 @@ var start_influence: Dictionary = {}
 var influence_changes: Dictionary = {}
 var bases: Dictionary = {}
 var start_bases: Dictionary = {}
+## Revendications territoriales : identifiant → {claimant, target, provinces} ; tension mondiale (0 à 100).
+var claims: Dictionary = {}
+var next_claim_id: int = 0
+var world_tension: float = 0.0
 ## Délais avant de refaire une action : « action|A|B » → mois.
 var cooldowns: Dictionary = {}
 ## Réglages : confiance de base et par point de relation, bruit de l'opinion de départ.
