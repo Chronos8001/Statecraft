@@ -529,6 +529,58 @@
       "civil_war_end_chance": 0.03,
       "civil_war_end_stability": 25.0,
       "peace_stability": 10.0
+    },
+    "media": {
+      "press_law": "press_freedom",
+      "networks_law": "social_networks",
+      "press_factor": {
+        "free": 1.0,
+        "regulated": 0.8,
+        "censored": 0.4,
+        "state_monopoly": 0.2
+      },
+      "network_volatility": {
+        "free": 1.3,
+        "moderated": 1.0,
+        "restricted": 0.6
+      },
+      "propaganda": {
+        "cost_share": [
+          0.0,
+          0.01,
+          0.03,
+          0.06
+        ],
+        "group_bonus": [
+          0.0,
+          2.0,
+          4.0,
+          6.0
+        ],
+        "poll_bonus": [
+          0.0,
+          0.02,
+          0.04,
+          0.06
+        ],
+        "backfire_legitimacy": [
+          0.0,
+          0.2,
+          0.5,
+          1.0
+        ],
+        "control_effect": 0.5
+      },
+      "disinformation": {
+        "cost_share": 0.02,
+        "exposure": 0.3,
+        "own_legitimacy": 3.0,
+        "target_bonus": -3.0,
+        "target_months": 6,
+        "target_stability": 3.0,
+        "smear_drift": 0.1,
+        "cooldown_months": 6
+      }
     }
   }
 }
