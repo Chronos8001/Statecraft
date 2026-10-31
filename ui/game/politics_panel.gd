@@ -18,12 +18,15 @@ const GROUP_ORDER := ["left", "green", "social_democrat", "liberal", "conservati
 @onready var _hemicycle: Hemicycle = %HemicycleView
 @onready var _parties_grid: GridContainer = %PartiesGrid
 @onready var _polls_hint: Label = %PollsHint
+@onready var _early_button: Button = %EarlyElectionButton
 @onready var _close_button: Button = %CloseButton
 
 
 func _ready() -> void:
 	_close_button.pressed.connect(close)
 	_parties_grid.columns = PARTY_COLUMNS
+	_early_button.pressed.connect(_on_early_pressed)
+	EventBus.command_executed.connect(func(_command: Command) -> void: refresh())
 	EventBus.locale_changed.connect(func(_locale: String) -> void: refresh())
 	EventBus.month_passed.connect(func(_date: GameDate) -> void: refresh())
 	visible = false
@@ -80,10 +83,56 @@ func _fill_summary(politics: PoliticsState) -> void:
 			NumberFormat.integer(politics.seats, locale)])
 		_add_row(_summary_grid, "POLITICS_GOVERNMENT_POLL", tr("ECONOMY_PERCENT_VALUE")
 			% NumberFormat.decimal(politics.government_poll(), 1, locale))
-	_add_row(_summary_grid, "POLITICS_LAST_ELECTION", "%s %d" % [tr(DateFormat.month_key(politics.election_month)),
-		politics.election_year])
-	if politics.term_years > 0:
-		_add_row(_summary_grid, "POLITICS_NEXT_ELECTION", str(politics.election_year + politics.term_years))
+	var characters := DataLoader.repository.resolve_ref("names#characters")
+	var cultures := DataLoader.get_category("names/cultures")
+	_add_row(_summary_grid, "POLITICS_HEAD_OF_STATE", NameGenerator.full_name(characters.get(politics.head_of_state, {}),
+		cultures))
+	if politics.head_of_government != politics.head_of_state:
+		_add_row(_summary_grid, "POLITICS_HEAD_OF_GOVERNMENT", NameGenerator.full_name(
+			characters.get(politics.head_of_government, {}), cultures))
+	_add_row(_summary_grid, "POLITICS_SYSTEM", _system_text(politics, locale))
+	_add_row(_summary_grid, "POLITICS_LAST_ELECTION", _date_text(politics.election_year, politics.election_month))
+	if politics.suspended:
+		_add_row(_summary_grid, "POLITICS_NEXT_ELECTION", tr("POLITICS_SUSPENDED"))
+	else:
+		_add_row(_summary_grid, "POLITICS_NEXT_ELECTION", _date_text(politics.next_election_year,
+			politics.next_election_month))
+		if politics.has_presidency:
+			_add_row(_summary_grid, "POLITICS_NEXT_PRESIDENTIAL", _date_text(politics.next_presidential_year,
+				politics.next_presidential_month))
+	if not politics.last_result.is_empty():
+		_add_row(_summary_grid, "POLITICS_LAST_RESULT", _result_text(politics.last_result))
+	var refusal := CallEarlyElectionCommand.new(GameState.sim.player_tag).refusal_reason(GameState.sim)
+	_early_button.disabled = not refusal.is_empty()
+	_early_button.tooltip_text = tr(refusal if not refusal.is_empty() else "POLITICS_EARLY_TOOLTIP")
+
+
+func _date_text(year: int, month: int) -> String:
+	return "%s %d" % [tr(DateFormat.month_key(month)), year]
+
+
+func _system_text(politics: PoliticsState, locale: String) -> String:
+	var text := tr("POLITICS_SYSTEM_%s" % politics.system_type.to_upper())
+	if politics.system_type != PoliticsState.SYSTEM_MAJORITARIAN and politics.threshold > 0.0:
+		text += " (%s)" % (tr("POLITICS_THRESHOLD_VALUE") % NumberFormat.decimal(politics.threshold, 1, locale))
+	return text
+
+
+## « Présidentielle, mars 2027 : UC (2 tours) » ou « Législatives, juin 2029 : PRD en tête, alternance ».
+func _result_text(result: Dictionary) -> String:
+	var parties := DataLoader.repository.resolve_ref("names#parties")
+	var winner := str((parties.get(str(result.get("winner", "")), {}) as Dictionary).get("abbreviation", ""))
+	var kind := "POLITICS_RESULT_PRESIDENTIAL" if str(result.get("kind", "")) == ElectionSystem.KIND_PRESIDENTIAL \
+		else "POLITICS_RESULT_LEGISLATIVE"
+	var text := tr(kind) % [_date_text(int(result["year"]), int(result["month"])), winner]
+	if bool(result.get("government_changed", false)):
+		text += ", " + tr("POLITICS_RESULT_CHANGE")
+	return text
+
+
+func _on_early_pressed() -> void:
+	if GameState.submit_command(CallEarlyElectionCommand.new(GameState.sim.player_tag)) and GameClock.is_paused:
+		GameState.process_commands()
 
 
 func _fill_parties(politics: PoliticsState, ordered: Array, parties: Dictionary) -> void:

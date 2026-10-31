@@ -16,6 +16,10 @@ var trade_shares: Dictionary = {}
 var embargoed: Dictionary = {}
 ## Valeurs de la partie en cours par pays, lues par les dégradés : nom → {tag: valeur} (stabilité, soutien…).
 var country_values: Dictionary = {}
+## Idéologie au pouvoir dans la partie en cours (tag → idéologie), après d'éventuelles alternances.
+var country_ideologies: Dictionary = {}
+## Partie en cours, pour les modes qui recalculent à la demande (votes par province).
+var simulation: SimState = null
 var player_tag: String = ""
 var max_id: int = 0
 var sea_color: Color = Color.BLACK
@@ -46,6 +50,12 @@ func refresh_from_simulation(state: SimState) -> void:
 	trade_shares.clear()
 	embargoed.clear()
 	_refresh_society(state)
+	simulation = state
+	country_ideologies.clear()
+	for tag: String in state.countries.keys():
+		var ideology := (state.countries[tag] as CountryState).politics.ideology
+		if not ideology.is_empty():
+			country_ideologies[tag] = ideology
 	if player_tag.is_empty() or state.trade.start_flows.is_empty():
 		return
 	var totals := TradeSystem.partner_totals(state, player_tag)
@@ -85,6 +95,11 @@ func new_colors() -> PackedColorArray:
 		if zone_id > 0 and zone_id <= max_id:
 			colors[zone_id] = sea_color
 	return colors
+
+
+## Idéologie au pouvoir : celle de la partie en cours, sinon celle des données.
+func ideology_of(tag: String) -> String:
+	return str(country_ideologies.get(tag, (countries.get(tag, {}) as Dictionary).get("ideology", "")))
 
 
 func owner_of(province: Dictionary) -> Dictionary:
