@@ -14,6 +14,12 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Mode de carte « Soutien populaire » ; le mode « Stabilité » suit la partie en cours.
 - Outil de génération des sociétés (`tools/country_gen/generate_society.py`).
 
+- Chambre basse de chaque pays : composition réelle au 1er janvier 2026 pour 67 pays (sièges, dernier scrutin, sondages de janvier 2026), estimée pour les autres ; chambres sans partis, dissoutes (Bangladesh, Thaïlande, Népal) ou dominées par un parti unique.
+- 528 partis d'opposition fictifs, chacun avec son chef, aux côtés des partis au pouvoir et de leurs partenaires.
+- Sondages mensuels : chaque parti puise ses voix dans les groupes sociaux proches de ses idées ; les partis au gouvernement suivent la satisfaction de leurs électeurs. Pas de sondage publié dans les régimes non démocratiques.
+- Panneau Politique (bouton dans la barre supérieure) : hémicycle, majorité du gouvernement, partis, chefs, sièges, dernier scrutin et sondages.
+- Outil de génération des parlements et des partis d'opposition (`tools/parliament_gen/`).
+
 ### Modifié
 - Les effets du budget sur la stabilité et les groupes sociaux s'appliquent désormais.
 - La barre supérieure masque les indicateurs qui ne sont pas encore calculés.

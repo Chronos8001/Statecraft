@@ -145,15 +145,19 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 
 ## Étape 5 — Politique intérieure 🟨
 
-**5a. Groupes sociaux et indicateurs** (en test)
+**5a. Groupes sociaux et indicateurs** (validée le 2026-10-31)
 - [x] 10 groupes sociaux par pays : part de la population calculée (âge médian, agriculture, armée, religion, diversité, inégalités, revenu), influence propre et selon le régime
 - [x] Satisfaction des groupes : popularité réelle du gouvernement et affinité avec son idéologie au départ ; réactions au budget, au chômage, à l'inflation, à la croissance, aux coupures et aux nationalisations
 - [x] Stabilité (Fragile States Index), soutien populaire, légitimité (régime, Democracy Index), corruption (indice de Transparency International)
 - [x] Une stabilité en baisse freine la croissance
 - [x] Panneau Société, stabilité et soutien dans la barre supérieure, modes de carte « Stabilité » et « Soutien populaire »
 
-**5b. Partis, parlements, sondages**
-- [ ] Partis fictifs calqués sur le paysage réel de 2026 (opposition comprise), sièges, coalitions, sondages mensuels
+**5b. Partis, parlements, sondages** (en test)
+- [x] Chambre basse des 199 pays : composition réelle au 1er janvier 2026 pour 67 pays (sièges, dernier scrutin, sondages), règles pour les autres ; chambres sans partis, dissoutes ou de façade
+- [x] 528 partis d'opposition fictifs avec leur chef (`tools/parliament_gen/`), gouvernements et coalitions réels
+- [x] Sondages mensuels : chaque parti puise dans les groupes sociaux proches de ses idées, le gouvernement suit la satisfaction de ses électeurs ; calés sur les sondages de janvier 2026
+- [x] Sondages non publiés dans les régimes non démocratiques (opinion estimée par le pouvoir)
+- [x] Panneau Politique : hémicycle, gouvernement majoritaire ou minoritaire, partis, chefs, sièges, scores et tendances
 
 **5c. Élections**
 - [ ] Calendrier réel, campagnes, résultats par région, fraude

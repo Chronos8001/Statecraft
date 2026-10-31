@@ -19,7 +19,6 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Puissance militaire et influence masquées dans la barre supérieure jusqu'aux étapes militaire et diplomatie. | 6–7 | Ouvert |
 | 🟢 | Population de l'Ukraine (28,7 millions, territoire contrôlé) répartie aussi sur les provinces occupées ; PIB et dette estimés pour quelques pays sans source (Corée du Nord, Somaliland, Chypre du Nord, Syrie…). | 3 | Ouvert |
 | 🟢 | Pas encore de portraits des personnages (portraits génériques prévus avec l'interface). | 13 | Ouvert |
-| 🟢 | Seuls les partis au pouvoir et leurs partenaires existent ; l'opposition, les scores et les sondages arrivent avec la politique intérieure. | 5 | Ouvert |
 | 🟢 | Une seule culture de noms par pays : les pays multilingues (Belgique, Suisse, Bosnie-Herzégovine…) ont des noms d'une seule langue. Les noms de partis génériques (style international) se répètent d'un pays à l'autre. | 3 | Ouvert |
 | 🟢 | Années de naissance approximatives pour quelques dirigeants peu documentés (Tonga, Saint-Marin, Burundi, Guinée-Bissau…) ; gouvernements de transition au 1er janvier 2026 (Pays-Bas, Bulgarie, Thaïlande, Kosovo) à revérifier. | 3 | Ouvert |
 | 🟢 | Drapeaux tous au format 4:3 : les proportions officielles (Suisse carrée, Qatar allongé, Népal) ne sont pas respectées. Un nouveau drapeau demande d'activer les mipmaps dans son fichier `.import`. | 3 | Ouvert |
@@ -45,4 +44,7 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Société estimée : parts des groupes calculées par règles ; popularité saisie pour 30 grands pays seulement ; place de la religion estimée pour une quarantaine de pays absents de l'enquête Gallup ; micro-États souvent sur valeurs par défaut. | 5a | Ouvert |
 | 🟢 | Sans action du joueur, la stabilité dérive encore jusqu'à ±14 points en 10 ans dans quelques pays (Timor oriental, Angola, Palestine) sous l'effet de l'économie. | 5a | Ouvert |
 | 🟢 | Le panneau Société recouvre la légende de la carte. | 13 | Ouvert |
+| 🟢 | Parlements : 132 pays sur règles (taille, majorité, opposition et date du dernier scrutin estimées) ; pour les 67 pays saisis, sièges arrondis et petits partis regroupés ; sondages de janvier 2026 saisis pour une vingtaine de pays seulement. Pas encore de chambre haute. | 5b | Ouvert |
+| 🟢 | Les sondages incluant des indécis sont ramenés à 100 % (au Japon, le parti au pouvoir part à 44 %). | 5b | Ouvert |
+| 🟢 | Le Chili garde sa chambre sortante jusqu'en mars 2026 alors que les élections de novembre 2025 ont eu lieu ; les chambres dissoutes attendent les élections (5c). | 5c | Ouvert |
 
