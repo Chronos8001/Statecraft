@@ -52,3 +52,4 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | En régime présidentiel, le nouveau président gouverne avec son seul parti (pas de coalition présidentielle). | 5c1 | Ouvert |
 | 🟢 | Fraude découverte : scandale sur la stabilité et la légitimité, mais pas encore de manifestations ni de contestation des résultats (5g). | 5c2 | Ouvert |
 | 🟢 | Situation des lois en 2026 approchée par règles : listes de pays pour les cas connus (peine de mort, mariage homosexuel, cannabis, service militaire…), valeur par défaut ailleurs. Les pays de l'IA ne changent pas encore de lois (étape 12). | 5d | Ouvert |
+| 🟢 | Limite de mandats : quand le parti du président sortant gagne, son chef reste président (le successeur sera choisi avec les personnages de 5f). | 5e | Ouvert |
