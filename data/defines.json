@@ -717,6 +717,20 @@
       "un_measures": [
         "sectoral"
       ]
+    },
+    "aid": {
+      "durations": [
+        1,
+        12,
+        60
+      ],
+      "loan_rate": 2.0,
+      "loan_term_months": 60,
+      "max_growth": 2.0,
+      "max_stability": 5.0,
+      "min_relation_gain": 2.0,
+      "max_relation_gain": 20.0,
+      "refused_relation": -2.0
     }
   }
 }
