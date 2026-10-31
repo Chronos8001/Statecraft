@@ -319,7 +319,7 @@ BUDGET_PROJECTS,Public investment (projects),Investissements publics (chantiers)
 NOTIFY_PROJECT_DONE,%s completed in %s,%s achevé(e) : %s
 NOTIFY_BLACKOUT,Blackouts: electricity demand exceeds supply,Coupures d'électricité : la demande dépasse la production
 # --- Investissements ---
-TOPBAR_INVESTMENT,Investment,Investissements
+TOPBAR_INVESTMENT,Investment,Entreprises
 TOPBAR_INVESTMENT_TOOLTIP,"State-owned companies, foreign investment and sovereign fund","Entreprises publiques, investissements étrangers et fonds souverain"
 INVEST_TITLE,Investment,Investissements
 INVEST_OWNERSHIP,State ownership by sector,Part publique par secteur
@@ -504,3 +504,20 @@ NOTIFY_REFERENDUM_YES,Referendum: yes wins with %s%%.,Référendum : le oui l'em
 NOTIFY_REFERENDUM_NO,Referendum: no wins (%s%% yes).,Référendum : le non l'emporte (%s %% de oui).
 NOTIFY_EMERGENCY_ON,State of emergency declared.,État d'urgence déclaré.
 NOTIFY_EMERGENCY_OFF,State of emergency over.,Fin de l'état d'urgence.
+TOPBAR_GOVERNMENT,Cabinet,Ministres
+TOPBAR_GOVERNMENT_TOOLTIP,Ministers and reshuffles,Ministres et remaniements
+GOVERNMENT_TITLE,Cabinet,Gouvernement
+GOVERNMENT_PORTFOLIO,Portfolio,Portefeuille
+GOVERNMENT_MINISTER,Minister,Ministre
+GOVERNMENT_PARTY,Party,Parti
+GOVERNMENT_COMPETENCE,Competence,Compétence
+GOVERNMENT_LOYALTY,Loyalty,Loyauté
+GOVERNMENT_CORRUPTION,Corruption,Corruption
+GOVERNMENT_RESHUFFLE,Reshuffle,Remaniement
+GOVERNMENT_APPOINT,Appoint,Nommer
+GOVERNMENT_APPOINT_TOOLTIP,Each reshuffle costs a little stability.,Chaque remaniement coûte un peu de stabilité.
+GOVERNMENT_CANDIDATE_VALUE,"%s (%s), competence %d, loyalty %d, corruption %d","%s (%s), compétence %d, loyauté %d, corruption %d"
+GOVERNMENT_NO_PARTY,no party,sans parti
+GOVERNMENT_HINT,"Competence (0 to 10) drives each portfolio: growth (finance), stability (interior), legitimacy (foreign affairs), the military (defence), corruption (justice), retirees and workers (health), young people (education), ecologists (environment). Corrupt ministers risk scandals; disloyal ones may resign.","La compétence (0 à 10) agit sur chaque portefeuille : croissance (Finances), stabilité (Intérieur), légitimité (Affaires étrangères), militaires (Défense), corruption (Justice), retraités et ouvriers (Santé), jeunes (Éducation), écologistes (Environnement). Les ministres corrompus risquent le scandale ; les moins loyaux peuvent démissionner."
+NOTIFY_MINISTER_SCANDAL,Scandal: the minister resigns (%s).,Scandale : le ministre démissionne (%s).
+NOTIFY_MINISTER_RESIGNED,A minister resigns (%s).,Un ministre démissionne (%s).
