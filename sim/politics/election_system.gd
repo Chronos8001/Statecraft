@@ -32,7 +32,7 @@ func on_month(state: SimState) -> void:
 	for tag: String in tags:
 		var country: CountryState = state.countries[tag]
 		var politics := country.politics
-		if politics.seats <= 0 or politics.suspended:
+		if politics.seats <= 0 or politics.suspended or politics.emergency_months > 0:
 			continue
 		var held := false
 		if PoliticsState.is_due(state.date.year, state.date.month, politics.next_election_year,
@@ -130,7 +130,9 @@ static func hold_presidential(country: CountryState, state: SimState) -> void:
 	if politics.democratic and not politics.parties.is_empty():
 		var scores := _rigged(politics, election_day_votes(politics, state, settings), state)
 		if scores.has(incumbent_party):
-			scores[incumbent_party] = float(scores[incumbent_party]) * (1.0 + float(settings.get("incumbent_bonus", 0.0)))
+			var factor := 1.0 - float(settings.get("open_seat_penalty", 0.0)) if term_limited(politics) \
+				else 1.0 + float(settings.get("incumbent_bonus", 0.0))
+			scores[incumbent_party] = float(scores[incumbent_party]) * factor
 		var positions: Dictionary = {}
 		for party: PartyState in politics.parties.values():
 			positions[party.id] = position_of(party, settings)
@@ -147,6 +149,7 @@ static func hold_presidential(country: CountryState, state: SimState) -> void:
 						politics.head_of_government = leader
 					var government: Array[String] = [winner]
 					result["government_changed"] = apply_government(country, state, government)
+	politics.terms_served = politics.terms_served + 1 if winner == incumbent_party and not term_limited(politics) else 1
 	politics.presidential_year = state.date.year
 	politics.presidential_month = state.date.month
 	var next := _add_months(state.date.year, state.date.month, maxi(politics.presidential_term, 1) * MONTHS_PER_YEAR)
@@ -213,6 +216,11 @@ static func _largest_party(politics: PoliticsState) -> String:
 static func _add_months(year: int, month: int, months: int) -> Array[int]:
 	var index := year * MONTHS_PER_YEAR + month - 1 + months
 	return [index / MONTHS_PER_YEAR, index % MONTHS_PER_YEAR + 1]
+
+
+## Le président en place ne peut pas se représenter.
+static func term_limited(politics: PoliticsState) -> bool:
+	return politics.term_limit > 0 and politics.terms_served >= politics.term_limit
 
 
 static func campaign_settings(state: SimState) -> Dictionary:

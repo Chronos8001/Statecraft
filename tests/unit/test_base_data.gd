@@ -14,7 +14,7 @@ const MIN_PROVINCE_COUNT := 4000
 const LOCALIZATION_DIR := "res://data/localization"
 const TRANSLATED_CATEGORIES := ["countries", "provinces", "sea_zones", "straits", "ideologies", "regimes",
 	"terrains", "resources", "traits", "challenges", "economy_sectors", "budget_taxes", "budget_spending",
-	"social_groups", "trade_agreements", "energy_sources", "buildings", "laws"]
+	"social_groups", "trade_agreements", "energy_sources", "buildings", "laws", "constitution"]
 const MIN_SEA_ZONE_COUNT := 150
 
 const LocalizationScript := preload("res://core/localization/localization.gd")
@@ -350,6 +350,7 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 			"characters": _repository.resolve_ref("names#characters"),
 			"provinces": GameState.country_provinces(_repository.get_category("provinces")),
 			"laws": _repository.get_category("laws"),
+			"constitution": _repository.get_category("constitution"),
 			"settings": _repository.get_value("defines", "politics", {})})
 	var investment_system := InvestmentSystem.new()
 	var society_system := SocietySystem.new()

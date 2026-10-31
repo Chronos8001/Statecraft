@@ -69,7 +69,7 @@ static func update_country(country: CountryState, state: SimState) -> void:
 	society.support = SocietyModel.weighted(society.satisfaction, society.group_shares)
 	var stability_settings: Dictionary = settings.get("stability", {})
 	var stability_target := SocietyModel.stability_target(society, float(budget_effects.get("stability", 0.0))
-		+ float(country.law_effects.get("stability", 0.0)),
+		+ float(country.law_effects.get("stability", 0.0)) + emergency_stability(country, state),
 		stability_settings)
 	society.stability = SocietyModel.approach(society.stability, stability_target,
 		float(stability_settings.get("adjustment", 1.0)))
@@ -77,3 +77,11 @@ static func update_country(country: CountryState, state: SimState) -> void:
 	society.legitimacy = SocietyModel.approach(society.legitimacy, SocietyModel.legitimacy_target(society,
 		legitimacy_settings, float(country.law_effects.get("legitimacy", 0.0))), float(legitimacy_settings.get("adjustment", 1.0)))
 	country.economy.society_growth = SocietyModel.growth_penalty(society, stability_settings)
+
+
+## Stabilité gagnée tant que l'état d'urgence dure.
+static func emergency_stability(country: CountryState, state: SimState) -> float:
+	if country.politics.emergency_months <= 0:
+		return 0.0
+	return float(ConstitutionSystem.settings_of(state).get("emergency_stability", 0.0))
+

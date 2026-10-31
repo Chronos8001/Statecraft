@@ -72,6 +72,7 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 		for tag: String in tags:
 			_setup_politics(state.countries[tag], countries[tag], state)
 			_setup_laws(state.countries[tag], countries[tag], state)
+			_setup_constitution(state.countries[tag], countries[tag])
 
 
 ## Lois de départ, selon les règles de chaque loi (pays cités, régime, démocratie, revenu).
@@ -87,6 +88,11 @@ static func _setup_laws(country: CountryState, data: Dictionary, state: SimState
 	for law_id: String in definitions.keys():
 		country.laws[law_id] = LawModel.start_option(definitions[law_id], context)
 	country.start_laws = country.laws.duplicate()
+
+
+static func _setup_constitution(country: CountryState, data: Dictionary) -> void:
+	var constitution: Dictionary = data.get("constitution", {})
+	country.constitution = ConstitutionModel.start_options(country.politics, str(constitution.get("term_limit", "none")))
 
 
 ## Chambre basse de départ ; les sondages de départ sont ramenés à 100 % avec les petits partis, puis
@@ -110,6 +116,10 @@ static func _setup_politics(country: CountryState, data: Dictionary, state: SimS
 	politics.dissolved = bool(source.get("dissolved", false))
 	var regime: Dictionary = (state.society_definitions.get("regimes", {}) as Dictionary).get(str(data.get("regime", "")), {})
 	politics.democratic = bool(regime.get("democratic", false))
+	politics.regime = str(data.get("regime", ""))
+	var constitution: Dictionary = data.get("constitution", {})
+	politics.term_limit = int(ConstitutionModel.TERM_LIMITS.get(str(constitution.get("term_limit", "none")), 0))
+	politics.terms_served = int(constitution.get("terms_served", 1))
 	politics.polls_published = politics.democratic
 	politics.executive = PoliticsState.EXECUTIVE_PRESIDENTIAL if str(data.get("regime", "")) == PRESIDENTIAL_REGIME \
 		else PoliticsState.EXECUTIVE_PARLIAMENTARY

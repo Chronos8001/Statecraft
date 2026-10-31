@@ -15,3 +15,5 @@ var laws: Dictionary = {}
 var start_laws: Dictionary = {}
 var law_cooldowns: Dictionary = {}
 var law_effects: Dictionary = {}
+## Constitution : réforme → option en vigueur.
+var constitution: Dictionary = {}

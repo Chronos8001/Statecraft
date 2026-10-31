@@ -27,6 +27,15 @@ var dissolved: bool = false
 var polls_published: bool = false
 var democratic: bool = false
 var executive: String = EXECUTIVE_PARLIAMENTARY
+## Régime politique en cours (identifiant de data/regimes), modifiable par une réforme constitutionnelle.
+var regime: String = ""
+## Nombre de mandats présidentiels autorisés (0 : pas de limite) et mandats déjà accomplis par le président.
+var term_limit: int = 0
+var terms_served: int = 1
+## Mois d'état d'urgence restants (0 : pas d'état d'urgence).
+var emergency_months: int = 0
+## Référendum prévu : {reform, option, year, month}, vide sinon.
+var pending_referendum: Dictionary = {}
 ## Élections suspendues (loi martiale).
 var suspended: bool = false
 ## Les autres partis refusent de gouverner avec les familles exclues (réglage « cordon_groups »).
