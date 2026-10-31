@@ -9,6 +9,8 @@ const PRIORITY := 31
 const UN := "un"
 const CUSTOM_PREFIX := "custom_"
 const GENERAL_ASSEMBLY := "general_assembly"
+const RESOLUTION_CONDEMN := "condemn"
+const RESOLUTION_SANCTIONS := "sanctions"
 const SECURITY_COUNCIL := "security_council"
 const EVENT_JOINED := &"organization_joined"
 const EVENT_JOIN_REFUSED := &"organization_join_refused"
@@ -317,7 +319,10 @@ static func expected_resolution(state: SimState, body: String, proposer: String,
 	return result
 
 
-static func vote_resolution(state: SimState, body: String, proposer: String, target: String) -> Dictionary:
+## kind : condamnation, ou sanctions (Conseil de sécurité seulement : tous les membres de l'ONU appliquent alors
+## les mesures « un_measures »).
+static func vote_resolution(state: SimState, body: String, proposer: String, target: String,
+		kind: String = RESOLUTION_CONDEMN) -> Dictionary:
 	var settings: Dictionary = settings_of(state).get("resolution", {})
 	var result := expected_resolution(state, body, proposer, target)
 	var diplomacy := state.diplomacy
@@ -330,10 +335,16 @@ static func vote_resolution(state: SimState, body: String, proposer: String, tar
 		var country := state.get_country(target)
 		if country != null:
 			country.society.start_legitimacy += float(settings.get("%s_legitimacy" % body, 0.0))
+		if kind == RESOLUTION_SANCTIONS:
+			for member: Variant in members(state, UN):
+				if str(member) != target:
+					for measure: Variant in SanctionSystem.settings_of(state).get("un_measures", []):
+						SanctionSystem._add(state, str(member), target, str(measure))
+			SanctionSystem.refresh_all(state)
 	else:
 		for voter: Variant in voters:
 			if resolution_vote(state, str(voter), proposer, target) < 0:
 				diplomacy.change_relation(proposer, str(voter), float(settings.get("failed_proposer_relation", 0.0)))
-	state.add_event(EVENT_RESOLUTION, proposer, {"body": body, "target": target, "passed": result["passed"],
+	state.add_event(EVENT_RESOLUTION, proposer, {"body": body, "kind": kind, "target": target, "passed": result["passed"],
 		"yes": result["yes"], "no": result["no"], "vetoed": result["vetoed"]})
 	return result

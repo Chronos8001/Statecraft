@@ -78,6 +78,8 @@ func refusal_reason(state: SimState) -> String:
 				return "ORGANIZATION_NOT_MEMBER"
 			if text == OrganizationSystem.SECURITY_COUNCIL and not diplomacy.security_council.has(tag):
 				return "ORGANIZATION_NOT_IN_COUNCIL"
+			if kind == OrganizationSystem.RESOLUTION_SANCTIONS and text != OrganizationSystem.SECURITY_COUNCIL:
+				return "ORGANIZATION_SANCTIONS_COUNCIL"
 			if state.get_country(target) == null or target == tag:
 				return "DIPLOMACY_INVALID"
 			if diplomacy.cooldown("resolution", tag, target) > 0:
@@ -99,7 +101,8 @@ func execute(state: SimState) -> void:
 		CREATE:
 			OrganizationSystem.create(state, tag, text.strip_edges(), kind)
 		RESOLUTION:
-			OrganizationSystem.vote_resolution(state, text, tag, target)
+			OrganizationSystem.vote_resolution(state, text, tag, target,
+				kind if not kind.is_empty() else OrganizationSystem.RESOLUTION_CONDEMN)
 
 
 func to_dict() -> Dictionary:

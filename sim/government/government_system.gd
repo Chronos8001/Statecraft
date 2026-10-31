@@ -117,11 +117,15 @@ static func form_cabinet(country: CountryState, state: SimState) -> void:
 	var portfolios: Array = (state.politics_definitions.get("portfolios", {}) as Dictionary).keys()
 	var parties := _portfolio_parties(country, portfolios.size())
 	country.cabinet.clear()
+	var names := GovernmentModel.generator(state, "%s|cabinet|%d" % [country.tag, country.cabinet_generation])
+	var taken: Array = []
 	for index: int in portfolios.size():
 		var party: String = parties[index]
 		var key := "%s|%s|cabinet|%d" % [country.tag, portfolios[index], country.cabinet_generation]
 		var minister := GovernmentModel.make_character(state, country, party, key,
-			not party.is_empty() and party != country.politics.ruling_party(), cabinet_last_names(country, state))
+			not party.is_empty() and party != country.politics.ruling_party(), taken, names)
+		if not minister.is_empty():
+			taken.append(minister.get("last_name", ""))
 		if minister.is_empty():
 			continue
 		var character_id := "%s%d" % [CHARACTER_PREFIX, state.next_character_id]

@@ -20,7 +20,8 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 		{"settings": DataLoader.get_define("diplomacy", {}), "treaties": DataLoader.get_category("treaties"),
 			"start": DataLoader.get_category("diplomacy"),
 			"organizations": DataLoader.repository.resolve_ref("names#organizations"),
-			"organization_rules": DataLoader.get_category("organization_rules")})
+			"organization_rules": DataLoader.get_category("organization_rules"),
+			"sanctions": DataLoader.get_category("sanctions")})
 	scheduler = SimScheduler.new()
 	scheduler.add_system(LawSystem.new())
 	scheduler.add_system(ConstitutionSystem.new())

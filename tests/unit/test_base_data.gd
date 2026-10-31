@@ -571,3 +571,13 @@ func test_relations_are_symmetric_and_realistic() -> void:
 	assert_gt(float(countries["FRA"]["relations"]["DEU"]), 70.0)
 	assert_lt(float(countries["IND"]["relations"]["PAK"]), -50.0)
 	assert_gt(float(countries["USA"]["relations"]["GBR"]), 70.0)
+
+
+func test_start_sanctions_name_real_countries() -> void:
+	var countries := _repository.get_category("countries")
+	var measures := _repository.get_category("sanctions")
+	for entry: Variant in _repository.get_category("diplomacy")["sanctions"]["list"]:
+		for tag: Variant in (entry[0] as Array) + [entry[1]]:
+			assert_true(str(tag) == "@eu" or countries.has(tag), "pays inconnu : %s" % tag)
+		for measure: Variant in entry[2]:
+			assert_true(measures.has(measure), "mesure inconnue : %s" % measure)
