@@ -278,3 +278,43 @@ TRADE_NO_AGREEMENT,No trade agreement.,Aucun accord commercial.
 TRADE_LEAVE,Leave,Quitter
 TRADE_LEAVE_TOOLTIP,"Tariffs with the former partners go back to normal. Joining an agreement will require negotiation (diplomacy).","Les droits avec les anciens partenaires redeviennent normaux. Rejoindre un accord demandera une négociation (diplomatie)."
 NOTIFY_AGREEMENT_LEFT,We have left %s,Nous avons quitté l'accord : %s
+# --- Énergie et bâtiments ---
+TOPBAR_ENERGY,Energy,Énergie
+TOPBAR_ENERGY_TOOLTIP,"Electricity mix, demand, blackouts and construction projects","Mix électrique, demande, coupures et chantiers"
+ENERGY_TITLE,Electricity,Électricité
+ENERGY_SOURCE,Source,Source
+ENERGY_CAPACITY,Capacity,Puissance installée
+ENERGY_OUTPUT,Output,Production
+ENERGY_SHARE,Share,Part
+ENERGY_GW_VALUE,%s GW,%s GW
+ENERGY_TWH_VALUE,%s TWh,%s TWh
+ENERGY_DEMAND,Annual demand,Demande annuelle
+ENERGY_MAX_SUPPLY,Maximum output,Production maximale
+ENERGY_MARGIN,Reserve margin,Marge de sécurité
+ENERGY_BLACKOUT,Unserved demand (blackouts),Demande non servie (coupures)
+ENERGY_LOW_MARGIN,"Low margin: build power plants before demand overtakes supply.","Marge faible : construisez des centrales avant que la demande ne dépasse la production."
+ENERGY_PROJECT_SPENDING,Construction projects,Chantiers en cours
+ENERGY_PROJECTS,Our construction projects,Nos chantiers
+ENERGY_PROJECT_VALUE,%s in %s: %d months left ($%s bn/yr),"%s à %s : encore %d mois (%s Md$/an)"
+ENERGY_NO_PROJECT,No construction project.,Aucun chantier en cours.
+ENERGY_CANCEL,Abandon,Abandonner
+ENERGY_CANCEL_TOOLTIP,Stop the project: spending stops and what has been paid is lost.,Arrêter le chantier : les dépenses cessent et ce qui a été payé est perdu.
+ENERGY_HINT,"Demand grows with the economy. Build power plants from a province sheet (double-click a province).","La demande suit la croissance. Construisez des centrales depuis la fiche d'une province (double-clic sur une province)."
+BUILDINGS_TITLE,Buildings,Bâtiments
+BUILDINGS_NONE,None,Aucun
+BUILDINGS_COUNT_VALUE,%s × %d,%s × %d
+BUILDINGS_PROJECT_VALUE,Under construction: %s (%d months left),En construction : %s (encore %d mois)
+BUILDINGS_BUILD,Build,Construire
+BUILDINGS_BUILD_BUTTON,Launch,Lancer
+BUILDINGS_COST_VALUE,"$%s bn over %d months","%s Md$ sur %d mois"
+BUILDINGS_CAPACITY_VALUE,%s GW,%s GW
+BUILDINGS_OUTPUT_VALUE,+$%s bn/yr of output,+%s Md$/an de production
+BUILD_REFUSED_UNKNOWN,Impossible here.,Impossible ici.
+BUILD_REFUSED_NOT_OURS,This province is not under our control.,Cette province n'est pas sous notre contrôle.
+BUILD_REFUSED_COASTAL,Requires a coastal province.,Il faut une province côtière.
+BUILD_REFUSED_TERRAIN,The terrain does not allow it.,Le relief ne le permet pas.
+BUILD_REFUSED_RESOURCE,No mineable resource here.,Aucune ressource exploitable ici.
+BUILD_REFUSED_FULL,Maximum reached in this province.,Maximum atteint dans cette province.
+BUDGET_PROJECTS,Public investment (projects),Investissements publics (chantiers)
+NOTIFY_PROJECT_DONE,%s completed in %s,%s achevé(e) : %s
+NOTIFY_BLACKOUT,Blackouts: electricity demand exceeds supply,Coupures d'électricité : la demande dépasse la production

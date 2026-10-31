@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=4 format=3]
 
+[ext_resource type="Script" path="res://ui/game/buildings_section.gd" id="9_buildings"]
 [ext_resource type="Script" path="res://ui/game/province_info_panel.gd" id="1_panel"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
@@ -103,3 +104,10 @@ layout_mode = 2
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 6
 columns = 2
+
+[node name="BuildingsSection" type="VBoxContainer" parent="Margin/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+theme_override_constants/separation = 4
+script = ExtResource("9_buildings")
