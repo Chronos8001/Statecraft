@@ -6,6 +6,8 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-10-31
+
 ### Ajouté
 - 10 groupes sociaux par pays (ouvriers, classes moyennes, élites économiques, agriculteurs, retraités, jeunes, militaires, religieux, minorités, écologistes) : part de la population, poids politique selon le régime, satisfaction.
 - La satisfaction des groupes part de la popularité réelle du gouvernement et réagit au budget, au chômage, à l'inflation, à la croissance, aux coupures d'électricité et aux nationalisations.
