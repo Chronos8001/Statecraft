@@ -184,6 +184,8 @@ static func set_measure(state: SimState, sanctioner: String, target: String, mea
 	var diplomacy := state.diplomacy
 	if active:
 		_add(state, sanctioner, target, measure)
+		if TensionSystem.threshold(state, measure) > 0.0:
+			TensionSystem.add_event(state, "heavy_sanction")
 		diplomacy.change_relation(sanctioner, target, float(definition.get("relation", 0.0)))
 		diplomacy.change_trust(sanctioner, target, float(settings.get("trust", 0.0)))
 	else:

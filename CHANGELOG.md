@@ -22,6 +22,8 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 - Sphères d'influence : points d'influence, influence de chaque pays chez les autres, soutien à un parti, financement de l'opposition, influence culturelle, bases militaires ; mode de carte « Notre influence ».
 
+- Revendications territoriales réelles de 2026 et tension mondiale : la jauge débloque des actions de plus en plus agressives (nouvelles revendications, ultimatums, embargos totaux, exclusion des paiements). Mode de carte « Revendications ».
+
 ### Modifié
 - Fiche pays plus large.
 - Barre supérieure : indicateur d'influence affiché, libellés « Solde » et « Soutien » raccourcis ; l'effet du budget sur l'influence joue désormais.

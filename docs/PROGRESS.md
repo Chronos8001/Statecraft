@@ -242,8 +242,10 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Actions : soutenir un parti, financer l'opposition, influence culturelle, ouvrir ou fermer une base ; risque d'être démasqué
 - [x] Mode de carte « Notre influence » ; section Influence du panneau Diplomatie
 
-**6g. Revendications et tension mondiale**
-- [ ] Revendications territoriales, jauge de tension mondiale qui débloque des actions plus agressives
+**6g. Revendications et tension mondiale** (en test)
+- [x] Revendications réelles de 2026 (Taïwan, Kosovo, Chypre du Nord, Somaliland, Belize, territoires ukrainiens tenus par la Russie, Cachemire, Arunachal Pradesh, Essequibo, Malouines, Gibraltar)
+- [x] Faire valoir, abandonner, revendiquer une province voisine ; mode de carte « Revendications »
+- [x] Tension mondiale (55 en 2026) qui monte avec ultimatums, revendications, coups d'État, guerres civiles et sanctions ; seuils qui débloquent revendications, ultimatums, embargos totaux et exclusion des paiements
 
 ## Étape 7 — Militaire (version simplifiée) ⬜
 **7a. Forces armées**

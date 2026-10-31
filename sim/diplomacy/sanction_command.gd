@@ -29,6 +29,8 @@ func refusal_reason(state: SimState) -> String:
 		return "DIPLOMACY_INVALID"
 	if SanctionSystem.has_measure(state, tag, target, measure) == active:
 		return "DIPLOMACY_ALREADY"
+	if active and not TensionSystem.unlocked(state, measure):
+		return "TENSION_TOO_LOW"
 	return ""
 
 

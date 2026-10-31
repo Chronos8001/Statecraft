@@ -143,6 +143,7 @@ static func propose_treaty(state: SimState, proposer: String, target: String, tr
 	if accepted:
 		add_treaty(state, treaty_type, proposer, target, false)
 		diplomacy.change_trust(proposer, target, float(settings.get("treaty_signed_trust", 0.0)))
+		TensionSystem.add_event(state, "treaty_signed")
 		state.add_event(EVENT_TREATY_SIGNED, proposer, {"target": target, "treaty": treaty_type})
 	else:
 		diplomacy.change_relation(proposer, target, float(settings.get("treaty_refused_relation", 0.0)))
@@ -216,6 +217,7 @@ static func perform(state: SimState, actor: String, target: String, action: Stri
 ## Ultimatum : céder un tribut (part du PIB de la cible) ou subir une rupture de confiance.
 static func _ultimatum(state: SimState, actor: String, target: String, settings: Dictionary) -> void:
 	var diplomacy := state.diplomacy
+	TensionSystem.add_event(state, "ultimatum")
 	var accepted := target != str(state.player_tag) and DiplomacyModel.ultimatum_score(state, actor, target, settings) > 0.0
 	if accepted:
 		var amount := float(settings.get("tribute_share", 0.0)) / DiplomacyModel.PERCENT \
