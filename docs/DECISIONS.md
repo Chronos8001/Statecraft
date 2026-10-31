@@ -114,3 +114,6 @@
 | 2026-10-31 | Ministres et successeurs créés par la simulation (générateur de noms, graine de la partie) et rangés dans l'état de la partie | Reproductible, sauvegardable, sans gonfler les données | Ministres écrits dans les données |
 | 2026-10-31 | Candidats calculés à la demande à partir d'un compteur par pays : les mêmes tant que personne n'est nommé | L'interface peut les afficher sans modifier la partie | Liste de candidats stockée |
 | 2026-10-31 | Effets du cabinet mesurés par rapport au cabinet de départ ; scandale = 0,4 %/mois × corruption / 50 × presse | Neutre au départ, la corruption a un coût visible | Effets absolus |
+| 2026-10-31 | Crises déclenchées par une dégradation par rapport à 2026 (satisfaction d'un groupe, stabilité), pas par un seuil absolu | Les pays déjà fragiles ne s'embrasent pas dès le premier mois | Seuils absolus |
+| 2026-10-31 | Guerres civiles de 2026 présentes au départ sans effet supplémentaire (déjà comprises dans l'économie) ; leur fin améliore durablement la stabilité | Neutre au départ | Effets appliqués dès 2026 |
+| 2026-10-31 | Coup d'État réussi : junte, plus d'élections ni de gouvernement de partis, légitimité de la junte | Conséquence forte et lisible | Changement de dirigeant seulement |
