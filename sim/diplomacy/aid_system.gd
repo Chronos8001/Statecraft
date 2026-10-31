@@ -111,7 +111,8 @@ static func accepts(state: SimState, donor: String, recipient: String, kind: Str
 	if recipient == str(state.player_tag):
 		return true
 	var definition: Dictionary = state.aid_definitions.get(kind, {})
-	return state.diplomacy.relation(donor, recipient) >= float(definition.get("min_relation", -DiplomacyState.LIMIT))
+	return state.diplomacy.relation(donor, recipient) + InfluenceSystem.weight(state, "aid") \
+		* InfluenceSystem.influence(state, donor, recipient) >= float(definition.get("min_relation", -DiplomacyState.LIMIT))
 
 
 ## Nouveau programme : amount en milliards de dollars (par an, ou en une fois si months = 1).

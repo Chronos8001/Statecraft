@@ -8,7 +8,7 @@ const DEGREES_PER_TURN := 360.0
 const DEGREES_HALF_TURN := 180.0
 const BYTES_PER_MEGABYTE := 1048576.0
 const DEFAULT_MAP_MODE := "political"
-const LIVE_MAP_MODES := ["trade", "stability", "support", "vote", "ideology", "unrest", "relations"]
+const LIVE_MAP_MODES := ["trade", "stability", "support", "vote", "ideology", "unrest", "relations", "influence"]
 
 var _thread: Thread
 var _load_started_ms: int = 0
@@ -295,6 +295,10 @@ func _on_sim_event(event: Dictionary) -> void:
 			var other := DataLoader.get_entry("countries", str(event.get("target", "")))
 			_notify(tr("NOTIFY_AID_GIVEN" if event.get("type") == AidSystem.EVENT_AID else "NOTIFY_AID_REFUSED")
 				% [tr(str(definition.get("name_key", ""))), tr(str(other.get("name_key", "")))])
+		InfluenceSystem.EVENT_INFLUENCE:
+			if bool(event.get("exposed", false)):
+				var other := DataLoader.get_entry("countries", str(event.get("target", "")))
+				_notify(tr("NOTIFY_INFLUENCE_EXPOSED") % tr(str(other.get("name_key", ""))))
 		MediaSystem.EVENT_DISINFORMATION:
 			_notify(tr("NOTIFY_DISINFORMATION_EXPOSED" if bool(event.get("exposed", false)) else "NOTIFY_DISINFORMATION_DONE"))
 		CrisisSystem.EVENT_STARTED:

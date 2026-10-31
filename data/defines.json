@@ -731,6 +731,63 @@
       "min_relation_gain": 2.0,
       "max_relation_gain": 20.0,
       "refused_relation": -2.0
+    },
+    "influence": {
+      "income_base": 1.0,
+      "income_scale": 20.0,
+      "budget_factor": 1.0,
+      "cap_months": 24,
+      "change_decay": 0.01,
+      "start": {
+        "trade": 50.0,
+        "base": 15.0,
+        "mutual_defense": 10.0,
+        "aid": 10.0,
+        "min_stored": 1.0
+      },
+      "weights": {
+        "treaty": 0.3,
+        "resolution": 0.3,
+        "organization": 0.2,
+        "aid": 0.5
+      },
+      "actions": {
+        "support_party": {
+          "cost": 20.0,
+          "drift": 0.1,
+          "influence": 4.0,
+          "exposure": 0.25,
+          "exposed_relation": -10.0,
+          "government_relation": -5.0,
+          "cooldown": 6
+        },
+        "fund_opposition": {
+          "cost": 30.0,
+          "stability": 3.0,
+          "drift": 0.08,
+          "influence": 4.0,
+          "exposure": 0.35,
+          "exposed_relation": -20.0,
+          "cooldown": 6
+        },
+        "soft_power": {
+          "cost": 15.0,
+          "opinion": 5.0,
+          "influence": 3.0,
+          "cooldown": 6
+        },
+        "open_base": {
+          "cost": 50.0,
+          "relation": 5.0,
+          "min_relation": 40.0,
+          "cooldown": 12
+        },
+        "close_base": {
+          "cost": 0.0,
+          "relation": -5.0,
+          "cooldown": 12
+        }
+      }
     }
   }
 }

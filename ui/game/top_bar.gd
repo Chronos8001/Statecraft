@@ -17,6 +17,7 @@ signal world_requested
 const TREASURY_INDEX := 0
 const STABILITY_INDEX := 1
 const SUPPORT_INDEX := 2
+const INFLUENCE_INDEX := 4
 const STAT_KEYS := ["TOPBAR_TREASURY", "TOPBAR_STABILITY", "TOPBAR_SUPPORT", "TOPBAR_MILITARY", "TOPBAR_INFLUENCE"]
 const PIP_ON := "■"
 const PIP_OFF := "□"
@@ -134,6 +135,9 @@ func _update_country() -> void:
 	if state != null and not state.society.group_shares.is_empty() and _stat_values.size() > SUPPORT_INDEX:
 		_set_score(_stat_values[STABILITY_INDEX], state.society.stability, "TOPBAR_STABILITY_TOOLTIP")
 		_set_score(_stat_values[SUPPORT_INDEX], state.society.support, "TOPBAR_SUPPORT_TOOLTIP")
+	if state != null and not GameState.sim.diplomacy_settings.is_empty() and _stat_values.size() > INFLUENCE_INDEX:
+		_set_score(_stat_values[INFLUENCE_INDEX], float(GameState.sim.diplomacy.influence_points.get(tag, 0.0)),
+			"TOPBAR_INFLUENCE_TOOLTIP")
 	for index: int in _stat_values.size():
 		var known := _stat_values[index].text != tr("TOPBAR_UNKNOWN")
 		_stat_names[index].visible = known

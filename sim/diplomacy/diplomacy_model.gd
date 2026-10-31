@@ -35,6 +35,7 @@ static func treaty_score(state: SimState, proposer: String, target: String, defi
 		if rules.has("wealth_gap"):
 			var ratio := gdp_per_capita(state, a) / maxf(gdp_per_capita(state, b), 1.0)
 			score += float(rules["wealth_gap"]) * clampf(absf(log(ratio)) / log(3.0), 0.0, 2.0)
+	score += InfluenceSystem.weight(state, "treaty") * InfluenceSystem.influence(state, proposer, target)
 	if relation < float(rules.get("min_relation", -DiplomacyState.LIMIT)):
 		score = minf(score, -1.0)
 	return score
