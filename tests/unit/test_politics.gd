@@ -47,7 +47,7 @@ func _world() -> SimState:
 	WorldSetup.populate(state, {"AAA": _country("parliamentary_republic", aaa), "BBB": _country("one_party_state", bbb)},
 		CURRENCIES, _defines["economy"], {}, {}, {}, {}, {}, _defines["investment"],
 		{"groups": GROUPS, "regimes": REGIMES, "ideologies": IDEOLOGIES, "settings": _defines["society"]},
-		{"parties": PARTIES, "settings": _defines["politics"]})
+		{"parties": PARTIES, "characters": {}, "provinces": {}, "settings": _defines["politics"]})
 	return state
 
 
