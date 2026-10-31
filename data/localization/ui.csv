@@ -699,3 +699,29 @@ INFLUENCE_BASE_REFUSED,"Relations too poor, and no military-access treaty.","Rel
 TOPBAR_INFLUENCE_TOOLTIP,"Influence points, earned each month (economic weight, diplomacy budget)","Points d'influence, gagnés chaque mois (poids économique, budget de la diplomatie)"
 MAPMODE_INFLUENCE,Our influence,Notre influence
 NOTIFY_INFLUENCE_EXPOSED,Our interference in %s has been exposed!,Notre ingérence a été démasquée : %s !
+WORLD_TENSION_VALUE,World tension: %d / 100,Tension mondiale : %d / 100
+WORLD_UNLOCKED,✓ %s (from %d),✓ %s (dès %d)
+WORLD_LOCKED,✗ %s (from %d),✗ %s (dès %d)
+WORLD_ACTION_ADD_CLAIM,New territorial claims,Nouvelles revendications territoriales
+WORLD_ACTION_ULTIMATUM,Ultimatums,Ultimatums
+WORLD_ACTION_TOTAL,Total embargoes,Embargos totaux
+WORLD_ACTION_PAYMENT_EXCLUSION,Exclusion from payment systems,Exclusion des systèmes de paiement
+DIPLOMACY_CLAIMS,Territorial claims,Revendications territoriales
+DIPLOMACY_NO_CLAIM,No claim between us.,Aucune revendication entre nous.
+DIPLOMACY_CLAIM_WHOLE,the whole country,tout le pays
+DIPLOMACY_CLAIM_OURS,We claim: %s,Nous revendiquons : %s
+DIPLOMACY_CLAIM_THEIRS,It claims: %s,Il revendique : %s
+DIPLOMACY_CLAIM_PRESS,Press,Faire valoir
+DIPLOMACY_CLAIM_RENOUNCE,Renounce,Abandonner
+DIPLOMACY_CLAIM_PRESS_TOOLTIP,"The military and our party gain, relations fall, world tension rises.","Les militaires et notre parti y gagnent, les relations baissent, la tension mondiale monte."
+DIPLOMACY_CLAIM_RENOUNCE_TOOLTIP,"Relations and trust improve, tension falls; the military will not forgive it.","Relations et confiance progressent, la tension baisse ; les militaires ne le pardonneront pas."
+DIPLOMACY_ADD_CLAIM,Claim,Revendiquer
+DIPLOMACY_ADD_CLAIM_TOOLTIP,"A province bordering our territory. Relations fall, world tension rises.","Une province voisine de notre territoire. Les relations baissent, la tension mondiale monte."
+TENSION_TOO_LOW,World tension is not high enough yet.,La tension mondiale n'est pas encore assez forte.
+CLAIM_NOT_ADJACENT,This province does not border our territory.,Cette province ne touche pas notre territoire.
+MAPMODE_CLAIMS,Territorial claims,Revendications
+LEGEND_CLAIM_OWN,Claimed by us,Revendiqué par nous
+LEGEND_CLAIM_AGAINST,Our territory claimed by others,Notre territoire revendiqué
+LEGEND_CLAIM_OTHER,Other disputed territories,Autres territoires disputés
+NOTIFY_TENSION_UNLOCKED,World tension rises: %s now possible.,La tension mondiale monte : %s désormais possibles.
+NOTIFY_TENSION_LOCKED,World tension eases: %s no longer possible.,La tension mondiale retombe : %s plus possibles.

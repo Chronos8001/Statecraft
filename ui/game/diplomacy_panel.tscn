@@ -226,6 +226,33 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 6
 columns = 2
 
+[node name="ClaimsTitle" type="Label" parent="Margin/Content/Scroll/Details"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+text = "DIPLOMACY_CLAIMS"
+
+[node name="ClaimsBox" type="VBoxContainer" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ClaimRow" type="HBoxContainer" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ProvinceOption" type="OptionButton" parent="Margin/Content/Scroll/Details/ClaimRow"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+
+[node name="ClaimButton" type="Button" parent="Margin/Content/Scroll/Details/ClaimRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "DIPLOMACY_ADD_CLAIM"
+
 [node name="ActionsTitle" type="Label" parent="Margin/Content/Scroll/Details"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)

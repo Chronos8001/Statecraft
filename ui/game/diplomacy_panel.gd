@@ -10,6 +10,7 @@ var _tag: String = ""
 var _treaty_ids: Array[String] = []
 var _aid_kinds: Array[String] = []
 var _party_ids: Array[String] = []
+var _claimable: Array[String] = []
 
 @onready var _title_label: Label = %TitleLabel
 @onready var _flag_rect: TextureRect = %FlagRect
@@ -28,6 +29,10 @@ var _party_ids: Array[String] = []
 @onready var _party_option: OptionButton = %PartyOption
 @onready var _support_button: Button = %SupportButton
 @onready var _influence_grid: GridContainer = %InfluenceGrid
+@onready var _claims_box: VBoxContainer = %ClaimsBox
+@onready var _claim_row: HBoxContainer = %ClaimRow
+@onready var _province_option: OptionButton = %ProvinceOption
+@onready var _claim_button: Button = %ClaimButton
 @onready var _treaty_option: OptionButton = %TreatyOption
 @onready var _propose_button: Button = %ProposeButton
 @onready var _opinion_label: Label = %OpinionLabel
@@ -43,6 +48,10 @@ func _ready() -> void:
 	_aid_kind_option.item_selected.connect(func(_index: int) -> void: _update_aid())
 	_aid_button.pressed.connect(_on_aid_pressed)
 	_party_option.item_selected.connect(func(_index: int) -> void: _update_support())
+	_province_option.item_selected.connect(func(_index: int) -> void: _update_claim())
+	_claim_button.pressed.connect(func() -> void:
+		if _province_option.selected >= 0 and _province_option.selected < _claimable.size():
+			_submit(ClaimCommand.new(GameState.sim.player_tag, ClaimCommand.ADD, -1, _tag, _claimable[_province_option.selected])))
 	_support_button.pressed.connect(func() -> void:
 		if _party_option.selected >= 0 and _party_option.selected < _party_ids.size():
 			_submit(InfluenceCommand.new(GameState.sim.player_tag, _tag, "support_party", _party_ids[_party_option.selected])))
@@ -89,6 +98,7 @@ func refresh() -> void:
 	_fill_sanctions(state, player)
 	_fill_aid(state, player)
 	_fill_influence(state, player)
+	_fill_claims(state, player)
 	_fill_actions(state)
 	_fill_proposal(state, player)
 
@@ -232,6 +242,69 @@ func _update_support() -> void:
 	var refusal := InfluenceCommand.new(state.player_tag, _tag, "support_party", party).refusal_reason(state)
 	_support_button.disabled = not refusal.is_empty()
 	_support_button.tooltip_text = tr(refusal) if not refusal.is_empty() else tr("DIPLOMACY_SUPPORT_PARTY_TOOLTIP")
+
+
+## Revendications entre les deux pays (les nôtres : faire valoir, abandonner) et nouvelle revendication.
+func _fill_claims(state: SimState, player: String) -> void:
+	for child: Node in _claims_box.get_children():
+		_claims_box.remove_child(child)
+		child.queue_free()
+	var claims := TensionSystem.claims_between(state, player, _tag)
+	if claims.is_empty():
+		var none := Label.new()
+		none.text = "DIPLOMACY_NO_CLAIM"
+		none.add_theme_color_override("font_color", LABEL_COLOR)
+		_claims_box.add_child(none)
+	for claim_id: int in claims:
+		var claim: Dictionary = state.diplomacy.claims[claim_id]
+		var row := HBoxContainer.new()
+		var label := Label.new()
+		label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		label.text = tr("DIPLOMACY_CLAIM_OURS" if claim["claimant"] == player else "DIPLOMACY_CLAIM_THEIRS") \
+			% _claim_text(state, claim)
+		row.add_child(label)
+		if claim["claimant"] == player:
+			for action: String in [ClaimCommand.PRESS, ClaimCommand.RENOUNCE]:
+				var button := Button.new()
+				button.text = "DIPLOMACY_CLAIM_%s" % action.to_upper()
+				button.tooltip_text = "DIPLOMACY_CLAIM_%s_TOOLTIP" % action.to_upper()
+				button.focus_mode = Control.FOCUS_NONE
+				var refusal := ClaimCommand.new(state.player_tag, action, claim_id).refusal_reason(state)
+				button.disabled = not refusal.is_empty()
+				if not refusal.is_empty():
+					button.tooltip_text = tr(refusal)
+				button.pressed.connect(func() -> void: _submit(ClaimCommand.new(state.player_tag, action, claim_id)))
+				row.add_child(button)
+		_claims_box.add_child(row)
+	_claimable.clear()
+	_province_option.clear()
+	var provinces: Dictionary = state.energy_definitions.get("provinces", {})
+	for province_id: String in TensionSystem.adjacent_provinces(state, player, _tag, provinces):
+		if not TensionSystem.is_claimed_by(state, player, province_id):
+			_claimable.append(province_id)
+			_province_option.add_item(tr(str((provinces[province_id] as Dictionary).get("name_key", province_id))))
+	_claim_row.visible = not _claimable.is_empty()
+	_update_claim()
+
+
+func _claim_text(state: SimState, claim: Dictionary) -> String:
+	var provinces: Array = claim.get("provinces", [])
+	if provinces.is_empty():
+		return tr("DIPLOMACY_CLAIM_WHOLE")
+	var names: PackedStringArray = []
+	for province_id: Variant in provinces:
+		names.append(tr(str(DataLoader.get_entry("provinces", str(province_id)).get("name_key", province_id))))
+	return ", ".join(names)
+
+
+func _update_claim() -> void:
+	var state := GameState.sim
+	var province := _claimable[_province_option.selected] if _province_option.selected >= 0 \
+		and _province_option.selected < _claimable.size() else ""
+	var refusal := ClaimCommand.new(state.player_tag, ClaimCommand.ADD, -1, _tag, province).refusal_reason(state)
+	_claim_button.disabled = not refusal.is_empty()
+	_claim_button.tooltip_text = tr(refusal) if not refusal.is_empty() else tr("DIPLOMACY_ADD_CLAIM_TOOLTIP")
 
 
 ## Boutons d'action ; une action impossible est grisée avec la raison en info-bulle.

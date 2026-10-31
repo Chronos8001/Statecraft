@@ -12,6 +12,9 @@ var _member_targets: Array[String] = []
 var _other_targets: Array[String] = []
 var _resolution_targets: Array[String] = []
 
+@onready var _tension_label: Label = %TensionLabel
+@onready var _tension_bar: ProgressBar = %TensionBar
+@onready var _unlocks_label: Label = %UnlocksLabel
 @onready var _org_option: OptionButton = %OrganizationOption
 @onready var _summary_grid: GridContainer = %SummaryGrid
 @onready var _members_label: Label = %MembersLabel
@@ -80,6 +83,7 @@ func refresh() -> void:
 	var player := str(state.player_tag)
 	if player.is_empty() or state.diplomacy.organizations.is_empty():
 		return
+	_fill_tension(state)
 	_fill_organizations(state, player)
 	var org := _current()
 	var data: Dictionary = state.diplomacy.organizations.get(org, {})
@@ -107,6 +111,21 @@ func refresh() -> void:
 		_membership_label.text = ""
 	_fill_targets(state, org, player)
 	_fill_un(state, org, player)
+
+
+## Jauge de tension mondiale et actions qu'elle débloque.
+func _fill_tension(state: SimState) -> void:
+	var tension := state.diplomacy.world_tension
+	_tension_label.text = tr("WORLD_TENSION_VALUE") % roundi(tension)
+	_tension_bar.value = tension
+	var lines: PackedStringArray = []
+	var thresholds: Dictionary = TensionSystem.settings_of(state).get("thresholds", {})
+	var actions: Array = thresholds.keys()
+	actions.sort_custom(func(a: Variant, b: Variant) -> bool: return float(thresholds[a]) < float(thresholds[b]))
+	for action: Variant in actions:
+		var key := "WORLD_UNLOCKED" if TensionSystem.unlocked(state, str(action)) else "WORLD_LOCKED"
+		lines.append(tr(key) % [tr("WORLD_ACTION_%s" % str(action).to_upper()), roundi(float(thresholds[action]))])
+	_unlocks_label.text = "\n".join(lines)
 
 
 func _fill_organizations(state: SimState, player: String) -> void:

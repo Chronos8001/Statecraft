@@ -8,7 +8,7 @@ const DEGREES_PER_TURN := 360.0
 const DEGREES_HALF_TURN := 180.0
 const BYTES_PER_MEGABYTE := 1048576.0
 const DEFAULT_MAP_MODE := "political"
-const LIVE_MAP_MODES := ["trade", "stability", "support", "vote", "ideology", "unrest", "relations", "influence"]
+const LIVE_MAP_MODES := ["trade", "stability", "support", "vote", "ideology", "unrest", "relations", "influence", "claims"]
 
 var _thread: Thread
 var _load_started_ms: int = 0
@@ -215,6 +215,10 @@ func _on_sim_event(event: Dictionary) -> void:
 		var key := "NOTIFY_CIVIL_WAR" if event.get("type") == CrisisSystem.EVENT_STARTED \
 			else "NOTIFY_COUP_SUCCESS" if bool(event.get("success", false)) else "NOTIFY_COUP_FAILED"
 		_notify(tr(key) % tr(str(country.get("name_key", ""))))
+		return
+	if event.get("type") == TensionSystem.EVENT_THRESHOLD:
+		_notify(tr("NOTIFY_TENSION_UNLOCKED" if bool(event.get("unlocked", false)) else "NOTIFY_TENSION_LOCKED")
+			% tr("WORLD_ACTION_%s" % str(event.get("action", "")).to_upper()))
 		return
 	if event.get("type") == ElectionSystem.EVENT_FRAUD_DETECTED:
 		var country := DataLoader.get_entry("countries", str(event.get("tag", "")))
