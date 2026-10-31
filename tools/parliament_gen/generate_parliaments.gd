@@ -26,6 +26,10 @@ var _family_names: Dictionary = {}
 var _rules: Dictionary = {}
 ## Sigles de vrais partis à ne pas reprendre (en majuscules).
 var _forbidden_abbreviations: Array = []
+var _config: Dictionary = {}
+const PRESIDENTIAL_REGIMES := ["presidential_republic", "semi_presidential_republic"]
+const MONTHS_PER_YEAR := 12
+const START_YEAR := 2026
 
 
 func _initialize() -> void:
@@ -37,6 +41,7 @@ func _run() -> int:
 	var config: Dictionary = DataRepository.read_json(CONFIG_PATH).get("data", {})
 	_rules = config.get("rules", {})
 	_forbidden_abbreviations = config.get("forbidden_abbreviations", [])
+	_config = config
 	var names: Dictionary = _repository.get_category("names")
 	# Les partis déjà générés par ce même outil sont ignorés (on les recrée).
 	for party_id: String in (names.get("parties", {}) as Dictionary).keys():
@@ -63,6 +68,7 @@ func _run() -> int:
 			errors.append_array(_from_config(tag, countries[tag], described[tag], generator))
 		else:
 			_from_rules(tag, countries[tag], generator, rng)
+		_add_calendar(tag, countries[tag], rng)
 	if not errors.is_empty():
 		for error: String in errors:
 			printerr(error)
@@ -194,9 +200,10 @@ func _empty_parliament(seats: int, election: Array, term: int) -> Dictionary:
 func _new_party(tag: String, country: Dictionary, ideology: String, index: int, generator: NameGenerator) -> String:
 	var culture := str(country.get("culture", ""))
 	# Nom unique dans le monde si possible, sinon seulement dans le pays ; jamais le sigle d'un vrai parti.
-	var party_name := _pick_party_name(culture, ideology, _used_party_names.duplicate(), generator)
+	var abbreviations := _country_abbreviations(tag)
+	var party_name := _pick_party_name(culture, ideology, _used_party_names.duplicate(), abbreviations, generator)
 	if party_name.is_empty():
-		party_name = _pick_party_name(culture, ideology, _country_party_names(tag), generator)
+		party_name = _pick_party_name(culture, ideology, _country_party_names(tag), abbreviations, generator)
 	if party_name.is_empty():
 		party_name = generator.generate_party_name(culture, ideology, [])
 	_used_party_names.append(party_name["name"])
@@ -219,22 +226,39 @@ func _new_party(tag: String, country: Dictionary, ideology: String, index: int, 
 	return party_id
 
 
-## Premier nom proposé dont le sigle n'est pas celui d'un vrai parti ; vide si les noms sont épuisés.
-func _pick_party_name(culture: String, ideology: String, taken: Array, generator: NameGenerator) -> Dictionary:
+## Premier nom proposé dont le sigle n'est ni celui d'un vrai parti ni déjà pris dans le pays ;
+## vide si les noms sont épuisés.
+func _pick_party_name(culture: String, ideology: String, taken: Array, abbreviations: Array,
+		generator: NameGenerator) -> Dictionary:
 	for _attempt: int in MAX_NAME_ATTEMPTS:
 		var party_name := generator.generate_party_name(culture, ideology, taken)
 		if party_name.is_empty():
 			return {}
-		if not _forbidden_abbreviations.has(str(party_name["abbreviation"]).to_upper()):
+		var abbreviation := str(party_name["abbreviation"]).to_upper()
+		if not _forbidden_abbreviations.has(abbreviation) and not abbreviations.has(abbreviation):
 			return party_name
 		taken.append(party_name["name"])
 	return {}
 
 
+func _country_abbreviations(tag: String) -> Array:
+	var result: Array = []
+	var existing := _repository.resolve_ref("names#parties")
+	for party_id: String in existing.keys():
+		if not party_id.contains("_opp_") and str(existing[party_id].get("country", "")) == tag:
+			result.append(str(existing[party_id].get("abbreviation", "")).to_upper())
+	for party: Dictionary in _parties.values():
+		if str(party.get("country", "")) == tag:
+			result.append(str(party["abbreviation"]).to_upper())
+	return result
+
+
 func _country_party_names(tag: String) -> Array:
 	var result: Array = []
-	for party: Dictionary in _repository.resolve_ref("names#parties").values():
-		if str(party.get("country", "")) == tag and not str(party.get("name", "")).is_empty():
+	var existing := _repository.resolve_ref("names#parties")
+	for party_id: String in existing.keys():
+		var party: Dictionary = existing[party_id]
+		if not party_id.contains("_opp_") and str(party.get("country", "")) == tag:
 			result.append(party["name"])
 	for party: Dictionary in _parties.values():
 		if str(party.get("country", "")) == tag:
@@ -252,6 +276,41 @@ func _remember_family_name(character: Dictionary) -> void:
 	if not _family_names.has(tag):
 		_family_names[tag] = {}
 	_family_names[tag][str(character.get("last_name", ""))] = true
+
+
+## Système électoral, prochaines législatives et présidence (régimes présidentiels et semi-présidentiels).
+func _add_calendar(tag: String, country: Dictionary, rng: RandomNumberGenerator) -> void:
+	var parliament: Dictionary = _parliaments[tag]["parliament"]
+	var systems: Dictionary = _config.get("electoral_systems", {})
+	if systems.has(tag):
+		parliament["system"] = (systems[tag] as Dictionary).duplicate()
+	elif (_rules["majoritarian_cultures"] as Array).has(str(country.get("culture", ""))):
+		parliament["system"] = {"type": "majoritarian"}
+	else:
+		parliament["system"] = {"type": "proportional", "threshold": float(_rules["default_threshold"])}
+	var suspended: Array = (_config.get("suspended", {}) as Dictionary).get("countries", [])
+	if suspended.has(tag):
+		parliament["suspended"] = true
+	if ((_config.get("cordon", {}) as Dictionary).get("countries", []) as Array).has(tag):
+		parliament["cordon"] = true
+	var known: Dictionary = _config.get("next_elections", {})
+	var election: Dictionary = parliament["election"]
+	var next: Array = known.get(tag, [int(election["year"]) + int(parliament["term_years"]), int(election["month"])])
+	if int(next[0]) < START_YEAR and not suspended.has(tag):
+		next = [START_YEAR, int(next[1])]
+	parliament["next_election"] = {"year": int(next[0]), "month": int(next[1])}
+	if not PRESIDENTIAL_REGIMES.has(str(country.get("regime", ""))):
+		return
+	var presidencies: Dictionary = _config.get("presidencies", {})
+	var term := int(_rules["presidential_term"])
+	var spec: Array = presidencies.get(tag, [])
+	if spec.is_empty():
+		var year := START_YEAR - 1 - rng.randi_range(0, term - 1)
+		var month := rng.randi_range(1, MONTHS_PER_YEAR)
+		var two_rounds := not (_rules["majoritarian_cultures"] as Array).has(str(country.get("culture", "")))
+		spec = [year, month, term, two_rounds, year + term, month]
+	parliament["presidency"] = {"election": {"year": int(spec[0]), "month": int(spec[1])}, "term_years": int(spec[2]),
+		"two_rounds": bool(spec[3]), "next_election": {"year": int(spec[4]), "month": int(spec[5])}}
 
 
 static func _full_name(character: Dictionary) -> String:

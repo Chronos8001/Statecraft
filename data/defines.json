@@ -362,6 +362,43 @@
     "affinity_scale": 0.05,
     "government_scale": 0.04,
     "drift_persistence": 0.9,
-    "drift_sigma": 0.03
+    "drift_sigma": 0.03,
+    "elections": {
+      "positions": {
+        "left": 0.0,
+        "green": 1.0,
+        "social_democrat": 2.0,
+        "liberal": 4.0,
+        "conservative": 6.0,
+        "religious": 7.0,
+        "national": 8.0,
+        "power": 7.0
+      },
+      "urban_lean": {
+        "left": 0.15,
+        "green": 0.3,
+        "social_democrat": 0.1,
+        "liberal": 0.2,
+        "conservative": -0.15,
+        "religious": -0.25,
+        "national": -0.2,
+        "power": 0.0
+      },
+      "local_sigma": 0.2,
+      "density_score_cap": 2.5,
+      "election_sigma": 0.05,
+      "others_seat_factor": 0.5,
+      "majoritarian_exponent": 2.0,
+      "max_partners": 4,
+      "max_coalition_distance": 4.0,
+      "presidential_candidates": 4,
+      "incumbent_bonus": 0.05,
+      "transfer_decay": 0.5,
+      "early_election_delay_months": 2,
+      "min_months_between_elections": 12,
+      "cordon_groups": [
+        "national"
+      ]
+    }
   }
 }
