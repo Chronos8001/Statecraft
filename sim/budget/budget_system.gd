@@ -47,7 +47,7 @@ static func update_budget(country: CountryState, state: SimState) -> void:
 	# Surtaxes et accords quittés rapportent des droits de douane en plus (ou en moins).
 	if budget.revenues.has(CUSTOMS):
 		budget.revenues[CUSTOMS] = maxf(float(budget.revenues[CUSTOMS]) + economy.trade_customs, 0.0)
-	economy.primary_balance = budget.total_revenue() - budget.total_spending() + economy.austerity
+	economy.primary_balance = budget.total_revenue() - budget.total_spending() - economy.project_spending + economy.austerity
 	budget.effects = BudgetModel.effects(budget, taxes, spending, settings)
 	economy.budget_growth = float(budget.effects.get("growth", 0.0))
 	economy.budget_unemployment = float(budget.effects.get("unemployment", 0.0))

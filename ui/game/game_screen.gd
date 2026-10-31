@@ -32,6 +32,7 @@ var _notification_timer: SceneTreeTimer
 @onready var _budget_panel: BudgetPanel = %BudgetPanel
 @onready var _markets_panel: MarketsPanel = %MarketsPanel
 @onready var _trade_panel: TradePanel = %TradePanel
+@onready var _energy_panel: EnergyPanel = %EnergyPanel
 
 
 func _ready() -> void:
@@ -56,6 +57,7 @@ func _ready() -> void:
 	_top_bar.budget_requested.connect(_budget_panel.toggle)
 	_top_bar.markets_requested.connect(_markets_panel.toggle)
 	_top_bar.trade_requested.connect(_trade_panel.toggle)
+	_top_bar.energy_requested.connect(_energy_panel.toggle)
 	EventBus.sim_event_raised.connect(_on_sim_event)
 	EventBus.month_passed.connect(_on_month_passed)
 	EventBus.command_executed.connect(func(_command: Command) -> void: _refresh_live_map_mode())
@@ -82,7 +84,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("ui_cancel"):
 		get_viewport().set_input_as_handled()
 		var panels: Array[InfoPanel] = [_info_panel, _country_panel, _economy_panel, _budget_panel, _markets_panel,
-			_trade_panel]
+			_trade_panel, _energy_panel]
 		if panels.any(func(panel: InfoPanel) -> bool: return panel.visible):
 			for panel: InfoPanel in panels:
 				panel.close()
@@ -203,6 +205,12 @@ func _on_sim_event(event: Dictionary) -> void:
 			_notify(tr("NOTIFY_IMF_PROGRAM"))
 		EconomySystem.EVENT_IMF_ENDED:
 			_notify(tr("NOTIFY_IMF_ENDED"))
+		EnergySystem.EVENT_PROJECT_DONE:
+			var building := DataLoader.get_entry("buildings", str(event.get("building", "")))
+			var province := DataLoader.get_entry("provinces", str(event.get("province", "")))
+			_notify(tr("NOTIFY_PROJECT_DONE") % [tr(str(building.get("name_key", ""))), tr(str(province.get("name_key", "")))])
+		EnergySystem.EVENT_BLACKOUT:
+			_notify(tr("NOTIFY_BLACKOUT"))
 		TradeSystem.EVENT_AGREEMENT_LEFT:
 			var agreement := DataLoader.get_entry("trade_agreements", str(event.get("agreement", "")))
 			_notify(tr("NOTIFY_AGREEMENT_LEFT") % tr(str(agreement.get("name_key", ""))))

@@ -121,7 +121,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Effets sur l'économie : gains des exportateurs, inflation des importateurs, taxes sur les ressources
 - [x] Panneau Marchés, mode de carte des ressources
 
-**4c2. Commerce**
+**4c2. Commerce** (validée le 2026-10-31)
 - [x] Échanges entre pays (modèle gravitaire calé sur l'ouverture réelle, `tools/country_gen/generate_trade.py`)
 - [x] 49 accords commerciaux en vigueur au 1er janvier 2026 (unions douanières, zones de libre-échange, accords partiels)
 - [x] Droits de douane par partenaire : droits habituels hors accords, surtaxes réelles de 2026 (États-Unis, Chine, Canada)
@@ -129,10 +129,17 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Effets : inflation, croissance, recettes douanières ; embargos sur les ressources (débouchés perdus, pénuries)
 - [x] Dépendances visibles : panneau Commerce (partenaires, fournisseurs de chaque ressource), mode de carte « Commerce »
 
-**4d. Entreprises et investissements**
+**4d1. Énergie et bâtiments**
+- [x] Mix électrique réel par source (9 sources), demande, production maximale, coupures en cas de déficit
+- [x] Les centrales consomment charbon, gaz, pétrole et uranium sur le marché mondial ; pénurie de combustible → baisse de production
+- [x] Bâtiments dans les provinces : 9 types de centrales, usine, mine, raffinerie, port, data center ; parc de départ placé
+- [x] Chantiers : coût étalé payé par le budget, conditions (côte, relief, ressource, maximum), abandon possible
+- [x] Règle provisoire de l'IA : nouvelles centrales pour garder une marge sur la demande
+- [x] Panneau Énergie, construction depuis la fiche de province
+
+**4d2. Entreprises et investissements**
 - [ ] Entreprises publiques et privées par secteur ; nationalisation / privatisation
-- [ ] IDE, fonds souverains, construction de bâtiments (usines, centrales, ports, data centers, raffineries, mines)
-- [ ] Énergie : mix énergétique, production vs consommation, coupures
+- [ ] IDE, fonds souverains
 
 ## Étape 5 — Politique intérieure ⬜
 - [ ] Régimes (parlementaire, présidentiel, monarchies, autoritaire, parti unique, théocratie, junte, État failli)

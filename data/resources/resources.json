@@ -13,7 +13,8 @@
       "income_elasticity": 0.4,
       "demand_trend": -0.2,
       "supply_trend": 0.9
-    }
+    },
+    "mine_output": 0.1
   },
   "gas": {
     "name_key": "RESOURCE_GAS",
@@ -29,7 +30,8 @@
       "income_elasticity": 0.6,
       "demand_trend": 0.2,
       "supply_trend": 1.72
-    }
+    },
+    "mine_output": 5.0
   },
   "uranium": {
     "name_key": "RESOURCE_URANIUM",
@@ -44,8 +46,9 @@
       "supply_elasticity": 0.1,
       "income_elasticity": 0.5,
       "demand_trend": 2.0,
-      "supply_trend": 3.05
-    }
+      "supply_trend": 1.0
+    },
+    "mine_output": 1000.0
   },
   "coal": {
     "name_key": "RESOURCE_COAL",
@@ -61,7 +64,8 @@
       "income_elasticity": 0.2,
       "demand_trend": -2.0,
       "supply_trend": -1.26
-    }
+    },
+    "mine_output": 10.0
   },
   "rare_earths": {
     "name_key": "RESOURCE_RARE_EARTHS",
@@ -77,7 +81,8 @@
       "income_elasticity": 1.0,
       "demand_trend": 5.0,
       "supply_trend": 8.0
-    }
+    },
+    "mine_output": 5.0
   },
   "lithium": {
     "name_key": "RESOURCE_LITHIUM",
@@ -93,7 +98,8 @@
       "income_elasticity": 1.5,
       "demand_trend": 15.0,
       "supply_trend": 19.8
-    }
+    },
+    "mine_output": 5.0
   },
   "cobalt": {
     "name_key": "RESOURCE_COBALT",
@@ -109,7 +115,8 @@
       "income_elasticity": 1.0,
       "demand_trend": 6.0,
       "supply_trend": 9.0
-    }
+    },
+    "mine_output": 5.0
   },
   "semiconductors": {
     "name_key": "RESOURCE_SEMICONDUCTORS",

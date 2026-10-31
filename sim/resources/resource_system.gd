@@ -103,12 +103,16 @@ static func add_embargo_blocks(state: SimState) -> void:
 static func _grow_bases(country: CountryState, state: SimState) -> void:
 	var resources := country.resources
 	var growth := country.economy.growth
+	var response := float((state.resource_definitions.get("settings", {}) as Dictionary).get("long_run_supply_response", 0.0))
 	for resource_id: Variant in resources.production_base.keys():
 		var market: MarketState = state.markets.get(resource_id)
 		if market == null:
 			continue
+		# À long terme, l'offre suit le prix : des prix durablement hauts attirent l'investissement, des prix
+		# bas le découragent.
+		var trend := market.supply_trend + response * log(maxf(market.price_ratio(), 0.01))
 		resources.production_base[resource_id] = float(resources.production_base[resource_id]) \
-			* (1.0 + market.supply_trend / EconomyModel.PERCENT / EconomyModel.MONTHS_PER_YEAR)
+			* (1.0 + trend / EconomyModel.PERCENT / EconomyModel.MONTHS_PER_YEAR)
 		resources.consumption_base[resource_id] = float(resources.consumption_base[resource_id]) \
 			* (1.0 + (market.demand_trend + market.income_elasticity * growth) / EconomyModel.PERCENT \
 			/ EconomyModel.MONTHS_PER_YEAR)
@@ -121,7 +125,7 @@ static func clear_market(market: MarketState, state: SimState, tags: Array, sett
 	for tag: String in tags:
 		var resources: CountryResources = (state.countries[tag] as CountryState).resources
 		var capacity := float(resources.production_base.get(market.resource_id, 0.0))
-		var needs := float(resources.consumption_base.get(market.resource_id, 0.0))
+		var needs := resources.needs(market.resource_id, (state.countries[tag] as CountryState).energy.fuel_factor)
 		if capacity <= 0.0 and needs <= 0.0:
 			continue
 		entries.append({"capacity": capacity, "needs": needs,

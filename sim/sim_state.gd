@@ -23,6 +23,14 @@ var closed_straits: Dictionary = {}
 ## Routes des détroits, chaînes d'approvisionnement des secteurs et réglages : {straits, sectors, settings}.
 var resource_definitions: Dictionary = {}
 var trade: TradeState = TradeState.new()
+## Sources d'énergie, bâtiments, provinces, production des mines et réglages : {sources, buildings, provinces,
+## mine_outputs, settings}.
+var energy_definitions: Dictionary = {}
+## Bâtiments par province : identifiant de province → {bâtiment: nombre}.
+var buildings: Dictionary = {}
+## Chantiers en cours : [{id, tag, building, province, months_left, total_months, monthly_cost}].
+var projects: Array[Dictionary] = []
+var next_project_id: int = 0
 ## Section « trade » de defines.json.
 var trade_settings: Dictionary = {}
 ## Événements de simulation du dernier tick ({type, tag, …}), transmis à l'interface puis vidés.

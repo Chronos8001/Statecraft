@@ -37,7 +37,16 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Mode de carte « Commerce » : poids de chaque pays dans les échanges du pays joué, embargos en rouge.
 - Outil de génération du commerce (`tools/country_gen/generate_trade.py`).
 
+- Électricité : production réelle par source (charbon, gaz, pétrole, nucléaire, hydraulique, éolien, solaire, biomasse, géothermie) pour les 199 pays ; la demande suit la croissance ; coupures quand la demande dépasse la production, qui freinent la croissance.
+- Les centrales brûlent du charbon, du gaz, du pétrole et de l'uranium achetés sur le marché mondial : une pénurie de combustible réduit leur production.
+- Bâtiments dans les provinces : centrales (9 types), usines, mines, raffineries, ports, data centers. Parc de départ placé d'après la production réelle.
+- Chantiers : lancés depuis la fiche d'une province, payés chaque mois par le budget (ligne « investissements publics »), avec conditions (côte, relief, ressource exploitable) et abandon possible.
+- Les pays de l'IA construisent de nouvelles centrales pour garder une marge de production.
+- Panneau Énergie (bouton dans la barre supérieure) : mix, demande, marge, coupures, chantiers.
+- Outil de génération de l'électricité (`tools/country_gen/generate_energy.py`).
+
 ### Modifié
+- À long terme, l'offre de ressources suit leur prix (investissement minier quand les prix restent hauts).
 - Le marché des ressources calcule ses prix bien plus vite (pays sans blocage regroupés).
 - Le droit de douane habituel des États-Unis est le droit hors surtaxes (3,3 %) ; les surtaxes de 2025 sont comptées à part.
 - Le mode de carte « ressources » montre la ressource principale des 1 326 provinces productrices.

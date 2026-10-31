@@ -15,8 +15,9 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	sim.setup(p_seed, get_start_date(), player_tag)
 	WorldSetup.populate(sim, DataLoader.get_category("countries"), DataLoader.get_category("currencies"),
 		DataLoader.get_define("economy", {}), budget_definitions(), DataLoader.get_category("resources"),
-		resource_definitions(), trade_definitions())
+		resource_definitions(), trade_definitions(), energy_definitions())
 	scheduler = SimScheduler.new()
+	scheduler.add_system(EnergySystem.new())
 	scheduler.add_system(ResourceSystem.new())
 	scheduler.add_system(TradeSystem.new())
 	scheduler.add_system(BudgetSystem.new())
@@ -68,6 +69,21 @@ func trade_definitions() -> Dictionary:
 	return {
 		"agreements": DataLoader.get_category("trade_agreements"),
 		"settings": DataLoader.get_define("trade", {}),
+	}
+
+
+func energy_definitions() -> Dictionary:
+	var mine_outputs: Dictionary = {}
+	var resources := DataLoader.get_category("resources")
+	for resource_id: String in resources.keys():
+		if (resources[resource_id] as Dictionary).has("mine_output"):
+			mine_outputs[resource_id] = float(resources[resource_id]["mine_output"])
+	return {
+		"sources": DataLoader.get_category("energy_sources"),
+		"buildings": DataLoader.get_category("buildings"),
+		"provinces": DataLoader.get_category("provinces"),
+		"mine_outputs": mine_outputs,
+		"settings": DataLoader.get_define("energy", {}),
 	}
 
 

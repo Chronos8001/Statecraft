@@ -92,6 +92,13 @@ tooltip_text = "TOPBAR_TRADE_TOOLTIP"
 focus_mode = 0
 text = "TOPBAR_TRADE"
 
+[node name="EnergyButton" type="Button" parent="Row"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "TOPBAR_ENERGY_TOOLTIP"
+focus_mode = 0
+text = "TOPBAR_ENERGY"
+
 [node name="Spacer" type="Control" parent="Row"]
 layout_mode = 2
 size_flags_horizontal = 3
