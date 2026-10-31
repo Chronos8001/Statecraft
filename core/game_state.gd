@@ -22,7 +22,8 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 			"organizations": DataLoader.repository.resolve_ref("names#organizations"),
 			"organization_rules": DataLoader.get_category("organization_rules"),
 			"sanctions": DataLoader.get_category("sanctions"),
-			"aid": DataLoader.get_category("aid")})
+			"aid": DataLoader.get_category("aid")},
+		{"settings": DataLoader.get_define("military", {})})
 	scheduler = SimScheduler.new()
 	scheduler.add_system(LawSystem.new())
 	scheduler.add_system(ConstitutionSystem.new())
@@ -32,6 +33,7 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	scheduler.add_system(ResourceSystem.new())
 	scheduler.add_system(TradeSystem.new())
 	scheduler.add_system(BudgetSystem.new())
+	scheduler.add_system(MilitarySystem.new())
 	scheduler.add_system(EconomySystem.new(DataLoader.get_category("economy_sectors")))
 	scheduler.add_system(GovernmentSystem.new())
 	scheduler.add_system(CrisisSystem.new())

@@ -15,7 +15,6 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Les noms de pays voisins peuvent se chevaucher (pas encore d'évitement des collisions). | 13 | Ouvert |
 | 🟢 | En zoom maximal, les contours suivent la précision de l'image (~2 km par pixel) : lissés mais encore un peu anguleux. | 1 | Ouvert |
 | 🟢 | Secteurs d'océan de tailles inégales ; rives du détroit de Taïwan trop larges (provinces de l'intérieur incluses). | 1 | Ouvert |
-| 🟢 | Puissance militaire masquée dans la barre supérieure jusqu'à l'étape militaire. | 7 | Ouvert |
 | 🟢 | Population de l'Ukraine (28,7 millions, territoire contrôlé) répartie aussi sur les provinces occupées ; PIB et dette estimés pour quelques pays sans source (Corée du Nord, Somaliland, Chypre du Nord, Syrie…). | 3 | Ouvert |
 | 🟢 | Pas encore de portraits des personnages (portraits génériques prévus avec l'interface). | 13 | Ouvert |
 | 🟢 | Une seule culture de noms par pays : les pays multilingues (Belgique, Suisse, Bosnie-Herzégovine…) ont des noms d'une seule langue. Les noms de partis génériques (style international) se répètent d'un pays à l'autre. | 3 | Ouvert |
@@ -61,3 +60,5 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Les sanctions agissent sur la croissance et l'inflation sans modifier les flux commerciaux ni bloquer les fonds souverains ; les pays de l'IA ne prennent pas de sanctions (étape 12). | 6d | Ouvert |
 | 🟢 | Les pays de l'IA accumulent des points d'influence sans les dépenser (étape 12) ; les bases n'ont pas encore d'effet militaire (étape 7). | 6f | Ouvert |
 | 🟢 | Revendications sans cession possible avant l'étape 7 ; Kouriles, îles disputées en mer de Chine et Sahara occidental non représentés (pas de province distincte ou pas d'État revendiquant). | 6g / 7 | Ouvert |
+| 🟢 | Armées de départ en partie estimées (niveau d'équipement selon la dépense par soldat hors des 44 armées saisies) ; réservistes de l'Ukraine à zéro dans les données (les mobilisés comptent dans l'active). | 7a | Ouvert |
+| 🟢 | Sans nouveaux programmes d'aide (IA de l'étape 12), l'équipement de l'armée ukrainienne s'use quand l'aide de 2026 s'arrête (puissance 117 → 57 en 2031). | 7c / 12 | Ouvert |

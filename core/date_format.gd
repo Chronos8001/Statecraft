@@ -3,10 +3,16 @@ extends RefCounted
 ## Mise en forme des dates selon la langue : « 1 janvier 2026 · 08:00 » / « January 1, 2026 · 08:00 ».
 
 const MONTH_KEY := "MONTH_%d"
+const SHORT_MONTH_KEY := "MONTH_SHORT_%d"
 
 
 static func month_key(month: int) -> String:
 	return MONTH_KEY % month
+
+
+## Nom abrégé du mois (« janv. », « Jan »).
+static func short_month_key(month: int) -> String:
+	return SHORT_MONTH_KEY % month
 
 
 ## month_name : nom du mois déjà traduit.
