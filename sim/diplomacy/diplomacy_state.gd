@@ -34,6 +34,10 @@ var security_council: Dictionary = {}
 ## Sanctions : « S>T » → {measures: [...]} ; effets de référence de 2026 par pays ({growth, inflation}).
 var sanctions: Dictionary = {}
 var start_sanction_effects: Dictionary = {}
+## Programmes d'aide : [{donor, recipient, kind, amount, months_left, total_months, initial, …}] ; armes
+## reçues par pays (milliards de dollars, pour l'armée de l'étape 7).
+var aid_programs: Array[Dictionary] = []
+var arms_received: Dictionary = {}
 ## Délais avant de refaire une action : « action|A|B » → mois.
 var cooldowns: Dictionary = {}
 ## Réglages : confiance de base et par point de relation, bruit de l'opinion de départ.

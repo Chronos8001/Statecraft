@@ -49,6 +49,8 @@ var diplomacy_start: Dictionary = {}
 var organization_rules: Dictionary = {}
 ## Mesures de sanction (data/sanctions).
 var sanction_definitions: Dictionary = {}
+## Types d'aide (data/aid).
+var aid_definitions: Dictionary = {}
 ## Personnages créés pendant la partie (ministres, successeurs) : identifiant → personnage.
 var characters: Dictionary = {}
 var next_character_id: int = 0
