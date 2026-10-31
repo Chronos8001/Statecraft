@@ -1020,7 +1020,8 @@
           "cost_passthrough",
           "supply_chain_penalty",
           "max_economic_effect",
-          "water_stress_threshold"
+          "water_stress_threshold",
+          "long_run_supply_response"
         ],
         "properties": {
           "price_bounds": {
@@ -1060,6 +1061,10 @@
             "type": "number",
             "min": 0,
             "max": 10
+          },
+          "long_run_supply_response": {
+            "type": "number",
+            "min": 0
           }
         }
       },
@@ -1115,6 +1120,63 @@
           "max_trade_gain": {
             "type": "number",
             "min": 1
+          }
+        }
+      },
+      "energy": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "demand_income_elasticity",
+          "demand_trend",
+          "blackout_growth_penalty",
+          "max_economic_effect",
+          "ai_target_margin",
+          "ai_horizon_months",
+          "ai_rich_gdp_per_capita",
+          "hours_per_year",
+          "start_mine_richness",
+          "start_port_count"
+        ],
+        "properties": {
+          "demand_income_elasticity": {
+            "type": "number",
+            "min": 0
+          },
+          "demand_trend": {
+            "type": "number"
+          },
+          "blackout_growth_penalty": {
+            "type": "number",
+            "min": 0
+          },
+          "max_economic_effect": {
+            "type": "number",
+            "min": 0
+          },
+          "ai_target_margin": {
+            "type": "number",
+            "min": 1
+          },
+          "ai_horizon_months": {
+            "type": "int",
+            "min": 0
+          },
+          "ai_rich_gdp_per_capita": {
+            "type": "number",
+            "min": 0
+          },
+          "hours_per_year": {
+            "type": "number",
+            "min": 1
+          },
+          "start_mine_richness": {
+            "type": "int",
+            "min": 1
+          },
+          "start_port_count": {
+            "type": "int",
+            "min": 0
           }
         }
       }
@@ -1265,6 +1327,10 @@
               "type": "number"
             }
           }
+        },
+        "mine_output": {
+          "type": "number",
+          "min": 0
         }
       }
     }
@@ -1292,7 +1358,8 @@
         "budget",
         "resources",
         "water",
-        "trade"
+        "trade",
+        "energy"
       ],
       "properties": {
         "name_key": {
@@ -1594,6 +1661,23 @@
             "partners": {
               "type": "object",
               "keys_ref": "countries",
+              "values": {
+                "type": "number",
+                "min": 0
+              }
+            }
+          }
+        },
+        "energy": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "generation"
+          ],
+          "properties": {
+            "generation": {
+              "type": "object",
+              "keys_ref": "energy_sources",
               "values": {
                 "type": "number",
                 "min": 0
@@ -2628,6 +2712,160 @@
             "type": "string",
             "ref": "countries"
           }
+        }
+      }
+    }
+  },
+  "energy_sources": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "color",
+        "building",
+        "capacity_factor",
+        "max_capacity_factor",
+        "dispatchable",
+        "ai_weights",
+        "requires_existing"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^ENERGY_SOURCE_[A-Z_]+$"
+        },
+        "color": {
+          "type": "color"
+        },
+        "building": {
+          "type": "string",
+          "ref": "buildings"
+        },
+        "capacity_factor": {
+          "type": "number",
+          "min": 0.01,
+          "max": 1
+        },
+        "max_capacity_factor": {
+          "type": "number",
+          "min": 0.01,
+          "max": 1
+        },
+        "dispatchable": {
+          "type": "bool"
+        },
+        "requires_existing": {
+          "type": "bool"
+        },
+        "ai_weights": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "rich",
+            "other"
+          ],
+          "properties": {
+            "rich": {
+              "type": "number",
+              "min": 0
+            },
+            "other": {
+              "type": "number",
+              "min": 0
+            }
+          }
+        },
+        "fuel": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "resource",
+            "per_twh",
+            "power_share"
+          ],
+          "properties": {
+            "resource": {
+              "type": "string",
+              "ref": "resources"
+            },
+            "per_twh": {
+              "type": "number",
+              "min": 0
+            },
+            "power_share": {
+              "type": "number",
+              "min": 0,
+              "max": 1
+            }
+          }
+        }
+      }
+    }
+  },
+  "buildings": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "cost_billion",
+        "build_months",
+        "max_per_province"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^BUILDING_[A-Z_]+$"
+        },
+        "cost_billion": {
+          "type": "number",
+          "min": 0
+        },
+        "build_months": {
+          "type": "int",
+          "min": 1
+        },
+        "max_per_province": {
+          "type": "int",
+          "min": 1
+        },
+        "source": {
+          "type": "string",
+          "ref": "energy_sources"
+        },
+        "capacity_gw": {
+          "type": "number",
+          "min": 0
+        },
+        "terrains": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "ref": "terrains"
+          }
+        },
+        "coastal": {
+          "type": "bool"
+        },
+        "sector": {
+          "type": "string",
+          "ref": "economy_sectors"
+        },
+        "output_billion": {
+          "type": "number",
+          "min": 0
+        },
+        "electricity_twh": {
+          "type": "number",
+          "min": 0
+        },
+        "requires_resource": {
+          "type": "bool"
         }
       }
     }

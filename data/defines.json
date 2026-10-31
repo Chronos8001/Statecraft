@@ -277,7 +277,8 @@
     "cost_passthrough": 0.3,
     "supply_chain_penalty": 20.0,
     "max_economic_effect": 4.0,
-    "water_stress_threshold": 0.4
+    "water_stress_threshold": 0.4,
+    "long_run_supply_response": 5.0
   },
   "trade": {
     "trade_elasticity": 4.0,
@@ -289,5 +290,17 @@
     "embargo_premium": 0.2,
     "max_economic_effect": 3.0,
     "max_trade_gain": 1.5
+  },
+  "energy": {
+    "demand_income_elasticity": 0.7,
+    "demand_trend": -0.5,
+    "blackout_growth_penalty": 25.0,
+    "max_economic_effect": 5.0,
+    "ai_target_margin": 1.15,
+    "ai_horizon_months": 36,
+    "ai_rich_gdp_per_capita": 30000,
+    "hours_per_year": 8760.0,
+    "start_mine_richness": 3,
+    "start_port_count": 1
   }
 }

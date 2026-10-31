@@ -1,0 +1,16 @@
+{
+  "coal_plant": {"name_key": "BUILDING_COAL_PLANT", "cost_billion": 2.0, "build_months": 48, "max_per_province": 10, "source": "coal", "capacity_gw": 1.0},
+  "gas_plant": {"name_key": "BUILDING_GAS_PLANT", "cost_billion": 0.9, "build_months": 30, "max_per_province": 10, "source": "gas", "capacity_gw": 0.8},
+  "oil_plant": {"name_key": "BUILDING_OIL_PLANT", "cost_billion": 0.4, "build_months": 24, "max_per_province": 10, "source": "oil", "capacity_gw": 0.3},
+  "nuclear_plant": {"name_key": "BUILDING_NUCLEAR_PLANT", "cost_billion": 9.0, "build_months": 84, "max_per_province": 4, "source": "nuclear", "capacity_gw": 1.2},
+  "hydro_dam": {"name_key": "BUILDING_HYDRO_DAM", "cost_billion": 2.4, "build_months": 60, "max_per_province": 3, "source": "hydro", "capacity_gw": 0.6, "terrains": ["mountains", "hills", "jungle"]},
+  "wind_farm": {"name_key": "BUILDING_WIND_FARM", "cost_billion": 0.45, "build_months": 18, "max_per_province": 20, "source": "wind", "capacity_gw": 0.3},
+  "solar_farm": {"name_key": "BUILDING_SOLAR_FARM", "cost_billion": 0.3, "build_months": 12, "max_per_province": 20, "source": "solar", "capacity_gw": 0.3, "terrains": ["desert", "savanna", "steppe", "plains", "hills", "urban"]},
+  "bio_plant": {"name_key": "BUILDING_BIO_PLANT", "cost_billion": 0.3, "build_months": 24, "max_per_province": 10, "source": "bioenergy", "capacity_gw": 0.1},
+  "geothermal_plant": {"name_key": "BUILDING_GEOTHERMAL_PLANT", "cost_billion": 0.5, "build_months": 36, "max_per_province": 5, "source": "geothermal", "capacity_gw": 0.1, "terrains": ["mountains", "hills"]},
+  "factory": {"name_key": "BUILDING_FACTORY", "cost_billion": 1.0, "build_months": 24, "max_per_province": 10, "sector": "industry", "output_billion": 0.35, "electricity_twh": 0.15},
+  "mine": {"name_key": "BUILDING_MINE", "cost_billion": 1.5, "build_months": 36, "max_per_province": 3, "requires_resource": true},
+  "refinery": {"name_key": "BUILDING_REFINERY", "cost_billion": 3.0, "build_months": 48, "max_per_province": 3, "sector": "energy", "output_billion": 0.9, "electricity_twh": 0.3, "coastal": true},
+  "port": {"name_key": "BUILDING_PORT", "cost_billion": 2.0, "build_months": 48, "max_per_province": 2, "sector": "services", "output_billion": 0.6, "coastal": true},
+  "data_center": {"name_key": "BUILDING_DATA_CENTER", "cost_billion": 1.5, "build_months": 24, "max_per_province": 5, "sector": "tech", "output_billion": 0.55, "electricity_twh": 2.0}
+}

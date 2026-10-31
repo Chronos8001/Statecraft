@@ -319,3 +319,27 @@ TRADE_AGREEMENT_CHINA_BILATERALS,"China's bilateral FTAs (Switzerland, Pakistan,
 TRADE_AGREEMENT_INDIA_BILATERALS,"India's FTAs (UAE, Australia, EFTA, ASEAN…)","Accords de l'Inde (Émirats, Australie, AELE, ASEAN…)"
 TRADE_AGREEMENT_UK_BILATERALS,"UK FTAs (Australia, New Zealand, Switzerland…)","Accords du Royaume-Uni (Australie, Nouvelle-Zélande, Suisse…)"
 TRADE_AGREEMENT_KOREA_BILATERALS,"South Korea's FTAs (Turkey, Israel, Canada…)","Accords de la Corée du Sud (Turquie, Israël, Canada…)"
+# --- Énergie et bâtiments ---
+ENERGY_SOURCE_COAL,Coal,Charbon
+ENERGY_SOURCE_GAS,Gas,Gaz
+ENERGY_SOURCE_OIL,Oil,Pétrole
+ENERGY_SOURCE_NUCLEAR,Nuclear,Nucléaire
+ENERGY_SOURCE_HYDRO,Hydro,Hydraulique
+ENERGY_SOURCE_WIND,Wind,Éolien
+ENERGY_SOURCE_SOLAR,Solar,Solaire
+ENERGY_SOURCE_BIOENERGY,Bioenergy,Biomasse
+ENERGY_SOURCE_GEOTHERMAL,Geothermal,Géothermie
+BUILDING_COAL_PLANT,Coal power plant,Centrale à charbon
+BUILDING_GAS_PLANT,Gas power plant,Centrale à gaz
+BUILDING_OIL_PLANT,Oil-fired power plant,Centrale au fioul
+BUILDING_NUCLEAR_PLANT,Nuclear power plant,Centrale nucléaire
+BUILDING_HYDRO_DAM,Hydroelectric dam,Barrage hydroélectrique
+BUILDING_WIND_FARM,Wind farm,Parc éolien
+BUILDING_SOLAR_FARM,Solar farm,Centrale solaire
+BUILDING_BIO_PLANT,Biomass power plant,Centrale à biomasse
+BUILDING_GEOTHERMAL_PLANT,Geothermal power plant,Centrale géothermique
+BUILDING_FACTORY,Factory,Usine
+BUILDING_MINE,Mine,Mine
+BUILDING_REFINERY,Refinery,Raffinerie
+BUILDING_PORT,Port,Port
+BUILDING_DATA_CENTER,Data center,Data center
