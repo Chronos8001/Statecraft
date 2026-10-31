@@ -1,0 +1,239 @@
+{
+  "as_of": "2026-01-01T00:00:00Z",
+  "wikipedia_pages": {
+    "fdi": "List_of_countries_by_received_FDI",
+    "funds": "List_of_sovereign_wealth_funds"
+  },
+  "fdi_percent_column": 3,
+  "fdi_bounds": [
+    -5.0,
+    15.0
+  ],
+  "default_fdi": 2.0,
+  "ownership": {
+    "comment": "Part publique de chaque secteur (0 à 1). Base selon le régime, multipliée par secteur ; énergie renforcée dans les pays pétroliers ; valeurs saisies pour les grands pays.",
+    "regime_base": {
+      "parliamentary_republic": 0.08,
+      "presidential_republic": 0.1,
+      "semi_presidential_republic": 0.1,
+      "constitutional_monarchy": 0.08,
+      "absolute_monarchy": 0.35,
+      "authoritarian": 0.3,
+      "one_party_state": 0.5,
+      "theocracy": 0.45,
+      "military_junta": 0.3,
+      "failed_state": 0.15
+    },
+    "sector_multipliers": {
+      "agriculture": 0.3,
+      "industry": 0.8,
+      "energy": 3.0,
+      "armament": 4.0,
+      "services": 0.6,
+      "tech": 0.4,
+      "finance": 1.5,
+      "tourism": 0.4
+    },
+    "energy_rich_share": 0.15,
+    "energy_rich_bonus": 0.4,
+    "manual": {
+      "CHN": {
+        "agriculture": 0.15,
+        "industry": 0.35,
+        "energy": 0.9,
+        "armament": 1.0,
+        "services": 0.3,
+        "tech": 0.2,
+        "finance": 0.85,
+        "tourism": 0.2
+      },
+      "RUS": {
+        "energy": 0.7,
+        "armament": 1.0,
+        "finance": 0.6,
+        "industry": 0.3
+      },
+      "SAU": {
+        "energy": 1.0,
+        "finance": 0.4
+      },
+      "ARE": {
+        "energy": 0.95
+      },
+      "QAT": {
+        "energy": 1.0
+      },
+      "KWT": {
+        "energy": 1.0
+      },
+      "IRN": {
+        "energy": 1.0,
+        "finance": 0.7
+      },
+      "IRQ": {
+        "energy": 1.0
+      },
+      "VEN": {
+        "energy": 1.0
+      },
+      "NOR": {
+        "energy": 0.6,
+        "finance": 0.3
+      },
+      "FRA": {
+        "energy": 0.55,
+        "armament": 0.5,
+        "finance": 0.05,
+        "industry": 0.08
+      },
+      "DEU": {
+        "energy": 0.15,
+        "finance": 0.3
+      },
+      "ITA": {
+        "energy": 0.35,
+        "armament": 0.6
+      },
+      "IND": {
+        "energy": 0.55,
+        "finance": 0.6,
+        "armament": 0.9,
+        "industry": 0.15
+      },
+      "BRA": {
+        "energy": 0.45,
+        "finance": 0.4
+      },
+      "MEX": {
+        "energy": 0.8
+      },
+      "IDN": {
+        "energy": 0.6,
+        "finance": 0.4
+      },
+      "VNM": {
+        "energy": 0.8,
+        "finance": 0.5,
+        "industry": 0.3
+      },
+      "PRK": {
+        "agriculture": 1.0,
+        "industry": 1.0,
+        "energy": 1.0,
+        "armament": 1.0,
+        "services": 1.0,
+        "tech": 1.0,
+        "finance": 1.0,
+        "tourism": 1.0
+      },
+      "CUB": {
+        "agriculture": 0.8,
+        "industry": 0.9,
+        "energy": 1.0,
+        "services": 0.8,
+        "finance": 1.0,
+        "tourism": 0.7
+      },
+      "USA": {
+        "energy": 0.05,
+        "armament": 0.0,
+        "finance": 0.0
+      },
+      "GBR": {
+        "energy": 0.05,
+        "armament": 0.0,
+        "finance": 0.05
+      },
+      "JPN": {
+        "energy": 0.1,
+        "finance": 0.1
+      },
+      "KOR": {
+        "energy": 0.4,
+        "finance": 0.1
+      },
+      "TUR": {
+        "energy": 0.4,
+        "finance": 0.35,
+        "armament": 0.6
+      },
+      "EGY": {
+        "energy": 0.7,
+        "finance": 0.5,
+        "industry": 0.3
+      },
+      "NGA": {
+        "energy": 0.6
+      },
+      "DZA": {
+        "energy": 1.0
+      },
+      "AGO": {
+        "energy": 0.8
+      },
+      "KAZ": {
+        "energy": 0.5
+      },
+      "MYS": {
+        "energy": 0.7
+      },
+      "ZAF": {
+        "energy": 0.6
+      },
+      "ISR": {
+        "armament": 0.6
+      },
+      "POL": {
+        "energy": 0.6,
+        "finance": 0.4
+      }
+    }
+  },
+  "fdi_policy": {
+    "comment": "Politique d'ouverture aux investissements étrangers au départ (open par défaut).",
+    "screening": [
+      "CHN",
+      "IND",
+      "VNM",
+      "IDN",
+      "SAU",
+      "TUR",
+      "EGY",
+      "DZA",
+      "ETH",
+      "BLR",
+      "KAZ",
+      "UZB",
+      "AZE"
+    ],
+    "restricted": [
+      "RUS",
+      "IRN",
+      "PRK",
+      "CUB",
+      "VEN",
+      "SYR",
+      "MMR",
+      "AFG",
+      "ERI",
+      "TKM"
+    ]
+  },
+  "fund_country_aliases": {
+    "Hong Kong": "CHN",
+    "Abu Dhabi": "ARE",
+    "Dubai": "ARE",
+    "Ras Al Khaimah": "ARE",
+    "Alaska": "USA",
+    "Texas": "USA",
+    "New Mexico": "USA",
+    "Wyoming": "USA",
+    "Alabama": "USA",
+    "Louisiana": "USA",
+    "North Dakota": "USA",
+    "Alberta": "CAN",
+    "Quebec": "CAN",
+    "Western Australia": "AUS",
+    "Trinidad & Tobago": "TTO"
+  }
+}
