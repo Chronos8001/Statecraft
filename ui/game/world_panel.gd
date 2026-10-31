@@ -26,6 +26,7 @@ var _resolution_targets: Array[String] = []
 @onready var _un_box: VBoxContainer = %UnBox
 @onready var _council_label: Label = %CouncilLabel
 @onready var _resolution_option: OptionButton = %ResolutionOption
+@onready var _resolution_kind: OptionButton = %ResolutionKindOption
 @onready var _assembly_button: Button = %AssemblyButton
 @onready var _council_button: Button = %CouncilButton
 @onready var _resolution_label: Label = %ResolutionLabel
@@ -41,6 +42,9 @@ func _ready() -> void:
 	_member_option.item_selected.connect(func(_index: int) -> void: _update_actions())
 	_other_option.item_selected.connect(func(_index: int) -> void: _update_actions())
 	_resolution_option.item_selected.connect(func(_index: int) -> void: _update_resolution())
+	_resolution_kind.add_item("WORLD_RESOLUTION_CONDEMN")
+	_resolution_kind.add_item("WORLD_RESOLUTION_SANCTIONS")
+	_resolution_kind.item_selected.connect(func(_index: int) -> void: _update_resolution())
 	_membership_button.pressed.connect(func() -> void:
 		var org := _current()
 		var leaving := OrganizationSystem.is_member(GameState.sim, org, str(GameState.sim.player_tag))
@@ -181,7 +185,7 @@ func _update_resolution() -> void:
 	for pair: Array in [[_assembly_button, OrganizationSystem.GENERAL_ASSEMBLY],
 			[_council_button, OrganizationSystem.SECURITY_COUNCIL]]:
 		var command := OrganizationCommand.new(state.player_tag, OrganizationCommand.RESOLUTION, OrganizationSystem.UN,
-			target, str(pair[1]))
+			target, str(pair[1]), _resolution_type())
 		_set_button(pair[0], command.refusal_reason(state))
 	if target.is_empty():
 		_resolution_label.text = ""
@@ -196,7 +200,12 @@ func _update_resolution() -> void:
 
 func _resolution(body: String) -> void:
 	_submit(OrganizationCommand.new(GameState.sim.player_tag, OrganizationCommand.RESOLUTION, OrganizationSystem.UN,
-		_selected(_resolution_option, _resolution_targets), body))
+		_selected(_resolution_option, _resolution_targets), body, _resolution_type()))
+
+
+func _resolution_type() -> String:
+	return OrganizationSystem.RESOLUTION_SANCTIONS if _resolution_kind.selected == 1 \
+		else OrganizationSystem.RESOLUTION_CONDEMN
 
 
 func _on_create_pressed() -> void:

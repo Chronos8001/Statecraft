@@ -648,3 +648,14 @@ NOTIFY_ORGANIZATION_CREATED,Organisation created: %s.,Organisation créée : %s.
 NOTIFY_ORGANIZATION_EXPELLED,Member expelled from %s.,Membre exclu de %s.
 NOTIFY_RESOLUTION_PASSED,UN resolution against %s adopted (%d for / %d against).,Résolution de l'ONU contre %s adoptée (%d pour / %d contre).
 NOTIFY_RESOLUTION_FAILED,UN resolution against %s rejected (%d for / %d against).,Résolution de l'ONU contre %s rejetée (%d pour / %d contre).
+DIPLOMACY_SANCTIONS,Sanctions,Sanctions
+DIPLOMACY_SANCTIONED_BY_THEM,imposed on us,imposée contre nous
+DIPLOMACY_IMPOSE,Impose,Imposer
+DIPLOMACY_LIFT,Lift,Lever
+DIPLOMACY_SANCTION_TOOLTIP,"Effect on its growth: about %s points per year. Relations: %d.","Effet sur sa croissance : environ %s point par an. Relations : %d."
+DIPLOMACY_SANCTIONED_COUNT,"Sanctioned by %d countries. Change in its growth since January 2026: %s points.","Sanctionné par %d pays. Variation de sa croissance depuis janvier 2026 : %s point."
+WORLD_RESOLUTION_CONDEMN,Condemnation,Condamnation
+WORLD_RESOLUTION_SANCTIONS,Sanctions (Security Council only),Sanctions (Conseil de sécurité seulement)
+ORGANIZATION_SANCTIONS_COUNCIL,Sanctions can only be decided by the Security Council.,Seul le Conseil de sécurité peut décider de sanctions.
+NOTIFY_SANCTION_IMPOSED,Sanction imposed: %s against %s.,Sanction imposée : %s contre %s.
+NOTIFY_SANCTION_LIFTED,Sanction lifted: %s against %s.,Sanction levée : %s contre %s.
