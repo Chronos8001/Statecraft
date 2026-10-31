@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3]
+[gd_scene load_steps=18 format=3]
 
 [ext_resource type="Script" path="res://ui/game/game_screen.gd" id="1_game"]
 [ext_resource type="PackedScene" path="res://map/map_view.tscn" id="2_map"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" path="res://ui/game/investment_panel.tscn" id="14_investment"]
 [ext_resource type="PackedScene" path="res://ui/game/society_panel.tscn" id="15_society"]
 [ext_resource type="PackedScene" path="res://ui/game/politics_panel.tscn" id="16_politics"]
+[ext_resource type="PackedScene" path="res://ui/game/laws_panel.tscn" id="17_laws"]
 
 [node name="GameScreen" type="Control"]
 layout_mode = 3
@@ -72,6 +73,11 @@ visible = false
 layout_mode = 1
 
 [node name="PoliticsPanel" parent="." instance=ExtResource("16_politics")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="LawsPanel" parent="." instance=ExtResource("17_laws")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
