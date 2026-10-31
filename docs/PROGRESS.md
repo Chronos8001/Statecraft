@@ -114,7 +114,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Règle provisoire de l'IA : dépenses ajustées selon l'évolution de la dette
 - [x] Panneau Budget avec aperçu en direct, solde annuel dans la barre supérieure
 
-**4c1. Ressources et marché mondial**
+**4c1. Ressources et marché mondial** (validée le 2026-10-31)
 - [x] Ressources stratégiques (pétrole, gaz, uranium, charbon, terres rares, lithium, cobalt, semi-conducteurs, blé, acier, eau) : production et consommation réelles, réparties entre les provinces (`tools/country_gen/generate_resources.py`)
 - [x] Marché mondial à prix dynamiques (offre et demande) et chocs : fermeture d'un détroit
 - [x] Chaînes d'approvisionnement simplifiées : les pénuries freinent les secteurs qui en dépendent
@@ -122,7 +122,12 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Panneau Marchés, mode de carte des ressources
 
 **4c2. Commerce**
-- [ ] Accords commerciaux, zones de libre-échange, douanes par partenaire, embargos, dépendances visibles
+- [x] Échanges entre pays (modèle gravitaire calé sur l'ouverture réelle, `tools/country_gen/generate_trade.py`)
+- [x] 49 accords commerciaux en vigueur au 1er janvier 2026 (unions douanières, zones de libre-échange, accords partiels)
+- [x] Droits de douane par partenaire : droits habituels hors accords, surtaxes réelles de 2026 (États-Unis, Chine, Canada)
+- [x] Mesures du joueur : surtaxe contre un pays, embargo (tout le commerce ou une ressource), sortie d'un accord
+- [x] Effets : inflation, croissance, recettes douanières ; embargos sur les ressources (débouchés perdus, pénuries)
+- [x] Dépendances visibles : panneau Commerce (partenaires, fournisseurs de chaque ressource), mode de carte « Commerce »
 
 **4d. Entreprises et investissements**
 - [ ] Entreprises publiques et privées par secteur ; nationalisation / privatisation
