@@ -50,4 +50,4 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Scrutin à deux tours (France) traité comme un scrutin majoritaire à un tour : pas de front républicain, le premier parti peut obtenir une large majorité. | 5c1 | Ouvert |
 | 🟢 | Peu d'alternances (une cinquantaine en 10 ans dans le monde) : les sondages bougent peu sans action du joueur ; à revoir avec la campagne (5c2) et les crises (5g). | 5c1 | Ouvert |
 | 🟢 | En régime présidentiel, le nouveau président gouverne avec son seul parti (pas de coalition présidentielle). | 5c1 | Ouvert |
-
+| 🟢 | Fraude découverte : scandale sur la stabilité et la légitimité, mais pas encore de manifestations ni de contestation des résultats (5g). | 5c2 | Ouvert |

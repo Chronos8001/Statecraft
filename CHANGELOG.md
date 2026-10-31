@@ -26,6 +26,8 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Élections anticipées (dissolution de la chambre basse) ; scrutins de façade dans les régimes non démocratiques.
 - Mode de carte « Parti en tête » ; calendrier, mode de scrutin et dernier résultat dans le panneau Politique ; notifications des élections.
 
+- Campagne électorale dans les six mois qui précèdent un scrutin : financement, meetings en province, promesses aux groupes sociaux (tenues ou rompues après l'élection), fraude avec risque de scandale.
+
 ### Modifié
 - La fiche pays et le mode de carte des idéologies suivent les changements de gouvernement.
 - Les effets du budget sur la stabilité et les groupes sociaux s'appliquent désormais.
