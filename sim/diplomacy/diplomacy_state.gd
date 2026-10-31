@@ -14,6 +14,20 @@ var start_relations: Dictionary = {}
 var relation_changes: Dictionary = {}
 var trust_changes: Dictionary = {}
 var opinion_changes: Dictionary = {}
+## Traités : identifiant → {type, a, b, initial, year, month} ; prochain identifiant.
+var treaties: Dictionary = {}
+var next_treaty_id: int = 0
+## Bonus de relations des traités signés pendant la partie : « A|B » → points (les traités de 2026 sont déjà
+## compris dans les relations de départ).
+var treaty_bonus: Dictionary = {}
+## Paires sans ambassade : « A|B » → true.
+var closed_embassies: Dictionary = {}
+## Reconnaissance des États contestés : « A>S » → true quand A reconnaît S.
+var recognitions: Dictionary = {}
+## Garanties d'indépendance : « G>T » → true quand G garantit T.
+var guarantees: Dictionary = {}
+## Délais avant de refaire une action : « action|A|B » → mois.
+var cooldowns: Dictionary = {}
 ## Réglages : confiance de base et par point de relation, bruit de l'opinion de départ.
 var trust_base: float = 50.0
 var trust_per_relation: float = 0.0
@@ -36,7 +50,8 @@ func relation(a: String, b: String) -> float:
 	if a == b:
 		return LIMIT
 	var key := pair_key(a, b)
-	return clampf(float(start_relations.get(key, 0.0)) + float(relation_changes.get(key, 0.0)), -LIMIT, LIMIT)
+	return clampf(float(start_relations.get(key, 0.0)) + float(treaty_bonus.get(key, 0.0))
+		+ float(relation_changes.get(key, 0.0)), -LIMIT, LIMIT)
 
 
 func trust(a: String, b: String) -> float:
@@ -73,3 +88,50 @@ func change_opinion(holder: String, about: String, amount: float) -> void:
 		return
 	var key := opinion_key(holder, about)
 	opinion_changes[key] = float(opinion_changes.get(key, 0.0)) + amount
+
+
+func has_embassy(a: String, b: String) -> bool:
+	return a == b or not closed_embassies.has(pair_key(a, b))
+
+
+func recognizes(holder: String, state_tag: String) -> bool:
+	return recognitions.has(opinion_key(holder, state_tag))
+
+
+func guarantees_independence(guarantor: String, target: String) -> bool:
+	return guarantees.has(opinion_key(guarantor, target))
+
+
+## Traités entre deux pays : [identifiants].
+func treaties_between(a: String, b: String) -> Array[int]:
+	var result: Array[int] = []
+	for treaty_id: Variant in treaties.keys():
+		var treaty: Dictionary = treaties[treaty_id]
+		if (treaty["a"] == a and treaty["b"] == b) or (treaty["a"] == b and treaty["b"] == a):
+			result.append(int(treaty_id))
+	return result
+
+
+func has_treaty(a: String, b: String, treaty_type: String) -> bool:
+	return treaties_between(a, b).any(func(treaty_id: int) -> bool:
+		return str((treaties[treaty_id] as Dictionary)["type"]) == treaty_type)
+
+
+## Traités d'un pays : [identifiants].
+func treaties_of(tag: String) -> Array[int]:
+	var result: Array[int] = []
+	for treaty_id: Variant in treaties.keys():
+		var treaty: Dictionary = treaties[treaty_id]
+		if treaty["a"] == tag or treaty["b"] == tag:
+			result.append(int(treaty_id))
+	return result
+
+
+func cooldown(action: String, a: String, b: String) -> int:
+	return int(cooldowns.get("%s|%s" % [action, pair_key(a, b)], 0))
+
+
+func set_cooldown(action: String, a: String, b: String, months: int) -> void:
+	if months > 0:
+		cooldowns["%s|%s" % [action, pair_key(a, b)]] = months
+

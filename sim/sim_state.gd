@@ -42,6 +42,9 @@ var trade_settings: Dictionary = {}
 ## Relations entre pays et section « diplomacy » de defines.json.
 var diplomacy: DiplomacyState = DiplomacyState.new()
 var diplomacy_settings: Dictionary = {}
+## Types de traités (data/treaties) et situation diplomatique de départ (data/diplomacy).
+var treaty_definitions: Dictionary = {}
+var diplomacy_start: Dictionary = {}
 ## Personnages créés pendant la partie (ministres, successeurs) : identifiant → personnage.
 var characters: Dictionary = {}
 var next_character_id: int = 0
