@@ -9,7 +9,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 | 2 | Temps et boucle de simulation | ✅ | v0.2.0 | 2026-10-29 | v0.2.0 |
 | 3 | Les pays en 2026 | ✅ | v0.3.0 | 2026-10-30 | v0.3.0 |
 | 4 | Économie | ✅ | v0.4.0 | 2026-10-31 | v0.4.0 |
-| 5 | Politique intérieure | ⬜ | v0.5.0 | | |
+| 5 | Politique intérieure | 🟨 | v0.5.0 | | |
 | 6 | Diplomatie | ⬜ | v0.6.0 | | |
 | 7 | Militaire (version simplifiée) | ⬜ | v0.7.0 | | |
 | 8 | Recherche et technologie | ⬜ | v0.8.0 | | |
@@ -143,16 +143,35 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Fonds souverains réels : rendement, versements et retraits, dette nette pour la note
 - [x] Panneau Investissements
 
-## Étape 5 — Politique intérieure ⬜
-- [ ] Régimes (parlementaire, présidentiel, monarchies, autoritaire, parti unique, théocratie, junte, État failli)
-- [ ] Partis fictifs calqués sur le paysage réel de 2026, coalitions
-- [ ] Élections : calendrier réel, campagnes, sondages mensuels, résultats par région, fraude
-- [ ] Groupes sociaux / lobbies avec attentes et poids
+## Étape 5 — Politique intérieure 🟨
+
+**5a. Groupes sociaux et indicateurs** (en test)
+- [x] 10 groupes sociaux par pays : part de la population calculée (âge médian, agriculture, armée, religion, diversité, inégalités, revenu), influence propre et selon le régime
+- [x] Satisfaction des groupes : popularité réelle du gouvernement et affinité avec son idéologie au départ ; réactions au budget, au chômage, à l'inflation, à la croissance, aux coupures et aux nationalisations
+- [x] Stabilité (Fragile States Index), soutien populaire, légitimité (régime, Democracy Index), corruption (indice de Transparency International)
+- [x] Une stabilité en baisse freine la croissance
+- [x] Panneau Société, stabilité et soutien dans la barre supérieure, modes de carte « Stabilité » et « Soutien populaire »
+
+**5b. Partis, parlements, sondages**
+- [ ] Partis fictifs calqués sur le paysage réel de 2026 (opposition comprise), sièges, coalitions, sondages mensuels
+
+**5c. Élections**
+- [ ] Calendrier réel, campagnes, résultats par région, fraude
+
+**5d. Lois**
 - [ ] Catalogue de 80+ lois, vote au parlement
-- [ ] Constitution : réformes, référendums, limites de mandats, état d'urgence
-- [ ] Gouvernement : ministres, remaniements, scandales
-- [ ] Stabilité, corruption, soutien populaire, légitimité ; grèves, émeutes, coups d'État, guerre civile
-- [ ] Médias et opinion : contrôle, propagande, désinformation, réseaux sociaux
+
+**5e. Constitution**
+- [ ] Réformes, référendums, limites de mandats, état d'urgence
+
+**5f. Gouvernement**
+- [ ] Ministres (compétence, loyauté, idéologie, corruption), remaniements, scandales
+
+**5g. Crises**
+- [ ] Grèves, manifestations, émeutes, coups d'État, guerre civile
+
+**5h. Médias et opinion**
+- [ ] Contrôle des médias, propagande, désinformation, réseaux sociaux
 
 ## Étape 6 — Diplomatie ⬜
 - [ ] Relations bilatérales (-100 à +100), opinion publique étrangère, confiance
