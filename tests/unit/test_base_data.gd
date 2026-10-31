@@ -343,7 +343,8 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 		"settings": _repository.get_value("defines", "trade", {})}
 	WorldSetup.populate(state, _repository.get_category("countries"), _repository.get_category("currencies"), settings,
 		budget_definitions, _repository.get_category("resources"), resource_definitions, trade_definitions,
-		_energy_definitions())
+		_energy_definitions(), _repository.get_value("defines", "investment", {}))
+	var investment_system := InvestmentSystem.new()
 	var energy_system := EnergySystem.new()
 	var resource_system := ResourceSystem.new()
 	var trade_system := TradeSystem.new()
@@ -355,6 +356,7 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 		energy_system.on_month(state)
 		resource_system.on_month(state)
 		trade_system.on_month(state)
+		investment_system.on_month(state)
 		budget_system.on_month(state)
 		system.on_month(state)
 		for event: Dictionary in state.events:
@@ -463,3 +465,10 @@ func test_electricity_matches_reality() -> void:
 			world += float(value)
 	assert_between(world, 28000.0, 34000.0, "production mondiale (TWh)")
 	assert_gt(float(countries["FRA"]["energy"]["generation"]["nuclear"]), 300.0)
+
+
+func test_investment_data() -> void:
+	var countries := _repository.get_category("countries")
+	assert_eq(float(countries["SAU"]["investment"]["public_ownership"]["energy"]), 1.0)
+	assert_gt(float(countries["NOR"]["investment"]["sovereign_fund"]), 1000.0)
+	assert_eq(str(countries["RUS"]["investment"]["fdi_policy"]), "restricted")

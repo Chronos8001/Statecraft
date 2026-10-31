@@ -122,7 +122,7 @@ static func step_country(economy: EconomyState, currency: CurrencyState, state: 
 	# Impulsion budgétaire : un solde primaire plus faible qu'au départ soutient la demande (et l'inverse).
 	var fiscal_impulse := float(settings["fiscal_multiplier"]) * (economy.start_primary_balance - economy.primary_balance)
 	var growth := economy.potential_growth + economy.budget_growth + economy.resource_growth + economy.trade_growth \
-		+ economy.energy_growth \
+		+ economy.energy_growth + economy.investment_growth \
 		+ fiscal_impulse \
 		+ EconomyModel.demand_effect(currency.policy_rate, economy.inflation, economy.neutral_real_rate, settings)
 	if economy.in_crisis():
@@ -229,7 +229,7 @@ static func _review_rating(country: CountryState, currency: CurrencyState, state
 
 ## Score de solvabilité du pays, écart propre au pays compris.
 static func rating_score(economy: EconomyState, currency: CurrencyState, settings: Dictionary) -> float:
-	return EconomyModel.rating_score(economy.gdp_per_capita_usd(currency), economy.debt_ratio(currency),
+	return EconomyModel.rating_score(economy.gdp_per_capita_usd(currency), economy.rating_debt_ratio(currency),
 		economy.inflation, currency.inflation_target, economy.growth, economy.real_interest_burden(currency),
 		economy.in_imf_program(), settings) + economy.rating_offset
 

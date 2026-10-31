@@ -15,8 +15,9 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	sim.setup(p_seed, get_start_date(), player_tag)
 	WorldSetup.populate(sim, DataLoader.get_category("countries"), DataLoader.get_category("currencies"),
 		DataLoader.get_define("economy", {}), budget_definitions(), DataLoader.get_category("resources"),
-		resource_definitions(), trade_definitions(), energy_definitions())
+		resource_definitions(), trade_definitions(), energy_definitions(), DataLoader.get_define("investment", {}))
 	scheduler = SimScheduler.new()
+	scheduler.add_system(InvestmentSystem.new())
 	scheduler.add_system(EnergySystem.new())
 	scheduler.add_system(ResourceSystem.new())
 	scheduler.add_system(TradeSystem.new())
