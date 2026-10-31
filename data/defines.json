@@ -823,5 +823,128 @@
         "add_relation": -20.0
       }
     }
+  },
+  "military": {
+    "branches": [
+      "land",
+      "air",
+      "sea"
+    ],
+    "equipment_share": 0.35,
+    "equipment": {
+      "escalation": 0.5,
+      "adjustment": 0.02,
+      "cost_growth": 4.0,
+      "min_level": 1.0,
+      "max_level": 5.0
+    },
+    "priorities": {
+      "min": 0.05,
+      "max": 0.9
+    },
+    "training": {
+      "per_log_ratio": 12.0,
+      "adjustment": 0.05,
+      "min": 10.0,
+      "max": 95.0,
+      "mobilization_penalty": [
+        0.0,
+        5.0,
+        12.0
+      ]
+    },
+    "morale": {
+      "per_stability": 0.5,
+      "adjustment": 0.1,
+      "min": 10.0,
+      "max": 95.0,
+      "mobilization_bonus": [
+        0.0,
+        3.0,
+        6.0
+      ]
+    },
+    "special": {
+      "per_point": 0.5,
+      "adjustment": 0.02
+    },
+    "mobilization": {
+      "reserve_share": [
+        0.0,
+        0.3,
+        0.8
+      ],
+      "growth": [
+        0.0,
+        -0.5,
+        -2.0
+      ],
+      "stability": [
+        0.0,
+        -1.0,
+        -3.0
+      ],
+      "groups": [
+        {},
+        {
+          "youth": -4.0,
+          "workers": -2.0,
+          "military": 3.0
+        },
+        {
+          "youth": -10.0,
+          "workers": -6.0,
+          "middle_class": -3.0,
+          "military": 6.0
+        }
+      ],
+      "pay_share": 0.5,
+      "cooldown": 3,
+      "start": {
+        "UKR": 2,
+        "RUS": 1
+      }
+    },
+    "conscription_law": "conscription",
+    "conscription": {
+      "adjustment": 0.03,
+      "options": {
+        "none": {
+          "active": 0.9,
+          "reserve": 0.5,
+          "training": 4.0
+        },
+        "selective": {
+          "active": 1.0,
+          "reserve": 1.0,
+          "training": 0.0
+        },
+        "universal": {
+          "active": 1.3,
+          "reserve": 2.0,
+          "training": -6.0
+        }
+      }
+    },
+    "power": {
+      "branch_weights": {
+        "land": 1.0,
+        "air": 1.6,
+        "sea": 1.4
+      },
+      "level_exponent": 2.0,
+      "training_reference": 50.0,
+      "morale_reference": 60.0,
+      "special_weight": 0.5,
+      "scale": 1e-05
+    },
+    "diplomatic_weight": 10.0
+  },
+  "military_symbols": {
+    "friend": "#80E0FF",
+    "hostile": "#FF8080",
+    "neutral": "#AAFFAA",
+    "unknown": "#FFFF80",
+    "line": "#000000"
   }
 }
