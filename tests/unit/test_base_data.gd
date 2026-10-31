@@ -14,7 +14,7 @@ const MIN_PROVINCE_COUNT := 4000
 const LOCALIZATION_DIR := "res://data/localization"
 const TRANSLATED_CATEGORIES := ["countries", "provinces", "sea_zones", "straits", "ideologies", "regimes",
 	"terrains", "resources", "traits", "challenges", "economy_sectors", "budget_taxes", "budget_spending",
-	"social_groups", "trade_agreements", "energy_sources", "buildings", "laws", "constitution", "portfolios"]
+	"social_groups", "trade_agreements", "energy_sources", "buildings", "laws", "constitution", "portfolios", "crises"]
 const MIN_SEA_ZONE_COUNT := 150
 
 const LocalizationScript := preload("res://core/localization/localization.gd")
@@ -352,6 +352,7 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 			"laws": _repository.get_category("laws"),
 			"constitution": _repository.get_category("constitution"),
 			"portfolios": _repository.get_category("portfolios"),
+			"crises": _repository.get_category("crises"),
 			"names": {"cultures": _repository.get_category("names/cultures"),
 				"party_styles": _repository.get_category("names/party_styles"),
 				"ideologies": _repository.get_category("ideologies"), "traits": _repository.get_category("traits"),
@@ -360,6 +361,7 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 	var investment_system := InvestmentSystem.new()
 	var society_system := SocietySystem.new()
 	var government_system := GovernmentSystem.new()
+	var crisis_system := CrisisSystem.new()
 	var politics_system := PoliticsSystem.new()
 	var election_system := ElectionSystem.new()
 	var energy_system := EnergySystem.new()
@@ -378,6 +380,7 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 		budget_system.on_month(state)
 		system.on_month(state)
 		government_system.on_month(state)
+		crisis_system.on_month(state)
 		society_system.on_month(state)
 		politics_system.on_month(state)
 		election_system.on_month(state)

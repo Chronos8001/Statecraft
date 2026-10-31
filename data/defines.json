@@ -483,6 +483,52 @@
       "resignation_chance": 0.01,
       "average_competence": 5.0,
       "max_competence": 10.0
+    },
+    "crises": {
+      "start_civil_wars": [
+        "SDN",
+        "MMR",
+        "YEM",
+        "SOM",
+        "HTI"
+      ],
+      "max_group_chance": 0.25,
+      "drop_scale": 15.0,
+      "responses": {
+        "concede": {
+          "cost_share": 0.1,
+          "bonus": 8.0,
+          "bonus_months": 12,
+          "end": true
+        },
+        "negotiate": {
+          "cost_share": 0.03,
+          "bonus": 4.0,
+          "bonus_months": 6,
+          "duration_factor": 0.5
+        },
+        "repress": {
+          "end": true,
+          "group_penalty": 3.0,
+          "legitimacy_democracy": 5.0,
+          "legitimacy_other": 1.5,
+          "stability": 2.0
+        }
+      },
+      "coup": {
+        "military_drop": 10.0,
+        "legitimacy_below": 50.0,
+        "democracy_below": 6.0,
+        "chance": 0.01,
+        "success_base": 0.35,
+        "junta_legitimacy": 25.0,
+        "failure_stability": 5.0,
+        "failure_military": 10.0,
+        "success_stability": 10.0
+      },
+      "civil_war_end_chance": 0.03,
+      "civil_war_end_stability": 25.0,
+      "peace_stability": 10.0
     }
   }
 }

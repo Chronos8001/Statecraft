@@ -521,3 +521,20 @@ GOVERNMENT_NO_PARTY,no party,sans parti
 GOVERNMENT_HINT,"Competence (0 to 10) drives each portfolio: growth (finance), stability (interior), legitimacy (foreign affairs), the military (defence), corruption (justice), retirees and workers (health), young people (education), ecologists (environment). Corrupt ministers risk scandals; disloyal ones may resign.","La compétence (0 à 10) agit sur chaque portefeuille : croissance (Finances), stabilité (Intérieur), légitimité (Affaires étrangères), militaires (Défense), corruption (Justice), retraités et ouvriers (Santé), jeunes (Éducation), écologistes (Environnement). Les ministres corrompus risquent le scandale ; les moins loyaux peuvent démissionner."
 NOTIFY_MINISTER_SCANDAL,Scandal: the minister resigns (%s).,Scandale : le ministre démissionne (%s).
 NOTIFY_MINISTER_RESIGNED,A minister resigns (%s).,Un ministre démissionne (%s).
+CRISES_TITLE,Unrest,Crises
+CRISES_NONE,No unrest.,Aucune crise en cours.
+CRISES_CONCEDE,Concede,Concéder
+CRISES_NEGOTIATE,Negotiate,Négocier
+CRISES_REPRESS,Repress,Réprimer
+CRISES_CONCEDE_TOOLTIP,"Give in: ends the crisis, costs 0.1% of GDP, the group is satisfied for a year.","Céder : fin de la crise, coût de 0,1 % du PIB, le groupe est satisfait pendant un an."
+CRISES_NEGOTIATE_TOOLTIP,"Negotiate: the crisis lasts half as long, small cost, small gain for the group.","Négocier : la crise dure deux fois moins longtemps, petit coût, petit gain pour le groupe."
+CRISES_REPRESS_TOOLTIP,"Repress: immediate end, but legitimacy falls and the group's anger lasts.","Réprimer : fin immédiate, mais la légitimité baisse et la colère du groupe dure."
+CRISES_CONCEDE_DONE,Concessions made,Concessions faites
+CRISES_NEGOTIATE_DONE,Negotiating,Négociations en cours
+CRISES_REPRESS_DONE,Repressed,Réprimée
+MAPMODE_UNREST,Unrest,Troubles
+MAPMODE_UNIT_UNREST,%s,%s
+NOTIFY_UNREST,%s: %s.,%s : %s.
+NOTIFY_CIVIL_WAR,Civil war breaks out in %s!,Guerre civile : %s !
+NOTIFY_COUP_SUCCESS,Military coup in %s: a junta takes power.,Coup d'État : %s passe aux mains d'une junte.
+NOTIFY_COUP_FAILED,Failed coup attempt in %s.,Tentative de coup d'État déjouée : %s.

@@ -80,6 +80,16 @@ theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 4
 columns = 2
 
+[node name="CrisesTitle" type="Label" parent="Margin/Content/Scroll/Details"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+text = "CRISES_TITLE"
+
+[node name="CrisesBox" type="VBoxContainer" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="GroupsTitle" type="Label" parent="Margin/Content/Scroll/Details"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)

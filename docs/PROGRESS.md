@@ -192,8 +192,12 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Remaniement parmi trois candidats ; nouveau cabinet après une alternance ; successeur quand le président ne peut pas se représenter
 - [x] Scandales des ministres corrompus et démissions des moins loyaux
 
-**5g. Crises**
-- [ ] Grèves, manifestations, émeutes, coups d'État, guerre civile
+**5g. Crises** (en test)
+- [x] Grèves, manifestations et émeutes quand la satisfaction d'un groupe se dégrade ; effets sur la croissance, la stabilité et la légitimité
+- [x] Réponses : concéder, négocier, réprimer (l'IA négocie en démocratie, réprime ailleurs)
+- [x] Coup d'État (armée mécontente, pouvoir peu légitime, démocratie fragile) ; junte au pouvoir en cas de succès
+- [x] Guerre civile après six mois d'effondrement ; guerres civiles de 2026 en cours (Soudan, Birmanie, Yémen, Somalie, Haïti)
+- [x] Section Crises du panneau Société, mode de carte « Troubles », notifications
 
 **5h. Médias et opinion**
 - [ ] Contrôle des médias, propagande, désinformation, réseaux sociaux

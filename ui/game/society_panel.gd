@@ -14,6 +14,7 @@ const GROUP_HEADERS := ["SOCIETY_GROUP", "SOCIETY_POPULATION", "SOCIETY_INFLUENC
 
 @onready var _indicators_grid: GridContainer = %IndicatorsGrid
 @onready var _groups_grid: GridContainer = %GroupsGrid
+@onready var _crises_box: VBoxContainer = %CrisesBox
 @onready var _close_button: Button = %CloseButton
 
 
@@ -43,6 +44,7 @@ func refresh() -> void:
 	if country == null or country.society.group_shares.is_empty():
 		return
 	_fill_indicators(country.society)
+	_fill_crises(country)
 	_fill_groups(country.society)
 
 
@@ -63,6 +65,52 @@ func _add_score(label_key: String, value: float, start: float, inverted: bool) -
 	_add_row(_indicators_grid, label_key, text)
 	var value_label := _indicators_grid.get_child(_indicators_grid.get_child_count() - 1) as Label
 	value_label.add_theme_color_override("font_color", _change_color(value - start, inverted))
+
+
+## Crises en cours, avec les réponses possibles quand le joueur n'a pas encore réagi.
+func _fill_crises(country: CountryState) -> void:
+	for child: Node in _crises_box.get_children():
+		_crises_box.remove_child(child)
+		child.queue_free()
+	var definitions: Dictionary = GameState.sim.politics_definitions.get("crises", {})
+	var groups := DataLoader.get_category("social_groups")
+	if country.crises.is_empty():
+		var calm := Label.new()
+		calm.text = "CRISES_NONE"
+		calm.add_theme_color_override("font_color", LABEL_COLOR)
+		_crises_box.add_child(calm)
+		return
+	for crisis: Dictionary in country.crises:
+		var definition: Dictionary = definitions.get(crisis["type"], {})
+		var row := HBoxContainer.new()
+		var label := Label.new()
+		label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		var text := tr(str(definition.get("name_key", crisis["type"])))
+		var group_id := str(crisis.get("group", ""))
+		if not group_id.is_empty():
+			text += " (%s)" % tr(str((groups.get(group_id, {}) as Dictionary).get("name_key", group_id)))
+		label.text = text
+		label.add_theme_color_override("font_color", NEGATIVE_COLOR)
+		row.add_child(label)
+		if bool(definition.get("responses", false)) and not crisis.has("response"):
+			for response: String in CrisisResponseCommand.RESPONSES:
+				var button := Button.new()
+				button.text = "CRISES_%s" % response.to_upper()
+				button.tooltip_text = "CRISES_%s_TOOLTIP" % response.to_upper()
+				button.focus_mode = Control.FOCUS_NONE
+				var crisis_id := int(crisis["id"])
+				button.pressed.connect(func() -> void:
+					if GameState.submit_command(CrisisResponseCommand.new(GameState.sim.player_tag, crisis_id, response)) \
+							and GameClock.is_paused:
+						GameState.process_commands())
+				row.add_child(button)
+		elif crisis.has("response"):
+			var done := Label.new()
+			done.text = "CRISES_%s_DONE" % str(crisis["response"]).to_upper()
+			done.add_theme_color_override("font_color", LABEL_COLOR)
+			row.add_child(done)
+		_crises_box.add_child(row)
 
 
 func _fill_groups(society: SocietyState) -> void:

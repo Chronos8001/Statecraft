@@ -27,6 +27,7 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	scheduler.add_system(BudgetSystem.new())
 	scheduler.add_system(EconomySystem.new(DataLoader.get_category("economy_sectors")))
 	scheduler.add_system(GovernmentSystem.new())
+	scheduler.add_system(CrisisSystem.new())
 	scheduler.add_system(SocietySystem.new())
 	scheduler.add_system(PoliticsSystem.new())
 	scheduler.add_system(ElectionSystem.new())
@@ -112,6 +113,7 @@ func politics_definitions() -> Dictionary:
 		"laws": DataLoader.get_category("laws"),
 		"constitution": DataLoader.get_category("constitution"),
 		"portfolios": DataLoader.get_category("portfolios"),
+		"crises": DataLoader.get_category("crises"),
 		"names": {"cultures": DataLoader.get_category("names/cultures"),
 			"party_styles": DataLoader.get_category("names/party_styles"),
 			"ideologies": DataLoader.get_category("ideologies"), "traits": DataLoader.get_category("traits"),

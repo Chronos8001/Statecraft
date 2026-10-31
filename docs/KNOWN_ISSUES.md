@@ -54,3 +54,4 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Situation des lois en 2026 approchée par règles : listes de pays pour les cas connus (peine de mort, mariage homosexuel, cannabis, service militaire…), valeur par défaut ailleurs. Les pays de l'IA ne changent pas encore de lois (étape 12). | 5d | Ouvert |
 | 🟢 | La barre supérieure est pleine à 1600 px de large : elle déborde sur les écrans plus étroits (refonte prévue à l'étape 13). | 13 | Ouvert |
 | 🟢 | Les ministres de l'IA ne sont jamais remaniés volontairement (seulement après scandale ou démission). | 12 | Ouvert |
+| 🟢 | Les guerres civiles n'ont pas encore de fronts ni de provinces tenues par les rebelles (étape 7) ; elles finissent par une chance mensuelle quand la stabilité remonte. | 7 | Ouvert |

@@ -42,6 +42,7 @@ var trade_settings: Dictionary = {}
 ## Personnages créés pendant la partie (ministres, successeurs) : identifiant → personnage.
 var characters: Dictionary = {}
 var next_character_id: int = 0
+var next_crisis_id: int = 0
 ## Événements de simulation du dernier tick ({type, tag, …}), transmis à l'interface puis vidés.
 var events: Array[Dictionary] = []
 

@@ -3634,5 +3634,100 @@
         }
       }
     }
+  },
+  "crises": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "kind",
+        "groups",
+        "trigger",
+        "chance",
+        "duration",
+        "severity",
+        "effects",
+        "responses"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^CRISIS_[A-Z_]+$"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "group",
+            "country"
+          ]
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "ref": "social_groups"
+          }
+        },
+        "trigger": {
+          "type": "object",
+          "strict": true,
+          "properties": {
+            "satisfaction_drop": {
+              "type": "number"
+            },
+            "stability_drop": {
+              "type": "number"
+            },
+            "stability_below": {
+              "type": "number"
+            },
+            "legitimacy_below": {
+              "type": "number"
+            },
+            "months": {
+              "type": "int"
+            }
+          }
+        },
+        "chance": {
+          "type": "number",
+          "min": 0,
+          "max": 1
+        },
+        "duration": {
+          "type": "array",
+          "min_items": 2,
+          "items": {
+            "type": "int",
+            "min": 1
+          }
+        },
+        "severity": {
+          "type": "int",
+          "min": 1
+        },
+        "effects": {
+          "type": "object",
+          "strict": true,
+          "properties": {
+            "growth": {
+              "type": "number"
+            },
+            "stability": {
+              "type": "number"
+            },
+            "legitimacy": {
+              "type": "number"
+            }
+          }
+        },
+        "responses": {
+          "type": "bool"
+        }
+      }
+    }
   }
 }

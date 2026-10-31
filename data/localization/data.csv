@@ -728,3 +728,7 @@ PORTFOLIO_JUSTICE,Justice,Justice
 PORTFOLIO_HEALTH,Health,Santé
 PORTFOLIO_EDUCATION,Education,Éducation
 PORTFOLIO_ENVIRONMENT,Environment,Environnement
+CRISIS_STRIKE,Strike,Grève
+CRISIS_DEMONSTRATION,Demonstrations,Manifestations
+CRISIS_RIOT,Riots,Émeutes
+CRISIS_CIVIL_WAR,Civil war,Guerre civile

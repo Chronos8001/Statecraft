@@ -74,14 +74,17 @@ func _refresh_society(state: SimState) -> void:
 	country_values.clear()
 	var stability: Dictionary = {}
 	var support: Dictionary = {}
+	var unrest: Dictionary = {}
 	for tag: String in state.countries.keys():
 		var society: SocietyState = (state.countries[tag] as CountryState).society
 		if not society.group_shares.is_empty():
 			stability[tag] = society.stability
 			support[tag] = society.support
+			unrest[tag] = float((state.countries[tag] as CountryState).crisis_effects.get("severity", 0))
 	if not stability.is_empty():
 		country_values["stability"] = stability
 		country_values["support"] = support
+		country_values["unrest"] = unrest
 
 
 ## Tableau de couleurs prêt à remplir : mer pour l'id 0 et les zones maritimes, « sans propriétaire » ailleurs.
