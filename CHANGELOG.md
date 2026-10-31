@@ -6,6 +6,8 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-10-31
+
 ### Ajouté
 - Relations diplomatiques entre tous les pays au 1er janvier 2026 (alliances, commerce, régimes, frontières, blocs, grandes rivalités), confiance et opinion publique étrangère.
 - Le mode de carte « Relations » suit la partie ; relations, confiance et opinions dans la fiche pays.
