@@ -9,7 +9,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 | 2 | Temps et boucle de simulation | ✅ | v0.2.0 | 2026-10-29 | v0.2.0 |
 | 3 | Les pays en 2026 | ✅ | v0.3.0 | 2026-10-30 | v0.3.0 |
 | 4 | Économie | ✅ | v0.4.0 | 2026-10-31 | v0.4.0 |
-| 5 | Politique intérieure | 🟨 | v0.5.0 | | |
+| 5 | Politique intérieure | ✅ | v0.5.0 | 2026-10-31 | v0.5.0 |
 | 6 | Diplomatie | ⬜ | v0.6.0 | | |
 | 7 | Militaire (version simplifiée) | ⬜ | v0.7.0 | | |
 | 8 | Recherche et technologie | ⬜ | v0.8.0 | | |
@@ -143,7 +143,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Fonds souverains réels : rendement, versements et retraits, dette nette pour la note
 - [x] Panneau Investissements
 
-## Étape 5 — Politique intérieure 🟨
+## Étape 5 — Politique intérieure ✅ (validée le 2026-10-31, v0.5.0)
 
 **5a. Groupes sociaux et indicateurs** (validée le 2026-10-31)
 - [x] 10 groupes sociaux par pays : part de la population calculée (âge médian, agriculture, armée, religion, diversité, inégalités, revenu), influence propre et selon le régime
@@ -159,7 +159,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Sondages non publiés dans les régimes non démocratiques (opinion estimée par le pouvoir)
 - [x] Panneau Politique : hémicycle, gouvernement majoritaire ou minoritaire, partis, chefs, sièges, scores et tendances
 
-**5c1. Élections** (en test)
+**5c1. Élections** (validée le 2026-10-31)
 - [x] Calendrier réel : prochaines législatives et présidentielles connues au 1er janvier 2026 (Portugal, Hongrie, Colombie, Brésil, États-Unis…), sinon fin du mandat ; élections suspendues en Ukraine
 - [x] Mode de scrutin réel : proportionnelle (D'Hondt et seuil), majoritaire (prime au premier par province), mixte
 - [x] Résultats par province (villes et campagnes, penchants locaux), mode de carte « Parti en tête »
@@ -168,38 +168,38 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Alternance : nouveaux dirigeants, idéologie au pouvoir, attentes des groupes sociaux ; le joueur garde son pays
 - [x] Scrutins de façade dans les régimes non démocratiques ; élections anticipées (dissolution)
 
-**5c2. Campagne et fraude** (en test)
+**5c2. Campagne et fraude** (validée le 2026-10-31)
 - [x] Campagne ouverte six mois avant un scrutin : financement public (rendement décroissant, plafond 0,1 % du PIB), un meeting par mois (bonus local et national)
 - [x] Promesses à un groupe social : satisfaction immédiate ; tenues si le budget suit, rompues sinon (sanction durable)
 - [x] Fraude à trois niveaux : points en plus pour le parti au pouvoir, découverte selon la démocratie et la presse, scandale (stabilité, légitimité)
 
-**5d. Lois** (en test)
+**5d. Lois** (validée le 2026-10-31)
 - [x] Catalogue de 86 lois en 10 catégories (justice, société, libertés, sécurité, immigration, travail, économie, santé et éducation, environnement, institutions), 255 options
 - [x] Situation de départ de chaque pays par règles (listes de pays réelles, régime, démocratie, revenu)
 - [x] Effets mesurés par rapport au départ : groupes sociaux, stabilité, croissance, légitimité, corruption, budget
 - [x] Vote de la chambre basse selon les positions des familles politiques et la discipline gouvernementale ; décret hors démocratie ; délai avant de revenir sur une loi
 - [x] Panneau Lois : aperçu du vote et des effets avant de proposer
 
-**5e. Constitution** (en test)
+**5e. Constitution** (validée le 2026-10-31)
 - [x] 6 réformes : limite et durée des mandats présidentiels, durée de la législature, mode de scrutin, seuil, forme du pouvoir exécutif
 - [x] Adoption aux 2/3 de la chambre ou par référendum (deux mois plus tard) ; décret hors démocratie
 - [x] Limites de mandats réelles (un, deux ou aucun) : un président sortant qui ne peut se représenter perd l'avantage du sortant
 - [x] État d'urgence de six mois : stabilité en hausse, croissance en baisse, légitimité qui s'use, élections repoussées
 
-**5f. Gouvernement** (en test)
+**5f. Gouvernement** (validée le 2026-10-31)
 - [x] 8 portefeuilles ; ministres créés pour chaque pays (compétence, loyauté, idéologie, corruption), répartis entre les partis du gouvernement selon leurs sièges
 - [x] Compétence → croissance, stabilité, légitimité, corruption, groupes sociaux (par rapport au cabinet de départ) ; corruption des ministres → corruption du pays
 - [x] Remaniement parmi trois candidats ; nouveau cabinet après une alternance ; successeur quand le président ne peut pas se représenter
 - [x] Scandales des ministres corrompus et démissions des moins loyaux
 
-**5g. Crises** (en test)
+**5g. Crises** (validée le 2026-10-31)
 - [x] Grèves, manifestations et émeutes quand la satisfaction d'un groupe se dégrade ; effets sur la croissance, la stabilité et la légitimité
 - [x] Réponses : concéder, négocier, réprimer (l'IA négocie en démocratie, réprime ailleurs)
 - [x] Coup d'État (armée mécontente, pouvoir peu légitime, démocratie fragile) ; junte au pouvoir en cas de succès
 - [x] Guerre civile après six mois d'effondrement ; guerres civiles de 2026 en cours (Soudan, Birmanie, Yémen, Somalie, Haïti)
 - [x] Section Crises du panneau Société, mode de carte « Troubles », notifications
 
-**5h. Médias et opinion** (en test)
+**5h. Médias et opinion** (validée le 2026-10-31)
 - [x] Liberté de la presse (loi) : découverte des fraudes et scandales, efficacité de la propagande
 - [x] Réseaux sociaux (loi) : volatilité des sondages
 - [x] Propagande à trois niveaux (coût mensuel, satisfaction des groupes, sondages ; use la légitimité en démocratie)
