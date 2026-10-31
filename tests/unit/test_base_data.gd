@@ -345,9 +345,11 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 		budget_definitions, _repository.get_category("resources"), resource_definitions, trade_definitions,
 		_energy_definitions(), _repository.get_value("defines", "investment", {}), {
 			"groups": _repository.get_category("social_groups"), "regimes": _repository.get_category("regimes"),
-			"ideologies": _repository.get_category("ideologies"), "settings": _repository.get_value("defines", "society", {})})
+			"ideologies": _repository.get_category("ideologies"), "settings": _repository.get_value("defines", "society", {})},
+		{"parties": _repository.resolve_ref("names#parties"), "settings": _repository.get_value("defines", "politics", {})})
 	var investment_system := InvestmentSystem.new()
 	var society_system := SocietySystem.new()
+	var politics_system := PoliticsSystem.new()
 	var energy_system := EnergySystem.new()
 	var resource_system := ResourceSystem.new()
 	var trade_system := TradeSystem.new()
@@ -363,6 +365,7 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 		budget_system.on_month(state)
 		system.on_month(state)
 		society_system.on_month(state)
+		politics_system.on_month(state)
 		for event: Dictionary in state.events:
 			if event["type"] == EconomySystem.EVENT_DEBT_CRISIS:
 				crises += 1
@@ -403,6 +406,13 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 		var society: SocietyState = state.countries[tag].society
 		assert_gt(society.stability, society.start_stability - 15.0, "stabilité de %s" % tag)
 		assert_between(society.support, society.start_support - 20.0, society.start_support + 20.0, "soutien de %s" % tag)
+	for country: CountryState in state.countries.values():
+		var total := country.politics.other_poll
+		for party: PartyState in country.politics.parties.values():
+			assert_false(is_nan(party.poll), party.id)
+			total += party.poll
+		if not country.politics.parties.is_empty():
+			assert_almost_eq(total, 100.0, 0.01, "sondages de %s" % country.tag)
 	var ukraine: EconomyState = state.countries["UKR"].economy
 	assert_lt(ukraine.debt_ratio(state.get_currency(ukraine.currency)), 2.5, "dette de l'Ukraine")
 
@@ -486,3 +496,24 @@ func test_investment_data() -> void:
 	assert_eq(float(countries["SAU"]["investment"]["public_ownership"]["energy"]), 1.0)
 	assert_gt(float(countries["NOR"]["investment"]["sovereign_fund"]), 1000.0)
 	assert_eq(str(countries["RUS"]["investment"]["fdi_policy"]), "restricted")
+
+
+func test_parliaments_are_consistent() -> void:
+	var parties := _repository.resolve_ref("names#parties")
+	var countries := _repository.get_category("countries")
+	for tag: String in countries.keys():
+		var country: Dictionary = countries[tag]
+		var parliament: Dictionary = country["parliament"]
+		var seats := int(parliament["other_seats"])
+		for party_id: String in (parliament["parties"] as Dictionary).keys():
+			seats += int(parliament["parties"][party_id]["seats"])
+			assert_eq(str(parties[party_id]["country"]), tag, "%s siège en %s" % [party_id, tag])
+		assert_eq(seats, int(parliament["seats"]), "sièges de %s" % tag)
+		var government: Array = parliament["government"]
+		if country.has("ruling_party"):
+			assert_true(government.has(country["ruling_party"]), "parti au pouvoir de %s au gouvernement" % tag)
+		for party_id: Variant in country.get("coalition_partners", []):
+			assert_true(government.has(party_id), "partenaire %s au gouvernement" % party_id)
+		for party_id: Variant in government:
+			assert_true((parliament["parties"] as Dictionary).has(party_id), "%s dans la chambre de %s" % [party_id, tag])
+

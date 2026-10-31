@@ -16,7 +16,7 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	WorldSetup.populate(sim, DataLoader.get_category("countries"), DataLoader.get_category("currencies"),
 		DataLoader.get_define("economy", {}), budget_definitions(), DataLoader.get_category("resources"),
 		resource_definitions(), trade_definitions(), energy_definitions(), DataLoader.get_define("investment", {}),
-		society_definitions())
+		society_definitions(), politics_definitions())
 	scheduler = SimScheduler.new()
 	scheduler.add_system(InvestmentSystem.new())
 	scheduler.add_system(EnergySystem.new())
@@ -25,6 +25,7 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	scheduler.add_system(BudgetSystem.new())
 	scheduler.add_system(EconomySystem.new(DataLoader.get_category("economy_sectors")))
 	scheduler.add_system(SocietySystem.new())
+	scheduler.add_system(PoliticsSystem.new())
 	_pending_commands.clear()
 	is_game_running = true
 	GameLog.info(SOURCE, "Nouvelle partie : graine %d, date %s." % [p_seed, sim.date.format_iso()])
@@ -96,6 +97,13 @@ func society_definitions() -> Dictionary:
 		"regimes": DataLoader.get_category("regimes"),
 		"ideologies": DataLoader.get_category("ideologies"),
 		"settings": DataLoader.get_define("society", {}),
+	}
+
+
+func politics_definitions() -> Dictionary:
+	return {
+		"parties": DataLoader.repository.resolve_ref("names#parties"),
+		"settings": DataLoader.get_define("politics", {}),
 	}
 
 

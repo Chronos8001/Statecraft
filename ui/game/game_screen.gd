@@ -35,6 +35,7 @@ var _notification_timer: SceneTreeTimer
 @onready var _energy_panel: EnergyPanel = %EnergyPanel
 @onready var _investment_panel: InvestmentPanel = %InvestmentPanel
 @onready var _society_panel: SocietyPanel = %SocietyPanel
+@onready var _politics_panel: PoliticsPanel = %PoliticsPanel
 
 
 func _ready() -> void:
@@ -62,6 +63,7 @@ func _ready() -> void:
 	_top_bar.energy_requested.connect(_energy_panel.toggle)
 	_top_bar.investment_requested.connect(_investment_panel.toggle)
 	_top_bar.society_requested.connect(_society_panel.toggle)
+	_top_bar.politics_requested.connect(_politics_panel.toggle)
 	EventBus.sim_event_raised.connect(_on_sim_event)
 	EventBus.month_passed.connect(_on_month_passed)
 	EventBus.command_executed.connect(func(_command: Command) -> void: _refresh_live_map_mode())
@@ -88,7 +90,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("ui_cancel"):
 		get_viewport().set_input_as_handled()
 		var panels: Array[InfoPanel] = [_info_panel, _country_panel, _economy_panel, _budget_panel, _markets_panel,
-			_trade_panel, _energy_panel, _investment_panel, _society_panel]
+			_trade_panel, _energy_panel, _investment_panel, _society_panel,
+			_politics_panel]
 		if panels.any(func(panel: InfoPanel) -> bool: return panel.visible):
 			for panel: InfoPanel in panels:
 				panel.close()

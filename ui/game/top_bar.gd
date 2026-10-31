@@ -9,6 +9,7 @@ signal trade_requested
 signal energy_requested
 signal investment_requested
 signal society_requested
+signal politics_requested
 
 const TREASURY_INDEX := 0
 const STABILITY_INDEX := 1
@@ -37,6 +38,7 @@ var _stat_values: Array[Label] = []
 @onready var _energy_button: Button = %EnergyButton
 @onready var _investment_button: Button = %InvestmentButton
 @onready var _society_button: Button = %SocietyButton
+@onready var _politics_button: Button = %PoliticsButton
 
 
 func _ready() -> void:
@@ -50,6 +52,7 @@ func _ready() -> void:
 	_energy_button.pressed.connect(func() -> void: energy_requested.emit())
 	_investment_button.pressed.connect(func() -> void: investment_requested.emit())
 	_society_button.pressed.connect(func() -> void: society_requested.emit())
+	_politics_button.pressed.connect(func() -> void: politics_requested.emit())
 	EventBus.month_passed.connect(func(_date: GameDate) -> void: _update_country())
 	EventBus.command_executed.connect(func(_command: Command) -> void: _update_country())
 	EventBus.hour_passed.connect(func(_date: GameDate) -> void: _update_date())

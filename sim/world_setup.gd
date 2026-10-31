@@ -12,7 +12,8 @@ const BILLION := 1.0e9
 static func populate(state: SimState, countries: Dictionary, currencies: Dictionary, settings: Dictionary,
 		budget_definitions: Dictionary = {}, resources: Dictionary = {}, resource_definitions: Dictionary = {},
 		trade_definitions: Dictionary = {}, energy_definitions: Dictionary = {},
-		investment_settings: Dictionary = {}, society_definitions: Dictionary = {}) -> void:
+		investment_settings: Dictionary = {}, society_definitions: Dictionary = {},
+		politics_definitions: Dictionary = {}) -> void:
 	state.economy_settings = settings
 	state.investment_settings = investment_settings
 	state.budget_definitions = budget_definitions
@@ -65,6 +66,56 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 	if not society_definitions.is_empty():
 		for tag: String in tags:
 			_setup_society(state.countries[tag], countries[tag], state)
+	state.politics_definitions = politics_definitions
+	if not politics_definitions.is_empty():
+		for tag: String in tags:
+			_setup_politics(state.countries[tag], countries[tag], state)
+
+
+## Chambre basse de départ ; les sondages de départ sont ramenés à 100 % avec les petits partis, puis
+## l'attrait de chaque parti est calé sur eux.
+static func _setup_politics(country: CountryState, data: Dictionary, state: SimState) -> void:
+	var source: Dictionary = data.get("parliament", {})
+	if source.is_empty():
+		return
+	var definitions := state.politics_definitions
+	var party_data: Dictionary = definitions.get("parties", {})
+	var ideologies: Dictionary = state.society_definitions.get("ideologies", {})
+	var politics := country.politics
+	politics.seats = int(source.get("seats", 0))
+	politics.other_seats = int(source.get("other_seats", 0))
+	politics.other_vote = float(source.get("other_vote", 0.0))
+	politics.other_poll = float(source.get("other_poll", 0.0))
+	var election: Dictionary = source.get("election", {})
+	politics.election_year = int(election.get("year", 0))
+	politics.election_month = int(election.get("month", 1))
+	politics.term_years = int(source.get("term_years", 0))
+	politics.dissolved = bool(source.get("dissolved", false))
+	var regime: Dictionary = (state.society_definitions.get("regimes", {}) as Dictionary).get(str(data.get("regime", "")), {})
+	politics.polls_published = bool(regime.get("democratic", false))
+	for party_id: Variant in source.get("government", []):
+		politics.government.append(str(party_id))
+	var parties: Dictionary = source.get("parties", {})
+	var poll_total := 0.0
+	for party_id: Variant in parties.keys():
+		var entry: Dictionary = parties[party_id]
+		var party := PartyState.new()
+		party.id = str(party_id)
+		party.ideology = str((party_data.get(party_id, {}) as Dictionary).get("ideology", ""))
+		party.party_group = str((ideologies.get(party.ideology, {}) as Dictionary).get("party_group", ""))
+		party.seats = int(entry.get("seats", 0))
+		party.vote = float(entry.get("vote", 0.0))
+		party.start_poll = float(entry.get("poll", 0.0))
+		poll_total += party.start_poll
+		politics.parties[party.id] = party
+	var available := PoliticsModel.PERCENT - politics.other_poll
+	for party: PartyState in politics.parties.values():
+		party.start_poll = party.start_poll / poll_total * available if poll_total > 0.0 else 0.0
+		party.poll = party.start_poll
+		party.previous_poll = party.poll
+	if not country.society.group_shares.is_empty():
+		PoliticsModel.calibrate(politics, country.society, state.society_definitions.get("groups", {}),
+			definitions.get("settings", {}))
 
 
 ## Société de départ : satisfaction des groupes calée sur la popularité du gouvernement, influence selon
