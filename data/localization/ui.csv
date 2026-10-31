@@ -557,3 +557,45 @@ DIPLOMACY_RELATION,Relations,Relations
 DIPLOMACY_TRUST,Trust,Confiance
 DIPLOMACY_OPINION_OF_US,Their view of us,Opinion sur nous
 DIPLOMACY_OUR_OPINION,Our view of them,Notre opinion
+DIPLOMACY_OPEN,Diplomacy,Diplomatie
+DIPLOMACY_TITLE_VALUE,Diplomacy: %s,Diplomatie : %s
+DIPLOMACY_EMBASSY,Embassy,Ambassade
+DIPLOMACY_RECOGNITION,We recognise this state,Nous reconnaissons cet État
+DIPLOMACY_GUARANTEED,Independence guaranteed,Indépendance garantie
+DIPLOMACY_TREATIES,Treaties,Traités
+DIPLOMACY_NO_TREATY,No treaty.,Aucun traité.
+DIPLOMACY_CANCEL_TREATY,Break,Rompre
+DIPLOMACY_CANCEL_TREATY_TOOLTIP,Breaking a treaty costs trust and relations.,Rompre un traité coûte de la confiance et des relations.
+DIPLOMACY_PROPOSE,Propose,Proposer
+DIPLOMACY_LIKELY_YES,Likely answer: yes (interest %d),Avis probable : favorable (intérêt %d)
+DIPLOMACY_LIKELY_NO,Likely answer: no (interest %d),Avis probable : défavorable (intérêt %d)
+DIPLOMACY_ACTIONS,Actions,Actions
+DIPLOMACY_ACTION_IMPROVE_RELATIONS,Improve relations,Améliorer les relations
+DIPLOMACY_ACTION_STATE_VISIT,State visit,Visite d'État
+DIPLOMACY_ACTION_OPEN_EMBASSY,Open an embassy,Ouvrir une ambassade
+DIPLOMACY_ACTION_CLOSE_EMBASSY,Close the embassy,Fermer l'ambassade
+DIPLOMACY_ACTION_RECOGNIZE,Recognise this state,Reconnaître cet État
+DIPLOMACY_ACTION_WITHDRAW_RECOGNITION,Withdraw recognition,Retirer la reconnaissance
+DIPLOMACY_ACTION_GUARANTEE,Guarantee independence,Garantir son indépendance
+DIPLOMACY_ACTION_REVOKE_GUARANTEE,Revoke the guarantee,Retirer la garantie
+DIPLOMACY_ACTION_ULTIMATUM,Ultimatum (tribute),Ultimatum (tribut)
+DIPLOMACY_ACTION_IMPROVE_RELATIONS_TOOLTIP,+5 relations (every 3 months).,+5 de relations (tous les 3 mois).
+DIPLOMACY_ACTION_STATE_VISIT_TOOLTIP,"+10 relations, better public opinion on both sides (once a year).","+10 de relations, opinions publiques meilleures des deux côtés (une fois par an)."
+DIPLOMACY_ACTION_OPEN_EMBASSY_TOOLTIP,Needed for visits and treaties.,Nécessaire aux visites et aux traités.
+DIPLOMACY_ACTION_CLOSE_EMBASSY_TOOLTIP,"-15 relations, -10 trust.","-15 de relations, -10 de confiance."
+DIPLOMACY_ACTION_RECOGNIZE_TOOLTIP,"+20 relations with this state, -20 with the country that claims it.","+20 de relations avec cet État, -20 avec le pays qui le revendique."
+DIPLOMACY_ACTION_WITHDRAW_RECOGNITION_TOOLTIP,"-25 relations with this state, +15 with the country that claims it.","-25 de relations avec cet État, +15 avec le pays qui le revendique."
+DIPLOMACY_ACTION_GUARANTEE_TOOLTIP,"+10 relations with it, -8 with its enemies. Will matter in case of war.","+10 de relations avec lui, -8 avec ses ennemis. Comptera en cas de guerre."
+DIPLOMACY_ACTION_REVOKE_GUARANTEE_TOOLTIP,"-10 relations, -10 trust.","-10 de relations, -10 de confiance."
+DIPLOMACY_ACTION_ULTIMATUM_TOOLTIP,"Demand 0.5% of its GDP. A much weaker country gives in; otherwise relations collapse.","Exiger 0,5 % de son PIB. Un pays bien plus faible cède ; sinon les relations s'effondrent."
+DIPLOMACY_INVALID,Impossible.,Impossible.
+DIPLOMACY_COOLDOWN,Too soon after the last attempt.,Trop tôt après la dernière tentative.
+DIPLOMACY_NO_EMBASSY,No embassy.,Pas d'ambassade.
+DIPLOMACY_ALREADY,Already done.,Déjà fait.
+DIPLOMACY_NOT_RECOGNIZED,We do not recognise this state.,Nous ne reconnaissons pas cet État.
+DIPLOMACY_NOT_DISPUTED,Not a disputed state.,Pas un État contesté.
+NOTIFY_TREATY_SIGNED,Treaty signed: %s with %s.,Traité signé : %s avec %s.
+NOTIFY_TREATY_REFUSED,Treaty refused: %s by %s.,Traité refusé : %s par %s.
+NOTIFY_TREATY_CANCELLED,Treaty broken: %s with %s.,Traité rompu : %s avec %s.
+NOTIFY_ULTIMATUM_ACCEPTED,%s gives in to our ultimatum.,%s cède à notre ultimatum.
+NOTIFY_ULTIMATUM_REFUSED,%s rejects our ultimatum.,%s rejette notre ultimatum.
