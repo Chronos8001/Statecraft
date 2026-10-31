@@ -173,6 +173,36 @@
     "occupied_strength": 0.5,
     "order": 12
   },
+  "military_power": {
+    "name_key": "MAPMODE_MILITARY_POWER",
+    "kind": "country_gradient",
+    "value": "military_power",
+    "logarithmic": true,
+    "unit_key": "MAPMODE_UNIT_POINTS",
+    "stops": [
+      [
+        1,
+        "#E9E4D4"
+      ],
+      [
+        10,
+        "#C9B98A"
+      ],
+      [
+        50,
+        "#A07A4A"
+      ],
+      [
+        200,
+        "#6E3F2A"
+      ],
+      [
+        800,
+        "#2E1410"
+      ]
+    ],
+    "order": 13
+  },
   "stability": {
     "name_key": "MAPMODE_STABILITY",
     "kind": "country_gradient",
@@ -193,7 +223,7 @@
         "#3C8C52"
       ]
     ],
-    "order": 13
+    "order": 14
   },
   "support": {
     "name_key": "MAPMODE_SUPPORT",
@@ -215,13 +245,13 @@
         "#4F8FC0"
       ]
     ],
-    "order": 14
+    "order": 15
   },
   "vote": {
     "name_key": "MAPMODE_VOTE",
     "kind": "vote",
     "hint_color": "#C8CDD4",
-    "order": 15
+    "order": 16
   },
   "unrest": {
     "name_key": "MAPMODE_UNREST",
@@ -247,7 +277,7 @@
         "#9E2B25"
       ]
     ],
-    "order": 16
+    "order": 17
   },
   "trade": {
     "name_key": "MAPMODE_TRADE",
@@ -278,6 +308,6 @@
       "LEGEND_TRADE_MEDIUM",
       "LEGEND_TRADE_LARGE"
     ],
-    "order": 17
+    "order": 18
   }
 }

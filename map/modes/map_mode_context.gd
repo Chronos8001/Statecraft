@@ -99,6 +99,13 @@ func _refresh_society(state: SimState) -> void:
 			stability[tag] = society.stability
 			support[tag] = society.support
 			unrest[tag] = float((state.countries[tag] as CountryState).crisis_effects.get("severity", 0))
+	var power: Dictionary = {}
+	for tag: String in state.countries.keys():
+		var military: MilitaryState = (state.countries[tag] as CountryState).military
+		if military != null:
+			power[tag] = military.power
+	if not power.is_empty():
+		country_values["military_power"] = power
 	if not stability.is_empty():
 		country_values["stability"] = stability
 		country_values["support"] = support

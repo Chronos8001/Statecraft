@@ -8,7 +8,8 @@ const DEGREES_PER_TURN := 360.0
 const DEGREES_HALF_TURN := 180.0
 const BYTES_PER_MEGABYTE := 1048576.0
 const DEFAULT_MAP_MODE := "political"
-const LIVE_MAP_MODES := ["trade", "stability", "support", "vote", "ideology", "unrest", "relations", "influence", "claims"]
+const LIVE_MAP_MODES := ["trade", "stability", "support", "vote", "ideology", "unrest", "relations", "influence", "claims",
+	"military_power"]
 
 var _thread: Thread
 var _load_started_ms: int = 0
@@ -16,6 +17,9 @@ var _map_modes: MapModeRegistry
 var _mode_context: MapModeContext
 var _current_mode_id: String = DEFAULT_MAP_MODE
 var _notification_timer: SceneTreeTimer
+## Interface militaire remplaçable (mods, DLC) et son panneau Armée.
+var _military_ui: MilitaryUI = MilitaryUI.new()
+var _military_panel: InfoPanel
 
 @onready var _map_view: MapView = %MapView
 @onready var _loading_label: Label = %LoadingLabel
@@ -70,6 +74,11 @@ func _ready() -> void:
 	_top_bar.politics_requested.connect(_politics_panel.toggle)
 	_top_bar.laws_requested.connect(_laws_panel.toggle)
 	_top_bar.government_requested.connect(_government_panel.toggle)
+	_military_panel = _military_ui.create_panel()
+	if _military_panel is MilitaryPanel:
+		(_military_panel as MilitaryPanel).military_ui = _military_ui
+	_government_panel.add_sibling(_military_panel)
+	_top_bar.military_requested.connect(func() -> void: _military_panel.call("toggle"))
 	_top_bar.world_requested.connect(_world_panel.toggle)
 	_country_panel.diplomacy_requested.connect(func(tag: String) -> void:
 		_country_panel.close()
@@ -102,7 +111,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		var panels: Array[InfoPanel] = [_info_panel, _country_panel, _economy_panel, _budget_panel, _markets_panel,
 			_trade_panel, _energy_panel, _investment_panel, _society_panel,
 			_politics_panel, _laws_panel, _government_panel, _diplomacy_panel,
-			_world_panel]
+			_world_panel, _military_panel]
 		if panels.any(func(panel: InfoPanel) -> bool: return panel.visible):
 			for panel: InfoPanel in panels:
 				panel.close()
@@ -219,6 +228,11 @@ func _on_sim_event(event: Dictionary) -> void:
 	if event.get("type") == TensionSystem.EVENT_THRESHOLD:
 		_notify(tr("NOTIFY_TENSION_UNLOCKED" if bool(event.get("unlocked", false)) else "NOTIFY_TENSION_LOCKED")
 			% tr("WORLD_ACTION_%s" % str(event.get("action", "")).to_upper()))
+		return
+	if event.get("type") == MobilizeCommand.EVENT_MOBILIZATION:
+		var mobilizing := DataLoader.get_entry("countries", str(event.get("tag", "")))
+		_notify(tr("NOTIFY_MOBILIZATION") % [tr(str(mobilizing.get("name_key", ""))),
+			tr("MILITARY_MOBILIZATION_%d" % int(event.get("level", 0))).to_lower()])
 		return
 	if event.get("type") == ElectionSystem.EVENT_FRAUD_DETECTED:
 		var country := DataLoader.get_entry("countries", str(event.get("tag", "")))

@@ -21,15 +21,15 @@ script = ExtResource("1_bar")
 
 [node name="Row" type="HBoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 6
+theme_override_constants/separation = 4
 
 [node name="DateLabel" type="Label" parent="Row"]
 unique_name_in_owner = true
 auto_translate_mode = 2
-custom_minimum_size = Vector2(205, 0)
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 18
 
 [node name="PauseButton" type="Button" parent="Row"]
 unique_name_in_owner = true
@@ -133,6 +133,13 @@ layout_mode = 2
 tooltip_text = "TOPBAR_GOVERNMENT_TOOLTIP"
 focus_mode = 0
 text = "TOPBAR_GOVERNMENT"
+
+[node name="MilitaryButton" type="Button" parent="Row"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "TOPBAR_MILITARY_BUTTON_TOOLTIP"
+text = "TOPBAR_MILITARY_BUTTON"
 
 [node name="WorldButton" type="Button" parent="Row"]
 unique_name_in_owner = true

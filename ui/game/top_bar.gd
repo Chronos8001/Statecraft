@@ -12,13 +12,17 @@ signal society_requested
 signal politics_requested
 signal laws_requested
 signal government_requested
+signal military_requested
 signal world_requested
 
 const TREASURY_INDEX := 0
 const STABILITY_INDEX := 1
 const SUPPORT_INDEX := 2
+const MILITARY_INDEX := 3
 const INFLUENCE_INDEX := 4
 const STAT_KEYS := ["TOPBAR_TREASURY", "TOPBAR_STABILITY", "TOPBAR_SUPPORT", "TOPBAR_MILITARY", "TOPBAR_INFLUENCE"]
+## Taille du texte des boutons et des ressources (la barre doit tenir sur 1600 pixels).
+const COMPACT_FONT_SIZE := 15
 const PIP_ON := "■"
 const PIP_OFF := "□"
 const PAUSE_SYMBOL := "❚❚"
@@ -45,6 +49,7 @@ var _stat_values: Array[Label] = []
 @onready var _politics_button: Button = %PoliticsButton
 @onready var _laws_button: Button = %LawsButton
 @onready var _government_button: Button = %GovernmentButton
+@onready var _military_button: Button = %MilitaryButton
 @onready var _world_button: Button = %WorldButton
 
 
@@ -62,6 +67,7 @@ func _ready() -> void:
 	_politics_button.pressed.connect(func() -> void: politics_requested.emit())
 	_laws_button.pressed.connect(func() -> void: laws_requested.emit())
 	_government_button.pressed.connect(func() -> void: government_requested.emit())
+	_military_button.pressed.connect(func() -> void: military_requested.emit())
 	_world_button.pressed.connect(func() -> void: world_requested.emit())
 	EventBus.month_passed.connect(func(_date: GameDate) -> void: _update_country())
 	EventBus.command_executed.connect(func(_command: Command) -> void: _update_country())
@@ -70,6 +76,7 @@ func _ready() -> void:
 	EventBus.game_pause_changed.connect(func(_paused: bool) -> void: _update_speed())
 	EventBus.locale_changed.connect(func(_locale: String) -> void: refresh())
 	_build_stats()
+	_compact()
 	refresh()
 
 
@@ -77,6 +84,14 @@ func refresh() -> void:
 	_update_date()
 	_update_speed()
 	_update_country()
+
+
+func _compact() -> void:
+	for child: Node in _economy_button.get_parent().get_children():
+		if child is Button and child != _pause_button and child != _slower_button and child != _faster_button:
+			(child as Button).add_theme_font_size_override("font_size", COMPACT_FONT_SIZE)
+	for label: Label in _stat_names + _stat_values:
+		label.add_theme_font_size_override("font_size", COMPACT_FONT_SIZE)
 
 
 func _build_stats() -> void:
@@ -95,7 +110,8 @@ func _build_stats() -> void:
 
 func _update_date() -> void:
 	var date := GameClock.get_date()
-	_date_label.text = DateFormat.long_date(date, tr(DateFormat.month_key(date.month)), Localization.get_locale())
+	_date_label.text = DateFormat.long_date(date, tr(DateFormat.short_month_key(date.month)), Localization.get_locale())
+	_date_label.tooltip_text = DateFormat.long_date(date, tr(DateFormat.month_key(date.month)), Localization.get_locale())
 
 
 func _update_speed() -> void:
@@ -135,6 +151,8 @@ func _update_country() -> void:
 	if state != null and not state.society.group_shares.is_empty() and _stat_values.size() > SUPPORT_INDEX:
 		_set_score(_stat_values[STABILITY_INDEX], state.society.stability, "TOPBAR_STABILITY_TOOLTIP")
 		_set_score(_stat_values[SUPPORT_INDEX], state.society.support, "TOPBAR_SUPPORT_TOOLTIP")
+	if state != null and state.military != null and _stat_values.size() > MILITARY_INDEX:
+		_set_score(_stat_values[MILITARY_INDEX], state.military.power, "TOPBAR_MILITARY_TOOLTIP")
 	if state != null and not GameState.sim.diplomacy_settings.is_empty() and _stat_values.size() > INFLUENCE_INDEX:
 		_set_score(_stat_values[INFLUENCE_INDEX], float(GameState.sim.diplomacy.influence_points.get(tag, 0.0)),
 			"TOPBAR_INFLUENCE_TOOLTIP")

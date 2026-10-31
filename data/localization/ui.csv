@@ -106,7 +106,7 @@ TOPBAR_NO_COUNTRY,Observer,Observateur
 TOPBAR_TREASURY,Balance,Solde
 TOPBAR_STABILITY,Stability,Stabilité
 TOPBAR_SUPPORT,Support,Soutien
-TOPBAR_MILITARY,Military power,Puissance militaire
+TOPBAR_MILITARY,Power,Puissance
 TOPBAR_INFLUENCE,Influence,Influence
 TOPBAR_UNKNOWN,—,—
 NOTIFY_NEW_MONTH,New month: %s %d,Nouveau mois : %s %d
@@ -725,3 +725,61 @@ LEGEND_CLAIM_AGAINST,Our territory claimed by others,Notre territoire revendiqu�
 LEGEND_CLAIM_OTHER,Other disputed territories,Autres territoires disputés
 NOTIFY_TENSION_UNLOCKED,World tension rises: %s now possible.,La tension mondiale monte : %s désormais possibles.
 NOTIFY_TENSION_LOCKED,World tension eases: %s no longer possible.,La tension mondiale retombe : %s plus possibles.
+MONTH_SHORT_1,Jan,janv.
+MONTH_SHORT_2,Feb,févr.
+MONTH_SHORT_3,Mar,mars
+MONTH_SHORT_4,Apr,avr.
+MONTH_SHORT_5,May,mai
+MONTH_SHORT_6,Jun,juin
+MONTH_SHORT_7,Jul,juil.
+MONTH_SHORT_8,Aug,août
+MONTH_SHORT_9,Sep,sept.
+MONTH_SHORT_10,Oct,oct.
+MONTH_SHORT_11,Nov,nov.
+MONTH_SHORT_12,Dec,déc.
+TOPBAR_MILITARY_BUTTON,Military,Armée
+TOPBAR_MILITARY_BUTTON_TOOLTIP,"Armed forces, equipment and mobilisation","Forces armées, équipement et mobilisation"
+TOPBAR_MILITARY_TOOLTIP,"Military power (personnel, equipment, training and morale)","Puissance militaire (effectifs, équipement, entraînement et moral)"
+MILITARY_TITLE,Armed forces,Forces armées
+MILITARY_POWER,Military power,Puissance militaire
+MILITARY_ACTIVE,Active personnel,Effectifs d'active
+MILITARY_RESERVE,Reservists,Réservistes
+MILITARY_DEFENSE_BUDGET,Defence budget,Budget de la défense
+MILITARY_BUDGET_VALUE,%s%% of GDP ($%s bn/yr),%s %% du PIB (%s Md$/an)
+MILITARY_ARMS_RECEIVED,Arms received,Armes reçues
+MILITARY_ARMS_VALUE,$%s bn/yr,%s Md$/an
+MILITARY_NUCLEAR,Nuclear warheads,Ogives nucléaires
+MILITARY_NONE,None,Aucune
+MILITARY_BRANCHES,Branches,Armées
+MILITARY_BRANCH,Branch,Armée
+MILITARY_PERSONNEL,Personnel,Effectifs
+MILITARY_LEVEL,Equipment,Équipement
+MILITARY_TRAINING,Training,Entraînement
+MILITARY_MORALE,Morale,Moral
+MILITARY_PRIORITY,Funding,Crédits
+MILITARY_BRANCH_LAND,Land forces,Armée de terre
+MILITARY_BRANCH_AIR,Air force,Armée de l'air
+MILITARY_BRANCH_SEA,Navy,Marine
+MILITARY_SYMBOL_TOOLTIP,NATO symbol (APP-6),Symbole OTAN (APP-6)
+MILITARY_START_TOOLTIP,On 1 January 2026: %s,Au 1er janvier 2026 : %s
+MILITARY_APPLY_PRIORITIES,Apply funding split,Appliquer la répartition
+MILITARY_PRIORITIES_TOOLTIP,Share of the equipment budget given to each branch,Part du budget d'équipement donnée à chaque armée
+MILITARY_SPECIAL,Special capabilities,Capacités spéciales
+MILITARY_SPECIAL_SPECIAL_FORCES,Special forces,Forces spéciales
+MILITARY_SPECIAL_MISSILES,Missiles,Missiles
+MILITARY_SPECIAL_CYBER,Cyber,Cyber
+MILITARY_MOBILIZATION,Mobilisation,Mobilisation
+MILITARY_MOBILIZATION_0,No mobilisation,Aucune mobilisation
+MILITARY_MOBILIZATION_1,Partial mobilisation (30% of reservists),Mobilisation partielle (30 % des réservistes)
+MILITARY_MOBILIZATION_2,General mobilisation (80% of reservists),Mobilisation générale (80 % des réservistes)
+MILITARY_MOBILIZATION_TOOLTIP,"Recalled reservists strengthen the army but slow the economy, cost their pay and anger young people and workers","Les réservistes rappelés renforcent l'armée, mais freinent l'économie, coûtent leur solde et mécontentent les jeunes et les travailleurs"
+MILITARY_MOBILIZE,Change,Changer
+MILITARY_MOBILIZE_TOOLTIP,Change the mobilisation level,Changer le niveau de mobilisation
+MILITARY_INVALID,Not possible,Impossible
+MILITARY_ALREADY,Already in force,Déjà en vigueur
+MILITARY_COOLDOWN,Too soon after the last change,Trop tôt après le dernier changement
+MILITARY_PRIORITY_BOUNDS,Each branch must receive between 5% and 90% of the equipment budget,Chaque armée doit recevoir entre 5 % et 90 % du budget d'équipement
+MILITARY_HINT,"Equipment wears out and grows more expensive every year: the defence budget (Budget panel) and arms received keep it up. Training follows spending per soldier, morale follows stability.","L'équipement s'use et coûte plus cher chaque année : le budget de la défense (panneau Budget) et les armes reçues l'entretiennent. L'entraînement suit la dépense par soldat, le moral suit la stabilité."
+MAPMODE_MILITARY_POWER,Military power,Puissance militaire
+MAPMODE_UNIT_POINTS,%s pts,%s pts
+NOTIFY_MOBILIZATION,%s changes its mobilisation: %s.,%s change sa mobilisation : %s.
