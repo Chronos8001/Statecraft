@@ -71,7 +71,14 @@
     "strait_marker_size": 7.0,
     "strait_label_min_zoom": 0.6,
     "strait_label_size": 14,
-    "country_selection_strength": 0.22
+    "country_selection_strength": 0.22,
+    "army_token_size": [
+      46,
+      40
+    ],
+    "army_min_zoom": 0.35,
+    "army_label_size": 12,
+    "army_path_color": "#FFE070"
   },
   "province": {
     "max_infrastructure": 10
@@ -938,13 +945,24 @@
       "special_weight": 0.5,
       "scale": 1e-05
     },
-    "diplomatic_weight": 10.0
+    "diplomatic_weight": 10.0,
+    "army_groups": {
+      "personnel_per_group": 150000.0,
+      "max_groups": 6,
+      "front_weight": 5.0,
+      "near_front": 0.8,
+      "hostile_relation": -30.0,
+      "front_share_bonus": 2.0,
+      "reserve_from_groups": 3,
+      "speed_km_per_day": 40.0
+    }
   },
   "military_symbols": {
     "friend": "#80E0FF",
     "hostile": "#FF8080",
     "neutral": "#AAFFAA",
     "unknown": "#FFFF80",
-    "line": "#000000"
+    "line": "#000000",
+    "hostile_relation": -50.0
   }
 }
