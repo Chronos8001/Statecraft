@@ -739,3 +739,8 @@ TREATY_MILITARY_COOPERATION,Military cooperation,Coopération militaire
 TREATY_MILITARY_ACCESS,Military access,Accès militaire
 TREATY_INTELLIGENCE_SHARING,Intelligence sharing,Partage de renseignement
 TREATY_OPEN_BORDER,Open border,Frontière ouverte
+SANCTION_TARGETED,Targeted sanctions,Sanctions ciblées
+SANCTION_SECTORAL,Sectoral sanctions,Sanctions sectorielles
+SANCTION_TOTAL,Total embargo,Embargo total
+SANCTION_ASSET_FREEZE,Asset freeze,Gel des avoirs
+SANCTION_PAYMENT_EXCLUSION,Payment system exclusion,Exclusion des systèmes de paiement

@@ -699,6 +699,24 @@
         "general_assembly_legitimacy": -2.0,
         "security_council_legitimacy": -4.0
       }
+    },
+    "sanctions": {
+      "finance_reach": {
+        "USA": 0.3,
+        "GBR": 0.05,
+        "JPN": 0.03,
+        "CHE": 0.03,
+        "CAN": 0.02,
+        "CHN": 0.05,
+        "@eu": 0.015
+      },
+      "max_growth_penalty": 8.0,
+      "max_inflation": 6.0,
+      "lift_relation": 10.0,
+      "trust": -5.0,
+      "un_measures": [
+        "sectoral"
+      ]
     }
   }
 }
