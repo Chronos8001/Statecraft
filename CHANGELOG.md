@@ -18,6 +18,8 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 - Sanctions économiques (ciblées, sectorielles, embargo total, gel des avoirs, exclusion des systèmes de paiement), sanctions réelles de 2026, résolutions de sanctions de l'ONU.
 
+- Aide internationale : aide économique et humanitaire, prêts remboursés avec intérêts, ventes et dons d'armes, conseillers militaires ; programmes d'aide réels de 2026 (financement de l'Ukraine, aide américaine au Proche-Orient…).
+
 ### Modifié
 - Fiche pays plus large.
 - Nouvelle partie plus rapide (création des ministres et des sanctions).
