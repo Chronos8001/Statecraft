@@ -64,7 +64,8 @@ static func update_country(country: CountryState, state: SimState) -> void:
 		var reactions: Dictionary = (groups.get(group_id, {}) as Dictionary).get("reactions", {})
 		var target := SocietyModel.satisfaction_target(float(society.start_satisfaction[group_id]),
 			float(budget_groups.get(group_id, 0.0)) + float(society.bonuses.get(group_id, 0.0))
-			+ float(law_groups.get(group_id, 0.0)) + float(cabinet_groups.get(group_id, 0.0)), SocietyModel.reaction(reactions, current, max_loss, max_gain,
+			+ float(law_groups.get(group_id, 0.0)) + float(cabinet_groups.get(group_id, 0.0))
+			+ float(country.media_effects.get("groups", 0.0)), SocietyModel.reaction(reactions, current, max_loss, max_gain,
 			gain_factor), bounds)
 		society.satisfaction[group_id] = SocietyModel.approach(float(society.satisfaction[group_id]), target, rate)
 	society.support = SocietyModel.weighted(society.satisfaction, society.group_shares)

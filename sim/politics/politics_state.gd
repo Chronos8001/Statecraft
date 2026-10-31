@@ -75,6 +75,9 @@ var fraud_level: int = 0
 var promises: Array[Dictionary] = []
 ## Facteur de découverte des fraudes et scandales lié à la liberté de la presse (1 : presse libre).
 var media_factor: float = 1.0
+## Bonus de sondage de la propagande pour le parti au pouvoir, et volatilité des sondages (réseaux sociaux).
+var propaganda_bonus: float = 0.0
+var volatility: float = 1.0
 ## Dernière élection tenue pendant la partie : {kind, year, month, votes: {parti: %}, seats_before, seats_after,
 ## regions: {province: parti en tête}, rounds: [[{parti: %}], …], winner, government_changed}.
 var last_result: Dictionary = {}

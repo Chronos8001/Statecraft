@@ -31,3 +31,8 @@ var crises: Array[Dictionary] = []
 var crisis_bonuses: Array[Dictionary] = []
 var crisis_effects: Dictionary = {}
 var collapse_months: int = 0
+## Médias : niveau de propagande (0 à 3), effets du mois ({groups}) et mois avant une nouvelle opération
+## de désinformation.
+var propaganda_level: int = 0
+var media_effects: Dictionary = {}
+var disinformation_cooldown: int = 0

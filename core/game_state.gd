@@ -28,6 +28,7 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	scheduler.add_system(EconomySystem.new(DataLoader.get_category("economy_sectors")))
 	scheduler.add_system(GovernmentSystem.new())
 	scheduler.add_system(CrisisSystem.new())
+	scheduler.add_system(MediaSystem.new())
 	scheduler.add_system(SocietySystem.new())
 	scheduler.add_system(PoliticsSystem.new())
 	scheduler.add_system(ElectionSystem.new())
