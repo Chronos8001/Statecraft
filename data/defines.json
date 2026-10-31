@@ -302,5 +302,31 @@
     "hours_per_year": 8760.0,
     "start_mine_richness": 3,
     "start_port_count": 1
+  },
+  "investment": {
+    "public_profit_rate": 0.03,
+    "public_inefficiency": 0.5,
+    "valuation_multiple": 1.5,
+    "privatization_discount": 0.8,
+    "expropriation": {
+      "rating_notches": 2,
+      "fdi_factor": 0.4,
+      "penalty_months": 60
+    },
+    "fdi_growth_effect": 0.3,
+    "fdi_attractiveness": {
+      "growth": 0.1,
+      "rating": 0.05,
+      "corporate_tax": -0.02
+    },
+    "fdi_policy_factors": {
+      "open": 1.0,
+      "screening": 0.7,
+      "restricted": 0.3
+    },
+    "fdi_adjustment": 0.1,
+    "fund_return": 5.0,
+    "fund_rating_weight": 0.5,
+    "max_economic_effect": 3.0
   }
 }
