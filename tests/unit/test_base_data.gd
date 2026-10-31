@@ -14,7 +14,7 @@ const MIN_PROVINCE_COUNT := 4000
 const LOCALIZATION_DIR := "res://data/localization"
 const TRANSLATED_CATEGORIES := ["countries", "provinces", "sea_zones", "straits", "ideologies", "regimes",
 	"terrains", "resources", "traits", "challenges", "economy_sectors", "budget_taxes", "budget_spending",
-	"social_groups", "trade_agreements", "energy_sources", "buildings"]
+	"social_groups", "trade_agreements", "energy_sources", "buildings", "laws"]
 const MIN_SEA_ZONE_COUNT := 150
 
 const LocalizationScript := preload("res://core/localization/localization.gd")
@@ -349,6 +349,7 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 		{"parties": _repository.resolve_ref("names#parties"),
 			"characters": _repository.resolve_ref("names#characters"),
 			"provinces": GameState.country_provinces(_repository.get_category("provinces")),
+			"laws": _repository.get_category("laws"),
 			"settings": _repository.get_value("defines", "politics", {})})
 	var investment_system := InvestmentSystem.new()
 	var society_system := SocietySystem.new()
@@ -532,3 +533,16 @@ func test_party_abbreviations_are_unique_in_each_country() -> void:
 		var key := "%s|%s" % [party["country"], str(party["abbreviation"]).to_upper()]
 		assert_false(seen.has(key), "sigle en double : %s (%s)" % [key, party_id])
 		seen[key] = true
+
+
+func test_law_start_rules_name_real_countries() -> void:
+	var countries := _repository.get_category("countries")
+	var laws := _repository.get_category("laws")
+	for law_id: String in laws.keys():
+		var options: Array = (laws[law_id]["options"] as Array).map(func(option: Dictionary) -> String: return str(option["id"]))
+		assert_true(options.has(str(laws[law_id]["start"]["default"])), law_id)
+		for rule: Dictionary in laws[law_id]["start"]["rules"]:
+			assert_true(options.has(str(rule["option"])), "%s : %s" % [law_id, rule["option"]])
+			for tag: Variant in rule.get("countries", []):
+				assert_true(countries.has(tag), "%s : pays inconnu %s" % [law_id, tag])
+

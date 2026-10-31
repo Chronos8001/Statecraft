@@ -18,6 +18,7 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 		resource_definitions(), trade_definitions(), energy_definitions(), DataLoader.get_define("investment", {}),
 		society_definitions(), politics_definitions())
 	scheduler = SimScheduler.new()
+	scheduler.add_system(LawSystem.new())
 	scheduler.add_system(InvestmentSystem.new())
 	scheduler.add_system(EnergySystem.new())
 	scheduler.add_system(ResourceSystem.new())
@@ -106,6 +107,7 @@ func politics_definitions() -> Dictionary:
 		"parties": DataLoader.repository.resolve_ref("names#parties"),
 		"characters": DataLoader.repository.resolve_ref("names#characters"),
 		"provinces": country_provinces(DataLoader.get_category("provinces")),
+		"laws": DataLoader.get_category("laws"),
 		"settings": DataLoader.get_define("politics", {}),
 	}
 
