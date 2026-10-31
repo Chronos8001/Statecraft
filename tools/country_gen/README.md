@@ -108,3 +108,11 @@ Les flux viennent d'un modèle gravitaire (réglages `gravity` de `trade_config.
 ```sh
 python tools/country_gen/generate_trade.py
 ```
+
+## Électricité (`generate_energy.py`)
+
+Écrit `data/countries/energy.json` : production d'électricité par source (charbon, gaz, pétrole, nucléaire, hydraulique, éolien, solaire, biomasse, géothermie, en TWh), d'après *List of countries by electricity production* (version du 1er janvier 2026, dernière année connue). Pays absents : production estimée d'après le PIB et mix par défaut (`energy_config.json`).
+
+```sh
+python tools/country_gen/generate_energy.py
+```
