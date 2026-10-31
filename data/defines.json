@@ -399,6 +399,42 @@
       "cordon_groups": [
         "national"
       ]
+    },
+    "campaign": {
+      "campaign_months": 6,
+      "max_spending_bonus": 0.1,
+      "spending_scale": 0.02,
+      "max_spending_share": 0.1,
+      "rally_national_bonus": 0.01,
+      "rally_regional_bonus": 0.25,
+      "rally_cost_share": 0.001,
+      "max_campaign_bonus": 0.13,
+      "promise_gain": 6.0,
+      "promise_requirement": 2.0,
+      "promise_months": 24,
+      "promise_penalty": 8.0,
+      "promise_legitimacy_penalty": 3.0,
+      "max_promises": 3,
+      "fraud_points": [
+        2.5,
+        6.0,
+        12.0
+      ],
+      "fraud_detection": [
+        0.2,
+        0.5,
+        0.9
+      ],
+      "scandal_stability": [
+        5.0,
+        10.0,
+        20.0
+      ],
+      "scandal_legitimacy": [
+        8.0,
+        15.0,
+        30.0
+      ]
     }
   }
 }

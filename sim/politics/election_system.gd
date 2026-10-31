@@ -9,6 +9,7 @@ const EVENT_ELECTION := &"election_held"
 const KIND_LEGISLATIVE := "legislative"
 const KIND_PRESIDENTIAL := "presidential"
 const MONTHS_PER_YEAR := 12
+const EVENT_FRAUD_DETECTED := &"fraud_detected"
 
 
 func get_id() -> StringName:
@@ -33,12 +34,20 @@ func on_month(state: SimState) -> void:
 		var politics := country.politics
 		if politics.seats <= 0 or politics.suspended:
 			continue
+		var held := false
 		if PoliticsState.is_due(state.date.year, state.date.month, politics.next_election_year,
 				politics.next_election_month):
 			hold_legislative(country, state)
+			held = true
 		if politics.has_presidency and PoliticsState.is_due(state.date.year, state.date.month,
 				politics.next_presidential_year, politics.next_presidential_month):
 			hold_presidential(country, state)
+			held = true
+		if held:
+			_check_fraud(country, state)
+			for promise: Dictionary in politics.promises:
+				promise["pending"] = false
+			politics.reset_campaign()
 
 
 static func settings_of(state: SimState) -> Dictionary:
@@ -74,11 +83,12 @@ static func hold_legislative(country: CountryState, state: SimState) -> void:
 		"seats_before": seats_before, "government_changed": false}
 	if politics.democratic and not politics.parties.is_empty():
 		var provinces: Array = (state.politics_definitions.get("provinces", {}) as Dictionary).get(country.tag, [])
-		var national := election_day_votes(politics, state, settings)
+		var national := _rigged(politics, election_day_votes(politics, state, settings), state)
 		var groups_of: Dictionary = {}
 		for party: PartyState in politics.parties.values():
 			groups_of[party.id] = party.party_group
-		var regional := ElectionModel.regional_votes(national, groups_of, provinces, politics.other_poll, settings)
+		var regional := ElectionModel.regional_votes(national, groups_of, provinces, politics.other_poll, settings,
+			rally_leans(politics, state))
 		if not provinces.is_empty():
 			national = ElectionModel.national_votes(regional, provinces)
 		politics.other_vote = politics.other_poll
@@ -118,7 +128,7 @@ static func hold_presidential(country: CountryState, state: SimState) -> void:
 		"government_changed": false}
 	var winner := incumbent_party
 	if politics.democratic and not politics.parties.is_empty():
-		var scores := election_day_votes(politics, state, settings)
+		var scores := _rigged(politics, election_day_votes(politics, state, settings), state)
 		if scores.has(incumbent_party):
 			scores[incumbent_party] = float(scores[incumbent_party]) * (1.0 + float(settings.get("incumbent_bonus", 0.0)))
 		var positions: Dictionary = {}
@@ -203,3 +213,48 @@ static func _largest_party(politics: PoliticsState) -> String:
 static func _add_months(year: int, month: int, months: int) -> Array[int]:
 	var index := year * MONTHS_PER_YEAR + month - 1 + months
 	return [index / MONTHS_PER_YEAR, index % MONTHS_PER_YEAR + 1]
+
+
+static func campaign_settings(state: SimState) -> Dictionary:
+	return (state.politics_definitions.get("settings", {}) as Dictionary).get("campaign", {})
+
+
+## Penchant local du parti au pouvoir dans les provinces où il a tenu un meeting.
+static func rally_leans(politics: PoliticsState, state: SimState) -> Dictionary:
+	var result: Dictionary = {}
+	var bonus := float(campaign_settings(state).get("rally_regional_bonus", 0.0))
+	for province_id: Variant in politics.rallies.keys():
+		result[province_id] = {politics.ruling_party(): bonus}
+	return result
+
+
+static func _rigged(politics: PoliticsState, votes: Dictionary, state: SimState) -> Dictionary:
+	if politics.fraud_level <= 0:
+		return votes
+	var points: Array = campaign_settings(state).get("fraud_points", [])
+	if points.is_empty():
+		return votes
+	return CampaignModel.rigged_votes(votes, politics.ruling_party(),
+		float(points[mini(politics.fraud_level, points.size()) - 1]))
+
+
+## Fraude découverte : scandal durable (stabilité et légitimité), notifié au monde entier.
+static func _check_fraud(country: CountryState, state: SimState) -> void:
+	var politics := country.politics
+	if politics.fraud_level <= 0:
+		return
+	var settings := campaign_settings(state)
+	var chance := CampaignModel.detection_chance(politics.fraud_level, country.society.democracy_index,
+		politics.media_factor, settings)
+	if state.rng.randf() >= chance:
+		return
+	var index := mini(politics.fraud_level, 3) - 1
+	var stability := float((settings.get("scandal_stability", [0, 0, 0]) as Array)[index])
+	var legitimacy := float((settings.get("scandal_legitimacy", [0, 0, 0]) as Array)[index])
+	var society := country.society
+	society.stability = maxf(society.stability - stability, 0.0)
+	society.start_stability -= stability / 2.0
+	society.legitimacy = maxf(society.legitimacy - legitimacy, 0.0)
+	society.start_legitimacy -= legitimacy / 2.0
+	state.add_event(EVENT_FRAUD_DETECTED, country.tag, {"level": politics.fraud_level})
+
