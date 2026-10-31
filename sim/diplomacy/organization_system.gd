@@ -94,7 +94,8 @@ static func join_score(state: SimState, org_id: String, voter: String, applicant
 	var rules := rules_of(state, org_id)
 	var kind := str((state.diplomacy.organizations.get(org_id, {}) as Dictionary).get("kind", ""))
 	var base := float(rules.get("vote_base", (settings_of(state).get("kind_vote_base", {}) as Dictionary).get(kind, 0.0)))
-	var score := base + state.diplomacy.relation(voter, applicant)
+	var score := base + state.diplomacy.relation(voter, applicant) \
+		+ InfluenceSystem.weight(state, "organization") * InfluenceSystem.influence(state, applicant, voter)
 	var a := state.get_country(voter)
 	var b := state.get_country(applicant)
 	if a != null and b != null:
@@ -297,7 +298,9 @@ static func resolution_vote(state: SimState, voter: String, proposer: String, ta
 	if voter == proposer:
 		return 1
 	var threshold := float((settings_of(state).get("resolution", {}) as Dictionary).get("vote_threshold", 0.0))
-	var difference := state.diplomacy.relation(voter, proposer) - state.diplomacy.relation(voter, target)
+	var difference := state.diplomacy.relation(voter, proposer) - state.diplomacy.relation(voter, target) \
+		+ InfluenceSystem.weight(state, "resolution") * (InfluenceSystem.influence(state, proposer, voter)
+			- InfluenceSystem.influence(state, target, voter))
 	return 1 if difference > threshold else -1 if difference < -threshold else 0
 
 

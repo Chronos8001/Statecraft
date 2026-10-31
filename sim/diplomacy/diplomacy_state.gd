@@ -38,6 +38,13 @@ var start_sanction_effects: Dictionary = {}
 ## reçues par pays (milliards de dollars, pour l'armée de l'étape 7).
 var aid_programs: Array[Dictionary] = []
 var arms_received: Dictionary = {}
+## Influence : points de chaque pays, influence de départ « H>T » (0 à 100), écarts du moment, bases
+## militaires « H>T » (et celles de 2026, déjà comprises dans l'influence de départ).
+var influence_points: Dictionary = {}
+var start_influence: Dictionary = {}
+var influence_changes: Dictionary = {}
+var bases: Dictionary = {}
+var start_bases: Dictionary = {}
 ## Délais avant de refaire une action : « action|A|B » → mois.
 var cooldowns: Dictionary = {}
 ## Réglages : confiance de base et par point de relation, bruit de l'opinion de départ.

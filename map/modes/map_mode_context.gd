@@ -51,9 +51,12 @@ func refresh_from_simulation(state: SimState) -> void:
 	player_tag = str(state.player_tag)
 	relations.clear()
 	if not player_tag.is_empty() and not state.diplomacy_settings.is_empty():
+		var influence: Dictionary = {}
 		for tag: String in state.countries.keys():
 			if tag != player_tag:
 				relations[tag] = state.diplomacy.relation(player_tag, tag)
+				influence[tag] = InfluenceSystem.influence(state, player_tag, tag)
+		country_values["influence"] = influence
 	trade_shares.clear()
 	embargoed.clear()
 	_refresh_society(state)
@@ -86,7 +89,7 @@ func refresh_from_simulation(state: SimState) -> void:
 
 
 func _refresh_society(state: SimState) -> void:
-	country_values.clear()
+	# Les valeurs de la société sont remplacées clé par clé (l'influence est calculée plus haut).
 	var stability: Dictionary = {}
 	var support: Dictionary = {}
 	var unrest: Dictionary = {}
