@@ -16,7 +16,9 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	WorldSetup.populate(sim, DataLoader.get_category("countries"), DataLoader.get_category("currencies"),
 		DataLoader.get_define("economy", {}), budget_definitions(), DataLoader.get_category("resources"),
 		resource_definitions(), trade_definitions(), energy_definitions(), DataLoader.get_define("investment", {}),
-		society_definitions(), politics_definitions(), DataLoader.get_define("diplomacy", {}))
+		society_definitions(), politics_definitions(),
+		{"settings": DataLoader.get_define("diplomacy", {}), "treaties": DataLoader.get_category("treaties"),
+			"start": DataLoader.get_category("diplomacy")})
 	scheduler = SimScheduler.new()
 	scheduler.add_system(LawSystem.new())
 	scheduler.add_system(ConstitutionSystem.new())

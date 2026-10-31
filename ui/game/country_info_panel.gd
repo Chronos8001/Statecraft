@@ -2,6 +2,8 @@ class_name CountryInfoPanel
 extends InfoPanel
 ## Panneau d'information d'un pays (ouvert par un clic simple sur la carte).
 
+signal diplomacy_requested(tag: String)
+
 var _info: CountryInfo
 
 @onready var _name_label: Label = %NameLabel
@@ -9,10 +11,14 @@ var _info: CountryInfo
 @onready var _flag: TextureRect = %FlagRect
 @onready var _stats_grid: GridContainer = %StatsGrid
 @onready var _close_button: Button = %CloseButton
+@onready var _diplomacy_button: Button = %DiplomacyButton
 
 
 func _ready() -> void:
 	_close_button.pressed.connect(close)
+	_diplomacy_button.pressed.connect(func() -> void:
+		if _info != null:
+			diplomacy_requested.emit(_info.tag))
 	EventBus.locale_changed.connect(func(_locale: String) -> void: _refresh())
 	visible = false
 
@@ -33,6 +39,7 @@ func _refresh() -> void:
 	var locale := Localization.get_locale()
 	_name_label.text = tr(_info.name_key)
 	_tag_label.text = _info.tag
+	_diplomacy_button.visible = _info.has_diplomacy
 	_flag.texture = CountryFlags.texture_for(_info.flag_path, _info.color)
 	_clear_rows(_stats_grid)
 	_add_row(_stats_grid, "COUNTRY_INFO_CAPITAL", tr(_info.capital_name_key) if not _info.capital_name_key.is_empty() else "")

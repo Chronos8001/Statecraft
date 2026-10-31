@@ -23,7 +23,7 @@ func _world() -> SimState:
 	state.setup(2, GameDate.new(), &"AAA")
 	WorldSetup.populate(state, {"AAA": _country({"BBB": 60, "CCC": -80}), "BBB": _country({"AAA": 60}),
 		"CCC": _country({"AAA": -80})}, CURRENCIES, _defines["economy"], {}, {}, {}, {}, {}, {}, {}, {},
-		_defines["diplomacy"])
+		{"settings": _defines["diplomacy"]})
 	return state
 
 

@@ -589,6 +589,68 @@
     "opinion_noise": 8.0,
     "trust_base": 50.0,
     "trust_per_relation": 0.4,
-    "trust_return": 0.01
+    "trust_return": 0.01,
+    "actions": {
+      "improve_relations": {
+        "relation": 5.0,
+        "trust": 1.0,
+        "cost_share": 0.0005,
+        "cooldown": 3
+      },
+      "state_visit": {
+        "relation": 10.0,
+        "trust": 3.0,
+        "opinion": 5.0,
+        "cost_share": 0.001,
+        "cooldown": 12
+      },
+      "open_embassy": {
+        "relation": 3.0,
+        "cooldown": 6
+      },
+      "close_embassy": {
+        "relation": -15.0,
+        "trust": -10.0,
+        "cooldown": 6
+      },
+      "recognize": {
+        "relation": 20.0,
+        "parent_relation": -20.0,
+        "parent_trust": -10.0,
+        "cooldown": 24
+      },
+      "withdraw_recognition": {
+        "relation": -25.0,
+        "parent_relation": 15.0,
+        "cooldown": 24
+      },
+      "guarantee": {
+        "relation": 10.0,
+        "trust": 5.0,
+        "enemy_relation": -8.0,
+        "enemy_threshold": -40.0,
+        "cooldown": 12
+      },
+      "revoke_guarantee": {
+        "relation": -10.0,
+        "trust": -10.0,
+        "cooldown": 12
+      },
+      "ultimatum": {
+        "tribute_share": 0.5,
+        "power_weight": 20.0,
+        "threshold": 25.0,
+        "relation_weight": 0.1,
+        "accepted_relation": -25.0,
+        "accepted_trust": -15.0,
+        "accepted_opinion": -20.0,
+        "refused_relation": -30.0,
+        "refused_trust": -25.0,
+        "cooldown": 24
+      },
+      "treaty_cooldown": 6,
+      "treaty_refused_relation": -2.0,
+      "treaty_signed_trust": 5.0
+    }
   }
 }

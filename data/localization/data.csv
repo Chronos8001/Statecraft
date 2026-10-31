@@ -732,3 +732,10 @@ CRISIS_STRIKE,Strike,Grève
 CRISIS_DEMONSTRATION,Demonstrations,Manifestations
 CRISIS_RIOT,Riots,Émeutes
 CRISIS_CIVIL_WAR,Civil war,Guerre civile
+TREATY_NON_AGGRESSION,Non-aggression pact,Pacte de non-agression
+TREATY_MUTUAL_DEFENSE,Mutual defence,Défense mutuelle
+TREATY_FREE_TRADE,Free trade,Libre-échange
+TREATY_MILITARY_COOPERATION,Military cooperation,Coopération militaire
+TREATY_MILITARY_ACCESS,Military access,Accès militaire
+TREATY_INTELLIGENCE_SHARING,Intelligence sharing,Partage de renseignement
+TREATY_OPEN_BORDER,Open border,Frontière ouverte

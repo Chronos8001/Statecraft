@@ -11,6 +11,9 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Le mode de carte « Relations » suit la partie ; relations, confiance et opinions dans la fiche pays.
 - Outil de génération des relations (`tools/country_gen/generate_relations.py`).
 
+- Actions diplomatiques (améliorer les relations, visite d'État, ambassades, reconnaissance des États contestés, garanties d'indépendance, ultimatums) et 7 types de traités, avec la situation réelle de 2026.
+- Panneau Diplomatie (bouton dans la fiche d'un pays) : traités en vigueur, actions, proposition de traité avec l'avis probable du pays.
+
 ### Modifié
 - Fiche pays plus large.
 

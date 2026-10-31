@@ -212,8 +212,11 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Confiance et opinion publique d'un pays envers un autre ; retour lent vers le niveau naturel, l'opinion suit les relations avec retard
 - [x] Mode de carte « Relations » du pays joué ; relations, confiance et opinions dans la fiche pays
 
-**6b. Actions et traités**
-- [ ] Améliorer les relations, visites d'État, ambassades ; traités (non-agression, défense mutuelle, libre-échange, coopération militaire, accès militaire, renseignement, frontière ouverte) ; reconnaissance, garanties, ultimatums
+**6b. Actions et traités** (en test)
+- [x] Actions : améliorer les relations, visite d'État, ouvrir ou fermer une ambassade, reconnaître un État contesté, garantir une indépendance, ultimatum (tribut)
+- [x] 7 types de traités ; traités, ambassades fermées et reconnaissances réels de 2026 (Taïwan, Kosovo, Palestine, Chypre du Nord, Somaliland)
+- [x] Réponse des pays de l'IA par un score d'intérêt visible avant de proposer ; rupture coûteuse en confiance ; le libre-échange devient un accord commercial
+- [x] Panneau Diplomatie ouvert depuis la fiche d'un pays
 
 **6c. Organisations internationales**
 - [ ] ONU (Assemblée, Conseil de sécurité et veto, résolutions votées par l'IA), alliances, unions, organisations régionales, cartels ; adhésion, exclusion, création
