@@ -12,7 +12,7 @@ const BILLION := 1.0e9
 static func populate(state: SimState, countries: Dictionary, currencies: Dictionary, settings: Dictionary,
 		budget_definitions: Dictionary = {}, resources: Dictionary = {}, resource_definitions: Dictionary = {},
 		trade_definitions: Dictionary = {}, energy_definitions: Dictionary = {},
-		investment_settings: Dictionary = {}) -> void:
+		investment_settings: Dictionary = {}, society_definitions: Dictionary = {}) -> void:
 	state.economy_settings = settings
 	state.investment_settings = investment_settings
 	state.budget_definitions = budget_definitions
@@ -61,6 +61,48 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 		for tag: String in tags:
 			_setup_energy(state.countries[tag], countries[tag], state)
 		_place_start_buildings(state)
+	state.society_definitions = society_definitions
+	if not society_definitions.is_empty():
+		for tag: String in tags:
+			_setup_society(state.countries[tag], countries[tag], state)
+
+
+## Société de départ : satisfaction des groupes calée sur la popularité du gouvernement, influence selon
+## le régime, stabilité et corruption réelles, légitimité selon le régime et l'indice de démocratie.
+static func _setup_society(country: CountryState, data: Dictionary, state: SimState) -> void:
+	var source: Dictionary = data.get("society", {})
+	if source.is_empty():
+		return
+	var definitions := state.society_definitions
+	var groups: Dictionary = definitions.get("groups", {})
+	var settings: Dictionary = definitions.get("settings", {})
+	var regime: Dictionary = (definitions.get("regimes", {}) as Dictionary).get(str(data.get("regime", "")), {})
+	var ideology: Dictionary = (definitions.get("ideologies", {}) as Dictionary).get(str(data.get("ideology", "")), {})
+	var society := country.society
+	var shares: Dictionary = source.get("groups", {})
+	var total := 0.0
+	for group_id: Variant in groups.keys():
+		total += float(shares.get(group_id, 0.0))
+	for group_id: Variant in groups.keys():
+		society.group_shares[group_id] = float(shares.get(group_id, 0.0)) / total if total > 0.0 else 0.0
+	society.influence = SocietyModel.influence_weights(society.group_shares, groups, regime.get("group_influence", {}))
+	society.start_satisfaction = SocietyModel.start_satisfaction(float(source.get("approval", 0.0)),
+		society.group_shares, groups, str(ideology.get("party_group", "")),
+		settings.get("start_satisfaction_bounds", [0.0, SocietyModel.PERCENT]))
+	society.satisfaction = society.start_satisfaction.duplicate()
+	society.support = SocietyModel.weighted(society.satisfaction, society.group_shares)
+	society.start_support = society.support
+	society.stability = float(source.get("stability", 0.0))
+	society.start_stability = society.stability
+	society.corruption = float(source.get("corruption", 0.0))
+	society.democracy_index = float(source.get("democracy", 0.0))
+	var legitimacy_settings: Dictionary = settings.get("legitimacy", {})
+	society.legitimacy = SocietyModel.start_legitimacy(bool(regime.get("democratic", false)), society.democracy_index,
+		float(regime.get("legitimacy", legitimacy_settings.get("default_regime_legitimacy", 0.0))), legitimacy_settings)
+	society.start_legitimacy = society.legitimacy
+	society.start_unemployment = country.economy.unemployment
+	society.start_inflation = country.economy.inflation
+	society.start_growth = country.economy.growth
 
 
 static func _setup_investment(country: CountryState, data: Dictionary) -> void:
