@@ -98,3 +98,13 @@ La consommation mondiale de chaque ressource est ramenée à sa production (marc
 ```sh
 python tools/country_gen/generate_resources.py
 ```
+
+## Commerce (`generate_trade.py`)
+
+Écrit `data/countries/trade.json` : exportations et importations en % du PIB (*List of countries by trade-to-GDP ratio*, version du 1er janvier 2026 ; valeurs saisies ou estimées pour les pays absents), surtaxes bilatérales en vigueur au 1er janvier 2026, et principaux partenaires (`partners` : exportations vers chaque pays, en Md$).
+
+Les flux viennent d'un modèle gravitaire (réglages `gravity` de `trade_config.json`) : distance entre capitales, accords commerciaux (`data/trade_agreements`), frontières communes et facteurs saisis pour les liens que la distance ne capte pas (sanctions, alliances : `pair_factors`). Ils sont calés par ajustement proportionnel itératif sur les exportations et importations réelles. À relancer après un changement des accords ou des pays.
+
+```sh
+python tools/country_gen/generate_trade.py
+```
