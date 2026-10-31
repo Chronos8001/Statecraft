@@ -788,6 +788,40 @@
           "cooldown": 12
         }
       }
+    },
+    "tension": {
+      "start": 55.0,
+      "baseline": 40.0,
+      "return": 0.02,
+      "events": {
+        "ultimatum": 3.0,
+        "claim_pressed": 2.0,
+        "claim_added": 3.0,
+        "claim_renounced": -2.0,
+        "coup": 3.0,
+        "civil_war": 3.0,
+        "un_sanctions": 2.0,
+        "heavy_sanction": 1.0,
+        "treaty_signed": -0.5
+      },
+      "thresholds": {
+        "add_claim": 35.0,
+        "ultimatum": 40.0,
+        "total": 45.0,
+        "payment_exclusion": 50.0
+      },
+      "claims": {
+        "press_relation": -10.0,
+        "press_military": 3.0,
+        "press_drift": 0.03,
+        "press_months": 12,
+        "cooldown": 12,
+        "renounce_relation": 20.0,
+        "renounce_trust": 10.0,
+        "renounce_military": -5.0,
+        "renounce_military_start": -2.0,
+        "add_relation": -20.0
+      }
     }
   }
 }

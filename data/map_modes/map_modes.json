@@ -130,11 +130,19 @@
     ],
     "order": 8
   },
+  "claims": {
+    "name_key": "MAPMODE_CLAIMS",
+    "kind": "claims",
+    "own_color": "#E0A030",
+    "against_color": "#B23A3A",
+    "other_color": "#8A6FB0",
+    "order": 9
+  },
   "resources": {
     "name_key": "MAPMODE_RESOURCES",
     "kind": "resources",
     "none_color": "#B8B2A0",
-    "order": 9
+    "order": 10
   },
   "infrastructure": {
     "name_key": "MAPMODE_INFRASTRUCTURE",
@@ -156,14 +164,14 @@
         "#F4E6BC"
       ]
     ],
-    "order": 10
+    "order": 11
   },
   "military_control": {
     "name_key": "MAPMODE_MILITARY_CONTROL",
     "kind": "control",
     "occupied_color": "#E04A3A",
     "occupied_strength": 0.5,
-    "order": 11
+    "order": 12
   },
   "stability": {
     "name_key": "MAPMODE_STABILITY",
@@ -185,7 +193,7 @@
         "#3C8C52"
       ]
     ],
-    "order": 12
+    "order": 13
   },
   "support": {
     "name_key": "MAPMODE_SUPPORT",
@@ -207,13 +215,13 @@
         "#4F8FC0"
       ]
     ],
-    "order": 13
+    "order": 14
   },
   "vote": {
     "name_key": "MAPMODE_VOTE",
     "kind": "vote",
     "hint_color": "#C8CDD4",
-    "order": 14
+    "order": 15
   },
   "unrest": {
     "name_key": "MAPMODE_UNREST",
@@ -239,7 +247,7 @@
         "#9E2B25"
       ]
     ],
-    "order": 15
+    "order": 16
   },
   "trade": {
     "name_key": "MAPMODE_TRADE",
@@ -270,6 +278,6 @@
       "LEGEND_TRADE_MEDIUM",
       "LEGEND_TRADE_LARGE"
     ],
-    "order": 16
+    "order": 17
   }
 }

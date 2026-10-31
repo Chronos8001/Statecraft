@@ -2516,7 +2516,8 @@
             "resources",
             "control",
             "trade",
-            "vote"
+            "vote",
+            "claims"
           ]
         },
         "value": {
@@ -2566,6 +2567,15 @@
           }
         },
         "hint_color": {
+          "type": "color"
+        },
+        "own_color": {
+          "type": "color"
+        },
+        "against_color": {
+          "type": "color"
+        },
+        "other_color": {
           "type": "color"
         }
       }
@@ -3785,7 +3795,8 @@
       "recognition",
       "security_council",
       "sanctions",
-      "aid"
+      "aid",
+      "claims"
     ],
     "properties": {
       "treaties": {
@@ -3925,6 +3936,28 @@
             "items": {
               "type": "array",
               "min_items": 5,
+              "items": {
+                "type": "any"
+              }
+            }
+          }
+        }
+      },
+      "claims": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "list"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "min_items": 3,
               "items": {
                 "type": "any"
               }
