@@ -4,6 +4,7 @@ extends PanelContainer
 
 signal economy_requested
 signal budget_requested
+signal markets_requested
 
 const TREASURY_INDEX := 0
 const STAT_KEYS := ["TOPBAR_TREASURY", "TOPBAR_STABILITY", "TOPBAR_SUPPORT", "TOPBAR_MILITARY", "TOPBAR_INFLUENCE"]
@@ -24,6 +25,7 @@ var _stat_values: Array[Label] = []
 @onready var _stats_row: HBoxContainer = %StatsRow
 @onready var _economy_button: Button = %EconomyButton
 @onready var _budget_button: Button = %BudgetButton
+@onready var _markets_button: Button = %MarketsButton
 
 
 func _ready() -> void:
@@ -32,6 +34,7 @@ func _ready() -> void:
 	_faster_button.pressed.connect(func() -> void: GameClock.set_speed(GameClock.speed + 1))
 	_economy_button.pressed.connect(func() -> void: economy_requested.emit())
 	_budget_button.pressed.connect(func() -> void: budget_requested.emit())
+	_markets_button.pressed.connect(func() -> void: markets_requested.emit())
 	EventBus.month_passed.connect(func(_date: GameDate) -> void: _update_country())
 	EventBus.command_executed.connect(func(_command: Command) -> void: _update_country())
 	EventBus.hour_passed.connect(func(_date: GameDate) -> void: _update_date())
