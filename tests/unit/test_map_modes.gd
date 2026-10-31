@@ -130,13 +130,15 @@ func test_trade_mode_shows_partners_and_embargoes() -> void:
 
 func test_registry_builds_all_game_modes_in_order() -> void:
 	var registry := MapModeRegistry.from_definitions(DataLoader.get_category("map_modes"))
-	assert_eq(registry.modes.size(), 15)
+	assert_eq(registry.modes.size(), 17)
 	assert_eq(registry.modes[0].id, "political")
-	assert_eq(registry.index_of("stability"), 10)
-	assert_eq(registry.index_of("support"), 11)
-	assert_eq(registry.index_of("vote"), 12)
-	assert_eq(registry.index_of("unrest"), 13)
-	assert_eq(registry.index_of("trade"), 14)
+	assert_eq(registry.index_of("influence"), 7)
+	assert_eq(registry.index_of("claims"), 8)
+	assert_eq(registry.index_of("stability"), 12)
+	assert_eq(registry.index_of("support"), 13)
+	assert_eq(registry.index_of("vote"), 14)
+	assert_eq(registry.index_of("unrest"), 15)
+	assert_eq(registry.index_of("trade"), 16)
 	var context := MapModeContext.from_game_data()
 	for mode: MapMode in registry.modes:
 		assert_eq(mode.compute_colors(context).size(), context.max_id + 1, mode.id)

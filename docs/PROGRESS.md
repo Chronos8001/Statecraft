@@ -10,7 +10,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 | 3 | Les pays en 2026 | ✅ | v0.3.0 | 2026-10-30 | v0.3.0 |
 | 4 | Économie | ✅ | v0.4.0 | 2026-10-31 | v0.4.0 |
 | 5 | Politique intérieure | ✅ | v0.5.0 | 2026-10-31 | v0.5.0 |
-| 6 | Diplomatie | ⬜ | v0.6.0 | | |
+| 6 | Diplomatie | ✅ | v0.6.0 | 2026-10-31 | v0.6.0 |
 | 7 | Militaire (version simplifiée) | ⬜ | v0.7.0 | | |
 | 8 | Recherche et technologie | ⬜ | v0.8.0 | | |
 | 9 | Arbres de décisions nationales et événements | ⬜ | v0.9.0 | | |
@@ -205,14 +205,47 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Propagande à trois niveaux (coût mensuel, satisfaction des groupes, sondages ; use la légitimité en démocratie)
 - [x] Désinformation : salir l'opposition ou déstabiliser un pays étranger, risque d'être démasqué
 
-## Étape 6 — Diplomatie ⬜
-- [ ] Relations bilatérales (-100 à +100), opinion publique étrangère, confiance
-- [ ] Actions : relations, visites d'État, ambassades, traités, reconnaissance, garanties, ultimatums
-- [ ] Organisations internationales : ONU (Assemblée, Conseil de sécurité, veto), alliances, unions, cartels ; adhésion, exclusion, création
-- [ ] Sanctions, gel d'avoirs, exclusion des systèmes de paiement
-- [ ] Aide économique, humanitaire, militaire, prêts, conseillers
-- [ ] Sphères d'influence et points d'influence
-- [ ] Revendications territoriales et jauge de tension mondiale
+## Étape 6 — Diplomatie ✅ (validée le 2026-10-31, v0.6.0)
+
+**6a. Relations, opinion étrangère, confiance** (validée le 2026-10-31)
+- [x] Relations de départ entre tous les pays (organisations, commerce, régimes, frontières, blocs, 183 paires saisies), `tools/country_gen/generate_relations.py`
+- [x] Confiance et opinion publique d'un pays envers un autre ; retour lent vers le niveau naturel, l'opinion suit les relations avec retard
+- [x] Mode de carte « Relations » du pays joué ; relations, confiance et opinions dans la fiche pays
+
+**6b. Actions et traités** (validée le 2026-10-31)
+- [x] Actions : améliorer les relations, visite d'État, ouvrir ou fermer une ambassade, reconnaître un État contesté, garantir une indépendance, ultimatum (tribut)
+- [x] 7 types de traités ; traités, ambassades fermées et reconnaissances réels de 2026 (Taïwan, Kosovo, Palestine, Chypre du Nord, Somaliland)
+- [x] Réponse des pays de l'IA par un score d'intérêt visible avant de proposer ; rupture coûteuse en confiance ; le libre-échange devient un accord commercial
+- [x] Panneau Diplomatie ouvert depuis la fiche d'un pays
+
+**6c. Organisations internationales** (validée le 2026-10-31)
+- [x] 15 organisations jouables avec leurs règles (unanimité ou majorité, zone géographique, accord commercial lié)
+- [x] Adhésion votée par les membres, départ, exclusion aux deux tiers, création d'organisations et invitations
+- [x] ONU : Conseil de sécurité (5 permanents avec veto, 10 élus réels de 2026 renouvelés chaque année), résolutions de condamnation votées par tous les pays
+- [x] Panneau Monde ; carte des alliances et fiche pays suivent les appartenances
+
+**6d. Sanctions** (validée le 2026-10-31)
+- [x] 5 mesures : ciblées, sectorielles, embargo total, gel des avoirs, exclusion des systèmes de paiement
+- [x] Effets selon l'exposition de la cible (commerce et poids financier du pays qui sanctionne), coût pour celui qui sanctionne
+- [x] Sanctions réelles de 2026 (Russie, Biélorussie, Iran, Corée du Nord, Cuba, Venezuela…), neutres au départ ; contre-sanctions russes
+- [x] Résolution de sanctions au Conseil de sécurité ; section Sanctions du panneau Diplomatie
+
+**6e. Aide** (validée le 2026-10-31)
+- [x] 6 types d'aide : économique, humanitaire, prêt (remboursé avec intérêts), vente et don d'armes, conseillers militaires ; une fois, 1 an ou 5 ans
+- [x] Effets sur le pays aidé (croissance, stabilité) selon le poids de l'aide dans son PIB ; relations et opinion ; acceptation selon les relations
+- [x] Programmes réels de 2026 (UE et Japon pour l'Ukraine, armes allemandes et britanniques, États-Unis pour Israël, l'Égypte et la Jordanie…) ; armes reçues comptées pour l'étape 7
+- [x] Section Aide du panneau Diplomatie
+
+**6f. Sphères d'influence** (validée le 2026-10-31)
+- [x] Points d'influence : revenu selon le poids économique et le budget de la diplomatie ; affichés dans la barre supérieure
+- [x] Influence d'un pays dans un autre (commerce, bases, alliances, aide) qui pèse sur les traités, l'aide, les adhésions et les votes à l'ONU
+- [x] Actions : soutenir un parti, financer l'opposition, influence culturelle, ouvrir ou fermer une base ; risque d'être démasqué
+- [x] Mode de carte « Notre influence » ; section Influence du panneau Diplomatie
+
+**6g. Revendications et tension mondiale** (validée le 2026-10-31)
+- [x] Revendications réelles de 2026 (Taïwan, Kosovo, Chypre du Nord, Somaliland, Belize, territoires ukrainiens tenus par la Russie, Cachemire, Arunachal Pradesh, Essequibo, Malouines, Gibraltar)
+- [x] Faire valoir, abandonner, revendiquer une province voisine ; mode de carte « Revendications »
+- [x] Tension mondiale (55 en 2026) qui monte avec ultimatums, revendications, coups d'État, guerres civiles et sanctions ; seuils qui débloquent revendications, ultimatums, embargos totaux et exclusion des paiements
 
 ## Étape 7 — Militaire (version simplifiée) ⬜
 **7a. Forces armées**

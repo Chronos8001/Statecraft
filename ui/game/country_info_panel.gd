@@ -2,6 +2,8 @@ class_name CountryInfoPanel
 extends InfoPanel
 ## Panneau d'information d'un pays (ouvert par un clic simple sur la carte).
 
+signal diplomacy_requested(tag: String)
+
 var _info: CountryInfo
 
 @onready var _name_label: Label = %NameLabel
@@ -9,10 +11,14 @@ var _info: CountryInfo
 @onready var _flag: TextureRect = %FlagRect
 @onready var _stats_grid: GridContainer = %StatsGrid
 @onready var _close_button: Button = %CloseButton
+@onready var _diplomacy_button: Button = %DiplomacyButton
 
 
 func _ready() -> void:
 	_close_button.pressed.connect(close)
+	_diplomacy_button.pressed.connect(func() -> void:
+		if _info != null:
+			diplomacy_requested.emit(_info.tag))
 	EventBus.locale_changed.connect(func(_locale: String) -> void: _refresh())
 	visible = false
 
@@ -33,6 +39,7 @@ func _refresh() -> void:
 	var locale := Localization.get_locale()
 	_name_label.text = tr(_info.name_key)
 	_tag_label.text = _info.tag
+	_diplomacy_button.visible = _info.has_diplomacy
 	_flag.texture = CountryFlags.texture_for(_info.flag_path, _info.color)
 	_clear_rows(_stats_grid)
 	_add_row(_stats_grid, "COUNTRY_INFO_CAPITAL", tr(_info.capital_name_key) if not _info.capital_name_key.is_empty() else "")
@@ -65,10 +72,19 @@ func _refresh() -> void:
 	if _info.active_personnel >= 0.0:
 		_add_row(_stats_grid, "COUNTRY_INFO_ACTIVE_PERSONNEL", NumberFormat.integer(roundi(_info.active_personnel), locale))
 	_add_row(_stats_grid, "COUNTRY_INFO_ORGANIZATIONS", _join_texts(_info.organization_abbreviations))
+	if _info.has_diplomacy:
+		_add_row(_stats_grid, "DIPLOMACY_RELATION", _signed(_info.relation))
+		_add_row(_stats_grid, "DIPLOMACY_TRUST", tr("SOCIETY_SCORE_VALUE") % roundi(_info.trust))
+		_add_row(_stats_grid, "DIPLOMACY_OPINION_OF_US", _signed(_info.opinion_of_player))
+		_add_row(_stats_grid, "DIPLOMACY_OUR_OPINION", _signed(_info.player_opinion))
 	if _info.occupied_count > 0:
 		_add_row(_stats_grid, "COUNTRY_INFO_OCCUPIED", tr("COUNTRY_INFO_PROVINCE_COUNT") % _info.occupied_count)
 	if _info.occupying_count > 0:
 		_add_row(_stats_grid, "COUNTRY_INFO_OCCUPYING", tr("COUNTRY_INFO_PROVINCE_COUNT") % _info.occupying_count)
+
+
+func _signed(value: float) -> String:
+	return ("+" if roundi(value) > 0 else "") + str(roundi(value))
 
 
 ## « Nom (âge) » ; le nom seul si l'âge est inconnu.

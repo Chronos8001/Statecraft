@@ -8,7 +8,7 @@ const DEGREES_PER_TURN := 360.0
 const DEGREES_HALF_TURN := 180.0
 const BYTES_PER_MEGABYTE := 1048576.0
 const DEFAULT_MAP_MODE := "political"
-const LIVE_MAP_MODES := ["trade", "stability", "support", "vote", "ideology", "unrest"]
+const LIVE_MAP_MODES := ["trade", "stability", "support", "vote", "ideology", "unrest", "relations", "influence", "claims"]
 
 var _thread: Thread
 var _load_started_ms: int = 0
@@ -38,6 +38,8 @@ var _notification_timer: SceneTreeTimer
 @onready var _politics_panel: PoliticsPanel = %PoliticsPanel
 @onready var _laws_panel: LawsPanel = %LawsPanel
 @onready var _government_panel: GovernmentPanel = %GovernmentPanel
+@onready var _diplomacy_panel: DiplomacyPanel = %DiplomacyPanel
+@onready var _world_panel: WorldPanel = %WorldPanel
 
 
 func _ready() -> void:
@@ -68,6 +70,10 @@ func _ready() -> void:
 	_top_bar.politics_requested.connect(_politics_panel.toggle)
 	_top_bar.laws_requested.connect(_laws_panel.toggle)
 	_top_bar.government_requested.connect(_government_panel.toggle)
+	_top_bar.world_requested.connect(_world_panel.toggle)
+	_country_panel.diplomacy_requested.connect(func(tag: String) -> void:
+		_country_panel.close()
+		_diplomacy_panel.show_country(tag))
 	EventBus.sim_event_raised.connect(_on_sim_event)
 	EventBus.month_passed.connect(_on_month_passed)
 	EventBus.command_executed.connect(func(_command: Command) -> void: _refresh_live_map_mode())
@@ -95,7 +101,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		var panels: Array[InfoPanel] = [_info_panel, _country_panel, _economy_panel, _budget_panel, _markets_panel,
 			_trade_panel, _energy_panel, _investment_panel, _society_panel,
-			_politics_panel, _laws_panel, _government_panel]
+			_politics_panel, _laws_panel, _government_panel, _diplomacy_panel,
+			_world_panel]
 		if panels.any(func(panel: InfoPanel) -> bool: return panel.visible):
 			for panel: InfoPanel in panels:
 				panel.close()
@@ -209,6 +216,10 @@ func _on_sim_event(event: Dictionary) -> void:
 			else "NOTIFY_COUP_SUCCESS" if bool(event.get("success", false)) else "NOTIFY_COUP_FAILED"
 		_notify(tr(key) % tr(str(country.get("name_key", ""))))
 		return
+	if event.get("type") == TensionSystem.EVENT_THRESHOLD:
+		_notify(tr("NOTIFY_TENSION_UNLOCKED" if bool(event.get("unlocked", false)) else "NOTIFY_TENSION_LOCKED")
+			% tr("WORLD_ACTION_%s" % str(event.get("action", "")).to_upper()))
+		return
 	if event.get("type") == ElectionSystem.EVENT_FRAUD_DETECTED:
 		var country := DataLoader.get_entry("countries", str(event.get("tag", "")))
 		_notify(tr("NOTIFY_FRAUD_DETECTED") % tr(str(country.get("name_key", ""))))
@@ -260,6 +271,38 @@ func _on_sim_event(event: Dictionary) -> void:
 			var key := "NOTIFY_MINISTER_SCANDAL" if event.get("type") == GovernmentSystem.EVENT_SCANDAL \
 				else "NOTIFY_MINISTER_RESIGNED"
 			_notify(tr(key) % tr(str(portfolio.get("name_key", ""))))
+		DiplomacySystem.EVENT_TREATY_SIGNED, DiplomacySystem.EVENT_TREATY_REFUSED, DiplomacySystem.EVENT_TREATY_CANCELLED:
+			var treaty: Dictionary = GameState.sim.treaty_definitions.get(str(event.get("treaty", "")), {})
+			var other := DataLoader.get_entry("countries", str(event.get("target", "")))
+			_notify(tr("NOTIFY_%s" % str(event.get("type")).to_upper()) % [tr(str(treaty.get("name_key", ""))),
+				tr(str(other.get("name_key", "")))])
+		DiplomacySystem.EVENT_ULTIMATUM:
+			var other := DataLoader.get_entry("countries", str(event.get("target", "")))
+			_notify(tr("NOTIFY_ULTIMATUM_ACCEPTED" if bool(event.get("accepted", false)) else "NOTIFY_ULTIMATUM_REFUSED")
+				% tr(str(other.get("name_key", ""))))
+		OrganizationSystem.EVENT_JOINED, OrganizationSystem.EVENT_JOIN_REFUSED, OrganizationSystem.EVENT_LEFT, \
+				OrganizationSystem.EVENT_CREATED, OrganizationSystem.EVENT_EXPELLED:
+			var organization: Dictionary = GameState.sim.diplomacy.organizations.get(str(event.get("organization", "")), {})
+			_notify(tr("NOTIFY_%s" % str(event.get("type")).to_upper()) % Localization.pick_text(
+				organization.get("name", "")))
+		OrganizationSystem.EVENT_RESOLUTION:
+			var target := DataLoader.get_entry("countries", str(event.get("target", "")))
+			_notify(tr("NOTIFY_RESOLUTION_PASSED" if bool(event.get("passed", false)) else "NOTIFY_RESOLUTION_FAILED")
+				% [tr(str(target.get("name_key", ""))), event.get("yes", 0), event.get("no", 0)])
+		SanctionSystem.EVENT_SANCTION:
+			var definition: Dictionary = GameState.sim.sanction_definitions.get(str(event.get("measure", "")), {})
+			var other := DataLoader.get_entry("countries", str(event.get("target", "")))
+			_notify(tr("NOTIFY_SANCTION_IMPOSED" if bool(event.get("active", false)) else "NOTIFY_SANCTION_LIFTED")
+				% [tr(str(definition.get("name_key", ""))), tr(str(other.get("name_key", "")))])
+		AidSystem.EVENT_AID, AidSystem.EVENT_AID_REFUSED:
+			var definition: Dictionary = GameState.sim.aid_definitions.get(str(event.get("kind", "")), {})
+			var other := DataLoader.get_entry("countries", str(event.get("target", "")))
+			_notify(tr("NOTIFY_AID_GIVEN" if event.get("type") == AidSystem.EVENT_AID else "NOTIFY_AID_REFUSED")
+				% [tr(str(definition.get("name_key", ""))), tr(str(other.get("name_key", "")))])
+		InfluenceSystem.EVENT_INFLUENCE:
+			if bool(event.get("exposed", false)):
+				var other := DataLoader.get_entry("countries", str(event.get("target", "")))
+				_notify(tr("NOTIFY_INFLUENCE_EXPOSED") % tr(str(other.get("name_key", ""))))
 		MediaSystem.EVENT_DISINFORMATION:
 			_notify(tr("NOTIFY_DISINFORMATION_EXPOSED" if bool(event.get("exposed", false)) else "NOTIFY_DISINFORMATION_DONE"))
 		CrisisSystem.EVENT_STARTED:
@@ -348,6 +391,7 @@ func _on_province_clicked(province_id: int) -> void:
 	info.apply_economy(GameState.sim)
 	info.apply_politics(GameState.sim, DataLoader.get_category("names"), DataLoader.get_category("ideologies"),
 		DataLoader.get_category("names/cultures"))
+	info.apply_diplomacy(GameState.sim)
 	_info_panel.close()
 	_map_view.set_selected_province(MapView.NO_SELECTION)
 	_map_view.set_selected_country(owner)

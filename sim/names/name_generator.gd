@@ -15,6 +15,7 @@ var _ideologies: Dictionary
 var _traits: Dictionary
 var _settings: Dictionary
 var _rng := RandomNumberGenerator.new()
+var _trait_groups: Dictionary = {}
 
 
 ## settings : section « characters » de defines.json.
@@ -77,17 +78,9 @@ func generate_character(country: String, culture_id: String, gender: String, bir
 ## Au plus un trait par groupe de traits, chacun avec la probabilité des réglages.
 ## Les traits marqués "random": false (orientation diplomatique…) ne sont jamais tirés.
 func generate_traits() -> Array:
-	var by_group: Dictionary = {}
-	var trait_ids: Array = _traits.keys()
-	trait_ids.sort()
-	for trait_id: Variant in trait_ids:
-		var trait_data: Dictionary = _traits[trait_id]
-		if not bool(trait_data.get("random", true)):
-			continue
-		var group := str(trait_data.get("group", ""))
-		if not by_group.has(group):
-			by_group[group] = []
-		(by_group[group] as Array).append(trait_id)
+	if _trait_groups.is_empty():
+		_build_trait_groups()
+	var by_group := _trait_groups
 	var groups: Array = by_group.keys()
 	groups.sort()
 	var chance := float(_settings.get("trait_chance", 1.0))
@@ -97,6 +90,20 @@ func generate_traits() -> Array:
 		if _rng.randf() < chance:
 			result.append(candidates[_rng.randi_range(0, candidates.size() - 1)])
 	return result
+
+
+## Traits tirables rangés par groupe (calculés une fois par générateur).
+func _build_trait_groups() -> void:
+	var trait_ids: Array = _traits.keys()
+	trait_ids.sort()
+	for trait_id: Variant in trait_ids:
+		var trait_data: Dictionary = _traits[trait_id]
+		if not bool(trait_data.get("random", true)):
+			continue
+		var group := str(trait_data.get("group", ""))
+		if not _trait_groups.has(group):
+			_trait_groups[group] = []
+		(_trait_groups[group] as Array).append(trait_id)
 
 
 func generate_skills() -> Dictionary:

@@ -732,3 +732,21 @@ CRISIS_STRIKE,Strike,Grève
 CRISIS_DEMONSTRATION,Demonstrations,Manifestations
 CRISIS_RIOT,Riots,Émeutes
 CRISIS_CIVIL_WAR,Civil war,Guerre civile
+TREATY_NON_AGGRESSION,Non-aggression pact,Pacte de non-agression
+TREATY_MUTUAL_DEFENSE,Mutual defence,Défense mutuelle
+TREATY_FREE_TRADE,Free trade,Libre-échange
+TREATY_MILITARY_COOPERATION,Military cooperation,Coopération militaire
+TREATY_MILITARY_ACCESS,Military access,Accès militaire
+TREATY_INTELLIGENCE_SHARING,Intelligence sharing,Partage de renseignement
+TREATY_OPEN_BORDER,Open border,Frontière ouverte
+SANCTION_TARGETED,Targeted sanctions,Sanctions ciblées
+SANCTION_SECTORAL,Sectoral sanctions,Sanctions sectorielles
+SANCTION_TOTAL,Total embargo,Embargo total
+SANCTION_ASSET_FREEZE,Asset freeze,Gel des avoirs
+SANCTION_PAYMENT_EXCLUSION,Payment system exclusion,Exclusion des systèmes de paiement
+AID_ECONOMIC,Economic aid,Aide économique
+AID_HUMANITARIAN,Humanitarian aid,Aide humanitaire
+AID_LOAN,Loan,Prêt
+AID_ARMS_SALE,Arms sale,Vente d'armes
+AID_ARMS_GIFT,Arms donation,Don d'armes
+AID_MILITARY_ADVISORS,Military advisers,Conseillers militaires

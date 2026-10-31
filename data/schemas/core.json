@@ -1502,7 +1502,8 @@
         "investment",
         "society",
         "parliament",
-        "constitution"
+        "constitution",
+        "relations"
       ],
       "properties": {
         "name_key": {
@@ -2143,6 +2144,15 @@
               "max": 10
             }
           }
+        },
+        "relations": {
+          "type": "object",
+          "keys_ref": "countries",
+          "values": {
+            "type": "number",
+            "min": -100,
+            "max": 100
+          }
         }
       }
     }
@@ -2506,7 +2516,8 @@
             "resources",
             "control",
             "trade",
-            "vote"
+            "vote",
+            "claims"
           ]
         },
         "value": {
@@ -2556,6 +2567,15 @@
           }
         },
         "hint_color": {
+          "type": "color"
+        },
+        "own_color": {
+          "type": "color"
+        },
+        "against_color": {
+          "type": "color"
+        },
+        "other_color": {
           "type": "color"
         }
       }
@@ -3725,6 +3745,357 @@
           }
         },
         "responses": {
+          "type": "bool"
+        }
+      }
+    }
+  },
+  "treaties": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "relation_bonus",
+        "break_relation",
+        "break_trust",
+        "acceptance"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^TREATY_[A-Z_]+$"
+        },
+        "relation_bonus": {
+          "type": "number"
+        },
+        "break_relation": {
+          "type": "number"
+        },
+        "break_trust": {
+          "type": "number"
+        },
+        "acceptance": {
+          "type": "object",
+          "values": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  },
+  "diplomacy": {
+    "type": "object",
+    "strict": true,
+    "required": [
+      "treaties",
+      "no_embassy",
+      "recognition",
+      "security_council",
+      "sanctions",
+      "aid",
+      "claims"
+    ],
+    "properties": {
+      "treaties": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "list"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "min_items": 3,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "no_embassy": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "list"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "min_items": 2,
+              "items": {
+                "type": "string",
+                "ref": "countries"
+              }
+            }
+          }
+        }
+      },
+      "recognition": {
+        "type": "object",
+        "values": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "parent"
+          ],
+          "properties": {
+            "parent": {
+              "type": "string",
+              "ref": "countries"
+            },
+            "recognized_by": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "ref": "countries"
+              }
+            },
+            "not_recognized_by": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "ref": "countries"
+              }
+            }
+          }
+        }
+      },
+      "security_council": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "permanent",
+          "elected"
+        ],
+        "properties": {
+          "permanent": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "ref": "countries"
+            }
+          },
+          "elected": {
+            "type": "object",
+            "keys_ref": "countries",
+            "values": {
+              "type": "int",
+              "min": 2026
+            }
+          }
+        }
+      },
+      "sanctions": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "list"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "min_items": 3,
+              "items": {
+                "type": "any"
+              }
+            }
+          }
+        }
+      },
+      "aid": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "list"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "min_items": 5,
+              "items": {
+                "type": "any"
+              }
+            }
+          }
+        }
+      },
+      "claims": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "list"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "min_items": 3,
+              "items": {
+                "type": "any"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "organization_rules": {
+    "type": "object",
+    "keys_ref": "names#organizations",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "decision",
+        "eligible",
+        "relation_bonus"
+      ],
+      "properties": {
+        "decision": {
+          "type": "string",
+          "enum": [
+            "majority",
+            "two_thirds",
+            "unanimity"
+          ]
+        },
+        "eligible": {
+          "type": "any"
+        },
+        "relation_bonus": {
+          "type": "number"
+        },
+        "vote_base": {
+          "type": "number"
+        },
+        "same_regime": {
+          "type": "number"
+        },
+        "democratic": {
+          "type": "bool"
+        },
+        "trade_agreement": {
+          "type": "string",
+          "ref": "trade_agreements"
+        }
+      }
+    }
+  },
+  "sanctions": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "growth",
+        "inflation",
+        "relation",
+        "cost"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^SANCTION_[A-Z_]+$"
+        },
+        "growth": {
+          "type": "number"
+        },
+        "inflation": {
+          "type": "number"
+        },
+        "relation": {
+          "type": "number"
+        },
+        "cost": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "aid": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "payer",
+        "cash",
+        "growth",
+        "stability",
+        "relation",
+        "opinion",
+        "min_relation",
+        "repay"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^AID_[A-Z_]+$"
+        },
+        "payer": {
+          "type": "string",
+          "enum": [
+            "donor",
+            "recipient"
+          ]
+        },
+        "cash": {
+          "type": "bool"
+        },
+        "growth": {
+          "type": "number"
+        },
+        "stability": {
+          "type": "number"
+        },
+        "relation": {
+          "type": "number"
+        },
+        "opinion": {
+          "type": "number"
+        },
+        "min_relation": {
+          "type": "number"
+        },
+        "repay": {
+          "type": "bool"
+        },
+        "military": {
+          "type": "bool"
+        },
+        "flat": {
           "type": "bool"
         }
       }

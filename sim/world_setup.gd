@@ -14,7 +14,7 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 		budget_definitions: Dictionary = {}, resources: Dictionary = {}, resource_definitions: Dictionary = {},
 		trade_definitions: Dictionary = {}, energy_definitions: Dictionary = {},
 		investment_settings: Dictionary = {}, society_definitions: Dictionary = {},
-		politics_definitions: Dictionary = {}) -> void:
+		politics_definitions: Dictionary = {}, diplomacy_definitions: Dictionary = {}) -> void:
 	state.economy_settings = settings
 	state.investment_settings = investment_settings
 	state.budget_definitions = budget_definitions
@@ -67,6 +67,7 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 	if not society_definitions.is_empty():
 		for tag: String in tags:
 			_setup_society(state.countries[tag], countries[tag], state)
+	_setup_diplomacy(state, countries, diplomacy_definitions)
 	state.politics_definitions = politics_definitions
 	if not politics_definitions.is_empty():
 		for tag: String in tags:
@@ -84,6 +85,36 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 			if state.countries.has(tag) and not civil_war.is_empty():
 				CrisisSystem.start_civil_war(state.countries[tag], state, civil_war, true)
 				CrisisSystem.refresh_effects(state.countries[tag], state)
+
+
+## Relations de départ (données « relations » de chaque pays, symétriques), traités de 2026, ambassades et
+## reconnaissance des États contestés. definitions : {settings, treaties, start}.
+static func _setup_diplomacy(state: SimState, countries: Dictionary, definitions: Dictionary) -> void:
+	var diplomacy := DiplomacyState.new()
+	var settings: Dictionary = definitions.get("settings", {})
+	state.diplomacy = diplomacy
+	state.diplomacy_settings = settings
+	state.treaty_definitions = definitions.get("treaties", {})
+	state.diplomacy_start = definitions.get("start", {})
+	state.organization_rules = definitions.get("organization_rules", {})
+	state.sanction_definitions = definitions.get("sanctions", {})
+	state.aid_definitions = definitions.get("aid", {})
+	diplomacy.trust_base = float(settings.get("trust_base", 50.0))
+	diplomacy.trust_per_relation = float(settings.get("trust_per_relation", 0.0))
+	diplomacy.opinion_noise = float(settings.get("opinion_noise", 0.0))
+	for tag: String in countries.keys():
+		var relations: Dictionary = (countries[tag] as Dictionary).get("relations", {})
+		for other: Variant in relations.keys():
+			if countries.has(other):
+				diplomacy.start_relations[DiplomacyState.pair_key(tag, str(other))] = float(relations[other])
+	DiplomacySystem.setup_start(state)
+	OrganizationSystem.setup_start(state, definitions.get("organizations", {}), countries)
+	if not state.sanction_definitions.is_empty():
+		SanctionSystem.setup_start(state)
+	if not state.aid_definitions.is_empty():
+		AidSystem.setup_start(state)
+	InfluenceSystem.setup_start(state)
+	TensionSystem.setup_start(state)
 
 
 ## Lois de départ, selon les règles de chaque loi (pays cités, régime, démocratie, revenu).

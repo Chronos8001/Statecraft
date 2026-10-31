@@ -103,9 +103,9 @@ TOPBAR_PAUSE_TOOLTIP,Pause / resume (Space),Pause / reprise (Espace)
 TOPBAR_SLOWER_TOOLTIP,Slower (- or 1 to 5),Plus lent (- ou 1 à 5)
 TOPBAR_FASTER_TOOLTIP,Faster (+ or 1 to 5),Plus rapide (+ ou 1 à 5)
 TOPBAR_NO_COUNTRY,Observer,Observateur
-TOPBAR_TREASURY,Treasury,Trésorerie
+TOPBAR_TREASURY,Balance,Solde
 TOPBAR_STABILITY,Stability,Stabilité
-TOPBAR_SUPPORT,Popular support,Soutien populaire
+TOPBAR_SUPPORT,Support,Soutien
 TOPBAR_MILITARY,Military power,Puissance militaire
 TOPBAR_INFLUENCE,Influence,Influence
 TOPBAR_UNKNOWN,—,—
@@ -553,3 +553,175 @@ MEDIA_INVALID_TARGET,Invalid target.,Cible non valable.
 MEDIA_NO_OPPOSITION,No opposition party.,Pas de parti d'opposition.
 NOTIFY_DISINFORMATION_DONE,Disinformation operation carried out.,Opération de désinformation menée.
 NOTIFY_DISINFORMATION_EXPOSED,Our disinformation operation has been exposed!,Notre opération de désinformation a été démasquée !
+DIPLOMACY_RELATION,Relations,Relations
+DIPLOMACY_TRUST,Trust,Confiance
+DIPLOMACY_OPINION_OF_US,Their view of us,Opinion sur nous
+DIPLOMACY_OUR_OPINION,Our view of them,Notre opinion
+DIPLOMACY_OPEN,Diplomacy,Diplomatie
+DIPLOMACY_TITLE_VALUE,Diplomacy: %s,Diplomatie : %s
+DIPLOMACY_EMBASSY,Embassy,Ambassade
+DIPLOMACY_RECOGNITION,We recognise this state,Nous reconnaissons cet État
+DIPLOMACY_GUARANTEED,Independence guaranteed,Indépendance garantie
+DIPLOMACY_TREATIES,Treaties,Traités
+DIPLOMACY_NO_TREATY,No treaty.,Aucun traité.
+DIPLOMACY_CANCEL_TREATY,Break,Rompre
+DIPLOMACY_CANCEL_TREATY_TOOLTIP,Breaking a treaty costs trust and relations.,Rompre un traité coûte de la confiance et des relations.
+DIPLOMACY_PROPOSE,Propose,Proposer
+DIPLOMACY_LIKELY_YES,Likely answer: yes (interest %d),Avis probable : favorable (intérêt %d)
+DIPLOMACY_LIKELY_NO,Likely answer: no (interest %d),Avis probable : défavorable (intérêt %d)
+DIPLOMACY_ACTIONS,Actions,Actions
+DIPLOMACY_ACTION_IMPROVE_RELATIONS,Improve relations,Améliorer les relations
+DIPLOMACY_ACTION_STATE_VISIT,State visit,Visite d'État
+DIPLOMACY_ACTION_OPEN_EMBASSY,Open an embassy,Ouvrir une ambassade
+DIPLOMACY_ACTION_CLOSE_EMBASSY,Close the embassy,Fermer l'ambassade
+DIPLOMACY_ACTION_RECOGNIZE,Recognise this state,Reconnaître cet État
+DIPLOMACY_ACTION_WITHDRAW_RECOGNITION,Withdraw recognition,Retirer la reconnaissance
+DIPLOMACY_ACTION_GUARANTEE,Guarantee independence,Garantir son indépendance
+DIPLOMACY_ACTION_REVOKE_GUARANTEE,Revoke the guarantee,Retirer la garantie
+DIPLOMACY_ACTION_ULTIMATUM,Ultimatum (tribute),Ultimatum (tribut)
+DIPLOMACY_ACTION_IMPROVE_RELATIONS_TOOLTIP,+5 relations (every 3 months).,+5 de relations (tous les 3 mois).
+DIPLOMACY_ACTION_STATE_VISIT_TOOLTIP,"+10 relations, better public opinion on both sides (once a year).","+10 de relations, opinions publiques meilleures des deux côtés (une fois par an)."
+DIPLOMACY_ACTION_OPEN_EMBASSY_TOOLTIP,Needed for visits and treaties.,Nécessaire aux visites et aux traités.
+DIPLOMACY_ACTION_CLOSE_EMBASSY_TOOLTIP,"-15 relations, -10 trust.","-15 de relations, -10 de confiance."
+DIPLOMACY_ACTION_RECOGNIZE_TOOLTIP,"+20 relations with this state, -20 with the country that claims it.","+20 de relations avec cet État, -20 avec le pays qui le revendique."
+DIPLOMACY_ACTION_WITHDRAW_RECOGNITION_TOOLTIP,"-25 relations with this state, +15 with the country that claims it.","-25 de relations avec cet État, +15 avec le pays qui le revendique."
+DIPLOMACY_ACTION_GUARANTEE_TOOLTIP,"+10 relations with it, -8 with its enemies. Will matter in case of war.","+10 de relations avec lui, -8 avec ses ennemis. Comptera en cas de guerre."
+DIPLOMACY_ACTION_REVOKE_GUARANTEE_TOOLTIP,"-10 relations, -10 trust.","-10 de relations, -10 de confiance."
+DIPLOMACY_ACTION_ULTIMATUM_TOOLTIP,"Demand 0.5% of its GDP. A much weaker country gives in; otherwise relations collapse.","Exiger 0,5 % de son PIB. Un pays bien plus faible cède ; sinon les relations s'effondrent."
+DIPLOMACY_INVALID,Impossible.,Impossible.
+DIPLOMACY_COOLDOWN,Too soon after the last attempt.,Trop tôt après la dernière tentative.
+DIPLOMACY_NO_EMBASSY,No embassy.,Pas d'ambassade.
+DIPLOMACY_ALREADY,Already done.,Déjà fait.
+DIPLOMACY_NOT_RECOGNIZED,We do not recognise this state.,Nous ne reconnaissons pas cet État.
+DIPLOMACY_NOT_DISPUTED,Not a disputed state.,Pas un État contesté.
+NOTIFY_TREATY_SIGNED,Treaty signed: %s with %s.,Traité signé : %s avec %s.
+NOTIFY_TREATY_REFUSED,Treaty refused: %s by %s.,Traité refusé : %s par %s.
+NOTIFY_TREATY_CANCELLED,Treaty broken: %s with %s.,Traité rompu : %s avec %s.
+NOTIFY_ULTIMATUM_ACCEPTED,%s gives in to our ultimatum.,%s cède à notre ultimatum.
+NOTIFY_ULTIMATUM_REFUSED,%s rejects our ultimatum.,%s rejette notre ultimatum.
+TOPBAR_WORLD,World,Monde
+TOPBAR_WORLD_TOOLTIP,"International organisations and the UN","Organisations internationales et ONU"
+WORLD_TITLE,World,Monde
+WORLD_KIND,Type,Type
+WORLD_MEMBERS,Members,Membres
+WORLD_DECISION,Decisions,Décisions
+WORLD_DECISION_MAJORITY,Majority,Majorité
+WORLD_DECISION_TWO_THIRDS,Two thirds,Deux tiers
+WORLD_DECISION_UNANIMITY,Unanimity,Unanimité
+WORLD_KIND_GLOBAL,Global organisation,Organisation mondiale
+WORLD_KIND_MILITARY_ALLIANCE,Military alliance,Alliance militaire
+WORLD_KIND_ECONOMIC_UNION,Economic union,Union économique
+WORLD_KIND_ECONOMIC_FORUM,Economic forum,Forum économique
+WORLD_KIND_SECURITY,Security organisation,Organisation de sécurité
+WORLD_KIND_CARTEL,Cartel,Cartel
+WORLD_KIND_REGIONAL,Regional organisation,Organisation régionale
+WORLD_JOIN,Apply to join,Demander l'adhésion
+WORLD_LEAVE,Leave,Quitter
+WORLD_JOIN_TOOLTIP,The members vote according to their relations with us.,Les membres votent selon leurs relations avec nous.
+WORLD_LEAVE_TOOLTIP,Relations with the members fall; an economic union also means leaving its market.,Les relations avec les membres baissent ; quitter une union économique fait aussi quitter son marché.
+WORLD_EXPEL,Propose expulsion,Proposer l'exclusion
+WORLD_INVITE,Invite,Inviter
+WORLD_VOTE_PASS,Expected: %d for / %d against — accepted,Attendu : %d pour / %d contre — accepté
+WORLD_VOTE_FAIL,Expected: %d for / %d against — rejected,Attendu : %d pour / %d contre — rejeté
+WORLD_VOTE_VETO,Expected: %d for / %d against — veto,Attendu : %d pour / %d contre — veto
+WORLD_UN,United Nations,Nations unies
+WORLD_COUNCIL_VALUE,Security Council: %s,Conseil de sécurité : %s
+WORLD_PERMANENT,(permanent),(permanent)
+WORLD_UNTIL,(until %d),(jusqu'en %d)
+WORLD_ASSEMBLY,General Assembly,Assemblée générale
+WORLD_COUNCIL,Security Council,Conseil de sécurité
+WORLD_RESOLUTION_PREVIEW,"Condemnation — General Assembly: %d for, %d against, %d abstentions. Security Council: %d for, %d against %s","Condamnation — Assemblée générale : %d pour, %d contre, %d abstentions. Conseil de sécurité : %d pour, %d contre %s"
+WORLD_VETO,(veto),(veto)
+WORLD_CREATE_TITLE,Create an organisation,Créer une organisation
+WORLD_NAME_PLACEHOLDER,Name,Nom
+WORLD_CREATE,Create,Créer
+ORGANIZATION_INVALID_NAME,Choose a name.,Choisissez un nom.
+ORGANIZATION_INVITATION_ONLY,Membership by invitation only.,Adhésion sur invitation seulement.
+ORGANIZATION_NOT_ELIGIBLE,Outside this organisation's area.,Hors de la zone de cette organisation.
+ORGANIZATION_NOT_MEMBER,We are not a member.,Nous ne sommes pas membres.
+ORGANIZATION_NOT_CUSTOM,Only for organisations created during the game.,Seulement pour les organisations créées en cours de partie.
+ORGANIZATION_NOT_IN_COUNCIL,We do not sit on the Security Council.,Nous ne siégeons pas au Conseil de sécurité.
+NOTIFY_ORGANIZATION_JOINED,Membership accepted: %s.,Adhésion acceptée : %s.
+NOTIFY_ORGANIZATION_JOIN_REFUSED,Membership refused: %s.,Adhésion refusée : %s.
+NOTIFY_ORGANIZATION_LEFT,We have left: %s.,Nous avons quitté : %s.
+NOTIFY_ORGANIZATION_CREATED,Organisation created: %s.,Organisation créée : %s.
+NOTIFY_ORGANIZATION_EXPELLED,Member expelled from %s.,Membre exclu de %s.
+NOTIFY_RESOLUTION_PASSED,UN resolution against %s adopted (%d for / %d against).,Résolution de l'ONU contre %s adoptée (%d pour / %d contre).
+NOTIFY_RESOLUTION_FAILED,UN resolution against %s rejected (%d for / %d against).,Résolution de l'ONU contre %s rejetée (%d pour / %d contre).
+DIPLOMACY_SANCTIONS,Sanctions,Sanctions
+DIPLOMACY_SANCTIONED_BY_THEM,imposed on us,imposée contre nous
+DIPLOMACY_IMPOSE,Impose,Imposer
+DIPLOMACY_LIFT,Lift,Lever
+DIPLOMACY_SANCTION_TOOLTIP,"Effect on its growth: about %s points per year. Relations: %d.","Effet sur sa croissance : environ %s point par an. Relations : %d."
+DIPLOMACY_SANCTIONED_COUNT,"Sanctioned by %d countries. Change in its growth since January 2026: %s points.","Sanctionné par %d pays. Variation de sa croissance depuis janvier 2026 : %s point."
+WORLD_RESOLUTION_CONDEMN,Condemnation,Condamnation
+WORLD_RESOLUTION_SANCTIONS,Sanctions (Security Council only),Sanctions (Conseil de sécurité seulement)
+ORGANIZATION_SANCTIONS_COUNCIL,Sanctions can only be decided by the Security Council.,Seul le Conseil de sécurité peut décider de sanctions.
+NOTIFY_SANCTION_IMPOSED,Sanction imposed: %s against %s.,Sanction imposée : %s contre %s.
+NOTIFY_SANCTION_LIFTED,Sanction lifted: %s against %s.,Sanction levée : %s contre %s.
+DIPLOMACY_AID,Aid,Aide
+DIPLOMACY_NO_AID,No aid programme between us.,Aucun programme d'aide entre nous.
+DIPLOMACY_AID_GIVEN,"We give: %s, %s bn, %d months left","Nous donnons : %s, %s Md$, encore %d mois"
+DIPLOMACY_AID_RECEIVED,"We receive: %s, %s bn, %d months left","Nous recevons : %s, %s Md$, encore %d mois"
+DIPLOMACY_AID_DURATION_1,Once,Une fois
+DIPLOMACY_AID_DURATION_12,Per year for 1 year,Par an pendant 1 an
+DIPLOMACY_AID_DURATION_60,Per year for 5 years,Par an pendant 5 ans
+DIPLOMACY_GIVE_AID,Offer,Proposer
+DIPLOMACY_AID_LIKELY_YES,This country would accept.,Ce pays accepterait.
+DIPLOMACY_AID_LIKELY_NO,This country would refuse (relations too poor).,Ce pays refuserait (relations trop mauvaises).
+AID_ECONOMIC_TOOLTIP,"Money paid from our debt: its growth and stability rise, and so do relations.","Argent payé sur notre dette : sa croissance et sa stabilité progressent, nos relations aussi."
+AID_HUMANITARIAN_TOOLTIP,"Accepted even by hostile countries: stability and its public's opinion of us rise.","Acceptée même par des pays hostiles : sa stabilité et l'opinion de sa population sur nous progressent."
+AID_LOAN_TOOLTIP,"Paid out at once, repaid over 5 years with 2% interest.","Versé en une fois, remboursé sur 5 ans avec 2 % d'intérêts."
+AID_ARMS_SALE_TOOLTIP,"It pays us; the weapons will strengthen its army.","Il nous paie ; les armes renforceront son armée."
+AID_ARMS_GIFT_TOOLTIP,"We pay; its army is strengthened and relations improve.","Nous payons ; son armée est renforcée et nos relations progressent."
+AID_MILITARY_ADVISORS_TOOLTIP,"We pay; its stability rises, but its public sees it badly.","Nous payons ; sa stabilité progresse, mais sa population le voit d'un mauvais œil."
+AID_INVALID_AMOUNT,Choose an amount and a duration.,Choisissez un montant et une durée.
+NOTIFY_AID_GIVEN,%s accepted by %s.,%s acceptée par %s.
+NOTIFY_AID_REFUSED,%s refused by %s.,%s refusée par %s.
+DIPLOMACY_INFLUENCE,Influence,Influence
+DIPLOMACY_INFLUENCE_VALUE,Our influence there: %d / 100. Its influence here: %d / 100.,Notre influence chez lui : %d / 100. Son influence chez nous : %d / 100.
+DIPLOMACY_INFLUENCE_POINTS,Our influence points: %s.,Nos points d'influence : %s.
+DIPLOMACY_OUR_BASE,We have a military base there.,Nous y avons une base militaire.
+DIPLOMACY_THEIR_BASE,It has a military base on our soil.,Il a une base militaire sur notre sol.
+DIPLOMACY_SUPPORT_PARTY,Support (20 pts),Soutenir (20 pts)
+DIPLOMACY_SUPPORT_PARTY_TOOLTIP,"The party gains in the polls; supporting an opposition party angers the government, more so if it is exposed.","Le parti progresse dans les sondages ; soutenir un parti d'opposition fâche le gouvernement, surtout si c'est démasqué."
+DIPLOMACY_INFLUENCE_FUND_OPPOSITION,Fund the opposition (%d pts),Financer l'opposition (%d pts)
+DIPLOMACY_INFLUENCE_SOFT_POWER,Cultural influence (%d pts),Influence culturelle (%d pts)
+DIPLOMACY_INFLUENCE_OPEN_BASE,Open a military base (%d pts),Ouvrir une base militaire (%d pts)
+DIPLOMACY_INFLUENCE_CLOSE_BASE,Close our base (%d pts),Fermer notre base (%d pts)
+DIPLOMACY_INFLUENCE_FUND_OPPOSITION_TOOLTIP,"The government's stability falls and the main opposition party rises. Risk of exposure.","La stabilité du gouvernement baisse et le premier parti d'opposition progresse. Risque d'être démasqué."
+DIPLOMACY_INFLUENCE_SOFT_POWER_TOOLTIP,Its public's opinion of us improves.,L'opinion de sa population sur nous progresse.
+DIPLOMACY_INFLUENCE_OPEN_BASE_TOOLTIP,"Lasting influence (+15). Needs a military-access treaty or good relations.","Influence durable (+15). Demande un traité d'accès militaire ou de bonnes relations."
+DIPLOMACY_INFLUENCE_CLOSE_BASE_TOOLTIP,Our influence falls.,Notre influence baisse.
+INFLUENCE_NOT_ENOUGH,Not enough influence points.,Pas assez de points d'influence.
+INFLUENCE_NO_PARTY,Choose a party.,Choisissez un parti.
+INFLUENCE_BASE_REFUSED,"Relations too poor, and no military-access treaty.","Relations insuffisantes, et pas de traité d'accès militaire."
+TOPBAR_INFLUENCE_TOOLTIP,"Influence points, earned each month (economic weight, diplomacy budget)","Points d'influence, gagnés chaque mois (poids économique, budget de la diplomatie)"
+MAPMODE_INFLUENCE,Our influence,Notre influence
+NOTIFY_INFLUENCE_EXPOSED,Our interference in %s has been exposed!,Notre ingérence a été démasquée : %s !
+WORLD_TENSION_VALUE,World tension: %d / 100,Tension mondiale : %d / 100
+WORLD_UNLOCKED,✓ %s (from %d),✓ %s (dès %d)
+WORLD_LOCKED,✗ %s (from %d),✗ %s (dès %d)
+WORLD_ACTION_ADD_CLAIM,New territorial claims,Nouvelles revendications territoriales
+WORLD_ACTION_ULTIMATUM,Ultimatums,Ultimatums
+WORLD_ACTION_TOTAL,Total embargoes,Embargos totaux
+WORLD_ACTION_PAYMENT_EXCLUSION,Exclusion from payment systems,Exclusion des systèmes de paiement
+DIPLOMACY_CLAIMS,Territorial claims,Revendications territoriales
+DIPLOMACY_NO_CLAIM,No claim between us.,Aucune revendication entre nous.
+DIPLOMACY_CLAIM_WHOLE,the whole country,tout le pays
+DIPLOMACY_CLAIM_OURS,We claim: %s,Nous revendiquons : %s
+DIPLOMACY_CLAIM_THEIRS,It claims: %s,Il revendique : %s
+DIPLOMACY_CLAIM_PRESS,Press,Faire valoir
+DIPLOMACY_CLAIM_RENOUNCE,Renounce,Abandonner
+DIPLOMACY_CLAIM_PRESS_TOOLTIP,"The military and our party gain, relations fall, world tension rises.","Les militaires et notre parti y gagnent, les relations baissent, la tension mondiale monte."
+DIPLOMACY_CLAIM_RENOUNCE_TOOLTIP,"Relations and trust improve, tension falls; the military will not forgive it.","Relations et confiance progressent, la tension baisse ; les militaires ne le pardonneront pas."
+DIPLOMACY_ADD_CLAIM,Claim,Revendiquer
+DIPLOMACY_ADD_CLAIM_TOOLTIP,"A province bordering our territory. Relations fall, world tension rises.","Une province voisine de notre territoire. Les relations baissent, la tension mondiale monte."
+TENSION_TOO_LOW,World tension is not high enough yet.,La tension mondiale n'est pas encore assez forte.
+CLAIM_NOT_ADJACENT,This province does not border our territory.,Cette province ne touche pas notre territoire.
+MAPMODE_CLAIMS,Territorial claims,Revendications
+LEGEND_CLAIM_OWN,Claimed by us,Revendiqué par nous
+LEGEND_CLAIM_AGAINST,Our territory claimed by others,Notre territoire revendiqué
+LEGEND_CLAIM_OTHER,Other disputed territories,Autres territoires disputés
+NOTIFY_TENSION_UNLOCKED,World tension rises: %s now possible.,La tension mondiale monte : %s désormais possibles.
+NOTIFY_TENSION_LOCKED,World tension eases: %s no longer possible.,La tension mondiale retombe : %s plus possibles.

@@ -12,11 +12,10 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Terrain estimé (régions géographiques + latitude). | 1 | Ouvert |
 | 🟢 | Quelques noms français de Natural Earth sont approximatifs ; corrections possibles dans `tools/map_gen/config.json`. | 1 | Ouvert |
 | 🟢 | La carte demande une carte graphique acceptant les textures 16384 px et ~270 Mo de mémoire vidéo ; chargement ~3 s, rechargée à chaque nouvelle partie. | 1 | Ouvert |
-| 🟢 | Mode relations neutre ; il se remplira avec la diplomatie. | 6 | Ouvert |
 | 🟢 | Les noms de pays voisins peuvent se chevaucher (pas encore d'évitement des collisions). | 13 | Ouvert |
 | 🟢 | En zoom maximal, les contours suivent la précision de l'image (~2 km par pixel) : lissés mais encore un peu anguleux. | 1 | Ouvert |
 | 🟢 | Secteurs d'océan de tailles inégales ; rives du détroit de Taïwan trop larges (provinces de l'intérieur incluses). | 1 | Ouvert |
-| 🟢 | Puissance militaire et influence masquées dans la barre supérieure jusqu'aux étapes militaire et diplomatie. | 6–7 | Ouvert |
+| 🟢 | Puissance militaire masquée dans la barre supérieure jusqu'à l'étape militaire. | 7 | Ouvert |
 | 🟢 | Population de l'Ukraine (28,7 millions, territoire contrôlé) répartie aussi sur les provinces occupées ; PIB et dette estimés pour quelques pays sans source (Corée du Nord, Somaliland, Chypre du Nord, Syrie…). | 3 | Ouvert |
 | 🟢 | Pas encore de portraits des personnages (portraits génériques prévus avec l'interface). | 13 | Ouvert |
 | 🟢 | Une seule culture de noms par pays : les pays multilingues (Belgique, Suisse, Bosnie-Herzégovine…) ont des noms d'une seule langue. Les noms de partis génériques (style international) se répètent d'un pays à l'autre. | 3 | Ouvert |
@@ -29,7 +28,7 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Le mode de carte PIB/hab. utilise encore les chiffres de départ, pas ceux de la simulation. | 13 | Ouvert |
 | 🟢 | Inflation de départ : dernière année connue sur Wikipédia (2024) sauf corrections fin 2025 ; taux du shilling du Somaliland saisi à la main ; 56 pays sans note officielle (note estimée). | 4a | Ouvert |
 | 🟢 | Budgets en partie estimés : la répartition des recettes entre impôts, la santé, les retraites et les petits postes suivent des profils par niveau de revenu (valeurs saisies pour les grands pays) ; « administration et autres » regroupe le reste (prestations familiales, logement…). | 4b | Ouvert |
-| 🟢 | La dette de l'Ukraine approche encore 190 % du PIB en 2035 (déficit de guerre financé par emprunt ; l'aide étrangère n'existe pas encore). | 6 | Ouvert |
+| 🟢 | L'aide étrangère à l'Ukraine (programmes de 2026) s'arrête au bout de deux ans : sa dette remonte ensuite vers 155 % du PIB en 2036, faute de nouveaux programmes décidés par l'IA (étape 12). | 12 | Ouvert |
 | 🟢 | Les champs du panneau Budget affichent les décimales avec un point, même en français. | 13 | Ouvert |
 | 🟢 | Ressources : consommations estimées pour le charbon, les métaux et les semi-conducteurs (grands consommateurs saisis, reste selon le PIB industriel) ; blé par habitant ; données de quelques années (pétrole 2023, blé 2022, uranium 2022). Hors des régions saisies, la place des ressources dans les provinces est approchée. | 4c1 | Ouvert |
 | 🟢 | Routes des détroits estimées ; la fermeture de Malacca bloque des exportations au lieu de les rallonger. | 4c1 | Ouvert |
@@ -56,3 +55,9 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Les ministres de l'IA ne sont jamais remaniés volontairement (seulement après scandale ou démission). | 12 | Ouvert |
 | 🟢 | Les guerres civiles n'ont pas encore de fronts ni de provinces tenues par les rebelles (étape 7) ; elles finissent par une chance mensuelle quand la stabilité remonte. | 7 | Ouvert |
 | 🟢 | Une désinformation démasquée contre un pays étranger ne dégrade pas encore les relations (diplomatie, étape 6) ; les pays de l'IA n'utilisent ni propagande ni désinformation (étape 12). | 6 / 12 | Ouvert |
+| 🟢 | Relations de départ estimées par règles hors des 183 paires saisies ; quelques valeurs peuvent surprendre entre petits pays éloignés. | 6a | Ouvert |
+| 🟢 | Seul le traité de libre-échange a un effet économique ; défense mutuelle, accès et coopération militaires, renseignement et frontière ouverte ne jouent que sur les relations jusqu'aux étapes 7, 10 et 11. Les pays de l'IA ne proposent pas encore de traités (étape 12). | 6b | Ouvert |
+| 🟢 | Conseil de sécurité renouvelé sans respecter les groupes régionaux de l'ONU ; les pays de l'IA ne proposent pas encore de résolutions ni d'adhésions (étape 12) ; l'appartenance à l'OPEP n'agit pas encore sur la production de pétrole. | 6c | Ouvert |
+| 🟢 | Les sanctions agissent sur la croissance et l'inflation sans modifier les flux commerciaux ni bloquer les fonds souverains ; les pays de l'IA ne prennent pas de sanctions (étape 12). | 6d | Ouvert |
+| 🟢 | Les pays de l'IA accumulent des points d'influence sans les dépenser (étape 12) ; les bases n'ont pas encore d'effet militaire (étape 7). | 6f | Ouvert |
+| 🟢 | Revendications sans cession possible avant l'étape 7 ; Kouriles, îles disputées en mer de Chine et Sahara occidental non représentés (pas de province distincte ou pas d'État revendiquant). | 6g / 7 | Ouvert |

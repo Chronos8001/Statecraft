@@ -559,3 +559,35 @@ func test_law_start_rules_name_real_countries() -> void:
 			for tag: Variant in rule.get("countries", []):
 				assert_true(countries.has(tag), "%s : pays inconnu %s" % [law_id, tag])
 
+
+
+func test_relations_are_symmetric_and_realistic() -> void:
+	var countries := _repository.get_category("countries")
+	for tag: String in countries.keys():
+		var relations: Dictionary = countries[tag]["relations"]
+		for other: String in relations.keys():
+			assert_eq(float(countries[other]["relations"].get(tag, 0.0)), float(relations[other]), "%s-%s" % [tag, other])
+	assert_lt(float(countries["RUS"]["relations"]["UKR"]), -80.0)
+	assert_gt(float(countries["FRA"]["relations"]["DEU"]), 70.0)
+	assert_lt(float(countries["IND"]["relations"]["PAK"]), -50.0)
+	assert_gt(float(countries["USA"]["relations"]["GBR"]), 70.0)
+
+
+func test_start_sanctions_name_real_countries() -> void:
+	var countries := _repository.get_category("countries")
+	var measures := _repository.get_category("sanctions")
+	for entry: Variant in _repository.get_category("diplomacy")["sanctions"]["list"]:
+		for tag: Variant in (entry[0] as Array) + [entry[1]]:
+			assert_true(str(tag) == "@eu" or countries.has(tag), "pays inconnu : %s" % tag)
+		for measure: Variant in entry[2]:
+			assert_true(measures.has(measure), "mesure inconnue : %s" % measure)
+
+
+func test_start_claims_target_real_provinces() -> void:
+	var countries := _repository.get_category("countries")
+	var provinces := _repository.get_category("provinces")
+	for entry: Variant in _repository.get_category("diplomacy")["claims"]["list"]:
+		assert_true(countries.has(entry[0]) and countries.has(entry[1]), "%s → %s" % [entry[0], entry[1]])
+		for province_id: Variant in entry[2]:
+			var province: Dictionary = provinces.get(str(int(province_id)), {})
+			assert_eq(str(province.get("owner", "")), str(entry[1]), "province %d" % int(province_id))

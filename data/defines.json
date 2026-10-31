@@ -582,5 +582,246 @@
         "cooldown_months": 6
       }
     }
+  },
+  "diplomacy": {
+    "relation_return": 0.02,
+    "opinion_follow": 0.1,
+    "opinion_noise": 8.0,
+    "trust_base": 50.0,
+    "trust_per_relation": 0.4,
+    "trust_return": 0.01,
+    "actions": {
+      "improve_relations": {
+        "relation": 5.0,
+        "trust": 1.0,
+        "cost_share": 0.0005,
+        "cooldown": 3
+      },
+      "state_visit": {
+        "relation": 10.0,
+        "trust": 3.0,
+        "opinion": 5.0,
+        "cost_share": 0.001,
+        "cooldown": 12
+      },
+      "open_embassy": {
+        "relation": 3.0,
+        "cooldown": 6
+      },
+      "close_embassy": {
+        "relation": -15.0,
+        "trust": -10.0,
+        "cooldown": 6
+      },
+      "recognize": {
+        "relation": 20.0,
+        "parent_relation": -20.0,
+        "parent_trust": -10.0,
+        "cooldown": 24
+      },
+      "withdraw_recognition": {
+        "relation": -25.0,
+        "parent_relation": 15.0,
+        "cooldown": 24
+      },
+      "guarantee": {
+        "relation": 10.0,
+        "trust": 5.0,
+        "enemy_relation": -8.0,
+        "enemy_threshold": -40.0,
+        "cooldown": 12
+      },
+      "revoke_guarantee": {
+        "relation": -10.0,
+        "trust": -10.0,
+        "cooldown": 12
+      },
+      "ultimatum": {
+        "tribute_share": 0.5,
+        "power_weight": 20.0,
+        "threshold": 25.0,
+        "relation_weight": 0.1,
+        "accepted_relation": -25.0,
+        "accepted_trust": -15.0,
+        "accepted_opinion": -20.0,
+        "refused_relation": -30.0,
+        "refused_trust": -25.0,
+        "cooldown": 24
+      },
+      "treaty_cooldown": 6,
+      "treaty_refused_relation": -2.0,
+      "treaty_signed_trust": 5.0
+    },
+    "organizations": {
+      "kind_bonus": {
+        "military_alliance": 35,
+        "economic_union": 25,
+        "security": 10,
+        "regional": 8,
+        "economic_forum": 6,
+        "cartel": 5,
+        "global": 0
+      },
+      "kind_vote_base": {
+        "military_alliance": -25,
+        "economic_union": -20,
+        "security": -10,
+        "regional": 10,
+        "economic_forum": -10,
+        "cartel": 0,
+        "global": 20
+      },
+      "creatable_kinds": [
+        "military_alliance",
+        "economic_union",
+        "economic_forum",
+        "security",
+        "regional",
+        "cartel"
+      ],
+      "leave_relation": -10.0,
+      "expel_relation": -20.0,
+      "expel_threshold": -20.0,
+      "refused_relation": -3.0,
+      "join_cooldown": 12,
+      "invite_member_weight": 0.5,
+      "veto_organizations": [
+        "un"
+      ],
+      "council_seats": 10,
+      "council_term": 2,
+      "resolution": {
+        "vote_threshold": 15.0,
+        "council_majority": 9,
+        "cooldown": 12,
+        "passed_target_relation": -3.0,
+        "failed_proposer_relation": -2.0,
+        "general_assembly_legitimacy": -2.0,
+        "security_council_legitimacy": -4.0
+      }
+    },
+    "sanctions": {
+      "finance_reach": {
+        "USA": 0.3,
+        "GBR": 0.05,
+        "JPN": 0.03,
+        "CHE": 0.03,
+        "CAN": 0.02,
+        "CHN": 0.05,
+        "@eu": 0.015
+      },
+      "max_growth_penalty": 8.0,
+      "max_inflation": 6.0,
+      "lift_relation": 10.0,
+      "trust": -5.0,
+      "un_measures": [
+        "sectoral"
+      ]
+    },
+    "aid": {
+      "durations": [
+        1,
+        12,
+        60
+      ],
+      "loan_rate": 2.0,
+      "loan_term_months": 60,
+      "max_growth": 2.0,
+      "max_stability": 5.0,
+      "min_relation_gain": 2.0,
+      "max_relation_gain": 20.0,
+      "refused_relation": -2.0
+    },
+    "influence": {
+      "income_base": 1.0,
+      "income_scale": 20.0,
+      "budget_factor": 1.0,
+      "cap_months": 24,
+      "change_decay": 0.01,
+      "start": {
+        "trade": 50.0,
+        "base": 15.0,
+        "mutual_defense": 10.0,
+        "aid": 10.0,
+        "min_stored": 1.0
+      },
+      "weights": {
+        "treaty": 0.3,
+        "resolution": 0.3,
+        "organization": 0.2,
+        "aid": 0.5
+      },
+      "actions": {
+        "support_party": {
+          "cost": 20.0,
+          "drift": 0.1,
+          "influence": 4.0,
+          "exposure": 0.25,
+          "exposed_relation": -10.0,
+          "government_relation": -5.0,
+          "cooldown": 6
+        },
+        "fund_opposition": {
+          "cost": 30.0,
+          "stability": 3.0,
+          "drift": 0.08,
+          "influence": 4.0,
+          "exposure": 0.35,
+          "exposed_relation": -20.0,
+          "cooldown": 6
+        },
+        "soft_power": {
+          "cost": 15.0,
+          "opinion": 5.0,
+          "influence": 3.0,
+          "cooldown": 6
+        },
+        "open_base": {
+          "cost": 50.0,
+          "relation": 5.0,
+          "min_relation": 40.0,
+          "cooldown": 12
+        },
+        "close_base": {
+          "cost": 0.0,
+          "relation": -5.0,
+          "cooldown": 12
+        }
+      }
+    },
+    "tension": {
+      "start": 55.0,
+      "baseline": 40.0,
+      "return": 0.02,
+      "events": {
+        "ultimatum": 3.0,
+        "claim_pressed": 2.0,
+        "claim_added": 3.0,
+        "claim_renounced": -2.0,
+        "coup": 3.0,
+        "civil_war": 3.0,
+        "un_sanctions": 2.0,
+        "heavy_sanction": 1.0,
+        "treaty_signed": -0.5
+      },
+      "thresholds": {
+        "add_claim": 35.0,
+        "ultimatum": 40.0,
+        "total": 45.0,
+        "payment_exclusion": 50.0
+      },
+      "claims": {
+        "press_relation": -10.0,
+        "press_military": 3.0,
+        "press_drift": 0.03,
+        "press_months": 12,
+        "cooldown": 12,
+        "renounce_relation": 20.0,
+        "renounce_trust": 10.0,
+        "renounce_military": -5.0,
+        "renounce_military_start": -2.0,
+        "add_relation": -20.0
+      }
+    }
   }
 }

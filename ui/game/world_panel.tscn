@@ -1,0 +1,243 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://ui/game/world_panel.gd" id="1_world"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.07, 0.09, 0.125, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25, 0.32, 0.42, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="WorldPanel" type="PanelContainer"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 96.0
+offset_right = 636.0
+offset_bottom = -170.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+script = ExtResource("1_world")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 16
+
+[node name="Content" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="HBoxContainer" parent="Margin/Content"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Margin/Content/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 24
+text = "WORLD_TITLE"
+
+[node name="CloseButton" type="Button" parent="Margin/Content/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+focus_mode = 0
+text = "COMMON_CLOSE_SYMBOL"
+flat = true
+
+[node name="Separator" type="HSeparator" parent="Margin/Content"]
+layout_mode = 2
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Details" type="VBoxContainer" parent="Margin/Content/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="TensionLabel" type="Label" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+
+[node name="TensionBar" type="ProgressBar" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+show_percentage = false
+
+[node name="UnlocksLabel" type="Label" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(560, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+autowrap_mode = 3
+
+[node name="OrganizationOption" type="OptionButton" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+layout_mode = 2
+
+[node name="SummaryGrid" type="GridContainer" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+theme_override_constants/h_separation = 16
+columns = 2
+layout_mode = 2
+
+[node name="MembersLabel" type="Label" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(560, 0)
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 13
+layout_mode = 2
+
+[node name="MembershipRow" type="HBoxContainer" parent="Margin/Content/Scroll/Details"]
+layout_mode = 2
+
+[node name="MembershipButton" type="Button" parent="Margin/Content/Scroll/Details/MembershipRow"]
+unique_name_in_owner = true
+focus_mode = 0
+layout_mode = 2
+
+[node name="MembershipLabel" type="Label" parent="Margin/Content/Scroll/Details/MembershipRow"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+
+[node name="ExpelRow" type="HBoxContainer" parent="Margin/Content/Scroll/Details"]
+layout_mode = 2
+
+[node name="MemberOption" type="OptionButton" parent="Margin/Content/Scroll/Details/ExpelRow"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+layout_mode = 2
+
+[node name="ExpelButton" type="Button" parent="Margin/Content/Scroll/Details/ExpelRow"]
+unique_name_in_owner = true
+focus_mode = 0
+text = "WORLD_EXPEL"
+layout_mode = 2
+
+[node name="InviteRow" type="HBoxContainer" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="OtherOption" type="OptionButton" parent="Margin/Content/Scroll/Details/InviteRow"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+layout_mode = 2
+
+[node name="InviteButton" type="Button" parent="Margin/Content/Scroll/Details/InviteRow"]
+unique_name_in_owner = true
+focus_mode = 0
+text = "WORLD_INVITE"
+layout_mode = 2
+
+[node name="ActionLabel" type="Label" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+
+[node name="UnBox" type="VBoxContainer" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="UnTitle" type="Label" parent="Margin/Content/Scroll/Details/UnBox"]
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+text = "WORLD_UN"
+layout_mode = 2
+
+[node name="CouncilLabel" type="Label" parent="Margin/Content/Scroll/Details/UnBox"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(560, 0)
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 13
+layout_mode = 2
+
+[node name="ResolutionRow" type="HBoxContainer" parent="Margin/Content/Scroll/Details/UnBox"]
+layout_mode = 2
+
+[node name="KindRow" type="HBoxContainer" parent="Margin/Content/Scroll/Details/UnBox"]
+layout_mode = 2
+
+[node name="ResolutionKindOption" type="OptionButton" parent="Margin/Content/Scroll/Details/UnBox/KindRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+
+[node name="ResolutionOption" type="OptionButton" parent="Margin/Content/Scroll/Details/UnBox/ResolutionRow"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+layout_mode = 2
+
+[node name="AssemblyButton" type="Button" parent="Margin/Content/Scroll/Details/UnBox/ResolutionRow"]
+unique_name_in_owner = true
+focus_mode = 0
+text = "WORLD_ASSEMBLY"
+layout_mode = 2
+
+[node name="CouncilButton" type="Button" parent="Margin/Content/Scroll/Details/UnBox/ResolutionRow"]
+unique_name_in_owner = true
+focus_mode = 0
+text = "WORLD_COUNCIL"
+layout_mode = 2
+
+[node name="ResolutionLabel" type="Label" parent="Margin/Content/Scroll/Details/UnBox"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(560, 0)
+autowrap_mode = 3
+layout_mode = 2
+
+[node name="CreateTitle" type="Label" parent="Margin/Content/Scroll/Details"]
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+text = "WORLD_CREATE_TITLE"
+layout_mode = 2
+
+[node name="CreateRow" type="HBoxContainer" parent="Margin/Content/Scroll/Details"]
+layout_mode = 2
+
+[node name="NameEdit" type="LineEdit" parent="Margin/Content/Scroll/Details/CreateRow"]
+unique_name_in_owner = true
+size_flags_horizontal = 3
+placeholder_text = "WORLD_NAME_PLACEHOLDER"
+layout_mode = 2
+
+[node name="KindOption" type="OptionButton" parent="Margin/Content/Scroll/Details/CreateRow"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+focus_mode = 0
+layout_mode = 2
+
+[node name="CreateButton" type="Button" parent="Margin/Content/Scroll/Details/CreateRow"]
+unique_name_in_owner = true
+focus_mode = 0
+text = "WORLD_CREATE"
+layout_mode = 2

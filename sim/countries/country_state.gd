@@ -36,3 +36,5 @@ var collapse_months: int = 0
 var propaganda_level: int = 0
 var media_effects: Dictionary = {}
 var disinformation_cooldown: int = 0
+## Stabilité apportée par l'aide internationale reçue.
+var aid_stability: float = 0.0

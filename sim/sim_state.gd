@@ -39,6 +39,18 @@ var society_definitions: Dictionary = {}
 var politics_definitions: Dictionary = {}
 ## Section « trade » de defines.json.
 var trade_settings: Dictionary = {}
+## Relations entre pays et section « diplomacy » de defines.json.
+var diplomacy: DiplomacyState = DiplomacyState.new()
+var diplomacy_settings: Dictionary = {}
+## Types de traités (data/treaties) et situation diplomatique de départ (data/diplomacy).
+var treaty_definitions: Dictionary = {}
+var diplomacy_start: Dictionary = {}
+## Règles des organisations (data/organization_rules).
+var organization_rules: Dictionary = {}
+## Mesures de sanction (data/sanctions).
+var sanction_definitions: Dictionary = {}
+## Types d'aide (data/aid).
+var aid_definitions: Dictionary = {}
 ## Personnages créés pendant la partie (ministres, successeurs) : identifiant → personnage.
 var characters: Dictionary = {}
 var next_character_id: int = 0

@@ -18,6 +18,8 @@ var embargoed: Dictionary = {}
 var country_values: Dictionary = {}
 ## Idéologie au pouvoir dans la partie en cours (tag → idéologie), après d'éventuelles alternances.
 var country_ideologies: Dictionary = {}
+## Organisations de la partie en cours (créées en jeu comprises) et appartenances : tag → [identifiants].
+var country_organizations: Dictionary = {}
 ## Partie en cours, pour les modes qui recalculent à la demande (votes par province).
 var simulation: SimState = null
 var player_tag: String = ""
@@ -47,10 +49,26 @@ static func from_game_data() -> MapModeContext:
 ## Met à jour ce qui dépend de la partie en cours (pays joué, commerce).
 func refresh_from_simulation(state: SimState) -> void:
 	player_tag = str(state.player_tag)
+	relations.clear()
+	if not player_tag.is_empty() and not state.diplomacy_settings.is_empty():
+		var influence: Dictionary = {}
+		for tag: String in state.countries.keys():
+			if tag != player_tag:
+				relations[tag] = state.diplomacy.relation(player_tag, tag)
+				influence[tag] = InfluenceSystem.influence(state, player_tag, tag)
+		country_values["influence"] = influence
 	trade_shares.clear()
 	embargoed.clear()
 	_refresh_society(state)
 	simulation = state
+	if not state.diplomacy.organizations.is_empty():
+		organizations = state.diplomacy.organizations
+		country_organizations.clear()
+		for org_id: String in organizations.keys():
+			for member: Variant in (organizations[org_id] as Dictionary).get("members", []):
+				if not country_organizations.has(member):
+					country_organizations[member] = []
+				(country_organizations[member] as Array).append(org_id)
 	country_ideologies.clear()
 	for tag: String in state.countries.keys():
 		var ideology := (state.countries[tag] as CountryState).politics.ideology
@@ -71,7 +89,7 @@ func refresh_from_simulation(state: SimState) -> void:
 
 
 func _refresh_society(state: SimState) -> void:
-	country_values.clear()
+	# Les valeurs de la société sont remplacées clé par clé (l'influence est calculée plus haut).
 	var stability: Dictionary = {}
 	var support: Dictionary = {}
 	var unrest: Dictionary = {}
@@ -103,6 +121,13 @@ func new_colors() -> PackedColorArray:
 ## Idéologie au pouvoir : celle de la partie en cours, sinon celle des données.
 func ideology_of(tag: String) -> String:
 	return str(country_ideologies.get(tag, (countries.get(tag, {}) as Dictionary).get("ideology", "")))
+
+
+## Organisations d'un pays : celles de la partie en cours, sinon celles des données.
+func organizations_of(tag: String) -> Array:
+	if not country_organizations.is_empty():
+		return country_organizations.get(tag, [])
+	return (countries.get(tag, {}) as Dictionary).get("organizations", [])
 
 
 func owner_of(province: Dictionary) -> Dictionary:

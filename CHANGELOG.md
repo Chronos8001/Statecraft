@@ -6,6 +6,32 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-10-31
+
+### Ajouté
+- Relations diplomatiques entre tous les pays au 1er janvier 2026 (alliances, commerce, régimes, frontières, blocs, grandes rivalités), confiance et opinion publique étrangère.
+- Le mode de carte « Relations » suit la partie ; relations, confiance et opinions dans la fiche pays.
+- Outil de génération des relations (`tools/country_gen/generate_relations.py`).
+
+- Actions diplomatiques (améliorer les relations, visite d'État, ambassades, reconnaissance des États contestés, garanties d'indépendance, ultimatums) et 7 types de traités, avec la situation réelle de 2026.
+- Panneau Diplomatie (bouton dans la fiche d'un pays) : traités en vigueur, actions, proposition de traité avec l'avis probable du pays.
+
+- Organisations internationales jouables : adhésion votée par les membres, départ, exclusion, création de nouvelles organisations ; ONU avec Conseil de sécurité, droit de veto et résolutions de condamnation. Panneau Monde.
+
+- Sanctions économiques (ciblées, sectorielles, embargo total, gel des avoirs, exclusion des systèmes de paiement), sanctions réelles de 2026, résolutions de sanctions de l'ONU.
+
+- Aide internationale : aide économique et humanitaire, prêts remboursés avec intérêts, ventes et dons d'armes, conseillers militaires ; programmes d'aide réels de 2026 (financement de l'Ukraine, aide américaine au Proche-Orient…).
+
+- Sphères d'influence : points d'influence, influence de chaque pays chez les autres, soutien à un parti, financement de l'opposition, influence culturelle, bases militaires ; mode de carte « Notre influence ».
+
+- Revendications territoriales réelles de 2026 et tension mondiale : la jauge débloque des actions de plus en plus agressives (nouvelles revendications, ultimatums, embargos totaux, exclusion des paiements). Mode de carte « Revendications ».
+
+### Modifié
+- Fiche pays plus large.
+- Barre supérieure : indicateur d'influence affiché, libellés « Solde » et « Soutien » raccourcis ; l'effet du budget sur l'influence joue désormais.
+- Nouvelle partie plus rapide (création des ministres et des sanctions).
+- La vitesse du jeu ne s'affiche plus qu'en pastilles dans la barre supérieure (détail en info-bulle).
+
 ## [0.5.0] - 2026-10-31
 
 ### Ajouté
