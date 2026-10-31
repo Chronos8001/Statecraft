@@ -1500,7 +1500,8 @@
         "trade",
         "energy",
         "investment",
-        "society"
+        "society",
+        "parliament"
       ],
       "properties": {
         "name_key": {
@@ -1902,6 +1903,105 @@
               "type": "number",
               "min": 0,
               "max": 100
+            }
+          }
+        },
+        "parliament": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "seats",
+            "parties",
+            "government",
+            "other_seats",
+            "other_vote",
+            "other_poll",
+            "election",
+            "term_years"
+          ],
+          "properties": {
+            "seats": {
+              "type": "int",
+              "min": 1
+            },
+            "parties": {
+              "type": "object",
+              "keys_ref": "names#parties",
+              "values": {
+                "type": "object",
+                "strict": true,
+                "required": [
+                  "seats",
+                  "vote",
+                  "poll"
+                ],
+                "properties": {
+                  "seats": {
+                    "type": "int",
+                    "min": 0
+                  },
+                  "vote": {
+                    "type": "number",
+                    "min": 0,
+                    "max": 100
+                  },
+                  "poll": {
+                    "type": "number",
+                    "min": 0,
+                    "max": 100
+                  }
+                }
+              }
+            },
+            "government": {
+              "type": "array",
+              "unique_items": true,
+              "items": {
+                "type": "string",
+                "ref": "names#parties"
+              }
+            },
+            "other_seats": {
+              "type": "int",
+              "min": 0
+            },
+            "other_vote": {
+              "type": "number",
+              "min": 0,
+              "max": 100
+            },
+            "other_poll": {
+              "type": "number",
+              "min": 0,
+              "max": 100
+            },
+            "election": {
+              "type": "object",
+              "strict": true,
+              "required": [
+                "year",
+                "month"
+              ],
+              "properties": {
+                "year": {
+                  "type": "int",
+                  "min": 1990,
+                  "max": 2026
+                },
+                "month": {
+                  "type": "int",
+                  "min": 1,
+                  "max": 12
+                }
+              }
+            },
+            "term_years": {
+              "type": "int",
+              "min": 1,
+              "max": 10
+            },
+            "dissolved": {
+              "type": "bool"
             }
           }
         }
