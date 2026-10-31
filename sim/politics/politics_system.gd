@@ -41,7 +41,7 @@ static func update_country(country: CountryState, state: SimState) -> void:
 	ids.sort()
 	for party_id: String in ids:
 		var party: PartyState = politics.parties[party_id]
-		party.drift = PoliticsModel.next_drift(party.drift, state.rng.randfn(0.0, 1.0), settings)
+		party.drift = PoliticsModel.next_drift(party.drift, state.rng.randfn(0.0, 1.0) * politics.volatility, settings)
 	var values := PoliticsModel.polls(politics, country.society, groups, settings)
 	for party_id: String in ids:
 		var party: PartyState = politics.parties[party_id]

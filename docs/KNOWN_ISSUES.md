@@ -55,3 +55,4 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | La barre supérieure est pleine à 1600 px de large : elle déborde sur les écrans plus étroits (refonte prévue à l'étape 13). | 13 | Ouvert |
 | 🟢 | Les ministres de l'IA ne sont jamais remaniés volontairement (seulement après scandale ou démission). | 12 | Ouvert |
 | 🟢 | Les guerres civiles n'ont pas encore de fronts ni de provinces tenues par les rebelles (étape 7) ; elles finissent par une chance mensuelle quand la stabilité remonte. | 7 | Ouvert |
+| 🟢 | Une désinformation démasquée contre un pays étranger ne dégrade pas encore les relations (diplomatie, étape 6) ; les pays de l'IA n'utilisent ni propagande ni désinformation (étape 12). | 6 / 12 | Ouvert |

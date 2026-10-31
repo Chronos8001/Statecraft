@@ -73,6 +73,8 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 			_setup_politics(state.countries[tag], countries[tag], state)
 			_setup_laws(state.countries[tag], countries[tag], state)
 			_setup_constitution(state.countries[tag], countries[tag])
+			MediaSystem.refresh_media(state.countries[tag], (politics_definitions.get("settings", {}) as Dictionary).get(
+				"media", {}))
 			if not (politics_definitions.get("portfolios", {}) as Dictionary).is_empty():
 				GovernmentSystem.form_cabinet(state.countries[tag], state)
 				GovernmentSystem.set_start(state.countries[tag], state)

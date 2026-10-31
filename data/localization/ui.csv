@@ -538,3 +538,18 @@ NOTIFY_UNREST,%s: %s.,%s : %s.
 NOTIFY_CIVIL_WAR,Civil war breaks out in %s!,Guerre civile : %s !
 NOTIFY_COUP_SUCCESS,Military coup in %s: a junta takes power.,Coup d'État : %s passe aux mains d'une junte.
 NOTIFY_COUP_FAILED,Failed coup attempt in %s.,Tentative de coup d'État déjouée : %s.
+MEDIA_TITLE,Media and opinion,Médias et opinion
+MEDIA_PROPAGANDA_0,No propaganda,Pas de propagande
+MEDIA_PROPAGANDA_1,Light propaganda,Propagande légère
+MEDIA_PROPAGANDA_2,Heavy propaganda,Propagande soutenue
+MEDIA_PROPAGANDA_3,Massive propaganda,Propagande massive
+MEDIA_COST_VALUE,%s%% of GDP per month,%s %% du PIB par mois
+MEDIA_PROPAGANDA_TOOLTIP,"Paid each month: every group is a little more satisfied and the ruling party gains in the polls. More effective when the press is muzzled; erodes legitimacy in a democracy with a free press.","Payée chaque mois : tous les groupes sont un peu plus satisfaits et le parti au pouvoir gagne dans les sondages. Plus efficace quand la presse est muselée ; elle use la légitimité d'une démocratie à la presse libre."
+MEDIA_DISINFORMATION,Disinformation,Désinformation
+MEDIA_DISINFORMATION_TOOLTIP,"Smear the main opposition party, or destabilise a foreign country for six months. Risk of exposure (legitimacy).","Salir le premier parti d'opposition, ou déstabiliser un pays étranger pendant six mois. Risque d'être démasqué (légitimité)."
+MEDIA_TARGET_OPPOSITION,Our own opposition,Notre opposition
+MEDIA_COOLDOWN,Too soon after the last operation.,Trop tôt après la dernière opération.
+MEDIA_INVALID_TARGET,Invalid target.,Cible non valable.
+MEDIA_NO_OPPOSITION,No opposition party.,Pas de parti d'opposition.
+NOTIFY_DISINFORMATION_DONE,Disinformation operation carried out.,Opération de désinformation menée.
+NOTIFY_DISINFORMATION_EXPOSED,Our disinformation operation has been exposed!,Notre opération de désinformation a été démasquée !

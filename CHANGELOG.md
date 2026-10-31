@@ -37,6 +37,8 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 - Crises intérieures : grèves, manifestations, émeutes (concéder, négocier ou réprimer), coups d'État et guerres civiles ; mode de carte « Troubles ».
 
+- Médias et opinion : la liberté de la presse et des réseaux sociaux pèse sur les scandales et les sondages ; propagande et désinformation (opposition ou pays étranger).
+
 ### Modifié
 - Libellés raccourcis dans la barre supérieure (Entreprises, Ministres).
 - La fiche pays et le mode de carte des idéologies suivent les changements de gouvernement.
