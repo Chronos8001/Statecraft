@@ -24,3 +24,10 @@ var start_competence: Dictionary = {}
 var start_minister_corruption: float = 0.0
 var cabinet_effects: Dictionary = {}
 var cabinet_generation: int = 0
+## Crises en cours : [{id, type, group, months_left, initial, response}], concessions temporaires
+## [{group, points, months_left}], effets cumulés {growth, stability, legitimacy, severity} et mois
+## consécutifs d'effondrement (vers la guerre civile).
+var crises: Array[Dictionary] = []
+var crisis_bonuses: Array[Dictionary] = []
+var crisis_effects: Dictionary = {}
+var collapse_months: int = 0

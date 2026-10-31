@@ -66,6 +66,8 @@ var law_spending: float = 0.0
 var emergency_growth: float = 0.0
 ## Effet de la compétence du ministre des Finances sur la croissance.
 var cabinet_growth: float = 0.0
+## Croissance perdue à cause des crises (grèves, émeutes, guerre civile).
+var crisis_growth: float = 0.0
 var project_spending: float = 0.0
 ## Propriété publique, IDE et fonds souverain ; effets sur la croissance (points) et les recettes (% du PIB).
 var investment: InvestmentState = InvestmentState.new()

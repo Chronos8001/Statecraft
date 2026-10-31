@@ -71,14 +71,15 @@ static func update_country(country: CountryState, state: SimState) -> void:
 	var stability_settings: Dictionary = settings.get("stability", {})
 	var stability_target := SocietyModel.stability_target(society, float(budget_effects.get("stability", 0.0))
 		+ float(country.law_effects.get("stability", 0.0)) + emergency_stability(country, state)
-		+ float(country.cabinet_effects.get("stability", 0.0)),
+		+ float(country.cabinet_effects.get("stability", 0.0)) + float(country.crisis_effects.get("stability", 0.0)),
 		stability_settings)
 	society.stability = SocietyModel.approach(society.stability, stability_target,
 		float(stability_settings.get("adjustment", 1.0)))
 	var legitimacy_settings: Dictionary = settings.get("legitimacy", {})
 	society.legitimacy = SocietyModel.approach(society.legitimacy, SocietyModel.legitimacy_target(society,
 		legitimacy_settings, float(country.law_effects.get("legitimacy", 0.0))
-		+ float(country.cabinet_effects.get("legitimacy", 0.0))), float(legitimacy_settings.get("adjustment", 1.0)))
+		+ float(country.cabinet_effects.get("legitimacy", 0.0)) + float(country.crisis_effects.get("legitimacy", 0.0))),
+		float(legitimacy_settings.get("adjustment", 1.0)))
 	country.economy.society_growth = SocietyModel.growth_penalty(society, stability_settings)
 
 

@@ -76,6 +76,12 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 			if not (politics_definitions.get("portfolios", {}) as Dictionary).is_empty():
 				GovernmentSystem.form_cabinet(state.countries[tag], state)
 				GovernmentSystem.set_start(state.countries[tag], state)
+		var crisis_settings: Dictionary = (politics_definitions.get("settings", {}) as Dictionary).get("crises", {})
+		var civil_war: Dictionary = (politics_definitions.get("crises", {}) as Dictionary).get(CrisisSystem.CIVIL_WAR, {})
+		for tag: Variant in crisis_settings.get("start_civil_wars", []):
+			if state.countries.has(tag) and not civil_war.is_empty():
+				CrisisSystem.start_civil_war(state.countries[tag], state, civil_war, true)
+				CrisisSystem.refresh_effects(state.countries[tag], state)
 
 
 ## Lois de départ, selon les règles de chaque loi (pays cités, régime, démocratie, revenu).
