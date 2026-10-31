@@ -58,3 +58,4 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Relations de départ estimées par règles hors des 183 paires saisies ; quelques valeurs peuvent surprendre entre petits pays éloignés. | 6a | Ouvert |
 | 🟢 | Seul le traité de libre-échange a un effet économique ; défense mutuelle, accès et coopération militaires, renseignement et frontière ouverte ne jouent que sur les relations jusqu'aux étapes 7, 10 et 11. Les pays de l'IA ne proposent pas encore de traités (étape 12). | 6b | Ouvert |
 | 🟢 | Conseil de sécurité renouvelé sans respecter les groupes régionaux de l'ONU ; les pays de l'IA ne proposent pas encore de résolutions ni d'adhésions (étape 12) ; l'appartenance à l'OPEP n'agit pas encore sur la production de pétrole. | 6c | Ouvert |
+| 🟢 | Les sanctions agissent sur la croissance et l'inflation sans modifier les flux commerciaux ni bloquer les fonds souverains ; les pays de l'IA ne prennent pas de sanctions (étape 12). | 6d | Ouvert |
