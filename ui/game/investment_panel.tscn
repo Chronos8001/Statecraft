@@ -1,0 +1,162 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://ui/game/investment_panel.gd" id="1_investment"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.07, 0.09, 0.125, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25, 0.32, 0.42, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="InvestmentPanel" type="PanelContainer"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 96.0
+offset_right = 576.0
+offset_bottom = -170.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+script = ExtResource("1_investment")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 16
+
+[node name="Content" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="HBoxContainer" parent="Margin/Content"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Margin/Content/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 24
+text = "INVEST_TITLE"
+
+[node name="CloseButton" type="Button" parent="Margin/Content/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+focus_mode = 0
+text = "COMMON_CLOSE_SYMBOL"
+flat = true
+
+[node name="Separator" type="HSeparator" parent="Margin/Content"]
+layout_mode = 2
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Details" type="VBoxContainer" parent="Margin/Content/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="OwnershipTitle" type="Label" parent="Margin/Content/Scroll/Details"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+text = "INVEST_OWNERSHIP"
+
+[node name="OwnershipGrid" type="GridContainer" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 14
+theme_override_constants/v_separation = 4
+columns = 4
+
+[node name="ExpropriateCheck" type="CheckBox" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "INVEST_EXPROPRIATE_TOOLTIP"
+text = "INVEST_EXPROPRIATE"
+
+[node name="OwnershipHint" type="Label" parent="Margin/Content/Scroll/Details"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.51, 0.6, 1)
+theme_override_font_sizes/font_size = 13
+text = "INVEST_OWNERSHIP_HINT"
+autowrap_mode = 3
+
+[node name="FdiTitle" type="Label" parent="Margin/Content/Scroll/Details"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+text = "INVEST_FDI"
+
+[node name="FdiGrid" type="GridContainer" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="PolicyRow" type="HBoxContainer" parent="Margin/Content/Scroll/Details"]
+layout_mode = 2
+
+[node name="PolicyOption" type="OptionButton" parent="Margin/Content/Scroll/Details/PolicyRow"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+tooltip_text = "INVEST_POLICY_TOOLTIP"
+
+[node name="PolicyButton" type="Button" parent="Margin/Content/Scroll/Details/PolicyRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "ECONOMY_APPLY"
+
+[node name="FundTitle" type="Label" parent="Margin/Content/Scroll/Details"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+text = "INVEST_FUND"
+
+[node name="FundGrid" type="GridContainer" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="FundRow" type="HBoxContainer" parent="Margin/Content/Scroll/Details"]
+layout_mode = 2
+
+[node name="FundSpin" type="SpinBox" parent="Margin/Content/Scroll/Details/FundRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+suffix = "Md$"
+tooltip_text = "INVEST_FUND_TOOLTIP"
+
+[node name="DepositButton" type="Button" parent="Margin/Content/Scroll/Details/FundRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "INVEST_DEPOSIT"
+
+[node name="WithdrawButton" type="Button" parent="Margin/Content/Scroll/Details/FundRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "INVEST_WITHDRAW"

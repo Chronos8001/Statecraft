@@ -40,3 +40,5 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Parc de départ placé selon la population et le relief : des centrales peuvent se retrouver dans une capitale (deux centrales nucléaires à Paris). Seuls les centrales, les mines et un port par pays sont placés au départ. | 4d1 | Ouvert |
 | 🟢 | Le charbon se stabilise environ 25 % au-dessus de son prix de départ (forte demande d'électricité de la Chine et de l'Inde). | 4d1 | Ouvert |
 | 🟠 | Un mois de simulation prend environ 340 ms (marché des ressources, budget, électricité) : à-coup sensible en vitesse maximale ; calculs à étaler sur plusieurs images ou fils de calcul. | 15 | Ouvert |
+| 🟢 | Parts publiques en partie estimées par des règles ; les pays de l'IA ne nationalisent ni ne privatisent (étape 12). Les effets sur les groupes sociaux sont décrits mais appliqués à l'étape 5. | 4d2 | Ouvert |
+| 🟢 | Fonds souverains : rendement fixe, pas encore de placements ciblés par pays (diplomatie, étape 6). | 6 | Ouvert |

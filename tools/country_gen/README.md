@@ -116,3 +116,11 @@ python tools/country_gen/generate_trade.py
 ```sh
 python tools/country_gen/generate_energy.py
 ```
+
+## Entreprises et investissements (`generate_investment.py`)
+
+Écrit `data/countries/investment.json` : part publique de chaque secteur (règles selon le régime, le secteur et le poids du pétrole, valeurs saisies pour les grands pays dans `investment_config.json`), IDE entrants en % du PIB (*List of countries by received FDI*, Banque mondiale, version du 1er janvier 2026), actifs des fonds souverains cumulés par pays (*List of sovereign wealth funds*) et politique d'ouverture aux IDE au départ.
+
+```sh
+python tools/country_gen/generate_investment.py
+```

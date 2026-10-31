@@ -318,3 +318,37 @@ BUILD_REFUSED_FULL,Maximum reached in this province.,Maximum atteint dans cette 
 BUDGET_PROJECTS,Public investment (projects),Investissements publics (chantiers)
 NOTIFY_PROJECT_DONE,%s completed in %s,%s achevé(e) : %s
 NOTIFY_BLACKOUT,Blackouts: electricity demand exceeds supply,Coupures d'électricité : la demande dépasse la production
+# --- Investissements ---
+TOPBAR_INVESTMENT,Investment,Investissements
+TOPBAR_INVESTMENT_TOOLTIP,"State-owned companies, foreign investment and sovereign fund","Entreprises publiques, investissements étrangers et fonds souverain"
+INVEST_TITLE,Investment,Investissements
+INVEST_OWNERSHIP,State ownership by sector,Part publique par secteur
+INVEST_SECTOR,Sector,Secteur
+INVEST_PUBLIC_SHARE,State share,Part publique
+INVEST_NEW_SHARE,New share,Nouvelle part
+INVEST_SHARE_TOOLTIP,"Raise to nationalize, lower to privatize.","Augmenter pour nationaliser, baisser pour privatiser."
+INVEST_BUYBACK_VALUE,Buyback: $%s bn (added to debt),Rachat : %s Md$ (ajoutés à la dette)
+INVEST_SALE_VALUE,Sale: $%s bn (debt repaid),Vente : %s Md$ (dette remboursée)
+INVEST_EXPROPRIATE,Nationalize without compensation (expropriation),Nationaliser sans indemnisation (expropriation)
+INVEST_EXPROPRIATE_TOOLTIP,"Nothing to pay, but the credit rating drops and foreign investors flee for five years.","Rien à payer, mais la note souveraine baisse et les investisseurs étrangers fuient pendant cinq ans."
+INVEST_OWNERSHIP_HINT,"State companies bring their profits to the budget but are less efficient. Workers generally welcome nationalizations, business elites oppose them (effects applied with domestic politics).","Les entreprises publiques rapportent leurs bénéfices au budget mais sont moins efficaces. Les ouvriers approuvent en général les nationalisations, les élites économiques s'y opposent (effets appliqués avec la politique intérieure)."
+INVEST_FDI,Foreign direct investment,Investissements étrangers
+INVEST_FDI_INFLOW,Inflows,Entrées
+INVEST_FDI_START,Inflows in January 2026,Entrées en janvier 2026
+INVEST_FDI_POLICY,Policy,Politique d'ouverture
+INVEST_POLICY_OPEN,Open,Ouverte
+INVEST_POLICY_SCREENING,Screened,Contrôlée
+INVEST_POLICY_RESTRICTED,Restricted,Restreinte
+INVEST_POLICY_TOOLTIP,"Foreign investment supports growth; screening and restrictions protect strategic sectors but deter investors.","Les investissements étrangers soutiennent la croissance ; le contrôle et les restrictions protègent les secteurs stratégiques mais découragent les investisseurs."
+INVEST_EXPROPRIATION,After an expropriation,Après une expropriation
+INVEST_EXPROPRIATION_VALUE,Investors stay away (%d months),Investisseurs à l'écart (encore %d mois)
+INVEST_FUND,Sovereign wealth fund,Fonds souverain
+INVEST_FUND_ASSETS,Assets,Actifs
+INVEST_FUND_RETURN,Annual return,Rendement annuel
+INVEST_FUND_TOOLTIP,"Deposits are borrowed (debt rises); withdrawals repay the debt. The fund counts partly against debt in the credit rating.","Un versement est emprunté (la dette augmente) ; un retrait rembourse la dette. Le fonds compte en partie dans la dette nette pour la note."
+INVEST_DEPOSIT,Deposit,Verser
+INVEST_WITHDRAW,Withdraw,Retirer
+BUDGET_PUBLIC_REVENUE,State company profits,Bénéfices des entreprises publiques
+NOTIFY_NATIONALIZED,Nationalization: %s,Nationalisation : %s
+NOTIFY_EXPROPRIATED,Expropriation: %s — investors flee,Expropriation : %s — les investisseurs fuient
+NOTIFY_PRIVATIZED,Privatization: %s,Privatisation : %s

@@ -45,7 +45,14 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 - Panneau Énergie (bouton dans la barre supérieure) : mix, demande, marge, coupures, chantiers.
 - Outil de génération de l'électricité (`tools/country_gen/generate_energy.py`).
 
+- Entreprises publiques : part publique de chaque secteur pour les 199 pays. Nationalisation avec indemnisation (rachat financé par la dette) ou sans (expropriation : note dégradée, investisseurs en fuite), privatisation (vente qui rembourse la dette). Les entreprises publiques rapportent leurs bénéfices au budget mais sont moins efficaces.
+- Investissements directs étrangers : entrées réelles de départ, qui suivent l'attractivité du pays (croissance, note, impôt sur les sociétés) et sa politique d'ouverture (ouverte, contrôlée, restreinte), et soutiennent la croissance.
+- Fonds souverains réels (Chine, Émirats, Norvège, Singapour, Koweït, Arabie saoudite…) : rendement annuel, versements et retraits ; ils comptent en partie dans la dette nette pour la note souveraine.
+- Panneau Investissements (bouton dans la barre supérieure).
+- Outil de génération des données d'investissement (`tools/country_gen/generate_investment.py`).
+
 ### Modifié
+- Barre supérieure plus compacte.
 - À long terme, l'offre de ressources suit leur prix (investissement minier quand les prix restent hauts).
 - Le marché des ressources calcule ses prix bien plus vite (pays sans blocage regroupés).
 - Le droit de douane habituel des États-Unis est le droit hors surtaxes (3,3 %) ; les surtaxes de 2025 sont comptées à part.

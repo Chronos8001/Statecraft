@@ -129,7 +129,7 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Effets : inflation, croissance, recettes douanières ; embargos sur les ressources (débouchés perdus, pénuries)
 - [x] Dépendances visibles : panneau Commerce (partenaires, fournisseurs de chaque ressource), mode de carte « Commerce »
 
-**4d1. Énergie et bâtiments**
+**4d1. Énergie et bâtiments** (validée le 2026-10-31)
 - [x] Mix électrique réel par source (9 sources), demande, production maximale, coupures en cas de déficit
 - [x] Les centrales consomment charbon, gaz, pétrole et uranium sur le marché mondial ; pénurie de combustible → baisse de production
 - [x] Bâtiments dans les provinces : 9 types de centrales, usine, mine, raffinerie, port, data center ; parc de départ placé
@@ -138,8 +138,10 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Panneau Énergie, construction depuis la fiche de province
 
 **4d2. Entreprises et investissements**
-- [ ] Entreprises publiques et privées par secteur ; nationalisation / privatisation
-- [ ] IDE, fonds souverains
+- [x] Part publique de chaque secteur (règles et valeurs saisies) ; nationalisation avec ou sans indemnisation, privatisation
+- [x] IDE : entrées réelles, attractivité (croissance, note, impôt sur les sociétés, expropriations), politique d'ouverture
+- [x] Fonds souverains réels : rendement, versements et retraits, dette nette pour la note
+- [x] Panneau Investissements
 
 ## Étape 5 — Politique intérieure ⬜
 - [ ] Régimes (parlementaire, présidentiel, monarchies, autoritaire, parti unique, théocratie, junte, État failli)

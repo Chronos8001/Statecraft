@@ -171,11 +171,14 @@ func _update_preview() -> void:
 	for line_id: Variant in _spending_labels.keys():
 		(_spending_labels[line_id] as Label).text = _amount(float(draft.spending[line_id]), gdp)
 	var interest := economy.interest_burden(currency)
-	var balance := draft.total_revenue() - draft.total_spending() - economy.project_spending + economy.austerity - interest
+	var balance := draft.total_revenue() + economy.public_revenue - draft.total_spending() - economy.project_spending \
+		+ economy.austerity - interest
 	_clear_rows(_totals_grid)
 	_add_row(_totals_grid, "BUDGET_TOTAL_REVENUE", _amount(draft.total_revenue(), gdp))
 	_add_row(_totals_grid, "BUDGET_TOTAL_SPENDING", _amount(draft.total_spending(), gdp))
 	_add_row(_totals_grid, "ECONOMY_INTEREST", _amount(interest, gdp))
+	if not is_zero_approx(economy.public_revenue):
+		_add_row(_totals_grid, "BUDGET_PUBLIC_REVENUE", _amount(economy.public_revenue, gdp))
 	if economy.project_spending > 0.0:
 		_add_row(_totals_grid, "BUDGET_PROJECTS", _amount(economy.project_spending, gdp))
 	if economy.austerity > 0.0:

@@ -1179,6 +1179,131 @@
             "min": 0
           }
         }
+      },
+      "investment": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "public_profit_rate",
+          "public_inefficiency",
+          "valuation_multiple",
+          "privatization_discount",
+          "expropriation",
+          "fdi_growth_effect",
+          "fdi_attractiveness",
+          "fdi_policy_factors",
+          "fdi_adjustment",
+          "fund_return",
+          "fund_rating_weight",
+          "max_economic_effect"
+        ],
+        "properties": {
+          "public_profit_rate": {
+            "type": "number",
+            "min": 0
+          },
+          "public_inefficiency": {
+            "type": "number",
+            "min": 0
+          },
+          "valuation_multiple": {
+            "type": "number",
+            "min": 0
+          },
+          "privatization_discount": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "expropriation": {
+            "type": "object",
+            "strict": true,
+            "required": [
+              "rating_notches",
+              "fdi_factor",
+              "penalty_months"
+            ],
+            "properties": {
+              "rating_notches": {
+                "type": "int",
+                "min": 0
+              },
+              "fdi_factor": {
+                "type": "number",
+                "min": 0,
+                "max": 1
+              },
+              "penalty_months": {
+                "type": "int",
+                "min": 0
+              }
+            }
+          },
+          "fdi_growth_effect": {
+            "type": "number",
+            "min": 0
+          },
+          "fdi_attractiveness": {
+            "type": "object",
+            "strict": true,
+            "required": [
+              "growth",
+              "rating",
+              "corporate_tax"
+            ],
+            "properties": {
+              "growth": {
+                "type": "number"
+              },
+              "rating": {
+                "type": "number"
+              },
+              "corporate_tax": {
+                "type": "number"
+              }
+            }
+          },
+          "fdi_policy_factors": {
+            "type": "object",
+            "strict": true,
+            "required": [
+              "open",
+              "screening",
+              "restricted"
+            ],
+            "properties": {
+              "open": {
+                "type": "number",
+                "min": 0
+              },
+              "screening": {
+                "type": "number",
+                "min": 0
+              },
+              "restricted": {
+                "type": "number",
+                "min": 0
+              }
+            }
+          },
+          "fdi_adjustment": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "fund_return": {
+            "type": "number"
+          },
+          "fund_rating_weight": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          },
+          "max_economic_effect": {
+            "type": "number",
+            "min": 0
+          }
+        }
       }
     }
   },
@@ -1359,7 +1484,8 @@
         "resources",
         "water",
         "trade",
-        "energy"
+        "energy",
+        "investment"
       ],
       "properties": {
         "name_key": {
@@ -1682,6 +1808,43 @@
                 "type": "number",
                 "min": 0
               }
+            }
+          }
+        },
+        "investment": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "public_ownership",
+            "fdi_inflow",
+            "fdi_policy"
+          ],
+          "properties": {
+            "public_ownership": {
+              "type": "object",
+              "keys_ref": "economy_sectors",
+              "values": {
+                "type": "number",
+                "min": 0,
+                "max": 1
+              }
+            },
+            "fdi_inflow": {
+              "type": "number",
+              "min": -50,
+              "max": 100
+            },
+            "fdi_policy": {
+              "type": "string",
+              "enum": [
+                "open",
+                "screening",
+                "restricted"
+              ]
+            },
+            "sovereign_fund": {
+              "type": "number",
+              "min": 0
             }
           }
         }

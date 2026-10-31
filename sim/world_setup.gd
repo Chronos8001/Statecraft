@@ -11,8 +11,10 @@ const BILLION := 1.0e9
 ## resources : catégorie « resources » ; resource_definitions : {straits, sectors, settings}.
 static func populate(state: SimState, countries: Dictionary, currencies: Dictionary, settings: Dictionary,
 		budget_definitions: Dictionary = {}, resources: Dictionary = {}, resource_definitions: Dictionary = {},
-		trade_definitions: Dictionary = {}, energy_definitions: Dictionary = {}) -> void:
+		trade_definitions: Dictionary = {}, energy_definitions: Dictionary = {},
+		investment_settings: Dictionary = {}) -> void:
 	state.economy_settings = settings
+	state.investment_settings = investment_settings
 	state.budget_definitions = budget_definitions
 	state.resource_definitions = resource_definitions
 	state.markets.clear()
@@ -46,6 +48,7 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 		_setup_economy(country, countries[tag], state, ratings, settings)
 		_setup_budget(country, countries[tag], state)
 		_setup_resources(country, countries[tag], state)
+		_setup_investment(country, countries[tag])
 		state.countries[tag] = country
 	_calibrate_currencies(state, settings)
 	if not trade_definitions.is_empty():
@@ -58,6 +61,24 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 		for tag: String in tags:
 			_setup_energy(state.countries[tag], countries[tag], state)
 		_place_start_buildings(state)
+
+
+static func _setup_investment(country: CountryState, data: Dictionary) -> void:
+	var source: Dictionary = data.get("investment", {})
+	var economy := country.economy
+	var investment := economy.investment
+	investment.public_ownership = (source.get("public_ownership", {}) as Dictionary).duplicate()
+	for sector_id: Variant in economy.sectors.keys():
+		if not investment.public_ownership.has(sector_id):
+			investment.public_ownership[sector_id] = 0.0
+	investment.start_public_ownership = investment.public_ownership.duplicate()
+	investment.fdi_inflow = float(source.get("fdi_inflow", 0.0))
+	investment.start_fdi_inflow = investment.fdi_inflow
+	investment.fdi_policy = str(source.get("fdi_policy", InvestmentState.OPEN))
+	investment.start_fdi_policy = investment.fdi_policy
+	investment.start_growth = economy.growth
+	investment.start_rating = economy.rating
+	investment.start_corporate_tax = float(economy.budget.tax_rates.get("corporate_tax", 0.0))
 
 
 static func _create_market(resource_id: String, data: Dictionary) -> MarketState:
@@ -245,6 +266,9 @@ static func _setup_economy(country: CountryState, data: Dictionary, state: SimSt
 	var currency: CurrencyState = state.currencies.get(str(data.get("currency", "")))
 	economy.currency = currency.id if currency != null else ""
 	economy.population = int(data.get("population", 0))
+	# Fonds souverain chargé avant le calage de la note, qui tient compte de la dette nette.
+	economy.investment.sovereign_fund = float((data.get("investment", {}) as Dictionary).get("sovereign_fund", 0.0))
+	economy.fund_rating_weight = float(state.investment_settings.get("fund_rating_weight", 0.0))
 	economy.real_gdp = float(source.get("gdp_billion_usd", 0.0))
 	economy.sectors = (source.get("sectors", {}) as Dictionary).duplicate()
 	var growth_bounds: Array = settings["growth_bounds"]
@@ -271,13 +295,13 @@ static func _setup_economy(country: CountryState, data: Dictionary, state: SimSt
 	var known := ratings.index_of(rating_id)
 	economy.rating = known if known != CreditRating.UNKNOWN else 0
 	_set_debt_rates(economy, currency, reference, ratings)
-	var score := EconomyModel.rating_score(gdp_per_capita, economy.debt_ratio(currency), economy.inflation,
+	var score := EconomyModel.rating_score(gdp_per_capita, economy.rating_debt_ratio(currency), economy.inflation,
 		currency.inflation_target, economy.growth, economy.real_interest_burden(currency), false, settings)
 	if known == CreditRating.UNKNOWN:
 		economy.rating = maxi(ratings.clamp_index(score), ratings.index_of(str(settings["min_estimated_rating"])))
 		economy.rating_estimated = true
 		_set_debt_rates(economy, currency, reference, ratings)
-		score = EconomyModel.rating_score(gdp_per_capita, economy.debt_ratio(currency), economy.inflation,
+		score = EconomyModel.rating_score(gdp_per_capita, economy.rating_debt_ratio(currency), economy.inflation,
 			currency.inflation_target, economy.growth, economy.real_interest_burden(currency), false, settings)
 	var anchor := economy.rating
 	# Pays déjà en défaut : la dette a été restructurée, la note remonte vers celle de sortie de crise.

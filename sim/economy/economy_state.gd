@@ -58,6 +58,12 @@ var trade_customs: float = 0.0
 ## Effet des coupures d'électricité sur la croissance (points) et dépenses des chantiers (% du PIB).
 var energy_growth: float = 0.0
 var project_spending: float = 0.0
+## Propriété publique, IDE et fonds souverain ; effets sur la croissance (points) et les recettes (% du PIB).
+var investment: InvestmentState = InvestmentState.new()
+var investment_growth: float = 0.0
+var public_revenue: float = 0.0
+## Part du fonds souverain déduite de la dette pour la note (dette nette).
+var fund_rating_weight: float = 0.0
 
 ## Note souveraine (indice dans CreditRating) et écart propre au pays, calé au départ.
 var rating: int = 0
@@ -127,3 +133,12 @@ func in_crisis() -> bool:
 
 func in_imf_program() -> bool:
 	return imf_months > 0
+
+
+## Dette nette du fonds souverain (en partie), rapportée au PIB : utilisée pour la note.
+func rating_debt_ratio(currency_state: CurrencyState) -> float:
+	var gdp := nominal_gdp()
+	if gdp <= 0.0:
+		return 0.0
+	var fund := investment.sovereign_fund * currency_state.fx_factor() * fund_rating_weight
+	return maxf(total_debt(currency_state) - fund, 0.0) / gdp

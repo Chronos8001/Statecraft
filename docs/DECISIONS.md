@@ -81,3 +81,7 @@
 | 2026-10-31 | Offre de ressources sensible au prix à long terme (5 % par an par unité de log du prix) | Les prix ne dérivent pas sans fin quand la demande d'électricité change | Tendances fixes |
 | 2026-10-31 | Bâtiments comptés par province ; capacité électrique suivie au niveau du pays (GW) | Affichage et conditions par province, calculs légers | Chaque bâtiment simulé à part |
 | 2026-10-31 | Chantiers du joueur payés chaque mois par le budget ; les constructions de l'IA sont comprises dans ses dépenses d'infrastructure | Coût visible pour le joueur, pas de double dépense pour l'IA | Coût immédiat ajouté à la dette |
+| 2026-10-31 | Entreprises abstraites : une part publique par secteur ; effets (bénéfices au budget, perte d'efficacité) mesurés par rapport au départ | Fidèle au prompt (« entreprises abstraites »), neutre au départ | Entreprises nommées |
+| 2026-10-31 | Valeur d'un secteur = production × multiple ; indemnisation ajoutée à la dette, privatisation vendue avec une décote | Coût lisible et proportionné à la taille du secteur | Valeurs boursières par entreprise |
+| 2026-10-31 | IDE visés = départ × ouverture × attractivité × fuite après expropriation ; les entrées s'en rapprochent chaque mois | Réaction progressive, levier clair pour le joueur | Stocks d'IDE par pays d'origine |
+| 2026-10-31 | Fonds souverain en dollars avec rendement fixe ; la moitié compte contre la dette pour la note | Récompense l'épargne sans changer le calage de départ | Placements par pays (repoussés à la diplomatie) |
