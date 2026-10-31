@@ -124,3 +124,6 @@
 | 2026-10-31 | Relations de départ calculées (organisations +5 à +35, commerce jusqu'à +20, régimes ±10, frontière +5, blocs opposés -40) puis 183 paires réelles saisies | Toutes les paires crédibles, grandes rivalités fidèles | Matrice saisie à la main |
 | 2026-10-31 | Seuls les écarts avec 2026 sont stockés et mis à jour (retour de 2 % par mois, opinion qui suit à 10 % par mois) | 19 701 paires sans coût mensuel | Matrice complète recalculée |
 | 2026-10-31 | Réponses de l'IA aux propositions par règles d'intérêt lisibles, en attendant l'IA de l'étape 12 | Le joueur peut prévoir la réponse | Seuil de relations seul |
+| 2026-10-31 | Traités de 2026 déjà compris dans les relations de départ ; ceux signés pendant la partie relèvent durablement le niveau naturel des relations | Neutre au départ, les traités comptent ensuite | Bonus pour tous les traités |
+| 2026-10-31 | Acceptation d'un traité : score = base + 0,5 × relations + confiance + régimes, puissance, commerce ou richesse selon le traité ; minimum de relations par traité | Lisible, affiché au joueur avant de proposer | Seuil de relations seul |
+| 2026-10-31 | Puissance = PIB en attendant l'armée (étape 7) ; ultimatum accepté si l'exigeant est environ 20 fois plus riche | Simple, déjà crédible | Puissance militaire saisie |
