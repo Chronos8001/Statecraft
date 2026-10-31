@@ -7,5 +7,6 @@
     "PSE": {"parent": "ISR", "not_recognized_by": ["USA", "ISR", "DEU", "ITA", "JPN", "KOR", "NLD", "CHE", "DNK", "FIN", "NZL", "SGP", "CMR", "PAN", "ERI", "TWN", "KOS", "CYN", "SOL", "AUT", "LTU", "LVA", "EST", "HRV", "MDA", "MHL", "FSM", "NRU", "TUV", "PLW", "TON", "KIR", "WSM", "VAT"]},
     "CYN": {"parent": "CYP", "recognized_by": ["TUR"]},
     "SOL": {"parent": "SOM", "recognized_by": ["ISR"]}
-  }
+  },
+  "security_council": {"permanent": ["USA", "CHN", "RUS", "GBR", "FRA"], "elected": {"DNK": 2026, "GRC": 2026, "PAK": 2026, "PAN": 2026, "SOM": 2026, "BHR": 2027, "COL": 2027, "COD": 2027, "LVA": 2027, "LBR": 2027}}
 }
