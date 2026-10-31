@@ -1349,7 +1349,8 @@
       "strict": true,
       "required": [
         "name_key",
-        "democratic"
+        "democratic",
+        "group_influence"
       ],
       "properties": {
         "name_key": {
@@ -1357,6 +1358,19 @@
         },
         "democratic": {
           "type": "bool"
+        },
+        "group_influence": {
+          "type": "object",
+          "keys_ref": "social_groups",
+          "values": {
+            "type": "number",
+            "min": 0
+          }
+        },
+        "legitimacy": {
+          "type": "number",
+          "min": 0,
+          "max": 100
         }
       }
     }
@@ -1485,7 +1499,8 @@
         "water",
         "trade",
         "energy",
-        "investment"
+        "investment",
+        "society"
       ],
       "properties": {
         "name_key": {
@@ -1845,6 +1860,48 @@
             "sovereign_fund": {
               "type": "number",
               "min": 0
+            }
+          }
+        },
+        "society": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "groups",
+            "stability",
+            "corruption",
+            "democracy",
+            "approval"
+          ],
+          "properties": {
+            "groups": {
+              "type": "object",
+              "keys_ref": "social_groups",
+              "values": {
+                "type": "number",
+                "min": 0,
+                "max": 1
+              }
+            },
+            "stability": {
+              "type": "number",
+              "min": 0,
+              "max": 100
+            },
+            "corruption": {
+              "type": "number",
+              "min": 0,
+              "max": 100
+            },
+            "democracy": {
+              "type": "number",
+              "min": 0,
+              "max": 10
+            },
+            "approval": {
+              "type": "number",
+              "min": 0,
+              "max": 100
             }
           }
         }
@@ -2686,12 +2743,56 @@
       "type": "object",
       "strict": true,
       "required": [
-        "name_key"
+        "name_key",
+        "influence",
+        "affinity",
+        "reactions"
       ],
       "properties": {
         "name_key": {
           "type": "string",
           "pattern": "^GROUP_[A-Z_]+$"
+        },
+        "influence": {
+          "type": "number",
+          "min": 0
+        },
+        "affinity": {
+          "type": "object",
+          "keys_pattern": "^[a-z_]+$",
+          "values": {
+            "type": "number",
+            "min": -100,
+            "max": 100
+          }
+        },
+        "reactions": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "unemployment",
+            "inflation",
+            "growth",
+            "blackout",
+            "public_ownership"
+          ],
+          "properties": {
+            "unemployment": {
+              "type": "number"
+            },
+            "inflation": {
+              "type": "number"
+            },
+            "growth": {
+              "type": "number"
+            },
+            "blackout": {
+              "type": "number"
+            },
+            "public_ownership": {
+              "type": "number"
+            }
+          }
         }
       }
     }

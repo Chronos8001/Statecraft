@@ -328,5 +328,34 @@
     "fund_return": 5.0,
     "fund_rating_weight": 0.5,
     "max_economic_effect": 3.0
+  },
+  "society": {
+    "satisfaction_bounds": [
+      0.0,
+      100.0
+    ],
+    "start_satisfaction_bounds": [
+      5.0,
+      95.0
+    ],
+    "satisfaction_adjustment": 0.15,
+    "max_loss": 40.0,
+    "max_gain": 15.0,
+    "gain_factor": 0.5,
+    "inflation_cap": 25.0,
+    "stability": {
+      "adjustment": 0.08,
+      "per_satisfaction_point": 0.6,
+      "budget_effect": 1.0,
+      "growth_per_lost_point": 0.04,
+      "max_growth_penalty": 2.0
+    },
+    "legitimacy": {
+      "adjustment": 0.05,
+      "democracy_factor": 10.0,
+      "per_support_point": 0.4,
+      "per_stability_point": 0.2,
+      "default_regime_legitimacy": 50.0
+    }
   }
 }
