@@ -5,6 +5,7 @@ extends RefCounted
 ## propres à chaque pays reprennent la situation réelle du 1er janvier 2026.
 
 const BILLION := 1.0e9
+const PRESIDENTIAL_REGIME := "presidential_republic"
 
 
 ## budget_definitions : {taxes, spending, settings} (catégories budget_taxes, budget_spending, defines.budget).
@@ -92,7 +93,31 @@ static func _setup_politics(country: CountryState, data: Dictionary, state: SimS
 	politics.term_years = int(source.get("term_years", 0))
 	politics.dissolved = bool(source.get("dissolved", false))
 	var regime: Dictionary = (state.society_definitions.get("regimes", {}) as Dictionary).get(str(data.get("regime", "")), {})
-	politics.polls_published = bool(regime.get("democratic", false))
+	politics.democratic = bool(regime.get("democratic", false))
+	politics.polls_published = politics.democratic
+	politics.executive = PoliticsState.EXECUTIVE_PRESIDENTIAL if str(data.get("regime", "")) == PRESIDENTIAL_REGIME \
+		else PoliticsState.EXECUTIVE_PARLIAMENTARY
+	politics.suspended = bool(source.get("suspended", false))
+	politics.cordon = bool(source.get("cordon", false))
+	var system: Dictionary = source.get("system", {})
+	politics.system_type = str(system.get("type", PoliticsState.SYSTEM_PROPORTIONAL))
+	politics.threshold = float(system.get("threshold", 0.0))
+	politics.list_share = float(system.get("list_share", 0.0))
+	var next: Dictionary = source.get("next_election", {})
+	politics.next_election_year = int(next.get("year", politics.election_year + politics.term_years))
+	politics.next_election_month = int(next.get("month", politics.election_month))
+	var presidency: Dictionary = source.get("presidency", {})
+	politics.has_presidency = not presidency.is_empty()
+	if politics.has_presidency:
+		politics.presidential_year = int((presidency["election"] as Dictionary)["year"])
+		politics.presidential_month = int((presidency["election"] as Dictionary)["month"])
+		politics.presidential_term = int(presidency.get("term_years", 0))
+		politics.two_rounds = bool(presidency.get("two_rounds", false))
+		politics.next_presidential_year = int((presidency["next_election"] as Dictionary)["year"])
+		politics.next_presidential_month = int((presidency["next_election"] as Dictionary)["month"])
+	politics.head_of_state = str(data.get("head_of_state", ""))
+	politics.head_of_government = str(data.get("head_of_government", politics.head_of_state))
+	politics.ideology = str(data.get("ideology", ""))
 	for party_id: Variant in source.get("government", []):
 		politics.government.append(str(party_id))
 	var parties: Dictionary = source.get("parties", {})

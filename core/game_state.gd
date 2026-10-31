@@ -26,6 +26,7 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	scheduler.add_system(EconomySystem.new(DataLoader.get_category("economy_sectors")))
 	scheduler.add_system(SocietySystem.new())
 	scheduler.add_system(PoliticsSystem.new())
+	scheduler.add_system(ElectionSystem.new())
 	_pending_commands.clear()
 	is_game_running = true
 	GameLog.info(SOURCE, "Nouvelle partie : graine %d, date %s." % [p_seed, sim.date.format_iso()])
@@ -103,8 +104,27 @@ func society_definitions() -> Dictionary:
 func politics_definitions() -> Dictionary:
 	return {
 		"parties": DataLoader.repository.resolve_ref("names#parties"),
+		"characters": DataLoader.repository.resolve_ref("names#characters"),
+		"provinces": country_provinces(DataLoader.get_category("provinces")),
 		"settings": DataLoader.get_define("politics", {}),
 	}
+
+
+## Provinces de chaque pays pour les résultats régionaux : tag → [[id, population, superficie], …], triées.
+static func country_provinces(provinces: Dictionary) -> Dictionary:
+	var result: Dictionary = {}
+	var ids: Array = provinces.keys()
+	ids.sort_custom(func(a: String, b: String) -> bool: return int(a) < int(b))
+	for province_id: String in ids:
+		var province: Dictionary = provinces[province_id]
+		var owner := str(province.get("owner", ""))
+		if owner.is_empty():
+			continue
+		if not result.has(owner):
+			result[owner] = []
+		(result[owner] as Array).append([province_id, int(province.get("population", 0)),
+			float(province.get("area_km2", 1.0))])
+	return result
 
 
 func get_start_date() -> GameDate:

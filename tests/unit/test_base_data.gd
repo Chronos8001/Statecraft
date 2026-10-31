@@ -346,10 +346,14 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 		_energy_definitions(), _repository.get_value("defines", "investment", {}), {
 			"groups": _repository.get_category("social_groups"), "regimes": _repository.get_category("regimes"),
 			"ideologies": _repository.get_category("ideologies"), "settings": _repository.get_value("defines", "society", {})},
-		{"parties": _repository.resolve_ref("names#parties"), "settings": _repository.get_value("defines", "politics", {})})
+		{"parties": _repository.resolve_ref("names#parties"),
+			"characters": _repository.resolve_ref("names#characters"),
+			"provinces": GameState.country_provinces(_repository.get_category("provinces")),
+			"settings": _repository.get_value("defines", "politics", {})})
 	var investment_system := InvestmentSystem.new()
 	var society_system := SocietySystem.new()
 	var politics_system := PoliticsSystem.new()
+	var election_system := ElectionSystem.new()
 	var energy_system := EnergySystem.new()
 	var resource_system := ResourceSystem.new()
 	var trade_system := TradeSystem.new()
@@ -358,6 +362,7 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 	var crises := 0
 	for month: int in 120:
 		state.date.month = month % 12 + 1
+		state.date.year = 2026 + month / 12
 		energy_system.on_month(state)
 		resource_system.on_month(state)
 		trade_system.on_month(state)
@@ -366,6 +371,7 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 		system.on_month(state)
 		society_system.on_month(state)
 		politics_system.on_month(state)
+		election_system.on_month(state)
 		for event: Dictionary in state.events:
 			if event["type"] == EconomySystem.EVENT_DEBT_CRISIS:
 				crises += 1
@@ -517,3 +523,12 @@ func test_parliaments_are_consistent() -> void:
 		for party_id: Variant in government:
 			assert_true((parliament["parties"] as Dictionary).has(party_id), "%s dans la chambre de %s" % [party_id, tag])
 
+
+
+func test_party_abbreviations_are_unique_in_each_country() -> void:
+	var seen: Dictionary = {}
+	for party_id: String in _repository.resolve_ref("names#parties").keys():
+		var party: Dictionary = _repository.resolve_ref("names#parties")[party_id]
+		var key := "%s|%s" % [party["country"], str(party["abbreviation"]).to_upper()]
+		assert_false(seen.has(key), "sigle en double : %s (%s)" % [key, party_id])
+		seen[key] = true

@@ -183,6 +183,12 @@
     ],
     "order": 12
   },
+  "vote": {
+    "name_key": "MAPMODE_VOTE",
+    "kind": "vote",
+    "hint_color": "#C8CDD4",
+    "order": 13
+  },
   "trade": {
     "name_key": "MAPMODE_TRADE",
     "kind": "trade",
@@ -212,6 +218,6 @@
       "LEGEND_TRADE_MEDIUM",
       "LEGEND_TRADE_LARGE"
     ],
-    "order": 13
+    "order": 14
   }
 }

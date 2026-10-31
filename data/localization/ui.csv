@@ -400,3 +400,30 @@ POLITICS_GOVERNMENT_MARK,★,★
 POLITICS_OTHERS,Others and independents,Autres et indépendants
 POLITICS_POLLS_HINT,"★ party in government. Each party draws votes from the social groups close to its ideology; government parties rise or fall with the satisfaction of these groups. Seats only change at elections.","★ parti au gouvernement. Chaque parti puise ses voix dans les groupes sociaux proches de ses idées ; les partis au gouvernement montent ou baissent avec la satisfaction de ces groupes. Les sièges ne changent qu'aux élections."
 POLITICS_POLLS_HIDDEN,"★ party in government. No independent polls are published in this country: the figures are the regime's own estimate of public opinion.","★ parti au gouvernement. Aucun sondage indépendant n'est publié dans ce pays : les chiffres sont l'estimation de l'opinion par le pouvoir."
+MAPMODE_VOTE,Leading party,Parti en tête
+LEGEND_VOTE_HINT,Party leading in each province (current polls),Parti en tête dans chaque province (sondages du moment)
+LEGEND_NO_PARTIES,No parties or no parliament,Pas de partis ou pas de parlement
+POLITICS_HEAD_OF_STATE,Head of state,Chef de l'État
+POLITICS_HEAD_OF_GOVERNMENT,Head of government,Chef du gouvernement
+POLITICS_SYSTEM,Electoral system,Mode de scrutin
+POLITICS_SYSTEM_PROPORTIONAL,Proportional,Proportionnelle
+POLITICS_SYSTEM_MAJORITARIAN,First past the post,Majoritaire
+POLITICS_SYSTEM_MIXED,Mixed,Mixte
+POLITICS_THRESHOLD_VALUE,threshold %s%%,seuil %s %%
+POLITICS_NEXT_PRESIDENTIAL,Next presidential election,Prochaine présidentielle
+POLITICS_SUSPENDED,Suspended (martial law),Suspendues (loi martiale)
+POLITICS_LAST_RESULT,Last result,Dernier résultat
+POLITICS_RESULT_LEGISLATIVE,"Legislative, %s: %s first","Législatives, %s : %s en tête"
+POLITICS_RESULT_PRESIDENTIAL,"Presidential, %s: %s elected","Présidentielle, %s : %s élu"
+POLITICS_RESULT_CHANGE,change of government,alternance
+POLITICS_EARLY_ELECTION,Call early elections,Élections anticipées
+POLITICS_EARLY_TOOLTIP,Dissolve the lower house: elections in two months.,Dissoudre la chambre basse : élections dans deux mois.
+POLITICS_EARLY_NO_CHAMBER,No elected lower house.,Pas de chambre basse élue.
+POLITICS_EARLY_NOT_ALLOWED,Only possible in a parliamentary democracy.,Possible seulement dans une démocratie parlementaire.
+POLITICS_EARLY_TOO_SOON,Too soon after the last election (12 months minimum).,Trop tôt après le dernier scrutin (12 mois minimum).
+POLITICS_EARLY_ALREADY_PLANNED,Elections are already planned.,Des élections sont déjà prévues.
+NOTIFY_LEGISLATIVE_WON,Legislative elections: %s comes first.,Législatives : %s arrive en tête.
+NOTIFY_PRESIDENTIAL_WON,Presidential election: the %s candidate is elected.,Présidentielle : le candidat du %s est élu.
+NOTIFY_NEW_GOVERNMENT,New government led by %s.,Nouveau gouvernement dirigé par %s.
+NOTIFY_GOVERNMENT_STAYS,The government stays in office.,Le gouvernement reste en place.
+NOTIFY_ELECTION_MANAGED,Elections held: the regime keeps its majority.,Élections tenues : le pouvoir garde sa majorité.

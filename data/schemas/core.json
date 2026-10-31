@@ -1917,7 +1917,9 @@
             "other_vote",
             "other_poll",
             "election",
-            "term_years"
+            "term_years",
+            "system",
+            "next_election"
           ],
           "properties": {
             "seats": {
@@ -2001,6 +2003,119 @@
               "max": 10
             },
             "dissolved": {
+              "type": "bool"
+            },
+            "system": {
+              "type": "object",
+              "strict": true,
+              "required": [
+                "type"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "proportional",
+                    "majoritarian",
+                    "mixed"
+                  ]
+                },
+                "threshold": {
+                  "type": "number",
+                  "min": 0,
+                  "max": 20
+                },
+                "list_share": {
+                  "type": "number",
+                  "min": 0,
+                  "max": 1
+                }
+              }
+            },
+            "next_election": {
+              "type": "object",
+              "strict": true,
+              "required": [
+                "year",
+                "month"
+              ],
+              "properties": {
+                "year": {
+                  "type": "int",
+                  "min": 1990,
+                  "max": 2040
+                },
+                "month": {
+                  "type": "int",
+                  "min": 1,
+                  "max": 12
+                }
+              }
+            },
+            "suspended": {
+              "type": "bool"
+            },
+            "presidency": {
+              "type": "object",
+              "strict": true,
+              "required": [
+                "election",
+                "term_years",
+                "two_rounds",
+                "next_election"
+              ],
+              "properties": {
+                "election": {
+                  "type": "object",
+                  "strict": true,
+                  "required": [
+                    "year",
+                    "month"
+                  ],
+                  "properties": {
+                    "year": {
+                      "type": "int",
+                      "min": 1990,
+                      "max": 2040
+                    },
+                    "month": {
+                      "type": "int",
+                      "min": 1,
+                      "max": 12
+                    }
+                  }
+                },
+                "term_years": {
+                  "type": "int",
+                  "min": 1,
+                  "max": 10
+                },
+                "two_rounds": {
+                  "type": "bool"
+                },
+                "next_election": {
+                  "type": "object",
+                  "strict": true,
+                  "required": [
+                    "year",
+                    "month"
+                  ],
+                  "properties": {
+                    "year": {
+                      "type": "int",
+                      "min": 1990,
+                      "max": 2040
+                    },
+                    "month": {
+                      "type": "int",
+                      "min": 1,
+                      "max": 12
+                    }
+                  }
+                }
+              }
+            },
+            "cordon": {
               "type": "bool"
             }
           }
@@ -2366,7 +2481,8 @@
             "relations",
             "resources",
             "control",
-            "trade"
+            "trade",
+            "vote"
           ]
         },
         "value": {
@@ -2414,6 +2530,9 @@
           "items": {
             "type": "string"
           }
+        },
+        "hint_color": {
+          "type": "color"
         }
       }
     }

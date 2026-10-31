@@ -8,7 +8,7 @@ const DEGREES_PER_TURN := 360.0
 const DEGREES_HALF_TURN := 180.0
 const BYTES_PER_MEGABYTE := 1048576.0
 const DEFAULT_MAP_MODE := "political"
-const LIVE_MAP_MODES := ["trade", "stability", "support"]
+const LIVE_MAP_MODES := ["trade", "stability", "support", "vote", "ideology"]
 
 var _thread: Thread
 var _load_started_ms: int = 0
@@ -221,9 +221,28 @@ func _on_sim_event(event: Dictionary) -> void:
 			_notify(tr("NOTIFY_%s" % str(event.get("type")).to_upper()) % tr(str(sector.get("name_key", ""))))
 		EnergySystem.EVENT_BLACKOUT:
 			_notify(tr("NOTIFY_BLACKOUT"))
+		ElectionSystem.EVENT_ELECTION:
+			_notify(_election_text(event))
 		TradeSystem.EVENT_AGREEMENT_LEFT:
 			var agreement := DataLoader.get_entry("trade_agreements", str(event.get("agreement", "")))
 			_notify(tr("NOTIFY_AGREEMENT_LEFT") % tr(str(agreement.get("name_key", ""))))
+
+
+## « Législatives : le PRD arrive en tête. Nouveau gouvernement dirigé par l'UC. »
+func _election_text(event: Dictionary) -> String:
+	var parties := DataLoader.repository.resolve_ref("names#parties")
+	var winner := str((parties.get(str(event.get("winner", "")), {}) as Dictionary).get("abbreviation", ""))
+	var presidential := str(event.get("kind", "")) == ElectionSystem.KIND_PRESIDENTIAL
+	var text := tr("NOTIFY_PRESIDENTIAL_WON" if presidential else "NOTIFY_LEGISLATIVE_WON") % winner
+	if bool(event.get("managed", false)) or winner.is_empty():
+		return tr("NOTIFY_ELECTION_MANAGED")
+	var politics := GameState.sim.get_country(str(event.get("tag", ""))).politics
+	if bool(event.get("government_changed", false)):
+		var ruling := str((parties.get(politics.ruling_party(), {}) as Dictionary).get("abbreviation", ""))
+		text += " " + tr("NOTIFY_NEW_GOVERNMENT") % ruling
+	elif not presidential:
+		text += " " + tr("NOTIFY_GOVERNMENT_STAYS")
+	return text
 
 
 func _strait_name_key(strait_id: String) -> String:
@@ -279,6 +298,8 @@ func _on_province_clicked(province_id: int) -> void:
 		_show_province(province_id)
 		return
 	info.apply_economy(GameState.sim)
+	info.apply_politics(GameState.sim, DataLoader.get_category("names"), DataLoader.get_category("ideologies"),
+		DataLoader.get_category("names/cultures"))
 	_info_panel.close()
 	_map_view.set_selected_province(MapView.NO_SELECTION)
 	_map_view.set_selected_country(owner)
