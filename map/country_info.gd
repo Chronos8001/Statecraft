@@ -181,6 +181,10 @@ func apply_politics(state: SimState, names: Dictionary, ideologies: Dictionary, 
 			var party: Dictionary = parties.get(party_id, {})
 			if party.has("name"):
 				coalition_names.append(party["name"])
+	if not state.diplomacy.organizations.is_empty():
+		organization_abbreviations.clear()
+		for org_id: String in OrganizationSystem.organizations_of(state, tag):
+			organization_abbreviations.append((state.diplomacy.organizations[org_id] as Dictionary).get("abbreviation", org_id))
 	var regimes := DataLoader.get_category("regimes")
 	if regimes.has(politics.regime):
 		regime_name_key = str((regimes[politics.regime] as Dictionary).get("name_key", regime_name_key))

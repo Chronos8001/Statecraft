@@ -3,9 +3,9 @@ extends MapMode
 ## Couleur de la première alliance (types listés dans « organization_kinds ») dont le pays est membre.
 
 
-func alliance_of(country: Dictionary, context: MapModeContext) -> String:
+func alliance_of(tag: String, context: MapModeContext) -> String:
 	var kinds: Array = definition.get("organization_kinds", [])
-	for organization_id: Variant in country.get("organizations", []):
+	for organization_id: Variant in context.organizations_of(tag):
 		var organization: Dictionary = context.organizations.get(str(organization_id), {})
 		if kinds.has(organization.get("kind", "")):
 			return str(organization_id)
@@ -20,7 +20,7 @@ func compute_colors(context: MapModeContext) -> PackedColorArray:
 			return context.unowned_color
 		if not owner.has("organizations"):
 			return context.no_data_color
-		var alliance := alliance_of(owner, context)
+		var alliance := alliance_of(str(province.get("owner", "")), context)
 		if alliance.is_empty():
 			return none_color
 		return Color.html(str((context.organizations[alliance] as Dictionary).get("color", "#000000"))))
