@@ -15,6 +15,20 @@ var blocked_share: Dictionary = {}
 var shortage: Dictionary = {}
 ## Part des achats qui venait de fournisseurs sous embargo (0 à 1), par ressource.
 var embargo_premium: Dictionary = {}
+## Part des besoins de chaque combustible brûlée dans les centrales électriques au départ (0 à 1).
+var power_share: Dictionary = {}
+
+
+## Besoins du départ (avant tendances), pour la part brûlée dans les centrales.
+var start_consumption: Dictionary = {}
+
+
+## Besoins du mois : la part hors centrales suit les tendances de la ressource ; la part des centrales
+## suit seulement leur production (fuel_factor de l'électricité).
+func needs(resource_id: String, fuel_factor: Dictionary) -> float:
+	var share := float(power_share.get(resource_id, 0.0))
+	var factor := float(fuel_factor.get(resource_id, 1.0))
+	return float(consumption_base.get(resource_id, 0.0)) * (1.0 - share) 		+ float(start_consumption.get(resource_id, 0.0)) * share * factor
 var water_renewable: float = 0.0
 var water_withdrawal_ratio: float = 0.0
 

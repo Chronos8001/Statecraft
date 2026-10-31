@@ -11,7 +11,7 @@ const BILLION := 1.0e9
 ## resources : catégorie « resources » ; resource_definitions : {straits, sectors, settings}.
 static func populate(state: SimState, countries: Dictionary, currencies: Dictionary, settings: Dictionary,
 		budget_definitions: Dictionary = {}, resources: Dictionary = {}, resource_definitions: Dictionary = {},
-		trade_definitions: Dictionary = {}) -> void:
+		trade_definitions: Dictionary = {}, energy_definitions: Dictionary = {}) -> void:
 	state.economy_settings = settings
 	state.budget_definitions = budget_definitions
 	state.resource_definitions = resource_definitions
@@ -50,6 +50,14 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 	_calibrate_currencies(state, settings)
 	if not trade_definitions.is_empty():
 		_setup_trade(state, countries, trade_definitions)
+	state.energy_definitions = energy_definitions
+	state.buildings.clear()
+	state.projects.clear()
+	state.next_project_id = 0
+	if not energy_definitions.is_empty():
+		for tag: String in tags:
+			_setup_energy(state.countries[tag], countries[tag], state)
+		_place_start_buildings(state)
 
 
 static func _create_market(resource_id: String, data: Dictionary) -> MarketState:
@@ -77,6 +85,7 @@ static func _setup_resources(country: CountryState, data: Dictionary, state: Sim
 		resources.consumption_base[resource_id] = float(entry.get("consumption", 0.0))
 	resources.production = resources.production_base.duplicate()
 	resources.consumption = resources.consumption_base.duplicate()
+	resources.start_consumption = resources.consumption_base.duplicate()
 	var water: Dictionary = data.get("water", {})
 	resources.water_renewable = float(water.get("renewable", 0.0))
 	resources.water_withdrawal_ratio = float(water.get("withdrawal_ratio", 0.0))
@@ -112,6 +121,108 @@ static func _setup_trade(state: SimState, countries: Dictionary, definitions: Di
 				settings)
 		trade.start_tariffs[exporter] = tariffs
 	TradeSystem.refresh_tariff_changes(state)
+
+
+## Électricité de départ : capacités déduites de la production réelle, demande = production, part des
+## combustibles brûlée dans les centrales.
+static func _setup_energy(country: CountryState, data: Dictionary, state: SimState) -> void:
+	var sources: Dictionary = state.energy_definitions.get("sources", {})
+	var hours := float((state.energy_definitions.get("settings", {}) as Dictionary).get("hours_per_year", 1.0))
+	var energy := country.energy
+	var generation: Dictionary = (data.get("energy", {}) as Dictionary).get("generation", {})
+	for source_id: Variant in generation.keys():
+		var source: Dictionary = sources.get(source_id, {})
+		if source.is_empty():
+			continue
+		var amount := float(generation[source_id])
+		energy.capacity[source_id] = EnergyModel.capacity_for(amount, float(source.get("capacity_factor", 1.0)), hours)
+		energy.start_output[source_id] = amount
+		energy.output[source_id] = amount
+		energy.demand += amount
+		var fuel: Dictionary = source.get("fuel", {})
+		if not fuel.is_empty():
+			var resource_id := str(fuel["resource"])
+			var used := float(country.resources.consumption_base.get(resource_id, 0.0))
+			if used > 0.0:
+				# Part de la consommation du pays brûlée dans ses centrales, plafonnée à la part mondiale typique.
+				var share := amount * float(fuel["per_twh"]) / used
+				country.resources.power_share[resource_id] = minf(float(country.resources.power_share.get(resource_id, 0.0))
+					+ share, float(fuel["power_share"]))
+	var result := EnergyModel.dispatch(energy.capacity, energy.demand, sources, {}, hours)
+	energy.max_supply = float(result["max_supply"])
+
+
+## Parc de départ dans les provinces (pour l'affichage et les limites de construction) : centrales réparties
+## selon le relief et la population, mines sur les ressources riches, un port dans la grande ville côtière.
+static func _place_start_buildings(state: SimState) -> void:
+	var definitions := state.energy_definitions
+	var provinces: Dictionary = definitions.get("provinces", {})
+	var buildings: Dictionary = definitions.get("buildings", {})
+	var sources: Dictionary = definitions.get("sources", {})
+	var settings: Dictionary = definitions.get("settings", {})
+	var outputs: Dictionary = definitions.get("mine_outputs", {})
+	var richness := int(settings.get("start_mine_richness", 1))
+	var ports := int(settings.get("start_port_count", 0))
+	# Provinces de chaque pays, de la plus peuplée à la moins peuplée : [[population, id], …].
+	var owned: Dictionary = {}
+	for province_id: String in provinces.keys():
+		var province: Dictionary = provinces[province_id]
+		var owner := str(province.get("owner", ""))
+		if owner.is_empty():
+			continue
+		if not owned.has(owner):
+			owned[owner] = []
+		(owned[owner] as Array).append([int(province.get("population", 0)), province_id])
+	for tag: String in owned.keys():
+		var country := state.get_country(tag)
+		if country == null:
+			continue
+		var ranked: Array = owned[tag]
+		ranked.sort_custom(func(a: Array, b: Array) -> bool:
+			return int(a[0]) > int(b[0]) or (int(a[0]) == int(b[0]) and int(a[1]) < int(b[1])))
+		for source_id: Variant in country.energy.capacity.keys():
+			var building_id := str((sources.get(source_id, {}) as Dictionary).get("building", ""))
+			var definition: Dictionary = buildings.get(building_id, {})
+			var unit := float(definition.get("capacity_gw", 0.0))
+			if unit > 0.0:
+				var count := maxi(roundi(float(country.energy.capacity[source_id]) / unit), 1)
+				_spread_buildings(state, ranked, provinces, building_id, definition.get("terrains", []), count)
+		var placed_ports := 0
+		for entry: Array in ranked:
+			var province_id: String = entry[1]
+			var province: Dictionary = provinces[province_id]
+			var resources: Dictionary = province.get("resources", {})
+			for resource_id: Variant in resources.keys():
+				if outputs.has(resource_id) and int(resources[resource_id]) >= richness:
+					EnergySystem.add_building(state, province_id, "mine", 1)
+					break
+			if placed_ports < ports and bool(province.get("coastal", false)):
+				EnergySystem.add_building(state, province_id, "port", 1)
+				placed_ports += 1
+
+
+## Répartit des bâtiments entre les provinces qui les acceptent (les plus peuplées d'abord), au prorata
+## de leur population. ranked : [[population, id], …] triées.
+static func _spread_buildings(state: SimState, ranked: Array, provinces: Dictionary, building_id: String,
+		terrains: Array, count: int) -> void:
+	var candidates: Array = []
+	for entry: Array in ranked:
+		if terrains.is_empty() or terrains.has(str((provinces[entry[1]] as Dictionary).get("terrain", ""))):
+			candidates.append(entry)
+			if candidates.size() >= count:
+				break
+	if candidates.is_empty():
+		candidates = ranked.slice(0, maxi(mini(count, ranked.size()), 1))
+	var total := 0.0
+	for entry: Array in candidates:
+		total += maxf(float(entry[0]), 1.0)
+	var placed := 0
+	for index: int in candidates.size():
+		var share := maxf(float(candidates[index][0]), 1.0) / total
+		var amount := count - placed if index == candidates.size() - 1 else roundi(count * share)
+		if amount > 0:
+			EnergySystem.add_building(state, str(candidates[index][1]), building_id, amount)
+			placed += amount
 
 
 static func _create_currency(currency_id: String, data: Dictionary) -> CurrencyState:

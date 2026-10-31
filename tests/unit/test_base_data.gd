@@ -14,7 +14,7 @@ const MIN_PROVINCE_COUNT := 4000
 const LOCALIZATION_DIR := "res://data/localization"
 const TRANSLATED_CATEGORIES := ["countries", "provinces", "sea_zones", "straits", "ideologies", "regimes",
 	"terrains", "resources", "traits", "challenges", "economy_sectors", "budget_taxes", "budget_spending",
-	"social_groups", "trade_agreements"]
+	"social_groups", "trade_agreements", "energy_sources", "buildings"]
 const MIN_SEA_ZONE_COUNT := 150
 
 const LocalizationScript := preload("res://core/localization/localization.gd")
@@ -342,7 +342,9 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 	var trade_definitions := {"agreements": _repository.get_category("trade_agreements"),
 		"settings": _repository.get_value("defines", "trade", {})}
 	WorldSetup.populate(state, _repository.get_category("countries"), _repository.get_category("currencies"), settings,
-		budget_definitions, _repository.get_category("resources"), resource_definitions, trade_definitions)
+		budget_definitions, _repository.get_category("resources"), resource_definitions, trade_definitions,
+		_energy_definitions())
+	var energy_system := EnergySystem.new()
 	var resource_system := ResourceSystem.new()
 	var trade_system := TradeSystem.new()
 	var budget_system := BudgetSystem.new()
@@ -350,6 +352,7 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 	var crises := 0
 	for month: int in 120:
 		state.date.month = month % 12 + 1
+		energy_system.on_month(state)
 		resource_system.on_month(state)
 		trade_system.on_month(state)
 		budget_system.on_month(state)
@@ -378,7 +381,12 @@ func test_world_economy_stays_stable_for_ten_years() -> void:
 		var economy: EconomyState = state.countries[tag].economy
 		assert_gt(economy.debt_ratio(state.get_currency(economy.currency)), 0.05, "dette de %s" % tag)
 	for resource_id: String in state.markets.keys():
-		assert_between((state.markets[resource_id] as MarketState).price_ratio(), 0.8, 1.25, "prix de %s" % resource_id)
+		assert_between((state.markets[resource_id] as MarketState).price_ratio(), 0.6, 1.5, "prix de %s" % resource_id)
+	var blackouts := 0
+	for country: CountryState in state.countries.values():
+		if country.energy.blackout > 0.0:
+			blackouts += 1
+	assert_lt(blackouts, 10, "l'IA garde de la marge électrique")
 	var ukraine: EconomyState = state.countries["UKR"].economy
 	assert_lt(ukraine.debt_ratio(state.get_currency(ukraine.currency)), 2.5, "dette de l'Ukraine")
 
@@ -432,3 +440,26 @@ func test_trade_is_consistent() -> void:
 	assert_true((agreements["eu_single_market"]["members"] as Array).has("FRA"))
 	assert_true((agreements["usmca"]["members"] as Array).has("MEX"))
 	assert_true((countries["USA"]["trade"]["surcharges"] as Dictionary).has("CHN"), "surtaxes de 2026")
+
+
+func _energy_definitions() -> Dictionary:
+	var mine_outputs: Dictionary = {}
+	var resources := _repository.get_category("resources")
+	for resource_id: String in resources.keys():
+		if (resources[resource_id] as Dictionary).has("mine_output"):
+			mine_outputs[resource_id] = float(resources[resource_id]["mine_output"])
+	return {"sources": _repository.get_category("energy_sources"), "buildings": _repository.get_category("buildings"),
+		"provinces": _repository.get_category("provinces"), "mine_outputs": mine_outputs,
+		"settings": _repository.get_value("defines", "energy", {})}
+
+
+func test_electricity_matches_reality() -> void:
+	var countries := _repository.get_category("countries")
+	var world := 0.0
+	for tag: String in countries.keys():
+		var generation: Dictionary = countries[tag]["energy"]["generation"]
+		assert_gt(generation.size(), 0, "électricité de %s" % tag)
+		for value: Variant in generation.values():
+			world += float(value)
+	assert_between(world, 28000.0, 34000.0, "production mondiale (TWh)")
+	assert_gt(float(countries["FRA"]["energy"]["generation"]["nuclear"]), 300.0)

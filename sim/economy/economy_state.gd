@@ -55,6 +55,9 @@ var resource_price_index: float = 1.0
 var trade_growth: float = 0.0
 var trade_inflation: float = 0.0
 var trade_customs: float = 0.0
+## Effet des coupures d'électricité sur la croissance (points) et dépenses des chantiers (% du PIB).
+var energy_growth: float = 0.0
+var project_spending: float = 0.0
 
 ## Note souveraine (indice dans CreditRating) et écart propre au pays, calé au départ.
 var rating: int = 0
