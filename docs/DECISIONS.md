@@ -101,3 +101,6 @@
 | 2026-10-31 | Gouvernement : la majorité sortante reste ; sinon le premier parti s'allie aux plus proches sur l'axe gauche-droite (écart ≤ 4) jusqu'à la majorité ; cordon sanitaire contre la droite nationale dans quatre pays | Simple, lisible, coalitions plausibles | Négociations détaillées |
 | 2026-10-31 | Après une défaite, le joueur garde son pays et gouverne avec le nouveau pouvoir ; les attentes des groupes suivent la nouvelle famille politique | Choix de design | Fin de partie |
 | 2026-10-31 | Régimes non démocratiques : élections de façade, le pouvoir garde ses sièges | La fraude et les révoltes viendront en 5c2 et 5g | Élections libres partout |
+| 2026-10-31 | Campagne réservée au parti au pouvoir du joueur ; l'IA ne fait pas campagne avant l'étape 12 | Les autres partis suivent leurs électeurs dans les sondages | Campagnes de tous les partis |
+| 2026-10-31 | Promesse tenue si, après le scrutin, les effets du budget sur le groupe atteignent 2 points avant 24 mois | Lien direct avec le budget existant, sans catalogue de promesses | Promesses détaillées par mesure |
+| 2026-10-31 | Fraude : 2,5, 6 ou 12 points pris aux autres partis ; découverte 20 à 90 % × (0,3 + 0,7 × démocratie / 10) × presse | Tentante mais risquée en démocratie, inutile dans les régimes de façade | Fraude par province |

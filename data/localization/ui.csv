@@ -427,3 +427,34 @@ NOTIFY_PRESIDENTIAL_WON,Presidential election: the %s candidate is elected.,Pré
 NOTIFY_NEW_GOVERNMENT,New government led by %s.,Nouveau gouvernement dirigé par %s.
 NOTIFY_GOVERNMENT_STAYS,The government stays in office.,Le gouvernement reste en place.
 NOTIFY_ELECTION_MANAGED,Elections held: the regime keeps its majority.,Élections tenues : le pouvoir garde sa majorité.
+CAMPAIGN_TITLE,Election campaign,Campagne électorale
+CAMPAIGN_ELECTION,Next vote,Prochain scrutin
+CAMPAIGN_SPENT,Campaign spending,Dépenses de campagne
+CAMPAIGN_BONUS,Boost for the ruling party,Gain pour le parti au pouvoir
+CAMPAIGN_RALLIES,Rallies held,Meetings tenus
+CAMPAIGN_FUND,Fund,Financer
+CAMPAIGN_FUND_TOOLTIP,"Public money for the ruling party's campaign, added to the debt. The more you spend, the less each billion brings.","Argent public pour la campagne du parti au pouvoir, ajouté à la dette. Plus on dépense, moins chaque milliard rapporte."
+CAMPAIGN_RALLY,Hold a rally,Tenir un meeting
+CAMPAIGN_PROMISE,Promise,Promettre
+CAMPAIGN_PROMISE_TO,Promise to: %s,Promesse : %s
+CAMPAIGN_PROMISE_PENDING,until the vote,jusqu'au scrutin
+CAMPAIGN_PROMISE_DEADLINE,to keep before %s,à tenir avant %s
+CAMPAIGN_FRAUD_TOOLTIP,"Rig the next vote. The more massive the fraud, the more likely it is to be discovered, especially in a solid democracy with a free press.","Truquer le prochain scrutin. Plus la fraude est massive, plus elle risque d'être découverte, surtout dans une démocratie solide à la presse libre."
+CAMPAIGN_FRAUD_0,No fraud,Pas de fraude
+CAMPAIGN_FRAUD_1,Discreet fraud,Fraude discrète
+CAMPAIGN_FRAUD_2,Large-scale fraud,Fraude importante
+CAMPAIGN_FRAUD_3,Massive fraud,Fraude massive
+CAMPAIGN_NO_PARTY,No ruling party.,Pas de parti au pouvoir.
+CAMPAIGN_NOT_STARTED,The campaign opens six months before a vote.,La campagne s'ouvre six mois avant un scrutin.
+CAMPAIGN_INVALID_AMOUNT,Invalid choice.,Choix non valable.
+CAMPAIGN_SPENDING_LIMIT,Spending limit reached.,Plafond de dépenses atteint.
+CAMPAIGN_NOT_OWN_PROVINCE,This province is not yours.,Cette province n'est pas à vous.
+CAMPAIGN_RALLY_DONE,A rally has already been held there.,Un meeting y a déjà eu lieu.
+CAMPAIGN_RALLY_THIS_MONTH,One rally per month.,Un meeting par mois.
+CAMPAIGN_UNKNOWN_GROUP,Unknown group.,Groupe inconnu.
+CAMPAIGN_ALREADY_PROMISED,Already promised to this group.,Déjà promis à ce groupe.
+CAMPAIGN_TOO_MANY_PROMISES,Three promises at most.,Trois promesses au plus.
+CAMPAIGN_FRAUD_USELESS,The regime already controls the vote.,Le pouvoir contrôle déjà le scrutin.
+NOTIFY_FRAUD_DETECTED,Electoral fraud uncovered in %s!,Fraude électorale découverte : %s !
+NOTIFY_PROMISE_KEPT,Promise kept to: %s.,Promesse tenue : %s.
+NOTIFY_PROMISE_BROKEN,Promise broken: %s are furious.,Promesse rompue : %s furieux.

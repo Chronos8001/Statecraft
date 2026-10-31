@@ -38,7 +38,8 @@ static func polls(politics: PoliticsState, society: SocietyState, groups: Dictio
 	var values: Dictionary = {}
 	var total := 0.0
 	for party: PartyState in politics.parties.values():
-		var value := party.appeal * exp(party.drift) * raw_support(party.party_group,
+		var bonus := politics.campaign_bonus if party.id == politics.ruling_party() else 0.0
+		var value := party.appeal * exp(party.drift + bonus) * raw_support(party.party_group,
 			politics.is_in_government(party.id), society, groups, settings)
 		values[party.id] = value
 		total += value

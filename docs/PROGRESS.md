@@ -168,8 +168,10 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] Alternance : nouveaux dirigeants, idéologie au pouvoir, attentes des groupes sociaux ; le joueur garde son pays
 - [x] Scrutins de façade dans les régimes non démocratiques ; élections anticipées (dissolution)
 
-**5c2. Campagne et fraude**
-- [ ] Budget de campagne, meetings, promesses ; fraude avec risque de scandale
+**5c2. Campagne et fraude** (en test)
+- [x] Campagne ouverte six mois avant un scrutin : financement public (rendement décroissant, plafond 0,1 % du PIB), un meeting par mois (bonus local et national)
+- [x] Promesses à un groupe social : satisfaction immédiate ; tenues si le budget suit, rompues sinon (sanction durable)
+- [x] Fraude à trois niveaux : points en plus pour le parti au pouvoir, découverte selon la démocratie et la presse, scandale (stabilité, légitimité)
 
 **5d. Lois**
 - [ ] Catalogue de 80+ lois, vote au parlement

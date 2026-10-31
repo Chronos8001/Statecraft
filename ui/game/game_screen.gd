@@ -198,6 +198,10 @@ func _on_sim_event(event: Dictionary) -> void:
 		ResourceSystem.EVENT_STRAIT_OPENED:
 			_notify(tr("NOTIFY_STRAIT_OPENED") % tr(_strait_name_key(str(event.get("strait", "")))))
 			return
+	if event.get("type") == ElectionSystem.EVENT_FRAUD_DETECTED:
+		var country := DataLoader.get_entry("countries", str(event.get("tag", "")))
+		_notify(tr("NOTIFY_FRAUD_DETECTED") % tr(str(country.get("name_key", ""))))
+		return
 	if str(event.get("tag", "")) != str(GameState.sim.player_tag):
 		return
 	match event.get("type"):
@@ -223,6 +227,10 @@ func _on_sim_event(event: Dictionary) -> void:
 			_notify(tr("NOTIFY_BLACKOUT"))
 		ElectionSystem.EVENT_ELECTION:
 			_notify(_election_text(event))
+		PoliticsSystem.EVENT_PROMISE:
+			var group := DataLoader.get_entry("social_groups", str(event.get("group", "")))
+			var key := "NOTIFY_PROMISE_KEPT" if str(event.get("outcome", "")) == "kept" else "NOTIFY_PROMISE_BROKEN"
+			_notify(tr(key) % tr(str(group.get("name_key", ""))))
 		TradeSystem.EVENT_AGREEMENT_LEFT:
 			var agreement := DataLoader.get_entry("trade_agreements", str(event.get("agreement", "")))
 			_notify(tr("NOTIFY_AGREEMENT_LEFT") % tr(str(agreement.get("name_key", ""))))

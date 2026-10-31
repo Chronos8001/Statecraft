@@ -52,6 +52,18 @@ var head_of_state: String = ""
 var head_of_government: String = ""
 ## Idéologie dominante du pouvoir (celle du parti qui dirige le gouvernement après une alternance).
 var ideology: String = ""
+## Campagne du parti au pouvoir pour le prochain scrutin : dépense (milliards de dollars), bonus de sondage
+## (logarithme d'un facteur), provinces où un meeting a eu lieu, mois du dernier meeting (année × 12 + mois).
+var campaign_spent: float = 0.0
+var campaign_bonus: float = 0.0
+var rallies: Dictionary = {}
+var last_rally: int = 0
+## Fraude prévue au prochain scrutin (0 : aucune, 1 à 3 : de plus en plus massive).
+var fraud_level: int = 0
+## Promesses de campagne : [{group, party, deadline_year, deadline_month, gain}].
+var promises: Array[Dictionary] = []
+## Facteur de découverte des fraudes et scandales lié à la liberté de la presse (1 : presse libre).
+var media_factor: float = 1.0
 ## Dernière élection tenue pendant la partie : {kind, year, month, votes: {parti: %}, seats_before, seats_after,
 ## regions: {province: parti en tête}, rounds: [[{parti: %}], …], winner, government_changed}.
 var last_result: Dictionary = {}
@@ -81,6 +93,17 @@ func government_poll() -> float:
 
 func is_in_government(party_id: String) -> bool:
 	return government.has(party_id)
+
+
+func has_promise(group_id: String) -> bool:
+	return promises.any(func(promise: Dictionary) -> bool: return str(promise["group"]) == group_id)
+
+
+func reset_campaign() -> void:
+	campaign_spent = 0.0
+	campaign_bonus = 0.0
+	rallies.clear()
+	fraud_level = 0
 
 
 func ruling_party() -> String:

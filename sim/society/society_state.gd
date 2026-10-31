@@ -10,6 +10,8 @@ var influence: Dictionary = {}
 ## Satisfaction de chaque groupe (0 à 100).
 var satisfaction: Dictionary = {}
 var start_satisfaction: Dictionary = {}
+## Bonus temporaires de satisfaction par groupe (promesses de campagne, concessions…), en points.
+var bonuses: Dictionary = {}
 ## Soutien populaire : satisfaction moyenne pondérée par la population.
 var support: float = 0.0
 var start_support: float = 0.0

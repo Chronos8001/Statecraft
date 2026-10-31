@@ -40,8 +40,9 @@ static func density_scores(provinces: Array, cap: float) -> Dictionary:
 
 
 ## Votes (%) de chaque parti dans chaque province, recalés sur le résultat national (national : {parti: %}).
+## extra : penchants ajoutés {province: {parti: penchant}} (meetings de campagne).
 static func regional_votes(national: Dictionary, groups_of: Dictionary, provinces: Array, other_share: float,
-		settings: Dictionary) -> Dictionary:
+		settings: Dictionary, extra: Dictionary = {}) -> Dictionary:
 	var urban: Dictionary = settings.get("urban_lean", {})
 	var local := float(settings.get("local_sigma", 0.0))
 	var scores := density_scores(provinces, float(settings.get("density_score_cap", 1.0)))
@@ -50,7 +51,8 @@ static func regional_votes(national: Dictionary, groups_of: Dictionary, province
 		var votes: Dictionary = {}
 		for party_id: Variant in national.keys():
 			var lean := float(urban.get(groups_of.get(party_id, ""), 0.0)) * float(scores[entry[0]]) \
-				+ local * stable_noise("%s|%s" % [entry[0], party_id])
+				+ local * stable_noise("%s|%s" % [entry[0], party_id]) \
+				+ float((extra.get(entry[0], {}) as Dictionary).get(party_id, 0.0))
 			votes[party_id] = float(national[party_id]) * exp(lean)
 		regional[entry[0]] = _normalized(votes, PERCENT - other_share)
 	for _pass: int in RECALIBRATION_PASSES:
