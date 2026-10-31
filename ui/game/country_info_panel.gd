@@ -65,10 +65,19 @@ func _refresh() -> void:
 	if _info.active_personnel >= 0.0:
 		_add_row(_stats_grid, "COUNTRY_INFO_ACTIVE_PERSONNEL", NumberFormat.integer(roundi(_info.active_personnel), locale))
 	_add_row(_stats_grid, "COUNTRY_INFO_ORGANIZATIONS", _join_texts(_info.organization_abbreviations))
+	if _info.has_diplomacy:
+		_add_row(_stats_grid, "DIPLOMACY_RELATION", _signed(_info.relation))
+		_add_row(_stats_grid, "DIPLOMACY_TRUST", tr("SOCIETY_SCORE_VALUE") % roundi(_info.trust))
+		_add_row(_stats_grid, "DIPLOMACY_OPINION_OF_US", _signed(_info.opinion_of_player))
+		_add_row(_stats_grid, "DIPLOMACY_OUR_OPINION", _signed(_info.player_opinion))
 	if _info.occupied_count > 0:
 		_add_row(_stats_grid, "COUNTRY_INFO_OCCUPIED", tr("COUNTRY_INFO_PROVINCE_COUNT") % _info.occupied_count)
 	if _info.occupying_count > 0:
 		_add_row(_stats_grid, "COUNTRY_INFO_OCCUPYING", tr("COUNTRY_INFO_PROVINCE_COUNT") % _info.occupying_count)
+
+
+func _signed(value: float) -> String:
+	return ("+" if roundi(value) > 0 else "") + str(roundi(value))
 
 
 ## « Nom (âge) » ; le nom seul si l'âge est inconnu.

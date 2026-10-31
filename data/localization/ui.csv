@@ -553,3 +553,7 @@ MEDIA_INVALID_TARGET,Invalid target.,Cible non valable.
 MEDIA_NO_OPPOSITION,No opposition party.,Pas de parti d'opposition.
 NOTIFY_DISINFORMATION_DONE,Disinformation operation carried out.,Opération de désinformation menée.
 NOTIFY_DISINFORMATION_EXPOSED,Our disinformation operation has been exposed!,Notre opération de désinformation a été démasquée !
+DIPLOMACY_RELATION,Relations,Relations
+DIPLOMACY_TRUST,Trust,Confiance
+DIPLOMACY_OPINION_OF_US,Their view of us,Opinion sur nous
+DIPLOMACY_OUR_OPINION,Our view of them,Notre opinion
