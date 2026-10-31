@@ -51,6 +51,9 @@ var organization_rules: Dictionary = {}
 var sanction_definitions: Dictionary = {}
 ## Types d'aide (data/aid).
 var aid_definitions: Dictionary = {}
+## Forces armées : modules remplaçables (modèle, combats, IA) et réglages (defines.military).
+var military: MilitaryRegistry = MilitaryRegistry.new()
+var military_settings: Dictionary = {}
 ## Personnages créés pendant la partie (ministres, successeurs) : identifiant → personnage.
 var characters: Dictionary = {}
 var next_character_id: int = 0

@@ -38,3 +38,5 @@ var media_effects: Dictionary = {}
 var disinformation_cooldown: int = 0
 ## Stabilité apportée par l'aide internationale reçue.
 var aid_stability: float = 0.0
+## Forces armées (null sans données militaires).
+var military: MilitaryState = null
