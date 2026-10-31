@@ -60,3 +60,4 @@ Priorités : 🔴 bloquant · 🟠 important · 🟢 mineur
 | 🟢 | Conseil de sécurité renouvelé sans respecter les groupes régionaux de l'ONU ; les pays de l'IA ne proposent pas encore de résolutions ni d'adhésions (étape 12) ; l'appartenance à l'OPEP n'agit pas encore sur la production de pétrole. | 6c | Ouvert |
 | 🟢 | Les sanctions agissent sur la croissance et l'inflation sans modifier les flux commerciaux ni bloquer les fonds souverains ; les pays de l'IA ne prennent pas de sanctions (étape 12). | 6d | Ouvert |
 | 🟢 | Les pays de l'IA accumulent des points d'influence sans les dépenser (étape 12) ; les bases n'ont pas encore d'effet militaire (étape 7). | 6f | Ouvert |
+| 🟢 | Revendications sans cession possible avant l'étape 7 ; Kouriles, îles disputées en mer de Chine et Sahara occidental non représentés (pas de province distincte ou pas d'État revendiquant). | 6g / 7 | Ouvert |
