@@ -82,6 +82,90 @@ size_flags_horizontal = 8
 focus_mode = 0
 text = "POLITICS_EARLY_ELECTION"
 
+[node name="CampaignBox" type="VBoxContainer" parent="Margin/Content/Scroll/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="CampaignTitle" type="Label" parent="Margin/Content/Scroll/Details/CampaignBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.95, 0.98, 1)
+theme_override_font_sizes/font_size = 18
+text = "CAMPAIGN_TITLE"
+
+[node name="CampaignGrid" type="GridContainer" parent="Margin/Content/Scroll/Details/CampaignBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="FundRow" type="HBoxContainer" parent="Margin/Content/Scroll/Details/CampaignBox"]
+layout_mode = 2
+
+[node name="FundSpin" type="SpinBox" parent="Margin/Content/Scroll/Details/CampaignBox/FundRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+step = 0.1
+suffix = "Md$"
+tooltip_text = "CAMPAIGN_FUND_TOOLTIP"
+
+[node name="FundButton" type="Button" parent="Margin/Content/Scroll/Details/CampaignBox/FundRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "CAMPAIGN_FUND"
+
+[node name="RallyRow" type="HBoxContainer" parent="Margin/Content/Scroll/Details/CampaignBox"]
+layout_mode = 2
+
+[node name="RallyOption" type="OptionButton" parent="Margin/Content/Scroll/Details/CampaignBox/RallyRow"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+
+[node name="RallyButton" type="Button" parent="Margin/Content/Scroll/Details/CampaignBox/RallyRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "CAMPAIGN_RALLY"
+
+[node name="PromiseRow" type="HBoxContainer" parent="Margin/Content/Scroll/Details/CampaignBox"]
+layout_mode = 2
+
+[node name="PromiseOption" type="OptionButton" parent="Margin/Content/Scroll/Details/CampaignBox/PromiseRow"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+
+[node name="PromiseButton" type="Button" parent="Margin/Content/Scroll/Details/CampaignBox/PromiseRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "CAMPAIGN_PROMISE"
+
+[node name="FraudRow" type="HBoxContainer" parent="Margin/Content/Scroll/Details/CampaignBox"]
+layout_mode = 2
+
+[node name="FraudOption" type="OptionButton" parent="Margin/Content/Scroll/Details/CampaignBox/FraudRow"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+tooltip_text = "CAMPAIGN_FRAUD_TOOLTIP"
+
+[node name="FraudButton" type="Button" parent="Margin/Content/Scroll/Details/CampaignBox/FraudRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "ECONOMY_APPLY"
+
 [node name="HemicycleView" type="Control" parent="Margin/Content/Scroll/Details"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 170)
