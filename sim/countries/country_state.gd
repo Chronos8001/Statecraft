@@ -5,3 +5,4 @@ extends RefCounted
 
 var tag: String = ""
 var economy: EconomyState = EconomyState.new()
+var resources: CountryResources = CountryResources.new()

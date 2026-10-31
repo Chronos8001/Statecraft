@@ -8,10 +8,18 @@ const BILLION := 1.0e9
 
 
 ## budget_definitions : {taxes, spending, settings} (catégories budget_taxes, budget_spending, defines.budget).
+## resources : catégorie « resources » ; resource_definitions : {straits, sectors, settings}.
 static func populate(state: SimState, countries: Dictionary, currencies: Dictionary, settings: Dictionary,
-		budget_definitions: Dictionary = {}) -> void:
+		budget_definitions: Dictionary = {}, resources: Dictionary = {}, resource_definitions: Dictionary = {}) -> void:
 	state.economy_settings = settings
 	state.budget_definitions = budget_definitions
+	state.resource_definitions = resource_definitions
+	state.markets.clear()
+	state.closed_straits.clear()
+	for resource_id: String in resources.keys():
+		var market_data: Dictionary = (resources[resource_id] as Dictionary).get("market", {})
+		if not market_data.is_empty():
+			state.markets[resource_id] = _create_market(resource_id, market_data)
 	state.countries.clear()
 	state.currencies.clear()
 	var ratings := CreditRating.new(settings)
@@ -36,8 +44,39 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 		country.tag = tag
 		_setup_economy(country, countries[tag], state, ratings, settings)
 		_setup_budget(country, countries[tag], state)
+		_setup_resources(country, countries[tag], state)
 		state.countries[tag] = country
 	_calibrate_currencies(state, settings)
+
+
+static func _create_market(resource_id: String, data: Dictionary) -> MarketState:
+	var market := MarketState.new()
+	market.resource_id = resource_id
+	market.base_price = float(data.get("base_price", 1.0))
+	market.price = market.base_price
+	market.unit_value = float(data.get("unit_value", 0.0))
+	market.demand_elasticity = float(data.get("demand_elasticity", 0.0))
+	market.supply_elasticity = float(data.get("supply_elasticity", 0.0))
+	market.income_elasticity = float(data.get("income_elasticity", 0.0))
+	market.demand_trend = float(data.get("demand_trend", 0.0))
+	market.supply_trend = float(data.get("supply_trend", 0.0))
+	return market
+
+
+static func _setup_resources(country: CountryState, data: Dictionary, state: SimState) -> void:
+	var resources := country.resources
+	var source: Dictionary = data.get("resources", {})
+	for resource_id: Variant in source.keys():
+		if not state.markets.has(resource_id):
+			continue
+		var entry: Dictionary = source[resource_id]
+		resources.production_base[resource_id] = float(entry.get("production", 0.0))
+		resources.consumption_base[resource_id] = float(entry.get("consumption", 0.0))
+	resources.production = resources.production_base.duplicate()
+	resources.consumption = resources.consumption_base.duplicate()
+	var water: Dictionary = data.get("water", {})
+	resources.water_renewable = float(water.get("renewable", 0.0))
+	resources.water_withdrawal_ratio = float(water.get("withdrawal_ratio", 0.0))
 
 
 static func _create_currency(currency_id: String, data: Dictionary) -> CurrencyState:
