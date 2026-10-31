@@ -14,6 +14,8 @@ var _treaty_ids: Array[String] = []
 @onready var _summary_grid: GridContainer = %SummaryGrid
 @onready var _treaties_box: VBoxContainer = %TreatiesBox
 @onready var _actions_grid: GridContainer = %ActionsGrid
+@onready var _sanctions_grid: GridContainer = %SanctionsGrid
+@onready var _sanctions_label: Label = %SanctionsLabel
 @onready var _treaty_option: OptionButton = %TreatyOption
 @onready var _propose_button: Button = %ProposeButton
 @onready var _opinion_label: Label = %OpinionLabel
@@ -48,6 +50,7 @@ func refresh() -> void:
 	_flag_rect.texture = CountryFlags.texture_for(CountryFlags.path_for(_tag, data), Color.html(str(data.get("color", "#808080"))))
 	_clear_rows(_summary_grid)
 	_clear_rows(_actions_grid)
+	_clear_rows(_sanctions_grid)
 	for child: Node in _treaties_box.get_children():
 		_treaties_box.remove_child(child)
 		child.queue_free()
@@ -65,6 +68,7 @@ func refresh() -> void:
 	if diplomacy.guarantees_independence(player, _tag):
 		_add_row(_summary_grid, "DIPLOMACY_GUARANTEED", tr("COMMON_YES"))
 	_fill_treaties(state, player)
+	_fill_sanctions(state, player)
 	_fill_actions(state)
 	_fill_proposal(state, player)
 
@@ -90,6 +94,34 @@ func _fill_treaties(state: SimState, player: String) -> void:
 		cancel.pressed.connect(func() -> void: _submit(CancelTreatyCommand.new(state.player_tag, treaty_id)))
 		row.add_child(cancel)
 		_treaties_box.add_child(row)
+
+
+## Mesures : celles que nous imposons (bouton imposer / lever) et celles qu'il nous impose.
+func _fill_sanctions(state: SimState, player: String) -> void:
+	for measure: String in state.sanction_definitions.keys():
+		var definition: Dictionary = state.sanction_definitions[measure]
+		var name_label := Label.new()
+		name_label.text = str(definition["name_key"])
+		name_label.add_theme_color_override("font_color", LABEL_COLOR)
+		name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		_sanctions_grid.add_child(name_label)
+		var theirs := Label.new()
+		theirs.text = "DIPLOMACY_SANCTIONED_BY_THEM" if SanctionSystem.has_measure(state, _tag, player, measure) else ""
+		theirs.add_theme_color_override("font_color", BAD_COLOR)
+		_sanctions_grid.add_child(theirs)
+		var active := SanctionSystem.has_measure(state, player, _tag, measure)
+		var button := Button.new()
+		button.text = "DIPLOMACY_LIFT" if active else "DIPLOMACY_IMPOSE"
+		button.focus_mode = Control.FOCUS_NONE
+		var exposure := SanctionSystem.exposure(state, player, _tag)
+		button.tooltip_text = tr("DIPLOMACY_SANCTION_TOOLTIP") % [
+			NumberFormat.decimal(float(definition.get("growth", 0.0)) * exposure, 2, Localization.get_locale()),
+			roundi(float(definition.get("relation", 0.0)))]
+		button.pressed.connect(func() -> void: _submit(SanctionCommand.new(state.player_tag, _tag, measure, not active)))
+		_sanctions_grid.add_child(button)
+	var count := SanctionSystem.sanctioners_of(state, _tag).size()
+	_sanctions_label.text = tr("DIPLOMACY_SANCTIONED_COUNT") % [count, NumberFormat.decimal(
+		state.get_country(_tag).economy.sanction_growth, 2, Localization.get_locale())]
 
 
 ## Boutons d'action ; une action impossible est grisée avec la raison en info-bulle.

@@ -24,9 +24,11 @@ static func generator(state: SimState, key: String) -> NameGenerator:
 ## Nouveau personnage politique : nom de la culture du pays, idéologie de son parti, loyauté et corruption.
 ## Renvoie {} si les données de noms manquent.
 ## taken_last_names : noms de famille à éviter (autres membres du gouvernement).
+## names : générateur déjà créé (plusieurs personnages d'affilée), sinon un générateur propre à key.
 static func make_character(state: SimState, country: CountryState, party_id: String, key: String,
-		junior_partner: bool = false, taken_last_names: Array = []) -> Dictionary:
-	var names := generator(state, key)
+		junior_partner: bool = false, taken_last_names: Array = [], names: NameGenerator = null) -> Dictionary:
+	if names == null:
+		names = generator(state, key)
 	if names == null:
 		return {}
 	var settings := settings_of(state)

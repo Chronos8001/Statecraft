@@ -16,8 +16,11 @@ Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) et le pr
 
 - Organisations internationales jouables : adhésion votée par les membres, départ, exclusion, création de nouvelles organisations ; ONU avec Conseil de sécurité, droit de veto et résolutions de condamnation. Panneau Monde.
 
+- Sanctions économiques (ciblées, sectorielles, embargo total, gel des avoirs, exclusion des systèmes de paiement), sanctions réelles de 2026, résolutions de sanctions de l'ONU.
+
 ### Modifié
 - Fiche pays plus large.
+- Nouvelle partie plus rapide (création des ministres et des sanctions).
 - La vitesse du jeu ne s'affiche plus qu'en pastilles dans la barre supérieure (détail en info-bulle).
 
 ## [0.5.0] - 2026-10-31

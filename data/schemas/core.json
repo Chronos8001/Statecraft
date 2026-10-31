@@ -3783,7 +3783,8 @@
       "treaties",
       "no_embassy",
       "recognition",
-      "security_council"
+      "security_council",
+      "sanctions"
     ],
     "properties": {
       "treaties": {
@@ -3885,6 +3886,28 @@
             }
           }
         }
+      },
+      "sanctions": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "list"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "min_items": 3,
+              "items": {
+                "type": "any"
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -3926,6 +3949,39 @@
         "trade_agreement": {
           "type": "string",
           "ref": "trade_agreements"
+        }
+      }
+    }
+  },
+  "sanctions": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "growth",
+        "inflation",
+        "relation",
+        "cost"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^SANCTION_[A-Z_]+$"
+        },
+        "growth": {
+          "type": "number"
+        },
+        "inflation": {
+          "type": "number"
+        },
+        "relation": {
+          "type": "number"
+        },
+        "cost": {
+          "type": "number"
         }
       }
     }

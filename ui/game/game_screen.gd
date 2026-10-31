@@ -285,6 +285,11 @@ func _on_sim_event(event: Dictionary) -> void:
 			var target := DataLoader.get_entry("countries", str(event.get("target", "")))
 			_notify(tr("NOTIFY_RESOLUTION_PASSED" if bool(event.get("passed", false)) else "NOTIFY_RESOLUTION_FAILED")
 				% [tr(str(target.get("name_key", ""))), event.get("yes", 0), event.get("no", 0)])
+		SanctionSystem.EVENT_SANCTION:
+			var definition: Dictionary = GameState.sim.sanction_definitions.get(str(event.get("measure", "")), {})
+			var other := DataLoader.get_entry("countries", str(event.get("target", "")))
+			_notify(tr("NOTIFY_SANCTION_IMPOSED" if bool(event.get("active", false)) else "NOTIFY_SANCTION_LIFTED")
+				% [tr(str(definition.get("name_key", ""))), tr(str(other.get("name_key", "")))])
 		MediaSystem.EVENT_DISINFORMATION:
 			_notify(tr("NOTIFY_DISINFORMATION_EXPOSED" if bool(event.get("exposed", false)) else "NOTIFY_DISINFORMATION_DONE"))
 		CrisisSystem.EVENT_STARTED:

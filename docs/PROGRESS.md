@@ -224,8 +224,11 @@ Légende : ⬜ à faire · 🟨 en cours · ✅ validée
 - [x] ONU : Conseil de sécurité (5 permanents avec veto, 10 élus réels de 2026 renouvelés chaque année), résolutions de condamnation votées par tous les pays
 - [x] Panneau Monde ; carte des alliances et fiche pays suivent les appartenances
 
-**6d. Sanctions**
-- [ ] Sanctions ciblées, sectorielles, totales ; gel d'avoirs ; exclusion des systèmes de paiement ; sanctions réelles de 2026
+**6d. Sanctions** (en test)
+- [x] 5 mesures : ciblées, sectorielles, embargo total, gel des avoirs, exclusion des systèmes de paiement
+- [x] Effets selon l'exposition de la cible (commerce et poids financier du pays qui sanctionne), coût pour celui qui sanctionne
+- [x] Sanctions réelles de 2026 (Russie, Biélorussie, Iran, Corée du Nord, Cuba, Venezuela…), neutres au départ ; contre-sanctions russes
+- [x] Résolution de sanctions au Conseil de sécurité ; section Sanctions du panneau Diplomatie
 
 **6e. Aide**
 - [ ] Aide économique et humanitaire, vente et don d'armes, prêts, conseillers militaires

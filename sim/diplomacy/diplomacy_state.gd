@@ -31,6 +31,9 @@ var guarantees: Dictionary = {}
 var organizations: Dictionary = {}
 var next_organization_id: int = 0
 var security_council: Dictionary = {}
+## Sanctions : « S>T » → {measures: [...]} ; effets de référence de 2026 par pays ({growth, inflation}).
+var sanctions: Dictionary = {}
+var start_sanction_effects: Dictionary = {}
 ## Délais avant de refaire une action : « action|A|B » → mois.
 var cooldowns: Dictionary = {}
 ## Réglages : confiance de base et par point de relation, bruit de l'opinion de départ.
