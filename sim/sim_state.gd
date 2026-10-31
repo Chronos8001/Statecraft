@@ -35,6 +35,8 @@ var next_project_id: int = 0
 var investment_settings: Dictionary = {}
 ## Groupes sociaux, régimes, idéologies et réglages de la société : {groups, regimes, ideologies, settings}.
 var society_definitions: Dictionary = {}
+## Partis (names#parties) et réglages de la vie politique : {parties, settings}.
+var politics_definitions: Dictionary = {}
 ## Section « trade » de defines.json.
 var trade_settings: Dictionary = {}
 ## Événements de simulation du dernier tick ({type, tag, …}), transmis à l'interface puis vidés.
