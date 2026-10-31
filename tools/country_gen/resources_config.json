@@ -1,0 +1,528 @@
+{
+  "as_of": "2026-01-01T00:00:00Z",
+  "wikipedia_pages": {
+    "oil_production": "List_of_countries_by_oil_production",
+    "oil_consumption": "List_of_countries_by_oil_consumption",
+    "gas_production": "List_of_countries_by_natural_gas_production",
+    "gas_consumption": "List_of_countries_by_natural_gas_consumption",
+    "coal_production": "List_of_countries_by_coal_production",
+    "uranium_production": "List_of_countries_by_uranium_production",
+    "nuclear": "Nuclear_power_by_country",
+    "steel": "List_of_countries_by_steel_production",
+    "wheat": "List_of_countries_by_wheat_production",
+    "water": "List_of_countries_by_total_renewable_water_resources"
+  },
+  "comment_units": "Pétrole : millions de barils/jour ; gaz : milliards de m³/an ; charbon, blé, acier : millions de tonnes/an ; uranium : tonnes/an ; terres rares, lithium, cobalt : milliers de tonnes/an ; semi-conducteurs : milliards de dollars/an ; eau : km³/an.",
+  "uranium_per_gwh": 0.025,
+  "production": {
+    "comment": "Producteurs saisis (USGS 2024, estimations 2025 de la production de puces par lieu de fabrication).",
+    "rare_earths": {
+      "CHN": 270,
+      "USA": 45,
+      "MMR": 31,
+      "AUS": 13,
+      "NGA": 13,
+      "THA": 13,
+      "IND": 2.9,
+      "RUS": 2.5,
+      "MDG": 2,
+      "LAO": 2,
+      "VNM": 0.3,
+      "BRA": 0.02
+    },
+    "lithium": {
+      "AUS": 88,
+      "CHL": 49,
+      "CHN": 41,
+      "ZWE": 22,
+      "ARG": 18,
+      "BRA": 10,
+      "CAN": 4.3,
+      "USA": 1.0,
+      "NAM": 2.7,
+      "PRT": 0.4,
+      "NGA": 1.0
+    },
+    "cobalt": {
+      "COD": 220,
+      "IDN": 28,
+      "RUS": 8.7,
+      "CAN": 3.9,
+      "PHL": 3.8,
+      "AUS": 3.6,
+      "CUB": 3.5,
+      "PNG": 3.0,
+      "MDG": 3.0,
+      "CHN": 2.4,
+      "TUR": 2.3,
+      "MAR": 2.3,
+      "USA": 0.3
+    },
+    "semiconductors": {
+      "TWN": 180,
+      "KOR": 140,
+      "CHN": 110,
+      "USA": 90,
+      "JPN": 60,
+      "SGP": 25,
+      "MYS": 20,
+      "DEU": 15,
+      "IRL": 10,
+      "ISR": 10,
+      "PHL": 8,
+      "VNM": 8,
+      "IND": 5,
+      "FRA": 5,
+      "ITA": 4,
+      "THA": 4,
+      "NLD": 3,
+      "AUT": 3,
+      "GBR": 2,
+      "MLT": 1.5,
+      "CRI": 1
+    }
+  },
+  "consumption_shares": {
+    "comment": "Part de la consommation mondiale pour les grands consommateurs ; le reste se répartit selon le PIB industriel.",
+    "coal": {
+      "CHN": 0.55,
+      "IND": 0.14,
+      "USA": 0.045,
+      "IDN": 0.03,
+      "RUS": 0.025,
+      "JPN": 0.02,
+      "ZAF": 0.02,
+      "KOR": 0.012,
+      "VNM": 0.011,
+      "TUR": 0.01,
+      "DEU": 0.009,
+      "POL": 0.009,
+      "AUS": 0.009,
+      "KAZ": 0.009,
+      "TWN": 0.007,
+      "PHL": 0.005,
+      "MYS": 0.004,
+      "UKR": 0.003,
+      "MNG": 0.002
+    },
+    "rare_earths": {
+      "CHN": 0.7,
+      "JPN": 0.08,
+      "USA": 0.06,
+      "KOR": 0.03,
+      "DEU": 0.02
+    },
+    "lithium": {
+      "CHN": 0.65,
+      "KOR": 0.1,
+      "JPN": 0.06,
+      "USA": 0.06,
+      "DEU": 0.02,
+      "POL": 0.02,
+      "HUN": 0.01
+    },
+    "cobalt": {
+      "CHN": 0.75,
+      "JPN": 0.05,
+      "KOR": 0.05,
+      "FIN": 0.03,
+      "USA": 0.03
+    },
+    "semiconductors": {
+      "CHN": 0.33,
+      "USA": 0.15,
+      "VNM": 0.04,
+      "MYS": 0.04,
+      "MEX": 0.03,
+      "JPN": 0.05,
+      "KOR": 0.05,
+      "DEU": 0.04,
+      "TWN": 0.03,
+      "IND": 0.03
+    }
+  },
+  "wheat_per_capita": {
+    "comment": "Tonnes de blé par habitant et par an (alimentation et élevage) ; défaut pour les autres pays.",
+    "default": 0.09,
+    "values": {
+      "CHN": 0.105,
+      "IND": 0.075,
+      "BGD": 0.045,
+      "IDN": 0.04,
+      "VNM": 0.035,
+      "THA": 0.02,
+      "PHL": 0.03,
+      "JPN": 0.05,
+      "KOR": 0.07,
+      "MMR": 0.01,
+      "NGA": 0.03,
+      "ETH": 0.06,
+      "COD": 0.01,
+      "EGY": 0.2,
+      "TUR": 0.25,
+      "IRN": 0.19,
+      "DZA": 0.24,
+      "MAR": 0.2,
+      "TUN": 0.2,
+      "PAK": 0.13,
+      "RUS": 0.28,
+      "UKR": 0.22,
+      "KAZ": 0.25,
+      "UZB": 0.2,
+      "FRA": 0.28,
+      "DEU": 0.25,
+      "GBR": 0.22,
+      "ITA": 0.2,
+      "ESP": 0.2,
+      "POL": 0.3,
+      "USA": 0.09,
+      "CAN": 0.23,
+      "AUS": 0.3,
+      "ARG": 0.15,
+      "BRA": 0.06,
+      "MEX": 0.06,
+      "SAU": 0.12,
+      "IRQ": 0.2,
+      "AFG": 0.2,
+      "SYR": 0.2,
+      "YEM": 0.12
+    }
+  },
+  "steel_consumption_extra": {
+    "comment": "Consommation apparente = production - exportations nettes (tableau Wikipédia) ; sinon selon le PIB industriel."
+  },
+  "province_terrain_weights": {
+    "oil": {
+      "desert": 3,
+      "steppe": 2,
+      "plains": 1,
+      "marsh": 2,
+      "tundra": 1.5,
+      "savanna": 1,
+      "jungle": 0.5
+    },
+    "gas": {
+      "desert": 2,
+      "steppe": 2,
+      "plains": 1,
+      "tundra": 2,
+      "marsh": 1.5
+    },
+    "coal": {
+      "hills": 3,
+      "plains": 1.5,
+      "mountains": 1.5,
+      "steppe": 1.5,
+      "forest": 1
+    },
+    "uranium": {
+      "desert": 3,
+      "steppe": 2,
+      "savanna": 1,
+      "plains": 0.5
+    },
+    "rare_earths": {
+      "hills": 2,
+      "mountains": 2,
+      "steppe": 1.5,
+      "savanna": 1
+    },
+    "lithium": {
+      "desert": 3,
+      "mountains": 2,
+      "savanna": 1
+    },
+    "cobalt": {
+      "savanna": 2,
+      "jungle": 1.5,
+      "hills": 2,
+      "mountains": 1
+    },
+    "semiconductors": {
+      "urban": 5,
+      "plains": 1
+    },
+    "wheat": {
+      "plains": 3,
+      "steppe": 3,
+      "hills": 1,
+      "savanna": 0.5,
+      "forest": 0.3
+    },
+    "steel": {
+      "urban": 2,
+      "plains": 1.5,
+      "hills": 1.5
+    }
+  },
+  "regions": {
+    "comment": "Grandes régions productrices : nom de province (anglais) → part de la production nationale.",
+    "USA": {
+      "oil": {
+        "Texas": 0.43,
+        "New Mexico": 0.14,
+        "Louisiana": 0.14,
+        "North Dakota": 0.09,
+        "Oklahoma": 0.03,
+        "Colorado": 0.03,
+        "Alaska": 0.03,
+        "California": 0.02,
+        "Wyoming": 0.02
+      },
+      "gas": {
+        "Texas": 0.26,
+        "Pennsylvania": 0.2,
+        "Louisiana": 0.12,
+        "New Mexico": 0.08,
+        "West Virginia": 0.07,
+        "Oklahoma": 0.07,
+        "Ohio": 0.06,
+        "Colorado": 0.04
+      },
+      "coal": {
+        "Wyoming": 0.42,
+        "West Virginia": 0.15,
+        "Pennsylvania": 0.07,
+        "Illinois": 0.07,
+        "Kentucky": 0.05,
+        "North Dakota": 0.05,
+        "Montana": 0.05
+      },
+      "semiconductors": {
+        "Arizona": 0.25,
+        "Oregon": 0.2,
+        "Texas": 0.25,
+        "New York": 0.15,
+        "California": 0.15
+      }
+    },
+    "RUS": {
+      "oil": {
+        "Tatarstan": 0.07,
+        "Orenburg": 0.05,
+        "Komi": 0.03,
+        "Krasnoyarsk": 0.05,
+        "Irkutsk": 0.03,
+        "Sakhalin": 0.03,
+        "Bashkortostan": 0.03,
+        "Khanty-Mansi": 0.42,
+        "Yamalo-Nenets": 0.1
+      },
+      "gas": {
+        "Orenburg": 0.03,
+        "Sakhalin": 0.04,
+        "Khanty-Mansi": 0.06,
+        "Yamalo-Nenets": 0.8
+      },
+      "coal": {
+        "Kemerovo": 0.55,
+        "Krasnoyarsk": 0.08,
+        "Sakha": 0.08,
+        "Khakassia": 0.05,
+        "Zabaykalsky": 0.05
+      }
+    },
+    "SAU": {
+      "oil": {
+        "Eastern": 1.0
+      },
+      "gas": {
+        "Eastern": 1.0
+      }
+    },
+    "IRQ": {
+      "oil": {
+        "Kirkuk": 0.08,
+        "Maysan": 0.07,
+        "Erbil": 0.08,
+        "Basra": 0.7
+      }
+    },
+    "IRN": {
+      "oil": {
+        "Khuzestan": 0.8,
+        "Bushehr": 0.1
+      },
+      "gas": {
+        "Bushehr": 0.7,
+        "Khuzestan": 0.2
+      }
+    },
+    "CAN": {
+      "oil": {
+        "Alberta": 0.84,
+        "Saskatchewan": 0.1,
+        "Newfoundland and Labrador": 0.05
+      },
+      "gas": {
+        "Alberta": 0.65,
+        "British Columbia": 0.33
+      }
+    },
+    "CHN": {
+      "coal": {
+        "Shanxi": 0.3,
+        "Inner Mongol": 0.27,
+        "Shaanxi": 0.17,
+        "Xinjiang": 0.1,
+        "Guizhou": 0.03
+      },
+      "oil": {
+        "Heilongjiang": 0.15,
+        "Xinjiang": 0.15,
+        "Shaanxi": 0.17,
+        "Tianjin": 0.17,
+        "Shandong": 0.1,
+        "Guangdong": 0.1
+      },
+      "rare_earths": {
+        "Inner Mongol": 0.7,
+        "Jiangxi": 0.15,
+        "Sichuan": 0.1
+      },
+      "semiconductors": {
+        "Shanghai": 0.3,
+        "Jiangsu": 0.25,
+        "Guangdong": 0.15,
+        "Beijing": 0.15,
+        "Hubei": 0.15
+      }
+    },
+    "AUS": {
+      "coal": {
+        "Queensland": 0.55,
+        "New South Wales": 0.4
+      },
+      "lithium": {
+        "Western Australia": 1.0
+      },
+      "gas": {
+        "Western Australia": 0.6,
+        "Queensland": 0.3,
+        "Northern Territory": 0.1
+      }
+    },
+    "CHL": {
+      "lithium": {
+        "Antofagasta": 1.0
+      }
+    },
+    "ARG": {
+      "lithium": {
+        "Catamarca": 0.5,
+        "Jujuy": 0.3,
+        "Salta": 0.2
+      },
+      "oil": {
+        "Neuquén": 0.7,
+        "Chubut": 0.15
+      }
+    },
+    "COD": {
+      "cobalt": {
+        "Katanga": 1.0
+      }
+    },
+    "IND": {
+      "coal": {
+        "Odisha": 0.25,
+        "Chhattisgarh": 0.2,
+        "Jharkhand": 0.18,
+        "Madhya Pradesh": 0.15,
+        "Telangana": 0.08
+      }
+    },
+    "IDN": {
+      "coal": {
+        "East Kalimantan": 0.5,
+        "South Kalimantan": 0.3,
+        "South Sumatra": 0.15
+      },
+      "cobalt": {
+        "Central Sulawesi": 0.6,
+        "North Maluku": 0.4
+      }
+    },
+    "NOR": {
+      "oil": {
+        "Rogaland": 0.5,
+        "Hordaland": 0.5
+      },
+      "gas": {
+        "Rogaland": 0.5,
+        "Hordaland": 0.5
+      }
+    },
+    "BRA": {
+      "oil": {
+        "Rio de Janeiro": 0.8,
+        "São Paulo": 0.15
+      }
+    },
+    "MEX": {
+      "oil": {
+        "Campeche": 0.7,
+        "Tabasco": 0.2
+      }
+    },
+    "KAZ": {
+      "oil": {
+        "Atyrau": 0.6,
+        "Mangystau": 0.25
+      },
+      "uranium": {
+        "Kyzylorda": 0.5,
+        "Turkistan": 0.5
+      }
+    },
+    "ARE": {
+      "oil": {
+        "Abu Dhabi": 1.0
+      },
+      "gas": {
+        "Abu Dhabi": 1.0
+      }
+    },
+    "NGA": {
+      "oil": {
+        "Rivers": 0.3,
+        "Delta": 0.3,
+        "Bayelsa": 0.2,
+        "Akwa Ibom": 0.2
+      }
+    },
+    "VEN": {
+      "oil": {
+        "Zulia": 0.3,
+        "Monagas": 0.3,
+        "Anzoátegui": 0.4
+      }
+    },
+    "TWN": {
+      "semiconductors": {
+        "Hsinchu": 0.4,
+        "Taichung": 0.3,
+        "Tainan": 0.3
+      }
+    },
+    "KOR": {
+      "semiconductors": {
+        "Gyeonggi": 0.8,
+        "North Chungcheong": 0.2
+      }
+    },
+    "JPN": {
+      "semiconductors": {
+        "Kumamoto": 0.3,
+        "Mie": 0.3,
+        "Iwate": 0.2,
+        "Hiroshima": 0.2
+      }
+    }
+  },
+  "province_weight_basis": {
+    "comment": "Base de répartition hors régions saisies : surface (ressources extraites) ou population (industries).",
+    "steel": "population",
+    "semiconductors": "population"
+  }
+}
