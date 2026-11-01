@@ -97,6 +97,7 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 		for tag: String in tags:
 			state.military.model.setup_country(state.countries[tag], countries[tag], state)
 		WarSystem.setup_forces(state)
+		MilitaryActions.setup_start(state)
 		state.military.model.setup_world(state, countries)
 
 

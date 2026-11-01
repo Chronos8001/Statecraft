@@ -80,6 +80,7 @@ func decide_month(country: CountryState, state: SimState) -> void:
 	_mobilize(country, state)
 	_join_wars(tag, state)
 	_declare_war(country, state)
+	use_actions(country, state)
 
 
 # --- Paix ----------------------------------------------------------------------------------------------------
@@ -313,6 +314,74 @@ func decide_week(tag: String, state: SimState) -> void:
 	if not WarSystem.is_rebel(state, tag):
 		FrontSystem.auto_deploy(state, tag)
 	choose_postures(tag, state)
+
+
+# --- Actions ponctuelles --------------------------------------------------------------------------------------
+
+## En guerre : frappes sur les centrales de l'ennemi (sinon sur le front), raids des forces spéciales. En paix :
+## cyberattaques occasionnelles des régimes non démocratiques bien équipés contre un pays hostile.
+func use_actions(country: CountryState, state: SimState) -> void:
+	var rules: Dictionary = MilitaryActions.settings_of(state).get("ai", {})
+	if rules.is_empty() or country.military == null:
+		return
+	var tag := country.tag
+	var fronts := FrontSystem.fronts_of(state, tag)
+	var enemies: Array[String] = []
+	for war: War in WarSystem.wars_of(state, tag):
+		if not war.civil:
+			for enemy: String in war.enemies_of(tag):
+				if state.countries.has(enemy) and not enemies.has(enemy):
+					enemies.append(enemy)
+	if not enemies.is_empty() and state.rng.randf() < float(rules.get("strike_chance", 0.0)):
+		var target := _strike_target(state, tag, enemies)
+		if not target.is_empty():
+			MilitaryActions.execute(state, tag, MilitaryActions.STRIKE, MilitaryActions.BUILDING, str(target["province"]),
+				str(target["building"]))
+		elif not fronts.is_empty() and MilitaryActions.refusal(state, tag, MilitaryActions.STRIKE, MilitaryActions.FRONT,
+				fronts[0].key).is_empty():
+			MilitaryActions.execute(state, tag, MilitaryActions.STRIKE, MilitaryActions.FRONT, fronts[0].key)
+	if not fronts.is_empty() and state.rng.randf() < float(rules.get("special_chance", 0.0)) \
+			and MilitaryActions.refusal(state, tag, MilitaryActions.SPECIAL, MilitaryActions.FRONT, fronts[0].key).is_empty() \
+			and MilitaryActions.chance(state, tag, MilitaryActions.SPECIAL, MilitaryActions.FRONT, fronts[0].key) \
+			>= float(rules.get("min_hit", 0.0)):
+		MilitaryActions.execute(state, tag, MilitaryActions.SPECIAL, MilitaryActions.FRONT, fronts[0].key)
+	# Les cyberattaques offensives en temps de paix restent le fait de régimes non démocratiques.
+	if country.politics.democratic or MilitaryActions.gauge(state, tag, "cyber") < float(rules.get("cyber_min_points", INF)) \
+			or state.rng.randf() >= float(rules.get("cyber_chance", 0.0)):
+		return
+	var victim := ""
+	var lowest := float(rules.get("cyber_max_relation", 0.0))
+	for other: String in state.countries.keys():
+		var relation := state.diplomacy.relation(tag, other)
+		if other != tag and relation < lowest:
+			victim = other
+			lowest = relation
+	if not victim.is_empty() and MilitaryActions.refusal(state, tag, MilitaryActions.CYBER, MilitaryActions.ECONOMY,
+			victim).is_empty():
+		MilitaryActions.execute(state, tag, MilitaryActions.CYBER, MilitaryActions.ECONOMY, victim)
+
+
+## Centrale électrique ennemie à frapper (la plus puissante), si une frappe a des chances raisonnables.
+func _strike_target(state: SimState, tag: String, enemies: Array[String]) -> Dictionary:
+	var rules: Dictionary = MilitaryActions.settings_of(state).get("ai", {})
+	var buildings: Dictionary = state.energy_definitions.get("buildings", {})
+	var best: Dictionary = {}
+	var best_capacity := 0.0
+	for enemy: String in enemies:
+		for province_id: Variant in state.provinces_by_owner.get(enemy, []):
+			var key := str(province_id)
+			if ControlSystem.controller(state, key) != enemy:
+				continue
+			for building_id: Variant in (state.buildings.get(key, {}) as Dictionary).keys():
+				var capacity := float((buildings.get(building_id, {}) as Dictionary).get("capacity_gw", 0.0))
+				if capacity > best_capacity and MilitaryActions.refusal(state, tag, MilitaryActions.STRIKE,
+						MilitaryActions.BUILDING, key, str(building_id)).is_empty():
+					best = {"province": key, "building": str(building_id)}
+					best_capacity = capacity
+	if best.is_empty() or MilitaryActions.chance(state, tag, MilitaryActions.STRIKE, MilitaryActions.BUILDING,
+			str(best["province"])) < float(rules.get("min_hit", 0.0)):
+		return {}
+	return best
 
 
 # --- Marine ---------------------------------------------------------------------------------------------------

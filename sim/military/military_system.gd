@@ -27,6 +27,7 @@ func on_day(state: SimState) -> void:
 	NavalModel.update_blockades(state)
 	NavalModel.update_straits(state)
 	LandingSystem.update_day(state)
+	MilitaryActions.update_day(state)
 	WarSystem.check_civil_wars(state)
 
 
@@ -62,6 +63,7 @@ func on_month(state: SimState) -> void:
 			state.military.ai.decide_month(country, state)
 	WarSystem.update_month(state)
 	NavalModel.repair_month(state)
+	MilitaryActions.update_month(state)
 
 
 ## Puissance militaire d'un pays (0 sans armée).

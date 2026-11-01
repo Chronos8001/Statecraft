@@ -3,12 +3,12 @@ extends RefCounted
 ## Résolution des combats (module remplaçable via MilitaryRegistry ; un DLC peut le remplacer par une
 ## résolution détaillée). Chaque jour et sur chaque front, chaque camp pousse sur une province ennemie :
 ##
-## poussée = forces engagées × attaque de la posture × aviation × ravitaillement ;
+## poussée = forces engagées × attaque de la posture × aviation × ravitaillement × (1 - frappes et raids subis) ;
 ## tenue = forces adverses × défense de leur posture × aviation × ravitaillement × défense du terrain visé.
 ## Si la poussée dépasse la tenue, le camp gagne avance/jour × avance de la posture × log2(poussée / tenue)
 ## (plafonné) d'une part de la province visée, qui change de contrôleur à 100 %.
 ## Aviation : 1 ± maximum × (2 × part de l'aviation des deux camps de la guerre - 1).
-## Ravitaillement : (base + poids × infrastructures du front) × (1 - pénalité au-delà d'une distance libre
+## Ravitaillement : (base + poids × infrastructures du front, moins les dégâts des frappes) × (1 - pénalité au-delà d'une distance libre
 ## depuis la province la plus peuplée), borné ; forfait pour les rebelles.
 ## Pertes : soldats engagés × taux × pertes de la posture × (forces adverses / nos forces)^exposant (borné) ;
 ## elles usent l'équipement et le moral de l'armée de terre.
@@ -52,7 +52,8 @@ func resolve_day(state: SimState) -> void:
 			var men := float((engaged[tag] as Dictionary).get(front.key, 0.0))
 			front.engaged[tag] = men
 			front.strength[tag] = men * FrontSystem.quality(state, tag) \
-				* air_factor(state, war, tag, airs[war.id]) * supply(state, front, tag, str(seats[tag]))
+				* air_factor(state, war, tag, airs[war.id]) * supply(state, front, tag, str(seats[tag])) \
+				* (1.0 - MilitaryActions.front_penalty(state, front, tag))
 	for front: Front in fronts:
 		var war: War = state.wars.get(front.war_id)
 		if war == null:
@@ -158,7 +159,8 @@ static func supply(state: SimState, front: Front, tag: String, seat_id: String) 
 	var definitions: Dictionary = state.energy_definitions.get("provinces", {})
 	var infrastructure := 0.0
 	for province_id: Variant in provinces:
-		infrastructure += float((definitions.get(str(province_id), {}) as Dictionary).get("infrastructure", 0.0))
+		infrastructure += maxf(float((definitions.get(str(province_id), {}) as Dictionary).get("infrastructure", 0.0))
+			- float(state.infrastructure_damage.get(str(province_id), 0.0)), 0.0)
 	infrastructure /= provinces.size()
 	var value := float(rules.get("infrastructure_base", 1.0)) + float(rules.get("infrastructure_weight", 0.0)) * infrastructure
 	if not seat_id.is_empty():
