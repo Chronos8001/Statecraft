@@ -131,6 +131,8 @@ static func threat(state: SimState, tag: String, province_id: String, settings: 
 		var other := ControlSystem.controller(state, neighbor_id)
 		if other.is_empty() or other == tag:
 			continue
+		if WarSystem.at_war(state, tag, other):
+			return front * float(settings.get("near_front", 1.0))
 		var key := tag + ">" + other
 		if not relations.has(key):
 			relations[key] = state.diplomacy.relation(tag, other)

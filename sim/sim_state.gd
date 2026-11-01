@@ -62,6 +62,13 @@ var province_neighbors: Dictionary = {}
 ## Groupes d'armées : id → ArmyGroup.
 var army_groups: Dictionary = {}
 var next_army_group_id: int = 1
+## Guerres en cours : id → War ; factions rebelles : id → RebelFaction ; buts de guerre (data/war_goals).
+var wars: Dictionary = {}
+var next_war_id: int = 1
+var rebels: Dictionary = {}
+var war_goal_definitions: Dictionary = {}
+## Appels aux armes adressés au joueur, en attente de réponse : [{war, ally, side, days_left}].
+var calls_to_arms: Array[Dictionary] = []
 ## Taille de l'image de la carte (pixels), pour les distances entre provinces.
 var map_size: Vector2 = Vector2(360.0, 180.0)
 ## Personnages créés pendant la partie (ministres, successeurs) : identifiant → personnage.

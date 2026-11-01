@@ -74,6 +74,7 @@ static func _advance(country: CountryState, state: SimState) -> void:
 				country.society.start_stability += float(settings.get("peace_stability", 0.0)) \
 					if bool(crisis.get("initial", false)) else 0.0
 				state.add_event(EVENT_ENDED, country.tag, {"crisis": CIVIL_WAR})
+				WarSystem.end_civil_war(state, country.tag)
 				continue
 		elif int(crisis["months_left"]) <= 0:
 			state.add_event(EVENT_ENDED, country.tag, {"crisis": crisis["type"], "group": crisis.get("group", "")})
@@ -147,6 +148,7 @@ static func start_civil_war(country: CountryState, state: SimState, definition: 
 	if not initial:
 		TensionSystem.add_event(state, "civil_war")
 		state.add_event(EVENT_STARTED, country.tag, {"crisis": CIVIL_WAR})
+		WarSystem.start_civil_war(state, country.tag)
 
 
 ## Coup d'État : armée mécontente, pouvoir peu légitime, démocratie fragile ou absente.
