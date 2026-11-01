@@ -996,7 +996,46 @@
       },
       "civil_war": {
         "province_share": 0.25,
-        "start_share": 0.3
+        "start_share": 0.3,
+        "rebel_strength": 0.4,
+        "rebel_defeated_share": 0.05,
+        "rebel_level": 1.5,
+        "rebel_training": 35.0,
+        "rebel_morale": 65.0
+      }
+    },
+    "combat": {
+      "postures": {
+        "offensive": {"attack": 1.0, "defense": 0.8, "advance": 1.0, "losses": 1.5},
+        "defensive": {"attack": 0.6, "defense": 1.2, "advance": 0.3, "losses": 1.0},
+        "hold": {"attack": 0.0, "defense": 1.4, "advance": 0.0, "losses": 0.7},
+        "retreat": {"attack": 0.0, "defense": 0.5, "advance": 0.0, "losses": 0.4}
+      },
+      "default_posture": "defensive",
+      "advance_per_day": 0.0015,
+      "max_odds_log": 2.0,
+      "garrison_share": 0.05,
+      "loss_rate": 0.0004,
+      "loss_odds_exponent": 0.5,
+      "loss_odds_min": 0.25,
+      "loss_odds_max": 4.0,
+      "replacement": 0.08,
+      "equipment_wear": 1.0,
+      "morale_per_loss": 200.0,
+      "morale_capture": 3.0,
+      "air_max": 0.25,
+      "supply": {
+        "infrastructure_base": 0.7,
+        "infrastructure_weight": 0.03,
+        "free_km": 500.0,
+        "penalty_per_1000_km": 0.15,
+        "min": 0.4,
+        "rebel": 0.8
+      },
+      "ai": {
+        "offensive_ratio": 1.5,
+        "hold_ratio": 0.6,
+        "rebel_offensive_ratio": 1.2
       }
     }
   },
