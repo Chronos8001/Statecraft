@@ -69,7 +69,7 @@ static func setup_start(state: SimState) -> void:
 			_rebel_hold(state, faction.id, str(int(pair[0])), float(pair[1]))
 		var war := _create(state, [faction.id], [tag], "", [])
 		war.civil = true
-		war.seat = _country_seat(state, tag)
+		war.seat = country_seat(state, tag)
 		if values.size() > 3:
 			war.start_date = str(values[3])
 			war.days = maxi(state.date.to_day_number() - _day_number(war.start_date), 0)
@@ -91,7 +91,7 @@ static func _arm_faction(state: SimState, faction: RebelFaction) -> void:
 
 
 ## Province la plus peuplée d'un pays (qu'il la contrôle ou non).
-static func _country_seat(state: SimState, tag: String) -> String:
+static func country_seat(state: SimState, tag: String) -> String:
 	var provinces: Dictionary = state.energy_definitions.get("provinces", {})
 	var best := ""
 	for province_id: String in state.province_control.keys():
@@ -664,7 +664,7 @@ static func start_civil_war(state: SimState, tag: String) -> void:
 		_rebel_hold(state, faction.id, own[index], float(rules.get("start_share", 0.0)))
 	var war := _create(state, [faction.id], [tag], "", [])
 	war.civil = true
-	war.seat = _country_seat(state, tag)
+	war.seat = country_seat(state, tag)
 	state.add_event(EVENT_DECLARED, faction.id, {"target": tag, "war": war.id, "civil": true})
 
 

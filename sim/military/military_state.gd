@@ -16,6 +16,10 @@ var start_priorities: Dictionary = {}
 var special: Dictionary = {}
 var start_special: Dictionary = {}
 var nuclear_warheads: int = 0
+## Niveau d'alerte nucléaire (0 : normal … 3 : maximal, seul niveau qui permet une frappe) et mois avant de
+## pouvoir le changer.
+var nuclear_alert: int = 0
+var alert_cooldown: int = 0
 ## Service militaire (loi « conscription ») : option de départ, et facteurs du moment appliqués aux effectifs
 ## d'active et de réserve de départ (ils rejoignent peu à peu ceux de l'option en vigueur).
 var start_conscription: String = ""

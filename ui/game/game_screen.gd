@@ -760,6 +760,18 @@ func _on_naval_event(event: Dictionary) -> bool:
 		LandingSystem.EVENT_EVACUATED:
 			if tag == player:
 				_notify(tr("NOTIFY_BEACHHEAD_LOST") % _province_label(str(event.get("province", ""))))
+		NuclearSystem.EVENT_STRIKE:
+			var key := "NOTIFY_NUCLEAR_RETALIATION" if bool(event.get("retaliation", false)) else "NOTIFY_NUCLEAR_STRIKE"
+			_notify(tr(key) % [MilitaryUI.side_name(state, tag), _province_label(str(event.get("province", ""))),
+				MilitaryUI.side_name(state, str(event.get("target", "")))])
+		NuclearSystem.EVENT_PROGRAM:
+			var step := str(event.get("step", ""))
+			if step == "detected" or step == "completed" or tag == player:
+				_notify(tr("NOTIFY_NUCLEAR_PROGRAM_%s" % step.to_upper()) % MilitaryUI.side_name(state, tag))
+		NuclearSystem.EVENT_ALERT:
+			if int(event.get("level", 0)) >= NuclearSystem.MAX_ALERT or tag == player:
+				_notify(tr("NOTIFY_NUCLEAR_ALERT") % [MilitaryUI.side_name(state, tag),
+					tr("NUCLEAR_ALERT_%d" % int(event.get("level", 0))).to_lower()])
 		MilitaryActions.EVENT_ACTION:
 			var target := str(event.get("target", ""))
 			var action := str(event.get("action", ""))

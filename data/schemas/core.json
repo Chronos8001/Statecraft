@@ -4255,6 +4255,17 @@
         "values": {
           "type": "string"
         }
+      },
+      "nuclear_programs": {
+        "type": "object",
+        "properties": {
+          "comment": {
+            "type": "string"
+          }
+        },
+        "values": {
+          "type": "any"
+        }
       }
     }
   },

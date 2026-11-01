@@ -81,6 +81,7 @@ func decide_month(country: CountryState, state: SimState) -> void:
 	_join_wars(tag, state)
 	_declare_war(country, state)
 	use_actions(country, state)
+	nuclear_doctrine(country, state)
 
 
 # --- Paix ----------------------------------------------------------------------------------------------------
@@ -314,6 +315,53 @@ func decide_week(tag: String, state: SimState) -> void:
 	if not WarSystem.is_rebel(state, tag):
 		FrontSystem.auto_deploy(state, tag)
 	choose_postures(tag, state)
+
+
+# --- Nucléaire ------------------------------------------------------------------------------------------------
+
+## Doctrine : alerte relevée en guerre contre une puissance nucléaire, maximale face à une menace existentielle
+## (province la plus peuplée prise ou large part de la population occupée) ; alors seulement, une faible chance
+## chaque mois de frapper une province tenue par l'ennemi sur le front. Retour à l'alerte normale en paix.
+func nuclear_doctrine(country: CountryState, state: SimState) -> void:
+	var tag := country.tag
+	if NuclearSystem.warheads(state, tag) <= 0 or NuclearSystem.settings_of(state).is_empty():
+		return
+	var rules: Dictionary = NuclearSystem.settings_of(state).get("ai", {})
+	var target_level := 0
+	var threat: War = null
+	for war: War in WarSystem.wars_of(state, tag):
+		if war.civil:
+			continue
+		for enemy: String in war.enemies_of(tag):
+			if NuclearSystem.warheads(state, enemy) > 0:
+				target_level = maxi(target_level, 1)
+		if existential(state, war, tag):
+			target_level = NuclearSystem.MAX_ALERT
+			threat = war
+	if target_level != country.military.nuclear_alert \
+			and NuclearSystem.alert_refusal(state, tag, target_level).is_empty():
+		NuclearSystem.set_alert(state, tag, target_level)
+	if threat == null or country.military.nuclear_alert < NuclearSystem.MAX_ALERT \
+			or state.rng.randf() >= float(rules.get("use_chance", 0.0)):
+		return
+	for front: Front in FrontSystem.fronts_of(state, tag):
+		if front.war_id != threat.id:
+			continue
+		var enemy := front.other(tag)
+		for province_id: Variant in front.provinces_of(enemy):
+			if NuclearSystem.strike_refusal(state, tag, str(province_id)).is_empty():
+				NuclearSystem.strike(state, tag, str(province_id))
+				return
+
+
+## Menace existentielle : notre province la plus peuplée tenue par l'ennemi, ou une large part de notre population
+## sous occupation.
+func existential(state: SimState, war: War, tag: String) -> bool:
+	var seat := WarSystem.country_seat(state, tag)
+	if not seat.is_empty() and war.enemies_of(tag).has(ControlSystem.controller(state, seat)):
+		return true
+	var rules: Dictionary = NuclearSystem.settings_of(state).get("ai", {})
+	return WarSystem.occupied_percent(state, war, war.side_of(tag)) >= float(rules.get("occupied_percent", INF))
 
 
 # --- Actions ponctuelles --------------------------------------------------------------------------------------

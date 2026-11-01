@@ -86,6 +86,10 @@ var war_closed_straits: Dictionary = {}
 var front_penalties: Dictionary = {}
 var infrastructure_damage: Dictionary = {}
 var attack_effects: Dictionary = {}
+## Nucléaire : programmes militaires en cours (tag → {months_left, detected}) et provinces dévastées
+## (id → mois restants).
+var nuclear_programs: Dictionary = {}
+var devastated: Dictionary = {}
 ## Pays voisins par la terre (tag → {tag: true}), d'après les propriétaires des provinces au départ.
 var land_neighbors: Dictionary = {}
 ## Guerres en cours : id → War ; factions rebelles : id → RebelFaction ; buts de guerre (data/war_goals).
