@@ -14,6 +14,7 @@ signal laws_requested
 signal government_requested
 signal military_requested
 signal world_requested
+signal research_requested
 
 const TREASURY_INDEX := 0
 const STABILITY_INDEX := 1
@@ -58,6 +59,14 @@ func _ready() -> void:
 	_slower_button.pressed.connect(func() -> void: GameClock.set_speed(GameClock.speed - 1))
 	_faster_button.pressed.connect(func() -> void: GameClock.set_speed(GameClock.speed + 1))
 	_economy_button.pressed.connect(func() -> void: economy_requested.emit())
+	# Bouton Recherche, après le bouton Armée.
+	var research_button := Button.new()
+	research_button.text = "TOPBAR_RESEARCH_BUTTON"
+	research_button.tooltip_text = "TOPBAR_RESEARCH_BUTTON_TOOLTIP"
+	research_button.focus_mode = Control.FOCUS_NONE
+	research_button.add_theme_font_size_override("font_size", COMPACT_FONT_SIZE)
+	_military_button.add_sibling(research_button)
+	research_button.pressed.connect(func() -> void: research_requested.emit())
 	_budget_button.pressed.connect(func() -> void: budget_requested.emit())
 	_markets_button.pressed.connect(func() -> void: markets_requested.emit())
 	_trade_button.pressed.connect(func() -> void: trade_requested.emit())

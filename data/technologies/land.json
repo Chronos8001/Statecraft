@@ -1,0 +1,10 @@
+{
+  "drone_warfare": {"name_key": "TECH_DRONE_WARFARE", "tree": "land", "year": 2026, "cost": 150, "requires": [], "effects": {"military:land": 0.1}, "start": {"military": ["land", 2.5]}},
+  "counter_drone": {"name_key": "TECH_COUNTER_DRONE", "tree": "land", "year": 2027, "cost": 250, "requires": ["drone_warfare"], "effects": {"military:land": 0.1}, "start": {"military": ["land", 3.8]}},
+  "active_protection": {"name_key": "TECH_ACTIVE_PROTECTION", "tree": "land", "year": 2028, "cost": 350, "requires": [], "effects": {"military:land": 0.1}, "start": {"military": ["land", 4.0]}},
+  "robotic_vehicles": {"name_key": "TECH_ROBOTIC_VEHICLES", "tree": "land", "year": 2031, "cost": 600, "requires": ["counter_drone"], "effects": {"military:land": 0.2}},
+  "exoskeletons": {"name_key": "TECH_EXOSKELETONS", "tree": "land", "year": 2033, "cost": 700, "requires": [], "effects": {"military:land": 0.2}},
+  "laser_air_defense": {"name_key": "TECH_LASER_AIR_DEFENSE", "tree": "land", "year": 2034, "cost": 900, "requires": ["counter_drone"], "effects": {"military:land": 0.1, "special:missiles": 5.0}},
+  "hypersonic_artillery": {"name_key": "TECH_HYPERSONIC_ARTILLERY", "tree": "land", "year": 2035, "cost": 800, "requires": [], "effects": {"special:missiles": 5.0, "military:land": 0.1}},
+  "autonomous_brigades": {"name_key": "TECH_AUTONOMOUS_BRIGADES", "tree": "land", "year": 2040, "cost": 1200, "requires": ["robotic_vehicles"], "effects": {"military:land": 0.3}}
+}

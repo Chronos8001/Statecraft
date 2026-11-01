@@ -1,0 +1,7 @@
+{
+  "digital_government": {"name_key": "TECH_DIGITAL_GOVERNMENT", "tree": "social", "year": 2026, "cost": 150, "requires": [], "effects": {"stability": 1.0}, "start": {"index": 55}},
+  "online_education": {"name_key": "TECH_ONLINE_EDUCATION", "tree": "social", "year": 2027, "cost": 200, "requires": [], "effects": {"education": 2.0}, "start": {"index": 40}},
+  "digital_identity": {"name_key": "TECH_DIGITAL_IDENTITY", "tree": "social", "year": 2029, "cost": 300, "requires": ["digital_government"], "effects": {"stability": 1.0}},
+  "smart_cities": {"name_key": "TECH_SMART_CITIES", "tree": "social", "year": 2032, "cost": 600, "requires": [], "effects": {"growth": 0.05, "stability": 1.0}},
+  "participatory_platforms": {"name_key": "TECH_PARTICIPATORY_PLATFORMS", "tree": "social", "year": 2035, "cost": 600, "requires": ["digital_identity"], "effects": {"stability": 2.0}}
+}

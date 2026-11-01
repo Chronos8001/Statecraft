@@ -1,0 +1,9 @@
+{
+  "reusable_rockets": {"name_key": "TECH_REUSABLE_ROCKETS", "tree": "space", "year": 2026, "cost": 200, "requires": [], "effects": {"growth": 0.02}, "start": {"countries": ["USA", "CHN"]}},
+  "military_satellites": {"name_key": "TECH_MILITARY_SATELLITES", "tree": "space", "year": 2026, "cost": 300, "requires": [], "effects": {"special:missiles": 5.0, "military:air": 0.05, "intel": 5.0}, "start": {"countries": ["USA", "CHN", "RUS", "FRA", "GBR", "IND", "ISR", "JPN"]}},
+  "satellite_internet": {"name_key": "TECH_SATELLITE_INTERNET", "tree": "space", "year": 2027, "cost": 300, "requires": ["reusable_rockets"], "effects": {"growth": 0.05}, "start": {"countries": ["USA"]}},
+  "anti_satellite": {"name_key": "TECH_ANTI_SATELLITE", "tree": "space", "year": 2030, "cost": 600, "requires": ["military_satellites"], "effects": {"special:missiles": 5.0}},
+  "lunar_base": {"name_key": "TECH_LUNAR_BASE", "tree": "space", "year": 2036, "cost": 1500, "requires": ["reusable_rockets"], "effects": {"research": 5.0, "stability": 1.0}},
+  "orbital_manufacturing": {"name_key": "TECH_ORBITAL_MANUFACTURING", "tree": "space", "year": 2040, "cost": 1300, "requires": ["satellite_internet"], "effects": {"growth": 0.1}},
+  "asteroid_mining": {"name_key": "TECH_ASTEROID_MINING", "tree": "space", "year": 2046, "cost": 2000, "requires": ["orbital_manufacturing"], "effects": {"growth": 0.15}}
+}

@@ -1035,3 +1035,179 @@ DIPLOMACY_OUR_OVERLORD,Our overlord,Notre suzerain
 MILITARY_WAR_RESISTANCE,Resistance in %d occupied provinces: losses and damaged supply lines,Résistance dans %d provinces occupées : pertes et ravitaillement gêné
 NOTIFY_PUPPET_INSTALLED,%s becomes a puppet government of %s.,%s devient un gouvernement fantoche : %s.
 NOTIFY_PUPPET_INDEPENDENCE,%s declares its independence from %s!,%s proclame son indépendance face à : %s !
+TECH_DIGITAL_PAYMENTS,Digital payments,Paiements numériques
+TECH_PLATFORM_ECONOMY,Platform economy,Économie des plateformes
+TECH_SMART_LOGISTICS,Smart logistics,Logistique intelligente
+TECH_TOKENIZED_FINANCE,Tokenized finance,Finance tokenisée
+TECH_PREDICTIVE_ECONOMICS,Predictive economic management,Pilotage économique prédictif
+TECH_CIRCULAR_ECONOMY,Circular economy,Économie circulaire
+TECH_GLOBAL_DIGITAL_CURRENCY,Interoperable digital currencies,Monnaies numériques interopérables
+TECH_ABUNDANCE_ECONOMY,Economy of abundance,Économie d'abondance
+TREE_ECONOMY,Economy,Économie
+TECH_INDUSTRIAL_ROBOTS,Industrial robotics,Robotique industrielle
+TECH_ADDITIVE_MANUFACTURING,Additive manufacturing,Fabrication additive
+TECH_SMART_FACTORIES,Smart factories,Usines intelligentes
+TECH_ADVANCED_CHIPS,2-nanometre chips,Puces de 2 nanomètres
+TECH_ADVANCED_MATERIALS,Advanced materials,Matériaux avancés
+TECH_NANOMANUFACTURING,Nanomanufacturing,Nanofabrication
+TECH_MOLECULAR_ASSEMBLY,Molecular assembly,Assemblage moléculaire
+TREE_INDUSTRY,Industry,Industrie
+TECH_GRID_STORAGE,Grid-scale storage,Stockage à l'échelle du réseau
+TECH_OFFSHORE_WIND,Giant offshore wind turbines,Éoliennes géantes en mer
+TECH_PEROVSKITE_SOLAR,Perovskite solar cells,Cellules solaires pérovskites
+TECH_SMART_GRID,Smart grids,Réseaux intelligents
+TECH_SMALL_MODULAR_REACTORS,Small modular reactors,Petits réacteurs modulaires
+TECH_SOLID_STATE_BATTERIES,Solid-state batteries,Batteries solides
+TECH_GREEN_HYDROGEN,Green hydrogen,Hydrogène vert
+TECH_NUCLEAR_FUSION,Nuclear fusion,Fusion nucléaire
+TECH_HIGH_TEMPERATURE_SUPERCONDUCTORS,High-temperature superconductors,Supraconducteurs à haute température
+TREE_ENERGY,Energy,Énergie
+TECH_DRONE_WARFARE,Battlefield drones,Drones de champ de bataille
+TECH_COUNTER_DRONE,Counter-drone systems,Systèmes anti-drones
+TECH_ACTIVE_PROTECTION,Active protection systems,Protection active des blindés
+TECH_ROBOTIC_VEHICLES,Robotic combat vehicles,Véhicules de combat robotisés
+TECH_EXOSKELETONS,Military exoskeletons,Exosquelettes militaires
+TECH_LASER_AIR_DEFENSE,Laser air defence,Défense antiaérienne laser
+TECH_HYPERSONIC_ARTILLERY,Long-range hypersonic artillery,Artillerie hypersonique à longue portée
+TECH_AUTONOMOUS_BRIGADES,Autonomous brigades,Brigades autonomes
+TREE_LAND,Land warfare,Guerre terrestre
+TECH_FIFTH_GEN_FIGHTERS,5th-generation fighters,Chasseurs de 5e génération
+TECH_HYPERSONIC_MISSILES,Hypersonic missiles,Missiles hypersoniques
+TECH_LOYAL_WINGMEN,Loyal wingman drones,Drones ailiers
+TECH_NEXT_STEALTH_BOMBERS,Next-generation stealth bombers,Bombardiers furtifs de nouvelle génération
+TECH_DRONE_SWARMS,Drone swarms,Essaims de drones
+TECH_SIXTH_GEN_FIGHTERS,6th-generation fighters,Chasseurs de 6e génération
+TECH_AIRBORNE_LASERS,Airborne lasers,Lasers aéroportés
+TREE_AIR,Air warfare,Guerre aérienne
+TECH_NAVAL_DRONES,Naval drones,Drones navals
+TECH_ANTI_SHIP_HYPERSONICS,Hypersonic anti-ship missiles,Missiles antinavires hypersoniques
+TECH_ELECTRIC_PROPULSION,Integrated electric propulsion,Propulsion électrique intégrée
+TECH_NAVAL_LASERS,Shipborne lasers,Lasers embarqués
+TECH_AUTONOMOUS_SUBMARINES,Autonomous submarines,Sous-marins autonomes
+TECH_NEXT_GEN_CARRIERS,Next-generation carriers,Porte-avions de nouvelle génération
+TECH_RAILGUNS,Electromagnetic railguns,Canons électromagnétiques
+TECH_SEABED_WARFARE,Seabed warfare,Guerre des fonds marins
+TREE_NAVAL,Naval warfare,Guerre navale
+TECH_ZERO_TRUST,Zero-trust networks,Réseaux à confiance zéro
+TECH_AI_CYBER_DEFENSE,AI cyber defence,Cyberdéfense par IA
+TECH_POST_QUANTUM_CRYPTO,Post-quantum cryptography,Cryptographie post-quantique
+TECH_OFFENSIVE_CYBER_AI,AI offensive cyber tools,Outils cyberoffensifs par IA
+TECH_RESILIENT_INFRASTRUCTURE,Cyber-resilient infrastructure,Infrastructures cyber-résilientes
+TECH_COGNITIVE_WARFARE,Cognitive warfare,Guerre cognitive
+TECH_QUANTUM_NETWORKS,Quantum networks,Réseaux quantiques
+TREE_CYBER,Cyber,Cyber
+TECH_LARGE_LANGUAGE_MODELS,Large language models,Grands modèles de langage
+TECH_AI_ASSISTANTS,AI assistants at work,Assistants IA au travail
+TECH_AUTONOMOUS_VEHICLES,Autonomous vehicles,Véhicules autonomes
+TECH_AI_SCIENTISTS,AI-driven research,Recherche pilotée par l'IA
+TECH_QUANTUM_COMPUTING,Quantum computing,Informatique quantique
+TECH_HUMANOID_ROBOTS,Humanoid robots,Robots humanoïdes
+TECH_GENERAL_AI,Artificial general intelligence,Intelligence artificielle générale
+TREE_AI,Artificial intelligence,Intelligence artificielle
+TECH_REUSABLE_ROCKETS,Reusable rockets,Fusées réutilisables
+TECH_MILITARY_SATELLITES,Military satellites,Satellites militaires
+TECH_SATELLITE_INTERNET,Satellite internet constellations,Constellations internet par satellite
+TECH_ANTI_SATELLITE,Anti-satellite weapons,Armes antisatellites
+TECH_LUNAR_BASE,Permanent lunar base,Base lunaire permanente
+TECH_ORBITAL_MANUFACTURING,Orbital manufacturing,Fabrication en orbite
+TECH_ASTEROID_MINING,Asteroid mining,Exploitation des astéroïdes
+TREE_SPACE,Space,Espace
+TECH_MRNA_PLATFORMS,mRNA platforms,Plateformes à ARN messager
+TECH_CRISPR_THERAPIES,CRISPR gene therapies,Thérapies géniques CRISPR
+TECH_DROUGHT_RESISTANT_CROPS,Drought-resistant crops,Cultures résistantes à la sécheresse
+TECH_SYNTHETIC_BIOLOGY,Synthetic biology,Biologie de synthèse
+TECH_LAB_GROWN_FOOD,Lab-grown food,Alimentation cultivée en laboratoire
+TECH_BIOMANUFACTURING,Biomanufacturing,Biofabrication
+TECH_LONGEVITY_THERAPIES,Longevity therapies,Thérapies de longévité
+TREE_BIOTECH,Biotechnology,Biotechnologies
+TECH_TELEMEDICINE,Telemedicine,Télémédecine
+TECH_AI_DIAGNOSTICS,AI diagnostics,Diagnostic par IA
+TECH_PANDEMIC_SHIELD,Pandemic preparedness shield,Bouclier contre les pandémies
+TECH_PERSONALIZED_MEDICINE,Personalised medicine,Médecine personnalisée
+TECH_CANCER_VACCINES,Cancer vaccines,Vaccins contre le cancer
+TECH_BRAIN_INTERFACES,Brain–computer interfaces,Interfaces cerveau-machine
+TREE_HEALTH,Health,Santé
+TECH_DIGITAL_GOVERNMENT,Digital government,Administration numérique
+TECH_ONLINE_EDUCATION,Online education at scale,Éducation en ligne à grande échelle
+TECH_DIGITAL_IDENTITY,Universal digital identity,Identité numérique universelle
+TECH_SMART_CITIES,Smart cities,Villes intelligentes
+TECH_PARTICIPATORY_PLATFORMS,Citizen participation platforms,Plateformes de participation citoyenne
+TREE_SOCIAL,Society,Société
+TOPBAR_RESEARCH_BUTTON,Research,Recherche
+TOPBAR_RESEARCH_BUTTON_TOOLTIP,Technologies and research slots,Technologies et emplacements de recherche
+RESEARCH_TITLE,Research and technology,Recherche et technologie
+RESEARCH_POINTS,Research points per month,Points de recherche par mois
+RESEARCH_RD_SPENDING,R&D spending,Dépense de R&D
+RESEARCH_RD_VALUE,%s%% of GDP (%s bn $ a year),%s %% du PIB (%s Md$ par an)
+RESEARCH_UNIVERSITIES,Top-200 universities,Universités du top 200
+RESEARCH_KNOWN,Technologies known,Technologies connues
+RESEARCH_INDEX,Technology index,Indice technologique
+RESEARCH_SLOTS,Research slots,Emplacements de recherche
+RESEARCH_SLOT_EMPTY,Empty slot: choose a technology below,Emplacement libre : choisissez une technologie ci-dessous
+RESEARCH_MONTHS,%d months,%d mois
+RESEARCH_REMOVE,Remove,Retirer
+RESEARCH_REMOVE_TOOLTIP,Frees the slot; the progress made is kept.,Libère l'emplacement ; l'avancement est gardé.
+RESEARCH_TREE,Tree:,Arbre :
+RESEARCH_COST,cost %d,coût %d
+RESEARCH_REQUIRES,requires %s,exige %s
+RESEARCH_START,Research,Rechercher
+RESEARCH_START_TOOLTIP,Put this technology in a free slot.,Mettre cette technologie dans un emplacement libre.
+RESEARCH_EFFECT_PENDING,(later),(à venir)
+RESEARCH_INVALID,Not possible.,Impossible.
+RESEARCH_TOO_EARLY,Not available yet.,Pas encore disponible.
+RESEARCH_MISSING_PREREQUISITE,A prerequisite is missing.,Un prérequis manque.
+RESEARCH_ALREADY,Already being researched.,Déjà en cours de recherche.
+RESEARCH_NO_SLOT,No free research slot.,Aucun emplacement de recherche libre.
+TECH_EFFECT_GROWTH,growth,croissance
+TECH_EFFECT_RESEARCH,research %,recherche %
+TECH_EFFECT_STABILITY,stability,stabilité
+TECH_EFFECT_MILITARY_LAND,army equipment,équipement de l'armée de terre
+TECH_EFFECT_MILITARY_AIR,air force equipment,équipement de l'armée de l'air
+TECH_EFFECT_MILITARY_SEA,navy equipment,équipement de la marine
+TECH_EFFECT_SPECIAL_MISSILES,missiles,missiles
+TECH_EFFECT_SPECIAL_CYBER,cyber,cyber
+TECH_EFFECT_SPECIAL_SPECIAL_FORCES,special forces,forces spéciales
+TECH_EFFECT_ENERGY_SOLAR,solar output,production solaire
+TECH_EFFECT_ENERGY_WIND,wind output,production éolienne
+TECH_EFFECT_ENERGY_NUCLEAR,nuclear output,production nucléaire
+TECH_EFFECT_ENERGY_GAS,gas power output,production des centrales à gaz
+TECH_EFFECT_HEALTH,health,santé
+TECH_EFFECT_EDUCATION,education,éducation
+TECH_EFFECT_CLIMATE,climate,climat
+TECH_EFFECT_INTEL,intelligence,renseignement
+NOTIFY_TECH_COMPLETED,New technology: %s.,Nouvelle technologie : %s.
+NOTIFY_RESEARCH_SLOT_FREE,A research slot is free: choose a technology.,Un emplacement de recherche est libre : choisissez une technologie.
+RESEARCH_ALREADY_KNOWN,Already known.,Déjà connue.
+DIPLOMACY_TECH_TITLE,Technology,Technologie
+DIPLOMACY_JOINT_PROJECT,Joint project,Projet conjoint
+DIPLOMACY_JOINT_LIKELY_YES,"Shared, faster research; both countries get the technology. Likely answer: yes.",Recherche partagée et plus rapide ; les deux pays obtiennent la technologie. Avis probable : favorable.
+DIPLOMACY_JOINT_LIKELY_NO,"Shared, faster research; both countries get the technology. Likely answer: no.",Recherche partagée et plus rapide ; les deux pays obtiennent la technologie. Avis probable : défavorable.
+DIPLOMACY_STEAL_TECH,Industrial espionage,Espionnage industriel
+DIPLOMACY_STEAL_TOOLTIP,Chance of success: %d%%. Risk of being exposed: %d%%.,Chance de réussite : %d %%. Risque d'être démasqué : %d %%.
+RESEARCH_NOTHING,Nothing to choose.,Rien à choisir.
+RESEARCH_PARTNER_CANNOT,"This country cannot research it (already known, or not yet available to it).","Ce pays ne peut pas la rechercher (déjà connue, ou pas encore à sa portée)."
+RESEARCH_RELATION_TOO_LOW,Our relations are too poor for a joint project.,Nos relations sont trop mauvaises pour un projet conjoint.
+RESEARCH_TARGET_UNKNOWN,This country does not know this technology.,Ce pays ne connaît pas cette technologie.
+RESEARCH_JOINT_WITH,(with %s),(avec %s)
+NOTIFY_JOINT_PROJECT,Joint research project with %s: %s.,Projet de recherche conjoint avec %s : %s.
+NOTIFY_JOINT_REFUSED,%s turns down the joint project.,%s décline le projet conjoint.
+NOTIFY_ESPIONAGE_SUCCESS,Industrial espionage succeeded: %s.,Espionnage industriel réussi : %s.
+NOTIFY_ESPIONAGE_FAILURE,Industrial espionage failed: %s.,Espionnage industriel raté : %s.
+NOTIFY_ESPIONAGE_SUFFERED,"Industrial espionage against us, traced back to %s.","Espionnage industriel contre nous, attribué à : %s."
+RESEARCH_NOT_ALLIED,Weapons are only co-developed with allies.,L'armement ne se co-développe qu'entre alliés.
+AI_RACE_TITLE,AI race,Course à l'IA
+AI_RACE_LEVEL,AI level,Niveau d'IA
+AI_RACE_LEVEL_RANK,%s (no. %d worldwide),%s (%de mondial)
+AI_RACE_REGULATION,Regulation,Régulation
+AI_RACE_GROWTH,Growth from AI,Croissance due à l'IA
+AI_RACE_UNEMPLOYMENT,Automation unemployment,Chômage d'automatisation
+AI_RACE_STABILITY,AI disinformation (stability),Désinformation par IA (stabilité)
+AI_RACE_AGI_MARK,(general AI first),(1er à l'IA générale)
+AI_PLAN,National AI plan,Plan national d'IA
+AI_PLAN_MONTHS,%d months left,%d mois restants
+AI_PLAN_LAUNCH,Launch a national AI plan,Lancer un plan national d'IA
+AI_PLAN_TOOLTIP,Costs %s bn USD a month for %d months: faster adoption and a higher AI level.,Coûte %s Md USD par mois pendant %d mois : adoption plus rapide et niveau d'IA plus élevé.
+AI_PLAN_ACTIVE,A national AI plan is already under way.,Un plan national d'IA est déjà en cours.
+NOTIFY_AI_LEADER,%s takes the lead in the AI race.,%s prend la tête de la course à l'IA.
+NOTIFY_AGI,%s is the first to reach general AI: world tension rises.,%s atteint la première l'IA générale : la tension mondiale monte.
+NOTIFY_AI_PLAN,National AI plan launched.,Plan national d'IA lancé.

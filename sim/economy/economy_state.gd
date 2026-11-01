@@ -75,6 +75,11 @@ var sanction_inflation: float = 0.0
 var aid_growth: float = 0.0
 ## Effet de la mobilisation sur la croissance.
 var military_growth: float = 0.0
+## Effet des technologies acquises pendant la partie (points de croissance).
+var research_growth: float = 0.0
+## Course à l'IA : croissance tirée de l'adoption, chômage d'automatisation (points).
+var ai_growth: float = 0.0
+var ai_unemployment: float = 0.0
 ## Effet des frappes et cyberattaques subies (points de croissance, temporaire).
 var attack_growth: float = 0.0
 var project_spending: float = 0.0

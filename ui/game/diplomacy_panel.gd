@@ -12,6 +12,7 @@ var _aid_kinds: Array[String] = []
 var _party_ids: Array[String] = []
 var _claimable: Array[String] = []
 var _war_section: WarSection
+var _tech_section: TechSection
 
 @onready var _title_label: Label = %TitleLabel
 @onready var _flag_rect: TextureRect = %FlagRect
@@ -46,6 +47,10 @@ func _ready() -> void:
 	_claim_row.get_parent().add_child(_war_section)
 	_claim_row.get_parent().move_child(_war_section, _claim_row.get_index() + 1)
 	_war_section.command_requested.connect(_submit)
+	_tech_section = TechSection.new()
+	_claim_row.get_parent().add_child(_tech_section)
+	_claim_row.get_parent().move_child(_tech_section, _war_section.get_index() + 1)
+	_tech_section.command_requested.connect(_submit)
 	_treaty_option.item_selected.connect(func(_index: int) -> void: _update_proposal())
 	_propose_button.pressed.connect(func() -> void:
 		if _treaty_option.selected >= 0 and _treaty_option.selected < _treaty_ids.size():
@@ -87,6 +92,7 @@ func refresh() -> void:
 		_treaties_box.remove_child(child)
 		child.queue_free()
 	_war_section.show_country(_tag)
+	_tech_section.show_country(_tag)
 	if player.is_empty() or player == _tag or state.diplomacy_settings.is_empty():
 		return
 	var diplomacy := state.diplomacy

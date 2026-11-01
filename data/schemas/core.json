@@ -2325,6 +2325,25 @@
               "min": 0
             }
           }
+        },
+        "research": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "rd_gdp_share",
+            "universities"
+          ],
+          "properties": {
+            "rd_gdp_share": {
+              "type": "number",
+              "min": 0,
+              "max": 10
+            },
+            "universities": {
+              "type": "int",
+              "min": 0
+            }
+          }
         }
       }
     }
@@ -4456,6 +4475,70 @@
         "tension": {
           "type": "number",
           "min": 0
+        }
+      }
+    }
+  },
+  "technologies": {
+    "type": "object",
+    "keys_pattern": "^[a-z0-9_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "tree",
+        "year",
+        "cost",
+        "requires",
+        "effects"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^TECH_[A-Z0-9_]+$"
+        },
+        "tree": {
+          "type": "string",
+          "enum": [
+            "economy",
+            "industry",
+            "energy",
+            "land",
+            "air",
+            "naval",
+            "cyber",
+            "ai",
+            "space",
+            "biotech",
+            "health",
+            "social"
+          ]
+        },
+        "year": {
+          "type": "int",
+          "min": 2026,
+          "max": 2060
+        },
+        "cost": {
+          "type": "number",
+          "min": 1
+        },
+        "requires": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "ref": "technologies"
+          }
+        },
+        "start": {
+          "type": "object"
+        },
+        "effects": {
+          "type": "object",
+          "values": {
+            "type": "number"
+          }
         }
       }
     }

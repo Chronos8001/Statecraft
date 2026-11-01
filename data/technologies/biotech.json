@@ -1,0 +1,9 @@
+{
+  "mrna_platforms": {"name_key": "TECH_MRNA_PLATFORMS", "tree": "biotech", "year": 2026, "cost": 150, "requires": [], "effects": {"health": 2.0}, "start": {"index": 75}},
+  "crispr_therapies": {"name_key": "TECH_CRISPR_THERAPIES", "tree": "biotech", "year": 2028, "cost": 400, "requires": [], "effects": {"health": 3.0, "growth": 0.03}},
+  "drought_resistant_crops": {"name_key": "TECH_DROUGHT_RESISTANT_CROPS", "tree": "biotech", "year": 2029, "cost": 400, "requires": [], "effects": {"growth": 0.03, "climate": 2.0}},
+  "synthetic_biology": {"name_key": "TECH_SYNTHETIC_BIOLOGY", "tree": "biotech", "year": 2031, "cost": 600, "requires": ["crispr_therapies"], "effects": {"growth": 0.05}},
+  "lab_grown_food": {"name_key": "TECH_LAB_GROWN_FOOD", "tree": "biotech", "year": 2033, "cost": 600, "requires": ["synthetic_biology"], "effects": {"growth": 0.03, "stability": 1.0}},
+  "biomanufacturing": {"name_key": "TECH_BIOMANUFACTURING", "tree": "biotech", "year": 2036, "cost": 900, "requires": ["synthetic_biology"], "effects": {"growth": 0.08}},
+  "longevity_therapies": {"name_key": "TECH_LONGEVITY_THERAPIES", "tree": "biotech", "year": 2040, "cost": 1500, "requires": ["crispr_therapies"], "effects": {"health": 5.0, "growth": 0.05, "stability": 2.0}}
+}

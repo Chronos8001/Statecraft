@@ -51,6 +51,18 @@ var organization_rules: Dictionary = {}
 var sanction_definitions: Dictionary = {}
 ## Types d'aide (data/aid).
 var aid_definitions: Dictionary = {}
+## Technologies (data/technologies), réglages de la recherche (defines.research) et nombre de pays qui
+## connaissent chaque technologie (recalculé chaque mois).
+var technology_definitions: Dictionary = {}
+var research_settings: Dictionary = {}
+var tech_known_counts: Dictionary = {}
+## Pays proches de chaque pays pour la diffusion (alliés et principaux partenaires commerciaux, recalculés chaque
+## mois) et projets de recherche conjoints : [{tech, members, progress}].
+var research_close: Dictionary = {}
+var joint_projects: Array[Dictionary] = []
+## Course à l'IA : classement (pays en tête d'abord) et premier pays à atteindre l'IA générale.
+var ai_ranking: Array[String] = []
+var agi_first: String = ""
 ## Forces armées : modules remplaçables (modèle, combats, IA) et réglages (defines.military).
 var military: MilitaryRegistry = MilitaryRegistry.new()
 var military_settings: Dictionary = {}

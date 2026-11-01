@@ -1,0 +1,16 @@
+{
+  "page": "List_of_countries_by_research_and_development_spending",
+  "as_of": "2026-01-01T00:00:00Z",
+  "comment_missing": "Pays absents du tableau : dépense de R&D estimée selon le PIB par habitant (base + pente × log10(PIB/hab. / référence)), bornée.",
+  "missing_rule": {"base": 0.15, "per_decade": 0.45, "reference_gdp_per_capita": 3000.0, "min": 0.03, "max": 1.2},
+  "comment_manual": "Corrections : données plus récentes ou pays absents du tableau (Taïwan, Corée du Nord…), en % du PIB.",
+  "manual_rd": {"TWN": 3.96, "PRK": 0.3, "SOL": 0.02, "CYN": 0.3, "KOS": 0.1, "PSE": 0.3},
+  "comment_universities": "Universités classées dans le top 200 mondial (moyenne approximative des classements QS et THE 2025), saisies à la main ; 0 pour les autres pays.",
+  "universities": {
+    "USA": 45, "GBR": 27, "CHN": 14, "DEU": 11, "AUS": 10, "CAN": 8, "JPN": 6, "KOR": 8, "NLD": 9, "FRA": 7,
+    "CHE": 7, "SWE": 5, "HKG": 0, "SGP": 2, "BEL": 4, "DNK": 3, "ITA": 3, "ESP": 3, "FIN": 2, "NOR": 1,
+    "NZL": 2, "IRL": 2, "AUT": 2, "TWN": 2, "IND": 2, "ISR": 2, "BRA": 1, "RUS": 1, "MYS": 2, "SAU": 2,
+    "ARG": 1, "MEX": 1, "CHL": 1, "ZAF": 1, "ARE": 1, "QAT": 1, "TUR": 0, "PRT": 1, "CZE": 1, "POL": 1,
+    "GRC": 0, "THA": 1, "IDN": 0, "KAZ": 0, "EGY": 0
+  }
+}

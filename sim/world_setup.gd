@@ -15,7 +15,7 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 		trade_definitions: Dictionary = {}, energy_definitions: Dictionary = {},
 		investment_settings: Dictionary = {}, society_definitions: Dictionary = {},
 		politics_definitions: Dictionary = {}, diplomacy_definitions: Dictionary = {},
-		military_definitions: Dictionary = {}) -> void:
+		military_definitions: Dictionary = {}, research_definitions: Dictionary = {}) -> void:
 	state.economy_settings = settings
 	state.investment_settings = investment_settings
 	state.budget_definitions = budget_definitions
@@ -100,6 +100,13 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 		MilitaryActions.setup_start(state)
 		NuclearSystem.setup_start(state)
 		state.military.model.setup_world(state, countries)
+	state.technology_definitions = research_definitions.get("technologies", {})
+	state.research_settings = research_definitions.get("settings", {})
+	if not state.technology_definitions.is_empty():
+		for tag: String in tags:
+			ResearchSystem.setup_country(state, state.countries[tag], countries[tag])
+		ResearchSystem.refresh_known_counts(state)
+		AiRaceSystem.setup_start(state)
 
 
 ## Relations de départ (données « relations » de chaque pays, symétriques), traités de 2026, ambassades et
