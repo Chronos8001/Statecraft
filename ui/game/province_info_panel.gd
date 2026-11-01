@@ -3,6 +3,7 @@ extends InfoPanel
 ## Panneau d'information d'une province ou d'une zone maritime.
 
 var _info: ProvinceInfo
+var _actions_box: VBoxContainer
 
 @onready var _name_label: Label = %NameLabel
 @onready var _id_label: Label = %IdLabel
@@ -17,7 +18,12 @@ var _info: ProvinceInfo
 
 func _ready() -> void:
 	_close_button.pressed.connect(close)
+	_actions_box = VBoxContainer.new()
+	_buildings.get_parent().add_child(_actions_box)
 	EventBus.locale_changed.connect(func(_locale: String) -> void: _refresh())
+	EventBus.command_executed.connect(func(_command: Command) -> void:
+		if visible:
+			_refresh())
 	visible = false
 
 
@@ -49,6 +55,7 @@ func _refresh() -> void:
 
 	_clear_rows(_stats_grid)
 	_buildings.show_province("" if _info.is_sea_zone else str(_info.province_id))
+	_fill_actions()
 	if _info.is_sea_zone:
 		_add_row(_stats_grid, "INFO_AREA", tr("INFO_AREA_VALUE") % NumberFormat.integer(roundi(_info.area_km2), locale))
 		_add_row(_stats_grid, "INFO_SEA_NEIGHBORS", str(_info.neighbor_count))
@@ -64,6 +71,55 @@ func _refresh() -> void:
 	_add_row(_stats_grid, "INFO_RESOURCES", _resources_text())
 	_add_row(_stats_grid, "INFO_NEIGHBORS", str(_info.neighbor_count))
 	_add_straits_row()
+
+
+## Province ennemie (en guerre) : frappe de missiles sur un bâtiment ou les infrastructures, sabotage d'un
+## bâtiment par les forces spéciales, avec la chance de réussite.
+func _fill_actions() -> void:
+	for child: Node in _actions_box.get_children():
+		_actions_box.remove_child(child)
+		child.queue_free()
+	var state := GameState.sim
+	var player := str(state.player_tag)
+	if _info.is_sea_zone or player.is_empty() or MilitaryActions.settings_of(state).is_empty():
+		return
+	var province := str(_info.province_id)
+	if not WarSystem.at_war(state, player, ControlSystem.controller(state, province)):
+		return
+	var title := Label.new()
+	title.text = "ACTIONS_TITLE"
+	title.add_theme_color_override("font_color", LABEL_COLOR)
+	_actions_box.add_child(title)
+	var buildings: Dictionary = state.buildings.get(province, {})
+	var definitions: Dictionary = state.energy_definitions.get("buildings", {})
+	for building_id: Variant in buildings.keys():
+		if int(buildings[building_id]) <= 0:
+			continue
+		var row := HBoxContainer.new()
+		var label := Label.new()
+		label.text = str((definitions.get(building_id, {}) as Dictionary).get("name_key", building_id))
+		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row.add_child(label)
+		row.add_child(_action_button(MilitaryActions.STRIKE, MilitaryActions.BUILDING, province, str(building_id)))
+		row.add_child(_action_button(MilitaryActions.SPECIAL, MilitaryActions.BUILDING, province, str(building_id)))
+		_actions_box.add_child(row)
+	_actions_box.add_child(_action_button(MilitaryActions.STRIKE, MilitaryActions.INFRASTRUCTURE, province, ""))
+
+
+func _action_button(action: String, kind: String, target: String, building: String) -> Button:
+	var state := GameState.sim
+	var button := Button.new()
+	button.focus_mode = Control.FOCUS_NONE
+	button.text = tr("ACTION_%s_%s" % [action.to_upper(), kind.to_upper()]) % roundi(MilitaryActions.chance(state,
+		str(state.player_tag), action, kind, target) * 100.0)
+	var refusal := MilitaryActions.refusal(state, str(state.player_tag), action, kind, target, building)
+	button.disabled = not refusal.is_empty()
+	button.tooltip_text = tr(refusal) if not refusal.is_empty() else tr("ACTION_%s_TOOLTIP" % action.to_upper())
+	button.pressed.connect(func() -> void:
+		if GameState.submit_command(MilitaryActionCommand.new(state.player_tag, action, kind, target, building)) \
+				and GameClock.is_paused:
+			GameState.process_commands())
+	return button
 
 
 func _add_straits_row() -> void:

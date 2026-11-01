@@ -100,6 +100,8 @@ func refresh() -> void:
 		NumberFormat.decimal(MilitaryModel.defense_spending(country, state), 1, locale)])
 	_add_row(_summary_grid, "MILITARY_ARMS_RECEIVED", tr("MILITARY_ARMS_VALUE") % NumberFormat.decimal(
 		military.arms_flow * MilitaryModel.MONTHS_PER_YEAR, 1, locale))
+	_add_row(_summary_grid, "MILITARY_MISSILE_STOCK", tr("MILITARY_MISSILE_STOCK_VALUE") % [floori(military.missile_stock),
+		floori(MilitaryActions.max_missiles(state, country.tag))])
 	_add_row(_summary_grid, "MILITARY_NUCLEAR", NumberFormat.integer(military.nuclear_warheads, locale)
 		if military.nuclear_warheads > 0 else tr("MILITARY_NONE"))
 	_fill_wars(state, country.tag)
@@ -327,6 +329,17 @@ func _fill_fronts(state: SimState, war: War, tag: String, locale: String) -> voi
 		option.item_selected.connect(func(index: int) -> void:
 			_submit(SetFrontPostureCommand.new(state.player_tag, key, FrontSystem.POSTURES[index])))
 		row.add_child(option)
+		for action: String in [MilitaryActions.STRIKE, MilitaryActions.SPECIAL]:
+			var strike := Button.new()
+			strike.focus_mode = Control.FOCUS_NONE
+			strike.text = tr("ACTION_%s_FRONT" % action.to_upper()) % roundi(MilitaryActions.chance(state, tag, action,
+				MilitaryActions.FRONT, key) * 100.0)
+			var refusal := MilitaryActions.refusal(state, tag, action, MilitaryActions.FRONT, key)
+			strike.disabled = not refusal.is_empty()
+			strike.tooltip_text = tr(refusal) if not refusal.is_empty() else tr("ACTION_%s_TOOLTIP" % action.to_upper())
+			strike.pressed.connect(func() -> void:
+				_submit(MilitaryActionCommand.new(state.player_tag, action, MilitaryActions.FRONT, key)))
+			row.add_child(strike)
 		var show := Button.new()
 		show.text = "MILITARY_SHOW"
 		show.focus_mode = Control.FOCUS_NONE

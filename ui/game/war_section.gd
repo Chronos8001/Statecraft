@@ -15,6 +15,7 @@ var _status_box: VBoxContainer
 var _goal_option: OptionButton
 var _declare_button: Button
 var _preview_label: Label
+var _cyber_row: HBoxContainer
 
 
 func _ready() -> void:
@@ -44,6 +45,8 @@ func _ready() -> void:
 	_preview_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_preview_label.add_theme_color_override("font_color", InfoPanel.LABEL_COLOR)
 	add_child(_preview_label)
+	_cyber_row = HBoxContainer.new()
+	add_child(_cyber_row)
 
 
 func show_country(tag: String) -> void:
@@ -85,6 +88,7 @@ func refresh() -> void:
 			button.pressed.connect(func() -> void: command_requested.emit(JoinWarCommand.new(state.player_tag, war.id, side)))
 			row.add_child(button)
 		_status_box.add_child(row)
+	_fill_cyber(state)
 	var previous := _selected_goal()
 	_goal_ids.clear()
 	_goal_option.clear()
@@ -95,6 +99,32 @@ func refresh() -> void:
 	if not _goal_ids.is_empty():
 		_goal_option.select(index if index >= 0 else 0)
 	_update_declaration()
+
+
+## Cyberattaques (possibles en paix) : économie, réseau électrique, armée ; chance et risque d'être découvert.
+func _fill_cyber(state: SimState) -> void:
+	for child: Node in _cyber_row.get_children():
+		_cyber_row.remove_child(child)
+		child.queue_free()
+	if MilitaryActions.settings_of(state).is_empty():
+		return
+	var player := str(state.player_tag)
+	var label := Label.new()
+	label.text = "ACTION_CYBER_TITLE"
+	label.add_theme_color_override("font_color", InfoPanel.LABEL_COLOR)
+	_cyber_row.add_child(label)
+	for kind: String in [MilitaryActions.ECONOMY, MilitaryActions.GRID, MilitaryActions.ARMY]:
+		var button := Button.new()
+		button.focus_mode = Control.FOCUS_NONE
+		button.text = tr("ACTION_CYBERATTACK_%s" % kind.to_upper()) % roundi(MilitaryActions.chance(state, player,
+			MilitaryActions.CYBER, kind, _tag) * 100.0)
+		var refusal := MilitaryActions.refusal(state, player, MilitaryActions.CYBER, kind, _tag)
+		button.disabled = not refusal.is_empty()
+		button.tooltip_text = tr(refusal) if not refusal.is_empty() else tr("ACTION_CYBERATTACK_TOOLTIP") % roundi(
+			MilitaryActions.discovery_chance(state, _tag, true) * 100.0)
+		button.pressed.connect(func() -> void:
+			command_requested.emit(MilitaryActionCommand.new(state.player_tag, MilitaryActions.CYBER, kind, _tag)))
+		_cyber_row.add_child(button)
 
 
 func _selected_goal() -> String:
