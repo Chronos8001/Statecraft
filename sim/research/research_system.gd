@@ -109,11 +109,18 @@ static func slot_count(state: SimState, country: CountryState) -> int:
 		int(rules.get("min", 1)), int(rules.get("max", 1)))
 
 
-## Coût d'une technologie pour un pays : réduit quand beaucoup de pays la connaissent déjà.
-static func cost(state: SimState, tech_id: String) -> float:
+## Coût d'une technologie : réduit quand beaucoup de pays la connaissent déjà (rattrapage), et pour un pays dont
+## un allié ou un grand partenaire commercial la connaît (diffusion).
+static func cost(state: SimState, tech_id: String, country: CountryState = null) -> float:
 	var rules: Dictionary = settings_of(state).get("catch_up", {})
 	var known := int(state.tech_known_counts.get(tech_id, 0))
 	var discount := float(rules.get("max", 0.0)) * minf(float(known) / float(rules.get("countries_for_max", 1.0)), 1.0)
+	if country != null:
+		for other: Variant in state.research_close.get(country.tag, []):
+			var close := state.get_country(str(other))
+			if close != null and close.research != null and close.research.is_known(tech_id):
+				discount += float((settings_of(state).get("diffusion", {}) as Dictionary).get("discount", 0.0))
+				break
 	return float((state.technology_definitions.get(tech_id, {}) as Dictionary).get("cost", 0.0)) * (1.0 - discount)
 
 
@@ -137,7 +144,9 @@ static func months_left(state: SimState, country: CountryState, tech_id: String)
 	var research := country.research
 	var busy := maxi(research.slots.filter(func(slot: String) -> bool: return not slot.is_empty()).size(), 1)
 	var per_slot := research.points / busy
-	var left := cost(state, tech_id) - float(research.progress.get(tech_id, 0.0))
+	var project := joint_project(state, country.tag, tech_id)
+	var done := float(project.get("progress", 0.0)) if not project.is_empty() else float(research.progress.get(tech_id, 0.0))
+	var left := cost(state, tech_id, country) - done
 	return ceili(left / per_slot) if per_slot > 0.0 else -1
 
 
@@ -147,6 +156,7 @@ func on_month(state: SimState) -> void:
 	if state.technology_definitions.is_empty():
 		return
 	refresh_known_counts(state)
+	refresh_close(state)
 	var tags: Array = state.countries.keys()
 	tags.sort()
 	for tag: String in tags:
@@ -155,8 +165,33 @@ func on_month(state: SimState) -> void:
 			continue
 		_adjust_slots(state, country)
 		advance(state, country)
+		if country.research.espionage_cooldown > 0:
+			country.research.espionage_cooldown -= 1
 		if StringName(tag) != state.player_tag:
+			ResearchCooperation.decide_month(state, country)
 			choose_research(state, country)
+
+
+## Pays proches de chacun (diffusion) : alliés militaires et principaux partenaires commerciaux.
+static func refresh_close(state: SimState) -> void:
+	state.research_close.clear()
+	var count := int((settings_of(state).get("diffusion", {}) as Dictionary).get("trade_partners", 0))
+	for tag: String in state.countries.keys():
+		var close: Array = []
+		if not state.trade.start_flows.is_empty():
+			for entry: Variant in TradeSystem.top_partners(state, tag, count):
+				close.append(str((entry as Array)[0]) if entry is Array else str(entry))
+		for treaty_id: int in state.diplomacy.treaties_of(tag):
+			var treaty: Dictionary = state.diplomacy.treaties[treaty_id]
+			if str(treaty["type"]) == "mutual_defense":
+				close.append(str(treaty["b"]) if treaty["a"] == tag else str(treaty["a"]))
+		for organization: Dictionary in state.diplomacy.organizations.values():
+			var members: Array = organization.get("members", [])
+			if str(organization.get("kind", "")) == "military_alliance" and members.has(tag):
+				for member: Variant in members:
+					if str(member) != tag and not close.has(str(member)):
+						close.append(str(member))
+		state.research_close[tag] = close
 
 
 ## Nombre de pays qui connaissent chaque technologie (rattrapage).
@@ -190,8 +225,20 @@ static func advance(state: SimState, country: CountryState) -> void:
 		return
 	var share := research.points / busy.size()
 	for tech_id: String in busy:
+		var project := joint_project(state, country.tag, tech_id)
+		if not project.is_empty():
+			# Projet conjoint : avancement commun, plus rapide ; achevé pour tous les membres.
+			project["progress"] = float(project["progress"]) + share * (1.0 + float((settings_of(state).get("joint", {})
+				as Dictionary).get("speed_bonus", 0.0)))
+			if float(project["progress"]) >= cost(state, tech_id, country):
+				state.joint_projects.erase(project)
+				for member: Variant in project["members"]:
+					var partner := state.get_country(str(member))
+					if partner != null and not partner.research.is_known(tech_id):
+						complete(state, partner, tech_id)
+			continue
 		research.progress[tech_id] = float(research.progress.get(tech_id, 0.0)) + share
-		if float(research.progress[tech_id]) >= cost(state, tech_id):
+		if float(research.progress[tech_id]) >= cost(state, tech_id, country):
 			complete(state, country, tech_id)
 
 
@@ -241,7 +288,21 @@ static func set_slot(state: SimState, country: CountryState, slot: int, tech_id:
 	var slots := country.research.slots
 	if slot < 0 or slot >= slots.size():
 		return
+	# Retirer un projet conjoint y met fin pour ce pays.
+	var previous := slots[slot]
+	if not previous.is_empty():
+		var project := joint_project(state, country.tag, previous)
+		if not project.is_empty():
+			ResearchCooperation.leave(state, project, country.tag)
 	slots[slot] = tech_id
+
+
+## Projet conjoint d'un pays sur une technologie ({} s'il n'y en a pas).
+static func joint_project(state: SimState, tag: String, tech_id: String) -> Dictionary:
+	for project: Dictionary in state.joint_projects:
+		if str(project["tech"]) == tech_id and (project["members"] as Array).has(tag):
+			return project
+	return {}
 
 
 ## L'IA remplit ses emplacements libres : technologie disponible la plus intéressante (préférence pour l'arbre
@@ -257,7 +318,7 @@ static func choose_research(state: SimState, country: CountryState) -> void:
 		if research.is_researching(tech_id) or not availability(state, country, tech_id).is_empty():
 			continue
 		var tree := str((state.technology_definitions[tech_id] as Dictionary).get("tree", ""))
-		candidates.append([float(weights.get(tree, 1.0)) / maxf(cost(state, tech_id), 1.0), tech_id])
+		candidates.append([float(weights.get(tree, 1.0)) / maxf(cost(state, tech_id, country), 1.0), tech_id])
 	candidates.sort_custom(func(a: Array, b: Array) -> bool:
 		return float(a[0]) > float(b[0]) if not is_equal_approx(float(a[0]), float(b[0])) else str(a[1]) < str(b[1]))
 	for index: int in research.slots.size():

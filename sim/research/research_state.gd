@@ -14,6 +14,8 @@ var progress: Dictionary = {}
 var points: float = 0.0
 var rd_share: float = 0.0
 var universities: int = 0
+## Mois avant une nouvelle opération d'espionnage industriel.
+var espionage_cooldown: int = 0
 ## Effets cumulés des technologies acquises : clé d'effet → valeur (growth, research, military:land…).
 var effects: Dictionary = {}
 
