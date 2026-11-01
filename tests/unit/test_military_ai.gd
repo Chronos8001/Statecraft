@@ -182,3 +182,39 @@ func test_voluntary_join() -> void:
 	assert_false(ai.join_score(state, war, "DDD", War.ATTACKERS), "DDD, loin de tout, ne s'en mêle pas")
 	state.get_country("BBB").military.nuclear_warheads = 10
 	assert_false(ai.join_score(state, war, "CCC", War.ATTACKERS), "jamais contre une puissance nucléaire")
+
+
+func test_restraints() -> void:
+	var state := _world()
+	var ai: MilitaryAI = state.military.ai
+	var aaa := state.get_country("AAA")
+	var rules: Dictionary = _defines["military"]["ai"]["war"]
+	aaa.politics.democratic = true
+	state.get_country("BBB").politics.democratic = true
+	assert_almost_eq(ai.restraint(state, aaa, "BBB"), float(rules["democratic_peace"]), 0.001, "paix entre démocraties")
+	aaa.politics.democratic = false
+	assert_almost_eq(ai.restraint(state, aaa, "BBB"), 0.0, 0.001)
+	state.diplomacy.organizations["union"] = {"kind": "economic_union", "members": ["AAA", "BBB"]}
+	assert_almost_eq(ai.restraint(state, aaa, "BBB"), float(rules["shared_organization"]["economic_union"]), 0.001,
+		"membres de la même union")
+	state.diplomacy.organizations.erase("union")
+	state.diplomacy_start["candidates"] = {"eu": ["AAA"]}
+	assert_almost_eq(ai.restraint(state, aaa, "BBB"), float(rules["candidate"]), 0.001, "candidat à l'adhésion")
+	state.diplomacy_start.erase("candidates")
+	aaa.society.stability = 20.0
+	aaa.economy.growth = -1.0
+	assert_almost_eq(ai.restraint(state, aaa, "BBB"), float(rules["stability"]) * 20.0 + float(rules["recession"]), 0.001,
+		"pays instable et en récession")
+
+
+func test_no_new_war_soon_after_the_last() -> void:
+	var state := _world()
+	var ai: MilitaryAI = state.military.ai
+	_claim(state)
+	state.diplomacy.change_relation("AAA", "BBB", -80.0)
+	var war := WarSystem.declare(state, "AAA", "BBB", "annex")
+	WarSystem.end_war(state, war)
+	state.diplomacy.cooldowns.erase("%s|%s" % [WarSystem.TRUCE, DiplomacyState.pair_key("AAA", "BBB")])
+	assert_eq(ai.war_score(state, state.get_country("AAA"), "BBB"), {}, "quelques années sans nouvelle guerre")
+	state.diplomacy.cooldowns.clear()
+	assert_false(ai.war_score(state, state.get_country("AAA"), "BBB").is_empty())

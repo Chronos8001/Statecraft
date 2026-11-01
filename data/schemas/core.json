@@ -4223,6 +4223,17 @@
             }
           }
         }
+      },
+      "candidates": {
+        "type": "object",
+        "properties": {
+          "comment": {
+            "type": "string"
+          }
+        },
+        "values": {
+          "type": "any"
+        }
       }
     }
   },

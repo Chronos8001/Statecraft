@@ -269,6 +269,10 @@ func _fill_claims(state: SimState, player: String) -> void:
 		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		label.text = tr("DIPLOMACY_CLAIM_OURS" if claim["claimant"] == player else "DIPLOMACY_CLAIM_THEIRS") \
 			% _claim_text(state, claim)
+		if not bool(claim.get("active", true)):
+			label.text += " " + tr("DIPLOMACY_CLAIM_FROZEN")
+			label.tooltip_text = tr("DIPLOMACY_CLAIM_FROZEN_TOOLTIP")
+			label.mouse_filter = Control.MOUSE_FILTER_STOP
 		row.add_child(label)
 		if claim["claimant"] == player:
 			for action: String in [ClaimCommand.PRESS, ClaimCommand.RENOUNCE]:

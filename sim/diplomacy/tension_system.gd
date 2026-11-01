@@ -1,6 +1,7 @@
 class_name TensionSystem
 extends SimSystem
-## Tension mondiale (0 à 100) et revendications territoriales. La tension monte avec les ultimatums, les
+## Tension mondiale (0 à 100) et revendications territoriales (actives, ou gelées tant qu'on ne les fait pas
+## valoir). La tension monte avec les ultimatums, les
 ## revendications, les coups d'État, les guerres civiles et les sanctions, baisse avec les traités ; elle revient
 ## lentement vers son niveau de fond. Elle débloque des actions de plus en plus agressives (seuils en données).
 ## Les cessions de territoire viendront avec les guerres et les traités de paix (étape 7).
@@ -9,6 +10,7 @@ const PRIORITY := 33
 const LIMIT := 100.0
 const EVENT_CLAIM := &"claim_changed"
 const EVENT_THRESHOLD := &"tension_threshold"
+const FROZEN := "frozen"
 
 
 func get_id() -> StringName:
@@ -83,14 +85,16 @@ static func setup_start(state: SimState) -> void:
 			var provinces: Array[String] = []
 			for province_id: Variant in values[2]:
 				provinces.append(str(int(province_id)))
-			add_claim(state, str(values[0]), str(values[1]), provinces)
+			add_claim(state, str(values[0]), str(values[1]), provinces, values.size() < 4 or str(values[3]) != FROZEN)
 
 
-static func add_claim(state: SimState, claimant: String, target: String, provinces: Array[String]) -> int:
+## Revendication active (peut justifier une guerre) ou gelée (litige juridique, à faire valoir d'abord).
+static func add_claim(state: SimState, claimant: String, target: String, provinces: Array[String],
+		active: bool = true) -> int:
 	var diplomacy := state.diplomacy
 	var claim_id := diplomacy.next_claim_id
 	diplomacy.next_claim_id += 1
-	diplomacy.claims[claim_id] = {"claimant": claimant, "target": target, "provinces": provinces}
+	diplomacy.claims[claim_id] = {"claimant": claimant, "target": target, "provinces": provinces, "active": active}
 	return claim_id
 
 
@@ -143,6 +147,7 @@ static func press_claim(state: SimState, claim_id: int) -> void:
 	var claim: Dictionary = state.diplomacy.claims[claim_id]
 	var claimant := str(claim["claimant"])
 	var country := state.get_country(claimant)
+	claim["active"] = true
 	state.diplomacy.set_cooldown("claim_%d" % claim_id, claimant, str(claim["target"]), int(settings.get("cooldown", 0)))
 	state.diplomacy.change_relation(claimant, str(claim["target"]), float(settings.get("press_relation", 0.0)))
 	var points := float(settings.get("press_military", 0.0))

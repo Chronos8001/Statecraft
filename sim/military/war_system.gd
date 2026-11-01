@@ -21,6 +21,8 @@ const EVENT_REBELS_WON := &"rebels_won"
 const EVENT_PEACE_OFFER := &"white_peace_offered"
 const TRUCE := "truce"
 const WHITE_PEACE := "white_peace"
+## Délai (mémoire) après une guerre entre États : clé de délai d'un pays envers lui-même.
+const RECENT_WAR := "recent_war"
 const REQUIRES_CLAIM := "claim"
 const REQUIRES_OCCUPIED := "occupied"
 const PERCENT := 100.0
@@ -165,7 +167,7 @@ static func goal_provinces(state: SimState, attacker: String, target: String, go
 	match str(definition.get("requires", "")):
 		REQUIRES_CLAIM:
 			for claim: Dictionary in state.diplomacy.claims.values():
-				if claim["claimant"] == attacker and claim["target"] == target:
+				if claim["claimant"] == attacker and claim["target"] == target and bool(claim.get("active", true)):
 					for province_id: Variant in TensionSystem.claimed_provinces(state, claim):
 						if not result.has(str(province_id)):
 							result.append(str(province_id))
@@ -205,11 +207,18 @@ static func goal_refusal(state: SimState, attacker: String, target: String, goal
 	match str(definition.get("requires", "")):
 		REQUIRES_CLAIM:
 			if goal_provinces(state, attacker, target, goal).is_empty():
-				return "WAR_NO_CLAIM"
+				return "WAR_CLAIM_FROZEN" if _has_claim(state, attacker, target) else "WAR_NO_CLAIM"
 		REQUIRES_OCCUPIED:
 			if goal_provinces(state, attacker, target, goal).is_empty():
 				return "WAR_NOT_OCCUPIED"
 	return ""
+
+
+static func _has_claim(state: SimState, claimant: String, target: String) -> bool:
+	for claim: Dictionary in state.diplomacy.claims.values():
+		if claim["claimant"] == claimant and claim["target"] == target:
+			return true
+	return false
 
 
 ## Coûts d'une déclaration pour le déclarant : {legitimacy, stability, world_opinion} (aperçu et application).
@@ -223,8 +232,8 @@ static func declaration_costs(state: SimState, attacker: String, goal: String) -
 		"world_opinion": float(definition.get("world_opinion", 0.0))}
 
 
-## Pays appelés à défendre la cible : alliés militaires et garants de son indépendance, sauf ceux qui sont
-## aussi alliés de l'attaquant.
+## Pays appelés à défendre la cible : alliés militaires, garants de son indépendance et pays dont les troupes y
+## sont stationnées (bases), sauf ceux qui sont aussi alliés de l'attaquant.
 static func defenders_called(state: SimState, attacker: String, target: String) -> Array[String]:
 	# Candidats : partenaires de défense mutuelle, membres des mêmes alliances militaires, garants.
 	var candidates: Dictionary = {}
@@ -236,10 +245,11 @@ static func defenders_called(state: SimState, attacker: String, target: String) 
 		if str(organization.get("kind", "")) == "military_alliance" and (organization.get("members", []) as Array).has(target):
 			for member: Variant in organization.get("members", []):
 				candidates[str(member)] = true
-	for key: Variant in state.diplomacy.guarantees.keys():
-		var parts := str(key).split(">")
-		if parts.size() == 2 and parts[1] == target:
-			candidates[parts[0]] = true
+	for table: Dictionary in [state.diplomacy.guarantees, state.diplomacy.bases]:
+		for key: Variant in table.keys():
+			var parts := str(key).split(">")
+			if parts.size() == 2 and parts[1] == target:
+				candidates[parts[0]] = true
 	var result: Array[String] = []
 	for tag: Variant in candidates.keys():
 		if tag != attacker and tag != target and state.countries.has(tag) and not ControlSystem.allied(state, str(tag), attacker):
@@ -540,6 +550,9 @@ static func end_war(state: SimState, war: War) -> void:
 		if table.is_empty():
 			state.trade.embargoes.erase(pair[0])
 	state.trade.dirty = true
+	if not war.civil:
+		for tag: String in war.attackers + war.defenders:
+			state.diplomacy.set_cooldown(RECENT_WAR, tag, tag, int(rules.get("recent_war_months", 0)))
 	for a: String in war.attackers:
 		for b: String in war.defenders:
 			if is_rebel(state, a) or is_rebel(state, b):
