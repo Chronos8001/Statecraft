@@ -30,6 +30,17 @@ static func setup_start(state: SimState) -> void:
 			if not state.provinces_by_owner.has(owner):
 				state.provinces_by_owner[owner] = []
 			(state.provinces_by_owner[owner] as Array).append(province_id)
+	refresh_borders(state)
+	for entry: Variant in (state.diplomacy_start.get("front", {}) as Dictionary).get("list", []):
+		var values: Array = entry
+		var province_id := str(int(values[0]))
+		if state.province_control.has(province_id) and state.countries.has(values[1]):
+			state.contested[province_id] = {"by": str(values[1]), "share": clampf(float(values[2]), 0.0, FULL)}
+
+
+## Voisins terrestres entre pays et provinces frontalières, d'après les propriétaires du moment.
+static func refresh_borders(state: SimState) -> void:
+	state.border_provinces.clear()
 	state.land_neighbors.clear()
 	for province_id: String in state.province_owner.keys():
 		var owner := str(state.province_owner[province_id])
@@ -44,11 +55,7 @@ static func setup_start(state: SimState) -> void:
 		if border:
 			state.border_provinces.append(province_id)
 	state.trade.land_neighbors = state.land_neighbors
-	for entry: Variant in (state.diplomacy_start.get("front", {}) as Dictionary).get("list", []):
-		var values: Array = entry
-		var province_id := str(int(values[0]))
-		if state.province_control.has(province_id) and state.countries.has(values[1]):
-			state.contested[province_id] = {"by": str(values[1]), "share": clampf(float(values[2]), 0.0, FULL)}
+	state.trade.dirty = true
 
 
 static func controller(state: SimState, province_id: String) -> String:
