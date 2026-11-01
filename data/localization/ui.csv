@@ -917,3 +917,19 @@ LEGEND_SEA_ENEMY,Controlled by the enemy,Tenue par l'ennemi
 LEGEND_SEA_CONTESTED,Contested,Disputée
 LEGEND_SEA_OTHER_WAR,Other wars,Autres guerres
 LEGEND_SEA_PEACE,At peace,En paix
+LANDING_NOT_ENEMY,We can only land on an enemy province.,On ne débarque que sur une province ennemie.
+LANDING_NOT_COASTAL,This province has no coast.,Cette province n'a pas de côte.
+LANDING_GROUP_INLAND,The army group must stand on one of our coasts.,Le groupe d'armées doit être posté sur une de nos côtes.
+LANDING_NO_FLEET,None of our fleets holds a sea next to this province (or the enemy dominates it).,Aucune de nos flottes ne tient une mer voisine de cette province (ou l'ennemi la domine).
+LANDING_UNREACHABLE,No sea route from our coast to the landing area.,Aucune route maritime de notre côte jusqu'à la zone de débarquement.
+NOTIFY_LANDING_LAUNCHED,%s sets sail for %s (chance of success: %d%%).,Le %s prend la mer vers %s (chance de réussite : %d %%).
+NOTIFY_LANDING_SUCCEEDED,Landing succeeded in %s: beachhead against %s.,Débarquement réussi : tête de pont à %s face à : %s.
+NOTIFY_LANDING_FAILED,"Landing failed in %s, against %s: heavy losses.",Débarquement repoussé à %s (%s) : lourdes pertes.
+NOTIFY_ENEMY_LANDING_SUCCEEDED,Enemy landing in %s by %s!,Débarquement ennemi à %s : %s !
+NOTIFY_ENEMY_LANDING_FAILED,We repelled a landing in %s by %s.,Nous repoussons un débarquement à %s : %s.
+NOTIFY_BEACHHEAD_LOST,Our beachhead in %s is lost: the troops re-embark.,Notre tête de pont à %s est perdue : les troupes rembarquent.
+NOTIFY_BLOCKADE_STARTED,Naval blockade: %d%% of our sea trade is cut.,Blocus naval : %d %% de notre commerce maritime est coupé.
+NOTIFY_BLOCKADE_ENDED,The naval blockade is lifted.,Le blocus naval est levé.
+MILITARY_AT_SEA,At sea toward %s (%d days),En mer vers %s (%d j)
+MILITARY_BEACHHEAD,Beachhead,Tête de pont
+MILITARY_WAR_BLOCKADE,Blockade: our sea trade cut by %d%% · enemy's by %d%%,Blocus : notre commerce maritime coupé à %d %% · celui de l'ennemi à %d %%
