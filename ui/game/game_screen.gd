@@ -86,6 +86,10 @@ func _ready() -> void:
 	_government_panel.add_sibling(_military_panel)
 	if _military_panel.has_signal("group_focus_requested"):
 		_military_panel.connect("group_focus_requested", _focus_army_group)
+	if _military_panel.has_signal("province_focus_requested"):
+		_military_panel.connect("province_focus_requested", func(province_id: String) -> void:
+			_map_view.focus_on(_province_center(DataLoader.get_category("provinces"), province_id),
+				maxf(_map_view.camera.zoom, float(DataLoader.get_define("camera.capital_zoom")))))
 	_top_bar.military_requested.connect(func() -> void: _military_panel.call("toggle"))
 	_top_bar.world_requested.connect(_world_panel.toggle)
 	_country_panel.diplomacy_requested.connect(func(tag: String) -> void:
@@ -246,6 +250,14 @@ func _on_war_event(event: Dictionary) -> bool:
 		WarSystem.EVENT_PEACE_REFUSED:
 			if tag == player:
 				_notify(tr("NOTIFY_WHITE_PEACE_REFUSED") % MilitaryUI.side_name(state, target))
+		WarSystem.EVENT_REBELS_WON:
+			_notify(tr("NOTIFY_REBELS_WON") % MilitaryUI.side_name(state, tag))
+		WarResolver.EVENT_PROVINCE_TAKEN:
+			var previous := str(event.get("previous", ""))
+			if tag == player or previous == player:
+				var province := tr(str(DataLoader.get_entry("provinces", str(event.get("province", ""))).get("name_key", "")))
+				_notify(tr("NOTIFY_PROVINCE_TAKEN" if tag == player else "NOTIFY_PROVINCE_LOST")
+					% [province, MilitaryUI.side_name(state, previous if tag == player else tag)])
 		_:
 			return false
 	return true
