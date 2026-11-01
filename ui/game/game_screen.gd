@@ -247,8 +247,22 @@ func _on_war_event(event: Dictionary) -> bool:
 		WarSystem.EVENT_ENDED:
 			if bool(event.get("civil", false)):
 				_notify(tr("NOTIFY_CIVIL_WAR_ENDED") % MilitaryUI.side_name(state, target))
-			else:
+			elif not bool(event.get("negotiated", false)):
 				_notify(tr("NOTIFY_WAR_ENDED") % [MilitaryUI.side_name(state, tag), MilitaryUI.side_name(state, target)])
+		WarEnd.EVENT_PEACE:
+			var parts: PackedStringArray = []
+			for demand: Variant in event.get("demands", []):
+				parts.append(MilitaryUI.demand_text(state, demand))
+			_notify(tr("NOTIFY_PEACE_SIGNED") % [MilitaryUI.side_name(state, tag), MilitaryUI.side_name(state, target),
+				", ".join(parts) if not parts.is_empty() else tr("MILITARY_NONE")])
+		WarEnd.EVENT_CEASEFIRE:
+			_notify(tr("NOTIFY_CEASEFIRE") % [MilitaryUI.side_name(state, tag), MilitaryUI.side_name(state, target)])
+		WarEnd.EVENT_CEASEFIRE_ENDED:
+			if tag == player or target == player:
+				_notify(tr("NOTIFY_CEASEFIRE_ENDED") % [MilitaryUI.side_name(state, tag), MilitaryUI.side_name(state, target)])
+		WarEnd.EVENT_CEASEFIRE_REFUSED:
+			if tag == player:
+				_notify(tr("NOTIFY_CEASEFIRE_REFUSED") % MilitaryUI.side_name(state, target))
 		WarSystem.EVENT_CALL:
 			if tag == player:
 				_show_call_to_arms(int(event.get("war", -1)), str(event.get("caller", "")))
@@ -302,17 +316,17 @@ func _show_call_to_arms(war_id: int, caller: String) -> void:
 
 
 ## Paix blanche proposée par l'ennemi : accepter, refuser, ou répondre plus tard depuis le panneau Armée.
-func _show_peace_offer(war_id: int, from: String) -> void:
+func _show_peace_offer(war_id: int, _from: String) -> void:
 	var state := GameState.sim
-	var war: War = state.wars.get(war_id)
-	if war == null:
+	var offer := WarSystem.peace_offer(state, war_id)
+	if not state.wars.has(war_id) or offer.is_empty():
 		return
 	var dialog := ConfirmationDialog.new()
-	dialog.title = tr("PEACE_OFFER_TITLE")
-	dialog.dialog_text = tr("PEACE_OFFER_TEXT") % [MilitaryUI.side_name(state, from), MilitaryUI.war_name(state, war),
-		int((state.military_settings.get("ai", {}) as Dictionary).get("peace", {}).get("player_days", 0))]
+	dialog.title = tr("CEASEFIRE_OFFER_TITLE" if str(offer.get("kind", "")) == WarEnd.CEASEFIRE else "PEACE_OFFER_TITLE")
+	dialog.dialog_text = MilitaryUI.offer_text(state, offer)
 	dialog.dialog_autowrap = true
-	dialog.ok_button_text = tr("MILITARY_PEACE_ACCEPT")
+	dialog.ok_button_text = tr("MILITARY_CEASEFIRE_ACCEPT" if str(offer.get("kind", "")) == WarEnd.CEASEFIRE
+		else "MILITARY_PEACE_ACCEPT")
 	dialog.cancel_button_text = tr("MILITARY_CALL_LATER")
 	var refuse := dialog.add_button(tr("MILITARY_PEACE_REFUSE"), true, "refuse")
 	refuse.focus_mode = Control.FOCUS_NONE

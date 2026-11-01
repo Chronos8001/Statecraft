@@ -34,7 +34,7 @@ func resolve_day(state: SimState) -> void:
 	ids.sort()
 	for war_id: Variant in ids:
 		var war: War = state.wars[war_id]
-		if war.civil:
+		if war.civil or war.in_ceasefire():
 			continue
 		var zones: Dictionary = {}
 		for tag: String in war.attackers + war.defenders:

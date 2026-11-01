@@ -108,7 +108,10 @@ var front_holdings: Dictionary = {}
 var terrain_definitions: Dictionary = {}
 ## Appels aux armes adressés au joueur, en attente de réponse : [{war, ally, side, days_left}].
 var calls_to_arms: Array[Dictionary] = []
-## Propositions de paix blanche adressées au joueur, en attente de réponse : [{war, from, days_left}].
+## Réparations en cours : [{from, to, share (% du PIB par an), months_left}].
+var reparations: Array[Dictionary] = []
+## Propositions adressées au joueur, en attente de réponse : [{war, from, days_left, kind (white, ceasefire,
+## peace), demands}].
 var peace_offers: Array[Dictionary] = []
 ## Taille de l'image de la carte (pixels), pour les distances entre provinces.
 var map_size: Vector2 = Vector2(360.0, 180.0)

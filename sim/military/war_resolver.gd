@@ -56,7 +56,8 @@ func resolve_day(state: SimState) -> void:
 				* (1.0 - MilitaryActions.front_penalty(state, front, tag))
 	for front: Front in fronts:
 		var war: War = state.wars.get(front.war_id)
-		if war == null:
+		if war == null or war.in_ceasefire():
+			front.progress.clear()
 			continue
 		var pushes: Dictionary = {}
 		for tag: String in [front.a, front.b]:

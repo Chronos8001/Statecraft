@@ -45,6 +45,32 @@ static func sea_name(zone_id: String) -> String:
 	return TranslationServer.translate(str(DataLoader.get_entry("sea_zones", zone_id).get("name_key", zone_id)))
 
 
+## Texte d'une exigence de paix : « Zaporijjia », « Réparations (2 % du PIB par an, 5 ans) ».
+static func demand_text(state: SimState, demand: Dictionary) -> String:
+	if str(demand.get("type", "")) == WarEnd.REPARATIONS:
+		var rules: Dictionary = WarEnd.settings_of(state).get("demands", {})
+		return TranslationServer.translate("PEACE_DEMAND_REPARATIONS") % [roundi(float(rules.get("reparations_share", 0.0))),
+			int(rules.get("reparations_years", 0))]
+	var province := str(demand.get("province", ""))
+	return TranslationServer.translate(str(DataLoader.get_entry("provinces", province).get("name_key", province)))
+
+
+## Texte d'une proposition reçue (paix blanche, cessez-le-feu ou paix avec conditions).
+static func offer_text(state: SimState, offer: Dictionary) -> String:
+	var war: War = state.wars.get(int(offer["war"]))
+	var from := side_name(state, str(offer["from"]))
+	var days := int(offer.get("days_left", 0))
+	match str(offer.get("kind", WarEnd.WHITE)):
+		WarEnd.CEASEFIRE:
+			return TranslationServer.translate("CEASEFIRE_OFFER_TEXT") % [from, war_name(state, war), days]
+		WarEnd.PEACE:
+			var parts: PackedStringArray = []
+			for demand: Variant in offer.get("demands", []):
+				parts.append(demand_text(state, demand))
+			return TranslationServer.translate("PEACE_TERMS_TEXT") % [from, war_name(state, war), ", ".join(parts), days]
+	return TranslationServer.translate("PEACE_OFFER_TEXT") % [from, war_name(state, war), days]
+
+
 static func ordinal(number: int) -> String:
 	var key := "ORDINAL_%d" % number
 	var text := TranslationServer.translate(key)

@@ -1041,6 +1041,53 @@
       "min_condition": 0.05,
       "repair_per_month": 0.15
     },
+    "war_end": {
+      "support": {
+        "defender_start": 85.0,
+        "attacker_start": 75.0,
+        "attacker_legitimacy_weight": 2.0,
+        "joiner_start": 60.0,
+        "monthly_decay": 0.5,
+        "democratic_factor": 1.5,
+        "casualty_weight": 50.0,
+        "blockade_weight": 2.0,
+        "recession": 1.0,
+        "rally_per_occupied_percent": 0.05,
+        "rally_max": 1.5,
+        "low": 30.0,
+        "stability_per_point": 0.02,
+        "legitimacy_per_point": 0.02
+      },
+      "score": {
+        "occupation_weight": 1.5,
+        "casualty_weight": 20.0,
+        "blockade_weight": 10.0,
+        "goal_weight": 40.0,
+        "limit": 100.0
+      },
+      "ceasefire": {
+        "months": 3,
+        "accept_support": 50.0,
+        "accept_score": -5.0,
+        "cooldown": 3,
+        "resume_months": 6
+      },
+      "demands": {
+        "province_cost_per_percent": 1.5,
+        "province_min_cost": 3.0,
+        "reparations_cost": 15.0,
+        "reparations_share": 2.0,
+        "reparations_years": 5,
+        "allowance_support": 50.0
+      },
+      "ai": {
+        "propose_score": 10.0,
+        "ceasefire_support": 40.0,
+        "ceasefire_score": -15.0,
+        "lock_gains_months": 6,
+        "white_peace_support": 35.0
+      }
+    },
     "nuclear": {
       "alert_levels": 4,
       "alert_cost_share": [0.0, 0.05, 0.15, 0.4],
