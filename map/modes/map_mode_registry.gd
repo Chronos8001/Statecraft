@@ -49,6 +49,8 @@ static func create_mode(mode_id: String, definition: Dictionary) -> MapMode:
 			return ClaimsMapMode.new(mode_id, definition)
 		"wars":
 			return WarsMapMode.new(mode_id, definition)
+		"sea_control":
+			return SeaControlMapMode.new(mode_id, definition)
 	return null
 
 

@@ -31,6 +31,20 @@ static func war_name(state: SimState, war: War) -> String:
 		side_name(state, war.defender_leader())]
 
 
+## Nom d'une flotte : « 1re flotte », « 2nd Fleet ».
+func fleet_name(fleet: Fleet) -> String:
+	var key := "ORDINAL_F_%d" % fleet.number
+	var text := TranslationServer.translate(key)
+	if text == key:
+		text = TranslationServer.translate("ORDINAL_F_N") % fleet.number
+	return TranslationServer.translate("FLEET_NAME") % text
+
+
+## Nom d'une zone maritime.
+static func sea_name(zone_id: String) -> String:
+	return TranslationServer.translate(str(DataLoader.get_entry("sea_zones", zone_id).get("name_key", zone_id)))
+
+
 static func ordinal(number: int) -> String:
 	var key := "ORDINAL_%d" % number
 	var text := TranslationServer.translate(key)

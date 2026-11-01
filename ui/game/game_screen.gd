@@ -8,8 +8,10 @@ const DEGREES_PER_TURN := 360.0
 const DEGREES_HALF_TURN := 180.0
 const BYTES_PER_MEGABYTE := 1048576.0
 const DEFAULT_MAP_MODE := "political"
+## Décalage (en pixels de carte) entre les flottes d'une même mer.
+const FLEET_STACK_OFFSET := Vector2(14.0, 10.0)
 const LIVE_MAP_MODES := ["trade", "stability", "support", "vote", "ideology", "unrest", "relations", "influence", "claims",
-	"military_power", "military_control", "wars"]
+	"military_power", "military_control", "wars", "sea_control"]
 
 var _thread: Thread
 var _load_started_ms: int = 0
@@ -22,6 +24,8 @@ var _military_ui: MilitaryUI = MilitaryUI.new()
 var _military_panel: InfoPanel
 ## Groupe d'armées sélectionné (-1 : aucun) : un clic droit sur la carte l'envoie dans la province visée.
 var _selected_group: int = -1
+## Flotte sélectionnée (-1 : aucune) : un clic droit sur une mer l'y envoie.
+var _selected_fleet: int = -1
 
 @onready var _map_view: MapView = %MapView
 @onready var _loading_label: Label = %LoadingLabel
@@ -56,6 +60,7 @@ func _ready() -> void:
 	_map_view.province_clicked.connect(_on_province_clicked)
 	_map_view.province_double_clicked.connect(_show_province)
 	_map_view.army_group_clicked.connect(_on_army_group_clicked)
+	_map_view.fleet_clicked.connect(_on_fleet_clicked)
 	_map_view.province_right_clicked.connect(_on_province_right_clicked)
 	EventBus.day_passed.connect(func(_date: GameDate) -> void: _refresh_armies())
 	EventBus.command_executed.connect(func(_command: Command) -> void: _refresh_armies())
@@ -86,6 +91,8 @@ func _ready() -> void:
 	_government_panel.add_sibling(_military_panel)
 	if _military_panel.has_signal("group_focus_requested"):
 		_military_panel.connect("group_focus_requested", _focus_army_group)
+	if _military_panel.has_signal("fleet_focus_requested"):
+		_military_panel.connect("fleet_focus_requested", _focus_fleet)
 	if _military_panel.has_signal("province_focus_requested"):
 		_military_panel.connect("province_focus_requested", func(province_id: String) -> void:
 			_map_view.focus_on(_province_center(DataLoader.get_category("provinces"), province_id),
@@ -184,6 +191,7 @@ func _start_playing() -> void:
 	_top_bar.visible = true
 	_top_bar.refresh()
 	_selected_group = -1
+	_selected_fleet = -1
 	_refresh_armies()
 	GameClock.set_running(true)
 
@@ -352,6 +360,12 @@ func _on_sim_event(event: Dictionary) -> void:
 			tr("MILITARY_MOBILIZATION_%d" % int(event.get("level", 0))).to_lower()])
 		return
 	if _on_war_event(event):
+		return
+	if (event.get("type") == NavalModel.EVENT_ARRIVED or event.get("type") == NavalResolver.EVENT_DAMAGED) 			and str(event.get("tag", "")) == str(GameState.sim.player_tag):
+		var fleet: Fleet = GameState.sim.fleets.get(int(event.get("fleet", -1)))
+		if fleet != null:
+			_notify(tr("NOTIFY_FLEET_ARRIVED" if event.get("type") == NavalModel.EVENT_ARRIVED else "NOTIFY_FLEET_DAMAGED")
+				% [_military_ui.fleet_name(fleet), MilitaryUI.sea_name(str(event.get("zone", "")))])
 		return
 	if event.get("type") == ArmyGroupModel.EVENT_ARRIVED and str(event.get("tag", "")) == str(GameState.sim.player_tag):
 		var arrived: ArmyGroup = GameState.sim.army_groups.get(int(event.get("group", -1)))
@@ -585,16 +599,12 @@ func _refresh_armies() -> void:
 		var country := state.get_country(group.owner)
 		if country == null or country.military == null:
 			continue
-		var affiliation := NatoSymbol.NEUTRAL
-		if not player.is_empty():
-			if ControlSystem.allied(state, player, group.owner):
-				affiliation = NatoSymbol.FRIEND
-			elif state.diplomacy.relation(player, group.owner) < hostile:
-				affiliation = NatoSymbol.HOSTILE
+		var affiliation := _affiliation(state, player, group.owner, hostile)
 		var path: Array = []
 		for step: String in group.path:
 			path.append(_province_center(provinces, step))
-		var token := {"id": group.id, "position": _province_center(provinces, group.province), "affiliation": affiliation,
+		var token := {"id": group.id, "kind": ArmyLayer.ARMY, "position": _province_center(provinces, group.province),
+			"affiliation": affiliation,
 			"label": tr("ARMY_THOUSANDS") % NumberFormat.integer(roundi(group.personnel(country.military, reserve_share)
 				/ 1000.0), locale), "selected": group.id == _selected_group, "path": path}
 		# Les pions du pays joué sont dessinés par-dessus les autres.
@@ -602,8 +612,38 @@ func _refresh_armies() -> void:
 			own.append(token)
 		else:
 			tokens.append(token)
+	var stacks: Dictionary = {}
+	for fleet: Fleet in state.fleets.values():
+		var affiliation := _affiliation(state, player, fleet.owner, hostile)
+		var index := int(stacks.get(fleet.zone, 0))
+		stacks[fleet.zone] = index + 1
+		var path: Array = []
+		for step: String in fleet.path:
+			path.append(_sea_center(step))
+		var token := {"id": fleet.id, "kind": ArmyLayer.FLEET, "position": _sea_center(fleet.zone)
+			+ FLEET_STACK_OFFSET * index, "affiliation": affiliation, "label": tr("FLEET_CONDITION") % roundi(fleet.condition
+			* 100.0), "selected": fleet.id == _selected_fleet, "path": path}
+		if fleet.owner == player:
+			own.append(token)
+		else:
+			tokens.append(token)
 	tokens.append_array(own)
 	_map_view.set_army_tokens(tokens)
+
+
+func _affiliation(state: SimState, player: String, tag: String, hostile: float) -> String:
+	if player.is_empty():
+		return NatoSymbol.NEUTRAL
+	if ControlSystem.allied(state, player, tag):
+		return NatoSymbol.FRIEND
+	if WarSystem.at_war(state, player, tag) or state.diplomacy.relation(player, tag) < hostile:
+		return NatoSymbol.HOSTILE
+	return NatoSymbol.NEUTRAL
+
+
+static func _sea_center(zone_id: String) -> Vector2:
+	var center: Array = DataLoader.get_entry("sea_zones", zone_id).get("center", [0.0, 0.0])
+	return Vector2(float(center[0]), float(center[1]))
 
 
 static func _province_center(provinces: Dictionary, province_id: String) -> Vector2:
@@ -620,6 +660,7 @@ func _on_army_group_clicked(group_id: int) -> void:
 	var name := _military_ui.group_name(group)
 	if group.owner == str(state.player_tag):
 		_selected_group = -1 if _selected_group == group_id else group_id
+		_selected_fleet = -1
 		if _selected_group >= 0:
 			_notify(tr("NOTIFY_ARMY_SELECTED") % name)
 	else:
@@ -629,7 +670,32 @@ func _on_army_group_clicked(group_id: int) -> void:
 	_refresh_armies()
 
 
+func _on_fleet_clicked(fleet_id: int) -> void:
+	var state := GameState.sim
+	var fleet: Fleet = state.fleets.get(fleet_id)
+	if fleet == null:
+		return
+	var name := _military_ui.fleet_name(fleet)
+	if fleet.owner == str(state.player_tag):
+		_selected_fleet = -1 if _selected_fleet == fleet_id else fleet_id
+		_selected_group = -1
+		if _selected_fleet >= 0:
+			_notify(tr("NOTIFY_FLEET_SELECTED") % name)
+	else:
+		_notify(tr("NOTIFY_FLEET_FOREIGN") % [name, MilitaryUI.side_name(state, fleet.owner), roundi(fleet.condition * 100.0)])
+	_refresh_armies()
+
+
 func _on_province_right_clicked(province_id: int) -> void:
+	if _selected_fleet >= 0 and province_id > 0:
+		var order := MoveFleetCommand.new(GameState.sim.player_tag, _selected_fleet, str(province_id))
+		var reason := order.refusal_reason(GameState.sim)
+		if not reason.is_empty():
+			_notify(tr(reason))
+			return
+		if GameState.submit_command(order) and GameClock.is_paused:
+			GameState.process_commands()
+		return
 	if _selected_group < 0 or province_id <= 0:
 		return
 	var command := MoveArmyGroupCommand.new(GameState.sim.player_tag, _selected_group, str(province_id))
@@ -649,6 +715,17 @@ func _focus_army_group(group_id: int) -> void:
 	_selected_group = group_id
 	_map_view.focus_on(_province_center(DataLoader.get_category("provinces"), group.province),
 		maxf(_map_view.camera.zoom, float(DataLoader.get_define("camera.capital_zoom"))))
+	_refresh_armies()
+
+
+## Centre la carte sur une flotte du pays joué et la sélectionne.
+func _focus_fleet(fleet_id: int) -> void:
+	var fleet: Fleet = GameState.sim.fleets.get(fleet_id)
+	if fleet == null:
+		return
+	_selected_fleet = fleet_id
+	_selected_group = -1
+	_map_view.focus_on(_sea_center(fleet.zone), maxf(_map_view.camera.zoom, float(DataLoader.get_define("camera.capital_zoom"))))
 	_refresh_armies()
 
 

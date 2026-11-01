@@ -895,3 +895,25 @@ MILITARY_PEACE_REFUSE,Keep fighting,Continuer la guerre
 WAR_CLAIM_FROZEN,Our claim is frozen: press it first.,Notre revendication est gelée : faites-la d'abord valoir.
 DIPLOMACY_CLAIM_FROZEN,(frozen),(gelée)
 DIPLOMACY_CLAIM_FROZEN_TOOLTIP,"A legal dispute, not militarized: pressing it makes it a possible cause for war.","Un litige juridique, non militarisé : la faire valoir en fait un motif de guerre possible."
+FLEET_NAME,%s Fleet,%s flotte
+ORDINAL_F_1,1st,1re
+ORDINAL_F_N,%dth,%de
+FLEET_CONDITION,%d%%,%d %%
+FLEET_INVALID,This fleet is not ours.,Cette flotte n'est pas à nous.
+FLEET_NOT_SEA,A fleet can only go to a sea.,Une flotte ne peut aller qu'en mer.
+FLEET_ALREADY_THERE,The fleet is already there.,La flotte y est déjà.
+FLEET_UNREACHABLE,No sea route (closed strait?).,Aucune route maritime (détroit fermé ?).
+FLEET_UNDER_FIRE,Under enemy fire,Sous le feu ennemi
+FLEET_CONTROLS,Controls the sea,Maîtresse de la mer
+MILITARY_FLEETS,Fleets,Flottes
+MILITARY_FLEETS_HINT,"Click a fleet on the map to select it, then right-click a sea to send it there. In war, a fleet facing enemy fleets or coasts is damaged; it is repaired off our coasts, out of enemy reach.","Cliquez sur une flotte sur la carte pour la sélectionner, puis faites un clic droit sur une mer pour l'y envoyer. En guerre, une flotte face à des flottes ou des côtes ennemies s'abîme ; elle se répare près de nos côtes, hors de portée de l'ennemi."
+NOTIFY_FLEET_SELECTED,%s selected: right-click a sea to move it.,%s sélectionnée : clic droit sur une mer pour la déplacer.
+NOTIFY_FLEET_FOREIGN,%s of %s: condition %d%%.,%s (%s) : état %d %%.
+NOTIFY_FLEET_ARRIVED,%s has reached %s.,La %s est arrivée : %s.
+NOTIFY_FLEET_DAMAGED,%s badly damaged in %s.,%s gravement endommagée : %s.
+MAPMODE_SEA_CONTROL,Sea control,Contrôle des mers
+LEGEND_SEA_OURS,Controlled by our side,Tenue par notre camp
+LEGEND_SEA_ENEMY,Controlled by the enemy,Tenue par l'ennemi
+LEGEND_SEA_CONTESTED,Contested,Disputée
+LEGEND_SEA_OTHER_WAR,Other wars,Autres guerres
+LEGEND_SEA_PEACE,At peace,En paix

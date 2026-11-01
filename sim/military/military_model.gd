@@ -54,6 +54,7 @@ func setup_country(country: CountryState, data: Dictionary, state: SimState) -> 
 ## Après les forces de tous les pays : groupes d'armées placés selon les menaces.
 func setup_world(state: SimState, countries: Dictionary) -> void:
 	ArmyGroupModel.setup_start(state, countries)
+	NavalModel.setup_start(state)
 
 
 ## Un jour : déplacements des groupes d'armées.
