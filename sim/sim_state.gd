@@ -59,6 +59,13 @@ var province_control: Dictionary = {}
 var contested: Dictionary = {}
 ## Voisins terrestres de chaque province (identifiants en texte), calculés au départ.
 var province_neighbors: Dictionary = {}
+## Provinces de chaque pays propriétaire (tag → [identifiants]), propriétaire de chaque province et provinces
+## frontalières (voisines d'une province d'un autre propriétaire), calculés au départ.
+var provinces_by_owner: Dictionary = {}
+var province_owner: Dictionary = {}
+var border_provinces: Array[String] = []
+## Compteur incrémenté à chaque changement de contrôleur ou de province disputée.
+var control_version: int = 0
 ## Groupes d'armées : id → ArmyGroup.
 var army_groups: Dictionary = {}
 var next_army_group_id: int = 1
@@ -78,6 +85,8 @@ var front_holdings: Dictionary = {}
 var terrain_definitions: Dictionary = {}
 ## Appels aux armes adressés au joueur, en attente de réponse : [{war, ally, side, days_left}].
 var calls_to_arms: Array[Dictionary] = []
+## Propositions de paix blanche adressées au joueur, en attente de réponse : [{war, from, days_left}].
+var peace_offers: Array[Dictionary] = []
 ## Taille de l'image de la carte (pixels), pour les distances entre provinces.
 var map_size: Vector2 = Vector2(360.0, 180.0)
 ## Personnages créés pendant la partie (ministres, successeurs) : identifiant → personnage.

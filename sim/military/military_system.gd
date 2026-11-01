@@ -49,6 +49,7 @@ func on_month(state: SimState) -> void:
 		return
 	var tags: Array = state.countries.keys()
 	tags.sort()
+	state.military.ai.begin_month(state)
 	for tag: String in tags:
 		var country: CountryState = state.countries[tag]
 		state.military.model.update_country(country, state)

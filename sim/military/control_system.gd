@@ -12,6 +12,10 @@ static func setup_start(state: SimState) -> void:
 	state.province_control.clear()
 	state.contested.clear()
 	state.province_neighbors.clear()
+	state.provinces_by_owner.clear()
+	state.province_owner.clear()
+	state.border_provinces.clear()
+	state.control_version += 1
 	var provinces: Dictionary = state.energy_definitions.get("provinces", {})
 	for province_id: String in provinces.keys():
 		var province: Dictionary = provinces[province_id]
@@ -22,6 +26,15 @@ static func setup_start(state: SimState) -> void:
 		var owner := str(province.get("owner", ""))
 		if not owner.is_empty():
 			state.province_control[province_id] = str(province.get("controller", owner))
+			state.province_owner[province_id] = owner
+			if not state.provinces_by_owner.has(owner):
+				state.provinces_by_owner[owner] = []
+			(state.provinces_by_owner[owner] as Array).append(province_id)
+	for province_id: String in state.province_owner.keys():
+		for neighbor: String in state.province_neighbors.get(province_id, []):
+			if str(state.province_owner.get(neighbor, "")) != str(state.province_owner[province_id]):
+				state.border_provinces.append(province_id)
+				break
 	for entry: Variant in (state.diplomacy_start.get("front", {}) as Dictionary).get("list", []):
 		var values: Array = entry
 		var province_id := str(int(values[0]))
@@ -34,6 +47,8 @@ static func controller(state: SimState, province_id: String) -> String:
 
 
 static func owner(state: SimState, province_id: String) -> String:
+	if not state.province_owner.is_empty():
+		return str(state.province_owner.get(province_id, ""))
 	var province: Dictionary = (state.energy_definitions.get("provinces", {}) as Dictionary).get(province_id, {})
 	return str(province.get("owner", ""))
 
@@ -58,9 +73,11 @@ static func set_controller(state: SimState, province_id: String, tag: String) ->
 	var previous := controller(state, province_id)
 	if state.contested.erase(province_id):
 		state.fronts_dirty = true
+		state.control_version += 1
 	if previous == tag:
 		return
 	state.fronts_dirty = true
+	state.control_version += 1
 	state.province_control[province_id] = tag
 	state.add_event(EVENT_CONTROL, tag, {"province": province_id, "previous": previous})
 
@@ -75,6 +92,7 @@ static func advance(state: SimState, province_id: String, tag: String, delta: fl
 		if left <= 0.0:
 			state.contested.erase(province_id)
 			state.fronts_dirty = true
+			state.control_version += 1
 		else:
 			contest["share"] = minf(left, FULL)
 		return
@@ -86,9 +104,11 @@ static func advance(state: SimState, province_id: String, tag: String, delta: fl
 	elif share <= 0.0:
 		if state.contested.erase(province_id):
 			state.fronts_dirty = true
+			state.control_version += 1
 	else:
 		if str(current.get("by", "")) != tag:
 			state.fronts_dirty = true
+			state.control_version += 1
 		state.contested[province_id] = {"by": tag, "share": share}
 
 
