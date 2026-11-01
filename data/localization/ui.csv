@@ -1178,3 +1178,20 @@ TECH_EFFECT_INTEL,intelligence,renseignement
 NOTIFY_TECH_COMPLETED,New technology: %s.,Nouvelle technologie : %s.
 NOTIFY_RESEARCH_SLOT_FREE,A research slot is free: choose a technology.,Un emplacement de recherche est libre : choisissez une technologie.
 RESEARCH_ALREADY_KNOWN,Already known.,Déjà connue.
+DIPLOMACY_TECH_TITLE,Technology,Technologie
+DIPLOMACY_JOINT_PROJECT,Joint project,Projet conjoint
+DIPLOMACY_JOINT_LIKELY_YES,"Shared, faster research; both countries get the technology. Likely answer: yes.",Recherche partagée et plus rapide ; les deux pays obtiennent la technologie. Avis probable : favorable.
+DIPLOMACY_JOINT_LIKELY_NO,"Shared, faster research; both countries get the technology. Likely answer: no.",Recherche partagée et plus rapide ; les deux pays obtiennent la technologie. Avis probable : défavorable.
+DIPLOMACY_STEAL_TECH,Industrial espionage,Espionnage industriel
+DIPLOMACY_STEAL_TOOLTIP,Chance of success: %d%%. Risk of being exposed: %d%%.,Chance de réussite : %d %%. Risque d'être démasqué : %d %%.
+RESEARCH_NOTHING,Nothing to choose.,Rien à choisir.
+RESEARCH_PARTNER_CANNOT,"This country cannot research it (already known, or not yet available to it).","Ce pays ne peut pas la rechercher (déjà connue, ou pas encore à sa portée)."
+RESEARCH_RELATION_TOO_LOW,Our relations are too poor for a joint project.,Nos relations sont trop mauvaises pour un projet conjoint.
+RESEARCH_TARGET_UNKNOWN,This country does not know this technology.,Ce pays ne connaît pas cette technologie.
+RESEARCH_JOINT_WITH,(with %s),(avec %s)
+NOTIFY_JOINT_PROJECT,Joint research project with %s: %s.,Projet de recherche conjoint avec %s : %s.
+NOTIFY_JOINT_REFUSED,%s turns down the joint project.,%s décline le projet conjoint.
+NOTIFY_ESPIONAGE_SUCCESS,Industrial espionage succeeded: %s.,Espionnage industriel réussi : %s.
+NOTIFY_ESPIONAGE_FAILURE,Industrial espionage failed: %s.,Espionnage industriel raté : %s.
+NOTIFY_ESPIONAGE_SUFFERED,"Industrial espionage against us, traced back to %s.","Espionnage industriel contre nous, attribué à : %s."
+RESEARCH_NOT_ALLIED,Weapons are only co-developed with allies.,L'armement ne se co-développe qu'entre alliés.

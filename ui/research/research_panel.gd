@@ -71,15 +71,20 @@ func _fill_slots(state: SimState, country: CountryState) -> void:
 	for index: int in research.slots.size():
 		var tech_id := research.slots[index]
 		var row := HBoxContainer.new()
-		var label := _text(tr("RESEARCH_SLOT_EMPTY") if tech_id.is_empty() else _tech_name(state, tech_id),
-			LOCKED_COLOR if tech_id.is_empty() else ACTIVE_COLOR)
+		var name := tr("RESEARCH_SLOT_EMPTY") if tech_id.is_empty() else _tech_name(state, tech_id)
+		var partner := ResearchCooperation.partner_of(state, country.tag, tech_id) if not tech_id.is_empty() else ""
+		if not partner.is_empty():
+			name += " " + tr("RESEARCH_JOINT_WITH") % MilitaryUI.side_name(state, partner)
+		var label := _text(name, LOCKED_COLOR if tech_id.is_empty() else ACTIVE_COLOR)
 		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		row.add_child(label)
 		if not tech_id.is_empty():
 			var bar := ProgressBar.new()
 			bar.custom_minimum_size = Vector2(140, 0)
 			bar.max_value = PERCENT
-			bar.value = float(research.progress.get(tech_id, 0.0)) / maxf(ResearchSystem.cost(state, tech_id), 1.0) * PERCENT
+			var project := ResearchSystem.joint_project(state, country.tag, tech_id)
+			var done := float(project["progress"]) if not project.is_empty() else float(research.progress.get(tech_id, 0.0))
+			bar.value = done / maxf(ResearchSystem.cost(state, tech_id, country), 1.0) * PERCENT
 			bar.show_percentage = true
 			row.add_child(bar)
 			row.add_child(_text(tr("RESEARCH_MONTHS") % ResearchSystem.months_left(state, country, tech_id), LABEL_COLOR))
@@ -117,7 +122,7 @@ func _fill_tree(state: SimState, country: CountryState, tree: String) -> void:
 		info.add_child(_text("%s (%d)" % [_tech_name(state, tech_id), int(definition["year"])], color))
 		var details := _effects_text(definition.get("effects", {}), locale)
 		if not research.is_known(tech_id):
-			details = tr("RESEARCH_COST") % roundi(ResearchSystem.cost(state, tech_id)) + " · " + details
+			details = tr("RESEARCH_COST") % roundi(ResearchSystem.cost(state, tech_id, country)) + " · " + details
 		var missing := _missing(state, country, definition)
 		if not missing.is_empty():
 			details += " · " + tr("RESEARCH_REQUIRES") % missing
