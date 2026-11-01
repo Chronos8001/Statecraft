@@ -172,6 +172,8 @@ static func engaged_personnel(state: SimState, tag: String) -> Dictionary:
 		result[front.key] = garrison
 	var country := state.get_country(tag)
 	for group: ArmyGroup in ArmyGroupModel.groups_of(state, tag):
+		if group.is_embarked():
+			continue
 		var here: Array[Front] = []
 		for front: Front in fronts:
 			if front.provinces_of(tag).has(group.province):
@@ -215,7 +217,12 @@ static func auto_deploy(state: SimState, tag: String) -> void:
 	var counts := _allocate(groups.size(), weights, total)
 	var free: Array[ArmyGroup] = []
 	var needed: Array[int] = counts.duplicate()
+	# Les groupes en mer ou sur une tête de pont restent où ils sont.
+	var movable: Array[ArmyGroup] = []
 	for group: ArmyGroup in groups:
+		if not group.is_embarked() and ControlSystem.controller(state, group.province) == tag:
+			movable.append(group)
+	for group: ArmyGroup in movable:
 		var placed := false
 		for index: int in fronts.size():
 			var target_province := group.destination if group.is_moving() else group.province

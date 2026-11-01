@@ -30,11 +30,20 @@ static func setup_start(state: SimState) -> void:
 			if not state.provinces_by_owner.has(owner):
 				state.provinces_by_owner[owner] = []
 			(state.provinces_by_owner[owner] as Array).append(province_id)
+	state.land_neighbors.clear()
 	for province_id: String in state.province_owner.keys():
+		var owner := str(state.province_owner[province_id])
+		var border := false
 		for neighbor: String in state.province_neighbors.get(province_id, []):
-			if str(state.province_owner.get(neighbor, "")) != str(state.province_owner[province_id]):
-				state.border_provinces.append(province_id)
-				break
+			var other := str(state.province_owner.get(neighbor, ""))
+			if other != owner and not other.is_empty():
+				border = true
+				if not state.land_neighbors.has(owner):
+					state.land_neighbors[owner] = {}
+				(state.land_neighbors[owner] as Dictionary)[other] = true
+		if border:
+			state.border_provinces.append(province_id)
+	state.trade.land_neighbors = state.land_neighbors
 	for entry: Variant in (state.diplomacy_start.get("front", {}) as Dictionary).get("list", []):
 		var values: Array = entry
 		var province_id := str(int(values[0]))

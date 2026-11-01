@@ -14,10 +14,18 @@ var share: float = 0.0
 var path: Array[String] = []
 var days_left: int = 0
 var destination: String = ""
+## Débarquement en cours : province visée, mer d'approche et jours de traversée restants.
+var landing_target: String = ""
+var landing_zone: String = ""
+var landing_days: int = 0
 
 
 func is_moving() -> bool:
 	return not path.is_empty()
+
+
+func is_embarked() -> bool:
+	return not landing_target.is_empty()
 
 
 ## Effectifs du groupe : part des forces terrestres actuelles du pays.

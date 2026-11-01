@@ -181,8 +181,14 @@ func _fill_groups(country: CountryState, locale: String) -> void:
 		var days := group.days_left
 		for index: int in range(1, group.path.size()):
 			days += ArmyGroupModel.travel_days(state, group.path[index - 1], group.path[index])
-		_groups_grid.add_child(_value(tr("MILITARY_MOVING") % [_province_name(group.destination), days]
-			if group.is_moving() else tr("MILITARY_STATIONED")))
+		var status := tr("MILITARY_STATIONED")
+		if group.is_embarked():
+			status = tr("MILITARY_AT_SEA") % [_province_name(group.landing_target), group.landing_days]
+		elif group.is_moving():
+			status = tr("MILITARY_MOVING") % [_province_name(group.destination), days]
+		elif ControlSystem.controller(state, group.province) != group.owner:
+			status = tr("MILITARY_BEACHHEAD")
+		_groups_grid.add_child(_value(status))
 		var button := Button.new()
 		button.text = "MILITARY_SHOW"
 		button.focus_mode = Control.FOCUS_NONE
@@ -216,6 +222,12 @@ func _fill_wars(state: SimState, tag: String) -> void:
 		lines.append(tr("MILITARY_WAR_ENEMIES") % _names(state, war.enemies_of(tag), ""))
 		lines.append(tr("MILITARY_WAR_OCCUPATION") % [roundi(WarSystem.occupied_percent(state, war, side)),
 			roundi(WarSystem.occupied_percent(state, war, War.other_side(side)))])
+		var blockaded := 0.0
+		for enemy: String in war.enemies_of(tag):
+			blockaded = maxf(blockaded, float(state.trade.blockades.get(enemy, 0.0)))
+		var ours_blocked := float(state.trade.blockades.get(tag, 0.0))
+		if ours_blocked > 0.0 or blockaded > 0.0:
+			lines.append(tr("MILITARY_WAR_BLOCKADE") % [roundi(ours_blocked * 100.0), roundi(blockaded * 100.0)])
 		var enemy_losses := 0.0
 		for enemy: String in war.enemies_of(tag):
 			enemy_losses += float(war.casualties.get(enemy, 0.0))

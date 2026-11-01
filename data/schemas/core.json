@@ -4249,6 +4249,12 @@
         "values": {
           "type": "any"
         }
+      },
+      "warship_straits": {
+        "type": "object",
+        "values": {
+          "type": "string"
+        }
       }
     }
   },

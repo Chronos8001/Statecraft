@@ -359,7 +359,7 @@ func _on_sim_event(event: Dictionary) -> void:
 		_notify(tr("NOTIFY_MOBILIZATION") % [tr(str(mobilizing.get("name_key", ""))),
 			tr("MILITARY_MOBILIZATION_%d" % int(event.get("level", 0))).to_lower()])
 		return
-	if _on_war_event(event):
+	if _on_war_event(event) or _on_naval_event(event):
 		return
 	if (event.get("type") == NavalModel.EVENT_ARRIVED or event.get("type") == NavalResolver.EVENT_DAMAGED) 			and str(event.get("tag", "")) == str(GameState.sim.player_tag):
 		var fleet: Fleet = GameState.sim.fleets.get(int(event.get("fleet", -1)))
@@ -698,8 +698,25 @@ func _on_province_right_clicked(province_id: int) -> void:
 		return
 	if _selected_group < 0 or province_id <= 0:
 		return
-	var command := MoveArmyGroupCommand.new(GameState.sim.player_tag, _selected_group, str(province_id))
-	var refusal := command.refusal_reason(GameState.sim)
+	var state := GameState.sim
+	var command := MoveArmyGroupCommand.new(state.player_tag, _selected_group, str(province_id))
+	var refusal := command.refusal_reason(state)
+	# Province ennemie : débarquement si une de nos flottes tient la mer voisine.
+	if refusal == "ARMY_NOT_CONTROLLED" and WarSystem.at_war(state, str(state.player_tag),
+			ControlSystem.controller(state, str(province_id))):
+		var landing := LandingCommand.new(state.player_tag, _selected_group, str(province_id))
+		var landing_refusal := landing.refusal_reason(state)
+		if not landing_refusal.is_empty():
+			_notify(tr(landing_refusal))
+			return
+		var group: ArmyGroup = state.army_groups[_selected_group]
+		var odds := LandingSystem.chance(state, group, str(province_id), LandingSystem.landing_zone(state,
+			str(state.player_tag), str(province_id)))
+		_notify(tr("NOTIFY_LANDING_LAUNCHED") % [_military_ui.group_name(group), _province_label(str(province_id)),
+			roundi(odds * 100.0)])
+		if GameState.submit_command(landing) and GameClock.is_paused:
+			GameState.process_commands()
+		return
 	if not refusal.is_empty():
 		_notify(tr(refusal))
 		return
@@ -716,6 +733,43 @@ func _focus_army_group(group_id: int) -> void:
 	_map_view.focus_on(_province_center(DataLoader.get_category("provinces"), group.province),
 		maxf(_map_view.camera.zoom, float(DataLoader.get_define("camera.capital_zoom"))))
 	_refresh_armies()
+
+
+func _province_label(province_id: String) -> String:
+	return tr(str(DataLoader.get_entry("provinces", province_id).get("name_key", province_id)))
+
+
+## Débarquements et blocus du pays joué (ou qui le visent). Vrai si l'événement a été traité.
+func _on_naval_event(event: Dictionary) -> bool:
+	var state := GameState.sim
+	var player := str(state.player_tag)
+	var tag := str(event.get("tag", ""))
+	match event.get("type"):
+		LandingSystem.EVENT_SUCCEEDED, LandingSystem.EVENT_FAILED:
+			var target := str(event.get("target", ""))
+			if tag != player and target != player:
+				return true
+			var success: bool = event.get("type") == LandingSystem.EVENT_SUCCEEDED
+			var key := ""
+			if tag == player:
+				key = "NOTIFY_LANDING_SUCCEEDED" if success else "NOTIFY_LANDING_FAILED"
+			else:
+				key = "NOTIFY_ENEMY_LANDING_SUCCEEDED" if success else "NOTIFY_ENEMY_LANDING_FAILED"
+			_notify(tr(key) % [_province_label(str(event.get("province", ""))),
+				MilitaryUI.side_name(state, target if tag == player else tag)])
+		LandingSystem.EVENT_EVACUATED:
+			if tag == player:
+				_notify(tr("NOTIFY_BEACHHEAD_LOST") % _province_label(str(event.get("province", ""))))
+		NavalModel.EVENT_BLOCKADE:
+			if tag == player:
+				var share := float(event.get("share", 0.0))
+				if share > 0.0:
+					_notify(tr("NOTIFY_BLOCKADE_STARTED") % roundi(share * 100.0))
+				else:
+					_notify(tr("NOTIFY_BLOCKADE_ENDED"))
+		_:
+			return false
+	return true
 
 
 ## Centre la carte sur une flotte du pays joué et la sélectionne.

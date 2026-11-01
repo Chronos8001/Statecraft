@@ -38,7 +38,7 @@ func resolve_day(state: SimState) -> void:
 			continue
 		var zones: Dictionary = {}
 		for tag: String in war.attackers + war.defenders:
-			for zone_id: Variant in _coastal(state, tag).keys():
+			for zone_id: Variant in coastal_of(state, tag).keys():
 				zones[zone_id] = true
 		for zone_id: Variant in by_zone.keys():
 			for fleet: Fleet in by_zone[zone_id]:
@@ -52,7 +52,8 @@ func resolve_day(state: SimState) -> void:
 			_resolve_zone(state, war, str(zone_id), by_zone.get(zone_id, []), airs, settings)
 
 
-func _coastal(state: SimState, tag: String) -> Dictionary:
+## Mers côtières d'un pays (gardées en cache tant que le contrôle des provinces ne change pas).
+func coastal_of(state: SimState, tag: String) -> Dictionary:
 	if not _coasts.has(tag):
 		_coasts[tag] = NavalModel.coastal_zones(state, tag)
 	return _coasts[tag]
@@ -68,20 +69,24 @@ func _disputed(state: SimState, war: War, zone_id: String, fleets: Array, attack
 		if side.is_empty():
 			continue
 		for enemy: String in war.members(War.other_side(side)):
-			if _coastal(state, enemy).has(zone_id):
+			if coastal_of(state, enemy).has(zone_id):
 				return true
 	return false
 
 
-## Forces des deux camps dans une mer : {attackers, defenders}.
+## Forces des deux camps dans une mer : {attackers, defenders} (flottes + défense côtière) et, à part, la
+## puissance de leurs seules flottes : {fleets: {attackers, defenders}}.
 func zone_strength(state: SimState, war: War, zone_id: String, fleets: Array) -> Dictionary:
-	var strength := {War.ATTACKERS: 0.0, War.DEFENDERS: 0.0}
+	var at_sea := {War.ATTACKERS: 0.0, War.DEFENDERS: 0.0}
+	var strength := {War.ATTACKERS: 0.0, War.DEFENDERS: 0.0, "fleets": at_sea}
 	for fleet: Fleet in fleets:
 		var side := war.side_of(fleet.owner)
 		if not side.is_empty():
-			strength[side] = float(strength[side]) + NavalModel.fleet_power(state, fleet)
+			var power := NavalModel.fleet_power(state, fleet)
+			strength[side] = float(strength[side]) + power
+			at_sea[side] = float(at_sea[side]) + power
 	for tag: String in war.attackers + war.defenders:
-		if _coastal(state, tag).has(zone_id):
+		if coastal_of(state, tag).has(zone_id):
 			var side := war.side_of(tag)
 			strength[side] = float(strength[side]) + NavalModel.coastal_defense(state, tag)
 	return strength
@@ -96,7 +101,7 @@ func _resolve_zone(state: SimState, war: War, zone_id: String, fleets: Array, ai
 		return
 	if not state.sea_control.has(zone_id):
 		var ratio := float(settings.get("control_ratio", 1.0))
-		var control := {"war": war.id, War.ATTACKERS: attack, War.DEFENDERS: defense}
+		var control := {"war": war.id, War.ATTACKERS: attack, War.DEFENDERS: defense, "fleets": strength["fleets"]}
 		if attack >= ratio * defense:
 			control.merge({"side": War.ATTACKERS, "leader": war.attacker_leader()})
 		elif defense >= ratio * attack:
@@ -126,6 +131,25 @@ func _resolve_zone(state: SimState, war: War, zone_id: String, fleets: Array, ai
 static func controller(state: SimState, zone_id: String) -> String:
 	var control: Dictionary = state.sea_control.get(zone_id, {})
 	return str(control.get("leader", ""))
+
+
+## Part du commerce maritime d'un pays coupée dans cette mer : il faut des navires pour un blocus (les
+## missiles côtiers seuls n'y suffisent pas). Les flottes ennemies dominent toutes nos forces : 1 ; elles les
+## égalent au moins : part « disputée » des données ; sinon 0.
+static func blockade_share(state: SimState, zone_id: String, tag: String) -> float:
+	var control: Dictionary = state.sea_control.get(zone_id, {})
+	var war: War = state.wars.get(int(control.get("war", -1)))
+	if war == null or not war.involves(tag):
+		return 0.0
+	var side := war.side_of(tag)
+	var enemy_fleets := float((control.get("fleets", {}) as Dictionary).get(War.other_side(side), 0.0))
+	var ours := float(control.get(side, 0.0))
+	var settings := NavalModel.settings_of(state)
+	if enemy_fleets <= 0.0:
+		return 0.0
+	if enemy_fleets >= float(settings.get("control_ratio", 1.0)) * ours:
+		return 1.0
+	return float(settings.get("blockade_contested", 0.0)) if enemy_fleets >= ours else 0.0
 
 
 ## L'ennemi a une force dans cette mer (flottes ou défense côtière) : pas de réparation possible.
