@@ -216,6 +216,26 @@ static func update_day(state: SimState) -> void:
 			group.days_left = travel_days(state, group.province, group.path[0])
 
 
+## Province prise : les groupes d'autres pays qui s'y trouvaient reculent dans une province voisine que leur
+## pays contrôle (sinon dans sa province la plus peuplée).
+static func evacuate(state: SimState, province_id: String) -> void:
+	var controller := ControlSystem.controller(state, province_id)
+	for group: ArmyGroup in state.army_groups.values():
+		if group.province != province_id or group.owner == controller:
+			continue
+		group.path.clear()
+		group.days_left = 0
+		var refuge := ""
+		for neighbor: Variant in ControlSystem.neighbors(state, province_id):
+			if ControlSystem.controller(state, str(neighbor)) == group.owner:
+				refuge = str(neighbor)
+				break
+		if refuge.is_empty():
+			refuge = FrontSystem.seat(state, group.owner)
+		if not refuge.is_empty():
+			group.province = refuge
+
+
 ## Groupes d'armées d'un pays, dans l'ordre.
 static func groups_of(state: SimState, tag: String) -> Array[ArmyGroup]:
 	var result: Array[ArmyGroup] = []

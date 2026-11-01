@@ -18,6 +18,10 @@ var start_date: String = ""
 var days: int = 0
 ## Provinces déjà tenues par un camp adverse avant la guerre : id → contrôleur (rendu tel quel à la paix).
 var prewar: Dictionary = {}
+## Guerre civile : province la plus peuplée du pays (les rebelles qui la prennent gagnent).
+var seat: String = ""
+## Pertes cumulées de chaque participant (soldats).
+var casualties: Dictionary = {}
 ## Embargos posés par la déclaration (["A>B", …]), levés à la paix.
 var embargoes: Array[String] = []
 

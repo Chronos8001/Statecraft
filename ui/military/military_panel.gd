@@ -6,6 +6,8 @@ extends InfoPanel
 
 ## « Voir » sur un groupe d'armées : la carte se centre dessus.
 signal group_focus_requested(group_id: int)
+## « Voir » sur un front : la carte se centre sur une de ses provinces.
+signal province_focus_requested(province_id: String)
 
 const HEADER_COLOR := Color(0.92, 0.95, 0.98)
 const BRANCH_HEADERS := ["", "MILITARY_BRANCH", "MILITARY_PERSONNEL", "MILITARY_LEVEL", "MILITARY_TRAINING",
@@ -17,6 +19,8 @@ const PERCENT := 100.0
 const PRIORITY_STEP := 1.0
 const GROUP_HEADERS := ["", "MILITARY_GROUP", "MILITARY_LOCATION", "MILITARY_PERSONNEL", "MILITARY_STATUS", ""]
 const THOUSAND := 1000.0
+## Échelle d'affichage de la puissance d'un front (comme la puissance militaire).
+const POWER_SCALE := 0.00001
 
 var military_ui: MilitaryUI = MilitaryUI.new()
 var _priority_spins: Dictionary = {}
@@ -45,10 +49,13 @@ func _ready() -> void:
 	EventBus.locale_changed.connect(func(_locale: String) -> void: refresh())
 	EventBus.month_passed.connect(func(_date: GameDate) -> void: refresh())
 	EventBus.day_passed.connect(func(_date: GameDate) -> void: _refresh_moving())
+	EventBus.week_passed.connect(func(_date: GameDate) -> void:
+		if not GameState.sim.wars.is_empty():
+			refresh())
 	EventBus.command_executed.connect(func(_command: Command) -> void: refresh())
 	EventBus.sim_event_raised.connect(func(event: Dictionary) -> void:
 		if event.get("type") in [WarSystem.EVENT_DECLARED, WarSystem.EVENT_JOINED, WarSystem.EVENT_ENDED,
-				WarSystem.EVENT_CALL, WarSystem.EVENT_CALL_REFUSED]:
+				WarSystem.EVENT_CALL, WarSystem.EVENT_CALL_REFUSED, WarResolver.EVENT_PROVINCE_TAKEN]:
 			refresh())
 	visible = false
 
@@ -201,8 +208,15 @@ func _fill_wars(state: SimState, tag: String) -> void:
 		lines.append(tr("MILITARY_WAR_ENEMIES") % _names(state, war.enemies_of(tag), ""))
 		lines.append(tr("MILITARY_WAR_OCCUPATION") % [roundi(WarSystem.occupied_percent(state, war, side)),
 			roundi(WarSystem.occupied_percent(state, war, War.other_side(side)))])
+		var enemy_losses := 0.0
+		for enemy: String in war.enemies_of(tag):
+			enemy_losses += float(war.casualties.get(enemy, 0.0))
+		var locale := Localization.get_locale()
+		lines.append(tr("MILITARY_WAR_CASUALTIES") % [NumberFormat.integer(roundi(float(war.casualties.get(tag, 0.0))), locale),
+			NumberFormat.integer(roundi(enemy_losses), locale)])
 		_wars_box.add_child(_text("
 ".join(lines), LABEL_COLOR))
+		_fill_fronts(state, war, tag, locale)
 		if war.civil:
 			continue
 		var refusal := WarSystem.white_peace_refusal(state, tag, war.id)
@@ -218,6 +232,16 @@ func _fill_wars(state: SimState, tag: String) -> void:
 		var war_id := war.id
 		button.pressed.connect(func() -> void: _submit(WhitePeaceCommand.new(state.player_tag, war_id)))
 		_wars_box.add_child(button)
+	if not FrontSystem.fronts_of(state, tag).is_empty():
+		var deploy := Button.new()
+		deploy.text = "MILITARY_AUTO_DEPLOY"
+		deploy.focus_mode = Control.FOCUS_NONE
+		deploy.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+		var deploy_refusal := AutoDeployCommand.new(state.player_tag).refusal_reason(state)
+		deploy.disabled = not deploy_refusal.is_empty()
+		deploy.tooltip_text = tr(deploy_refusal) if not deploy_refusal.is_empty() else tr("MILITARY_AUTO_DEPLOY_TOOLTIP")
+		deploy.pressed.connect(func() -> void: _submit(AutoDeployCommand.new(state.player_tag)))
+		_wars_box.add_child(deploy)
 	for call: Dictionary in state.calls_to_arms:
 		if str(call["ally"]) != tag or not state.wars.has(int(call["war"])):
 			continue
@@ -233,6 +257,49 @@ func _fill_wars(state: SimState, tag: String) -> void:
 			var war_id := war.id
 			answer.pressed.connect(func() -> void: _submit(AnswerCallToArmsCommand.new(state.player_tag, war_id, accept)))
 			row.add_child(answer)
+		_wars_box.add_child(row)
+
+
+## Fronts du pays dans une guerre : forces en présence, terrain gagné ou perdu par jour, posture, « Voir ».
+func _fill_fronts(state: SimState, war: War, tag: String, locale: String) -> void:
+	FrontSystem.refresh(state)
+	var ours := FrontSystem.engaged_personnel(state, tag)
+	for front: Front in FrontSystem.fronts_of_war(state, war.id):
+		if front.a != tag and front.b != tag:
+			continue
+		var enemy := front.other(tag)
+		var theirs := FrontSystem.engaged_personnel(state, enemy)
+		var row := HBoxContainer.new()
+		var gained := float(front.progress.get(tag, 0.0)) - float(front.progress.get(enemy, 0.0))
+		var trend := tr("MILITARY_FRONT_STABLE") if absf(gained) < 0.00001 			else tr("MILITARY_FRONT_GAINING" if gained > 0.0 else "MILITARY_FRONT_LOSING") % NumberFormat.decimal(
+				absf(gained) * PERCENT, 2, locale)
+		var label := _text(tr("MILITARY_FRONT") % [MilitaryUI.side_name(state, enemy), front.provinces_of(tag).size(),
+			NumberFormat.integer(roundi(float(ours.get(front.key, 0.0))), locale),
+			NumberFormat.integer(roundi(float(theirs.get(front.key, 0.0))), locale), trend],
+			GovernmentPanel.GOOD_COLOR if gained > 0.0 else GovernmentPanel.BAD_COLOR if gained < 0.0 else LABEL_COLOR)
+		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		label.tooltip_text = tr("MILITARY_FRONT_TOOLTIP") % [
+			NumberFormat.decimal(float(front.strength.get(tag, 0.0)) * POWER_SCALE, 1, locale),
+			NumberFormat.decimal(float(front.strength.get(enemy, 0.0)) * POWER_SCALE, 1, locale),
+			tr("MILITARY_POSTURE_%s" % front.posture_of(enemy).to_upper())]
+		label.mouse_filter = Control.MOUSE_FILTER_STOP
+		row.add_child(label)
+		var option := OptionButton.new()
+		option.focus_mode = Control.FOCUS_NONE
+		option.tooltip_text = tr("MILITARY_POSTURE_TOOLTIP")
+		for posture: String in FrontSystem.POSTURES:
+			option.add_item(tr("MILITARY_POSTURE_%s" % posture.to_upper()))
+		option.select(FrontSystem.POSTURES.find(front.posture_of(tag)))
+		var key := front.key
+		option.item_selected.connect(func(index: int) -> void:
+			_submit(SetFrontPostureCommand.new(state.player_tag, key, FrontSystem.POSTURES[index])))
+		row.add_child(option)
+		var show := Button.new()
+		show.text = "MILITARY_SHOW"
+		show.focus_mode = Control.FOCUS_NONE
+		var focus: String = str(front.contested[0]) if not front.contested.is_empty() else str(front.provinces_of(tag)[0])
+		show.pressed.connect(func() -> void: province_focus_requested.emit(focus))
+		row.add_child(show)
 		_wars_box.add_child(row)
 
 

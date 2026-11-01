@@ -868,3 +868,22 @@ NOTIFY_WAR_ENDED,White peace between %s and %s.,Paix blanche entre %s et %s.
 NOTIFY_CIVIL_WAR_ENDED,The civil war in %s is over.,Fin de la guerre civile : %s.
 NOTIFY_CALL_REFUSED,%s refuses our call to arms.,%s refuse notre appel aux armes.
 NOTIFY_WHITE_PEACE_REFUSED,%s refuses white peace.,%s refuse la paix blanche.
+MILITARY_WAR_CASUALTIES,Casualties: ours %s · enemy %s,Pertes : les nôtres %s · ennemies %s
+MILITARY_FRONT,Front against %s (%d provinces): %s men against %s · %s,Front contre %s (%d provinces) : %s soldats contre %s · %s
+MILITARY_FRONT_TOOLTIP,"Strength on this front (equipment, training, morale, air power, supply): ours %s, theirs %s. Enemy posture: %s.","Puissance sur ce front (équipement, entraînement, moral, aviation, ravitaillement) : la nôtre %s, la leur %s. Posture ennemie : %s."
+MILITARY_FRONT_STABLE,stable front,front stable
+MILITARY_FRONT_GAINING,gaining %s%% of a province per day,gain de %s %% de province par jour
+MILITARY_FRONT_LOSING,losing %s%% of a province per day,perte de %s %% de province par jour
+MILITARY_POSTURE_OFFENSIVE,Offensive,Offensive
+MILITARY_POSTURE_DEFENSIVE,Defensive,Défensive
+MILITARY_POSTURE_HOLD,Hold,Tenir
+MILITARY_POSTURE_RETREAT,Retreat,Retraite
+MILITARY_POSTURE_TOOLTIP,"Offensive: we attack, heavy losses. Defensive: we hold and counterattack locally. Hold: no attack, fewer losses. Retreat: we give ground to save our troops.","Offensive : nous attaquons, pertes lourdes. Défensive : nous tenons et contre-attaquons localement. Tenir : pas d'attaque, moins de pertes. Retraite : nous cédons du terrain pour épargner nos troupes."
+MILITARY_AUTO_DEPLOY,Deploy automatically,Répartir automatiquement
+MILITARY_AUTO_DEPLOY_TOOLTIP,"Sends our army groups to our fronts, in proportion to the enemy forces facing them.","Envoie nos groupes d'armées sur nos fronts, en proportion des forces ennemies en face."
+MILITARY_NO_FRONT,We have no front.,Nous n'avons aucun front.
+MILITARY_NO_GROUP,We have no army group.,Nous n'avons aucun groupe d'armées.
+LEGEND_OUR_FRONTS,Our fronts,Nos fronts
+NOTIFY_PROVINCE_TAKEN,We take %s from %s.,Nous prenons %s à : %s.
+NOTIFY_PROVINCE_LOST,%s falls to %s.,%s tombe aux mains de : %s.
+NOTIFY_REBELS_WON,The rebels win the civil war in %s: a junta takes power.,Les rebelles gagnent la guerre civile : %s. Une junte prend le pouvoir.

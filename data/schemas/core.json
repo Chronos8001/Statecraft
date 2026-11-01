@@ -1410,6 +1410,11 @@
         },
         "color": {
           "type": "color"
+        },
+        "defense": {
+          "type": "number",
+          "min": 0.5,
+          "max": 3
         }
       }
     }
@@ -2757,6 +2762,14 @@
         },
         "war_color": {
           "type": "color"
+        },
+        "front_color": {
+          "type": "color"
+        },
+        "front_strength": {
+          "type": "number",
+          "min": 0,
+          "max": 1
         }
       }
     }

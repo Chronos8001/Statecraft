@@ -35,6 +35,8 @@ var cost_index: float = 1.0
 ## Armes reçues déjà comptées (cumul) et flux du mois.
 var arms_counted: float = 0.0
 var arms_flow: float = 0.0
+## Pertes au combat pas encore remplacées (soldats), retirées des effectifs d'active.
+var losses: float = 0.0
 ## Calculés chaque mois : puissance militaire et effets de la mobilisation ({growth, stability, groups}).
 var power: float = 0.0
 var effects: Dictionary = {}
@@ -43,7 +45,7 @@ var effects: Dictionary = {}
 ## Effectifs d'active du moment : active (selon le service militaire) + réservistes rappelés au-delà du départ.
 func personnel(reserve_share: Array) -> float:
 	return maxf(active_personnel * active_factor + reserves() * level_value(reserve_share, mobilization)
-		- reserve_personnel * level_value(reserve_share, start_mobilization), 0.0)
+		- reserve_personnel * level_value(reserve_share, start_mobilization) - losses, 0.0)
 
 
 ## Réservistes disponibles (selon le service militaire).

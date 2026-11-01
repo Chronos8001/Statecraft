@@ -56,9 +56,11 @@ static func occupied_share(state: SimState, province_id: String) -> float:
 ## Change le contrôleur entier d'une province.
 static func set_controller(state: SimState, province_id: String, tag: String) -> void:
 	var previous := controller(state, province_id)
-	state.contested.erase(province_id)
+	if state.contested.erase(province_id):
+		state.fronts_dirty = true
 	if previous == tag:
 		return
+	state.fronts_dirty = true
 	state.province_control[province_id] = tag
 	state.add_event(EVENT_CONTROL, tag, {"province": province_id, "previous": previous})
 
@@ -72,6 +74,7 @@ static func advance(state: SimState, province_id: String, tag: String, delta: fl
 		var left := float(contest["share"]) - delta
 		if left <= 0.0:
 			state.contested.erase(province_id)
+			state.fronts_dirty = true
 		else:
 			contest["share"] = minf(left, FULL)
 		return
@@ -81,8 +84,11 @@ static func advance(state: SimState, province_id: String, tag: String, delta: fl
 	if share >= FULL:
 		set_controller(state, province_id, tag)
 	elif share <= 0.0:
-		state.contested.erase(province_id)
+		if state.contested.erase(province_id):
+			state.fronts_dirty = true
 	else:
+		if str(current.get("by", "")) != tag:
+			state.fronts_dirty = true
 		state.contested[province_id] = {"by": tag, "share": share}
 
 

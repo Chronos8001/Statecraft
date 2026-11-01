@@ -182,7 +182,9 @@
     "player_color": "#F2D16B",
     "war_color": "#E08A3A",
     "rebel_color": "#5A4A3A",
-    "order": 13
+    "order": 13,
+    "front_color": "#FFF2C0",
+    "front_strength": 0.45
   },
   "military_power": {
     "name_key": "MAPMODE_MILITARY_POWER",
