@@ -42,6 +42,9 @@ var arms_flow: float = 0.0
 ## Stock de missiles (salves disponibles) et délais des actions ponctuelles (action → mois restants).
 var missile_stock: float = 0.0
 var action_cooldowns: Dictionary = {}
+## Bonus des technologies acquises : niveau d'équipement visé par branche, jauges des capacités spéciales.
+var tech_levels: Dictionary = {}
+var tech_special: Dictionary = {}
 ## Pertes au combat pas encore remplacées (soldats), retirées des effectifs d'active.
 var losses: float = 0.0
 ## Calculés chaque mois : puissance militaire et effets de la mobilisation ({growth, stability, groups}).

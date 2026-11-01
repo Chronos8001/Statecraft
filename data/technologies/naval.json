@@ -1,0 +1,10 @@
+{
+  "naval_drones": {"name_key": "TECH_NAVAL_DRONES", "tree": "naval", "year": 2026, "cost": 150, "requires": [], "effects": {"military:sea": 0.1}, "start": {"military": ["sea", 3.0]}},
+  "anti_ship_hypersonics": {"name_key": "TECH_ANTI_SHIP_HYPERSONICS", "tree": "naval", "year": 2028, "cost": 500, "requires": [], "effects": {"military:sea": 0.1, "special:missiles": 5.0}, "start": {"countries": ["CHN", "RUS"]}},
+  "electric_propulsion": {"name_key": "TECH_ELECTRIC_PROPULSION", "tree": "naval", "year": 2029, "cost": 400, "requires": [], "effects": {"military:sea": 0.1}, "start": {"military": ["sea", 4.5]}},
+  "naval_lasers": {"name_key": "TECH_NAVAL_LASERS", "tree": "naval", "year": 2031, "cost": 700, "requires": [], "effects": {"military:sea": 0.15}},
+  "autonomous_submarines": {"name_key": "TECH_AUTONOMOUS_SUBMARINES", "tree": "naval", "year": 2032, "cost": 800, "requires": ["naval_drones"], "effects": {"military:sea": 0.2}},
+  "next_gen_carriers": {"name_key": "TECH_NEXT_GEN_CARRIERS", "tree": "naval", "year": 2035, "cost": 1100, "requires": ["electric_propulsion"], "effects": {"military:sea": 0.3}},
+  "railguns": {"name_key": "TECH_RAILGUNS", "tree": "naval", "year": 2036, "cost": 1000, "requires": ["electric_propulsion"], "effects": {"military:sea": 0.2}},
+  "seabed_warfare": {"name_key": "TECH_SEABED_WARFARE", "tree": "naval", "year": 2038, "cost": 900, "requires": ["autonomous_submarines"], "effects": {"military:sea": 0.15}}
+}

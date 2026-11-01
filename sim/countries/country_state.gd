@@ -40,3 +40,5 @@ var disinformation_cooldown: int = 0
 var aid_stability: float = 0.0
 ## Forces armées (null sans données militaires).
 var military: MilitaryState = null
+## Recherche et technologies (null sans données de recherche).
+var research: ResearchState = null

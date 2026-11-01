@@ -22,6 +22,7 @@ var _notification_timer: SceneTreeTimer
 ## Interface militaire remplaçable (mods, DLC) et son panneau Armée.
 var _military_ui: MilitaryUI = MilitaryUI.new()
 var _military_panel: InfoPanel
+var _research_panel: ResearchPanel
 ## Groupe d'armées sélectionné (-1 : aucun) : un clic droit sur la carte l'envoie dans la province visée.
 var _selected_group: int = -1
 ## Flotte sélectionnée (-1 : aucune) : un clic droit sur une mer l'y envoie.
@@ -98,6 +99,9 @@ func _ready() -> void:
 			_map_view.focus_on(_province_center(DataLoader.get_category("provinces"), province_id),
 				maxf(_map_view.camera.zoom, float(DataLoader.get_define("camera.capital_zoom")))))
 	_top_bar.military_requested.connect(func() -> void: _military_panel.call("toggle"))
+	_research_panel = (load("res://ui/research/research_panel.tscn") as PackedScene).instantiate() as ResearchPanel
+	_military_panel.add_sibling(_research_panel)
+	_top_bar.research_requested.connect(_research_panel.toggle)
 	_top_bar.world_requested.connect(_world_panel.toggle)
 	_country_panel.diplomacy_requested.connect(func(tag: String) -> void:
 		_country_panel.close()
@@ -130,7 +134,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		var panels: Array[InfoPanel] = [_info_panel, _country_panel, _economy_panel, _budget_panel, _markets_panel,
 			_trade_panel, _energy_panel, _investment_panel, _society_panel,
 			_politics_panel, _laws_panel, _government_panel, _diplomacy_panel,
-			_world_panel, _military_panel]
+			_world_panel, _military_panel, _research_panel]
 		if panels.any(func(panel: InfoPanel) -> bool: return panel.visible):
 			for panel: InfoPanel in panels:
 				panel.close()
@@ -799,6 +803,13 @@ func _on_naval_event(event: Dictionary) -> bool:
 		LandingSystem.EVENT_EVACUATED:
 			if tag == player:
 				_notify(tr("NOTIFY_BEACHHEAD_LOST") % _province_label(str(event.get("province", ""))))
+		ResearchSystem.EVENT_COMPLETED:
+			if tag == player:
+				_notify(tr("NOTIFY_TECH_COMPLETED") % tr(str(DataLoader.get_entry("technologies", str(event.get("technology",
+					""))).get("name_key", ""))))
+		ResearchSystem.EVENT_SLOT_FREE:
+			if tag == player:
+				_notify(tr("NOTIFY_RESEARCH_SLOT_FREE"))
 		NuclearSystem.EVENT_STRIKE:
 			var key := "NOTIFY_NUCLEAR_RETALIATION" if bool(event.get("retaliation", false)) else "NOTIFY_NUCLEAR_STRIKE"
 			_notify(tr(key) % [MilitaryUI.side_name(state, tag), _province_label(str(event.get("province", ""))),

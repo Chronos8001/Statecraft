@@ -1,0 +1,11 @@
+{
+  "grid_storage": {"name_key": "TECH_GRID_STORAGE", "tree": "energy", "year": 2026, "cost": 150, "requires": [], "effects": {"energy:solar": 0.05, "energy:wind": 0.05}, "start": {"index": 60}},
+  "offshore_wind": {"name_key": "TECH_OFFSHORE_WIND", "tree": "energy", "year": 2027, "cost": 300, "requires": [], "effects": {"energy:wind": 0.15}, "start": {"index": 80}},
+  "perovskite_solar": {"name_key": "TECH_PEROVSKITE_SOLAR", "tree": "energy", "year": 2028, "cost": 300, "requires": [], "effects": {"energy:solar": 0.2}},
+  "smart_grid": {"name_key": "TECH_SMART_GRID", "tree": "energy", "year": 2029, "cost": 400, "requires": ["grid_storage"], "effects": {"growth": 0.05, "energy:solar": 0.05, "energy:wind": 0.05}},
+  "small_modular_reactors": {"name_key": "TECH_SMALL_MODULAR_REACTORS", "tree": "energy", "year": 2030, "cost": 600, "requires": [], "effects": {"energy:nuclear": 0.1}, "start": {"countries": ["RUS", "CHN"]}},
+  "solid_state_batteries": {"name_key": "TECH_SOLID_STATE_BATTERIES", "tree": "energy", "year": 2030, "cost": 500, "requires": ["grid_storage"], "effects": {"growth": 0.05, "energy:solar": 0.1, "energy:wind": 0.1}},
+  "green_hydrogen": {"name_key": "TECH_GREEN_HYDROGEN", "tree": "energy", "year": 2032, "cost": 650, "requires": [], "effects": {"growth": 0.05, "energy:gas": 0.05}},
+  "nuclear_fusion": {"name_key": "TECH_NUCLEAR_FUSION", "tree": "energy", "year": 2044, "cost": 2000, "requires": ["small_modular_reactors", "high_temperature_superconductors"], "effects": {"growth": 0.2, "energy:nuclear": 1.0}},
+  "high_temperature_superconductors": {"name_key": "TECH_HIGH_TEMPERATURE_SUPERCONDUCTORS", "tree": "energy", "year": 2036, "cost": 1000, "requires": [], "effects": {"growth": 0.05, "energy:nuclear": 0.1}}
+}
