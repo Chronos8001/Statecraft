@@ -955,6 +955,49 @@
       "front_share_bonus": 2.0,
       "reserve_from_groups": 3,
       "speed_km_per_day": 40.0
+    },
+    "war": {
+      "relation": -60.0,
+      "trust": -40.0,
+      "target_opinion": -40.0,
+      "ally_relation": -25.0,
+      "democratic_factor": 1.5,
+      "rally_stability": 4.0,
+      "embargo": true,
+      "call_to_arms": {
+        "days": 30,
+        "base": -10.0,
+        "relation": 0.4,
+        "enemy_relation": -0.3,
+        "alliance": 30.0,
+        "guarantee": 20.0,
+        "power": 15.0,
+        "refuse_relation": -30.0,
+        "refuse_trust": -40.0,
+        "join_relation": 15.0
+      },
+      "join": {
+        "min_relation": 0.0,
+        "enemy_relation": -40.0,
+        "enemy_trust": -20.0,
+        "world_opinion": -3.0,
+        "tension": 2.0
+      },
+      "white_peace": {
+        "base": -20.0,
+        "power": 30.0,
+        "per_month": 0.5,
+        "max_months_bonus": 30.0,
+        "occupation": 1.0,
+        "refused_cooldown": 1,
+        "truce_months": 24,
+        "relation": 10.0,
+        "tension": -3.0
+      },
+      "civil_war": {
+        "province_share": 0.25,
+        "start_share": 0.3
+      }
     }
   },
   "military_symbols": {

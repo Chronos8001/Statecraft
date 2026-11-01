@@ -1,0 +1,10 @@
+{
+  "annex": {"name_key": "WAR_GOAL_ANNEX", "requires": "claim", "min_tension": 0.0, "max_relation": 100.0,
+    "legitimacy": 6.0, "stability": 2.0, "world_opinion": -10.0, "tension": 6.0},
+  "liberate": {"name_key": "WAR_GOAL_LIBERATE", "requires": "occupied", "min_tension": 0.0, "max_relation": 100.0,
+    "legitimacy": 0.0, "stability": 0.0, "world_opinion": -2.0, "tension": 3.0},
+  "regime_change": {"name_key": "WAR_GOAL_REGIME_CHANGE", "requires": "none", "min_tension": 60.0, "max_relation": -50.0,
+    "legitimacy": 10.0, "stability": 4.0, "world_opinion": -15.0, "tension": 8.0},
+  "reparations": {"name_key": "WAR_GOAL_REPARATIONS", "requires": "none", "min_tension": 50.0, "max_relation": -30.0,
+    "legitimacy": 5.0, "stability": 2.0, "world_opinion": -8.0, "tension": 5.0}
+}
