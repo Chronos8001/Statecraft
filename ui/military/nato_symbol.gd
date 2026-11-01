@@ -18,6 +18,8 @@ const ARMOUR := "armour"
 const MECHANIZED := "mechanized"
 ## Marque de taille d'un groupe d'armées.
 const ARMY_GROUP := "XXXXX"
+## Flotte : les symboles navals de l'APP-6 n'ont pas de marque de taille.
+const FLEET := ""
 ## Proportions du cadre (APP-6 : rectangle ami 3:2, carré neutre, losange hostile).
 const FRIEND_RATIO := 1.5
 const ECHELON_SPACE := 0.28

@@ -8,6 +8,8 @@ extends InfoPanel
 signal group_focus_requested(group_id: int)
 ## « Voir » sur un front : la carte se centre sur une de ses provinces.
 signal province_focus_requested(province_id: String)
+## « Voir » sur une flotte : la carte se centre dessus et la sélectionne.
+signal fleet_focus_requested(fleet_id: int)
 
 const HEADER_COLOR := Color(0.92, 0.95, 0.98)
 const BRANCH_HEADERS := ["", "MILITARY_BRANCH", "MILITARY_PERSONNEL", "MILITARY_LEVEL", "MILITARY_TRAINING",
@@ -25,6 +27,7 @@ const POWER_SCALE := 0.00001
 var military_ui: MilitaryUI = MilitaryUI.new()
 var _priority_spins: Dictionary = {}
 var _wars_box: VBoxContainer
+var _fleets_box: VBoxContainer
 
 @onready var _summary_grid: GridContainer = %SummaryGrid
 @onready var _branches_grid: GridContainer = %BranchesGrid
@@ -41,6 +44,9 @@ func _ready() -> void:
 	_wars_box = VBoxContainer.new()
 	_summary_grid.get_parent().add_child(_wars_box)
 	_summary_grid.get_parent().move_child(_wars_box, _summary_grid.get_index() + 1)
+	_fleets_box = VBoxContainer.new()
+	_groups_grid.get_parent().add_child(_fleets_box)
+	_groups_grid.get_parent().move_child(_fleets_box, _groups_grid.get_index() + 2)
 	_branches_grid.columns = BRANCH_HEADERS.size()
 	_mobilization_option.item_selected.connect(func(_index: int) -> void: _update_buttons())
 	_mobilization_button.pressed.connect(func() -> void:
@@ -99,6 +105,7 @@ func refresh() -> void:
 	_fill_wars(state, country.tag)
 	_fill_branches(military, personnel, locale)
 	_fill_groups(country, locale)
+	_fill_fleets(state, country.tag)
 	for key: String in SPECIAL_KEYS:
 		_add_row(_special_grid, "MILITARY_SPECIAL_%s" % key.to_upper(),
 			tr("SOCIETY_SCORE_VALUE") % roundi(float(military.special.get(key, 0.0))))
@@ -334,6 +341,51 @@ func _text(text: String, color: Color) -> Label:
 	return label
 
 
+## Flottes du pays : mer, état, mouvement ou situation de la mer (dominée, disputée, ennemie).
+func _fill_fleets(state: SimState, tag: String) -> void:
+	for child: Node in _fleets_box.get_children():
+		_fleets_box.remove_child(child)
+		child.queue_free()
+	var fleets := NavalModel.fleets_of(state, tag)
+	if fleets.is_empty():
+		return
+	var title := Label.new()
+	title.text = "MILITARY_FLEETS"
+	title.add_theme_color_override("font_color", HEADER_COLOR)
+	_fleets_box.add_child(title)
+	var grid := GridContainer.new()
+	grid.columns = 6
+	_fleets_box.add_child(grid)
+	for fleet: Fleet in fleets:
+		var symbol := NatoSymbol.new()
+		symbol.domain = NatoSymbol.SEA
+		symbol.custom_minimum_size = Vector2(36, 26)
+		grid.add_child(symbol)
+		var name_label := _text(military_ui.fleet_name(fleet), LABEL_COLOR)
+		grid.add_child(name_label)
+		grid.add_child(_value(MilitaryUI.sea_name(fleet.zone)))
+		grid.add_child(_value(tr("FLEET_CONDITION") % roundi(fleet.condition * 100.0), fleet.condition - 1.0))
+		var status := tr("MILITARY_STATIONED")
+		if fleet.is_moving():
+			var days := fleet.days_left
+			for index: int in range(1, fleet.path.size()):
+				days += NavalModel.travel_days(state, fleet.path[index - 1], fleet.path[index])
+			status = tr("MILITARY_MOVING") % [MilitaryUI.sea_name(fleet.destination), days]
+		elif NavalResolver.hostile_to(state, fleet.zone, tag):
+			status = tr("FLEET_UNDER_FIRE")
+		elif not NavalResolver.controller(state, fleet.zone).is_empty():
+			status = tr("FLEET_CONTROLS")
+		grid.add_child(_value(status))
+		var button := Button.new()
+		button.text = "MILITARY_SHOW"
+		button.focus_mode = Control.FOCUS_NONE
+		var fleet_id := fleet.id
+		button.pressed.connect(func() -> void: fleet_focus_requested.emit(fleet_id))
+		grid.add_child(button)
+	var hint := _text(tr("MILITARY_FLEETS_HINT"), LABEL_COLOR)
+	_fleets_box.add_child(hint)
+
+
 func _province_name(province_id: String) -> String:
 	return tr(str(DataLoader.get_entry("provinces", province_id).get("name_key", "")))
 
@@ -344,6 +396,10 @@ func _refresh_moving() -> void:
 		return
 	for group: ArmyGroup in ArmyGroupModel.groups_of(GameState.sim, str(GameState.sim.player_tag)):
 		if group.is_moving() or group.days_left > 0:
+			refresh()
+			return
+	for fleet: Fleet in NavalModel.fleets_of(GameState.sim, str(GameState.sim.player_tag)):
+		if fleet.is_moving() or fleet.days_left > 0:
 			refresh()
 			return
 

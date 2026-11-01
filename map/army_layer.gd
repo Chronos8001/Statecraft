@@ -1,14 +1,17 @@
 class_name ArmyLayer
 extends Control
-## Pions des groupes d'armées sur la carte : symbole OTAN (cadre selon l'appartenance au pays joué), effectifs
-## dessous, trajet en pointillés pour un groupe en marche. Les pions sont fournis par l'écran de jeu :
-## [{id, position (carte), affiliation, label, selected, path (positions de carte)}].
+## Pions des groupes d'armées et des flottes sur la carte : symbole OTAN (cadre selon l'appartenance au pays joué
+## et le milieu), effectifs ou état dessous, trajet en pointillés pour un pion en mouvement. Les pions sont
+## fournis par l'écran de jeu : [{id, kind (army, fleet), position (carte), affiliation, label, selected,
+## path (positions de carte)}].
 
 const OUTLINE_COLOR := Color(0.04, 0.05, 0.07, 0.85)
 const SELECTED_COLOR := Color(1.0, 0.85, 0.3)
 const LABEL_OUTLINE_SIZE := 4
 const DASH := 6.0
 const SELECTION_MARGIN := 3.0
+const ARMY := "army"
+const FLEET := "fleet"
 
 var _camera: MapCameraState
 var _tokens: Array[Dictionary] = []
@@ -41,15 +44,15 @@ func set_tokens(tokens: Array[Dictionary]) -> void:
 	queue_redraw()
 
 
-## Pion sous un point de l'écran (-1 : aucun). Les pions dessinés en dernier sont testés d'abord.
-func token_at(screen_position: Vector2) -> int:
+## Pion sous un point de l'écran ({} : aucun). Les pions dessinés en dernier sont testés d'abord.
+func token_at(screen_position: Vector2) -> Dictionary:
 	if _camera == null:
-		return -1
+		return {}
 	for index: int in range(_tokens.size() - 1, -1, -1):
 		var token: Dictionary = _tokens[index]
 		if _visible(token) and _rect(token).has_point(screen_position):
-			return int(token["id"])
-	return -1
+			return token
+	return {}
 
 
 func _visible(token: Dictionary) -> bool:
@@ -80,8 +83,9 @@ func _draw() -> void:
 			continue
 		if bool(token.get("selected", false)):
 			draw_rect(rect.grow(SELECTION_MARGIN), SELECTED_COLOR, false, 2.0)
-		NatoSymbol.draw_symbol(self, rect, NatoSymbol.LAND, str(token["affiliation"]), NatoSymbol.INFANTRY,
-			NatoSymbol.ARMY_GROUP, _colors, _font, 1.5)
+		var fleet := str(token.get("kind", "")) == FLEET
+		NatoSymbol.draw_symbol(self, rect, NatoSymbol.SEA if fleet else NatoSymbol.LAND, str(token["affiliation"]),
+			NatoSymbol.INFANTRY, NatoSymbol.FLEET if fleet else NatoSymbol.ARMY_GROUP, _colors, _font, 1.5)
 		var text := str(token.get("label", ""))
 		if not text.is_empty():
 			var text_size := _font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, _label_size)

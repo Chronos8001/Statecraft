@@ -10,6 +10,8 @@ signal province_clicked(province_id: int)
 signal province_double_clicked(province_id: int)
 ## Clic gauche sur un pion de groupe d'armées.
 signal army_group_clicked(group_id: int)
+## Clic gauche sur un pion de flotte.
+signal fleet_clicked(fleet_id: int)
 ## Clic droit (sans glisser) sur la carte : ordre de déplacement du groupe sélectionné.
 signal province_right_clicked(province_id: int)
 
@@ -134,9 +136,12 @@ func _gui_input(event: InputEvent) -> void:
 		match button.button_index:
 			MOUSE_BUTTON_LEFT:
 				if button.pressed:
-					var group_id := _armies.token_at(button.position)
-					if group_id >= 0:
-						army_group_clicked.emit(group_id)
+					var token := _armies.token_at(button.position)
+					if not token.is_empty():
+						if str(token.get("kind", "")) == ArmyLayer.FLEET:
+							fleet_clicked.emit(int(token["id"]))
+						else:
+							army_group_clicked.emit(int(token["id"]))
 						accept_event()
 						return
 					var province_id := province_at_screen(button.position)
