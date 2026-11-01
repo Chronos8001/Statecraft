@@ -10,7 +10,8 @@ extends RefCounted
 ## Score (vue de l'attaquant, -100 à 100) = écart d'occupation (points de population) × poids + écart de pertes
 ## (part) × poids + écart de blocus × poids + part des buts atteints × poids.
 ## Exigences : province visée par les buts et tenue par notre camp (coût = sa part de la population du camp
-## adverse × poids, avec un minimum), réparations (coût fixe). Marge acceptée par un pays de l'IA = score du
+## adverse × poids, avec un minimum), réparations (coût fixe), gouvernement fantoche si le but était de changer
+## le régime (coût fixe élevé). Marge acceptée par un pays de l'IA = score du
 ## demandeur × (1 - soutien / 100) + ce qui manque à son soutien pour atteindre le seuil.
 
 const PROVINCE := "province"
@@ -216,6 +217,8 @@ static func available_demands(state: SimState, war: War, tag: String) -> Array[D
 				result.append({"type": PROVINCE, "province": province_id})
 	if score_for(state, war, tag) > 0.0:
 		result.append({"type": REPARATIONS})
+	if OccupationSystem.puppet_demand_available(state, war, tag):
+		result.append({"type": OccupationSystem.PUPPET})
 	return result
 
 
@@ -232,6 +235,8 @@ static func demand_cost(state: SimState, war: War, demand: Dictionary, receiver:
 	var rules: Dictionary = settings_of(state).get("demands", {})
 	if str(demand.get("type", "")) == REPARATIONS:
 		return float(rules.get("reparations_cost", 0.0))
+	if str(demand.get("type", "")) == OccupationSystem.PUPPET:
+		return float(OccupationSystem.puppet_settings(state).get("demand_cost", 0.0))
 	var province_id := str(demand.get("province", ""))
 	var provinces: Dictionary = state.energy_definitions.get("provinces", {})
 	var total := 0.0
@@ -314,6 +319,8 @@ static func sign_peace(state: SimState, war: War, tag: String, demands: Array) -
 			var province_id := str(entry["province"])
 			var holder := ControlSystem.controller(state, province_id)
 			cede(state, province_id, holder if war.side_of(holder) == side else tag)
+		elif str(entry.get("type", "")) == OccupationSystem.PUPPET:
+			OccupationSystem.install_puppet(state, loser, tag)
 		elif str(entry.get("type", "")) == REPARATIONS:
 			state.reparations.append({"from": loser, "to": tag, "share": float(rules.get("reparations_share", 0.0)),
 				"months_left": int(rules.get("reparations_years", 0)) * int(MONTHS_PER_YEAR)})
