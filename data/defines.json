@@ -1041,6 +1041,40 @@
       "min_condition": 0.05,
       "repair_per_month": 0.15
     },
+    "nuclear": {
+      "alert_levels": 4,
+      "alert_cost_share": [0.0, 0.05, 0.15, 0.4],
+      "alert_tension": [0.0, 1.0, 3.0, 8.0],
+      "alert_world_opinion": [0.0, 0.0, -2.0, -6.0],
+      "alert_cooldown": 1,
+      "strike_warheads": 10,
+      "kill_share": 0.15,
+      "gdp_factor": 1.5,
+      "infrastructure_damage": 10.0,
+      "devastation_months": 120,
+      "front_losses": 0.5,
+      "attacker_relation": -60.0,
+      "attacker_trust": -50.0,
+      "attacker_opinion": -60.0,
+      "attacker_stability": 15.0,
+      "attacker_legitimacy": 20.0,
+      "target_stability": 20.0,
+      "umbrella_chance": 0.7,
+      "program": {
+        "months": 96,
+        "monthly_cost_billion": 1.0,
+        "detection_chance": 0.03,
+        "detected_relation": -25.0,
+        "detected_tension": 3.0,
+        "completed_warheads": 5,
+        "completed_tension": 10.0,
+        "abandon_relation": 15.0
+      },
+      "ai": {
+        "occupied_percent": 30.0,
+        "use_chance": 0.02
+      }
+    },
     "actions": {
       "missiles": {
         "stock_per_point": 0.5,
