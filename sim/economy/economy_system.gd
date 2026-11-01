@@ -123,7 +123,7 @@ static func step_country(economy: EconomyState, currency: CurrencyState, state: 
 	var fiscal_impulse := float(settings["fiscal_multiplier"]) * (economy.start_primary_balance - economy.primary_balance)
 	var growth := economy.potential_growth + economy.budget_growth + economy.resource_growth + economy.trade_growth \
 		+ economy.energy_growth + economy.investment_growth + economy.society_growth + economy.law_growth + economy.emergency_growth + economy.cabinet_growth + economy.crisis_growth + economy.sanction_growth + economy.aid_growth \
-		+ economy.military_growth + economy.attack_growth + economy.research_growth \
+		+ economy.military_growth + economy.attack_growth + economy.research_growth + economy.ai_growth \
 		+ fiscal_impulse \
 		+ EconomyModel.demand_effect(currency.policy_rate, economy.inflation, economy.neutral_real_rate, settings)
 	if economy.in_crisis():
@@ -142,7 +142,7 @@ static func step_country(economy: EconomyState, currency: CurrencyState, state: 
 		economy.output_gap,
 		currency.last_depreciation, settings), float(inflation_bounds[0]), float(inflation_bounds[1]))
 	economy.unemployment = clampf(EconomyModel.next_unemployment(economy.unemployment,
-		economy.natural_unemployment + economy.budget_unemployment, economy.output_gap, settings), float(unemployment_bounds[0]), float(unemployment_bounds[1]))
+		economy.natural_unemployment + economy.budget_unemployment + economy.ai_unemployment, economy.output_gap, settings), float(unemployment_bounds[0]), float(unemployment_bounds[1]))
 	economy.price_level *= 1.0 + economy.inflation / EconomyModel.PERCENT / EconomyModel.MONTHS_PER_YEAR
 	economy.sectors = EconomyModel.next_sector_shares(economy.sectors, sector_trends)
 	if economy.in_imf_program():

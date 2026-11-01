@@ -38,6 +38,9 @@ var media_effects: Dictionary = {}
 var disinformation_cooldown: int = 0
 ## Stabilité apportée par l'aide internationale reçue.
 var aid_stability: float = 0.0
+## Désinformation par IA : stabilité perdue, volatilité des sondages en plus (part).
+var ai_stability: float = 0.0
+var ai_volatility: float = 0.0
 ## Forces armées (null sans données militaires).
 var military: MilitaryState = null
 ## Recherche et technologies (null sans données de recherche).

@@ -106,6 +106,7 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 		for tag: String in tags:
 			ResearchSystem.setup_country(state, state.countries[tag], countries[tag])
 		ResearchSystem.refresh_known_counts(state)
+		AiRaceSystem.setup_start(state)
 
 
 ## Relations de départ (données « relations » de chaque pays, symétriques), traités de 2026, ambassades et

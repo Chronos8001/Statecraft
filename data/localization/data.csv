@@ -750,3 +750,7 @@ AID_LOAN,Loan,Prêt
 AID_ARMS_SALE,Arms sale,Vente d'armes
 AID_ARMS_GIFT,Arms donation,Don d'armes
 AID_MILITARY_ADVISORS,Military advisers,Conseillers militaires
+LAW_AI_REGULATION,AI regulation,Régulation de l'IA
+LAW_AI_REGULATION_OPEN,Open,Libre
+LAW_AI_REGULATION_FRAMED,Framed,Encadrée
+LAW_AI_REGULATION_STRICT,Strict,Stricte

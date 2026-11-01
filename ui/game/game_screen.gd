@@ -807,6 +807,13 @@ func _on_naval_event(event: Dictionary) -> bool:
 			if tag == player:
 				_notify(tr("NOTIFY_TECH_COMPLETED") % tr(str(DataLoader.get_entry("technologies", str(event.get("technology",
 					""))).get("name_key", ""))))
+		AiRaceSystem.EVENT_LEADER:
+			_notify(tr("NOTIFY_AI_LEADER") % MilitaryUI.side_name(state, tag))
+		AiRaceSystem.EVENT_AGI:
+			_notify(tr("NOTIFY_AGI") % MilitaryUI.side_name(state, tag))
+		AiRaceSystem.EVENT_PLAN:
+			if tag == player:
+				_notify(tr("NOTIFY_AI_PLAN"))
 		ResearchCooperation.EVENT_JOINT:
 			var partner := str(event.get("partner", ""))
 			if tag == player or partner == player:

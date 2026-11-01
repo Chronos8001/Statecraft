@@ -100,7 +100,7 @@ func test_completion_applies_effects() -> void:
 	assert_true(country.research.is_known("next"), "technologie achevée")
 	assert_eq(country.research.slots[0], "", "emplacement libéré")
 	assert_almost_eq(country.military.tech_levels["land"], 0.5, 0.0001)
-	assert_almost_eq(country.military.tech_special["cyber"], 10.0, 0.0001)
+	assert_almost_eq(country.military.tech_special["cyber"], 10.0 + country.research.ai_cyber, 0.0001)
 	assert_almost_eq(country.society.start_stability, stability + 2.0, 0.0001)
 	var level := float((country.military.branches["land"] as Dictionary)["level"])
 	state.military.model.update_country(country, state)

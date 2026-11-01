@@ -19,9 +19,14 @@ const PERCENT := 100.0
 @onready var _tech_list: VBoxContainer = %TechList
 @onready var _close_button: Button = %CloseButton
 
+var _ai_grid: GridContainer
+var _ai_ranking: VBoxContainer
+var _plan_button: Button
+
 
 func _ready() -> void:
 	_close_button.pressed.connect(close)
+	_build_ai_box()
 	_tree_option.item_selected.connect(func(_index: int) -> void: refresh())
 	EventBus.locale_changed.connect(func(_locale: String) -> void: refresh())
 	EventBus.month_passed.connect(func(_date: GameDate) -> void: refresh())
@@ -45,6 +50,8 @@ func refresh() -> void:
 	_clear_rows(_summary_grid)
 	_clear_box(_slots_box)
 	_clear_box(_tech_list)
+	_clear_rows(_ai_grid)
+	_clear_box(_ai_ranking)
 	if country == null or country.research == null:
 		return
 	var research := country.research
@@ -56,6 +63,7 @@ func refresh() -> void:
 	_add_row(_summary_grid, "RESEARCH_KNOWN", "%d / %d" % [research.known.size(), state.technology_definitions.size()])
 	_add_row(_summary_grid, "RESEARCH_INDEX", str(roundi(ResearchSystem.tech_index(state, country))))
 	_fill_slots(state, country)
+	_fill_ai_race(state, country, locale)
 	if _tree_option.item_count == 0:
 		for tree: String in TREES:
 			_tree_option.add_item(tr("TREE_%s" % tree.to_upper()))
@@ -96,6 +104,57 @@ func _fill_slots(state: SimState, country: CountryState) -> void:
 			remove.pressed.connect(func() -> void: _submit(SetResearchCommand.new(state.player_tag, slot, "")))
 			row.add_child(remove)
 		_slots_box.add_child(row)
+
+
+## Bloc « Course à l'IA », placé sous les emplacements de recherche.
+func _build_ai_box() -> void:
+	var box := VBoxContainer.new()
+	var title := Label.new()
+	title.text = "AI_RACE_TITLE"
+	title.add_theme_color_override("font_color", HEADER_COLOR)
+	box.add_child(title)
+	_ai_grid = GridContainer.new()
+	_ai_grid.columns = 2
+	box.add_child(_ai_grid)
+	_plan_button = Button.new()
+	_plan_button.text = "AI_PLAN_LAUNCH"
+	_plan_button.focus_mode = Control.FOCUS_NONE
+	_plan_button.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	_plan_button.pressed.connect(func() -> void: _submit(LaunchAiPlanCommand.new(GameState.sim.player_tag)))
+	box.add_child(_plan_button)
+	_ai_ranking = VBoxContainer.new()
+	box.add_child(_ai_ranking)
+	_slots_box.get_parent().add_child(box)
+	_slots_box.get_parent().move_child(box, _slots_box.get_index() + 1)
+
+
+## Niveau et rang, régulation, plan, gains et risques ; classement des premiers pays.
+func _fill_ai_race(state: SimState, country: CountryState, locale: String) -> void:
+	var research := country.research
+	var rank := AiRaceSystem.rank(state, country.tag)
+	var level := NumberFormat.decimal(research.ai_level, 0, locale)
+	_add_row(_ai_grid, "AI_RACE_LEVEL", tr("AI_RACE_LEVEL_RANK") % [level, rank] if rank > 0 else level)
+	var law := str(AiRaceSystem.rules_of(state).get("law", ""))
+	var option := LawModel.option_of(DataLoader.get_entry("laws", law), str(country.laws.get(law, "")))
+	_add_row(_ai_grid, "AI_RACE_REGULATION", tr(str(option.get("name_key", ""))))
+	_add_row(_ai_grid, "AI_RACE_GROWTH", "+" + NumberFormat.decimal(country.economy.ai_growth, 2, locale) + " %")
+	_add_row(_ai_grid, "AI_RACE_UNEMPLOYMENT", "+" + NumberFormat.decimal(country.economy.ai_unemployment, 2, locale))
+	_add_row(_ai_grid, "AI_RACE_STABILITY", NumberFormat.decimal(country.ai_stability, 1, locale))
+	if research.ai_plan_months > 0:
+		_add_row(_ai_grid, "AI_PLAN", tr("AI_PLAN_MONTHS") % research.ai_plan_months)
+	var refusal := AiRaceSystem.plan_refusal(state, country.tag)
+	_plan_button.disabled = not refusal.is_empty()
+	_plan_button.tooltip_text = tr(refusal) if not refusal.is_empty() else tr("AI_PLAN_TOOLTIP") % [
+		NumberFormat.decimal(AiRaceSystem.plan_cost(state, country.tag), 1, locale),
+		int((AiRaceSystem.rules_of(state).get("plan", {}) as Dictionary).get("months", 0))]
+	for index: int in mini(state.ai_ranking.size(), 5):
+		var tag := state.ai_ranking[index]
+		var other := state.get_country(tag)
+		var text := "%d. %s — %s" % [index + 1, MilitaryUI.side_name(state, tag),
+			NumberFormat.decimal(other.research.ai_level, 0, locale)]
+		if state.agi_first == tag:
+			text += " " + tr("AI_RACE_AGI_MARK")
+		_ai_ranking.add_child(_text(text, KNOWN_COLOR if tag == country.tag else LABEL_COLOR))
 
 
 ## Technologies d'un arbre, par année : statut, coût, effets ; bouton pour la mettre dans un emplacement libre.
