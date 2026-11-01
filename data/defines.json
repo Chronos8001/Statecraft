@@ -1005,6 +1005,22 @@
         "rebel_morale": 65.0
       }
     },
+    "navy": {
+      "personnel_per_fleet": 40000.0,
+      "max_fleets": 4,
+      "speed_km_per_day": 500.0,
+      "coastal_share": 0.05,
+      "coastal_missiles_reference": 50.0,
+      "control_ratio": 1.5,
+      "damage_rate": 0.005,
+      "damage_odds_exponent": 1.0,
+      "damage_odds_min": 0.05,
+      "damage_odds_max": 4.0,
+      "retreat_max_km": 3000.0,
+      "retreat_condition": 0.3,
+      "min_condition": 0.05,
+      "repair_per_month": 0.15
+    },
     "combat": {
       "postures": {
         "offensive": {"attack": 1.0, "defense": 0.8, "advance": 1.0, "losses": 1.5},

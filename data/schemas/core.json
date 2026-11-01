@@ -2690,7 +2690,8 @@
             "trade",
             "vote",
             "claims",
-            "wars"
+            "wars",
+            "sea_control"
           ]
         },
         "value": {
@@ -2770,6 +2771,9 @@
           "type": "number",
           "min": 0,
           "max": 1
+        },
+        "contested_color": {
+          "type": "color"
         }
       }
     }
@@ -4225,6 +4229,17 @@
         }
       },
       "candidates": {
+        "type": "object",
+        "properties": {
+          "comment": {
+            "type": "string"
+          }
+        },
+        "values": {
+          "type": "any"
+        }
+      },
+      "fleets": {
         "type": "object",
         "properties": {
           "comment": {
