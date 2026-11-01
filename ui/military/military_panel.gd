@@ -28,6 +28,7 @@ var military_ui: MilitaryUI = MilitaryUI.new()
 var _priority_spins: Dictionary = {}
 var _wars_box: VBoxContainer
 var _fleets_box: VBoxContainer
+var _nuclear_box: VBoxContainer
 
 @onready var _summary_grid: GridContainer = %SummaryGrid
 @onready var _branches_grid: GridContainer = %BranchesGrid
@@ -44,6 +45,9 @@ func _ready() -> void:
 	_wars_box = VBoxContainer.new()
 	_summary_grid.get_parent().add_child(_wars_box)
 	_summary_grid.get_parent().move_child(_wars_box, _summary_grid.get_index() + 1)
+	_nuclear_box = VBoxContainer.new()
+	_special_grid.get_parent().add_child(_nuclear_box)
+	_special_grid.get_parent().move_child(_nuclear_box, _special_grid.get_index() + 1)
 	_fleets_box = VBoxContainer.new()
 	_groups_grid.get_parent().add_child(_fleets_box)
 	_groups_grid.get_parent().move_child(_fleets_box, _groups_grid.get_index() + 2)
@@ -108,6 +112,7 @@ func refresh() -> void:
 	_fill_branches(military, personnel, locale)
 	_fill_groups(country, locale)
 	_fill_fleets(state, country.tag)
+	_fill_nuclear(state, country)
 	for key: String in SPECIAL_KEYS:
 		_add_row(_special_grid, "MILITARY_SPECIAL_%s" % key.to_upper(),
 			tr("SOCIETY_SCORE_VALUE") % roundi(float(military.special.get(key, 0.0))))
@@ -347,6 +352,58 @@ func _fill_fronts(state: SimState, war: War, tag: String, locale: String) -> voi
 		show.pressed.connect(func() -> void: province_focus_requested.emit(focus))
 		row.add_child(show)
 		_wars_box.add_child(row)
+
+
+## Nucléaire : niveau d'alerte (pays dotés) ou programme militaire (pays non dotés).
+func _fill_nuclear(state: SimState, country: CountryState) -> void:
+	for child: Node in _nuclear_box.get_children():
+		_nuclear_box.remove_child(child)
+		child.queue_free()
+	if NuclearSystem.settings_of(state).is_empty():
+		return
+	var title := Label.new()
+	title.text = "MILITARY_NUCLEAR_TITLE"
+	title.add_theme_color_override("font_color", HEADER_COLOR)
+	_nuclear_box.add_child(title)
+	var row := HBoxContainer.new()
+	_nuclear_box.add_child(row)
+	var tag := country.tag
+	if NuclearSystem.warheads(state, tag) > 0:
+		var option := OptionButton.new()
+		option.focus_mode = Control.FOCUS_NONE
+		for level: int in NuclearSystem.MAX_ALERT + 1:
+			option.add_item(tr("NUCLEAR_ALERT_%d" % level))
+		option.select(country.military.nuclear_alert)
+		option.tooltip_text = tr("NUCLEAR_ALERT_TOOLTIP")
+		row.add_child(option)
+		var apply := Button.new()
+		apply.text = "NUCLEAR_SET_ALERT"
+		apply.focus_mode = Control.FOCUS_NONE
+		var update := func() -> void:
+			var refusal := NuclearSystem.alert_refusal(state, tag, option.selected)
+			apply.disabled = not refusal.is_empty()
+			apply.tooltip_text = tr(refusal) if not refusal.is_empty() else tr("NUCLEAR_ALERT_TOOLTIP")
+		option.item_selected.connect(func(_index: int) -> void: update.call())
+		update.call()
+		apply.pressed.connect(func() -> void: _submit(NuclearAlertCommand.new(state.player_tag, option.selected)))
+		row.add_child(apply)
+		return
+	var program: Dictionary = state.nuclear_programs.get(tag, {})
+	var status := _text(tr("NUCLEAR_PROGRAM_NONE") if program.is_empty() else tr("NUCLEAR_PROGRAM_STATUS") % [
+		int(program["months_left"]), tr("NUCLEAR_PROGRAM_KNOWN" if bool(program["detected"]) else "NUCLEAR_PROGRAM_SECRET")],
+		LABEL_COLOR)
+	status.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(status)
+	var button := Button.new()
+	button.focus_mode = Control.FOCUS_NONE
+	var start := program.is_empty()
+	button.text = "NUCLEAR_PROGRAM_START" if start else "NUCLEAR_PROGRAM_ABANDON"
+	var refusal := NuclearSystem.program_refusal(state, tag, start)
+	button.disabled = not refusal.is_empty()
+	button.tooltip_text = tr(refusal) if not refusal.is_empty() else tr("NUCLEAR_PROGRAM_START_TOOLTIP" if start
+		else "NUCLEAR_PROGRAM_ABANDON_TOOLTIP")
+	button.pressed.connect(func() -> void: _submit(NuclearProgramCommand.new(state.player_tag, start)))
+	row.add_child(button)
 
 
 func _names(state: SimState, tags: Array[String], excluded: String) -> String:

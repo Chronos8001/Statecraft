@@ -65,6 +65,8 @@ func _refresh() -> void:
 	_add_row(_stats_grid, "INFO_POPULATION", NumberFormat.integer(_info.population, locale))
 	_add_row(_stats_grid, "INFO_AREA", tr("INFO_AREA_VALUE") % NumberFormat.integer(roundi(_info.area_km2), locale))
 	_add_row(_stats_grid, "INFO_TERRAIN", tr(_info.terrain_name_key))
+	if GameState.sim.devastated.has(str(_info.province_id)):
+		_add_row(_stats_grid, "INFO_DEVASTATED", tr("INFO_DEVASTATED_VALUE"))
 	_add_row(_stats_grid, "INFO_INFRASTRUCTURE", tr("INFO_INFRASTRUCTURE_VALUE") % [
 		_info.infrastructure, int(DataLoader.get_define("province.max_infrastructure"))])
 	_add_row(_stats_grid, "INFO_COASTAL", tr("COMMON_YES") if _info.coastal else tr("COMMON_NO"))
@@ -104,6 +106,34 @@ func _fill_actions() -> void:
 		row.add_child(_action_button(MilitaryActions.SPECIAL, MilitaryActions.BUILDING, province, str(building_id)))
 		_actions_box.add_child(row)
 	_actions_box.add_child(_action_button(MilitaryActions.STRIKE, MilitaryActions.INFRASTRUCTURE, province, ""))
+	if NuclearSystem.warheads(state, player) > 0:
+		var nuclear := Button.new()
+		nuclear.text = "NUCLEAR_STRIKE"
+		nuclear.focus_mode = Control.FOCUS_NONE
+		nuclear.add_theme_color_override("font_color", Color(1.0, 0.45, 0.35))
+		var refusal := NuclearSystem.strike_refusal(state, player, province)
+		nuclear.disabled = not refusal.is_empty()
+		nuclear.tooltip_text = tr(refusal) if not refusal.is_empty() else tr("NUCLEAR_STRIKE_TOOLTIP")
+		nuclear.pressed.connect(func() -> void: _confirm_nuclear(province))
+		_actions_box.add_child(nuclear)
+
+
+## Frappe nucléaire : confirmation obligatoire (conséquences massives et irréversibles).
+func _confirm_nuclear(province: String) -> void:
+	var dialog := ConfirmationDialog.new()
+	dialog.title = tr("NUCLEAR_CONFIRM_TITLE")
+	dialog.dialog_text = tr("NUCLEAR_CONFIRM_TEXT") % tr(_info.name_key)
+	dialog.dialog_autowrap = true
+	dialog.ok_button_text = tr("NUCLEAR_CONFIRM_OK")
+	dialog.cancel_button_text = tr("NUCLEAR_CONFIRM_CANCEL")
+	dialog.confirmed.connect(func() -> void:
+		if GameState.submit_command(NuclearStrikeCommand.new(GameState.sim.player_tag, province)) and GameClock.is_paused:
+			GameState.process_commands())
+	dialog.visibility_changed.connect(func() -> void:
+		if not dialog.visible:
+			dialog.queue_free())
+	add_child(dialog)
+	dialog.popup_centered(Vector2i(460, 0))
 
 
 func _action_button(action: String, kind: String, target: String, building: String) -> Button:
