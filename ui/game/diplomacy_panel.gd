@@ -1,7 +1,7 @@
 class_name DiplomacyPanel
 extends InfoPanel
 ## Panneau Diplomatie avec un pays : relations, traités en vigueur (rupture possible), actions
-## diplomatiques et proposition de traité avec l'avis probable du pays.
+## diplomatiques, proposition de traité avec l'avis probable du pays, et guerre (section WarSection).
 
 const GOOD_COLOR := Color(0.55, 0.85, 0.55)
 const BAD_COLOR := Color(0.95, 0.5, 0.45)
@@ -11,6 +11,7 @@ var _treaty_ids: Array[String] = []
 var _aid_kinds: Array[String] = []
 var _party_ids: Array[String] = []
 var _claimable: Array[String] = []
+var _war_section: WarSection
 
 @onready var _title_label: Label = %TitleLabel
 @onready var _flag_rect: TextureRect = %FlagRect
@@ -41,6 +42,10 @@ var _claimable: Array[String] = []
 
 func _ready() -> void:
 	_close_button.pressed.connect(close)
+	_war_section = WarSection.new()
+	_claim_row.get_parent().add_child(_war_section)
+	_claim_row.get_parent().move_child(_war_section, _claim_row.get_index() + 1)
+	_war_section.command_requested.connect(_submit)
 	_treaty_option.item_selected.connect(func(_index: int) -> void: _update_proposal())
 	_propose_button.pressed.connect(func() -> void:
 		if _treaty_option.selected >= 0 and _treaty_option.selected < _treaty_ids.size():
@@ -81,6 +86,7 @@ func refresh() -> void:
 	for child: Node in _treaties_box.get_children():
 		_treaties_box.remove_child(child)
 		child.queue_free()
+	_war_section.show_country(_tag)
 	if player.is_empty() or player == _tag or state.diplomacy_settings.is_empty():
 		return
 	var diplomacy := state.diplomacy

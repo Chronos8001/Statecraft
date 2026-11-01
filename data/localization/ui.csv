@@ -805,3 +805,66 @@ ARMY_ALREADY_THERE,The army group is already there,Le groupe d'armées y est dé
 ARMY_NOT_CONTROLLED,Army groups can only move to provinces we control,Un groupe d'armées ne va que dans une province que nous contrôlons
 ARMY_UNREACHABLE,No land route through our territory,Aucune route terrestre par notre territoire
 INFO_CONTESTED,Contested: %s holds %d%%,Disputée : %s en tient %d %%
+WAR_GOAL_ANNEX,Annex claimed provinces,Annexer les provinces revendiquées
+WAR_GOAL_LIBERATE,Liberate occupied territory,Libérer un territoire occupé
+WAR_GOAL_REGIME_CHANGE,Regime change,Changer le régime
+WAR_GOAL_REPARATIONS,Impose reparations,Imposer des réparations
+WAR_GOAL_ANNEX_DESC,Requires a claim on the target.,Exige une revendication sur la cible.
+WAR_GOAL_LIBERATE_DESC,Requires provinces of ours held by the target. Hardly costs any legitimacy.,Exige des provinces à nous tenues par la cible. Ne coûte presque pas de légitimité.
+WAR_GOAL_REGIME_CHANGE_DESC,Requires very high world tension and very bad relations. Heavy cost.,Exige une tension mondiale très forte et des relations très mauvaises. Coût élevé.
+WAR_GOAL_REPARATIONS_DESC,Requires high world tension and bad relations.,Exige une tension mondiale forte et de mauvaises relations.
+WAR_INVALID,Not possible.,Impossible.
+WAR_ALREADY,We are already at war.,Nous sommes déjà en guerre.
+WAR_TRUCE,A truce is in force with this country.,Une trêve est en vigueur avec ce pays.
+WAR_ALLIED,We are military allies.,Nous sommes alliés militaires.
+WAR_NO_CLAIM,We have no claim on this country.,Nous n'avons aucune revendication sur ce pays.
+WAR_NOT_OCCUPIED,This country holds none of our provinces.,Ce pays ne tient aucune de nos provinces.
+WAR_RELATION_TOO_HIGH,Our relations are too good to justify this war.,Nos relations sont trop bonnes pour justifier cette guerre.
+WAR_RELATION_TOO_LOW,Our relations with this side's leader are too poor.,Nos relations avec le meneur de ce camp sont trop mauvaises.
+WAR_NOT_LEADER,Only the leader of a side can negotiate peace.,Seul le meneur d'un camp peut négocier la paix.
+WAR_NAME,%s – %s war,Guerre %s – %s
+WAR_NAME_CIVIL,Civil war (%s),Guerre civile (%s)
+REBEL_NAME,Rebels (%s),Rebelles (%s)
+WAR_REQUIRES_TENSION,World tension of at least %d required.,Tension mondiale d'au moins %d exigée.
+WAR_TARGET_PROVINCES,Targeted provinces: %s,Provinces visées : %s
+WAR_COSTS,"Cost for us: legitimacy -%d, stability -%d, world opinion %d.","Coût pour nous : légitimité -%d, stabilité -%d, opinion du monde %d."
+WAR_ALLIES_CALLED,Called to defend them: %s,Appelés à le défendre : %s
+DIPLOMACY_WAR_TITLE,War,Guerre
+DIPLOMACY_DECLARE_WAR,Declare war,Déclarer la guerre
+DIPLOMACY_DECLARE_WAR_TOOLTIP,"Breaks our treaties with this country, stops our trade and calls its allies to arms.","Rompt nos traités avec ce pays, arrête notre commerce et appelle ses alliés aux armes."
+DIPLOMACY_AT_WAR,We are at war: %s,Nous sommes en guerre : %s
+DIPLOMACY_JOIN_WAR,Join on their side,Entrer en guerre à ses côtés
+DIPLOMACY_JOIN_WAR_TOOLTIP,Joining a war unasked worsens world opinion of us.,Entrer en guerre sans y être appelé dégrade l'opinion du monde envers nous.
+MILITARY_WARS,Wars,Guerres
+MILITARY_NO_WAR,We are at peace.,Nous sommes en paix.
+MILITARY_WAR_SIDE,Side: %s,Camp : %s
+MILITARY_SIDE_ATTACKERS,attackers,attaquants
+MILITARY_SIDE_DEFENDERS,defenders,défenseurs
+MILITARY_WAR_GOAL,War goal: %s,But de guerre : %s
+MILITARY_WAR_DURATION,Duration: %d months,Durée : %d mois
+MILITARY_WAR_ALLIES,With us: %s,Avec nous : %s
+MILITARY_WAR_ENEMIES,Against us: %s,Contre nous : %s
+MILITARY_WAR_OCCUPATION,Our population under enemy control: %d%% · enemy population we hold: %d%%,Notre population tenue par l'ennemi : %d %% · population ennemie que nous tenons : %d %%
+MILITARY_WHITE_PEACE,Propose white peace,Proposer une paix blanche
+MILITARY_WHITE_PEACE_LIKELY_YES,"Back to pre-war lines, truce. Likely answer: yes (interest %d)","Retour aux lignes d'avant-guerre, trêve. Avis probable : favorable (intérêt %d)"
+MILITARY_WHITE_PEACE_LIKELY_NO,"Back to pre-war lines, truce. Likely answer: no (interest %d)","Retour aux lignes d'avant-guerre, trêve. Avis probable : défavorable (intérêt %d)"
+MILITARY_CALL_TO_ARMS,Call to arms from %s (%s): %d days left to answer.,Appel aux armes de %s (%s) : %d jours pour répondre.
+MILITARY_CALL_ACCEPT,Join the war,Entrer en guerre
+MILITARY_CALL_REFUSE,Refuse,Refuser
+MILITARY_CALL_LATER,Later,Plus tard
+MILITARY_CALL_ACCEPT_TOOLTIP,We go to war alongside our ally.,Nous entrons en guerre aux côtés de notre allié.
+MILITARY_CALL_REFUSE_TOOLTIP,Our ally will hold it against us (relations and trust).,Notre allié nous en voudra (relations et confiance).
+CALL_TO_ARMS_TITLE,Call to arms,Appel aux armes
+CALL_TO_ARMS_TEXT,"%s calls us to arms (%s). Without an answer within %d days, the call is refused.","%s nous appelle aux armes (%s). Sans réponse sous %d jours, l'appel est refusé."
+MAPMODE_WARS,Wars,Guerres
+LEGEND_WAR_ENEMY,Our enemies,Nos ennemis
+LEGEND_WAR_ALLY,Our allies at war,Nos alliés en guerre
+LEGEND_WAR_OTHER,Other countries at war,Autres pays en guerre
+LEGEND_REBELS,Held by rebels,Tenu par des rebelles
+LEGEND_AT_PEACE,At peace,En paix
+NOTIFY_WAR_DECLARED,War declared: %s against %s!,Déclaration de guerre : %s contre %s !
+NOTIFY_WAR_JOINED,%s enters the war (side: %s).,%s entre en guerre (camp : %s).
+NOTIFY_WAR_ENDED,White peace between %s and %s.,Paix blanche entre %s et %s.
+NOTIFY_CIVIL_WAR_ENDED,The civil war in %s is over.,Fin de la guerre civile : %s.
+NOTIFY_CALL_REFUSED,%s refuses our call to arms.,%s refuse notre appel aux armes.
+NOTIFY_WHITE_PEACE_REFUSED,%s refuses white peace.,%s refuse la paix blanche.

@@ -171,7 +171,18 @@
     "kind": "control",
     "occupied_color": "#E04A3A",
     "occupied_strength": 0.5,
-    "order": 12
+    "order": 12,
+    "rebel_color": "#5A4A3A"
+  },
+  "wars": {
+    "name_key": "MAPMODE_WARS",
+    "kind": "wars",
+    "enemy_color": "#C0392B",
+    "ally_color": "#3A7BC8",
+    "player_color": "#F2D16B",
+    "war_color": "#E08A3A",
+    "rebel_color": "#5A4A3A",
+    "order": 13
   },
   "military_power": {
     "name_key": "MAPMODE_MILITARY_POWER",
@@ -201,7 +212,7 @@
         "#2E1410"
       ]
     ],
-    "order": 13
+    "order": 14
   },
   "stability": {
     "name_key": "MAPMODE_STABILITY",
@@ -223,7 +234,7 @@
         "#3C8C52"
       ]
     ],
-    "order": 14
+    "order": 15
   },
   "support": {
     "name_key": "MAPMODE_SUPPORT",
@@ -245,13 +256,13 @@
         "#4F8FC0"
       ]
     ],
-    "order": 15
+    "order": 16
   },
   "vote": {
     "name_key": "MAPMODE_VOTE",
     "kind": "vote",
     "hint_color": "#C8CDD4",
-    "order": 16
+    "order": 17
   },
   "unrest": {
     "name_key": "MAPMODE_UNREST",
@@ -277,7 +288,7 @@
         "#9E2B25"
       ]
     ],
-    "order": 17
+    "order": 18
   },
   "trade": {
     "name_key": "MAPMODE_TRADE",
@@ -308,6 +319,6 @@
       "LEGEND_TRADE_MEDIUM",
       "LEGEND_TRADE_LARGE"
     ],
-    "order": 18
+    "order": 19
   }
 }

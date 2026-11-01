@@ -1,7 +1,8 @@
 class_name MilitaryPanel
 extends InfoPanel
-## Panneau Armée du pays joué : puissance, effectifs, budget de défense, branches (symboles OTAN), groupes
-## d'armées, capacités spéciales, arsenal nucléaire, priorités d'équipement et mobilisation.
+## Panneau Armée du pays joué : puissance, effectifs, budget de défense, guerres en cours (paix blanche, appels
+## aux armes), branches (symboles OTAN), groupes d'armées, capacités spéciales, arsenal nucléaire, priorités
+## d'équipement et mobilisation.
 
 ## « Voir » sur un groupe d'armées : la carte se centre dessus.
 signal group_focus_requested(group_id: int)
@@ -19,6 +20,7 @@ const THOUSAND := 1000.0
 
 var military_ui: MilitaryUI = MilitaryUI.new()
 var _priority_spins: Dictionary = {}
+var _wars_box: VBoxContainer
 
 @onready var _summary_grid: GridContainer = %SummaryGrid
 @onready var _branches_grid: GridContainer = %BranchesGrid
@@ -32,6 +34,9 @@ var _priority_spins: Dictionary = {}
 
 func _ready() -> void:
 	_close_button.pressed.connect(close)
+	_wars_box = VBoxContainer.new()
+	_summary_grid.get_parent().add_child(_wars_box)
+	_summary_grid.get_parent().move_child(_wars_box, _summary_grid.get_index() + 1)
 	_branches_grid.columns = BRANCH_HEADERS.size()
 	_mobilization_option.item_selected.connect(func(_index: int) -> void: _update_buttons())
 	_mobilization_button.pressed.connect(func() -> void:
@@ -41,6 +46,10 @@ func _ready() -> void:
 	EventBus.month_passed.connect(func(_date: GameDate) -> void: refresh())
 	EventBus.day_passed.connect(func(_date: GameDate) -> void: _refresh_moving())
 	EventBus.command_executed.connect(func(_command: Command) -> void: refresh())
+	EventBus.sim_event_raised.connect(func(event: Dictionary) -> void:
+		if event.get("type") in [WarSystem.EVENT_DECLARED, WarSystem.EVENT_JOINED, WarSystem.EVENT_ENDED,
+				WarSystem.EVENT_CALL, WarSystem.EVENT_CALL_REFUSED]:
+			refresh())
 	visible = false
 
 
@@ -79,6 +88,7 @@ func refresh() -> void:
 		military.arms_flow * MilitaryModel.MONTHS_PER_YEAR, 1, locale))
 	_add_row(_summary_grid, "MILITARY_NUCLEAR", NumberFormat.integer(military.nuclear_warheads, locale)
 		if military.nuclear_warheads > 0 else tr("MILITARY_NONE"))
+	_fill_wars(state, country.tag)
 	_fill_branches(military, personnel, locale)
 	_fill_groups(country, locale)
 	for key: String in SPECIAL_KEYS:
@@ -164,6 +174,83 @@ func _fill_groups(country: CountryState, locale: String) -> void:
 		var group_id := group.id
 		button.pressed.connect(func() -> void: group_focus_requested.emit(group_id))
 		_groups_grid.add_child(button)
+
+
+## Guerres du pays (camp, but, durée, occupation, paix blanche) et appels aux armes en attente.
+func _fill_wars(state: SimState, tag: String) -> void:
+	for child: Node in _wars_box.get_children():
+		_wars_box.remove_child(child)
+		child.queue_free()
+	var title := Label.new()
+	title.text = "MILITARY_WARS"
+	title.add_theme_color_override("font_color", HEADER_COLOR)
+	_wars_box.add_child(title)
+	var wars := WarSystem.wars_of(state, tag)
+	if wars.is_empty() and state.calls_to_arms.is_empty():
+		_wars_box.add_child(_text(tr("MILITARY_NO_WAR"), LABEL_COLOR))
+	for war: War in wars:
+		var side := war.side_of(tag)
+		_wars_box.add_child(_text(MilitaryUI.war_name(state, war), HEADER_COLOR))
+		var lines: PackedStringArray = []
+		lines.append(tr("MILITARY_WAR_SIDE") % tr("MILITARY_SIDE_%s" % side.to_upper()))
+		if not war.goal.is_empty():
+			lines.append(tr("MILITARY_WAR_GOAL") % tr(str((state.war_goal_definitions.get(war.goal, {}) as Dictionary).get(
+				"name_key", war.goal))))
+		lines.append(tr("MILITARY_WAR_DURATION") % floori(war.months()))
+		lines.append(tr("MILITARY_WAR_ALLIES") % _names(state, war.members(side), tag))
+		lines.append(tr("MILITARY_WAR_ENEMIES") % _names(state, war.enemies_of(tag), ""))
+		lines.append(tr("MILITARY_WAR_OCCUPATION") % [roundi(WarSystem.occupied_percent(state, war, side)),
+			roundi(WarSystem.occupied_percent(state, war, War.other_side(side)))])
+		_wars_box.add_child(_text("
+".join(lines), LABEL_COLOR))
+		if war.civil:
+			continue
+		var refusal := WarSystem.white_peace_refusal(state, tag, war.id)
+		if refusal == "WAR_NOT_LEADER":
+			continue
+		var button := Button.new()
+		button.text = "MILITARY_WHITE_PEACE"
+		button.focus_mode = Control.FOCUS_NONE
+		button.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+		button.disabled = not refusal.is_empty()
+		var score := WarSystem.white_peace_score(state, war, tag)
+		button.tooltip_text = tr(refusal) if not refusal.is_empty() 			else tr("MILITARY_WHITE_PEACE_LIKELY_YES" if score > 0.0 else "MILITARY_WHITE_PEACE_LIKELY_NO") % roundi(score)
+		var war_id := war.id
+		button.pressed.connect(func() -> void: _submit(WhitePeaceCommand.new(state.player_tag, war_id)))
+		_wars_box.add_child(button)
+	for call: Dictionary in state.calls_to_arms:
+		if str(call["ally"]) != tag or not state.wars.has(int(call["war"])):
+			continue
+		var war: War = state.wars[int(call["war"])]
+		_wars_box.add_child(_text(tr("MILITARY_CALL_TO_ARMS") % [MilitaryUI.side_name(state, war.members(str(call["side"]))[0]),
+			MilitaryUI.war_name(state, war), int(call["days_left"])], GovernmentPanel.BAD_COLOR))
+		var row := HBoxContainer.new()
+		for accept: bool in [true, false]:
+			var answer := Button.new()
+			answer.text = "MILITARY_CALL_ACCEPT" if accept else "MILITARY_CALL_REFUSE"
+			answer.tooltip_text = "MILITARY_CALL_ACCEPT_TOOLTIP" if accept else "MILITARY_CALL_REFUSE_TOOLTIP"
+			answer.focus_mode = Control.FOCUS_NONE
+			var war_id := war.id
+			answer.pressed.connect(func() -> void: _submit(AnswerCallToArmsCommand.new(state.player_tag, war_id, accept)))
+			row.add_child(answer)
+		_wars_box.add_child(row)
+
+
+func _names(state: SimState, tags: Array[String], excluded: String) -> String:
+	var names: PackedStringArray = []
+	for tag: String in tags:
+		if tag != excluded:
+			names.append(MilitaryUI.side_name(state, tag))
+	return ", ".join(names) if not names.is_empty() else tr("MILITARY_NONE")
+
+
+func _text(text: String, color: Color) -> Label:
+	var label := Label.new()
+	label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.text = text
+	label.add_theme_color_override("font_color", color)
+	return label
 
 
 func _province_name(province_id: String) -> String:
