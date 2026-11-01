@@ -41,6 +41,9 @@ var aid_stability: float = 0.0
 ## Désinformation par IA : stabilité perdue, volatilité des sondages en plus (part).
 var ai_stability: float = 0.0
 var ai_volatility: float = 0.0
+## Modificateurs temporaires des événements [{growth, unemployment, stability, months}] et stabilité visée.
+var event_modifiers: Array[Dictionary] = []
+var event_stability: float = 0.0
 ## Forces armées (null sans données militaires).
 var military: MilitaryState = null
 ## Recherche et technologies (null sans données de recherche).

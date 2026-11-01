@@ -63,6 +63,16 @@ var joint_projects: Array[Dictionary] = []
 ## Course à l'IA : classement (pays en tête d'abord) et premier pays à atteindre l'IA générale.
 var ai_ranking: Array[String] = []
 var agi_first: String = ""
+## Événements scriptés : définitions et réglages, drapeaux par pays et mondiaux, événements déjà survenus
+## ({id: {tag ou "world": true}}), événements du joueur en attente [{id, country, from}], chaînes programmées
+## [{id, country, from, day}].
+var event_definitions: Dictionary = {}
+var event_settings: Dictionary = {}
+var event_flags: Dictionary = {}
+var world_flags: Dictionary = {}
+var events_fired: Dictionary = {}
+var pending_events: Array[Dictionary] = []
+var scheduled_events: Array[Dictionary] = []
 ## Forces armées : modules remplaçables (modèle, combats, IA) et réglages (defines.military).
 var military: MilitaryRegistry = MilitaryRegistry.new()
 var military_settings: Dictionary = {}

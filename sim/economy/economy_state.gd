@@ -80,6 +80,9 @@ var research_growth: float = 0.0
 ## Course à l'IA : croissance tirée de l'adoption, chômage d'automatisation (points).
 var ai_growth: float = 0.0
 var ai_unemployment: float = 0.0
+## Modificateurs temporaires des événements.
+var event_growth: float = 0.0
+var event_unemployment: float = 0.0
 ## Effet des frappes et cyberattaques subies (points de croissance, temporaire).
 var attack_growth: float = 0.0
 var project_spending: float = 0.0
