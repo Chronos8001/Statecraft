@@ -69,7 +69,8 @@ static func refresh_media(country: CountryState, settings: Dictionary) -> void:
 	var press := str(country.laws.get(str(settings.get("press_law", "")), ""))
 	var networks := str(country.laws.get(str(settings.get("networks_law", "")), ""))
 	country.politics.media_factor = float((settings.get("press_factor", {}) as Dictionary).get(press, 1.0))
-	country.politics.volatility = float((settings.get("network_volatility", {}) as Dictionary).get(networks, 1.0))
+	country.politics.volatility = float((settings.get("network_volatility", {}) as Dictionary).get(networks, 1.0)) \
+		* (1.0 + country.ai_volatility)
 
 
 ## Opération de désinformation. Renvoie true si elle a été démasquée.

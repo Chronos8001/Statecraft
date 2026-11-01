@@ -100,7 +100,7 @@ static func monthly_points(state: SimState, country: CountryState) -> float:
 		float(rules.get("university_bonus_max", 0.0)))
 	var budget := float(country.economy.budget.effects.get(RESEARCH, 0.0)) * float(rules.get("budget_weight", 0.0)) / PERCENT
 	return float(rules.get("points_per_sqrt_billion", 0.0)) * sqrt(maxf(rd_spending(state, country), 0.0)) \
-		* (1.0 + universities) * maxf(1.0 + budget, 0.1) * (1.0 + country.research.effect(RESEARCH) / PERCENT)
+		* (1.0 + universities) * maxf(1.0 + budget, 0.1) * (1.0 + (country.research.effect(RESEARCH) + country.research.ai_research) / PERCENT)
 
 
 static func slot_count(state: SimState, country: CountryState) -> int:
@@ -279,7 +279,8 @@ static func apply_effects(state: SimState, country: CountryState, effects: Dicti
 			if name.begins_with(MILITARY_PREFIX):
 				country.military.tech_levels[name.substr(MILITARY_PREFIX.length())] = research.effect(name)
 			elif name.begins_with(SPECIAL_PREFIX):
-				country.military.tech_special[name.substr(SPECIAL_PREFIX.length())] = research.effect(name)
+				var gauge := name.substr(SPECIAL_PREFIX.length())
+				country.military.tech_special[gauge] = research.effect(name) + (research.ai_cyber if gauge == "cyber" else 0.0)
 
 
 # --- Choix -----------------------------------------------------------------------------------------------------
