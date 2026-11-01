@@ -933,3 +933,32 @@ NOTIFY_BLOCKADE_ENDED,The naval blockade is lifted.,Le blocus naval est levé.
 MILITARY_AT_SEA,At sea toward %s (%d days),En mer vers %s (%d j)
 MILITARY_BEACHHEAD,Beachhead,Tête de pont
 MILITARY_WAR_BLOCKADE,Blockade: our sea trade cut by %d%% · enemy's by %d%%,Blocus : notre commerce maritime coupé à %d %% · celui de l'ennemi à %d %%
+ACTIONS_TITLE,Strikes and operations,Frappes et opérations
+ACTION_MISSILE_STRIKE_BUILDING,Missile strike (%d%%),Frappe de missiles (%d %%)
+ACTION_MISSILE_STRIKE_INFRASTRUCTURE,Strike the infrastructure (%d%%),Frapper les infrastructures (%d %%)
+ACTION_MISSILE_STRIKE_FRONT,Strike (%d%%),Frappe (%d %%)
+ACTION_SPECIAL_OPERATION_BUILDING,Sabotage (%d%%),Sabotage (%d %%)
+ACTION_SPECIAL_OPERATION_FRONT,Raid (%d%%),Raid (%d %%)
+ACTION_MISSILE_STRIKE_TOOLTIP,Uses one salvo from our missile stock. Strikes on densely populated provinces cause civilian casualties condemned worldwide.,Utilise une salve de notre stock de missiles. Frapper une province très peuplée fait des victimes civiles condamnées par le monde.
+ACTION_SPECIAL_OPERATION_TOOLTIP,Our special forces act behind enemy lines; a failure wears them down.,Nos forces spéciales agissent derrière les lignes ennemies ; un échec les use.
+ACTION_CYBER_TITLE,Cyberattack:,Cyberattaque :
+ACTION_CYBERATTACK_ECONOMY,Economy (%d%%),Économie (%d %%)
+ACTION_CYBERATTACK_GRID,Power grid (%d%%),Réseau électrique (%d %%)
+ACTION_CYBERATTACK_MILITARY,Army (%d%%),Armée (%d %%)
+ACTION_CYBERATTACK_TOOLTIP,"Deniable, even in peacetime. Risk of being exposed: at least %d%% (more if it fails).","Déniable, même en paix. Risque d'être démasqué : au moins %d %% (davantage en cas d'échec)."
+ACTION_INVALID,Not possible.,Impossible.
+ACTION_NOT_ENEMY,This province is not held by an enemy.,Cette province n'est pas tenue par un ennemi.
+ACTION_NO_BUILDING,There is no such building here.,Il n'y a pas ce bâtiment ici.
+ACTION_NO_MISSILES,Our missile stock is empty: it refills each month.,Notre stock de missiles est vide : il se reconstitue chaque mois.
+MILITARY_MISSILE_STOCK,Missile salvos,Salves de missiles
+MILITARY_MISSILE_STOCK_VALUE,%d / %d,%d / %d
+NOTIFY_MISSILE_STRIKE_SUCCESS,Our strike hit its target (%s).,Notre frappe a atteint sa cible (%s).
+NOTIFY_MISSILE_STRIKE_FAILURE,Our missiles were intercepted (%s).,Nos missiles ont été interceptés (%s).
+NOTIFY_SPECIAL_OPERATION_SUCCESS,Special operation succeeded (%s).,Opération spéciale réussie (%s).
+NOTIFY_SPECIAL_OPERATION_FAILURE,Special operation failed (%s): our special forces suffered.,Opération spéciale ratée (%s) : nos forces spéciales ont souffert.
+NOTIFY_CYBERATTACK_SUCCESS,Cyberattack succeeded (%s).,Cyberattaque réussie (%s).
+NOTIFY_CYBERATTACK_FAILURE,Cyberattack failed (%s).,Cyberattaque ratée (%s).
+NOTIFY_CYBER_DISCOVERED,We have been exposed!,Nous avons été démasqués !
+NOTIFY_MISSILE_STRIKE_SUFFERED,Missile strike on our territory by %s!,Frappe de missiles sur notre territoire : %s !
+NOTIFY_SPECIAL_OPERATION_SUFFERED,Enemy special forces struck behind our lines (%s).,Des forces spéciales ennemies ont frappé derrière nos lignes (%s).
+NOTIFY_CYBERATTACK_SUFFERED,"Cyberattack against us, traced back to %s.","Cyberattaque contre nous, attribuée à : %s."

@@ -86,6 +86,36 @@ static func complete_building(state: SimState, tag: String, building_id: String,
 		add_output(country.economy, sector, output)
 
 
+## Bâtiment détruit (frappe, sabotage) : effets inverses de sa construction.
+static func destroy_building(state: SimState, tag: String, building_id: String, province_id: String) -> void:
+	var country := state.get_country(tag)
+	var definition: Dictionary = (state.energy_definitions.get("buildings", {}) as Dictionary).get(building_id, {})
+	if country == null or definition.is_empty() or building_count(state, province_id, building_id) <= 0:
+		return
+	add_building(state, province_id, building_id, -1)
+	var energy := country.energy
+	if definition.has("source"):
+		var source := str(definition["source"])
+		energy.capacity[source] = maxf(float(energy.capacity.get(source, 0.0)) - float(definition.get("capacity_gw", 0.0)),
+			0.0)
+	energy.demand = maxf(energy.demand - float(definition.get("electricity_twh", 0.0)), 0.0)
+	var output := float(definition.get("output_billion", 0.0))
+	var sector := str(definition.get("sector", ""))
+	if bool(definition.get("requires_resource", false)):
+		var resource_id := mine_resource(state, province_id)
+		var market: MarketState = state.markets.get(resource_id)
+		var amount := float((state.energy_definitions.get("mine_outputs", {}) as Dictionary).get(resource_id, 0.0))
+		if market != null and amount > 0.0:
+			country.resources.production_base[resource_id] = maxf(float(country.resources.production_base.get(resource_id,
+				0.0)) - amount, 0.0)
+			output += amount * market.unit_value
+			sector = "energy" if ["oil", "gas", "coal", "uranium"].has(resource_id) else "industry"
+	# On ne retire pas plus que ce que produit le secteur.
+	output = minf(output, float(country.economy.sectors.get(sector, 0.0)) * country.economy.real_gdp)
+	if output > 0.0 and country.economy.real_gdp > output:
+		add_output(country.economy, sector, -output)
+
+
 ## Ajoute de la production (milliards de dollars de 2026 par an) à un secteur.
 static func add_output(economy: EconomyState, sector: String, output: float) -> void:
 	var total := economy.real_gdp

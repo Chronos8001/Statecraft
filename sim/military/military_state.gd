@@ -35,6 +35,9 @@ var cost_index: float = 1.0
 ## Armes reçues déjà comptées (cumul) et flux du mois.
 var arms_counted: float = 0.0
 var arms_flow: float = 0.0
+## Stock de missiles (salves disponibles) et délais des actions ponctuelles (action → mois restants).
+var missile_stock: float = 0.0
+var action_cooldowns: Dictionary = {}
 ## Pertes au combat pas encore remplacées (soldats), retirées des effectifs d'active.
 var losses: float = 0.0
 ## Calculés chaque mois : puissance militaire et effets de la mobilisation ({growth, stability, groups}).

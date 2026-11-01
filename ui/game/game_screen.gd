@@ -760,6 +760,18 @@ func _on_naval_event(event: Dictionary) -> bool:
 		LandingSystem.EVENT_EVACUATED:
 			if tag == player:
 				_notify(tr("NOTIFY_BEACHHEAD_LOST") % _province_label(str(event.get("province", ""))))
+		MilitaryActions.EVENT_ACTION:
+			var target := str(event.get("target", ""))
+			var action := str(event.get("action", ""))
+			if tag == player:
+				var outcome := "SUCCESS" if bool(event.get("success", false)) else "FAILURE"
+				var text := tr("NOTIFY_%s_%s" % [action.to_upper(), outcome]) % MilitaryUI.side_name(state, target)
+				if bool(event.get("discovered", false)):
+					text += " " + tr("NOTIFY_CYBER_DISCOVERED")
+				_notify(text)
+			elif target == player and (action != MilitaryActions.CYBER or bool(event.get("discovered", false))) \
+					and bool(event.get("success", false)):
+				_notify(tr("NOTIFY_%s_SUFFERED" % action.to_upper()) % MilitaryUI.side_name(state, tag))
 		NavalModel.EVENT_BLOCKADE:
 			if tag == player:
 				var share := float(event.get("share", 0.0))

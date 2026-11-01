@@ -80,6 +80,12 @@ var sea_link_straits: Dictionary = {}
 var sea_control: Dictionary = {}
 ## Détroits fermés par les combats (identifiant → true), rouverts quand la mer n'est plus disputée.
 var war_closed_straits: Dictionary = {}
+## Actions ponctuelles : affaiblissement d'un camp sur un front (« clé du front|tag » → {factor, days_left}),
+## dégâts aux infrastructures des provinces (id → points), effets temporaires sur la croissance
+## (tag → [{growth, months_left}]).
+var front_penalties: Dictionary = {}
+var infrastructure_damage: Dictionary = {}
+var attack_effects: Dictionary = {}
 ## Pays voisins par la terre (tag → {tag: true}), d'après les propriétaires des provinces au départ.
 var land_neighbors: Dictionary = {}
 ## Guerres en cours : id → War ; factions rebelles : id → RebelFaction ; buts de guerre (data/war_goals).
