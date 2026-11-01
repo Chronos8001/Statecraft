@@ -24,6 +24,9 @@ func on_day(state: SimState) -> void:
 	WarSystem.update_day(state)
 	state.military.resolver.resolve_day(state)
 	state.military.naval.resolve_day(state)
+	NavalModel.update_blockades(state)
+	NavalModel.update_straits(state)
+	LandingSystem.update_day(state)
 	WarSystem.check_civil_wars(state)
 
 

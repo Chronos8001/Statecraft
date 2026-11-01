@@ -75,6 +75,7 @@ func decide_month(country: CountryState, state: SimState) -> void:
 	if country.military == null or country.military.branches.is_empty() or settings_of(state).is_empty():
 		return
 	var tag := country.tag
+	_return_fleets_home(tag, state)
 	_seek_peace(tag, state)
 	_mobilize(country, state)
 	_join_wars(tag, state)
@@ -191,9 +192,14 @@ func _declare_war(country: CountryState, state: SimState) -> void:
 func best_war(country: CountryState, state: SimState) -> Dictionary:
 	var rules: Dictionary = settings_of(state).get("war", {})
 	var tag := country.tag
-	# Seulement des voisins terrestres : sans marine ni débarquement (étape 7d), une guerre outre-mer n'aurait
-	# pas de front.
-	var targets: Array = (_borders.get(tag, {}) as Dictionary).keys()
+	# Voisins terrestres, et outre-mer seulement un pays revendiqué activement face auquel notre marine domine
+	# (il faudra débarquer).
+	var candidates: Dictionary = (_borders.get(tag, {}) as Dictionary).duplicate()
+	for claim: Dictionary in state.diplomacy.claims.values():
+		var target := str(claim["target"])
+		if claim["claimant"] == tag and bool(claim.get("active", true)) and not candidates.has(target) 				and state.countries.has(target) and naval_edge(state, tag, target):
+			candidates[target] = true
+	var targets: Array = candidates.keys()
 	targets.sort()
 	var best: Dictionary = {}
 	for target: String in targets:
@@ -222,6 +228,9 @@ func war_score(state: SimState, country: CountryState, target: String) -> Dictio
 	if target_country != null and target_country.military != null and target_country.military.nuclear_warheads > 0:
 		score += float(rules.get("nuclear_target", 0.0))
 	score += restraint(state, country, target)
+	# Une invasion par la mer est bien plus difficile et risquée qu'une offensive terrestre.
+	if not (_borders.get(tag, {}) as Dictionary).has(target):
+		score += float(rules.get("overseas", 0.0))
 	if score + float(rules.get("claim", 0.0)) + float(rules.get("power", 0.0)) * minf(log(ours / target_power) / log(10.0),
 			max_log) <= 0.0:
 		return {}
@@ -256,6 +265,14 @@ func war_score(state: SimState, country: CountryState, target: String) -> Dictio
 	return {"target": target, "goal": goal, "score": score} if score > 0.0 else {}
 
 
+## Notre marine domine nettement celle de la cible et sa défense côtière (condition d'une guerre outre-mer).
+func naval_edge(state: SimState, tag: String, target: String) -> bool:
+	var rules: Dictionary = NavalModel.settings_of(state).get("ai", {})
+	var theirs := NavalModel.navy_power(state, target) + NavalModel.coastal_defense(state, target)
+	return NavalModel.navy_power(state, tag) >= float(rules.get("overseas_navy_ratio", INF)) * maxf(theirs,
+		WarResolver.MIN_STRENGTH)
+
+
 ## Freins à la guerre : paix entre démocraties, organisations communes (UE…), candidature à une organisation,
 ## situation intérieure (stabilité faible, récession). Valeur négative ou nulle.
 func restraint(state: SimState, country: CountryState, target: String) -> float:
@@ -288,11 +305,143 @@ func restraint(state: SimState, country: CountryState, target: String) -> float:
 ## Une semaine de décisions de guerre pour un pays de l'IA ou une faction rebelle.
 func decide_week(tag: String, state: SimState) -> void:
 	retreat_damaged_fleets(tag, state)
+	if not WarSystem.is_rebel(state, tag):
+		deploy_fleets(tag, state)
+		try_landing(tag, state)
 	if FrontSystem.fronts_of(state, tag).is_empty():
 		return
 	if not WarSystem.is_rebel(state, tag):
 		FrontSystem.auto_deploy(state, tag)
 	choose_postures(tag, state)
+
+
+# --- Marine ---------------------------------------------------------------------------------------------------
+
+## En paix, les flottes rentrent à leur mer de base.
+func _return_fleets_home(tag: String, state: SimState) -> void:
+	if not WarSystem.wars_of(state, tag).filter(func(war: War) -> bool: return not war.civil).is_empty():
+		return
+	for fleet: Fleet in NavalModel.fleets_of(state, tag):
+		if fleet.zone != fleet.home and not fleet.is_moving() and not fleet.home.is_empty() 				and not NavalModel.find_path(state, fleet.zone, fleet.home, tag).is_empty():
+			NavalModel.order_move(state, fleet, fleet.home)
+
+
+## En guerre, les flottes en bon état vont dominer la mer ennemie la plus proche où elles l'emportent.
+func deploy_fleets(tag: String, state: SimState) -> void:
+	var rules: Dictionary = NavalModel.settings_of(state).get("ai", {})
+	var healthy := float(rules.get("healthy_condition", 0.0))
+	var dominance := float(rules.get("dominance", 1.0))
+	for war: War in WarSystem.wars_of(state, tag):
+		if war.civil:
+			continue
+		var targets: Dictionary = {}
+		for enemy: String in war.enemies_of(tag):
+			for zone_id: Variant in state.military.naval.coastal_of(state, enemy).keys():
+				targets[str(zone_id)] = true
+		if targets.is_empty():
+			continue
+		for fleet: Fleet in NavalModel.fleets_of(state, tag):
+			if fleet.condition < healthy or fleet.is_moving() or targets.has(fleet.zone):
+				continue
+			var best := ""
+			var best_distance := INF
+			for zone_id: Variant in targets.keys():
+				var key := str(zone_id)
+				var strength: Dictionary = state.military.naval.zone_strength(state, war, key, _fleets_in(state, key))
+				var enemy_strength := float(strength[War.other_side(war.side_of(tag))])
+				var ours := float(strength[war.side_of(tag)]) + NavalModel.fleet_power(state, fleet)
+				if ours < dominance * enemy_strength:
+					continue
+				var distance := NavalModel.distance_km(state, fleet.zone, key)
+				if distance < best_distance and not NavalModel.find_path(state, fleet.zone, key, tag).is_empty():
+					best = key
+					best_distance = distance
+			if not best.is_empty():
+				NavalModel.order_move(state, fleet, best)
+		# Une guerre navale à la fois : la première qui a des mers ennemies.
+		return
+
+
+func _fleets_in(state: SimState, zone_id: String) -> Array:
+	var result: Array = []
+	for fleet: Fleet in state.fleets.values():
+		if fleet.zone == zone_id:
+			result.append(fleet)
+	return result
+
+
+## Contre un ennemi sans front terrestre, un groupe posté sur la côte tente un débarquement (chance par semaine,
+## seulement si la réussite est au moins aussi probable que l'échec) ; si aucun ne le peut, un groupe gagne la côte.
+func try_landing(tag: String, state: SimState) -> void:
+	var rules: Dictionary = NavalModel.settings_of(state).get("ai", {})
+	var land_enemies: Dictionary = {}
+	for front: Front in FrontSystem.fronts_of(state, tag):
+		land_enemies[front.other(tag)] = true
+	var enemies: Array[String] = []
+	for war: War in WarSystem.wars_of(state, tag):
+		if war.civil:
+			continue
+		for enemy: String in war.enemies_of(tag):
+			if not land_enemies.has(enemy) and state.countries.has(enemy):
+				enemies.append(enemy)
+	if enemies.is_empty() or state.rng.randf() >= float(rules.get("landing_chance", 0.0)):
+		return
+	var groups := ArmyGroupModel.groups_of(state, tag)
+	var best_group: ArmyGroup = null
+	var best_target := ""
+	var best_chance := 0.0
+	for group: ArmyGroup in groups:
+		if group.is_embarked() or group.is_moving():
+			continue
+		for enemy: String in enemies:
+			for province_id: Variant in state.provinces_by_owner.get(enemy, []):
+				var target := str(province_id)
+				if not LandingSystem.refusal(state, tag, group.id, target).is_empty():
+					continue
+				var odds := LandingSystem.chance(state, group, target, LandingSystem.landing_zone(state, tag, target))
+				if odds > best_chance:
+					best_group = group
+					best_target = target
+					best_chance = odds
+	if best_group != null:
+		if best_chance >= float((NavalModel.settings_of(state).get("landing", {}) as Dictionary).get("base_chance", 0.0)):
+			LandingSystem.launch(state, best_group, best_target)
+		return
+	_move_group_to_coast(tag, state, enemies[0])
+
+
+## Aucun groupe ne peut débarquer : le plus gros groupe hors des fronts gagne notre côte la plus proche de
+## l'ennemi.
+func _move_group_to_coast(tag: String, state: SimState, enemy: String) -> void:
+	var enemy_seat := FrontSystem.seat(state, enemy)
+	if enemy_seat.is_empty():
+		return
+	for group: ArmyGroup in ArmyGroupModel.groups_of(state, tag):
+		if group.is_moving() or (not group.is_embarked() and ControlSystem.controller(state, group.province) == tag
+				and not LandingSystem.sea_neighbors(state, group.province).is_empty()):
+			return
+	var coast := ""
+	var coast_distance := INF
+	for province_id: Variant in state.provinces_by_owner.get(tag, []):
+		var key := str(province_id)
+		if ControlSystem.controller(state, key) != tag or LandingSystem.sea_neighbors(state, key).is_empty():
+			continue
+		var distance := ArmyGroupModel.distance_km(state, key, enemy_seat)
+		if distance < coast_distance:
+			coast = key
+			coast_distance = distance
+	if coast.is_empty():
+		return
+	var mover: ArmyGroup = null
+	var reserve_share := ArmyGroupModel.reserve_share(state)
+	var military := state.get_country(tag).military
+	for group: ArmyGroup in ArmyGroupModel.groups_of(state, tag):
+		if group.is_embarked() or group.is_moving() or group.province == coast 				or ControlSystem.controller(state, group.province) != tag:
+			continue
+		if mover == null or group.personnel(military, reserve_share) > mover.personnel(military, reserve_share):
+			mover = group
+	if mover != null and not ArmyGroupModel.find_path(state, tag, mover.province, coast).is_empty():
+		ArmyGroupModel.order_move(state, mover, coast)
 
 
 ## Les flottes gravement endommagées rentrent dans une mer côtière sûre pour s'y réparer.

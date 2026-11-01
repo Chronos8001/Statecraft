@@ -20,7 +20,16 @@ static func tariff(trade: TradeState, exporter: String, importer: String, base_r
 		base = 0.0
 	elif kind == "partial":
 		base *= PARTIAL_DISCOUNT
-	return base + trade.surcharge(importer, exporter)
+	return base + trade.surcharge(importer, exporter) + blockade_tariff(trade, exporter, importer, settings)
+
+
+## Blocus : équivalent en droits de douane de la part du commerce maritime coupée (sauf entre voisins
+## terrestres), comme une part d'embargo.
+static func blockade_tariff(trade: TradeState, exporter: String, importer: String, settings: Dictionary) -> float:
+	var share := maxf(float(trade.blockades.get(exporter, 0.0)), float(trade.blockades.get(importer, 0.0)))
+	if share <= 0.0 or (trade.land_neighbors.get(exporter, {}) as Dictionary).has(importer):
+		return 0.0
+	return share * float(settings.get("embargo_tariff", 0.0))
 
 
 ## Flux après un changement de droits de douane (élasticité du commerce, hausse plafonnée), en suivant la

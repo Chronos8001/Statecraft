@@ -13,6 +13,7 @@ const EARTH_RADIUS_KM := 6371.0
 const DEGREES_HALF_TURN := 180.0
 const SEA_KIND := "sea"
 const EVENT_ARRIVED := &"fleet_arrived"
+const EVENT_BLOCKADE := &"blockade_changed"
 
 
 static func settings_of(state: SimState) -> Dictionary:
@@ -105,6 +106,7 @@ static func setup_start(state: SimState) -> void:
 			fleet.owner = tag
 			fleet.number = index + 1
 			fleet.zone = chosen[index]
+			fleet.home = fleet.zone
 			fleet.share = 1.0 / chosen.size()
 			state.fleets[fleet.id] = fleet
 
@@ -174,14 +176,28 @@ static func coastal_defense(state: SimState, tag: String) -> float:
 
 # --- Déplacements ---------------------------------------------------------------------------------------------
 
-## Liaison franchissable entre deux zones (un détroit fermé coupe la liaison).
-static func link_open(state: SimState, a: String, b: String) -> bool:
+## Liaison franchissable entre deux zones (un détroit fermé coupe la liaison). Pour la flotte d'un pays en
+## guerre, les détroits gardés selon la convention de Montreux (Bosphore, Dardanelles) sont fermés, sauf pour le
+## pays qui les garde.
+static func link_open(state: SimState, a: String, b: String, tag: String = "") -> bool:
 	var strait := str(state.sea_link_straits.get(a + "|" + b, ""))
-	return strait.is_empty() or not state.closed_straits.has(strait)
+	if strait.is_empty():
+		return true
+	if state.closed_straits.has(strait):
+		return false
+	var keeper := str((state.diplomacy_start.get("warship_straits", {}) as Dictionary).get(strait, ""))
+	return keeper.is_empty() or tag.is_empty() or tag == keeper or not _at_war(state, tag)
 
 
-## Chemin par la mer de from vers to, sans la zone de départ. Vide si impossible.
-static func find_path(state: SimState, from: String, to: String) -> Array[String]:
+static func _at_war(state: SimState, tag: String) -> bool:
+	for war: War in state.wars.values():
+		if not war.civil and war.involves(tag):
+			return true
+	return false
+
+
+## Chemin par la mer de from vers to, sans la zone de départ (pour la flotte de tag si donné). Vide si impossible.
+static func find_path(state: SimState, from: String, to: String, tag: String = "") -> Array[String]:
 	var result: Array[String] = []
 	if from == to or not is_sea(state, to) or not is_sea(state, from):
 		return result
@@ -193,7 +209,7 @@ static func find_path(state: SimState, from: String, to: String) -> Array[String
 			break
 		for next: Variant in state.sea_links.get(current, []):
 			var key := str(next)
-			if previous.has(key) or not link_open(state, current, key):
+			if previous.has(key) or not link_open(state, current, key, tag):
 				continue
 			previous[key] = current
 			queue.append(key)
@@ -224,7 +240,7 @@ static func travel_days(state: SimState, from: String, to: String) -> int:
 
 ## Donne l'ordre de route (le chemin doit exister).
 static func order_move(state: SimState, fleet: Fleet, destination: String) -> void:
-	fleet.path = find_path(state, fleet.zone, destination)
+	fleet.path = find_path(state, fleet.zone, destination, fleet.owner)
 	fleet.destination = destination
 	fleet.days_left = travel_days(state, fleet.zone, fleet.path[0]) if not fleet.path.is_empty() else 0
 
@@ -234,7 +250,7 @@ static func update_day(state: SimState) -> void:
 	for fleet: Fleet in state.fleets.values():
 		if not fleet.is_moving():
 			continue
-		if not link_open(state, fleet.zone, fleet.path[0]):
+		if not link_open(state, fleet.zone, fleet.path[0], fleet.owner):
 			fleet.path.clear()
 			fleet.days_left = 0
 			continue
@@ -262,6 +278,72 @@ static func repair_month(state: SimState) -> void:
 			fleet.damage_reported = false
 
 
+# --- Blocus et détroits ---------------------------------------------------------------------------------------
+
+## Blocus : pour chaque pays en guerre, part de ses mers côtières (pondérées par la population des côtes) où les
+## flottes ennemies l'emportent (NavalResolver.blockade_share), arrondie au pas des données. Le commerce maritime
+## et les exportations de ressources baissent d'autant (TradeModel, ResourceSystem).
+static func update_blockades(state: SimState) -> void:
+	var settings := settings_of(state)
+	var step := float(settings.get("blockade_step", 0.0))
+	var result: Dictionary = {}
+	for war: War in state.wars.values():
+		if war.civil:
+			continue
+		for tag: String in war.attackers + war.defenders:
+			if result.has(tag) or state.get_country(tag) == null:
+				continue
+			var coasts: Dictionary = state.military.naval.coastal_of(state, tag)
+			var total := 0.0
+			var blocked := 0.0
+			for zone_id: Variant in coasts.keys():
+				var weight := float(coasts[zone_id])
+				total += weight
+				blocked += weight * NavalResolver.blockade_share(state, str(zone_id), tag)
+			var share := blocked / total if total > 0.0 else 0.0
+			if step > 0.0:
+				share = floorf(share / step) * step
+			if share > 0.0:
+				result[tag] = share
+	var trade := state.trade
+	for tag: Variant in result.keys() + trade.blockades.keys():
+		var before := float(trade.blockades.get(tag, 0.0))
+		var after := float(result.get(tag, 0.0))
+		if is_equal_approx(before, after):
+			continue
+		trade.dirty = true
+		if is_zero_approx(before) or is_zero_approx(after):
+			state.add_event(EVENT_BLOCKADE, str(tag), {"share": after})
+	trade.blockades = result
+
+
+## Un détroit (ou un canal) se ferme tant qu'une de ses mers est disputée par une guerre ; il rouvre ensuite
+## (seulement s'il avait été fermé par les combats).
+static func update_straits(state: SimState) -> void:
+	var zones_by_strait: Dictionary = {}
+	for key: Variant in state.sea_link_straits.keys():
+		var strait := str(state.sea_link_straits[key])
+		if not zones_by_strait.has(strait):
+			zones_by_strait[strait] = {}
+		for zone_id: String in str(key).split("|"):
+			(zones_by_strait[strait] as Dictionary)[zone_id] = true
+	var ids: Array = zones_by_strait.keys()
+	ids.sort()
+	for strait: String in ids:
+		var disputed := false
+		for zone_id: Variant in (zones_by_strait[strait] as Dictionary).keys():
+			if bool((state.sea_control.get(zone_id, {}) as Dictionary).get("contested", false)):
+				disputed = true
+		if disputed and not state.closed_straits.has(strait):
+			state.closed_straits[strait] = true
+			state.war_closed_straits[strait] = true
+			state.add_event(ResourceSystem.EVENT_STRAIT_CLOSED, "", {"strait": strait, "war": true})
+		elif not disputed and state.war_closed_straits.has(strait):
+			state.war_closed_straits.erase(strait)
+			state.closed_straits.erase(strait)
+			state.add_event(ResourceSystem.EVENT_STRAIT_OPENED, "", {"strait": strait, "war": true})
+
+
 ## Mer côtière sûre la plus proche (bordant nos côtes, sans force ennemie, à distance de repli) ; "" si aucune.
 static func safe_harbor(state: SimState, fleet: Fleet) -> String:
 	var best := ""
@@ -273,7 +355,7 @@ static func safe_harbor(state: SimState, fleet: Fleet) -> String:
 		var distance := distance_km(state, fleet.zone, key)
 		if distance > float(settings_of(state).get("retreat_max_km", INF)):
 			continue
-		if key != fleet.zone and find_path(state, fleet.zone, key).is_empty():
+		if key != fleet.zone and find_path(state, fleet.zone, key, fleet.owner).is_empty():
 			continue
 		if distance < best_distance:
 			best = key

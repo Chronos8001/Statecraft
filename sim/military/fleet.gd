@@ -8,6 +8,8 @@ var owner: String = ""
 ## Numéro d'ordre dans le pays (1re, 2e flotte…).
 var number: int = 1
 var zone: String = ""
+## Mer de base (au départ), où la flotte rentre en temps de paix.
+var home: String = ""
 ## Part de la marine du pays (la somme des flottes d'un pays vaut 1) et état (1 : intacte).
 var share: float = 0.0
 var condition: float = 1.0

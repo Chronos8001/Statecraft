@@ -47,6 +47,13 @@ static func update_blocked_shares(state: SimState, tags: Array) -> void:
 	var trade: Dictionary = state.resource_definitions.get("straits", {})
 	for tag: String in tags:
 		(state.countries[tag] as CountryState).resources.blocked_share.clear()
+	# Blocus : la part maritime des exportations de toutes les ressources est coupée.
+	for tag: Variant in state.trade.blockades.keys():
+		var blockaded := state.get_country(str(tag))
+		if blockaded == null:
+			continue
+		for resource_id: String in state.markets.keys():
+			blockaded.resources.blocked_share[resource_id] = minf(float(state.trade.blockades[tag]), 1.0)
 	for strait_id: Variant in state.closed_straits.keys():
 		var routes: Dictionary = (trade.get(strait_id, {}) as Dictionary).get("trade", {})
 		for resource_id: Variant in routes.keys():

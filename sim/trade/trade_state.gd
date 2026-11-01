@@ -21,6 +21,10 @@ var agreements: Dictionary = {}
 var surcharges: Dictionary = {}
 ## Embargos : embargoes[pays qui l'impose][pays visé] = ressources visées (ALL_GOODS = tout le commerce).
 var embargoes: Dictionary = {}
+## Blocus : part du commerce maritime de chaque pays coupée par l'ennemi (0 à 1) ; voisins terrestres
+## (tag → {tag: true}) dont le commerce échappe au blocus.
+var blockades: Dictionary = {}
+var land_neighbors: Dictionary = {}
 ## PIB de départ en dollars.
 var start_gdp: Dictionary = {}
 var _pair_kinds: Dictionary = {}

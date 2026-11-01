@@ -24,7 +24,7 @@ func refusal_reason(state: SimState) -> String:
 		return "FLEET_NOT_SEA"
 	if fleet.zone == destination and not fleet.is_moving():
 		return "FLEET_ALREADY_THERE"
-	if destination != fleet.zone and NavalModel.find_path(state, fleet.zone, destination).is_empty():
+	if destination != fleet.zone and NavalModel.find_path(state, fleet.zone, destination, fleet.owner).is_empty():
 		return "FLEET_UNREACHABLE"
 	return ""
 
