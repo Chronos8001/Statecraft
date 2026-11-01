@@ -90,6 +90,7 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 	state.map_size = military_definitions.get("map_size", state.map_size)
 	state.war_goal_definitions = military_definitions.get("war_goals", {})
 	state.terrain_definitions = military_definitions.get("terrains", {})
+	NavalModel.setup_seas(state, military_definitions.get("sea_zones", {}), military_definitions.get("straits", {}))
 	ControlSystem.setup_start(state)
 	WarSystem.setup_start(state)
 	if not state.military_settings.is_empty():

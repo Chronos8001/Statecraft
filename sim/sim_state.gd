@@ -69,6 +69,15 @@ var control_version: int = 0
 ## Groupes d'armées : id → ArmyGroup.
 var army_groups: Dictionary = {}
 var next_army_group_id: int = 1
+## Flottes : id → Fleet ; zones maritimes (data/sea_zones), voisines par la mer (détroits et canaux compris :
+## zone → [zones]), détroit franchi entre deux zones (« a|b » → identifiant) ; contrôle des mers en guerre :
+## zone → {war, side, leader} (contested: true si aucun camp ne domine), recalculé chaque jour.
+var fleets: Dictionary = {}
+var next_fleet_id: int = 1
+var sea_zones: Dictionary = {}
+var sea_links: Dictionary = {}
+var sea_link_straits: Dictionary = {}
+var sea_control: Dictionary = {}
 ## Guerres en cours : id → War ; factions rebelles : id → RebelFaction ; buts de guerre (data/war_goals).
 var wars: Dictionary = {}
 var next_war_id: int = 1

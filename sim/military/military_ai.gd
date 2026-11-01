@@ -287,11 +287,23 @@ func restraint(state: SimState, country: CountryState, target: String) -> float:
 
 ## Une semaine de décisions de guerre pour un pays de l'IA ou une faction rebelle.
 func decide_week(tag: String, state: SimState) -> void:
+	retreat_damaged_fleets(tag, state)
 	if FrontSystem.fronts_of(state, tag).is_empty():
 		return
 	if not WarSystem.is_rebel(state, tag):
 		FrontSystem.auto_deploy(state, tag)
 	choose_postures(tag, state)
+
+
+## Les flottes gravement endommagées rentrent dans une mer côtière sûre pour s'y réparer.
+func retreat_damaged_fleets(tag: String, state: SimState) -> void:
+	var threshold := float(NavalModel.settings_of(state).get("retreat_condition", 0.0))
+	for fleet: Fleet in NavalModel.fleets_of(state, tag):
+		if fleet.condition >= threshold or (fleet.is_moving() and not NavalResolver.hostile_to(state, fleet.destination, tag)):
+			continue
+		var harbor := NavalModel.safe_harbor(state, fleet)
+		if not harbor.is_empty() and harbor != fleet.zone:
+			NavalModel.order_move(state, fleet, harbor)
 
 
 ## Posture de chaque front selon le rapport des forces engagées (puissance).
