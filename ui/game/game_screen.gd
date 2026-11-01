@@ -23,6 +23,9 @@ var _notification_timer: SceneTreeTimer
 var _military_ui: MilitaryUI = MilitaryUI.new()
 var _military_panel: InfoPanel
 var _research_panel: ResearchPanel
+## Fenêtre de l'événement du joueur en cours de choix (une à la fois) ; pause tant qu'elle est ouverte.
+var _event_window: EventWindow
+var _resume_after_events: bool = false
 ## Groupe d'armées sélectionné (-1 : aucun) : un clic droit sur la carte l'envoie dans la province visée.
 var _selected_group: int = -1
 ## Flotte sélectionnée (-1 : aucune) : un clic droit sur une mer l'y envoie.
@@ -64,6 +67,9 @@ func _ready() -> void:
 	_map_view.fleet_clicked.connect(_on_fleet_clicked)
 	_map_view.province_right_clicked.connect(_on_province_right_clicked)
 	EventBus.day_passed.connect(func(_date: GameDate) -> void: _refresh_armies())
+	EventBus.game_pause_changed.connect(func(paused: bool) -> void:
+		if not paused and _event_window != null:
+			GameClock.set_paused(true))
 	EventBus.command_executed.connect(func(_command: Command) -> void: _refresh_armies())
 	_info_panel.closed.connect(func() -> void: _map_view.set_selected_province(MapView.NO_SELECTION))
 	_country_panel.closed.connect(func() -> void: _map_view.set_selected_country(""))
@@ -361,6 +367,29 @@ func _show_peace_offer(war_id: int, _from: String) -> void:
 	dialog.popup_centered(Vector2i(480, 0))
 
 
+## Ouvre le prochain événement en attente du joueur ; le jeu se met en pause, puis reprend s'il tournait.
+func _show_next_event() -> void:
+	if _event_window != null:
+		return
+	var entry := EventSystem.next_pending(GameState.sim)
+	if entry.is_empty():
+		if _resume_after_events:
+			_resume_after_events = false
+			GameClock.set_paused(false)
+		return
+	if not GameClock.is_paused:
+		_resume_after_events = true
+		GameClock.set_paused(true)
+	_event_window = EventWindow.new()
+	_event_window.setup(entry)
+	_event_window.command_requested.connect(_submit_now)
+	_event_window.answered.connect(func() -> void:
+		_event_window = null
+		_show_next_event.call_deferred())
+	add_child(_event_window)
+	_event_window.popup_centered(Vector2i(EventWindow.WIDTH, 0))
+
+
 func _submit_now(command: Command) -> void:
 	if GameState.submit_command(command) and GameClock.is_paused:
 		GameState.process_commands()
@@ -368,6 +397,9 @@ func _submit_now(command: Command) -> void:
 
 ## Événements économiques du pays joué : changement de note, défaut de paiement, FMI.
 func _on_sim_event(event: Dictionary) -> void:
+	if event.get("type") == EventSystem.EVENT_PENDING:
+		_show_next_event.call_deferred()
+		return
 	# Événements mondiaux : visibles quel que soit le pays joué.
 	match event.get("type"):
 		ResourceSystem.EVENT_STRAIT_CLOSED:
