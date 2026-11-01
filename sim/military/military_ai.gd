@@ -8,12 +8,14 @@ extends RefCounted
 ## - paix : le meneur d'un camp propose une paix blanche si sa population est occupée, s'il est nettement plus
 ##   faible ou si la guerre s'enlise sans gain ;
 ## - mobilisation : partielle en guerre, générale si la guerre tourne mal, démobilisation en paix ;
-## - entrée en guerre volontaire aux côtés d'un ami proche, contre un ennemi sans arme nucléaire et à forces
-##   favorables (chance mensuelle) ;
-## - déclaration de guerre à un voisin ou à un pays revendiqué, avec un but justifié et un rapport de forces
-##   favorable (alliés de la cible comptés). Score = base + revendication + hostilité + log10(rapport de forces)
-##   (plafonné) + tension au-dessus du fond + régime + guerres en cours + dissuasion nucléaire de la cible ;
-##   chance mensuelle = score × pas, plafonnée.
+## - entrée en guerre volontaire pour défendre un ami proche attaqué, contre un ennemi sans arme nucléaire et à
+##   forces favorables (chance mensuelle) ;
+## - déclaration de guerre à un voisin terrestre (outre-mer avec la marine, étape 7d), avec un but justifié et un rapport de forces
+##   favorable (alliés de la cible comptés, partenaires de coopération militaire en partie). Score = base + revendication + hostilité + log10(rapport de forces)
+##   (plafonné) + tension au-dessus du fond + régime + guerres en cours + dissuasion nucléaire de la cible
+##   + freins (paix entre démocraties, UE commune, candidature, stabilité, récession, dépendance commerciale) ;
+##   pas de nouvelle guerre pendant quelques années après la précédente ; chance mensuelle = score × pas,
+##   plafonnée.
 
 ## Pays voisins de chaque pays (contrôleurs de provinces au contact) et provinces tenues par l'étranger
 ## (propriétaire → {pays qui en tient une part: true}), recalculés en début de mois.
@@ -142,10 +144,10 @@ func _join_wars(tag: String, state: SimState) -> void:
 		var war: War = state.wars[war_id]
 		if war.civil or war.involves(tag):
 			continue
-		for side: String in [War.ATTACKERS, War.DEFENDERS]:
-			if join_score(state, war, tag, side) and state.rng.randf() < float(rules.get("chance", 0.0)):
-				WarSystem.join(state, war, tag, side, false)
-				return
+		# Seulement pour défendre un pays attaqué, jamais aux côtés d'un agresseur.
+		if join_score(state, war, tag, War.DEFENDERS) and state.rng.randf() < float(rules.get("chance", 0.0)):
+			WarSystem.join(state, war, tag, War.DEFENDERS, false)
+			return
 
 
 ## Conditions d'une entrée en guerre volontaire : ami proche du meneur, hostile à l'ennemi, voisin de l'ennemi
@@ -189,11 +191,9 @@ func _declare_war(country: CountryState, state: SimState) -> void:
 func best_war(country: CountryState, state: SimState) -> Dictionary:
 	var rules: Dictionary = settings_of(state).get("war", {})
 	var tag := country.tag
-	var candidates: Dictionary = (_borders.get(tag, {}) as Dictionary).duplicate()
-	for claim: Dictionary in state.diplomacy.claims.values():
-		if claim["claimant"] == tag and state.countries.has(claim["target"]):
-			candidates[claim["target"]] = true
-	var targets: Array = candidates.keys()
+	# Seulement des voisins terrestres : sans marine ni débarquement (étape 7d), une guerre outre-mer n'aurait
+	# pas de front.
+	var targets: Array = (_borders.get(tag, {}) as Dictionary).keys()
 	targets.sort()
 	var best: Dictionary = {}
 	for target: String in targets:
@@ -208,6 +208,8 @@ func best_war(country: CountryState, state: SimState) -> Dictionary:
 func war_score(state: SimState, country: CountryState, target: String) -> Dictionary:
 	var rules: Dictionary = settings_of(state).get("war", {})
 	var tag := country.tag
+	if state.diplomacy.cooldown(WarSystem.RECENT_WAR, tag, tag) > 0:
+		return {}
 	# Filtres peu coûteux d'abord : rapport de forces seul et meilleur score possible.
 	var ours := MilitarySystem.power(state, tag)
 	var target_power := maxf(MilitarySystem.power(state, target), WarResolver.MIN_STRENGTH)
@@ -219,6 +221,7 @@ func war_score(state: SimState, country: CountryState, target: String) -> Dictio
 	var target_country := state.get_country(target)
 	if target_country != null and target_country.military != null and target_country.military.nuclear_warheads > 0:
 		score += float(rules.get("nuclear_target", 0.0))
+	score += restraint(state, country, target)
 	if score + float(rules.get("claim", 0.0)) + float(rules.get("power", 0.0)) * minf(log(ours / target_power) / log(10.0),
 			max_log) <= 0.0:
 		return {}
@@ -233,15 +236,51 @@ func war_score(state: SimState, country: CountryState, target: String) -> Dictio
 	if goal.is_empty():
 		return {}
 	var theirs := target_power
-	for ally: String in WarSystem.defenders_called(state, tag, target):
+	var called := WarSystem.defenders_called(state, tag, target)
+	for ally: String in called:
 		theirs += float(rules.get("ally_weight", 0.0)) * MilitarySystem.power(state, ally)
+	# Partenaires de coopération militaire de la cible : pas appelés, mais leur soutien probable dissuade.
+	for treaty_id: int in state.diplomacy.treaties_of(target):
+		var treaty: Dictionary = state.diplomacy.treaties[treaty_id]
+		var partner := str(treaty["b"]) if treaty["a"] == target else str(treaty["a"])
+		if str(treaty["type"]) == "military_cooperation" and partner != tag and not called.has(partner):
+			theirs += float(rules.get("cooperation_weight", 0.0)) * MilitarySystem.power(state, partner)
 	var ratio := ours / theirs
 	if ratio < min_ratio:
 		return {}
 	score += float(rules.get("power", 0.0)) * minf(log(ratio) / log(10.0), max_log)
 	if goal == "annex" or goal == "liberate":
 		score += float(rules.get("claim", 0.0))
+	# Dépendance commerciale envers la cible (calcul plus coûteux, fait en dernier).
+	score += float(rules.get("trade", 0.0)) * DiplomacyModel.trade_share(state, tag, target)
 	return {"target": target, "goal": goal, "score": score} if score > 0.0 else {}
+
+
+## Freins à la guerre : paix entre démocraties, organisations communes (UE…), candidature à une organisation,
+## situation intérieure (stabilité faible, récession). Valeur négative ou nulle.
+func restraint(state: SimState, country: CountryState, target: String) -> float:
+	var rules: Dictionary = settings_of(state).get("war", {})
+	var tag := country.tag
+	var value := 0.0
+	var target_country := state.get_country(target)
+	if target_country != null and country.politics.democratic and target_country.politics.democratic:
+		value += float(rules.get("democratic_peace", 0.0))
+	var shared: Dictionary = rules.get("shared_organization", {})
+	for organization: Dictionary in state.diplomacy.organizations.values():
+		var members: Array = organization.get("members", [])
+		if shared.has(str(organization.get("kind", ""))) and members.has(tag) and members.has(target):
+			value += float(shared[str(organization["kind"])])
+	for key: Variant in state.diplomacy_start.get("candidates", {}).keys():
+		var list: Variant = state.diplomacy_start["candidates"][key]
+		if list is Array and (list as Array).has(tag):
+			value += float(rules.get("candidate", 0.0))
+			break
+	var reference := float(rules.get("stability_reference", 0.0))
+	if country.society.stability < reference:
+		value += float(rules.get("stability", 0.0)) * (reference - country.society.stability)
+	if country.economy.growth < 0.0:
+		value += float(rules.get("recession", 0.0))
+	return value
 
 
 # --- Chaque semaine -------------------------------------------------------------------------------------------

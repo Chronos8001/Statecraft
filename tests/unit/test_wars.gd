@@ -269,3 +269,18 @@ func test_real_start_data() -> void:
 			assert_between(float(hold[1]), 0.0, 1.0)
 	for entry: Array in (start["wars"] as Dictionary)["list"]:
 		assert_true(_goals.has(str(entry[2])))
+
+
+func test_frozen_claims_must_be_pressed() -> void:
+	var state := _world()
+	var provinces: Array[String] = ["4"]
+	var claim_id := TensionSystem.add_claim(state, "AAA", "BBB", provinces, false)
+	assert_eq(DeclareWarCommand.new(&"AAA", "BBB", "annex").refusal_reason(state), "WAR_CLAIM_FROZEN")
+	TensionSystem.press_claim(state, claim_id)
+	assert_eq(DeclareWarCommand.new(&"AAA", "BBB", "annex").refusal_reason(state), "")
+
+
+func test_stationed_troops_defend() -> void:
+	var state := _world()
+	state.diplomacy.bases[DiplomacyState.opinion_key("DDD", "BBB")] = true
+	assert_eq(WarSystem.defenders_called(state, "AAA", "BBB"), ["DDD"], "troupes de DDD stationnées chez BBB")
