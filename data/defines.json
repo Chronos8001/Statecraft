@@ -1309,7 +1309,7 @@
       "reabsorb": 0.03,
       "max_displaced": 4.0,
       "disinformation": {
-        "stability": 6.0,
+        "stability": 4.0,
         "volatility": 0.6,
         "networks_law": "social_networks",
         "networks": {"free": 1.0, "moderated": 0.6, "restricted": 0.3}
