@@ -1,0 +1,9 @@
+{
+  "zero_trust": {"name_key": "TECH_ZERO_TRUST", "tree": "cyber", "year": 2026, "cost": 150, "requires": [], "effects": {"special:cyber": 5.0}, "start": {"index": 70}},
+  "ai_cyber_defense": {"name_key": "TECH_AI_CYBER_DEFENSE", "tree": "cyber", "year": 2029, "cost": 400, "requires": ["zero_trust"], "effects": {"special:cyber": 10.0}},
+  "post_quantum_crypto": {"name_key": "TECH_POST_QUANTUM_CRYPTO", "tree": "cyber", "year": 2030, "cost": 500, "requires": [], "effects": {"special:cyber": 10.0}},
+  "offensive_cyber_ai": {"name_key": "TECH_OFFENSIVE_CYBER_AI", "tree": "cyber", "year": 2031, "cost": 600, "requires": ["ai_cyber_defense"], "effects": {"special:cyber": 10.0}},
+  "resilient_infrastructure": {"name_key": "TECH_RESILIENT_INFRASTRUCTURE", "tree": "cyber", "year": 2033, "cost": 600, "requires": ["ai_cyber_defense"], "effects": {"special:cyber": 5.0, "stability": 1.0}},
+  "cognitive_warfare": {"name_key": "TECH_COGNITIVE_WARFARE", "tree": "cyber", "year": 2036, "cost": 900, "requires": ["offensive_cyber_ai"], "effects": {"special:cyber": 10.0, "intel": 5.0}},
+  "quantum_networks": {"name_key": "TECH_QUANTUM_NETWORKS", "tree": "cyber", "year": 2040, "cost": 1200, "requires": ["post_quantum_crypto", "quantum_computing"], "effects": {"special:cyber": 15.0}}
+}

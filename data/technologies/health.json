@@ -1,0 +1,8 @@
+{
+  "telemedicine": {"name_key": "TECH_TELEMEDICINE", "tree": "health", "year": 2026, "cost": 100, "requires": [], "effects": {"health": 1.0, "stability": 0.5}, "start": {"index": 50}},
+  "ai_diagnostics": {"name_key": "TECH_AI_DIAGNOSTICS", "tree": "health", "year": 2028, "cost": 300, "requires": ["telemedicine"], "effects": {"health": 3.0}},
+  "pandemic_shield": {"name_key": "TECH_PANDEMIC_SHIELD", "tree": "health", "year": 2030, "cost": 500, "requires": [], "effects": {"health": 3.0, "stability": 1.0}},
+  "personalized_medicine": {"name_key": "TECH_PERSONALIZED_MEDICINE", "tree": "health", "year": 2032, "cost": 600, "requires": ["ai_diagnostics"], "effects": {"health": 4.0}},
+  "cancer_vaccines": {"name_key": "TECH_CANCER_VACCINES", "tree": "health", "year": 2034, "cost": 800, "requires": ["personalized_medicine"], "effects": {"health": 4.0, "stability": 1.0}},
+  "brain_interfaces": {"name_key": "TECH_BRAIN_INTERFACES", "tree": "health", "year": 2038, "cost": 1000, "requires": [], "effects": {"health": 2.0, "growth": 0.03}}
+}

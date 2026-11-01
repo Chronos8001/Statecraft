@@ -124,3 +124,11 @@ python tools/country_gen/generate_energy.py
 ```sh
 python tools/country_gen/generate_investment.py
 ```
+
+## Recherche (`generate_research.py`)
+
+Écrit `data/countries/research.json` : dépense intérieure de R&D en % du PIB (*List of countries by research and development spending*, version du 1er janvier 2026 : OCDE, sinon UNECE, sinon Banque mondiale), corrections saisies (Taïwan, Corée du Nord…) et estimation selon le PIB par habitant pour les pays absents ; nombre d'universités classées dans le top 200 mondial (moyenne approximative des classements QS et THE 2025, saisie dans `research_config.json`).
+
+```sh
+python tools/country_gen/generate_research.py
+```

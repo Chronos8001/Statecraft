@@ -1,0 +1,9 @@
+{
+  "large_language_models": {"name_key": "TECH_LARGE_LANGUAGE_MODELS", "tree": "ai", "year": 2026, "cost": 200, "requires": [], "effects": {"growth": 0.05, "research": 5.0}, "start": {"index": 85}},
+  "ai_assistants": {"name_key": "TECH_AI_ASSISTANTS", "tree": "ai", "year": 2027, "cost": 300, "requires": ["large_language_models"], "effects": {"growth": 0.1}},
+  "autonomous_vehicles": {"name_key": "TECH_AUTONOMOUS_VEHICLES", "tree": "ai", "year": 2030, "cost": 600, "requires": [], "effects": {"growth": 0.1}},
+  "ai_scientists": {"name_key": "TECH_AI_SCIENTISTS", "tree": "ai", "year": 2031, "cost": 700, "requires": ["ai_assistants"], "effects": {"research": 15.0}},
+  "quantum_computing": {"name_key": "TECH_QUANTUM_COMPUTING", "tree": "ai", "year": 2033, "cost": 900, "requires": [], "effects": {"research": 10.0, "growth": 0.05}},
+  "humanoid_robots": {"name_key": "TECH_HUMANOID_ROBOTS", "tree": "ai", "year": 2034, "cost": 900, "requires": ["autonomous_vehicles"], "effects": {"growth": 0.15}},
+  "general_ai": {"name_key": "TECH_GENERAL_AI", "tree": "ai", "year": 2042, "cost": 2500, "requires": ["ai_scientists", "quantum_computing"], "effects": {"growth": 0.5, "research": 30.0}}
+}

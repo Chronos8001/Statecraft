@@ -1,0 +1,9 @@
+{
+  "industrial_robots": {"name_key": "TECH_INDUSTRIAL_ROBOTS", "tree": "industry", "year": 2026, "cost": 150, "requires": [], "effects": {"growth": 0.05}, "start": {"index": 45}},
+  "additive_manufacturing": {"name_key": "TECH_ADDITIVE_MANUFACTURING", "tree": "industry", "year": 2027, "cost": 250, "requires": [], "effects": {"growth": 0.06}, "start": {"index": 70}},
+  "smart_factories": {"name_key": "TECH_SMART_FACTORIES", "tree": "industry", "year": 2029, "cost": 400, "requires": ["industrial_robots"], "effects": {"growth": 0.08}, "start": {"index": 88}},
+  "advanced_chips": {"name_key": "TECH_ADVANCED_CHIPS", "tree": "industry", "year": 2028, "cost": 600, "requires": [], "effects": {"growth": 0.1, "research": 5.0}, "start": {"countries": ["TWN", "KOR", "USA"]}},
+  "advanced_materials": {"name_key": "TECH_ADVANCED_MATERIALS", "tree": "industry", "year": 2031, "cost": 550, "requires": ["additive_manufacturing"], "effects": {"growth": 0.08, "military:land": 0.1}},
+  "nanomanufacturing": {"name_key": "TECH_NANOMANUFACTURING", "tree": "industry", "year": 2036, "cost": 900, "requires": ["advanced_materials"], "effects": {"growth": 0.1}},
+  "molecular_assembly": {"name_key": "TECH_MOLECULAR_ASSEMBLY", "tree": "industry", "year": 2045, "cost": 1500, "requires": ["nanomanufacturing"], "effects": {"growth": 0.2}}
+}

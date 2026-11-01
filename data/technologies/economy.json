@@ -1,0 +1,10 @@
+{
+  "digital_payments": {"name_key": "TECH_DIGITAL_PAYMENTS", "tree": "economy", "year": 2026, "cost": 150, "requires": [], "effects": {"growth": 0.05}, "start": {"index": 35}},
+  "platform_economy": {"name_key": "TECH_PLATFORM_ECONOMY", "tree": "economy", "year": 2027, "cost": 250, "requires": ["digital_payments"], "effects": {"growth": 0.08}, "start": {"index": 65}},
+  "smart_logistics": {"name_key": "TECH_SMART_LOGISTICS", "tree": "economy", "year": 2028, "cost": 350, "requires": [], "effects": {"growth": 0.08}, "start": {"index": 80}},
+  "tokenized_finance": {"name_key": "TECH_TOKENIZED_FINANCE", "tree": "economy", "year": 2030, "cost": 500, "requires": ["digital_payments"], "effects": {"growth": 0.08}},
+  "predictive_economics": {"name_key": "TECH_PREDICTIVE_ECONOMICS", "tree": "economy", "year": 2033, "cost": 700, "requires": ["smart_logistics"], "effects": {"growth": 0.1}},
+  "circular_economy": {"name_key": "TECH_CIRCULAR_ECONOMY", "tree": "economy", "year": 2035, "cost": 800, "requires": [], "effects": {"growth": 0.08, "stability": 1.0}},
+  "global_digital_currency": {"name_key": "TECH_GLOBAL_DIGITAL_CURRENCY", "tree": "economy", "year": 2038, "cost": 1000, "requires": ["tokenized_finance"], "effects": {"growth": 0.1}},
+  "abundance_economy": {"name_key": "TECH_ABUNDANCE_ECONOMY", "tree": "economy", "year": 2045, "cost": 1600, "requires": ["predictive_economics", "circular_economy"], "effects": {"growth": 0.2, "stability": 2.0}}
+}
