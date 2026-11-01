@@ -123,6 +123,7 @@ static func step_country(economy: EconomyState, currency: CurrencyState, state: 
 	var fiscal_impulse := float(settings["fiscal_multiplier"]) * (economy.start_primary_balance - economy.primary_balance)
 	var growth := economy.potential_growth + economy.budget_growth + economy.resource_growth + economy.trade_growth \
 		+ economy.energy_growth + economy.investment_growth + economy.society_growth + economy.law_growth + economy.emergency_growth + economy.cabinet_growth + economy.crisis_growth + economy.sanction_growth + economy.aid_growth \
+		+ economy.military_growth + economy.attack_growth \
 		+ fiscal_impulse \
 		+ EconomyModel.demand_effect(currency.policy_rate, economy.inflation, economy.neutral_real_rate, settings)
 	if economy.in_crisis():

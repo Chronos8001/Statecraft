@@ -171,7 +171,60 @@
     "kind": "control",
     "occupied_color": "#E04A3A",
     "occupied_strength": 0.5,
-    "order": 12
+    "order": 12,
+    "rebel_color": "#5A4A3A"
+  },
+  "wars": {
+    "name_key": "MAPMODE_WARS",
+    "kind": "wars",
+    "enemy_color": "#C0392B",
+    "ally_color": "#3A7BC8",
+    "player_color": "#F2D16B",
+    "war_color": "#E08A3A",
+    "rebel_color": "#5A4A3A",
+    "order": 13,
+    "front_color": "#FFF2C0",
+    "front_strength": 0.45
+  },
+  "sea_control": {
+    "name_key": "MAPMODE_SEA_CONTROL",
+    "kind": "sea_control",
+    "ally_color": "#3A7BC8",
+    "enemy_color": "#C0392B",
+    "contested_color": "#E08A3A",
+    "war_color": "#8A8A9A",
+    "player_color": "#F2D16B",
+    "order": 14
+  },
+  "military_power": {
+    "name_key": "MAPMODE_MILITARY_POWER",
+    "kind": "country_gradient",
+    "value": "military_power",
+    "logarithmic": true,
+    "unit_key": "MAPMODE_UNIT_POINTS",
+    "stops": [
+      [
+        1,
+        "#E9E4D4"
+      ],
+      [
+        10,
+        "#C9B98A"
+      ],
+      [
+        50,
+        "#A07A4A"
+      ],
+      [
+        200,
+        "#6E3F2A"
+      ],
+      [
+        800,
+        "#2E1410"
+      ]
+    ],
+    "order": 15
   },
   "stability": {
     "name_key": "MAPMODE_STABILITY",
@@ -193,7 +246,7 @@
         "#3C8C52"
       ]
     ],
-    "order": 13
+    "order": 16
   },
   "support": {
     "name_key": "MAPMODE_SUPPORT",
@@ -215,13 +268,13 @@
         "#4F8FC0"
       ]
     ],
-    "order": 14
+    "order": 17
   },
   "vote": {
     "name_key": "MAPMODE_VOTE",
     "kind": "vote",
     "hint_color": "#C8CDD4",
-    "order": 15
+    "order": 18
   },
   "unrest": {
     "name_key": "MAPMODE_UNREST",
@@ -247,7 +300,7 @@
         "#9E2B25"
       ]
     ],
-    "order": 16
+    "order": 19
   },
   "trade": {
     "name_key": "MAPMODE_TRADE",
@@ -278,6 +331,6 @@
       "LEGEND_TRADE_MEDIUM",
       "LEGEND_TRADE_LARGE"
     ],
-    "order": 17
+    "order": 20
   }
 }

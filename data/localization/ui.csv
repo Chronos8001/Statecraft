@@ -106,7 +106,7 @@ TOPBAR_NO_COUNTRY,Observer,Observateur
 TOPBAR_TREASURY,Balance,Solde
 TOPBAR_STABILITY,Stability,Stabilité
 TOPBAR_SUPPORT,Support,Soutien
-TOPBAR_MILITARY,Military power,Puissance militaire
+TOPBAR_MILITARY,Power,Puissance
 TOPBAR_INFLUENCE,Influence,Influence
 TOPBAR_UNKNOWN,—,—
 NOTIFY_NEW_MONTH,New month: %s %d,Nouveau mois : %s %d
@@ -725,3 +725,313 @@ LEGEND_CLAIM_AGAINST,Our territory claimed by others,Notre territoire revendiqu�
 LEGEND_CLAIM_OTHER,Other disputed territories,Autres territoires disputés
 NOTIFY_TENSION_UNLOCKED,World tension rises: %s now possible.,La tension mondiale monte : %s désormais possibles.
 NOTIFY_TENSION_LOCKED,World tension eases: %s no longer possible.,La tension mondiale retombe : %s plus possibles.
+MONTH_SHORT_1,Jan,janv.
+MONTH_SHORT_2,Feb,févr.
+MONTH_SHORT_3,Mar,mars
+MONTH_SHORT_4,Apr,avr.
+MONTH_SHORT_5,May,mai
+MONTH_SHORT_6,Jun,juin
+MONTH_SHORT_7,Jul,juil.
+MONTH_SHORT_8,Aug,août
+MONTH_SHORT_9,Sep,sept.
+MONTH_SHORT_10,Oct,oct.
+MONTH_SHORT_11,Nov,nov.
+MONTH_SHORT_12,Dec,déc.
+TOPBAR_MILITARY_BUTTON,Military,Armée
+TOPBAR_MILITARY_BUTTON_TOOLTIP,"Armed forces, equipment and mobilisation","Forces armées, équipement et mobilisation"
+TOPBAR_MILITARY_TOOLTIP,"Military power (personnel, equipment, training and morale)","Puissance militaire (effectifs, équipement, entraînement et moral)"
+MILITARY_TITLE,Armed forces,Forces armées
+MILITARY_POWER,Military power,Puissance militaire
+MILITARY_ACTIVE,Active personnel,Effectifs d'active
+MILITARY_RESERVE,Reservists,Réservistes
+MILITARY_DEFENSE_BUDGET,Defence budget,Budget de la défense
+MILITARY_BUDGET_VALUE,%s%% of GDP ($%s bn/yr),%s %% du PIB (%s Md$/an)
+MILITARY_ARMS_RECEIVED,Arms received,Armes reçues
+MILITARY_ARMS_VALUE,$%s bn/yr,%s Md$/an
+MILITARY_NUCLEAR,Nuclear warheads,Ogives nucléaires
+MILITARY_NONE,None,Aucune
+MILITARY_BRANCHES,Branches,Armées
+MILITARY_BRANCH,Branch,Armée
+MILITARY_PERSONNEL,Personnel,Effectifs
+MILITARY_LEVEL,Equipment,Équipement
+MILITARY_TRAINING,Training,Entraînement
+MILITARY_MORALE,Morale,Moral
+MILITARY_PRIORITY,Funding,Crédits
+MILITARY_BRANCH_LAND,Land forces,Armée de terre
+MILITARY_BRANCH_AIR,Air force,Armée de l'air
+MILITARY_BRANCH_SEA,Navy,Marine
+MILITARY_SYMBOL_TOOLTIP,NATO symbol (APP-6),Symbole OTAN (APP-6)
+MILITARY_START_TOOLTIP,On 1 January 2026: %s,Au 1er janvier 2026 : %s
+MILITARY_APPLY_PRIORITIES,Apply funding split,Appliquer la répartition
+MILITARY_PRIORITIES_TOOLTIP,Share of the equipment budget given to each branch,Part du budget d'équipement donnée à chaque armée
+MILITARY_SPECIAL,Special capabilities,Capacités spéciales
+MILITARY_SPECIAL_SPECIAL_FORCES,Special forces,Forces spéciales
+MILITARY_SPECIAL_MISSILES,Missiles,Missiles
+MILITARY_SPECIAL_CYBER,Cyber,Cyber
+MILITARY_MOBILIZATION,Mobilisation,Mobilisation
+MILITARY_MOBILIZATION_0,No mobilisation,Aucune mobilisation
+MILITARY_MOBILIZATION_1,Partial mobilisation (30% of reservists),Mobilisation partielle (30 % des réservistes)
+MILITARY_MOBILIZATION_2,General mobilisation (80% of reservists),Mobilisation générale (80 % des réservistes)
+MILITARY_MOBILIZATION_TOOLTIP,"Recalled reservists strengthen the army but slow the economy, cost their pay and anger young people and workers","Les réservistes rappelés renforcent l'armée, mais freinent l'économie, coûtent leur solde et mécontentent les jeunes et les travailleurs"
+MILITARY_MOBILIZE,Change,Changer
+MILITARY_MOBILIZE_TOOLTIP,Change the mobilisation level,Changer le niveau de mobilisation
+MILITARY_INVALID,Not possible,Impossible
+MILITARY_ALREADY,Already in force,Déjà en vigueur
+MILITARY_COOLDOWN,Too soon after the last change,Trop tôt après le dernier changement
+MILITARY_PRIORITY_BOUNDS,Each branch must receive between 5% and 90% of the equipment budget,Chaque armée doit recevoir entre 5 % et 90 % du budget d'équipement
+MILITARY_HINT,"Equipment wears out and grows more expensive every year: the defence budget (Budget panel) and arms received keep it up. Training follows spending per soldier, morale follows stability.","L'équipement s'use et coûte plus cher chaque année : le budget de la défense (panneau Budget) et les armes reçues l'entretiennent. L'entraînement suit la dépense par soldat, le moral suit la stabilité."
+MAPMODE_MILITARY_POWER,Military power,Puissance militaire
+MAPMODE_UNIT_POINTS,%s pts,%s pts
+NOTIFY_MOBILIZATION,%s changes its mobilisation: %s.,%s change sa mobilisation : %s.
+ARMY_GROUP_NAME,%s Army Group,%s groupe d'armées
+ORDINAL_1,1st,1er
+ORDINAL_2,2nd,2e
+ORDINAL_3,3rd,3e
+ORDINAL_N,%dth,%de
+ARMY_THOUSANDS,%sk,%s k
+MILITARY_GROUPS,Army groups,Groupes d'armées
+MILITARY_GROUP,Army group,Groupe d'armées
+MILITARY_LOCATION,Location,Position
+MILITARY_STATUS,Status,État
+MILITARY_STATIONED,Stationed,En position
+MILITARY_MOVING,Moving to %s (%d days),En marche vers %s (%d j)
+MILITARY_SHOW,Show,Voir
+MILITARY_GROUPS_HINT,"Click an army group on the map to select it, then right-click a province you control to send it there overland.","Cliquez sur un groupe d'armées sur la carte pour le sélectionner, puis faites un clic droit sur une province que vous contrôlez pour l'y envoyer par la route."
+NOTIFY_ARMY_SELECTED,%s selected: right-click a province to move it.,%s sélectionné : clic droit sur une province pour le déplacer.
+NOTIFY_ARMY_FOREIGN,%s of %s: %s soldiers.,%s (%s) : %s soldats.
+NOTIFY_ARMY_ARRIVED,%s has reached %s.,Le %s est arrivé : %s.
+ARMY_INVALID,Not possible,Impossible
+ARMY_ALREADY_THERE,The army group is already there,Le groupe d'armées y est déjà
+ARMY_NOT_CONTROLLED,Army groups can only move to provinces we control,Un groupe d'armées ne va que dans une province que nous contrôlons
+ARMY_UNREACHABLE,No land route through our territory,Aucune route terrestre par notre territoire
+INFO_CONTESTED,Contested: %s holds %d%%,Disputée : %s en tient %d %%
+WAR_GOAL_ANNEX,Annex claimed provinces,Annexer les provinces revendiquées
+WAR_GOAL_LIBERATE,Liberate occupied territory,Libérer un territoire occupé
+WAR_GOAL_REGIME_CHANGE,Regime change,Changer le régime
+WAR_GOAL_REPARATIONS,Impose reparations,Imposer des réparations
+WAR_GOAL_ANNEX_DESC,Requires a claim on the target.,Exige une revendication sur la cible.
+WAR_GOAL_LIBERATE_DESC,Requires provinces of ours held by the target. Hardly costs any legitimacy.,Exige des provinces à nous tenues par la cible. Ne coûte presque pas de légitimité.
+WAR_GOAL_REGIME_CHANGE_DESC,Requires very high world tension and very bad relations. Heavy cost.,Exige une tension mondiale très forte et des relations très mauvaises. Coût élevé.
+WAR_GOAL_REPARATIONS_DESC,Requires high world tension and bad relations.,Exige une tension mondiale forte et de mauvaises relations.
+WAR_INVALID,Not possible.,Impossible.
+WAR_ALREADY,We are already at war.,Nous sommes déjà en guerre.
+WAR_TRUCE,A truce is in force with this country.,Une trêve est en vigueur avec ce pays.
+WAR_ALLIED,We are military allies.,Nous sommes alliés militaires.
+WAR_NO_CLAIM,We have no claim on this country.,Nous n'avons aucune revendication sur ce pays.
+WAR_NOT_OCCUPIED,This country holds none of our provinces.,Ce pays ne tient aucune de nos provinces.
+WAR_RELATION_TOO_HIGH,Our relations are too good to justify this war.,Nos relations sont trop bonnes pour justifier cette guerre.
+WAR_RELATION_TOO_LOW,Our relations with this side's leader are too poor.,Nos relations avec le meneur de ce camp sont trop mauvaises.
+WAR_NOT_LEADER,Only the leader of a side can negotiate peace.,Seul le meneur d'un camp peut négocier la paix.
+WAR_NAME,%s – %s war,Guerre %s – %s
+WAR_NAME_CIVIL,Civil war (%s),Guerre civile (%s)
+REBEL_NAME,Rebels (%s),Rebelles (%s)
+WAR_REQUIRES_TENSION,World tension of at least %d required.,Tension mondiale d'au moins %d exigée.
+WAR_TARGET_PROVINCES,Targeted provinces: %s,Provinces visées : %s
+WAR_COSTS,"Cost for us: legitimacy -%d, stability -%d, world opinion %d.","Coût pour nous : légitimité -%d, stabilité -%d, opinion du monde %d."
+WAR_ALLIES_CALLED,Called to defend them: %s,Appelés à le défendre : %s
+DIPLOMACY_WAR_TITLE,War,Guerre
+DIPLOMACY_DECLARE_WAR,Declare war,Déclarer la guerre
+DIPLOMACY_DECLARE_WAR_TOOLTIP,"Breaks our treaties with this country, stops our trade and calls its allies to arms.","Rompt nos traités avec ce pays, arrête notre commerce et appelle ses alliés aux armes."
+DIPLOMACY_AT_WAR,We are at war: %s,Nous sommes en guerre : %s
+DIPLOMACY_JOIN_WAR,Join on their side,Entrer en guerre à ses côtés
+DIPLOMACY_JOIN_WAR_TOOLTIP,Joining a war unasked worsens world opinion of us.,Entrer en guerre sans y être appelé dégrade l'opinion du monde envers nous.
+MILITARY_WARS,Wars,Guerres
+MILITARY_NO_WAR,We are at peace.,Nous sommes en paix.
+MILITARY_WAR_SIDE,Side: %s,Camp : %s
+MILITARY_SIDE_ATTACKERS,attackers,attaquants
+MILITARY_SIDE_DEFENDERS,defenders,défenseurs
+MILITARY_WAR_GOAL,War goal: %s,But de guerre : %s
+MILITARY_WAR_DURATION,Duration: %d months,Durée : %d mois
+MILITARY_WAR_ALLIES,With us: %s,Avec nous : %s
+MILITARY_WAR_ENEMIES,Against us: %s,Contre nous : %s
+MILITARY_WAR_OCCUPATION,Our population under enemy control: %d%% · enemy population we hold: %d%%,Notre population tenue par l'ennemi : %d %% · population ennemie que nous tenons : %d %%
+MILITARY_WHITE_PEACE,Propose white peace,Proposer une paix blanche
+MILITARY_WHITE_PEACE_LIKELY_YES,"Back to pre-war lines, truce. Likely answer: yes (interest %d)","Retour aux lignes d'avant-guerre, trêve. Avis probable : favorable (intérêt %d)"
+MILITARY_WHITE_PEACE_LIKELY_NO,"Back to pre-war lines, truce. Likely answer: no (interest %d)","Retour aux lignes d'avant-guerre, trêve. Avis probable : défavorable (intérêt %d)"
+MILITARY_CALL_TO_ARMS,Call to arms from %s (%s): %d days left to answer.,Appel aux armes de %s (%s) : %d jours pour répondre.
+MILITARY_CALL_ACCEPT,Join the war,Entrer en guerre
+MILITARY_CALL_REFUSE,Refuse,Refuser
+MILITARY_CALL_LATER,Later,Plus tard
+MILITARY_CALL_ACCEPT_TOOLTIP,We go to war alongside our ally.,Nous entrons en guerre aux côtés de notre allié.
+MILITARY_CALL_REFUSE_TOOLTIP,Our ally will hold it against us (relations and trust).,Notre allié nous en voudra (relations et confiance).
+CALL_TO_ARMS_TITLE,Call to arms,Appel aux armes
+CALL_TO_ARMS_TEXT,"%s calls us to arms (%s). Without an answer within %d days, the call is refused.","%s nous appelle aux armes (%s). Sans réponse sous %d jours, l'appel est refusé."
+MAPMODE_WARS,Wars,Guerres
+LEGEND_WAR_ENEMY,Our enemies,Nos ennemis
+LEGEND_WAR_ALLY,Our allies at war,Nos alliés en guerre
+LEGEND_WAR_OTHER,Other countries at war,Autres pays en guerre
+LEGEND_REBELS,Held by rebels,Tenu par des rebelles
+LEGEND_AT_PEACE,At peace,En paix
+NOTIFY_WAR_DECLARED,War declared: %s against %s!,Déclaration de guerre : %s contre %s !
+NOTIFY_WAR_JOINED,%s enters the war (side: %s).,%s entre en guerre (camp : %s).
+NOTIFY_WAR_ENDED,White peace between %s and %s.,Paix blanche entre %s et %s.
+NOTIFY_CIVIL_WAR_ENDED,The civil war in %s is over.,Fin de la guerre civile : %s.
+NOTIFY_CALL_REFUSED,%s refuses our call to arms.,%s refuse notre appel aux armes.
+NOTIFY_WHITE_PEACE_REFUSED,%s refuses white peace.,%s refuse la paix blanche.
+MILITARY_WAR_CASUALTIES,Casualties: ours %s · enemy %s,Pertes : les nôtres %s · ennemies %s
+MILITARY_FRONT,Front against %s (%d provinces): %s men against %s · %s,Front contre %s (%d provinces) : %s soldats contre %s · %s
+MILITARY_FRONT_TOOLTIP,"Strength on this front (equipment, training, morale, air power, supply): ours %s, theirs %s. Enemy posture: %s.","Puissance sur ce front (équipement, entraînement, moral, aviation, ravitaillement) : la nôtre %s, la leur %s. Posture ennemie : %s."
+MILITARY_FRONT_STABLE,stable front,front stable
+MILITARY_FRONT_GAINING,gaining %s%% of a province per day,gain de %s %% de province par jour
+MILITARY_FRONT_LOSING,losing %s%% of a province per day,perte de %s %% de province par jour
+MILITARY_POSTURE_OFFENSIVE,Offensive,Offensive
+MILITARY_POSTURE_DEFENSIVE,Defensive,Défensive
+MILITARY_POSTURE_HOLD,Hold,Tenir
+MILITARY_POSTURE_RETREAT,Retreat,Retraite
+MILITARY_POSTURE_TOOLTIP,"Offensive: we attack, heavy losses. Defensive: we hold and counterattack locally. Hold: no attack, fewer losses. Retreat: we give ground to save our troops.","Offensive : nous attaquons, pertes lourdes. Défensive : nous tenons et contre-attaquons localement. Tenir : pas d'attaque, moins de pertes. Retraite : nous cédons du terrain pour épargner nos troupes."
+MILITARY_AUTO_DEPLOY,Deploy automatically,Répartir automatiquement
+MILITARY_AUTO_DEPLOY_TOOLTIP,"Sends our army groups to our fronts, in proportion to the enemy forces facing them.","Envoie nos groupes d'armées sur nos fronts, en proportion des forces ennemies en face."
+MILITARY_NO_FRONT,We have no front.,Nous n'avons aucun front.
+MILITARY_NO_GROUP,We have no army group.,Nous n'avons aucun groupe d'armées.
+LEGEND_OUR_FRONTS,Our fronts,Nos fronts
+NOTIFY_PROVINCE_TAKEN,We take %s from %s.,Nous prenons %s à : %s.
+NOTIFY_PROVINCE_LOST,%s falls to %s.,%s tombe aux mains de : %s.
+NOTIFY_REBELS_WON,The rebels win the civil war in %s: a junta takes power.,Les rebelles gagnent la guerre civile : %s. Une junte prend le pouvoir.
+PEACE_OFFER_TITLE,White peace offer,Proposition de paix blanche
+PEACE_OFFER_TEXT,"%s offers a white peace (%s): back to pre-war lines and a truce. Without an answer within %d days, the offer is refused.","%s propose une paix blanche (%s) : retour aux lignes d'avant-guerre et trêve. Sans réponse sous %d jours, la proposition est refusée."
+MILITARY_PEACE_OFFER,%s offers a white peace: %d days left to answer.,%s propose une paix blanche : %d jours pour répondre.
+MILITARY_PEACE_ACCEPT,Accept peace,Accepter la paix
+MILITARY_PEACE_REFUSE,Keep fighting,Continuer la guerre
+WAR_CLAIM_FROZEN,Our claim is frozen: press it first.,Notre revendication est gelée : faites-la d'abord valoir.
+DIPLOMACY_CLAIM_FROZEN,(frozen),(gelée)
+DIPLOMACY_CLAIM_FROZEN_TOOLTIP,"A legal dispute, not militarized: pressing it makes it a possible cause for war.","Un litige juridique, non militarisé : la faire valoir en fait un motif de guerre possible."
+FLEET_NAME,%s Fleet,%s flotte
+ORDINAL_F_1,1st,1re
+ORDINAL_F_N,%dth,%de
+FLEET_CONDITION,%d%%,%d %%
+FLEET_INVALID,This fleet is not ours.,Cette flotte n'est pas à nous.
+FLEET_NOT_SEA,A fleet can only go to a sea.,Une flotte ne peut aller qu'en mer.
+FLEET_ALREADY_THERE,The fleet is already there.,La flotte y est déjà.
+FLEET_UNREACHABLE,No sea route (closed strait?).,Aucune route maritime (détroit fermé ?).
+FLEET_UNDER_FIRE,Under enemy fire,Sous le feu ennemi
+FLEET_CONTROLS,Controls the sea,Maîtresse de la mer
+MILITARY_FLEETS,Fleets,Flottes
+MILITARY_FLEETS_HINT,"Click a fleet on the map to select it, then right-click a sea to send it there. In war, a fleet facing enemy fleets or coasts is damaged; it is repaired off our coasts, out of enemy reach.","Cliquez sur une flotte sur la carte pour la sélectionner, puis faites un clic droit sur une mer pour l'y envoyer. En guerre, une flotte face à des flottes ou des côtes ennemies s'abîme ; elle se répare près de nos côtes, hors de portée de l'ennemi."
+NOTIFY_FLEET_SELECTED,%s selected: right-click a sea to move it.,%s sélectionnée : clic droit sur une mer pour la déplacer.
+NOTIFY_FLEET_FOREIGN,%s of %s: condition %d%%.,%s (%s) : état %d %%.
+NOTIFY_FLEET_ARRIVED,%s has reached %s.,La %s est arrivée : %s.
+NOTIFY_FLEET_DAMAGED,%s badly damaged in %s.,%s gravement endommagée : %s.
+MAPMODE_SEA_CONTROL,Sea control,Contrôle des mers
+LEGEND_SEA_OURS,Controlled by our side,Tenue par notre camp
+LEGEND_SEA_ENEMY,Controlled by the enemy,Tenue par l'ennemi
+LEGEND_SEA_CONTESTED,Contested,Disputée
+LEGEND_SEA_OTHER_WAR,Other wars,Autres guerres
+LEGEND_SEA_PEACE,At peace,En paix
+LANDING_NOT_ENEMY,We can only land on an enemy province.,On ne débarque que sur une province ennemie.
+LANDING_NOT_COASTAL,This province has no coast.,Cette province n'a pas de côte.
+LANDING_GROUP_INLAND,The army group must stand on one of our coasts.,Le groupe d'armées doit être posté sur une de nos côtes.
+LANDING_NO_FLEET,None of our fleets holds a sea next to this province (or the enemy dominates it).,Aucune de nos flottes ne tient une mer voisine de cette province (ou l'ennemi la domine).
+LANDING_UNREACHABLE,No sea route from our coast to the landing area.,Aucune route maritime de notre côte jusqu'à la zone de débarquement.
+NOTIFY_LANDING_LAUNCHED,%s sets sail for %s (chance of success: %d%%).,Le %s prend la mer vers %s (chance de réussite : %d %%).
+NOTIFY_LANDING_SUCCEEDED,Landing succeeded in %s: beachhead against %s.,Débarquement réussi : tête de pont à %s face à : %s.
+NOTIFY_LANDING_FAILED,"Landing failed in %s, against %s: heavy losses.",Débarquement repoussé à %s (%s) : lourdes pertes.
+NOTIFY_ENEMY_LANDING_SUCCEEDED,Enemy landing in %s by %s!,Débarquement ennemi à %s : %s !
+NOTIFY_ENEMY_LANDING_FAILED,We repelled a landing in %s by %s.,Nous repoussons un débarquement à %s : %s.
+NOTIFY_BEACHHEAD_LOST,Our beachhead in %s is lost: the troops re-embark.,Notre tête de pont à %s est perdue : les troupes rembarquent.
+NOTIFY_BLOCKADE_STARTED,Naval blockade: %d%% of our sea trade is cut.,Blocus naval : %d %% de notre commerce maritime est coupé.
+NOTIFY_BLOCKADE_ENDED,The naval blockade is lifted.,Le blocus naval est levé.
+MILITARY_AT_SEA,At sea toward %s (%d days),En mer vers %s (%d j)
+MILITARY_BEACHHEAD,Beachhead,Tête de pont
+MILITARY_WAR_BLOCKADE,Blockade: our sea trade cut by %d%% · enemy's by %d%%,Blocus : notre commerce maritime coupé à %d %% · celui de l'ennemi à %d %%
+ACTIONS_TITLE,Strikes and operations,Frappes et opérations
+ACTION_MISSILE_STRIKE_BUILDING,Missile strike (%d%%),Frappe de missiles (%d %%)
+ACTION_MISSILE_STRIKE_INFRASTRUCTURE,Strike the infrastructure (%d%%),Frapper les infrastructures (%d %%)
+ACTION_MISSILE_STRIKE_FRONT,Strike (%d%%),Frappe (%d %%)
+ACTION_SPECIAL_OPERATION_BUILDING,Sabotage (%d%%),Sabotage (%d %%)
+ACTION_SPECIAL_OPERATION_FRONT,Raid (%d%%),Raid (%d %%)
+ACTION_MISSILE_STRIKE_TOOLTIP,Uses one salvo from our missile stock. Strikes on densely populated provinces cause civilian casualties condemned worldwide.,Utilise une salve de notre stock de missiles. Frapper une province très peuplée fait des victimes civiles condamnées par le monde.
+ACTION_SPECIAL_OPERATION_TOOLTIP,Our special forces act behind enemy lines; a failure wears them down.,Nos forces spéciales agissent derrière les lignes ennemies ; un échec les use.
+ACTION_CYBER_TITLE,Cyberattack:,Cyberattaque :
+ACTION_CYBERATTACK_ECONOMY,Economy (%d%%),Économie (%d %%)
+ACTION_CYBERATTACK_GRID,Power grid (%d%%),Réseau électrique (%d %%)
+ACTION_CYBERATTACK_MILITARY,Army (%d%%),Armée (%d %%)
+ACTION_CYBERATTACK_TOOLTIP,"Deniable, even in peacetime. Risk of being exposed: at least %d%% (more if it fails).","Déniable, même en paix. Risque d'être démasqué : au moins %d %% (davantage en cas d'échec)."
+ACTION_INVALID,Not possible.,Impossible.
+ACTION_NOT_ENEMY,This province is not held by an enemy.,Cette province n'est pas tenue par un ennemi.
+ACTION_NO_BUILDING,There is no such building here.,Il n'y a pas ce bâtiment ici.
+ACTION_NO_MISSILES,Our missile stock is empty: it refills each month.,Notre stock de missiles est vide : il se reconstitue chaque mois.
+MILITARY_MISSILE_STOCK,Missile salvos,Salves de missiles
+MILITARY_MISSILE_STOCK_VALUE,%d / %d,%d / %d
+NOTIFY_MISSILE_STRIKE_SUCCESS,Our strike hit its target (%s).,Notre frappe a atteint sa cible (%s).
+NOTIFY_MISSILE_STRIKE_FAILURE,Our missiles were intercepted (%s).,Nos missiles ont été interceptés (%s).
+NOTIFY_SPECIAL_OPERATION_SUCCESS,Special operation succeeded (%s).,Opération spéciale réussie (%s).
+NOTIFY_SPECIAL_OPERATION_FAILURE,Special operation failed (%s): our special forces suffered.,Opération spéciale ratée (%s) : nos forces spéciales ont souffert.
+NOTIFY_CYBERATTACK_SUCCESS,Cyberattack succeeded (%s).,Cyberattaque réussie (%s).
+NOTIFY_CYBERATTACK_FAILURE,Cyberattack failed (%s).,Cyberattaque ratée (%s).
+NOTIFY_CYBER_DISCOVERED,We have been exposed!,Nous avons été démasqués !
+NOTIFY_MISSILE_STRIKE_SUFFERED,Missile strike on our territory by %s!,Frappe de missiles sur notre territoire : %s !
+NOTIFY_SPECIAL_OPERATION_SUFFERED,Enemy special forces struck behind our lines (%s).,Des forces spéciales ennemies ont frappé derrière nos lignes (%s).
+NOTIFY_CYBERATTACK_SUFFERED,"Cyberattack against us, traced back to %s.","Cyberattaque contre nous, attribuée à : %s."
+MILITARY_NUCLEAR_TITLE,Nuclear,Nucléaire
+NUCLEAR_ALERT_0,Normal alert,Alerte normale
+NUCLEAR_ALERT_1,Raised alert,Alerte renforcée
+NUCLEAR_ALERT_2,High alert,Alerte élevée
+NUCLEAR_ALERT_3,Maximum alert,Alerte maximale
+NUCLEAR_SET_ALERT,Set the alert,Changer l'alerte
+NUCLEAR_ALERT_TOOLTIP,Each level costs part of our GDP every month and worries the world. Only maximum alert allows a nuclear strike.,Chaque niveau coûte une part de notre PIB chaque mois et inquiète le monde. Seule l'alerte maximale permet une frappe nucléaire.
+NUCLEAR_PROGRAM_NONE,No military nuclear program.,Aucun programme nucléaire militaire.
+NUCLEAR_PROGRAM_STATUS,Military nuclear program: %d months left (%s).,Programme nucléaire militaire : encore %d mois (%s).
+NUCLEAR_PROGRAM_KNOWN,known abroad,connu à l'étranger
+NUCLEAR_PROGRAM_SECRET,still secret,encore secret
+NUCLEAR_PROGRAM_START,Launch a program,Lancer un programme
+NUCLEAR_PROGRAM_ABANDON,Abandon the program,Abandonner le programme
+NUCLEAR_PROGRAM_START_TOOLTIP,"Several years of costly work. If discovered, the nuclear powers will turn against us.","Plusieurs années de travaux coûteux. S'il est découvert, les puissances nucléaires se retourneront contre nous."
+NUCLEAR_PROGRAM_ABANDON_TOOLTIP,"If the program was known, abandoning it reassures the nuclear powers.","Si le programme était connu, l'abandonner rassure les puissances nucléaires."
+NUCLEAR_INVALID,Not possible.,Impossible.
+NUCLEAR_NO_WARHEADS,We have no nuclear weapons.,Nous n'avons pas d'arme nucléaire.
+NUCLEAR_ALREADY_ARMED,We already have nuclear weapons.,Nous avons déjà l'arme nucléaire.
+NUCLEAR_NO_PROGRAM,We have no program.,Nous n'avons pas de programme.
+NUCLEAR_ALERT_TOO_LOW,Our nuclear alert must be at its maximum.,Notre alerte nucléaire doit être au maximum.
+NUCLEAR_STRIKE,Nuclear strike,Frappe nucléaire
+NUCLEAR_STRIKE_TOOLTIP,"Devastates the province, isolates us from the whole world and may trigger a nuclear retaliation.","Dévaste la province, nous isole du monde entier et peut déclencher une riposte nucléaire."
+NUCLEAR_CONFIRM_TITLE,Nuclear strike,Frappe nucléaire
+NUCLEAR_CONFIRM_TEXT,"Order a nuclear strike on %s? Hundreds of thousands of deaths, a diplomatic collapse and a possible retaliation on our own cities. This cannot be undone.","Ordonner une frappe nucléaire sur %s ? Des centaines de milliers de morts, un effondrement diplomatique et une riposte possible sur nos propres villes. C'est irréversible."
+NUCLEAR_CONFIRM_OK,Strike,Frapper
+NUCLEAR_CONFIRM_CANCEL,Cancel,Renoncer
+INFO_DEVASTATED,Nuclear strike,Frappe nucléaire
+INFO_DEVASTATED_VALUE,Devastated province,Province dévastée
+NOTIFY_NUCLEAR_STRIKE,NUCLEAR STRIKE: %s strikes %s (%s)!,FRAPPE NUCLÉAIRE : %s frappe %s (%s) !
+NOTIFY_NUCLEAR_RETALIATION,NUCLEAR RETALIATION: %s strikes %s (%s)!,RIPOSTE NUCLÉAIRE : %s frappe %s (%s) !
+NOTIFY_NUCLEAR_PROGRAM_STARTED,%s launches a military nuclear program.,%s lance un programme nucléaire militaire.
+NOTIFY_NUCLEAR_PROGRAM_DETECTED,A secret military nuclear program has been exposed: %s.,Programme nucléaire militaire secret démasqué : %s.
+NOTIFY_NUCLEAR_PROGRAM_COMPLETED,%s now has nuclear weapons!,%s dispose désormais de l'arme nucléaire !
+NOTIFY_NUCLEAR_PROGRAM_ABANDONED,%s abandons its nuclear program.,%s abandonne son programme nucléaire.
+NOTIFY_NUCLEAR_ALERT,%s switches to %s.,%s passe en %s.
+MILITARY_WAR_SUPPORT,Support for the war: ours %d%% · theirs %d%%,Soutien à la guerre : le nôtre %d %% · le leur %d %%
+MILITARY_WAR_SCORE,War score: %s,Score de guerre : %s
+MILITARY_WAR_CEASEFIRE,Ceasefire: %d months left to negotiate,Cessez-le-feu : encore %d mois pour négocier
+MILITARY_CEASEFIRE,Propose a ceasefire,Proposer un cessez-le-feu
+MILITARY_CEASEFIRE_LIKELY_YES,The fronts freeze while we negotiate. Likely answer: yes.,Les fronts se figent le temps de négocier. Avis probable : favorable.
+MILITARY_CEASEFIRE_LIKELY_NO,The fronts freeze while we negotiate. Likely answer: no (they still want to fight).,Les fronts se figent le temps de négocier. Avis probable : défavorable (ils veulent encore se battre).
+MILITARY_NEGOTIATE,Negotiate peace,Négocier la paix
+MILITARY_NEGOTIATE_TOOLTIP,"Choose our terms: targeted provinces we hold, reparations.","Choisir nos conditions : provinces visées que nous tenons, réparations."
+PEACE_DIALOG_TITLE,Peace terms – %s,Conditions de paix – %s
+PEACE_DIALOG_PROPOSE,Propose,Proposer
+PEACE_DIALOG_INTRO,War score: %d. Enemy support for the war: %d%%. Each demand costs war score; a tired enemy concedes more.,Score de guerre : %d. Soutien de l'ennemi à la guerre : %d %%. Chaque exigence coûte du score ; un ennemi las concède davantage.
+PEACE_DIALOG_NO_DEMAND,We hold nothing to demand.,Nous ne tenons rien à exiger.
+PEACE_DEMAND_COST,%s (cost %d),%s (coût %d)
+PEACE_DEMAND_REPARATIONS,"Reparations (%d%% of GDP a year, %d years)","Réparations (%d %% du PIB par an, %d ans)"
+PEACE_DIALOG_SUMMARY,Total cost: %d · what they would concede: %d · %s,Coût total : %d · ce qu'ils concéderaient : %d · %s
+PEACE_DIALOG_LIKELY_YES,likely accepted,acceptation probable
+PEACE_DIALOG_LIKELY_NO,likely refused,refus probable
+CEASEFIRE_OFFER_TITLE,Ceasefire offer,Proposition de cessez-le-feu
+CEASEFIRE_OFFER_TEXT,%s offers a ceasefire (%s): the fronts freeze for a few months of negotiations. %d days left to answer.,%s propose un cessez-le-feu (%s) : les fronts se figent quelques mois pour négocier. %d jours pour répondre.
+PEACE_TERMS_TEXT,%s offers peace (%s) on these terms: %s. %d days left to answer.,%s propose la paix (%s) à ces conditions : %s. %d jours pour répondre.
+WAR_IN_CEASEFIRE,A ceasefire is in force.,Un cessez-le-feu est en vigueur.
+NOTIFY_PEACE_SIGNED,Peace treaty between %s and %s: %s.,Traité de paix entre %s et %s : %s.
+NOTIFY_CEASEFIRE,Ceasefire between %s and %s.,Cessez-le-feu entre %s et %s.
+NOTIFY_CEASEFIRE_ENDED,The ceasefire between %s and %s has ended: fighting resumes.,Fin du cessez-le-feu entre %s et %s : les combats reprennent.
+NOTIFY_CEASEFIRE_REFUSED,%s refuses the ceasefire.,%s refuse le cessez-le-feu.
+MILITARY_CEASEFIRE_ACCEPT,Accept the ceasefire,Accepter le cessez-le-feu
+NOTIFY_PROVINCE_CEDED,%s passes from %s to %s.,%s passe de %s à : %s.
+PEACE_DEMAND_PUPPET,Puppet government,Gouvernement fantoche
+WAR_PUPPET,A puppet and its overlord cannot go to war with each other.,Un fantoche et son suzerain ne peuvent pas se faire la guerre.
+PUPPET_NOT_PUPPET,We are not a puppet.,Nous ne sommes pas un fantoche.
+PUPPET_DECLARE_INDEPENDENCE,Declare independence,Proclamer l'indépendance
+PUPPET_DECLARE_INDEPENDENCE_TOOLTIP,"Ends the tutelage, the tribute and the forced alliance; our former overlord will take it very badly.","Met fin à la tutelle, au tribut et à l'alliance imposée ; notre ancien suzerain le prendra très mal."
+DIPLOMACY_PUPPET_STATUS,Tutelage,Tutelle
+DIPLOMACY_OUR_PUPPET,Our puppet government,Notre gouvernement fantoche
+DIPLOMACY_OUR_OVERLORD,Our overlord,Notre suzerain
+MILITARY_WAR_RESISTANCE,Resistance in %d occupied provinces: losses and damaged supply lines,Résistance dans %d provinces occupées : pertes et ravitaillement gêné
+NOTIFY_PUPPET_INSTALLED,%s becomes a puppet government of %s.,%s devient un gouvernement fantoche : %s.
+NOTIFY_PUPPET_INDEPENDENCE,%s declares its independence from %s!,%s proclame son indépendance face à : %s !

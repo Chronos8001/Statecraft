@@ -13,8 +13,8 @@ const SPENDING_STEP := 0.1
 const CARBON_STEP := 5.0
 const ECONOMIC_KEYS := ["growth", "unemployment", "inflation"]
 ## Effets qui jouent dès maintenant hors économie (société) ; les autres attendent leurs étapes.
-const SOCIETY_KEYS := ["stability", "influence"]
-const PENDING_KEYS := ["research", "military"]
+const SOCIETY_KEYS := ["stability", "influence", "military"]
+const PENDING_KEYS := ["research"]
 const POSITIVE_COLOR := Color(0.55, 0.85, 0.55)
 const NEGATIVE_COLOR := Color(0.95, 0.5, 0.45)
 

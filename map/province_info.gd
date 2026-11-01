@@ -10,6 +10,9 @@ var owner_name_key: String = ""
 var owner_color: Color = Color.TRANSPARENT
 var controller_tag: String = ""
 var controller_name_key: String = ""
+## Province disputée : pays qui en tient une part et part tenue (0 : pas disputée).
+var contested_name_key: String = ""
+var contested_share: float = 0.0
 var is_occupied: bool = false
 var is_capital: bool = false
 var population: int = 0

@@ -115,6 +115,28 @@ func test_control_mode_tints_occupied() -> void:
 	assert_eq(colors[2], Color.BLUE.lerp(Color.WHITE, 0.5), "occupée par BBB")
 
 
+func test_wars_mode_shows_enemies_and_rebels() -> void:
+	var context := _context()
+	var state := SimState.new()
+	state.province_control = {"1": "AAA_REB", "2": "AAA", "3": "BBB"}
+	var faction := RebelFaction.new()
+	faction.id = "AAA_REB"
+	faction.country = "AAA"
+	state.rebels["AAA_REB"] = faction
+	var war := War.new()
+	war.attackers.assign(["BBB"])
+	war.defenders.assign(["AAA"])
+	state.wars[1] = war
+	context.simulation = state
+	context.player_tag = "AAA"
+	var definition := {"player_color": "#FFFF00", "enemy_color": "#FF0000", "ally_color": "#0000FF",
+		"war_color": "#FF8000", "rebel_color": "#000000"}
+	var colors := WarsMapMode.new("wars", definition).compute_colors(context)
+	assert_eq(colors[1], Color.BLACK, "tenue par des rebelles")
+	assert_eq(colors[2], Color.YELLOW, "notre pays")
+	assert_eq(colors[3], Color.RED, "notre ennemi")
+
+
 func test_trade_mode_shows_partners_and_embargoes() -> void:
 	var definition := {"player_color": "#FFFFFF", "embargo_color": "#FF0000",
 		"stops": [[0.0, "#000000"], [1.0, "#00FF00"]]}
@@ -130,15 +152,18 @@ func test_trade_mode_shows_partners_and_embargoes() -> void:
 
 func test_registry_builds_all_game_modes_in_order() -> void:
 	var registry := MapModeRegistry.from_definitions(DataLoader.get_category("map_modes"))
-	assert_eq(registry.modes.size(), 17)
+	assert_eq(registry.modes.size(), 20)
 	assert_eq(registry.modes[0].id, "political")
 	assert_eq(registry.index_of("influence"), 7)
 	assert_eq(registry.index_of("claims"), 8)
-	assert_eq(registry.index_of("stability"), 12)
-	assert_eq(registry.index_of("support"), 13)
-	assert_eq(registry.index_of("vote"), 14)
-	assert_eq(registry.index_of("unrest"), 15)
-	assert_eq(registry.index_of("trade"), 16)
+	assert_eq(registry.index_of("wars"), 12)
+	assert_eq(registry.index_of("sea_control"), 13)
+	assert_eq(registry.index_of("military_power"), 14)
+	assert_eq(registry.index_of("stability"), 15)
+	assert_eq(registry.index_of("support"), 16)
+	assert_eq(registry.index_of("vote"), 17)
+	assert_eq(registry.index_of("unrest"), 18)
+	assert_eq(registry.index_of("trade"), 19)
 	var context := MapModeContext.from_game_data()
 	for mode: MapMode in registry.modes:
 		assert_eq(mode.compute_colors(context).size(), context.max_id + 1, mode.id)

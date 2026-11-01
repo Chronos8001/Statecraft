@@ -73,6 +73,10 @@ var sanction_growth: float = 0.0
 var sanction_inflation: float = 0.0
 ## Croissance apportée par l'aide internationale reçue.
 var aid_growth: float = 0.0
+## Effet de la mobilisation sur la croissance.
+var military_growth: float = 0.0
+## Effet des frappes et cyberattaques subies (points de croissance, temporaire).
+var attack_growth: float = 0.0
 var project_spending: float = 0.0
 ## Propriété publique, IDE et fonds souverain ; effets sur la croissance (points) et les recettes (% du PIB).
 var investment: InvestmentState = InvestmentState.new()

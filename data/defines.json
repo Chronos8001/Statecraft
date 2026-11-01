@@ -71,7 +71,14 @@
     "strait_marker_size": 7.0,
     "strait_label_min_zoom": 0.6,
     "strait_label_size": 14,
-    "country_selection_strength": 0.22
+    "country_selection_strength": 0.22,
+    "army_token_size": [
+      46,
+      40
+    ],
+    "army_min_zoom": 0.35,
+    "army_label_size": 12,
+    "army_path_color": "#FFE070"
   },
   "province": {
     "max_infrastructure": 10
@@ -823,5 +830,470 @@
         "add_relation": -20.0
       }
     }
+  },
+  "military": {
+    "branches": [
+      "land",
+      "air",
+      "sea"
+    ],
+    "equipment_share": 0.35,
+    "equipment": {
+      "escalation": 0.5,
+      "adjustment": 0.02,
+      "cost_growth": 4.0,
+      "min_level": 1.0,
+      "max_level": 5.0
+    },
+    "priorities": {
+      "min": 0.05,
+      "max": 0.9
+    },
+    "training": {
+      "per_log_ratio": 12.0,
+      "adjustment": 0.05,
+      "min": 10.0,
+      "max": 95.0,
+      "mobilization_penalty": [
+        0.0,
+        5.0,
+        12.0
+      ]
+    },
+    "morale": {
+      "per_stability": 0.5,
+      "adjustment": 0.1,
+      "min": 10.0,
+      "max": 95.0,
+      "mobilization_bonus": [
+        0.0,
+        3.0,
+        6.0
+      ]
+    },
+    "special": {
+      "per_point": 0.5,
+      "adjustment": 0.02
+    },
+    "mobilization": {
+      "reserve_share": [
+        0.0,
+        0.3,
+        0.8
+      ],
+      "growth": [
+        0.0,
+        -0.5,
+        -2.0
+      ],
+      "stability": [
+        0.0,
+        -1.0,
+        -3.0
+      ],
+      "groups": [
+        {},
+        {
+          "youth": -4.0,
+          "workers": -2.0,
+          "military": 3.0
+        },
+        {
+          "youth": -10.0,
+          "workers": -6.0,
+          "middle_class": -3.0,
+          "military": 6.0
+        }
+      ],
+      "pay_share": 0.5,
+      "cooldown": 3,
+      "start": {
+        "UKR": 2,
+        "RUS": 1
+      }
+    },
+    "conscription_law": "conscription",
+    "conscription": {
+      "adjustment": 0.03,
+      "options": {
+        "none": {
+          "active": 0.9,
+          "reserve": 0.5,
+          "training": 4.0
+        },
+        "selective": {
+          "active": 1.0,
+          "reserve": 1.0,
+          "training": 0.0
+        },
+        "universal": {
+          "active": 1.3,
+          "reserve": 2.0,
+          "training": -6.0
+        }
+      }
+    },
+    "power": {
+      "branch_weights": {
+        "land": 1.0,
+        "air": 1.6,
+        "sea": 1.4
+      },
+      "level_exponent": 2.0,
+      "training_reference": 50.0,
+      "morale_reference": 60.0,
+      "special_weight": 0.5,
+      "scale": 1e-05
+    },
+    "diplomatic_weight": 10.0,
+    "army_groups": {
+      "personnel_per_group": 150000.0,
+      "max_groups": 6,
+      "front_weight": 5.0,
+      "near_front": 0.8,
+      "hostile_relation": -30.0,
+      "front_share_bonus": 2.0,
+      "reserve_from_groups": 3,
+      "speed_km_per_day": 40.0
+    },
+    "war": {
+      "relation": -60.0,
+      "trust": -40.0,
+      "target_opinion": -40.0,
+      "ally_relation": -25.0,
+      "democratic_factor": 1.5,
+      "rally_stability": 4.0,
+      "embargo": true,
+      "call_to_arms": {
+        "days": 30,
+        "base": -10.0,
+        "relation": 0.4,
+        "enemy_relation": -0.3,
+        "alliance": 30.0,
+        "guarantee": 20.0,
+        "power": 15.0,
+        "refuse_relation": -30.0,
+        "refuse_trust": -40.0,
+        "join_relation": 15.0
+      },
+      "join": {
+        "min_relation": 0.0,
+        "enemy_relation": -40.0,
+        "enemy_trust": -20.0,
+        "world_opinion": -3.0,
+        "tension": 2.0
+      },
+      "white_peace": {
+        "base": -20.0,
+        "power": 30.0,
+        "per_month": 0.5,
+        "max_months_bonus": 30.0,
+        "occupation": 1.0,
+        "refused_cooldown": 1,
+        "truce_months": 24,
+        "recent_war_months": 60,
+        "relation": 10.0,
+        "tension": -3.0
+      },
+      "civil_war": {
+        "province_share": 0.25,
+        "start_share": 0.3,
+        "rebel_strength": 0.4,
+        "rebel_defeated_share": 0.05,
+        "rebel_level": 1.5,
+        "rebel_training": 35.0,
+        "rebel_morale": 65.0
+      }
+    },
+    "navy": {
+      "personnel_per_fleet": 40000.0,
+      "max_fleets": 4,
+      "speed_km_per_day": 500.0,
+      "coastal_share": 0.05,
+      "coastal_missiles_reference": 50.0,
+      "control_ratio": 1.5,
+      "damage_rate": 0.005,
+      "damage_odds_exponent": 1.0,
+      "damage_odds_min": 0.05,
+      "damage_odds_max": 4.0,
+      "retreat_max_km": 3000.0,
+      "blockade_contested": 0.5,
+      "blockade_step": 0.05,
+      "landing": {
+        "beachhead_share": 0.15,
+        "garrison_share": 0.02,
+        "base_chance": 0.5,
+        "odds_weight": 0.2,
+        "contested_penalty": 0.2,
+        "min_chance": 0.05,
+        "max_chance": 0.9,
+        "success_losses": 0.03,
+        "failure_losses": 0.25,
+        "evacuation_losses": 0.3
+      },
+      "ai": {
+        "healthy_condition": 0.6,
+        "dominance": 1.5,
+        "landing_chance": 0.25,
+        "overseas_navy_ratio": 2.0
+      },
+      "retreat_condition": 0.3,
+      "min_condition": 0.05,
+      "repair_per_month": 0.15
+    },
+    "occupation": {
+      "resistance_max": 0.8,
+      "adjustment": 0.2,
+      "losses_per_million": 250.0,
+      "infrastructure_damage": 0.6
+    },
+    "puppet": {
+      "demand_cost": 60.0,
+      "tribute_share": 1.0,
+      "legitimacy": 15.0,
+      "stability": 10.0,
+      "relation": 60.0,
+      "independence_chance": 0.02,
+      "independence_power_ratio": 0.5,
+      "independence_relation": -60.0,
+      "independence_tension": 3.0
+    },
+    "export": {
+      "personnel_per_division": 12000.0,
+      "air_personnel_per_squadron": 1200.0,
+      "navy_personnel_per_ship": 600.0,
+      "version": 1
+    },
+    "war_end": {
+      "support": {
+        "defender_start": 85.0,
+        "attacker_start": 75.0,
+        "attacker_legitimacy_weight": 2.0,
+        "joiner_start": 60.0,
+        "monthly_decay": 0.5,
+        "democratic_factor": 1.5,
+        "casualty_weight": 50.0,
+        "blockade_weight": 2.0,
+        "recession": 1.0,
+        "rally_per_occupied_percent": 0.05,
+        "rally_max": 1.5,
+        "low": 30.0,
+        "stability_per_point": 0.02,
+        "legitimacy_per_point": 0.02
+      },
+      "score": {
+        "occupation_weight": 1.5,
+        "casualty_weight": 20.0,
+        "blockade_weight": 10.0,
+        "goal_weight": 40.0,
+        "limit": 100.0
+      },
+      "ceasefire": {
+        "months": 3,
+        "accept_support": 50.0,
+        "accept_score": -5.0,
+        "cooldown": 3,
+        "resume_months": 6
+      },
+      "demands": {
+        "province_cost_per_percent": 1.5,
+        "province_min_cost": 3.0,
+        "reparations_cost": 15.0,
+        "reparations_share": 2.0,
+        "reparations_years": 5,
+        "allowance_support": 50.0
+      },
+      "ai": {
+        "propose_score": 10.0,
+        "ceasefire_support": 40.0,
+        "ceasefire_score": -15.0,
+        "lock_gains_months": 6,
+        "white_peace_support": 35.0
+      }
+    },
+    "nuclear": {
+      "alert_levels": 4,
+      "alert_cost_share": [0.0, 0.05, 0.15, 0.4],
+      "alert_tension": [0.0, 1.0, 3.0, 8.0],
+      "alert_world_opinion": [0.0, 0.0, -2.0, -6.0],
+      "alert_cooldown": 1,
+      "strike_warheads": 10,
+      "kill_share": 0.15,
+      "gdp_factor": 1.5,
+      "infrastructure_damage": 10.0,
+      "devastation_months": 120,
+      "front_losses": 0.5,
+      "attacker_relation": -60.0,
+      "attacker_trust": -50.0,
+      "attacker_opinion": -60.0,
+      "attacker_stability": 15.0,
+      "attacker_legitimacy": 20.0,
+      "target_stability": 20.0,
+      "umbrella_chance": 0.7,
+      "program": {
+        "months": 96,
+        "monthly_cost_billion": 1.0,
+        "detection_chance": 0.03,
+        "detected_relation": -25.0,
+        "detected_tension": 3.0,
+        "completed_warheads": 5,
+        "completed_tension": 10.0,
+        "abandon_relation": 15.0
+      },
+      "ai": {
+        "occupied_percent": 30.0,
+        "use_chance": 0.02
+      }
+    },
+    "actions": {
+      "missiles": {
+        "stock_per_point": 0.5,
+        "regen_share": 0.1,
+        "base": 0.6,
+        "weight": 0.5,
+        "min": 0.1,
+        "max": 0.95,
+        "cost_billion": 0.3,
+        "infrastructure_damage": 2.0,
+        "front_penalty": 0.15,
+        "front_days": 14,
+        "civilian_population": 1000000,
+        "civilian_world_opinion": -3.0,
+        "target_opinion": -5.0,
+        "tension": 0.3
+      },
+      "special": {
+        "cooldown": 2,
+        "base": 0.55,
+        "weight": 0.5,
+        "min": 0.1,
+        "max": 0.9,
+        "cost_billion": 0.1,
+        "failure_points": 5.0,
+        "front_penalty": 0.1,
+        "front_days": 21
+      },
+      "cyber": {
+        "cooldown": 3,
+        "base": 0.5,
+        "weight": 0.6,
+        "min": 0.1,
+        "max": 0.9,
+        "cost_billion": 0.05,
+        "discovery_base": 0.2,
+        "discovery_weight": 0.4,
+        "discovery_failed": 0.3,
+        "discovered_relation": -20.0,
+        "discovered_trust": -20.0,
+        "discovered_opinion": -10.0,
+        "discovered_tension": 1.0,
+        "economy_growth": -0.3,
+        "economy_months": 3,
+        "grid_growth": -0.6,
+        "grid_months": 1,
+        "military_morale": -5.0
+      },
+      "air_defense": {
+        "air_level_weight": 12.0,
+        "missiles_weight": 0.4
+      },
+      "infrastructure_repair": 1.0,
+      "ai": {
+        "strike_chance": 0.5,
+        "special_chance": 0.3,
+        "cyber_chance": 0.03,
+        "cyber_min_points": 50.0,
+        "cyber_max_relation": -40.0,
+        "min_hit": 0.4
+      }
+    },
+    "combat": {
+      "postures": {
+        "offensive": {"attack": 1.0, "defense": 0.8, "advance": 1.0, "losses": 1.5},
+        "defensive": {"attack": 0.6, "defense": 1.2, "advance": 0.3, "losses": 1.0},
+        "hold": {"attack": 0.0, "defense": 1.4, "advance": 0.0, "losses": 0.7},
+        "retreat": {"attack": 0.0, "defense": 0.5, "advance": 0.0, "losses": 0.4}
+      },
+      "default_posture": "defensive",
+      "advance_per_day": 0.0015,
+      "max_odds_log": 2.0,
+      "garrison_share": 0.05,
+      "loss_rate": 0.0004,
+      "loss_odds_exponent": 0.5,
+      "loss_odds_min": 0.25,
+      "loss_odds_max": 4.0,
+      "replacement": 0.08,
+      "equipment_wear": 1.0,
+      "morale_per_loss": 200.0,
+      "morale_capture": 3.0,
+      "air_max": 0.25,
+      "supply": {
+        "infrastructure_base": 0.7,
+        "infrastructure_weight": 0.03,
+        "free_km": 500.0,
+        "penalty_per_1000_km": 0.15,
+        "min": 0.4,
+        "rebel": 0.8
+      },
+      "ai": {
+        "offensive_ratio": 1.5,
+        "hold_ratio": 0.6,
+        "rebel_offensive_ratio": 1.2
+      }
+    },
+    "ai": {
+      "war": {
+        "goal_order": ["liberate", "annex", "reparations", "regime_change"],
+        "base": -40.0,
+        "claim": 20.0,
+        "relation": -0.3,
+        "power": 25.0,
+        "max_power_log": 1.0,
+        "nuclear_target": -40.0,
+        "overseas": -25.0,
+        "min_power_ratio": 2.0,
+        "ally_weight": 0.5,
+        "cooperation_weight": 0.3,
+        "tension": 1.0,
+        "tension_baseline": 40.0,
+        "authoritarian": 10.0,
+        "democratic": -30.0,
+        "democratic_peace": -60.0,
+        "shared_organization": {"economic_union": -60.0, "regional": -10.0},
+        "candidate": -40.0,
+        "trade": -100.0,
+        "stability_reference": 40.0,
+        "stability": -0.5,
+        "recession": -10.0,
+        "per_war": -40.0,
+        "chance_per_point": 0.001,
+        "max_chance": 0.03
+      },
+      "peace": {
+        "min_months": 3,
+        "occupied_percent": 5.0,
+        "power_ratio": 0.7,
+        "stalemate_months": 18,
+        "player_days": 30
+      },
+      "join": {
+        "min_relation": 70.0,
+        "max_enemy_relation": -40.0,
+        "min_power_ratio": 1.5,
+        "chance": 0.02
+      },
+      "mobilization": {
+        "losing_ratio": 0.6,
+        "losing_occupied_percent": 10.0
+      }
+    }
+  },
+  "military_symbols": {
+    "friend": "#80E0FF",
+    "hostile": "#FF8080",
+    "neutral": "#AAFFAA",
+    "unknown": "#FFFF80",
+    "line": "#000000",
+    "hostile_relation": -50.0
   }
 }

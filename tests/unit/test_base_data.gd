@@ -591,3 +591,21 @@ func test_start_claims_target_real_provinces() -> void:
 		for province_id: Variant in entry[2]:
 			var province: Dictionary = provinces.get(str(int(province_id)), {})
 			assert_eq(str(province.get("owner", "")), str(entry[1]), "province %d" % int(province_id))
+
+
+func test_armed_forces() -> void:
+	var countries := _repository.get_category("countries")
+	var nuclear: Array = []
+	for tag: String in countries.keys():
+		var forces: Dictionary = (countries[tag] as Dictionary)["armed_forces"]
+		var total := 0.0
+		for branch: Dictionary in (forces["branches"] as Dictionary).values():
+			total += float(branch["share"])
+		assert_almost_eq(total, 1.0, 0.001, "répartition des effectifs de %s" % tag)
+		if int(forces["nuclear_warheads"]) > 0:
+			nuclear.append(tag)
+	nuclear.sort()
+	assert_eq(nuclear, ["CHN", "FRA", "GBR", "IND", "ISR", "PAK", "PRK", "RUS", "USA"], "puissances nucléaires de 2026")
+	var defines: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/defines.json"))
+	for tag: Variant in (defines["military"]["mobilization"]["start"] as Dictionary).keys():
+		assert_true(countries.has(tag), "mobilisation de départ : %s" % tag)

@@ -327,6 +327,25 @@
             "type": "number",
             "min": 0,
             "max": 1
+          },
+          "army_token_size": {
+            "type": "array",
+            "min_items": 2,
+            "items": {
+              "type": "number",
+              "min": 1
+            }
+          },
+          "army_min_zoom": {
+            "type": "number",
+            "min": 0
+          },
+          "army_label_size": {
+            "type": "int",
+            "min": 1
+          },
+          "army_path_color": {
+            "type": "color"
           }
         }
       },
@@ -1391,6 +1410,11 @@
         },
         "color": {
           "type": "color"
+        },
+        "defense": {
+          "type": "number",
+          "min": 0.5,
+          "max": 3
         }
       }
     }
@@ -1503,7 +1527,8 @@
         "society",
         "parliament",
         "constitution",
-        "relations"
+        "relations",
+        "armed_forces"
       ],
       "properties": {
         "name_key": {
@@ -2153,6 +2178,153 @@
             "min": -100,
             "max": 100
           }
+        },
+        "armed_forces": {
+          "type": "object",
+          "strict": true,
+          "required": [
+            "branches",
+            "special",
+            "nuclear_warheads"
+          ],
+          "properties": {
+            "branches": {
+              "type": "object",
+              "strict": true,
+              "required": [
+                "land",
+                "air"
+              ],
+              "properties": {
+                "land": {
+                  "type": "object",
+                  "strict": true,
+                  "required": [
+                    "share",
+                    "level",
+                    "training",
+                    "morale"
+                  ],
+                  "properties": {
+                    "share": {
+                      "type": "number",
+                      "min": 0,
+                      "max": 1
+                    },
+                    "level": {
+                      "type": "number",
+                      "min": 1,
+                      "max": 5
+                    },
+                    "training": {
+                      "type": "number",
+                      "min": 0,
+                      "max": 100
+                    },
+                    "morale": {
+                      "type": "number",
+                      "min": 0,
+                      "max": 100
+                    }
+                  }
+                },
+                "air": {
+                  "type": "object",
+                  "strict": true,
+                  "required": [
+                    "share",
+                    "level",
+                    "training",
+                    "morale"
+                  ],
+                  "properties": {
+                    "share": {
+                      "type": "number",
+                      "min": 0,
+                      "max": 1
+                    },
+                    "level": {
+                      "type": "number",
+                      "min": 1,
+                      "max": 5
+                    },
+                    "training": {
+                      "type": "number",
+                      "min": 0,
+                      "max": 100
+                    },
+                    "morale": {
+                      "type": "number",
+                      "min": 0,
+                      "max": 100
+                    }
+                  }
+                },
+                "sea": {
+                  "type": "object",
+                  "strict": true,
+                  "required": [
+                    "share",
+                    "level",
+                    "training",
+                    "morale"
+                  ],
+                  "properties": {
+                    "share": {
+                      "type": "number",
+                      "min": 0,
+                      "max": 1
+                    },
+                    "level": {
+                      "type": "number",
+                      "min": 1,
+                      "max": 5
+                    },
+                    "training": {
+                      "type": "number",
+                      "min": 0,
+                      "max": 100
+                    },
+                    "morale": {
+                      "type": "number",
+                      "min": 0,
+                      "max": 100
+                    }
+                  }
+                }
+              }
+            },
+            "special": {
+              "type": "object",
+              "strict": true,
+              "required": [
+                "special_forces",
+                "missiles",
+                "cyber"
+              ],
+              "properties": {
+                "special_forces": {
+                  "type": "int",
+                  "min": 0,
+                  "max": 100
+                },
+                "missiles": {
+                  "type": "int",
+                  "min": 0,
+                  "max": 100
+                },
+                "cyber": {
+                  "type": "int",
+                  "min": 0,
+                  "max": 100
+                }
+              }
+            },
+            "nuclear_warheads": {
+              "type": "int",
+              "min": 0
+            }
+          }
         }
       }
     }
@@ -2517,7 +2689,9 @@
             "control",
             "trade",
             "vote",
-            "claims"
+            "claims",
+            "wars",
+            "sea_control"
           ]
         },
         "value": {
@@ -2576,6 +2750,29 @@
           "type": "color"
         },
         "other_color": {
+          "type": "color"
+        },
+        "rebel_color": {
+          "type": "color"
+        },
+        "enemy_color": {
+          "type": "color"
+        },
+        "ally_color": {
+          "type": "color"
+        },
+        "war_color": {
+          "type": "color"
+        },
+        "front_color": {
+          "type": "color"
+        },
+        "front_strength": {
+          "type": "number",
+          "min": 0,
+          "max": 1
+        },
+        "contested_color": {
           "type": "color"
         }
       }
@@ -3964,6 +4161,111 @@
             }
           }
         }
+      },
+      "front": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "list"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "min_items": 3,
+              "items": {
+                "type": "any"
+              }
+            }
+          }
+        }
+      },
+      "wars": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "list"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "min_items": 4,
+              "items": {
+                "type": "any"
+              }
+            }
+          }
+        }
+      },
+      "rebels": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "list"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "min_items": 3,
+              "items": {
+                "type": "any"
+              }
+            }
+          }
+        }
+      },
+      "candidates": {
+        "type": "object",
+        "properties": {
+          "comment": {
+            "type": "string"
+          }
+        },
+        "values": {
+          "type": "any"
+        }
+      },
+      "fleets": {
+        "type": "object",
+        "properties": {
+          "comment": {
+            "type": "string"
+          }
+        },
+        "values": {
+          "type": "any"
+        }
+      },
+      "warship_straits": {
+        "type": "object",
+        "values": {
+          "type": "string"
+        }
+      },
+      "nuclear_programs": {
+        "type": "object",
+        "properties": {
+          "comment": {
+            "type": "string"
+          }
+        },
+        "values": {
+          "type": "any"
+        }
       }
     }
   },
@@ -4097,6 +4399,63 @@
         },
         "flat": {
           "type": "bool"
+        }
+      }
+    }
+  },
+  "war_goals": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "requires",
+        "min_tension",
+        "max_relation",
+        "legitimacy",
+        "stability",
+        "world_opinion",
+        "tension"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^WAR_GOAL_[A-Z_]+$"
+        },
+        "requires": {
+          "type": "string",
+          "enum": [
+            "claim",
+            "occupied",
+            "none"
+          ]
+        },
+        "min_tension": {
+          "type": "number",
+          "min": 0,
+          "max": 100
+        },
+        "max_relation": {
+          "type": "number",
+          "min": -100,
+          "max": 100
+        },
+        "legitimacy": {
+          "type": "number",
+          "min": 0
+        },
+        "stability": {
+          "type": "number",
+          "min": 0
+        },
+        "world_opinion": {
+          "type": "number"
+        },
+        "tension": {
+          "type": "number",
+          "min": 0
         }
       }
     }

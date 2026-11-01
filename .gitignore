@@ -4,6 +4,13 @@ CLAUDE.md
 CLAUDE.local.md
 .claude/
 
+# --- Suivi du projet : local uniquement (seuls les README sont publiés) ---
+/docs/
+/CHANGELOG.md
+*.md
+!README.md
+!/addons/**/*.md
+
 # --- Godot 4 ---
 .godot/
 /android/

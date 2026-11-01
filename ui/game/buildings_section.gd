@@ -48,8 +48,7 @@ func refresh() -> void:
 		if str(project["province"]) == _province_id:
 			add_child(_label(tr("BUILDINGS_PROJECT_VALUE") % [tr(str(definitions[project["building"]]["name_key"])),
 				int(project["months_left"])], LABEL_COLOR, false))
-	var province: Dictionary = (state.energy_definitions.get("provinces", {}) as Dictionary).get(_province_id, {})
-	if str(province.get("owner", "")) == str(state.player_tag) and not str(state.player_tag).is_empty():
+	if ControlSystem.owner(state, _province_id) == str(state.player_tag) and not str(state.player_tag).is_empty():
 		_add_build_controls(definitions)
 
 

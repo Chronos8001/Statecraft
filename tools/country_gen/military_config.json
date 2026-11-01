@@ -1,0 +1,27 @@
+{
+  "comment": "Forces armées de départ. Niveau d'équipement (1 à 5) calculé à partir de la dépense de défense par soldat, puis valeurs saisies pour les grandes armées. Arsenaux nucléaires : SIPRI 2025.",
+  "level_rule": {"reference_spend_per_soldier": 20000.0, "per_decade": 1.2, "base": 2.4, "min": 1.0, "max": 4.6},
+  "branch_shares": {"coastal": {"land": 0.7, "air": 0.15, "sea": 0.15}, "landlocked": {"land": 0.85, "air": 0.15, "sea": 0.0}},
+  "training_rule": {"base": 30.0, "per_level": 12.0, "min": 20.0, "max": 90.0},
+  "morale_default": 60.0,
+  "special_rule": {"special_forces_per_level": 15.0, "missiles_per_level": 10.0, "cyber_per_level": 12.0},
+  "manual_levels": {
+    "USA": [4.6, 5.0, 5.0], "CHN": [3.8, 3.8, 4.0], "RUS": [3.6, 3.8, 3.5], "IND": [3.0, 3.2, 3.2], "GBR": [4.2, 4.5, 4.3],
+    "FRA": [4.2, 4.4, 4.3], "DEU": [4.0, 4.0, 3.8], "JPN": [4.0, 4.3, 4.4], "KOR": [4.2, 4.2, 4.1], "ISR": [4.5, 4.7, 3.8],
+    "TUR": [3.6, 3.5, 3.5], "PAK": [2.8, 3.0, 2.6], "IRN": [2.6, 2.2, 2.3], "PRK": [1.8, 1.6, 1.6], "EGY": [2.8, 3.0, 2.8],
+    "SAU": [3.3, 3.8, 3.2], "UKR": [3.2, 2.6, 2.0], "POL": [3.8, 3.6, 3.0], "ITA": [3.8, 4.0, 4.1], "ESP": [3.7, 3.9, 3.9],
+    "AUS": [4.0, 4.3, 4.2], "CAN": [3.8, 3.9, 3.6], "BRA": [2.8, 2.9, 2.8], "IDN": [2.6, 2.6, 2.6], "VNM": [2.4, 2.5, 2.5],
+    "TWN": [3.6, 3.8, 3.6], "GRC": [3.3, 3.6, 3.4], "SWE": [4.0, 4.3, 3.9], "FIN": [3.9, 4.2, 3.8], "NOR": [4.0, 4.3, 4.1],
+    "NLD": [4.0, 4.2, 4.1], "ARE": [3.6, 4.0, 3.4], "DZA": [2.6, 2.8, 2.6], "SGP": [4.0, 4.2, 4.0], "MEX": [2.3, 2.2, 2.3],
+    "ARG": [2.2, 2.0, 2.2], "ZAF": [2.4, 2.6, 2.4], "NGA": [2.0, 2.0, 2.0], "ETH": [2.0, 1.8, 1.0], "MAR": [2.8, 2.9, 2.6],
+    "THA": [2.8, 2.9, 2.8], "MYS": [2.7, 2.9, 2.8], "BLR": [2.6, 2.5, 1.0], "KAZ": [2.4, 2.4, 1.5]
+  },
+  "manual_morale": {"UKR": 75.0, "RUS": 55.0, "ISR": 80.0, "PRK": 50.0, "IRN": 55.0, "TWN": 65.0, "KOR": 70.0, "USA": 70.0,
+    "FIN": 80.0, "POL": 75.0},
+  "manual_special": {
+    "USA": [100, 100, 100], "RUS": [90, 95, 90], "CHN": [80, 90, 90], "ISR": [95, 75, 85], "GBR": [95, 60, 80],
+    "FRA": [85, 65, 70], "IRN": [60, 70, 60], "PRK": [60, 60, 65], "IND": [70, 65, 55], "PAK": [60, 55, 40],
+    "KOR": [75, 60, 60], "TUR": [70, 50, 45], "UKR": [75, 55, 70], "DEU": [75, 40, 60], "JPN": [55, 50, 60]
+  },
+  "nuclear_warheads": {"RUS": 5459, "USA": 5177, "CHN": 600, "FRA": 290, "GBR": 225, "IND": 180, "PAK": 170, "ISR": 90, "PRK": 50}
+}

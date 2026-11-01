@@ -22,7 +22,10 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 			"organizations": DataLoader.repository.resolve_ref("names#organizations"),
 			"organization_rules": DataLoader.get_category("organization_rules"),
 			"sanctions": DataLoader.get_category("sanctions"),
-			"aid": DataLoader.get_category("aid")})
+			"aid": DataLoader.get_category("aid")},
+		{"settings": DataLoader.get_define("military", {}), "map_size": map_size(),
+			"war_goals": DataLoader.get_category("war_goals"), "terrains": DataLoader.get_category("terrains"),
+			"sea_zones": DataLoader.get_category("sea_zones"), "straits": DataLoader.get_category("straits")})
 	scheduler = SimScheduler.new()
 	scheduler.add_system(LawSystem.new())
 	scheduler.add_system(ConstitutionSystem.new())
@@ -32,6 +35,7 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	scheduler.add_system(ResourceSystem.new())
 	scheduler.add_system(TradeSystem.new())
 	scheduler.add_system(BudgetSystem.new())
+	scheduler.add_system(MilitarySystem.new())
 	scheduler.add_system(EconomySystem.new(DataLoader.get_category("economy_sectors")))
 	scheduler.add_system(GovernmentSystem.new())
 	scheduler.add_system(CrisisSystem.new())
@@ -149,6 +153,12 @@ static func country_provinces(provinces: Dictionary) -> Dictionary:
 		(result[owner] as Array).append([province_id, int(province.get("population", 0)),
 			float(province.get("area_km2", 1.0))])
 	return result
+
+
+## Taille de l'image de la carte (pixels).
+func map_size() -> Vector2:
+	var info: Dictionary = DataLoader.get_category("map").get("map", {})
+	return Vector2(float(info.get("width", 360)), float(info.get("height", 180)))
 
 
 func get_start_date() -> GameDate:

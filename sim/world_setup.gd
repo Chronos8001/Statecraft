@@ -14,7 +14,8 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 		budget_definitions: Dictionary = {}, resources: Dictionary = {}, resource_definitions: Dictionary = {},
 		trade_definitions: Dictionary = {}, energy_definitions: Dictionary = {},
 		investment_settings: Dictionary = {}, society_definitions: Dictionary = {},
-		politics_definitions: Dictionary = {}, diplomacy_definitions: Dictionary = {}) -> void:
+		politics_definitions: Dictionary = {}, diplomacy_definitions: Dictionary = {},
+		military_definitions: Dictionary = {}) -> void:
 	state.economy_settings = settings
 	state.investment_settings = investment_settings
 	state.budget_definitions = budget_definitions
@@ -85,6 +86,20 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 			if state.countries.has(tag) and not civil_war.is_empty():
 				CrisisSystem.start_civil_war(state.countries[tag], state, civil_war, true)
 				CrisisSystem.refresh_effects(state.countries[tag], state)
+	state.military_settings = military_definitions.get("settings", {})
+	state.map_size = military_definitions.get("map_size", state.map_size)
+	state.war_goal_definitions = military_definitions.get("war_goals", {})
+	state.terrain_definitions = military_definitions.get("terrains", {})
+	NavalModel.setup_seas(state, military_definitions.get("sea_zones", {}), military_definitions.get("straits", {}))
+	ControlSystem.setup_start(state)
+	WarSystem.setup_start(state)
+	if not state.military_settings.is_empty():
+		for tag: String in tags:
+			state.military.model.setup_country(state.countries[tag], countries[tag], state)
+		WarSystem.setup_forces(state)
+		MilitaryActions.setup_start(state)
+		NuclearSystem.setup_start(state)
+		state.military.model.setup_world(state, countries)
 
 
 ## Relations de départ (données « relations » de chaque pays, symétriques), traités de 2026, ambassades et

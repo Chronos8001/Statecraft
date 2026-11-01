@@ -68,6 +68,10 @@ static func _advance(country: CountryState, state: SimState) -> void:
 	for crisis: Dictionary in country.crises:
 		crisis["months_left"] = int(crisis["months_left"]) - 1
 		if str(crisis["type"]) == CIVIL_WAR:
+			# Avec une guerre civile sur la carte, ce sont les combats qui décident de la fin (WarSystem).
+			if WarSystem.civil_war_of(state, country.tag) != null:
+				remaining.append(crisis)
+				continue
 			var ending := country.society.stability >= float(settings.get("civil_war_end_stability", 0.0)) \
 				and state.rng.randf() < float(settings.get("civil_war_end_chance", 0.0))
 			if ending or int(crisis["months_left"]) <= 0:
@@ -147,6 +151,23 @@ static func start_civil_war(country: CountryState, state: SimState, definition: 
 	if not initial:
 		TensionSystem.add_event(state, "civil_war")
 		state.add_event(EVENT_STARTED, country.tag, {"crisis": CIVIL_WAR})
+		WarSystem.start_civil_war(state, country.tag)
+
+
+## Fin d'une guerre civile décidée par les combats : la crise s'arrête (stabilité retrouvée pour une guerre
+## déjà en cours en 2026, comme à la fin d'une crise).
+static func end_civil_war_crisis(country: CountryState, state: SimState) -> void:
+	var settings := settings_of(state)
+	for index: int in country.crises.size():
+		var crisis: Dictionary = country.crises[index]
+		if str(crisis["type"]) != CIVIL_WAR:
+			continue
+		country.crises.remove_at(index)
+		if bool(crisis.get("initial", false)):
+			country.society.start_stability += float(settings.get("peace_stability", 0.0))
+		state.add_event(EVENT_ENDED, country.tag, {"crisis": CIVIL_WAR})
+		refresh_effects(country, state)
+		return
 
 
 ## Coup d'État : armée mécontente, pouvoir peu légitime, démocratie fragile ou absente.

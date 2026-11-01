@@ -10,9 +10,10 @@ const PERCENT := 100.0
 const NEUTRAL_TRUST := 50.0
 
 
-## Puissance d'un pays : son PIB (milliards de dollars). L'armée s'y ajoutera à l'étape 7.
+## Puissance d'un pays : son PIB (milliards de dollars) + sa puissance militaire × poids des données.
 static func power(state: SimState, tag: String) -> float:
-	return maxf(TradeSystem.current_gdp(state, tag), 0.001)
+	return maxf(TradeSystem.current_gdp(state, tag) + float(state.military_settings.get("diplomatic_weight", 0.0))
+		* MilitarySystem.power(state, tag), 0.001)
 
 
 ## Score d'acceptation d'un traité proposé par proposer à target (positif : accepté).

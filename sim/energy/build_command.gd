@@ -29,7 +29,9 @@ func refusal_reason(state: SimState) -> String:
 	var data: Dictionary = (definitions.get("provinces", {}) as Dictionary).get(province, {})
 	if definition.is_empty() or data.is_empty() or state.get_country(str(issuer)) == null:
 		return "BUILD_REFUSED_UNKNOWN"
-	if str(data.get("owner", "")) != str(issuer) or str(data.get("controller", "")) != str(issuer):
+	var controller := ControlSystem.controller(state, province) if not state.province_control.is_empty() 		else str(data.get("controller", ""))
+	var owner := ControlSystem.owner(state, province) if not state.province_owner.is_empty() else str(data.get("owner", ""))
+	if owner != str(issuer) or controller != str(issuer):
 		return "BUILD_REFUSED_NOT_OURS"
 	if bool(definition.get("coastal", false)) and not bool(data.get("coastal", false)):
 		return "BUILD_REFUSED_COASTAL"
