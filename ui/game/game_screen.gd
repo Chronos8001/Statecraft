@@ -250,6 +250,9 @@ func _on_war_event(event: Dictionary) -> bool:
 		WarSystem.EVENT_PEACE_REFUSED:
 			if tag == player:
 				_notify(tr("NOTIFY_WHITE_PEACE_REFUSED") % MilitaryUI.side_name(state, target))
+		WarSystem.EVENT_PEACE_OFFER:
+			if tag == player:
+				_show_peace_offer(int(event.get("war", -1)), str(event.get("from", "")))
 		WarSystem.EVENT_REBELS_WON:
 			_notify(tr("NOTIFY_REBELS_WON") % MilitaryUI.side_name(state, tag))
 		WarResolver.EVENT_PROVINCE_TAKEN:
@@ -282,6 +285,33 @@ func _show_call_to_arms(war_id: int, caller: String) -> void:
 	dialog.custom_action.connect(func(action: StringName) -> void:
 		if action == &"refuse":
 			_submit_now(AnswerCallToArmsCommand.new(state.player_tag, war_id, false))
+			dialog.hide())
+	dialog.visibility_changed.connect(func() -> void:
+		if not dialog.visible:
+			dialog.queue_free())
+	add_child(dialog)
+	dialog.popup_centered(Vector2i(480, 0))
+
+
+## Paix blanche proposée par l'ennemi : accepter, refuser, ou répondre plus tard depuis le panneau Armée.
+func _show_peace_offer(war_id: int, from: String) -> void:
+	var state := GameState.sim
+	var war: War = state.wars.get(war_id)
+	if war == null:
+		return
+	var dialog := ConfirmationDialog.new()
+	dialog.title = tr("PEACE_OFFER_TITLE")
+	dialog.dialog_text = tr("PEACE_OFFER_TEXT") % [MilitaryUI.side_name(state, from), MilitaryUI.war_name(state, war),
+		int((state.military_settings.get("ai", {}) as Dictionary).get("peace", {}).get("player_days", 0))]
+	dialog.dialog_autowrap = true
+	dialog.ok_button_text = tr("MILITARY_PEACE_ACCEPT")
+	dialog.cancel_button_text = tr("MILITARY_CALL_LATER")
+	var refuse := dialog.add_button(tr("MILITARY_PEACE_REFUSE"), true, "refuse")
+	refuse.focus_mode = Control.FOCUS_NONE
+	dialog.confirmed.connect(func() -> void: _submit_now(AnswerPeaceCommand.new(state.player_tag, war_id, true)))
+	dialog.custom_action.connect(func(action: StringName) -> void:
+		if action == &"refuse":
+			_submit_now(AnswerPeaceCommand.new(state.player_tag, war_id, false))
 			dialog.hide())
 	dialog.visibility_changed.connect(func() -> void:
 		if not dialog.visible:
