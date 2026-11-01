@@ -76,7 +76,7 @@ static func update_country(country: CountryState, state: SimState) -> void:
 	var stability_target := SocietyModel.stability_target(society, float(budget_effects.get("stability", 0.0))
 		+ float(country.law_effects.get("stability", 0.0)) + emergency_stability(country, state)
 		+ float(country.cabinet_effects.get("stability", 0.0)) + float(country.crisis_effects.get("stability", 0.0))
-		+ country.aid_stability + country.ai_stability + float(military_effects.get("stability", 0.0)),
+		+ country.aid_stability + country.ai_stability + country.event_stability + float(military_effects.get("stability", 0.0)),
 		stability_settings)
 	society.stability = SocietyModel.approach(society.stability, stability_target,
 		float(stability_settings.get("adjustment", 1.0)))

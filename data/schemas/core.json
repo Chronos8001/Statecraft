@@ -4542,5 +4542,6 @@
         }
       }
     }
-  }
+  },
+  "events": {"type": "object", "keys_pattern": "^[a-z0-9_]+$", "values": {"type": "object", "strict": true, "required": ["title_key", "desc_key", "scope", "options"], "properties": {"title_key": {"type": "string", "pattern": "^EVENT_[A-Z0-9_]+$"}, "desc_key": {"type": "string", "pattern": "^EVENT_[A-Z0-9_]+$"}, "scope": {"type": "string", "enum": ["country", "world"]}, "picture": {"type": "string"}, "trigger": {"type": "object"}, "mtth_months": {"type": "number", "min": 0.1}, "mtth_modifiers": {"type": "array", "items": {"type": "object", "strict": true, "required": ["factor", "if"], "properties": {"factor": {"type": "number", "min": 0}, "if": {"type": "object"}}}}, "once": {"type": "bool"}, "triggered_only": {"type": "bool"}, "immediate": {"type": "object"}, "options": {"type": "array", "min_items": 1, "items": {"type": "object", "strict": true, "required": ["name_key"], "properties": {"name_key": {"type": "string", "pattern": "^EVENT_[A-Z0-9_]+$"}, "effects": {"type": "object"}, "ai_weight": {"type": "number", "min": 0}, "ai_modifiers": {"type": "array", "items": {"type": "object", "strict": true, "required": ["factor", "if"], "properties": {"factor": {"type": "number", "min": 0}, "if": {"type": "object"}}}}}}}}}}
 }

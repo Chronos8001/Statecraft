@@ -754,3 +754,26 @@ LAW_AI_REGULATION,AI regulation,Régulation de l'IA
 LAW_AI_REGULATION_OPEN,Open,Libre
 LAW_AI_REGULATION_FRAMED,Framed,Encadrée
 LAW_AI_REGULATION_STRICT,Strict,Stricte
+EVENT_UNREST_WAVE_TITLE,A wave of discontent,Vague de mécontentement
+EVENT_UNREST_WAVE_DESC,"Across {country}, unions, students and shopkeepers march together. The cabinet must answer before the movement hardens.","Dans tout le pays ({country}), syndicats, étudiants et commerçants défilent ensemble. Le gouvernement doit répondre avant que le mouvement ne se durcisse."
+EVENT_UNREST_WAVE_A,Open talks and fund a support package,Ouvrir le dialogue et financer un plan de soutien
+EVENT_UNREST_WAVE_B,Restore order,Rétablir l'ordre
+EVENT_SOCIAL_MEDIA_SCANDAL_TITLE,Leaked messages,Messages divulgués
+EVENT_SOCIAL_MEDIA_SCANDAL_DESC,Private messages from a minister go viral overnight. The opposition demands explanations.,Des messages privés d'un ministre se répandent sur les réseaux en une nuit. L'opposition exige des explications.
+EVENT_SOCIAL_MEDIA_SCANDAL_A,Apologise and dismiss the minister,S'excuser et limoger le ministre
+EVENT_SOCIAL_MEDIA_SCANDAL_B,Deny everything,Tout démentir
+EVENT_SCANDAL_REVELATIONS_TITLE,New revelations,Nouvelles révélations
+EVENT_SCANDAL_REVELATIONS_DESC,An investigative outlet publishes proof that the government lied about the leaked messages.,Un média d'investigation publie la preuve que le gouvernement a menti sur les messages divulgués.
+EVENT_SCANDAL_REVELATIONS_A,Weather the storm,Faire le dos rond
+EVENT_AI_BREAKTHROUGH_TITLE,AI breakthrough,Percée en intelligence artificielle
+EVENT_AI_BREAKTHROUGH_DESC,A national lab announces a model far ahead of the competition. How should its results be used?,Un laboratoire national annonce un modèle bien en avance sur la concurrence. Comment exploiter ses résultats ?
+EVENT_AI_BREAKTHROUGH_A,Put it to work in our research labs,Le mettre au service de nos laboratoires
+EVENT_AI_BREAKTHROUGH_B,License it to our companies,Le licencier à nos entreprises
+EVENT_HEATWAVE_TITLE,Record heatwave,Canicule record
+EVENT_HEATWAVE_DESC,A record heatwave hits several regions of the world: crops wither and power grids strain.,Une canicule record frappe plusieurs régions du monde : les récoltes souffrent et les réseaux électriques saturent.
+EVENT_HEATWAVE_A,Fund emergency cooling centres,Financer des centres de rafraîchissement d'urgence
+EVENT_HEATWAVE_B,Let local authorities cope,Laisser faire les autorités locales
+EVENT_DEBT_JITTERS_TITLE,Jitters on the bond market,Fébrilité sur le marché obligataire
+EVENT_DEBT_JITTERS_DESC,Investors question our public debt and rates are rising. The finance ministry offers two answers.,Les investisseurs s'interrogent sur notre dette publique et les taux montent. Le ministère des Finances propose deux réponses.
+EVENT_DEBT_JITTERS_A,Announce spending cuts,Annoncer des économies
+EVENT_DEBT_JITTERS_B,Reassure markets and change nothing,Rassurer les marchés sans rien changer

@@ -1,0 +1,76 @@
+{
+  "unrest_wave": {
+    "title_key": "EVENT_UNREST_WAVE_TITLE",
+    "desc_key": "EVENT_UNREST_WAVE_DESC",
+    "scope": "country",
+    "trigger": {"stability": "<35"},
+    "mtth_months": 24,
+    "mtth_modifiers": [{"factor": 0.5, "if": {"stability": "<20"}}],
+    "options": [
+      {"name_key": "EVENT_UNREST_WAVE_A", "effects": {"add_group_satisfaction": {"workers": 3, "middle_class": 2}, "add_debt": 2},
+        "ai_weight": 1, "ai_modifiers": [{"factor": 3, "if": {"democratic": true}}]},
+      {"name_key": "EVENT_UNREST_WAVE_B", "effects": {"add_stability": 4,
+        "if": {"democratic": true}, "then": {"add_legitimacy": -6}, "else": {"add_legitimacy": -2}},
+        "ai_weight": 1, "ai_modifiers": [{"factor": 3, "if": {"democratic": false}}]}
+    ]
+  },
+  "social_media_scandal": {
+    "title_key": "EVENT_SOCIAL_MEDIA_SCANDAL_TITLE",
+    "desc_key": "EVENT_SOCIAL_MEDIA_SCANDAL_DESC",
+    "scope": "country",
+    "trigger": {"democratic": true, "law": {"social_networks": "free"}},
+    "mtth_months": 72,
+    "options": [
+      {"name_key": "EVENT_SOCIAL_MEDIA_SCANDAL_A", "effects": {"add_legitimacy": -2}, "ai_weight": 2},
+      {"name_key": "EVENT_SOCIAL_MEDIA_SCANDAL_B", "effects": {"add_stability": -1,
+        "if": {"random": 0.5}, "then": {"trigger_event": {"id": "scandal_revelations", "days": 30}}}, "ai_weight": 1}
+    ]
+  },
+  "scandal_revelations": {
+    "title_key": "EVENT_SCANDAL_REVELATIONS_TITLE",
+    "desc_key": "EVENT_SCANDAL_REVELATIONS_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "immediate": {"add_legitimacy": -5},
+    "options": [
+      {"name_key": "EVENT_SCANDAL_REVELATIONS_A", "effects": {"add_stability": -2}}
+    ]
+  },
+  "ai_breakthrough": {
+    "title_key": "EVENT_AI_BREAKTHROUGH_TITLE",
+    "desc_key": "EVENT_AI_BREAKTHROUGH_DESC",
+    "scope": "country",
+    "trigger": {"ai_level": ">50"},
+    "mtth_months": 48,
+    "once": true,
+    "options": [
+      {"name_key": "EVENT_AI_BREAKTHROUGH_A", "effects": {"add_research": 60}, "ai_weight": 1},
+      {"name_key": "EVENT_AI_BREAKTHROUGH_B", "effects": {"add_modifier": {"growth": 0.3, "months": 24}}, "ai_weight": 1}
+    ]
+  },
+  "heatwave": {
+    "title_key": "EVENT_HEATWAVE_TITLE",
+    "desc_key": "EVENT_HEATWAVE_DESC",
+    "scope": "world",
+    "trigger": {"month": ">=6", "all": [{"month": "<=8"}]},
+    "mtth_months": 30,
+    "immediate": {"every_country": {"limit": {"random": 0.15}, "effects": {"add_modifier": {"growth": -0.2, "months": 6}}}},
+    "options": [
+      {"name_key": "EVENT_HEATWAVE_A", "effects": {"add_debt": 1, "add_stability": 1}},
+      {"name_key": "EVENT_HEATWAVE_B", "effects": {}}
+    ]
+  },
+  "debt_jitters": {
+    "title_key": "EVENT_DEBT_JITTERS_TITLE",
+    "desc_key": "EVENT_DEBT_JITTERS_DESC",
+    "scope": "country",
+    "trigger": {"debt": ">100"},
+    "mtth_months": 36,
+    "options": [
+      {"name_key": "EVENT_DEBT_JITTERS_A", "effects": {"add_modifier": {"growth": -0.3, "stability": -2, "months": 12}},
+        "ai_weight": 1},
+      {"name_key": "EVENT_DEBT_JITTERS_B", "effects": {"add_modifier": {"unemployment": 0.3, "months": 12}, "add_stability": -2},
+        "ai_weight": 1}
+    ]
+  }
+}

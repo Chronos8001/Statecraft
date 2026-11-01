@@ -27,6 +27,10 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 			"war_goals": DataLoader.get_category("war_goals"), "terrains": DataLoader.get_category("terrains"),
 			"sea_zones": DataLoader.get_category("sea_zones"), "straits": DataLoader.get_category("straits")},
 		{"technologies": DataLoader.get_category("technologies"), "settings": DataLoader.get_define("research", {})})
+	sim.event_definitions = DataLoader.get_category("events")
+	sim.event_settings = DataLoader.get_define("events", {})
+	for message: String in EventSystem.validate_definitions(sim.event_definitions):
+		GameLog.error(SOURCE, message)
 	scheduler = SimScheduler.new()
 	scheduler.add_system(LawSystem.new())
 	scheduler.add_system(ConstitutionSystem.new())
@@ -39,6 +43,7 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	scheduler.add_system(MilitarySystem.new())
 	scheduler.add_system(ResearchSystem.new())
 	scheduler.add_system(AiRaceSystem.new())
+	scheduler.add_system(EventSystem.new())
 	scheduler.add_system(EconomySystem.new(DataLoader.get_category("economy_sectors")))
 	scheduler.add_system(GovernmentSystem.new())
 	scheduler.add_system(CrisisSystem.new())
