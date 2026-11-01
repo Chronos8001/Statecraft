@@ -124,10 +124,10 @@ static func adjacent_provinces(state: SimState, claimant: String, target: String
 	var result: Array[String] = []
 	for province_id: String in provinces.keys():
 		var province: Dictionary = provinces[province_id]
-		if str(province.get("owner", "")) != target:
+		if ControlSystem.owner(state, province_id) != target:
 			continue
 		for neighbor: Variant in province.get("neighbors", []):
-			if str((provinces.get(str(neighbor), {}) as Dictionary).get("owner", "")) == claimant:
+			if ControlSystem.owner(state, str(neighbor)) == claimant:
 				result.append(province_id)
 				break
 	result.sort_custom(func(a: String, b: String) -> bool: return int(a) < int(b))

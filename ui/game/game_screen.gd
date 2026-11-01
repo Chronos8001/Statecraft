@@ -249,6 +249,15 @@ func _on_war_event(event: Dictionary) -> bool:
 				_notify(tr("NOTIFY_CIVIL_WAR_ENDED") % MilitaryUI.side_name(state, target))
 			elif not bool(event.get("negotiated", false)):
 				_notify(tr("NOTIFY_WAR_ENDED") % [MilitaryUI.side_name(state, tag), MilitaryUI.side_name(state, target)])
+		WarEnd.EVENT_CEDED:
+			# Frontières et couleurs des pays suivent la cession.
+			if _map_view.camera != null:
+				_mode_context.refresh_from_simulation(state)
+				_map_view.set_province_owners(_mode_context.provinces, DataLoader.get_category("countries"))
+				set_map_mode(_current_mode_id)
+			if tag == player or str(event.get("previous", "")) == player:
+				_notify(tr("NOTIFY_PROVINCE_CEDED") % [_province_label(str(event.get("province", ""))),
+					MilitaryUI.side_name(state, str(event.get("previous", ""))), MilitaryUI.side_name(state, tag)])
 		WarEnd.EVENT_PEACE:
 			var parts: PackedStringArray = []
 			for demand: Variant in event.get("demands", []):
@@ -548,8 +557,12 @@ func _on_province_clicked(province_id: int) -> void:
 	if _is_selecting():
 		_selection_panel.select_country(owner)
 		return
+	# Propriétaire du moment (provinces cédées pendant la partie).
+	var live_owner := ControlSystem.owner(GameState.sim, str(province_id))
+	if not live_owner.is_empty():
+		owner = live_owner
 	var info := CountryInfo.build(owner, DataLoader.get_category("countries"),
-		DataLoader.get_category("provinces"), DataLoader.get_category("names"),
+		_mode_context.provinces, DataLoader.get_category("names"),
 		DataLoader.get_category("regimes"), DataLoader.get_category("ideologies"),
 		DataLoader.get_category("names/cultures"), GameState.sim.date.year)
 	if info == null:
@@ -588,6 +601,12 @@ func _apply_live_control(info: ProvinceInfo, province_id: String) -> void:
 	var state := GameState.sim
 	if info.is_sea_zone or state.province_control.is_empty() or not state.province_control.has(province_id):
 		return
+	var owner_tag := ControlSystem.owner(state, province_id)
+	if owner_tag != info.owner_tag and not owner_tag.is_empty():
+		var owner_data := DataLoader.get_entry("countries", owner_tag)
+		info.owner_tag = owner_tag
+		info.owner_name_key = str(owner_data.get("name_key", owner_tag))
+		info.owner_color = Color.html(str(owner_data.get("color", "#808080")))
 	info.controller_tag = ControlSystem.controller(state, province_id)
 	info.controller_name_key = MilitaryUI.side_name(state, info.controller_tag)
 	info.is_occupied = not info.owner_tag.is_empty() and info.controller_tag != info.owner_tag

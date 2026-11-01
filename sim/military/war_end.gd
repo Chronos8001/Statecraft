@@ -321,18 +321,21 @@ static func sign_peace(state: SimState, war: War, tag: String, demands: Array) -
 	WarSystem.end_war(state, war, true)
 
 
-## Cession d'une province : nouveau propriétaire et contrôleur, revendications mises à jour (le cédant garde
-## une revendication active), groupes du cédant repliés.
+## Cession d'une province : nouveau propriétaire et contrôleur, transfert de sa population, de son économie et
+## de sa circonscription (Territory), frontières recalculées, revendications mises à jour (le cédant garde une
+## revendication active), groupes du cédant repliés.
 static func cede(state: SimState, province_id: String, to: String) -> void:
 	var previous := ControlSystem.owner(state, province_id)
 	if previous == to or previous.is_empty():
 		return
-	state.province_owner[province_id] = to
 	(state.provinces_by_owner.get(previous, []) as Array).erase(province_id)
+	Territory.transfer(state, province_id, previous, to)
+	state.province_owner[province_id] = to
 	if not state.provinces_by_owner.has(to):
 		state.provinces_by_owner[to] = []
 	(state.provinces_by_owner[to] as Array).append(province_id)
 	ControlSystem.set_controller(state, province_id, to)
+	ControlSystem.refresh_borders(state)
 	state.fronts_dirty = true
 	state.control_version += 1
 	for claim_id: Variant in state.diplomacy.claims.keys():
@@ -341,8 +344,17 @@ static func cede(state: SimState, province_id: String, to: String) -> void:
 			(claim.get("provinces", []) as Array).erase(province_id)
 			if (claim.get("provinces", []) as Array).is_empty():
 				state.diplomacy.claims.erase(claim_id)
-	var lost: Array[String] = [province_id]
-	TensionSystem.add_claim(state, previous, to, lost, true)
+	# Une seule revendication « territoire perdu » par pays : les provinces s'y ajoutent.
+	var merged := false
+	for claim: Dictionary in state.diplomacy.claims.values():
+		if claim["claimant"] == previous and claim["target"] == to and not (claim.get("provinces", []) as Array).is_empty():
+			(claim["provinces"] as Array).append(province_id)
+			claim["active"] = true
+			merged = true
+			break
+	if not merged:
+		var lost: Array[String] = [province_id]
+		TensionSystem.add_claim(state, previous, to, lost, true)
 	ArmyGroupModel.evacuate(state, province_id)
 	state.add_event(EVENT_CEDED, to, {"province": province_id, "previous": previous})
 

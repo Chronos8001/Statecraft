@@ -1023,3 +1023,4 @@ NOTIFY_CEASEFIRE,Ceasefire between %s and %s.,Cessez-le-feu entre %s et %s.
 NOTIFY_CEASEFIRE_ENDED,The ceasefire between %s and %s has ended: fighting resumes.,Fin du cessez-le-feu entre %s et %s : les combats reprennent.
 NOTIFY_CEASEFIRE_REFUSED,%s refuses the ceasefire.,%s refuse le cessez-le-feu.
 MILITARY_CEASEFIRE_ACCEPT,Accept the ceasefire,Accepter le cessez-le-feu
+NOTIFY_PROVINCE_CEDED,%s passes from %s to %s.,%s passe de %s à : %s.
