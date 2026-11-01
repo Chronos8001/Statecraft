@@ -1195,3 +1195,19 @@ NOTIFY_ESPIONAGE_SUCCESS,Industrial espionage succeeded: %s.,Espionnage industri
 NOTIFY_ESPIONAGE_FAILURE,Industrial espionage failed: %s.,Espionnage industriel raté : %s.
 NOTIFY_ESPIONAGE_SUFFERED,"Industrial espionage against us, traced back to %s.","Espionnage industriel contre nous, attribué à : %s."
 RESEARCH_NOT_ALLIED,Weapons are only co-developed with allies.,L'armement ne se co-développe qu'entre alliés.
+AI_RACE_TITLE,AI race,Course à l'IA
+AI_RACE_LEVEL,AI level,Niveau d'IA
+AI_RACE_LEVEL_RANK,%s (no. %d worldwide),%s (%de mondial)
+AI_RACE_REGULATION,Regulation,Régulation
+AI_RACE_GROWTH,Growth from AI,Croissance due à l'IA
+AI_RACE_UNEMPLOYMENT,Automation unemployment,Chômage d'automatisation
+AI_RACE_STABILITY,AI disinformation (stability),Désinformation par IA (stabilité)
+AI_RACE_AGI_MARK,(general AI first),(1er à l'IA générale)
+AI_PLAN,National AI plan,Plan national d'IA
+AI_PLAN_MONTHS,%d months left,%d mois restants
+AI_PLAN_LAUNCH,Launch a national AI plan,Lancer un plan national d'IA
+AI_PLAN_TOOLTIP,Costs %s bn USD a month for %d months: faster adoption and a higher AI level.,Coûte %s Md USD par mois pendant %d mois : adoption plus rapide et niveau d'IA plus élevé.
+AI_PLAN_ACTIVE,A national AI plan is already under way.,Un plan national d'IA est déjà en cours.
+NOTIFY_AI_LEADER,%s takes the lead in the AI race.,%s prend la tête de la course à l'IA.
+NOTIFY_AGI,%s is the first to reach general AI: world tension rises.,%s atteint la première l'IA générale : la tension mondiale monte.
+NOTIFY_AI_PLAN,National AI plan launched.,Plan national d'IA lancé.
