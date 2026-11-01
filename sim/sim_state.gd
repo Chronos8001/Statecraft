@@ -51,6 +51,11 @@ var organization_rules: Dictionary = {}
 var sanction_definitions: Dictionary = {}
 ## Types d'aide (data/aid).
 var aid_definitions: Dictionary = {}
+## Technologies (data/technologies), réglages de la recherche (defines.research) et nombre de pays qui
+## connaissent chaque technologie (recalculé chaque mois).
+var technology_definitions: Dictionary = {}
+var research_settings: Dictionary = {}
+var tech_known_counts: Dictionary = {}
 ## Forces armées : modules remplaçables (modèle, combats, IA) et réglages (defines.military).
 var military: MilitaryRegistry = MilitaryRegistry.new()
 var military_settings: Dictionary = {}

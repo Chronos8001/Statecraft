@@ -96,9 +96,11 @@ func update_country(country: CountryState, state: SimState) -> void:
 		var start_priority := float(military.start_priorities.get(branch, 0.0))
 		var branch_ratio := ratio * float(military.priorities.get(branch, 0.0)) / start_priority \
 			if start_priority > 0.0 else ratio
-		var level_target := clampf(float(start["level"]) + log(maxf(branch_ratio, 0.01))
+		# Les technologies relèvent le niveau visé et repoussent le plafond d'autant.
+		var tech := float(military.tech_levels.get(branch, 0.0))
+		var level_target := clampf(float(start["level"]) + tech + log(maxf(branch_ratio, 0.01))
 			/ float(equipment.get("escalation", 1.0)), float(equipment.get("min_level", 1.0)),
-			float(equipment.get("max_level", 5.0)))
+			float(equipment.get("max_level", 5.0)) + tech)
 		current["level"] = _approach(float(current["level"]), level_target, float(equipment.get("adjustment", 1.0)))
 		current["training"] = _approach(float(current["training"]), clampf(float(start["training"]) + training_shift,
 			float(training.get("min", 0.0)), float(training.get("max", PERCENT))), float(training.get("adjustment", 1.0)))
@@ -134,7 +136,8 @@ func conscription_change(country: CountryState, military: MilitaryState, setting
 func update_special(country: CountryState, military: MilitaryState, settings: Dictionary) -> void:
 	var points := float(country.economy.budget.effects.get("military", 0.0))
 	for key: Variant in military.special.keys():
-		var target := clampf(float(military.start_special[key]) + points * float(settings.get("per_point", 0.0)), 0.0, PERCENT)
+		var target := clampf(float(military.start_special[key]) + points * float(settings.get("per_point", 0.0))
+			+ float(military.tech_special.get(key, 0.0)), 0.0, PERCENT)
 		military.special[key] = _approach(float(military.special[key]), target, float(settings.get("adjustment", 1.0)))
 
 
