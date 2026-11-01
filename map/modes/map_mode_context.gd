@@ -22,6 +22,9 @@ var country_ideologies: Dictionary = {}
 var country_organizations: Dictionary = {}
 ## Partie en cours, pour les modes qui recalculent à la demande (votes par province).
 var simulation: SimState = null
+## Provinces des données ; provinces vaut ces données, ou une copie où les provinces cédées pendant la partie
+## ont leur nouveau propriétaire.
+var data_provinces: Dictionary = {}
 var player_tag: String = ""
 var max_id: int = 0
 var sea_color: Color = Color.BLACK
@@ -32,6 +35,7 @@ var no_data_color: Color = Color.DIM_GRAY
 static func from_game_data() -> MapModeContext:
 	var context := MapModeContext.new()
 	context.provinces = DataLoader.get_category("provinces")
+	context.data_provinces = context.provinces
 	context.sea_zones = DataLoader.get_category("sea_zones")
 	context.countries = DataLoader.get_category("countries")
 	context.terrains = DataLoader.get_category("terrains")
@@ -60,6 +64,7 @@ func refresh_from_simulation(state: SimState) -> void:
 	trade_shares.clear()
 	embargoed.clear()
 	_refresh_society(state)
+	_refresh_owners(state)
 	simulation = state
 	if not state.diplomacy.organizations.is_empty():
 		organizations = state.diplomacy.organizations
@@ -135,6 +140,28 @@ func organizations_of(tag: String) -> Array:
 	if not country_organizations.is_empty():
 		return country_organizations.get(tag, [])
 	return (countries.get(tag, {}) as Dictionary).get("organizations", [])
+
+
+## Provinces cédées pendant la partie : copie des données avec le propriétaire et le contrôleur du moment.
+func _refresh_owners(state: SimState) -> void:
+	if data_provinces.is_empty():
+		data_provinces = provinces
+	provinces = data_provinces
+	if state.province_owner.is_empty():
+		return
+	var changed: Dictionary = {}
+	for key: Variant in state.province_owner.keys():
+		var data: Dictionary = data_provinces.get(key, {})
+		if not data.is_empty() and str(state.province_owner[key]) != str(data.get("owner", "")):
+			changed[key] = true
+	if changed.is_empty():
+		return
+	provinces = data_provinces.duplicate()
+	for key: Variant in changed.keys():
+		var copy: Dictionary = (data_provinces[key] as Dictionary).duplicate()
+		copy["owner"] = str(state.province_owner[key])
+		copy["controller"] = ControlSystem.controller(state, str(key))
+		provinces[key] = copy
 
 
 func owner_of(province: Dictionary) -> Dictionary:
