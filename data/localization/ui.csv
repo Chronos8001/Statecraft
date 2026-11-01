@@ -892,3 +892,6 @@ PEACE_OFFER_TEXT,"%s offers a white peace (%s): back to pre-war lines and a truc
 MILITARY_PEACE_OFFER,%s offers a white peace: %d days left to answer.,%s propose une paix blanche : %d jours pour répondre.
 MILITARY_PEACE_ACCEPT,Accept peace,Accepter la paix
 MILITARY_PEACE_REFUSE,Keep fighting,Continuer la guerre
+WAR_CLAIM_FROZEN,Our claim is frozen: press it first.,Notre revendication est gelée : faites-la d'abord valoir.
+DIPLOMACY_CLAIM_FROZEN,(frozen),(gelée)
+DIPLOMACY_CLAIM_FROZEN_TOOLTIP,"A legal dispute, not militarized: pressing it makes it a possible cause for war.","Un litige juridique, non militarisé : la faire valoir en fait un motif de guerre possible."
