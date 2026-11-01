@@ -63,6 +63,13 @@ func refresh() -> void:
 	visible = not player.is_empty() and player != _tag and not WarSystem.settings_of(state).is_empty()
 	if not visible:
 		return
+	if OccupationSystem.overlord_of(state, player) == _tag:
+		var independence := Button.new()
+		independence.text = "PUPPET_DECLARE_INDEPENDENCE"
+		independence.tooltip_text = "PUPPET_DECLARE_INDEPENDENCE_TOOLTIP"
+		independence.focus_mode = Control.FOCUS_NONE
+		independence.pressed.connect(func() -> void: command_requested.emit(DeclareIndependenceCommand.new(state.player_tag)))
+		_status_box.add_child(independence)
 	var at_war := WarSystem.war_between(state, player, _tag)
 	if at_war != null:
 		_add_line(tr("DIPLOMACY_AT_WAR") % MilitaryUI.war_name(state, at_war), BAD_COLOR)

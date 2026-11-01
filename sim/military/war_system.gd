@@ -193,6 +193,8 @@ static func declare_refusal(state: SimState, attacker: String, target: String, g
 		return "WAR_TRUCE"
 	if ControlSystem.allied(state, attacker, target):
 		return "WAR_ALLIED"
+	if OccupationSystem.overlord_of(state, attacker) == target or OccupationSystem.overlord_of(state, target) == attacker:
+		return "WAR_PUPPET"
 	return goal_refusal(state, attacker, target, goal)
 
 

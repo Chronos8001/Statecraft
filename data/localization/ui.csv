@@ -1024,3 +1024,14 @@ NOTIFY_CEASEFIRE_ENDED,The ceasefire between %s and %s has ended: fighting resum
 NOTIFY_CEASEFIRE_REFUSED,%s refuses the ceasefire.,%s refuse le cessez-le-feu.
 MILITARY_CEASEFIRE_ACCEPT,Accept the ceasefire,Accepter le cessez-le-feu
 NOTIFY_PROVINCE_CEDED,%s passes from %s to %s.,%s passe de %s à : %s.
+PEACE_DEMAND_PUPPET,Puppet government,Gouvernement fantoche
+WAR_PUPPET,A puppet and its overlord cannot go to war with each other.,Un fantoche et son suzerain ne peuvent pas se faire la guerre.
+PUPPET_NOT_PUPPET,We are not a puppet.,Nous ne sommes pas un fantoche.
+PUPPET_DECLARE_INDEPENDENCE,Declare independence,Proclamer l'indépendance
+PUPPET_DECLARE_INDEPENDENCE_TOOLTIP,"Ends the tutelage, the tribute and the forced alliance; our former overlord will take it very badly.","Met fin à la tutelle, au tribut et à l'alliance imposée ; notre ancien suzerain le prendra très mal."
+DIPLOMACY_PUPPET_STATUS,Tutelage,Tutelle
+DIPLOMACY_OUR_PUPPET,Our puppet government,Notre gouvernement fantoche
+DIPLOMACY_OUR_OVERLORD,Our overlord,Notre suzerain
+MILITARY_WAR_RESISTANCE,Resistance in %d occupied provinces: losses and damaged supply lines,Résistance dans %d provinces occupées : pertes et ravitaillement gêné
+NOTIFY_PUPPET_INSTALLED,%s becomes a puppet government of %s.,%s devient un gouvernement fantoche : %s.
+NOTIFY_PUPPET_INDEPENDENCE,%s declares its independence from %s!,%s proclame son indépendance face à : %s !

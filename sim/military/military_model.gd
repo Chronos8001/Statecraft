@@ -213,6 +213,59 @@ func power(military: MilitaryState, settings: Dictionary) -> float:
 	return total * (1.0 + float(rules.get("special_weight", 0.0)) * special_average) * float(rules.get("scale", 1.0))
 
 
+## Conversion vers un modèle détaillé (DLC « Theaters of War ») : état militaire complet d'un pays sous une forme
+## neutre (effectifs, branches, budgets, arsenal, groupes d'armées, flottes) et estimations d'unités (divisions,
+## escadrilles, navires) selon les effectifs. Un module détaillé s'en sert pour créer ses unités et ses stocks.
+func export_country(state: SimState, tag: String) -> Dictionary:
+	var country := state.get_country(tag)
+	if country == null or country.military == null:
+		return {}
+	var military := country.military
+	var rules: Dictionary = state.military_settings.get("export", {})
+	var reserve_share := ArmyGroupModel.reserve_share(state)
+	var personnel := military.personnel(reserve_share)
+	var branches: Dictionary = {}
+	for branch: String in military.branches.keys():
+		var values: Dictionary = military.branches[branch]
+		branches[branch] = {"personnel": personnel * float(values["share"]), "level": float(values["level"]),
+			"training": float(values["training"]), "morale": float(values["morale"]),
+			"equipment_priority": float(military.priorities.get(branch, 0.0))}
+	var land := float((branches.get("land", {}) as Dictionary).get("personnel", 0.0))
+	var air := float((branches.get("air", {}) as Dictionary).get("personnel", 0.0))
+	var sea := float((branches.get("sea", {}) as Dictionary).get("personnel", 0.0))
+	var groups: Array = []
+	for group: ArmyGroup in ArmyGroupModel.groups_of(state, tag):
+		groups.append({"number": group.number, "province": group.province,
+			"personnel": group.personnel(military, reserve_share)})
+	var fleets: Array = []
+	for fleet: Fleet in NavalModel.fleets_of(state, tag):
+		fleets.append({"number": fleet.number, "zone": fleet.zone, "share": fleet.share, "condition": fleet.condition})
+	return {"version": int(rules.get("version", 1)), "tag": tag, "personnel": personnel,
+		"reserves": military.reserves(), "mobilization": military.mobilization, "losses": military.losses,
+		"defense_budget_billion": defense_spending(country, state), "equipment_budget_billion": equipment_budget(country,
+			military, state), "branches": branches, "special": military.special.duplicate(),
+		"missile_stock": military.missile_stock, "nuclear_warheads": military.nuclear_warheads,
+		"nuclear_alert": military.nuclear_alert, "army_groups": groups, "fleets": fleets,
+		"estimated_units": {"divisions": roundi(land / float(rules.get("personnel_per_division", 1.0))),
+			"air_squadrons": roundi(air / float(rules.get("air_personnel_per_squadron", 1.0))),
+			"warships": roundi(sea / float(rules.get("navy_personnel_per_ship", 1.0)))}}
+
+
+## Conversion de tous les pays (et des factions rebelles), pour une partie reprise avec un module détaillé.
+func export_world(state: SimState) -> Dictionary:
+	var countries: Dictionary = {}
+	for tag: String in state.countries.keys():
+		var data := export_country(state, tag)
+		if not data.is_empty():
+			countries[tag] = data
+	var rebels: Dictionary = {}
+	for faction: RebelFaction in state.rebels.values():
+		rebels[faction.id] = {"country": faction.country, "personnel": faction.personnel, "level": faction.level,
+			"training": faction.training, "morale": faction.morale}
+	return {"version": int((state.military_settings.get("export", {}) as Dictionary).get("version", 1)),
+		"countries": countries, "rebels": rebels}
+
+
 ## Niveau moyen d'équipement (pondéré par les effectifs des branches).
 static func average_level(military: MilitaryState) -> float:
 	var total := 0.0

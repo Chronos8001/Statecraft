@@ -258,6 +258,12 @@ func _on_war_event(event: Dictionary) -> bool:
 			if tag == player or str(event.get("previous", "")) == player:
 				_notify(tr("NOTIFY_PROVINCE_CEDED") % [_province_label(str(event.get("province", ""))),
 					MilitaryUI.side_name(state, str(event.get("previous", ""))), MilitaryUI.side_name(state, tag)])
+		OccupationSystem.EVENT_PUPPET:
+			_notify(tr("NOTIFY_PUPPET_INSTALLED") % [MilitaryUI.side_name(state, str(event.get("puppet", ""))),
+				MilitaryUI.side_name(state, tag)])
+		OccupationSystem.EVENT_INDEPENDENCE:
+			_notify(tr("NOTIFY_PUPPET_INDEPENDENCE") % [MilitaryUI.side_name(state, tag),
+				MilitaryUI.side_name(state, str(event.get("overlord", "")))])
 		WarEnd.EVENT_PEACE:
 			var parts: PackedStringArray = []
 			for demand: Variant in event.get("demands", []):

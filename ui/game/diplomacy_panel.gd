@@ -100,6 +100,10 @@ func refresh() -> void:
 			tr("COMMON_YES" if diplomacy.recognizes(player, _tag) else "COMMON_NO"))
 	if diplomacy.guarantees_independence(player, _tag):
 		_add_row(_summary_grid, "DIPLOMACY_GUARANTEED", tr("COMMON_YES"))
+	if OccupationSystem.overlord_of(state, _tag) == player:
+		_add_row(_summary_grid, "DIPLOMACY_PUPPET_STATUS", tr("DIPLOMACY_OUR_PUPPET"))
+	elif OccupationSystem.overlord_of(state, player) == _tag:
+		_add_row(_summary_grid, "DIPLOMACY_PUPPET_STATUS", tr("DIPLOMACY_OUR_OVERLORD"))
 	_fill_treaties(state, player)
 	_fill_sanctions(state, player)
 	_fill_aid(state, player)

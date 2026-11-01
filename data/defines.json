@@ -1041,6 +1041,29 @@
       "min_condition": 0.05,
       "repair_per_month": 0.15
     },
+    "occupation": {
+      "resistance_max": 0.8,
+      "adjustment": 0.2,
+      "losses_per_million": 250.0,
+      "infrastructure_damage": 0.6
+    },
+    "puppet": {
+      "demand_cost": 60.0,
+      "tribute_share": 1.0,
+      "legitimacy": 15.0,
+      "stability": 10.0,
+      "relation": 60.0,
+      "independence_chance": 0.02,
+      "independence_power_ratio": 0.5,
+      "independence_relation": -60.0,
+      "independence_tension": 3.0
+    },
+    "export": {
+      "personnel_per_division": 12000.0,
+      "air_personnel_per_squadron": 1200.0,
+      "navy_personnel_per_ship": 600.0,
+      "version": 1
+    },
     "war_end": {
       "support": {
         "defender_start": 85.0,

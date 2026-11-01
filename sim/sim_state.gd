@@ -108,6 +108,9 @@ var front_holdings: Dictionary = {}
 var terrain_definitions: Dictionary = {}
 ## Appels aux armes adressés au joueur, en attente de réponse : [{war, ally, side, days_left}].
 var calls_to_arms: Array[Dictionary] = []
+## Résistance dans les provinces occupées (id → 0 à 1) et gouvernements fantoches (fantoche → suzerain).
+var resistance: Dictionary = {}
+var puppets: Dictionary = {}
 ## Réparations en cours : [{from, to, share (% du PIB par an), months_left}].
 var reparations: Array[Dictionary] = []
 ## Propositions adressées au joueur, en attente de réponse : [{war, from, days_left, kind (white, ceasefire,

@@ -235,6 +235,12 @@ func _fill_wars(state: SimState, tag: String) -> void:
 		lines.append(tr("MILITARY_WAR_ENEMIES") % _names(state, war.enemies_of(tag), ""))
 		lines.append(tr("MILITARY_WAR_OCCUPATION") % [roundi(WarSystem.occupied_percent(state, war, side)),
 			roundi(WarSystem.occupied_percent(state, war, War.other_side(side)))])
+		var resisting := 0
+		for province_id: Variant in state.resistance.keys():
+			if war.side_of(ControlSystem.controller(state, str(province_id))) == side:
+				resisting += 1
+		if resisting > 0:
+			lines.append(tr("MILITARY_WAR_RESISTANCE") % resisting)
 		var blockaded := 0.0
 		for enemy: String in war.enemies_of(tag):
 			blockaded = maxf(blockaded, float(state.trade.blockades.get(enemy, 0.0)))
