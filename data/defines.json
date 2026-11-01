@@ -1368,5 +1368,9 @@
     "unknown": "#FFFF80",
     "line": "#000000",
     "hostile_relation": -50.0
+  },
+  "events": {
+    "default_ai_weight": 1.0,
+    "modifier_months": 12
   }
 }
