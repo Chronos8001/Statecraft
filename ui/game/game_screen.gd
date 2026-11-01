@@ -9,7 +9,7 @@ const DEGREES_HALF_TURN := 180.0
 const BYTES_PER_MEGABYTE := 1048576.0
 const DEFAULT_MAP_MODE := "political"
 const LIVE_MAP_MODES := ["trade", "stability", "support", "vote", "ideology", "unrest", "relations", "influence", "claims",
-	"military_power", "military_control"]
+	"military_power", "military_control", "wars"]
 
 var _thread: Thread
 var _load_started_ms: int = 0
@@ -218,6 +218,71 @@ func _on_month_passed(date: GameDate) -> void:
 		_notify(tr("NOTIFY_NEW_MONTH") % [tr(DateFormat.month_key(date.month)), date.year])
 
 
+## Guerres : déclarations, entrées en guerre, paix, appels aux armes (fenêtre de réponse pour le joueur).
+## Vrai si l'événement a été traité.
+func _on_war_event(event: Dictionary) -> bool:
+	var state := GameState.sim
+	var player := str(state.player_tag)
+	var tag := str(event.get("tag", ""))
+	var target := str(event.get("target", ""))
+	match event.get("type"):
+		WarSystem.EVENT_DECLARED:
+			if not bool(event.get("civil", false)):
+				_notify(tr("NOTIFY_WAR_DECLARED") % [MilitaryUI.side_name(state, tag), MilitaryUI.side_name(state, target)])
+		WarSystem.EVENT_JOINED:
+			_notify(tr("NOTIFY_WAR_JOINED") % [MilitaryUI.side_name(state, tag),
+				MilitaryUI.side_name(state, str(event.get("leader", "")))])
+		WarSystem.EVENT_ENDED:
+			if bool(event.get("civil", false)):
+				_notify(tr("NOTIFY_CIVIL_WAR_ENDED") % MilitaryUI.side_name(state, target))
+			else:
+				_notify(tr("NOTIFY_WAR_ENDED") % [MilitaryUI.side_name(state, tag), MilitaryUI.side_name(state, target)])
+		WarSystem.EVENT_CALL:
+			if tag == player:
+				_show_call_to_arms(int(event.get("war", -1)), str(event.get("caller", "")))
+		WarSystem.EVENT_CALL_REFUSED:
+			if str(event.get("caller", "")) == player:
+				_notify(tr("NOTIFY_CALL_REFUSED") % MilitaryUI.side_name(state, tag))
+		WarSystem.EVENT_PEACE_REFUSED:
+			if tag == player:
+				_notify(tr("NOTIFY_WHITE_PEACE_REFUSED") % MilitaryUI.side_name(state, target))
+		_:
+			return false
+	return true
+
+
+## Fenêtre d'appel aux armes : rejoindre ou refuser ; fermée sans réponse, l'appel reste dans le panneau Armée.
+func _show_call_to_arms(war_id: int, caller: String) -> void:
+	var state := GameState.sim
+	var war: War = state.wars.get(war_id)
+	if war == null:
+		return
+	var dialog := ConfirmationDialog.new()
+	dialog.title = tr("CALL_TO_ARMS_TITLE")
+	dialog.dialog_text = tr("CALL_TO_ARMS_TEXT") % [MilitaryUI.side_name(state, caller), MilitaryUI.war_name(state, war),
+		int((WarSystem.settings_of(state).get("call_to_arms", {}) as Dictionary).get("days", 0))]
+	dialog.dialog_autowrap = true
+	dialog.ok_button_text = tr("MILITARY_CALL_ACCEPT")
+	dialog.cancel_button_text = tr("MILITARY_CALL_LATER")
+	var refuse := dialog.add_button(tr("MILITARY_CALL_REFUSE"), true, "refuse")
+	refuse.focus_mode = Control.FOCUS_NONE
+	dialog.confirmed.connect(func() -> void: _submit_now(AnswerCallToArmsCommand.new(state.player_tag, war_id, true)))
+	dialog.custom_action.connect(func(action: StringName) -> void:
+		if action == &"refuse":
+			_submit_now(AnswerCallToArmsCommand.new(state.player_tag, war_id, false))
+			dialog.hide())
+	dialog.visibility_changed.connect(func() -> void:
+		if not dialog.visible:
+			dialog.queue_free())
+	add_child(dialog)
+	dialog.popup_centered(Vector2i(480, 0))
+
+
+func _submit_now(command: Command) -> void:
+	if GameState.submit_command(command) and GameClock.is_paused:
+		GameState.process_commands()
+
+
 ## Événements économiques du pays joué : changement de note, défaut de paiement, FMI.
 func _on_sim_event(event: Dictionary) -> void:
 	# Événements mondiaux : visibles quel que soit le pays joué.
@@ -243,6 +308,8 @@ func _on_sim_event(event: Dictionary) -> void:
 		var mobilizing := DataLoader.get_entry("countries", str(event.get("tag", "")))
 		_notify(tr("NOTIFY_MOBILIZATION") % [tr(str(mobilizing.get("name_key", ""))),
 			tr("MILITARY_MOBILIZATION_%d" % int(event.get("level", 0))).to_lower()])
+		return
+	if _on_war_event(event):
 		return
 	if event.get("type") == ArmyGroupModel.EVENT_ARRIVED and str(event.get("tag", "")) == str(GameState.sim.player_tag):
 		var arrived: ArmyGroup = GameState.sim.army_groups.get(int(event.get("group", -1)))
@@ -452,11 +519,11 @@ func _apply_live_control(info: ProvinceInfo, province_id: String) -> void:
 	if info.is_sea_zone or state.province_control.is_empty() or not state.province_control.has(province_id):
 		return
 	info.controller_tag = ControlSystem.controller(state, province_id)
-	info.controller_name_key = str(DataLoader.get_entry("countries", info.controller_tag).get("name_key", ""))
+	info.controller_name_key = MilitaryUI.side_name(state, info.controller_tag)
 	info.is_occupied = not info.owner_tag.is_empty() and info.controller_tag != info.owner_tag
 	var contest: Dictionary = state.contested.get(province_id, {})
 	if not contest.is_empty():
-		info.contested_name_key = str(DataLoader.get_entry("countries", str(contest["by"])).get("name_key", ""))
+		info.contested_name_key = MilitaryUI.side_name(state, str(contest["by"]))
 		info.contested_share = float(contest["share"])
 
 

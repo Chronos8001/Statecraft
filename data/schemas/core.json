@@ -2684,7 +2684,8 @@
             "control",
             "trade",
             "vote",
-            "claims"
+            "claims",
+            "wars"
           ]
         },
         "value": {
@@ -2743,6 +2744,18 @@
           "type": "color"
         },
         "other_color": {
+          "type": "color"
+        },
+        "rebel_color": {
+          "type": "color"
+        },
+        "enemy_color": {
+          "type": "color"
+        },
+        "ally_color": {
+          "type": "color"
+        },
+        "war_color": {
           "type": "color"
         }
       }
@@ -4153,6 +4166,50 @@
             }
           }
         }
+      },
+      "wars": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "list"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "min_items": 4,
+              "items": {
+                "type": "any"
+              }
+            }
+          }
+        }
+      },
+      "rebels": {
+        "type": "object",
+        "strict": true,
+        "required": [
+          "list"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "min_items": 3,
+              "items": {
+                "type": "any"
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -4286,6 +4343,63 @@
         },
         "flat": {
           "type": "bool"
+        }
+      }
+    }
+  },
+  "war_goals": {
+    "type": "object",
+    "keys_pattern": "^[a-z_]+$",
+    "values": {
+      "type": "object",
+      "strict": true,
+      "required": [
+        "name_key",
+        "requires",
+        "min_tension",
+        "max_relation",
+        "legitimacy",
+        "stability",
+        "world_opinion",
+        "tension"
+      ],
+      "properties": {
+        "name_key": {
+          "type": "string",
+          "pattern": "^WAR_GOAL_[A-Z_]+$"
+        },
+        "requires": {
+          "type": "string",
+          "enum": [
+            "claim",
+            "occupied",
+            "none"
+          ]
+        },
+        "min_tension": {
+          "type": "number",
+          "min": 0,
+          "max": 100
+        },
+        "max_relation": {
+          "type": "number",
+          "min": -100,
+          "max": 100
+        },
+        "legitimacy": {
+          "type": "number",
+          "min": 0
+        },
+        "stability": {
+          "type": "number",
+          "min": 0
+        },
+        "world_opinion": {
+          "type": "number"
+        },
+        "tension": {
+          "type": "number",
+          "min": 0
         }
       }
     }

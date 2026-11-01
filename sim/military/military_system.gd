@@ -1,6 +1,6 @@
 class_name MilitarySystem
 extends SimSystem
-## Forces armées. Chaque jour : déplacements des groupes d'armées et combats (modules remplaçables). Chaque
+## Forces armées. Chaque jour : déplacements des groupes d'armées, durée des guerres et appels aux armes, combats (modules remplaçables). Chaque
 ## mois, après le budget et avant l'économie : le modèle met à jour chaque armée, puis l'IA militaire décide
 ## pour les pays qu'elle dirige.
 
@@ -19,6 +19,7 @@ func on_day(state: SimState) -> void:
 	if state.military_settings.is_empty():
 		return
 	state.military.model.update_day(state)
+	WarSystem.update_day(state)
 	state.military.resolver.resolve_day(state)
 
 

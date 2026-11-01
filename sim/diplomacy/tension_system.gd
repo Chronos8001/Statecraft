@@ -43,9 +43,15 @@ static func add_event(state: SimState, event: String) -> void:
 	var settings := settings_of(state)
 	if settings.is_empty():
 		return
+	add(state, float((settings.get("events", {}) as Dictionary).get(event, 0.0)))
+
+
+## Ajoute (ou retire) des points de tension.
+static func add(state: SimState, amount: float) -> void:
+	if settings_of(state).is_empty():
+		return
 	var before := state.diplomacy.world_tension
-	state.diplomacy.world_tension = clampf(before + float((settings.get("events", {}) as Dictionary).get(event, 0.0)),
-		0.0, LIMIT)
+	state.diplomacy.world_tension = clampf(before + amount, 0.0, LIMIT)
 	_announce_thresholds(state, before)
 
 

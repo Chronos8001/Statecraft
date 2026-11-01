@@ -16,6 +16,21 @@ func group_name(group: ArmyGroup) -> String:
 	return TranslationServer.translate("ARMY_GROUP_NAME") % ordinal(group.number)
 
 
+## Nom affiché d'un pays ou d'une faction rebelle (« Rebelles (Soudan) »), déjà traduit.
+static func side_name(state: SimState, tag: String) -> String:
+	var country := WarSystem.country_of(state, tag)
+	var name := TranslationServer.translate(str(DataLoader.get_entry("countries", country).get("name_key", country)))
+	return TranslationServer.translate("REBEL_NAME") % name if WarSystem.is_rebel(state, tag) else name
+
+
+## Nom d'une guerre : « Guerre Russie – Ukraine », « Guerre civile (Soudan) ».
+static func war_name(state: SimState, war: War) -> String:
+	if war.civil:
+		return TranslationServer.translate("WAR_NAME_CIVIL") % side_name(state, war.defender_leader())
+	return TranslationServer.translate("WAR_NAME") % [side_name(state, war.attacker_leader()),
+		side_name(state, war.defender_leader())]
+
+
 static func ordinal(number: int) -> String:
 	var key := "ORDINAL_%d" % number
 	var text := TranslationServer.translate(key)
