@@ -121,6 +121,10 @@ static func refusal(state: SimState, tag: String, action: String, kind: String, 
 		return "ACTION_NO_MISSILES"
 	if action != STRIKE and int(country.military.action_cooldowns.get(action, 0)) > 0:
 		return "MILITARY_COOLDOWN"
+	var enemy := defender(state, tag, kind, target)
+	var war := WarSystem.war_between(state, tag, enemy)
+	if war != null and war.in_ceasefire() and action != CYBER:
+		return "WAR_IN_CEASEFIRE"
 	match kind:
 		BUILDING, INFRASTRUCTURE:
 			if not WarSystem.at_war(state, tag, ControlSystem.controller(state, target)):

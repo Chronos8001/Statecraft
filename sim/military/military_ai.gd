@@ -88,12 +88,36 @@ func decide_month(country: CountryState, state: SimState) -> void:
 
 func _seek_peace(tag: String, state: SimState) -> void:
 	var rules: Dictionary = settings_of(state).get("peace", {})
+	var ending: Dictionary = WarEnd.settings_of(state).get("ai", {})
 	for war: War in WarSystem.wars_of(state, tag):
 		if war.civil or not WarSystem.white_peace_refusal(state, tag, war.id).is_empty():
 			continue
 		if war.months() < float(rules.get("min_months", 0.0)):
 			continue
-		if wants_peace(state, war, tag):
+		var score := WarEnd.score_for(state, war, tag)
+		var tired := WarEnd.support(war, tag) < float(ending.get("ceasefire_support", 0.0))
+		# En tête : on monnaie l'avantage (pendant un cessez-le-feu ou une fois les gains acquis).
+		if score >= float(ending.get("propose_score", INF)) and (war.in_ceasefire()
+				or war.months() >= float(ending.get("lock_gains_months", 0.0))):
+			var demands := WarEnd.best_demands(state, war, tag)
+			# On ne signe que si l'on obtient toutes les provinces exigeables : sinon la paix rendrait nos gains.
+			var complete := true
+			for demand: Dictionary in WarEnd.available_demands(state, war, tag):
+				if str(demand["type"]) == WarEnd.PROVINCE and not demands.has(demand):
+					complete = false
+			if complete and not demands.is_empty():
+				WarEnd.propose_peace(state, war, tag, demands)
+				if not state.wars.has(war.id):
+					return
+				continue
+		# Un camp qui avance ne demande pas de trêve : seuls le camp las ou celui qui perd la proposent.
+		if not war.in_ceasefire() and WarEnd.ceasefire_refusal(state, tag, war.id).is_empty() and (tired
+				or score < float(ending.get("ceasefire_score", -INF))):
+			WarEnd.propose_ceasefire(state, war, tag)
+			continue
+		var exhausted := tired and WarEnd.support(war, WarEnd._other_leader(war, tag)) < float(ending.get(
+			"white_peace_support", 0.0))
+		if wants_peace(state, war, tag) or exhausted:
 			WarSystem.offer_peace(state, war, tag)
 			if not state.wars.has(war.id):
 				return

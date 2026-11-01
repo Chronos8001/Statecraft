@@ -58,8 +58,11 @@ static func refusal(state: SimState, tag: String, group_id: int, target: String)
 	var group: ArmyGroup = state.army_groups.get(group_id)
 	if group == null or group.owner != tag or group.is_embarked():
 		return "ARMY_INVALID"
-	if not WarSystem.at_war(state, tag, ControlSystem.controller(state, target)):
+	var war := WarSystem.war_between(state, tag, ControlSystem.controller(state, target))
+	if war == null:
 		return "LANDING_NOT_ENEMY"
+	if war.in_ceasefire():
+		return "WAR_IN_CEASEFIRE"
 	if sea_neighbors(state, target).is_empty():
 		return "LANDING_NOT_COASTAL"
 	if group.is_moving() or sea_neighbors(state, group.province).is_empty() \

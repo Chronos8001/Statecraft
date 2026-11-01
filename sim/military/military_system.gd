@@ -65,6 +65,7 @@ func on_month(state: SimState) -> void:
 	NavalModel.repair_month(state)
 	MilitaryActions.update_month(state)
 	NuclearSystem.update_month(state)
+	WarEnd.update_month(state)
 
 
 ## Puissance militaire d'un pays (0 sans armée).

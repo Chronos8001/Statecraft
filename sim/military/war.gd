@@ -20,8 +20,12 @@ var days: int = 0
 var prewar: Dictionary = {}
 ## Guerre civile : province la plus peuplée du pays (les rebelles qui la prennent gagnent).
 var seat: String = ""
-## Pertes cumulées de chaque participant (soldats).
+## Pertes cumulées de chaque participant (soldats) et cumul au mois précédent (pertes du mois).
 var casualties: Dictionary = {}
+var casualties_last_month: Dictionary = {}
+## Soutien à la guerre de chaque participant (0 à 100) et mois de cessez-le-feu restants.
+var support: Dictionary = {}
+var ceasefire_months: int = 0
 ## Embargos posés par la déclaration (["A>B", …]), levés à la paix.
 var embargoes: Array[String] = []
 
@@ -58,6 +62,10 @@ func enemies_of(tag: String) -> Array[String]:
 
 static func other_side(side: String) -> String:
 	return DEFENDERS if side == ATTACKERS else ATTACKERS
+
+
+func in_ceasefire() -> bool:
+	return ceasefire_months > 0
 
 
 func months() -> float:
