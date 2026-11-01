@@ -66,7 +66,7 @@ func _ready() -> void:
 	EventBus.sim_event_raised.connect(func(event: Dictionary) -> void:
 		if event.get("type") in [WarSystem.EVENT_DECLARED, WarSystem.EVENT_JOINED, WarSystem.EVENT_ENDED,
 				WarSystem.EVENT_CALL, WarSystem.EVENT_CALL_REFUSED, WarResolver.EVENT_PROVINCE_TAKEN,
-				WarSystem.EVENT_PEACE_OFFER]:
+				WarSystem.EVENT_PEACE_OFFER, WarEnd.EVENT_CEASEFIRE, WarEnd.EVENT_PEACE]:
 			refresh())
 	visible = false
 
@@ -225,6 +225,12 @@ func _fill_wars(state: SimState, tag: String) -> void:
 			lines.append(tr("MILITARY_WAR_GOAL") % tr(str((state.war_goal_definitions.get(war.goal, {}) as Dictionary).get(
 				"name_key", war.goal))))
 		lines.append(tr("MILITARY_WAR_DURATION") % floori(war.months()))
+		if not war.civil:
+			var enemy_leader := war.members(War.other_side(side))[0]
+			lines.append(tr("MILITARY_WAR_SUPPORT") % [roundi(WarEnd.support(war, tag)), roundi(WarEnd.support(war, enemy_leader))])
+			lines.append(tr("MILITARY_WAR_SCORE") % _signed_int(WarEnd.score_for(state, war, tag)))
+			if war.in_ceasefire():
+				lines.append(tr("MILITARY_WAR_CEASEFIRE") % war.ceasefire_months)
 		lines.append(tr("MILITARY_WAR_ALLIES") % _names(state, war.members(side), tag))
 		lines.append(tr("MILITARY_WAR_ENEMIES") % _names(state, war.enemies_of(tag), ""))
 		lines.append(tr("MILITARY_WAR_OCCUPATION") % [roundi(WarSystem.occupied_percent(state, war, side)),
@@ -248,8 +254,7 @@ func _fill_wars(state: SimState, tag: String) -> void:
 			continue
 		var offer := WarSystem.peace_offer(state, war.id)
 		if not offer.is_empty():
-			_wars_box.add_child(_text(tr("MILITARY_PEACE_OFFER") % [MilitaryUI.side_name(state, str(offer["from"])),
-				int(offer["days_left"])], GovernmentPanel.GOOD_COLOR))
+			_wars_box.add_child(_text(MilitaryUI.offer_text(state, offer), GovernmentPanel.GOOD_COLOR))
 			var answers := HBoxContainer.new()
 			for accept: bool in [true, false]:
 				var answer := Button.new()
@@ -271,7 +276,31 @@ func _fill_wars(state: SimState, tag: String) -> void:
 		button.tooltip_text = tr(refusal) if not refusal.is_empty() 			else tr("MILITARY_WHITE_PEACE_LIKELY_YES" if score > 0.0 else "MILITARY_WHITE_PEACE_LIKELY_NO") % roundi(score)
 		var war_id := war.id
 		button.pressed.connect(func() -> void: _submit(WhitePeaceCommand.new(state.player_tag, war_id)))
-		_wars_box.add_child(button)
+		var peace_row := HBoxContainer.new()
+		peace_row.add_child(button)
+		var ceasefire := Button.new()
+		ceasefire.text = "MILITARY_CEASEFIRE"
+		ceasefire.focus_mode = Control.FOCUS_NONE
+		var ceasefire_refusal := WarEnd.ceasefire_refusal(state, tag, war.id)
+		ceasefire.disabled = not ceasefire_refusal.is_empty()
+		var enemy := war.members(War.other_side(side))[0]
+		ceasefire.tooltip_text = tr(ceasefire_refusal) if not ceasefire_refusal.is_empty() else tr(
+			"MILITARY_CEASEFIRE_LIKELY_YES" if WarEnd.ceasefire_accepted(state, war, enemy) else "MILITARY_CEASEFIRE_LIKELY_NO")
+		ceasefire.pressed.connect(func() -> void: _submit(CeasefireCommand.new(state.player_tag, war_id)))
+		peace_row.add_child(ceasefire)
+		var negotiate := Button.new()
+		negotiate.text = "MILITARY_NEGOTIATE"
+		negotiate.focus_mode = Control.FOCUS_NONE
+		negotiate.disabled = not refusal.is_empty() or WarEnd.available_demands(state, war, tag).is_empty()
+		negotiate.tooltip_text = tr(refusal) if not refusal.is_empty() else tr("MILITARY_NEGOTIATE_TOOLTIP")
+		negotiate.pressed.connect(func() -> void:
+			var dialog := PeaceDialog.new()
+			add_child(dialog)
+			dialog.setup(war_id)
+			dialog.command_requested.connect(_submit)
+			dialog.popup_centered())
+		peace_row.add_child(negotiate)
+		_wars_box.add_child(peace_row)
 	if not FrontSystem.fronts_of(state, tag).is_empty():
 		var deploy := Button.new()
 		deploy.text = "MILITARY_AUTO_DEPLOY"
@@ -404,6 +433,10 @@ func _fill_nuclear(state: SimState, country: CountryState) -> void:
 		else "NUCLEAR_PROGRAM_ABANDON_TOOLTIP")
 	button.pressed.connect(func() -> void: _submit(NuclearProgramCommand.new(state.player_tag, start)))
 	row.add_child(button)
+
+
+func _signed_int(value: float) -> String:
+	return ("+" if roundi(value) > 0 else "") + str(roundi(value))
 
 
 func _names(state: SimState, tags: Array[String], excluded: String) -> String:

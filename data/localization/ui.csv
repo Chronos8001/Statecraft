@@ -997,3 +997,29 @@ NOTIFY_NUCLEAR_PROGRAM_DETECTED,A secret military nuclear program has been expos
 NOTIFY_NUCLEAR_PROGRAM_COMPLETED,%s now has nuclear weapons!,%s dispose désormais de l'arme nucléaire !
 NOTIFY_NUCLEAR_PROGRAM_ABANDONED,%s abandons its nuclear program.,%s abandonne son programme nucléaire.
 NOTIFY_NUCLEAR_ALERT,%s switches to %s.,%s passe en %s.
+MILITARY_WAR_SUPPORT,Support for the war: ours %d%% · theirs %d%%,Soutien à la guerre : le nôtre %d %% · le leur %d %%
+MILITARY_WAR_SCORE,War score: %s,Score de guerre : %s
+MILITARY_WAR_CEASEFIRE,Ceasefire: %d months left to negotiate,Cessez-le-feu : encore %d mois pour négocier
+MILITARY_CEASEFIRE,Propose a ceasefire,Proposer un cessez-le-feu
+MILITARY_CEASEFIRE_LIKELY_YES,The fronts freeze while we negotiate. Likely answer: yes.,Les fronts se figent le temps de négocier. Avis probable : favorable.
+MILITARY_CEASEFIRE_LIKELY_NO,The fronts freeze while we negotiate. Likely answer: no (they still want to fight).,Les fronts se figent le temps de négocier. Avis probable : défavorable (ils veulent encore se battre).
+MILITARY_NEGOTIATE,Negotiate peace,Négocier la paix
+MILITARY_NEGOTIATE_TOOLTIP,"Choose our terms: targeted provinces we hold, reparations.","Choisir nos conditions : provinces visées que nous tenons, réparations."
+PEACE_DIALOG_TITLE,Peace terms – %s,Conditions de paix – %s
+PEACE_DIALOG_PROPOSE,Propose,Proposer
+PEACE_DIALOG_INTRO,War score: %d. Enemy support for the war: %d%%. Each demand costs war score; a tired enemy concedes more.,Score de guerre : %d. Soutien de l'ennemi à la guerre : %d %%. Chaque exigence coûte du score ; un ennemi las concède davantage.
+PEACE_DIALOG_NO_DEMAND,We hold nothing to demand.,Nous ne tenons rien à exiger.
+PEACE_DEMAND_COST,%s (cost %d),%s (coût %d)
+PEACE_DEMAND_REPARATIONS,"Reparations (%d%% of GDP a year, %d years)","Réparations (%d %% du PIB par an, %d ans)"
+PEACE_DIALOG_SUMMARY,Total cost: %d · what they would concede: %d · %s,Coût total : %d · ce qu'ils concéderaient : %d · %s
+PEACE_DIALOG_LIKELY_YES,likely accepted,acceptation probable
+PEACE_DIALOG_LIKELY_NO,likely refused,refus probable
+CEASEFIRE_OFFER_TITLE,Ceasefire offer,Proposition de cessez-le-feu
+CEASEFIRE_OFFER_TEXT,%s offers a ceasefire (%s): the fronts freeze for a few months of negotiations. %d days left to answer.,%s propose un cessez-le-feu (%s) : les fronts se figent quelques mois pour négocier. %d jours pour répondre.
+PEACE_TERMS_TEXT,%s offers peace (%s) on these terms: %s. %d days left to answer.,%s propose la paix (%s) à ces conditions : %s. %d jours pour répondre.
+WAR_IN_CEASEFIRE,A ceasefire is in force.,Un cessez-le-feu est en vigueur.
+NOTIFY_PEACE_SIGNED,Peace treaty between %s and %s: %s.,Traité de paix entre %s et %s : %s.
+NOTIFY_CEASEFIRE,Ceasefire between %s and %s.,Cessez-le-feu entre %s et %s.
+NOTIFY_CEASEFIRE_ENDED,The ceasefire between %s and %s has ended: fighting resumes.,Fin du cessez-le-feu entre %s et %s : les combats reprennent.
+NOTIFY_CEASEFIRE_REFUSED,%s refuses the ceasefire.,%s refuse le cessez-le-feu.
+MILITARY_CEASEFIRE_ACCEPT,Accept the ceasefire,Accepter le cessez-le-feu
