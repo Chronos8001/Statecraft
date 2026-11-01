@@ -47,6 +47,8 @@ static func sea_name(zone_id: String) -> String:
 
 ## Texte d'une exigence de paix : « Zaporijjia », « Réparations (2 % du PIB par an, 5 ans) ».
 static func demand_text(state: SimState, demand: Dictionary) -> String:
+	if str(demand.get("type", "")) == OccupationSystem.PUPPET:
+		return TranslationServer.translate("PEACE_DEMAND_PUPPET")
 	if str(demand.get("type", "")) == WarEnd.REPARATIONS:
 		var rules: Dictionary = WarEnd.settings_of(state).get("demands", {})
 		return TranslationServer.translate("PEACE_DEMAND_REPARATIONS") % [roundi(float(rules.get("reparations_share", 0.0))),
