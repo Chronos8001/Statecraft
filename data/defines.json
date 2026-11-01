@@ -1017,6 +1017,26 @@
       "damage_odds_min": 0.05,
       "damage_odds_max": 4.0,
       "retreat_max_km": 3000.0,
+      "blockade_contested": 0.5,
+      "blockade_step": 0.05,
+      "landing": {
+        "beachhead_share": 0.15,
+        "garrison_share": 0.02,
+        "base_chance": 0.5,
+        "odds_weight": 0.2,
+        "contested_penalty": 0.2,
+        "min_chance": 0.05,
+        "max_chance": 0.9,
+        "success_losses": 0.03,
+        "failure_losses": 0.25,
+        "evacuation_losses": 0.3
+      },
+      "ai": {
+        "healthy_condition": 0.6,
+        "dominance": 1.5,
+        "landing_chance": 0.25,
+        "overseas_navy_ratio": 2.0
+      },
       "retreat_condition": 0.3,
       "min_condition": 0.05,
       "repair_per_month": 0.15
@@ -1064,6 +1084,7 @@
         "power": 25.0,
         "max_power_log": 1.0,
         "nuclear_target": -40.0,
+        "overseas": -25.0,
         "min_power_ratio": 2.0,
         "ally_weight": 0.5,
         "cooperation_weight": 0.3,
