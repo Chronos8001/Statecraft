@@ -56,6 +56,10 @@ var aid_definitions: Dictionary = {}
 var technology_definitions: Dictionary = {}
 var research_settings: Dictionary = {}
 var tech_known_counts: Dictionary = {}
+## Pays proches de chaque pays pour la diffusion (alliés et principaux partenaires commerciaux, recalculés chaque
+## mois) et projets de recherche conjoints : [{tech, members, progress}].
+var research_close: Dictionary = {}
+var joint_projects: Array[Dictionary] = []
 ## Forces armées : modules remplaçables (modèle, combats, IA) et réglages (defines.military).
 var military: MilitaryRegistry = MilitaryRegistry.new()
 var military_settings: Dictionary = {}

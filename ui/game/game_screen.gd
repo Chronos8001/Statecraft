@@ -807,6 +807,25 @@ func _on_naval_event(event: Dictionary) -> bool:
 			if tag == player:
 				_notify(tr("NOTIFY_TECH_COMPLETED") % tr(str(DataLoader.get_entry("technologies", str(event.get("technology",
 					""))).get("name_key", ""))))
+		ResearchCooperation.EVENT_JOINT:
+			var partner := str(event.get("partner", ""))
+			if tag == player or partner == player:
+				_notify(tr("NOTIFY_JOINT_PROJECT") % [MilitaryUI.side_name(state, partner if tag == player else tag),
+					tr(str(DataLoader.get_entry("technologies", str(event.get("technology", ""))).get("name_key", "")))])
+		ResearchCooperation.EVENT_JOINT_REFUSED:
+			if tag == player:
+				_notify(tr("NOTIFY_JOINT_REFUSED") % MilitaryUI.side_name(state, str(event.get("partner", ""))))
+		ResearchCooperation.EVENT_ESPIONAGE:
+			var victim := str(event.get("target", ""))
+			if tag == player:
+				var outcome := "NOTIFY_ESPIONAGE_SUCCESS" if bool(event.get("success", false)) else "NOTIFY_ESPIONAGE_FAILURE"
+				var text := tr(outcome) % tr(str(DataLoader.get_entry("technologies", str(event.get("technology", ""))).get(
+					"name_key", "")))
+				if bool(event.get("discovered", false)):
+					text += " " + tr("NOTIFY_CYBER_DISCOVERED")
+				_notify(text)
+			elif victim == player and bool(event.get("discovered", false)):
+				_notify(tr("NOTIFY_ESPIONAGE_SUFFERED") % MilitaryUI.side_name(state, tag))
 		ResearchSystem.EVENT_SLOT_FREE:
 			if tag == player:
 				_notify(tr("NOTIFY_RESEARCH_SLOT_FREE"))
