@@ -70,6 +70,8 @@ func update_country(country: CountryState, state: SimState) -> void:
 	var mobilization: Dictionary = settings.get("mobilization", {})
 	if military.mobilization_cooldown > 0:
 		military.mobilization_cooldown -= 1
+	# Les pertes au combat sont peu à peu remplacées (recrutement, rappel).
+	military.losses *= 1.0 - float((settings.get("combat", {}) as Dictionary).get("replacement", 0.0))
 	var received := float(state.diplomacy.arms_received.get(country.tag, 0.0))
 	military.arms_flow = maxf(received - military.arms_counted, 0.0)
 	military.arms_counted = received

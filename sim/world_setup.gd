@@ -89,11 +89,13 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 	state.military_settings = military_definitions.get("settings", {})
 	state.map_size = military_definitions.get("map_size", state.map_size)
 	state.war_goal_definitions = military_definitions.get("war_goals", {})
+	state.terrain_definitions = military_definitions.get("terrains", {})
 	ControlSystem.setup_start(state)
 	WarSystem.setup_start(state)
 	if not state.military_settings.is_empty():
 		for tag: String in tags:
 			state.military.model.setup_country(state.countries[tag], countries[tag], state)
+		WarSystem.setup_forces(state)
 		state.military.model.setup_world(state, countries)
 
 

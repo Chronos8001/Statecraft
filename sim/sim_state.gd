@@ -67,6 +67,15 @@ var wars: Dictionary = {}
 var next_war_id: int = 1
 var rebels: Dictionary = {}
 var war_goal_definitions: Dictionary = {}
+## Fronts des guerres : clé → Front ; recalculés quand le contrôle des provinces ou les guerres changent.
+var fronts: Dictionary = {}
+var fronts_dirty: bool = true
+## Calculés avec les fronts pour chaque belligérant : province la plus peuplée tenue (tag → id) et présence
+## sur la carte (tag → true s'il tient ou dispute au moins une province).
+var front_seats: Dictionary = {}
+var front_holdings: Dictionary = {}
+## Terrains (data/terrains), pour la défense des provinces.
+var terrain_definitions: Dictionary = {}
 ## Appels aux armes adressés au joueur, en attente de réponse : [{war, ally, side, days_left}].
 var calls_to_arms: Array[Dictionary] = []
 ## Taille de l'image de la carte (pixels), pour les distances entre provinces.

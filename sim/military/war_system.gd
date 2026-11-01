@@ -17,6 +17,7 @@ const EVENT_CALL := &"call_to_arms"
 const EVENT_CALL_REFUSED := &"call_to_arms_refused"
 const EVENT_ENDED := &"war_ended"
 const EVENT_PEACE_REFUSED := &"white_peace_refused"
+const EVENT_REBELS_WON := &"rebels_won"
 const TRUCE := "truce"
 const WHITE_PEACE := "white_peace"
 const REQUIRES_CLAIM := "claim"
@@ -57,14 +58,44 @@ static func setup_start(state: SimState) -> void:
 		if not state.countries.has(tag):
 			continue
 		var faction := _add_faction(state, tag, str(values[1]))
+		faction.strength_share = float(values[4]) if values.size() > 4 else float((settings_of(state).get("civil_war", {})
+			as Dictionary).get("rebel_strength", 0.0))
 		for hold: Variant in values[2]:
 			var pair: Array = hold
 			_rebel_hold(state, faction.id, str(int(pair[0])), float(pair[1]))
 		var war := _create(state, [faction.id], [tag], "", [])
 		war.civil = true
+		war.seat = _country_seat(state, tag)
 		if values.size() > 3:
 			war.start_date = str(values[3])
 			war.days = maxi(state.date.to_day_number() - _day_number(war.start_date), 0)
+
+
+## Forces des factions rebelles, une fois les armées des pays en place.
+static func setup_forces(state: SimState) -> void:
+	for faction: RebelFaction in state.rebels.values():
+		_arm_faction(state, faction)
+
+
+static func _arm_faction(state: SimState, faction: RebelFaction) -> void:
+	var rules: Dictionary = settings_of(state).get("civil_war", {})
+	faction.start_personnel = FrontSystem.land_personnel(state, faction.country) * faction.strength_share
+	faction.personnel = faction.start_personnel
+	faction.level = float(rules.get("rebel_level", 1.0))
+	faction.training = float(rules.get("rebel_training", 0.0))
+	faction.morale = float(rules.get("rebel_morale", 0.0))
+
+
+## Province la plus peuplée d'un pays (qu'il la contrôle ou non).
+static func _country_seat(state: SimState, tag: String) -> String:
+	var provinces: Dictionary = state.energy_definitions.get("provinces", {})
+	var best := ""
+	for province_id: String in state.province_control.keys():
+		if ControlSystem.owner(state, province_id) != tag:
+			continue
+		if best.is_empty() or int((provinces.get(province_id, {}) as Dictionary).get("population", 0)) 				> int((provinces.get(best, {}) as Dictionary).get("population", 0)):
+			best = province_id
+	return best
 
 
 static func _day_number(iso: String) -> int:
@@ -84,6 +115,7 @@ static func _create(state: SimState, attackers: Array, defenders: Array, goal: S
 	war.goal_provinces = provinces
 	war.start_date = "%04d-%02d-%02d" % [state.date.year, state.date.month, state.date.day]
 	state.wars[war.id] = war
+	state.fronts_dirty = true
 	return war
 
 
@@ -331,6 +363,7 @@ static func join(state: SimState, war: War, tag: String, side: String, called: b
 	var leader := war.members(side)[0]
 	var enemies := war.members(War.other_side(side)).duplicate()
 	war.members(side).append(tag)
+	state.fronts_dirty = true
 	_drop_calls(state, war.id, tag)
 	_snapshot(state, war, tag)
 	for enemy: String in enemies:
@@ -459,11 +492,16 @@ static func end_war(state: SimState, war: War) -> void:
 			state.diplomacy.set_cooldown(TRUCE, a, b, int(rules.get("truce_months", 0)))
 			state.diplomacy.change_relation(a, b, float(rules.get("relation", 0.0)))
 	state.wars.erase(war.id)
+	state.fronts_dirty = true
 	_drop_calls(state, war.id)
 	for tag: String in war.attackers + war.defenders:
 		if is_rebel(state, tag):
 			state.rebels.erase(tag)
-	if not war.civil:
+	if war.civil:
+		var country := state.get_country(war.defender_leader())
+		if country != null:
+			CrisisSystem.end_civil_war_crisis(country, state)
+	else:
 		TensionSystem.add(state, float(rules.get("tension", 0.0)))
 	state.add_event(EVENT_ENDED, war.attacker_leader(), {"war": war.id, "target": war.defender_leader(),
 		"civil": war.civil})
@@ -545,12 +583,52 @@ static func start_civil_war(state: SimState, tag: String) -> void:
 			return float(distances[a]) > float(distances[b])
 		return int(a) < int(b))
 	var faction := _add_faction(state, tag)
+	faction.strength_share = float(rules.get("rebel_strength", 0.0))
+	_arm_faction(state, faction)
 	var count := clampi(ceili(own.size() * float(rules.get("province_share", 0.0))), 1, own.size())
 	for index: int in count:
 		_rebel_hold(state, faction.id, own[index], float(rules.get("start_share", 0.0)))
 	var war := _create(state, [faction.id], [tag], "", [])
 	war.civil = true
+	war.seat = _country_seat(state, tag)
 	state.add_event(EVENT_DECLARED, faction.id, {"target": tag, "war": war.id, "civil": true})
+
+
+## Issue des guerres civiles : le gouvernement gagne quand les rebelles n'ont plus de province ou presque plus de
+## forces ; les rebelles gagnent en prenant la province la plus peuplée du pays (une junte prend le pouvoir).
+static func check_civil_wars(state: SimState) -> void:
+	var rules: Dictionary = settings_of(state).get("civil_war", {})
+	var ids: Array = state.wars.keys()
+	ids.sort()
+	for war_id: Variant in ids:
+		var war: War = state.wars[war_id]
+		if not war.civil:
+			continue
+		var faction: RebelFaction = state.rebels.get(war.attacker_leader())
+		if faction == null:
+			continue
+		if not war.seat.is_empty() and ControlSystem.controller(state, war.seat) == faction.id:
+			var country := state.get_country(faction.country)
+			end_war(state, war)
+			if country != null:
+				CrisisSystem.install_junta(country, state)
+			state.add_event(EVENT_REBELS_WON, faction.country, {"war": war.id})
+			continue
+		var weak := faction.personnel < faction.start_personnel * float(rules.get("rebel_defeated_share", 0.0))
+		FrontSystem.refresh(state)
+		if weak or not state.front_holdings.has(faction.id):
+			end_war(state, war)
+
+
+## Chaque mois, les rebelles remplacent une part de leurs pertes (recrutement) et leur moral revient vers son
+## niveau habituel, comme celui des armées.
+static func update_month(state: SimState) -> void:
+	var replacement := float(FrontSystem.combat_settings(state).get("replacement", 0.0))
+	var morale := float((settings_of(state).get("civil_war", {}) as Dictionary).get("rebel_morale", 0.0))
+	var adjustment := float((state.military_settings.get("morale", {}) as Dictionary).get("adjustment", 0.0))
+	for faction: RebelFaction in state.rebels.values():
+		faction.personnel += (faction.start_personnel - faction.personnel) * replacement
+		faction.morale += (morale - faction.morale) * adjustment
 
 
 ## Fin d'une guerre civile (crise terminée) : le pays reprend ses provinces.

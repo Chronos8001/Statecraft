@@ -24,7 +24,7 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 			"sanctions": DataLoader.get_category("sanctions"),
 			"aid": DataLoader.get_category("aid")},
 		{"settings": DataLoader.get_define("military", {}), "map_size": map_size(),
-			"war_goals": DataLoader.get_category("war_goals")})
+			"war_goals": DataLoader.get_category("war_goals"), "terrains": DataLoader.get_category("terrains")})
 	scheduler = SimScheduler.new()
 	scheduler.add_system(LawSystem.new())
 	scheduler.add_system(ConstitutionSystem.new())
