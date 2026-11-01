@@ -887,3 +887,8 @@ LEGEND_OUR_FRONTS,Our fronts,Nos fronts
 NOTIFY_PROVINCE_TAKEN,We take %s from %s.,Nous prenons %s à : %s.
 NOTIFY_PROVINCE_LOST,%s falls to %s.,%s tombe aux mains de : %s.
 NOTIFY_REBELS_WON,The rebels win the civil war in %s: a junta takes power.,Les rebelles gagnent la guerre civile : %s. Une junte prend le pouvoir.
+PEACE_OFFER_TITLE,White peace offer,Proposition de paix blanche
+PEACE_OFFER_TEXT,"%s offers a white peace (%s): back to pre-war lines and a truce. Without an answer within %d days, the offer is refused.","%s propose une paix blanche (%s) : retour aux lignes d'avant-guerre et trêve. Sans réponse sous %d jours, la proposition est refusée."
+MILITARY_PEACE_OFFER,%s offers a white peace: %d days left to answer.,%s propose une paix blanche : %d jours pour répondre.
+MILITARY_PEACE_ACCEPT,Accept peace,Accepter la paix
+MILITARY_PEACE_REFUSE,Keep fighting,Continuer la guerre

@@ -18,6 +18,7 @@ const EVENT_CALL_REFUSED := &"call_to_arms_refused"
 const EVENT_ENDED := &"war_ended"
 const EVENT_PEACE_REFUSED := &"white_peace_refused"
 const EVENT_REBELS_WON := &"rebels_won"
+const EVENT_PEACE_OFFER := &"white_peace_offered"
 const TRUCE := "truce"
 const WHITE_PEACE := "white_peace"
 const REQUIRES_CLAIM := "claim"
@@ -36,6 +37,7 @@ static func setup_start(state: SimState) -> void:
 	state.wars.clear()
 	state.rebels.clear()
 	state.calls_to_arms.clear()
+	state.peace_offers.clear()
 	state.next_war_id = 1
 	var start := state.diplomacy_start
 	for entry: Variant in (start.get("wars", {}) as Dictionary).get("list", []):
@@ -195,6 +197,11 @@ static func goal_refusal(state: SimState, attacker: String, target: String, goal
 	var definition: Dictionary = state.war_goal_definitions.get(goal, {})
 	if definition.is_empty():
 		return "WAR_INVALID"
+	# Conditions peu coûteuses d'abord (l'IA les teste pour beaucoup de pays).
+	if state.diplomacy.world_tension < float(definition.get("min_tension", 0.0)):
+		return "TENSION_TOO_LOW"
+	if state.diplomacy.relation(attacker, target) > float(definition.get("max_relation", DiplomacyState.LIMIT)):
+		return "WAR_RELATION_TOO_HIGH"
 	match str(definition.get("requires", "")):
 		REQUIRES_CLAIM:
 			if goal_provinces(state, attacker, target, goal).is_empty():
@@ -202,10 +209,6 @@ static func goal_refusal(state: SimState, attacker: String, target: String, goal
 		REQUIRES_OCCUPIED:
 			if goal_provinces(state, attacker, target, goal).is_empty():
 				return "WAR_NOT_OCCUPIED"
-	if state.diplomacy.world_tension < float(definition.get("min_tension", 0.0)):
-		return "TENSION_TOO_LOW"
-	if state.diplomacy.relation(attacker, target) > float(definition.get("max_relation", DiplomacyState.LIMIT)):
-		return "WAR_RELATION_TOO_HIGH"
 	return ""
 
 
@@ -223,14 +226,25 @@ static func declaration_costs(state: SimState, attacker: String, goal: String) -
 ## Pays appelés à défendre la cible : alliés militaires et garants de son indépendance, sauf ceux qui sont
 ## aussi alliés de l'attaquant.
 static func defenders_called(state: SimState, attacker: String, target: String) -> Array[String]:
+	# Candidats : partenaires de défense mutuelle, membres des mêmes alliances militaires, garants.
+	var candidates: Dictionary = {}
+	for treaty_id: int in state.diplomacy.treaties_of(target):
+		var treaty: Dictionary = state.diplomacy.treaties[treaty_id]
+		if str(treaty["type"]) == "mutual_defense":
+			candidates[str(treaty["b"]) if treaty["a"] == target else str(treaty["a"])] = true
+	for organization: Dictionary in state.diplomacy.organizations.values():
+		if str(organization.get("kind", "")) == "military_alliance" and (organization.get("members", []) as Array).has(target):
+			for member: Variant in organization.get("members", []):
+				candidates[str(member)] = true
+	for key: Variant in state.diplomacy.guarantees.keys():
+		var parts := str(key).split(">")
+		if parts.size() == 2 and parts[1] == target:
+			candidates[parts[0]] = true
 	var result: Array[String] = []
-	var tags: Array = state.countries.keys()
-	tags.sort()
-	for tag: String in tags:
-		if tag == attacker or tag == target or ControlSystem.allied(state, tag, attacker):
-			continue
-		if ControlSystem.allied(state, tag, target) or state.diplomacy.guarantees_independence(tag, target):
-			result.append(tag)
+	for tag: Variant in candidates.keys():
+		if tag != attacker and tag != target and state.countries.has(tag) and not ControlSystem.allied(state, str(tag), attacker):
+			result.append(str(tag))
+	result.sort()
 	return result
 
 
@@ -462,6 +476,47 @@ static func propose_white_peace(state: SimState, war: War, tag: String) -> bool:
 	return accepted
 
 
+## Paix blanche proposée par un pays de l'IA : au joueur, une proposition en attente (délai en jours) ; à un
+## autre pays de l'IA, une réponse immédiate.
+static func offer_peace(state: SimState, war: War, tag: String) -> void:
+	var other := war.defender_leader() if tag == war.attacker_leader() else war.attacker_leader()
+	if other != str(state.player_tag):
+		propose_white_peace(state, war, tag)
+		return
+	for offer: Dictionary in state.peace_offers:
+		if int(offer["war"]) == war.id:
+			return
+	state.peace_offers.append({"war": war.id, "from": tag, "days_left": int((state.military_settings.get("ai", {})
+		as Dictionary).get("peace", {}).get("player_days", 1))})
+	state.add_event(EVENT_PEACE_OFFER, other, {"war": war.id, "from": tag})
+
+
+## Réponse du joueur à une proposition de paix blanche ; un refus impose un délai avant la suivante.
+static func answer_peace(state: SimState, war_id: int, accept: bool) -> void:
+	for index: int in state.peace_offers.size():
+		var offer: Dictionary = state.peace_offers[index]
+		if int(offer["war"]) != war_id:
+			continue
+		state.peace_offers.remove_at(index)
+		var war: War = state.wars.get(war_id)
+		if war == null:
+			return
+		if accept:
+			end_war(state, war)
+		else:
+			state.diplomacy.set_cooldown(WHITE_PEACE, str(offer["from"]), str(state.player_tag), int((settings_of(state)
+				.get("white_peace", {}) as Dictionary).get("refused_cooldown", 0)))
+			state.add_event(EVENT_PEACE_REFUSED, str(state.player_tag), {"war": war_id, "target": offer["from"]})
+		return
+
+
+static func peace_offer(state: SimState, war_id: int) -> Dictionary:
+	for offer: Dictionary in state.peace_offers:
+		if int(offer["war"]) == war_id:
+			return offer
+	return {}
+
+
 ## Fin d'une guerre sans vainqueur : chaque province revient à son contrôleur d'avant-guerre, trêve entre
 ## les deux camps, embargos de guerre levés.
 static func end_war(state: SimState, war: War) -> void:
@@ -494,6 +549,11 @@ static func end_war(state: SimState, war: War) -> void:
 	state.wars.erase(war.id)
 	state.fronts_dirty = true
 	_drop_calls(state, war.id)
+	var offers: Array[Dictionary] = []
+	for offer: Dictionary in state.peace_offers:
+		if int(offer["war"]) != war.id:
+			offers.append(offer)
+	state.peace_offers = offers
 	for tag: String in war.attackers + war.defenders:
 		if is_rebel(state, tag):
 			state.rebels.erase(tag)
@@ -528,9 +588,10 @@ static func occupied_percent(state: SimState, war: War, side: String) -> float:
 	var enemies := war.members(War.other_side(side))
 	var total := 0.0
 	var held := 0.0
-	for province_id: String in state.province_control.keys():
-		if not members.has(ControlSystem.owner(state, province_id)):
-			continue
+	var owned: Array = []
+	for member: String in members:
+		owned.append_array(state.provinces_by_owner.get(member, []))
+	for province_id: String in owned:
 		var population := float((provinces.get(province_id, {}) as Dictionary).get("population", 0.0))
 		total += population
 		for enemy: String in enemies:
@@ -647,7 +708,7 @@ static func civil_war_of(state: SimState, tag: String) -> War:
 
 # --- Chaque jour -------------------------------------------------------------------------------------------
 
-## Durée des guerres et délai des appels aux armes du joueur (sans réponse : refus).
+## Durée des guerres, délai des appels aux armes et des propositions de paix du joueur (sans réponse : refus).
 static func update_day(state: SimState) -> void:
 	for war: War in state.wars.values():
 		war.days += 1
@@ -658,3 +719,10 @@ static func update_day(state: SimState) -> void:
 			expired.append(call)
 	for call: Dictionary in expired:
 		answer_call(state, int(call["war"]), str(call["ally"]), false)
+	var unanswered: Array[int] = []
+	for offer: Dictionary in state.peace_offers:
+		offer["days_left"] = int(offer["days_left"]) - 1
+		if int(offer["days_left"]) <= 0:
+			unanswered.append(int(offer["war"]))
+	for war_id: int in unanswered:
+		answer_peace(state, war_id, false)

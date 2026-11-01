@@ -55,7 +55,8 @@ func _ready() -> void:
 	EventBus.command_executed.connect(func(_command: Command) -> void: refresh())
 	EventBus.sim_event_raised.connect(func(event: Dictionary) -> void:
 		if event.get("type") in [WarSystem.EVENT_DECLARED, WarSystem.EVENT_JOINED, WarSystem.EVENT_ENDED,
-				WarSystem.EVENT_CALL, WarSystem.EVENT_CALL_REFUSED, WarResolver.EVENT_PROVINCE_TAKEN]:
+				WarSystem.EVENT_CALL, WarSystem.EVENT_CALL_REFUSED, WarResolver.EVENT_PROVINCE_TAKEN,
+				WarSystem.EVENT_PEACE_OFFER]:
 			refresh())
 	visible = false
 
@@ -219,6 +220,19 @@ func _fill_wars(state: SimState, tag: String) -> void:
 		_fill_fronts(state, war, tag, locale)
 		if war.civil:
 			continue
+		var offer := WarSystem.peace_offer(state, war.id)
+		if not offer.is_empty():
+			_wars_box.add_child(_text(tr("MILITARY_PEACE_OFFER") % [MilitaryUI.side_name(state, str(offer["from"])),
+				int(offer["days_left"])], GovernmentPanel.GOOD_COLOR))
+			var answers := HBoxContainer.new()
+			for accept: bool in [true, false]:
+				var answer := Button.new()
+				answer.text = "MILITARY_PEACE_ACCEPT" if accept else "MILITARY_PEACE_REFUSE"
+				answer.focus_mode = Control.FOCUS_NONE
+				var offered_war := war.id
+				answer.pressed.connect(func() -> void: _submit(AnswerPeaceCommand.new(state.player_tag, offered_war, accept)))
+				answers.add_child(answer)
+			_wars_box.add_child(answers)
 		var refusal := WarSystem.white_peace_refusal(state, tag, war.id)
 		if refusal == "WAR_NOT_LEADER":
 			continue

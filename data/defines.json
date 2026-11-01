@@ -1037,6 +1037,43 @@
         "hold_ratio": 0.6,
         "rebel_offensive_ratio": 1.2
       }
+    },
+    "ai": {
+      "war": {
+        "goal_order": ["liberate", "annex", "reparations", "regime_change"],
+        "base": -40.0,
+        "claim": 20.0,
+        "relation": -0.3,
+        "power": 25.0,
+        "max_power_log": 1.0,
+        "nuclear_target": -40.0,
+        "min_power_ratio": 2.0,
+        "ally_weight": 0.5,
+        "tension": 1.0,
+        "tension_baseline": 40.0,
+        "authoritarian": 10.0,
+        "democratic": -20.0,
+        "per_war": -40.0,
+        "chance_per_point": 0.001,
+        "max_chance": 0.03
+      },
+      "peace": {
+        "min_months": 3,
+        "occupied_percent": 5.0,
+        "power_ratio": 0.7,
+        "stalemate_months": 18,
+        "player_days": 30
+      },
+      "join": {
+        "min_relation": 70.0,
+        "max_enemy_relation": -40.0,
+        "min_power_ratio": 1.5,
+        "chance": 0.02
+      },
+      "mobilization": {
+        "losing_ratio": 0.6,
+        "losing_occupied_percent": 10.0
+      }
     }
   },
   "military_symbols": {
