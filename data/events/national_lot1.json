@@ -46,6 +46,7 @@
     "options": [
       {"name_key": "EVENT_CROSS_STRAIT_UNION_PROPOSAL_A", "effects": {"join_country": "from"},
         "ai_weight": 0.2, "ai_modifiers": [{"factor": 10, "if": {"relation": {"with": "from", "value": ">50"}}},
+          {"factor": 20, "if": {"has_flag": "twn_open_to_union"}},
           {"factor": 4, "if": {"democratic": false}}]},
       {"name_key": "EVENT_CROSS_STRAIT_UNION_PROPOSAL_B", "effects": {"add_relation": {"with": "from", "value": -20},
         "add_stability": 3, "add_tension": 3}, "ai_weight": 5}

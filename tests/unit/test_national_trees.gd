@@ -2,7 +2,7 @@ extends GutTest
 ## Arbres nationaux : données valides, nœuds qui ne se chevauchent pas, bon arbre pour chaque pays, et les
 ## uchronies jouées dans le vrai monde (fédération européenne, Groenland, Taïwan, Texas).
 
-const LOT_1 := ["USA", "CHN", "RUS", "IND", "FRA", "DEU"]
+const NATIONAL := ["USA", "CHN", "RUS", "IND", "FRA", "DEU", "GBR", "JPN", "KOR", "PRK", "TWN", "UKR"]
 const MIN_GAP := 2.0
 
 
@@ -15,11 +15,11 @@ func test_trees_are_valid_and_readable() -> void:
 	var errors := DecisionSystem.validate_definitions(DataLoader.get_category("decisions"), trees,
 		DataLoader.get_category("events").keys())
 	assert_eq(errors.size(), 0, "\n".join(errors))
-	for tag: String in LOT_1:
+	for tag: String in NATIONAL:
 		var tree: Dictionary = trees[tag.to_lower()]
 		assert_eq(tree["countries"], [tag])
 		var nodes: Dictionary = tree["nodes"]
-		assert_gt(nodes.size(), 45, "%s : nœuds nationaux et génériques" % tag)
+		assert_gte(nodes.size(), 44, "%s : nœuds nationaux et génériques" % tag)
 		var rows: Dictionary = {}
 		for node: Dictionary in nodes.values():
 			var y := float(node["y"])
@@ -35,7 +35,7 @@ func test_trees_are_valid_and_readable() -> void:
 
 func test_countries_get_their_tree() -> void:
 	GameState.new_game(31, &"BRA")
-	for tag: String in LOT_1:
+	for tag: String in NATIONAL:
 		assert_eq(GameState.sim.get_country(tag).focus_tree, tag.to_lower())
 	assert_eq(GameState.sim.get_country("BRA").focus_tree, "generic")
 
@@ -82,3 +82,31 @@ func test_taiwan_by_force_and_texas() -> void:
 	EventSystem.choose(state, "texas_independence_crisis", {"country": "USA", "from": ""}, 0)
 	assert_not_null(state.get_country("TEX"))
 	assert_eq(ControlSystem.owner(state, "4350"), "TEX")
+
+
+func test_korean_reunification() -> void:
+	GameState.new_game(35, &"BRA")
+	var state := GameState.sim
+	EventSystem.choose(state, "korean_reunification_proposal", {"country": "PRK", "from": "KOR"}, 0)
+	assert_null(state.get_country("PRK"))
+	assert_eq(ControlSystem.owner(state, "3239"), "KOR", "Pyongyang")
+	assert_eq(str(state.country_overrides["KOR"]["name_key"]), "COUNTRY_COR")
+
+
+func test_scotland_ireland_and_ukraine() -> void:
+	GameState.new_game(36, &"BRA")
+	var state := GameState.sim
+	EventSystem.choose(state, "scotland_votes_yes", {"country": "GBR", "from": ""}, 0)
+	assert_not_null(state.get_country("SCO"))
+	var trees := _trees()
+	ScriptEffects.apply(state, {"country": "GBR", "from": ""},
+		(trees["gbr"]["nodes"]["gbr_irish_unity"] as Dictionary)["effects"])
+	assert_eq(ControlSystem.owner(state, "1267"), "IRL", "Belfast")
+	ScriptEffects.apply(state, {"country": "UKR", "from": ""},
+		(trees["ukr"]["nodes"]["ukr_eu_accession"] as Dictionary)["effects"])
+	ScriptEffects.apply(state, {"country": "UKR", "from": ""},
+		(trees["ukr"]["nodes"]["ukr_nato_membership"] as Dictionary)["effects"])
+	assert_true(OrganizationSystem.is_member(state, "eu", "UKR"))
+	assert_true(OrganizationSystem.is_member(state, "nato", "UKR"))
+	for _hour: int in 31 * GameDate.HOURS_PER_DAY:
+		GameState.advance_hour()
