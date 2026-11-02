@@ -1234,3 +1234,51 @@ EFFECT_RESOURCE_CAPACITY,New %s deposits,Nouveaux gisements : %s
 EFFECT_CLOSE_STRAIT,%s closed,%s fermé
 EFFECT_OPEN_STRAIT,%s reopened,%s rouvert
 EFFECT_KILL_LEADER,A leader dies,Un dirigeant meurt
+TOPBAR_DECISIONS_BUTTON,Decisions,Décisions
+TOPBAR_DECISIONS_BUTTON_TOOLTIP,One-off decisions and the national decision tree,Décisions ponctuelles et arbre de décisions national
+DECISIONS_TITLE,Decisions,Décisions
+DECISIONS_TAB,Decisions,Décisions
+FOCUS_TAB,National tree,Arbre national
+DECISIONS_ACTIVE,Under way,En cours
+DECISIONS_DAYS_LEFT,%d days left,encore %d jours
+DECISIONS_CANCEL,Cancel,Annuler
+DECISIONS_CANCEL_TOOLTIP,Stop this decision: its cost is not refunded.,Arrêter cette décision : son coût n'est pas remboursé.
+DECISIONS_CATEGORY_ECONOMY,Economy,Économie
+DECISIONS_CATEGORY_POLITICS,Politics,Politique
+DECISIONS_CATEGORY_DIPLOMACY,Diplomacy,Diplomatie
+DECISIONS_CATEGORY_MILITARY,Defence,Défense
+DECISIONS_CATEGORY_SOCIETY,Society,Société
+DECISIONS_COST,Cost: %s,Coût : %s
+DECISIONS_FREE,No cost,Sans coût
+DECISIONS_DURATION,%d days,%d jours
+DECISIONS_IMMEDIATE,Immediate,Immédiat
+DECISIONS_READY_IN,available again in %d days,de nouveau possible dans %d jours
+DECISIONS_TAKE,Take,Prendre
+DECISIONS_COST_DEBT_GDP,%s pt of GDP,%s pt de PIB
+DECISIONS_COST_INFLUENCE,%s influence,%s d'influence
+DECISIONS_COST_STABILITY,%s stability,%s de stabilité
+DECISIONS_COST_LEGITIMACY,%s legitimacy,%s de légitimité
+DECISION_UNKNOWN,This decision is not open to us.,Cette décision ne nous est pas ouverte.
+DECISION_ACTIVE,Already under way.,Déjà en cours.
+DECISION_COOLDOWN,Taken recently: not available yet.,Prise récemment : pas encore possible.
+DECISION_UNAVAILABLE,The conditions are not met.,Les conditions ne sont pas réunies.
+DECISION_TOO_EXPENSIVE,We cannot afford it.,Nous n'en avons pas les moyens.
+DECISION_NOT_ACTIVE,This decision is not under way.,Cette décision n'est pas en cours.
+FOCUS_NONE_ACTIVE,No goal under way: choose one in the tree.,Aucun objectif en cours : choisissez-en un dans l'arbre.
+FOCUS_CANCEL,Abandon,Abandonner
+FOCUS_CANCEL_TOOLTIP,Abandon this goal: progress is lost.,Abandonner cet objectif : l'avancement est perdu.
+FOCUS_MONTHS,%d months,%d mois
+FOCUS_UNKNOWN,Unknown goal.,Objectif inconnu.
+FOCUS_DONE,Completed.,Accompli.
+FOCUS_BUSY,Another goal is under way.,Un autre objectif est en cours.
+FOCUS_EXCLUDED,Closed by a choice already made.,Fermé par un choix déjà fait.
+FOCUS_MISSING_PREREQUISITE,Requires an earlier goal.,Demande un objectif précédent.
+FOCUS_UNAVAILABLE,The conditions are not met.,Les conditions ne sont pas réunies.
+FOCUS_NONE,No goal under way.,Aucun objectif en cours.
+EFFECT_ADD_INFLUENCE,Influence %s,Influence %s
+EFFECT_ADD_CORRUPTION,Corruption %s,Corruption %s
+EFFECT_ADD_TECH,Technology acquired: %s,Technologie acquise : %s
+EFFECT_PERMANENT_GROWTH,Growth %s pt (permanent),Croissance %s pt (permanent)
+EFFECT_PERMANENT_UNEMPLOYMENT,Unemployment %s pt (permanent),Chômage %s pt (permanent)
+EFFECT_PERMANENT_INFLATION,Inflation %s pt (permanent),Inflation %s pt (permanent)
+EFFECT_PERMANENT_STABILITY,Target stability %s (permanent),Stabilité visée %s (permanent)
