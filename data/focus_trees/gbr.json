@@ -1,0 +1,100 @@
+{
+  "gbr": {
+    "name_key": "FOCUS_TREE_GBR",
+    "countries": ["GBR"],
+    "include": "generic",
+    "nodes": {
+      "gbr_national_renewal": {
+        "name_key": "FOCUS_GBR_NATIONAL_RENEWAL", "desc_key": "FOCUS_GBR_NATIONAL_RENEWAL_DESC", "x": 10, "y": 6, "months": 6,
+        "effects": {"add_legitimacy": 2, "add_group_satisfaction": {"middle_class": 2}},
+        "ai_weight": 3
+      },
+      "gbr_rejoin_europe": {
+        "name_key": "FOCUS_GBR_REJOIN_EUROPE", "desc_key": "FOCUS_GBR_REJOIN_EUROPE_DESC", "x": 4, "y": 7, "months": 10,
+        "requires": ["gbr_national_renewal"], "exclusive": ["gbr_global_britain"],
+        "effects": {"every_country": {"limit": {"member_of": "eu"}, "effects": {"add_relation": {"with": "from", "value": 12}}},
+          "add_group_satisfaction": {"youth": 4, "farmers": -2}},
+        "ai_weight": 2
+      },
+      "gbr_union_question": {
+        "name_key": "FOCUS_GBR_UNION_QUESTION", "desc_key": "FOCUS_GBR_UNION_QUESTION_DESC", "x": 10, "y": 7, "months": 8,
+        "requires": ["gbr_national_renewal"],
+        "effects": {"set_flag": "gbr_union_debate", "add_stability": -2}
+      },
+      "gbr_global_britain": {
+        "name_key": "FOCUS_GBR_GLOBAL_BRITAIN", "desc_key": "FOCUS_GBR_GLOBAL_BRITAIN_DESC", "x": 16, "y": 7, "months": 10,
+        "requires": ["gbr_national_renewal"], "exclusive": ["gbr_rejoin_europe"],
+        "effects": {"every_country": {"limit": {"tag": ["USA", "CAN", "AUS", "NZL", "JPN", "IND", "SGP"]},
+          "effects": {"add_relation": {"with": "from", "value": 10}}}, "add_influence": 25},
+        "ai_weight": 2
+      },
+      "gbr_single_market": {
+        "name_key": "FOCUS_GBR_SINGLE_MARKET", "desc_key": "FOCUS_GBR_SINGLE_MARKET_DESC", "x": 2, "y": 8, "months": 12,
+        "requires": ["gbr_rejoin_europe"],
+        "effects": {"add_modifier": {"growth": 0.3, "months": -1}, "set_law": {"immigration": "selective"}}
+      },
+      "gbr_eu_accession": {
+        "name_key": "FOCUS_GBR_EU_ACCESSION", "desc_key": "FOCUS_GBR_EU_ACCESSION_DESC", "x": 6, "y": 8, "months": 12,
+        "requires": ["gbr_rejoin_europe"],
+        "available": {"not": {"member_of": "eu"}},
+        "effects": {"join_organization": "eu", "add_modifier": {"growth": 0.2, "months": -1}, "add_legitimacy": 3},
+        "ai_weight": 0.5
+      },
+      "gbr_scottish_referendum": {
+        "name_key": "FOCUS_GBR_SCOTTISH_REFERENDUM", "desc_key": "FOCUS_GBR_SCOTTISH_REFERENDUM_DESC", "x": 9, "y": 8,
+        "months": 10,
+        "requires": ["gbr_union_question"], "exclusive": ["gbr_muscular_unionism"],
+        "available": {"can_release": "scotland"},
+        "effects": {"trigger_event": {"id": "scottish_independence_referendum", "days": 30}},
+        "ai_weight": 0.5
+      },
+      "gbr_muscular_unionism": {
+        "name_key": "FOCUS_GBR_MUSCULAR_UNIONISM", "desc_key": "FOCUS_GBR_MUSCULAR_UNIONISM_DESC", "x": 11, "y": 9,
+        "months": 10,
+        "requires": ["gbr_union_question"], "exclusive": ["gbr_scottish_referendum"],
+        "effects": {"add_modifier": {"stability": 2, "months": -1}, "set_law": {"decentralization": "centralized"},
+          "add_group_satisfaction": {"minorities": -3}},
+        "ai_weight": 1
+      },
+      "gbr_canzuk": {
+        "name_key": "FOCUS_GBR_CANZUK", "desc_key": "FOCUS_GBR_CANZUK_DESC", "x": 14, "y": 8, "months": 12,
+        "requires": ["gbr_global_britain"],
+        "effects": {"every_country": {"limit": {"tag": ["CAN", "AUS", "NZL"]},
+          "effects": {"add_relation": {"with": "from", "value": 20}}}, "add_modifier": {"growth": 0.1, "months": -1}}
+      },
+      "gbr_city_deregulation": {
+        "name_key": "FOCUS_GBR_CITY_DEREGULATION", "desc_key": "FOCUS_GBR_CITY_DEREGULATION_DESC", "x": 18, "y": 8,
+        "months": 10,
+        "requires": ["gbr_global_britain"],
+        "effects": {"set_law": {"banking": "light"}, "add_modifier": {"growth": 0.15, "months": -1},
+          "add_group_satisfaction": {"elites": 4, "workers": -2}}
+      },
+      "gbr_irish_unity": {
+        "name_key": "FOCUS_GBR_IRISH_UNITY", "desc_key": "FOCUS_GBR_IRISH_UNITY_DESC", "x": 7, "y": 10, "months": 12,
+        "requires": ["gbr_union_question"],
+        "available": {"country_exists": "IRL"},
+        "effects": {"transfer_provinces": {"from": "self", "to": "IRL", "provinces": [1267, 1268, 1269, 1270, 1271, 1272, 1273,
+          1274, 1275, 1276, 1277, 1278, 1279, 1280, 1281, 1282, 1283, 1284, 1285, 1286, 1287, 1288, 1318, 1319, 1320, 1354]},
+          "add_relation": {"with": "IRL", "value": 40}, "add_stability": -3, "add_debt_gdp": -0.5},
+        "ai_weight": 0.2
+      },
+      "gbr_aukus_plus": {
+        "name_key": "FOCUS_GBR_AUKUS_PLUS", "desc_key": "FOCUS_GBR_AUKUS_PLUS_DESC", "x": 16, "y": 9, "months": 12,
+        "requires": ["gbr_canzuk"],
+        "effects": {"add_tech": "autonomous_submarines", "add_relation": {"with": "USA", "value": 10}, "add_debt_gdp": 0.5}
+      },
+      "gbr_green_industrial_revolution": {
+        "name_key": "FOCUS_GBR_GREEN_INDUSTRIAL_REVOLUTION", "desc_key": "FOCUS_GBR_GREEN_INDUSTRIAL_REVOLUTION_DESC", "x": 2,
+        "y": 9, "months": 12,
+        "requires": ["gbr_national_renewal"],
+        "effects": {"add_tech": "offshore_wind", "add_modifier": {"growth": 0.05, "inflation": -0.1, "months": -1},
+          "add_group_satisfaction": {"ecologists": 3}}
+      },
+      "gbr_new_settlement": {
+        "name_key": "FOCUS_GBR_NEW_SETTLEMENT", "desc_key": "FOCUS_GBR_NEW_SETTLEMENT_DESC", "x": 10, "y": 11, "months": 12,
+        "requires_any": ["gbr_eu_accession", "gbr_aukus_plus", "gbr_city_deregulation", "gbr_single_market"],
+        "effects": {"add_modifier": {"stability": 2, "growth": 0.1, "months": -1}, "add_influence": 30}
+      }
+    }
+  }
+}

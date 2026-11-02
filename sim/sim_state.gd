@@ -10,6 +10,15 @@ var date: GameDate = GameDate.new()
 var player_tag: StringName = &""
 ## tag → CountryState (rempli par WorldSetup au début de la partie).
 var countries: Dictionary = {}
+## Pays modifiés en cours de partie : nom, couleur, drapeau (tag → {name_key, color, flag}) ; pays dissous
+## (tag → pays qui l'a absorbé).
+var country_overrides: Dictionary = {}
+var dissolved: Dictionary = {}
+## Données de départ de chaque pays (celles passées à WorldSetup, puis celles des pays nés pendant la partie) et
+## pays qui peuvent naître (data/releasables) ; pays nés pendant la partie (tag → identifiant de la définition).
+var country_data: Dictionary = {}
+var releasable_definitions: Dictionary = {}
+var created_countries: Dictionary = {}
 ## identifiant → CurrencyState.
 var currencies: Dictionary = {}
 ## Section « economy » de defines.json, utilisée par les systèmes et les commandes économiques.
@@ -63,6 +72,29 @@ var joint_projects: Array[Dictionary] = []
 ## Course à l'IA : classement (pays en tête d'abord) et premier pays à atteindre l'IA générale.
 var ai_ranking: Array[String] = []
 var agi_first: String = ""
+## Événements scriptés : définitions et réglages, drapeaux par pays et mondiaux, événements déjà survenus
+## ({id: {tag ou "world": true}}), événements du joueur en attente [{id, country, from}], chaînes programmées
+## [{id, country, from, day}].
+var event_definitions: Dictionary = {}
+var event_settings: Dictionary = {}
+var event_flags: Dictionary = {}
+var world_flags: Dictionary = {}
+var events_fired: Dictionary = {}
+var pending_events: Array[Dictionary] = []
+var scheduled_events: Array[Dictionary] = []
+## Événements déclenchés par une action du jeu (élection, guerre, mort d'un dirigeant…) : type d'action →
+## [identifiants], et actions survenues en attente de traitement (copies des événements de simulation).
+var event_actions: Dictionary = {}
+## Décisions (data/decisions), arbres de décisions (data/focus_trees) et réglages (defines.decisions).
+var decision_definitions: Dictionary = {}
+var focus_trees: Dictionary = {}
+var decision_settings: Dictionary = {}
+var action_queue: Array[Dictionary] = []
+## Rangs des pays par PIB, mis en cache pour la journée : {day, ranks: {tag: rang}}.
+var gdp_ranks: Dictionary = {}
+## Dirigeants : chefs de parti remplacés en cours de partie (parti → personnage) et personnages décédés.
+var party_leaders: Dictionary = {}
+var dead_characters: Dictionary = {}
 ## Forces armées : modules remplaçables (modèle, combats, IA) et réglages (defines.military).
 var military: MilitaryRegistry = MilitaryRegistry.new()
 var military_settings: Dictionary = {}
@@ -157,3 +189,5 @@ func add_event(type: StringName, tag: String, details: Dictionary = {}) -> void:
 	var event := {"type": type, "tag": tag}
 	event.merge(details)
 	events.append(event)
+	if event_actions.has(str(type)):
+		action_queue.append(event.duplicate())

@@ -1,0 +1,135 @@
+{
+  "greenland_purchase_offer": {
+    "title_key": "EVENT_GREENLAND_PURCHASE_OFFER_TITLE",
+    "desc_key": "EVENT_GREENLAND_PURCHASE_OFFER_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "news": true,
+    "options": [
+      {"name_key": "EVENT_GREENLAND_PURCHASE_OFFER_A",
+        "effects": {"transfer_provinces": {"from": "self", "to": "from", "provinces": [1512, 1513, 1514, 1515, 1516, 1517]},
+          "add_debt_gdp": -10, "add_legitimacy": -6, "trigger_event": {"id": "greenland_purchased", "target": "from"}},
+        "ai_weight": 1, "ai_modifiers": [{"factor": 0.1, "if": {"relation": {"with": "from", "value": "<60"}}}]},
+      {"name_key": "EVENT_GREENLAND_PURCHASE_OFFER_B", "effects": {"add_relation": {"with": "from", "value": -15},
+        "add_legitimacy": 2}, "ai_weight": 6}
+    ]
+  },
+  "greenland_purchased": {
+    "title_key": "EVENT_GREENLAND_PURCHASED_TITLE",
+    "desc_key": "EVENT_GREENLAND_PURCHASED_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "news": true,
+    "immediate": {"add_debt_gdp": 0.4, "add_influence": 20},
+    "options": [
+      {"name_key": "EVENT_GREENLAND_PURCHASED_A", "effects": {"add_legitimacy": 3}}
+    ]
+  },
+  "north_american_union_proposal": {
+    "title_key": "EVENT_NORTH_AMERICAN_UNION_PROPOSAL_TITLE",
+    "desc_key": "EVENT_NORTH_AMERICAN_UNION_PROPOSAL_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "options": [
+      {"name_key": "EVENT_NORTH_AMERICAN_UNION_PROPOSAL_A", "effects": {"join_country": "from"},
+        "ai_weight": 0.3, "ai_modifiers": [{"factor": 5, "if": {"relation": {"with": "from", "value": ">85"}}},
+          {"factor": 3, "if": {"stability": "<30"}}]},
+      {"name_key": "EVENT_NORTH_AMERICAN_UNION_PROPOSAL_B", "effects": {"add_relation": {"with": "from", "value": -10},
+        "add_legitimacy": 3}, "ai_weight": 5}
+    ]
+  },
+  "cross_strait_union_proposal": {
+    "title_key": "EVENT_CROSS_STRAIT_UNION_PROPOSAL_TITLE",
+    "desc_key": "EVENT_CROSS_STRAIT_UNION_PROPOSAL_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "options": [
+      {"name_key": "EVENT_CROSS_STRAIT_UNION_PROPOSAL_A", "effects": {"join_country": "from"},
+        "ai_weight": 0.2, "ai_modifiers": [{"factor": 10, "if": {"relation": {"with": "from", "value": ">50"}}},
+          {"factor": 20, "if": {"has_flag": "twn_open_to_union"}},
+          {"factor": 4, "if": {"democratic": false}}]},
+      {"name_key": "EVENT_CROSS_STRAIT_UNION_PROPOSAL_B", "effects": {"add_relation": {"with": "from", "value": -20},
+        "add_stability": 3, "add_tension": 3}, "ai_weight": 5}
+    ]
+  },
+  "union_state_proposal": {
+    "title_key": "EVENT_UNION_STATE_PROPOSAL_TITLE",
+    "desc_key": "EVENT_UNION_STATE_PROPOSAL_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "options": [
+      {"name_key": "EVENT_UNION_STATE_PROPOSAL_A", "effects": {"join_country": "from"},
+        "ai_weight": 2, "ai_modifiers": [{"factor": 3, "if": {"relation": {"with": "from", "value": ">60"}}},
+          {"factor": 0.1, "if": {"democratic": true}}]},
+      {"name_key": "EVENT_UNION_STATE_PROPOSAL_B", "effects": {"add_relation": {"with": "from", "value": -25},
+        "add_legitimacy": 4}, "ai_weight": 2}
+    ]
+  },
+  "bhutan_union_proposal": {
+    "title_key": "EVENT_BHUTAN_UNION_PROPOSAL_TITLE",
+    "desc_key": "EVENT_BHUTAN_UNION_PROPOSAL_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "options": [
+      {"name_key": "EVENT_BHUTAN_UNION_PROPOSAL_A", "effects": {"join_country": "from"},
+        "ai_weight": 0.3, "ai_modifiers": [{"factor": 5, "if": {"relation": {"with": "from", "value": ">80"}}}]},
+      {"name_key": "EVENT_BHUTAN_UNION_PROPOSAL_B", "effects": {"add_relation": {"with": "from", "value": 5}}, "ai_weight": 4}
+    ]
+  },
+  "european_federation_proposal": {
+    "title_key": "EVENT_EUROPEAN_FEDERATION_PROPOSAL_TITLE",
+    "desc_key": "EVENT_EUROPEAN_FEDERATION_PROPOSAL_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "options": [
+      {"name_key": "EVENT_EUROPEAN_FEDERATION_PROPOSAL_A",
+        "effects": {"trigger_event": {"id": "european_federation_founded", "target": "from"}, "join_country": "from"},
+        "ai_weight": 1, "ai_modifiers": [{"factor": 4, "if": {"relation": {"with": "from", "value": ">80"}}},
+          {"factor": 0.2, "if": {"relation": {"with": "from", "value": "<60"}}}]},
+      {"name_key": "EVENT_EUROPEAN_FEDERATION_PROPOSAL_B", "effects": {"add_relation": {"with": "from", "value": -10},
+        "add_legitimacy": 2}, "ai_weight": 2}
+    ]
+  },
+  "european_federation_founded": {
+    "title_key": "EVENT_EUROPEAN_FEDERATION_FOUNDED_TITLE",
+    "desc_key": "EVENT_EUROPEAN_FEDERATION_FOUNDED_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "news": true,
+    "immediate": {
+      "rename_country": {"name_key": "COUNTRY_EUF", "color": "#1F3D99", "flag": "res://assets/flags/EUF.svg"},
+      "set_flag": "european_federation",
+      "add_legitimacy": 5,
+      "every_country": {"limit": {"member_of": "eu", "is_player": false, "not": {"tag": ["FRA", "DEU"]}},
+        "effects": {"trigger_event": {"id": "european_federation_invitation", "days": 60, "from": "from"}}}
+    },
+    "options": [
+      {"name_key": "EVENT_EUROPEAN_FEDERATION_FOUNDED_A", "effects": {"add_modifier": {"stability": 2, "months": -1}}}
+    ]
+  },
+  "european_federation_invitation": {
+    "title_key": "EVENT_EUROPEAN_FEDERATION_INVITATION_TITLE",
+    "desc_key": "EVENT_EUROPEAN_FEDERATION_INVITATION_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "options": [
+      {"name_key": "EVENT_EUROPEAN_FEDERATION_INVITATION_A", "effects": {"join_country": "from"},
+        "ai_weight": 0.5, "ai_modifiers": [{"factor": 4, "if": {"relation": {"with": "from", "value": ">75"}}},
+          {"factor": 2, "if": {"gdp_rank": ">40"}}]},
+      {"name_key": "EVENT_EUROPEAN_FEDERATION_INVITATION_B", "effects": {"add_legitimacy": 2}, "ai_weight": 2}
+    ]
+  },
+  "texas_independence_crisis": {
+    "title_key": "EVENT_TEXAS_INDEPENDENCE_CRISIS_TITLE",
+    "desc_key": "EVENT_TEXAS_INDEPENDENCE_CRISIS_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "news": true,
+    "options": [
+      {"name_key": "EVENT_TEXAS_INDEPENDENCE_CRISIS_A", "effects": {"release_country": "texas", "add_stability": 4},
+        "ai_weight": 1},
+      {"name_key": "EVENT_TEXAS_INDEPENDENCE_CRISIS_B", "effects": {"add_stability": -8, "add_legitimacy": -6,
+        "add_group_satisfaction": {"military": 3}}, "ai_weight": 2}
+    ]
+  }
+}

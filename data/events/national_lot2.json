@@ -1,0 +1,177 @@
+{
+  "scottish_independence_referendum": {
+    "title_key": "EVENT_SCOTTISH_INDEPENDENCE_REFERENDUM_TITLE",
+    "desc_key": "EVENT_SCOTTISH_INDEPENDENCE_REFERENDUM_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "news": true,
+    "immediate": {
+      "if": {
+        "random": 0.45
+      },
+      "then": {
+        "trigger_event": {
+          "id": "scotland_votes_yes",
+          "days": 7
+        }
+      },
+      "else": {
+        "trigger_event": {
+          "id": "scotland_votes_no",
+          "days": 7
+        }
+      }
+    }
+  },
+  "scotland_votes_yes": {
+    "title_key": "EVENT_SCOTLAND_VOTES_YES_TITLE",
+    "desc_key": "EVENT_SCOTLAND_VOTES_YES_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "news": true,
+    "options": [
+      {
+        "name_key": "EVENT_SCOTLAND_VOTES_YES_A",
+        "effects": {
+          "release_country": "scotland",
+          "add_legitimacy": 3
+        },
+        "ai_weight": 4
+      },
+      {
+        "name_key": "EVENT_SCOTLAND_VOTES_YES_B",
+        "effects": {
+          "add_stability": -10,
+          "add_legitimacy": -8
+        },
+        "ai_weight": 1
+      }
+    ]
+  },
+  "scotland_votes_no": {
+    "title_key": "EVENT_SCOTLAND_VOTES_NO_TITLE",
+    "desc_key": "EVENT_SCOTLAND_VOTES_NO_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "news": true,
+    "options": [
+      {
+        "name_key": "EVENT_SCOTLAND_VOTES_NO_A",
+        "effects": {
+          "add_stability": 3,
+          "add_legitimacy": 2
+        }
+      }
+    ]
+  },
+  "korean_reunification_proposal": {
+    "title_key": "EVENT_KOREAN_REUNIFICATION_PROPOSAL_TITLE",
+    "desc_key": "EVENT_KOREAN_REUNIFICATION_PROPOSAL_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "options": [
+      {
+        "name_key": "EVENT_KOREAN_REUNIFICATION_PROPOSAL_A",
+        "effects": {
+          "trigger_event": {
+            "id": "korea_reunified",
+            "target": "from"
+          },
+          "join_country": "from"
+        },
+        "ai_weight": 0.05,
+        "ai_modifiers": [
+          {
+            "factor": 20,
+            "if": {
+              "stability": "<25"
+            }
+          },
+          {
+            "factor": 5,
+            "if": {
+              "relation": {
+                "with": "from",
+                "value": ">60"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name_key": "EVENT_KOREAN_REUNIFICATION_PROPOSAL_B",
+        "effects": {
+          "add_relation": {
+            "with": "from",
+            "value": -10
+          },
+          "add_legitimacy": 2
+        },
+        "ai_weight": 3
+      }
+    ]
+  },
+  "korean_confederation_offer": {
+    "title_key": "EVENT_KOREAN_CONFEDERATION_OFFER_TITLE",
+    "desc_key": "EVENT_KOREAN_CONFEDERATION_OFFER_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "options": [
+      {
+        "name_key": "EVENT_KOREAN_CONFEDERATION_OFFER_A",
+        "effects": {
+          "trigger_event": {
+            "id": "korea_reunified",
+            "target": "from"
+          },
+          "join_country": "from"
+        },
+        "ai_weight": 0.02,
+        "ai_modifiers": [
+          {
+            "factor": 10,
+            "if": {
+              "democratic": false
+            }
+          }
+        ]
+      },
+      {
+        "name_key": "EVENT_KOREAN_CONFEDERATION_OFFER_B",
+        "effects": {
+          "add_relation": {
+            "with": "from",
+            "value": 5
+          }
+        },
+        "ai_weight": 3
+      }
+    ]
+  },
+  "korea_reunified": {
+    "title_key": "EVENT_KOREA_REUNIFIED_TITLE",
+    "desc_key": "EVENT_KOREA_REUNIFIED_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "news": true,
+    "immediate": {
+      "rename_country": {
+        "name_key": "COUNTRY_COR",
+        "flag": "res://assets/flags/COR.svg"
+      },
+      "add_legitimacy": 6,
+      "add_tension": -3
+    },
+    "options": [
+      {
+        "name_key": "EVENT_KOREA_REUNIFIED_A",
+        "effects": {
+          "add_modifier": {
+            "stability": 2,
+            "months": -1
+          }
+        }
+      }
+    ]
+  }
+}

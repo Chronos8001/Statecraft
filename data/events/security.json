@@ -1,0 +1,61 @@
+{
+  "terror_attack": {
+    "title_key": "EVENT_TERROR_ATTACK_TITLE",
+    "desc_key": "EVENT_TERROR_ATTACK_DESC",
+    "scope": "country",
+    "trigger": {"any": [{"world_tension": ">40"}, {"at_war": true}, {"stability": "<35"}], "population": ">2"},
+    "mtth_months": 300,
+    "mtth_modifiers": [{"factor": 0.5, "if": {"at_war": true}}, {"factor": 0.5, "if": {"stability": "<25"}},
+      {"factor": 2, "if": {"democratic": false, "stability": ">50"}}],
+    "news": {"any": [{"gdp_rank": "<=20"}, {"is_player_or_neighbor": true}]},
+    "news_key": "EVENT_TERROR_ATTACK_NEWS",
+    "immediate": {
+      "random_province": {"limit": {"population": ">300000"}, "effects": {}},
+      "add_stability": -3
+    },
+    "options": [
+      {"name_key": "EVENT_TERROR_ATTACK_A", "effects": {"add_stability": 3,
+        "if": {"democratic": true}, "then": {"add_legitimacy": -3, "add_group_satisfaction": {"minorities": -4}},
+        "else": {"add_legitimacy": 1}},
+        "ai_weight": 1, "ai_modifiers": [{"factor": 3, "if": {"democratic": false}}]},
+      {"name_key": "EVENT_TERROR_ATTACK_B", "effects": {"add_legitimacy": 3, "add_stability": 1}, "ai_weight": 1,
+        "ai_modifiers": [{"factor": 2, "if": {"democratic": true}}]}
+    ]
+  },
+  "assassination_attempt": {
+    "title_key": "EVENT_ASSASSINATION_ATTEMPT_TITLE",
+    "desc_key": "EVENT_ASSASSINATION_ATTEMPT_DESC",
+    "scope": "country",
+    "trigger": {"stability": "<40"},
+    "mtth_months": 1500,
+    "mtth_modifiers": [{"factor": 0.5, "if": {"stability": "<20"}}, {"factor": 0.7, "if": {"at_war": true}}],
+    "news": {"any": [{"gdp_rank": "<=30"}, {"is_player_or_neighbor": true}]},
+    "news_key": "EVENT_ASSASSINATION_ATTEMPT_NEWS",
+    "immediate": {
+      "if": {"random": 0.1},
+      "then": {"kill_leader": {"role": "head_of_state", "cause": "assassination"}},
+      "else": {"add_legitimacy": 3}
+    },
+    "options": [
+      {"name_key": "EVENT_ASSASSINATION_ATTEMPT_A", "effects": {"add_stability": 2,
+        "if": {"democratic": true}, "then": {"add_legitimacy": -2}},
+        "ai_weight": 1, "ai_modifiers": [{"factor": 3, "if": {"democratic": false}}]},
+      {"name_key": "EVENT_ASSASSINATION_ATTEMPT_B", "effects": {"add_legitimacy": 2}, "ai_weight": 1}
+    ]
+  },
+  "infrastructure_cyberattack": {
+    "title_key": "EVENT_INFRASTRUCTURE_CYBERATTACK_TITLE",
+    "desc_key": "EVENT_INFRASTRUCTURE_CYBERATTACK_DESC",
+    "scope": "country",
+    "trigger": {"world_tension": ">45", "gdp_rank": "<=50"},
+    "mtth_months": 240,
+    "news": {"any": [{"gdp_rank": "<=10"}, {"is_player_or_neighbor": true}]},
+    "news_key": "EVENT_INFRASTRUCTURE_CYBERATTACK_NEWS",
+    "immediate": {"add_modifier": {"growth": -0.3, "months": 3}, "add_stability": -1},
+    "options": [
+      {"name_key": "EVENT_INFRASTRUCTURE_CYBERATTACK_A", "effects": {"add_debt_gdp": 0.2, "add_research": 20},
+        "ai_weight": 2},
+      {"name_key": "EVENT_INFRASTRUCTURE_CYBERATTACK_B", "effects": {"add_tension": 2, "add_stability": 1}, "ai_weight": 1}
+    ]
+  }
+}

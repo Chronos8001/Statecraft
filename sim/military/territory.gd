@@ -9,13 +9,19 @@ extends RefCounted
 const MAX_SHARE := 0.9
 
 
-static func transfer(state: SimState, province_id: String, from: String, to: String) -> void:
+## move_economy = false : population, PIB et demande d'électricité ne bougent pas (pays créé avec sa part).
+static func transfer(state: SimState, province_id: String, from: String, to: String, move_economy: bool = true) -> void:
 	var giver := state.get_country(from)
 	var taker := state.get_country(to)
 	if giver == null or taker == null:
 		return
 	var provinces: Dictionary = state.energy_definitions.get("provinces", {})
 	var province: Dictionary = provinces.get(province_id, {})
+	if not move_economy:
+		_move_resources(state, province_id, province, giver, taker)
+		_move_buildings(state, province_id, giver, taker)
+		_move_districts(state, province_id, from, to)
+		return
 	var population := float(province.get("population", 0))
 	var share := minf(population / maxf(float(giver.economy.population), 1.0), MAX_SHARE)
 	# Population et PIB.

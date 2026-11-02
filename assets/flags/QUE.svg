@@ -1,0 +1,9 @@
+<svg width="320" height="240" viewBox="0 0 640 480" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="480" fill="#003da5"/>
+  <rect x="280" width="80" height="480" fill="#fff"/>
+  <rect y="200" width="640" height="80" fill="#fff"/>
+  <path fill="#fff" d="M140 50l30 50-30 50-30-50z"/>
+  <path fill="#fff" d="M500 50l30 50-30 50-30-50z"/>
+  <path fill="#fff" d="M140 330l30 50-30 50-30-50z"/>
+  <path fill="#fff" d="M500 330l30 50-30 50-30-50z"/>
+</svg>

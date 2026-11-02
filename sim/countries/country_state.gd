@@ -41,6 +41,18 @@ var aid_stability: float = 0.0
 ## Désinformation par IA : stabilité perdue, volatilité des sondages en plus (part).
 var ai_stability: float = 0.0
 var ai_volatility: float = 0.0
+## Modificateurs temporaires des événements [{growth, unemployment, stability, months}] et stabilité visée.
+var event_modifiers: Array[Dictionary] = []
+## Décisions en cours (id → jour de fin) et jour où chacune redevient possible (id → jour).
+var decisions_active: Dictionary = {}
+var decision_ready: Dictionary = {}
+## Arbre de décisions : identifiant de l'arbre, nœuds faits (id → true), nœud en cours et ses jours de début et de fin.
+var focus_tree: String = ""
+var focus_done: Dictionary = {}
+var focus_current: String = ""
+var focus_start_day: int = 0
+var focus_end_day: int = 0
+var event_stability: float = 0.0
 ## Forces armées (null sans données militaires).
 var military: MilitaryState = null
 ## Recherche et technologies (null sans données de recherche).

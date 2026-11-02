@@ -1211,3 +1211,164 @@ AI_PLAN_ACTIVE,A national AI plan is already under way.,Un plan national d'IA es
 NOTIFY_AI_LEADER,%s takes the lead in the AI race.,%s prend la tête de la course à l'IA.
 NOTIFY_AGI,%s is the first to reach general AI: world tension rises.,%s atteint la première l'IA générale : la tension mondiale monte.
 NOTIFY_AI_PLAN,National AI plan launched.,Plan national d'IA lancé.
+EFFECT_ADD_STABILITY,Stability %s,Stabilité %s
+EFFECT_ADD_LEGITIMACY,Legitimacy %s,Légitimité %s
+EFFECT_ADD_TENSION,World tension %s,Tension mondiale %s
+EFFECT_ADD_DEBT,Debt %s bn USD,Dette %s Md USD
+EFFECT_ADD_RESEARCH,Research %s points,Recherche %s points
+EFFECT_MODIFIER_GROWTH,Growth %s pt for %d months,Croissance %s pt pendant %d mois
+EFFECT_MODIFIER_UNEMPLOYMENT,Unemployment %s pt for %d months,Chômage %s pt pendant %d mois
+EFFECT_MODIFIER_STABILITY,Target stability %s for %d months,Stabilité visée %s pendant %d mois
+EFFECT_ADD_RELATION,Relations %s with %s,Relations %s avec %s
+EFFECT_ADD_GROUP,%s: satisfaction %s,%s : satisfaction %s
+EFFECT_SET_LAW,Changes a law,Change une loi
+EFFECT_TRIGGER_EVENT,May have consequences later,Pourrait avoir des suites
+EFFECT_CONDITIONAL,Other effects depending on the situation,D'autres effets selon la situation
+EFFECT_NONE,No direct effect,Aucun effet direct
+EVENT_NOT_PENDING,This event is no longer waiting for an answer.,Cet événement n'attend plus de réponse.
+EFFECT_ADD_DEBT_GDP,Debt %s pt of GDP,Dette %s pt de PIB
+EFFECT_MODIFIER_INFLATION,Inflation %s pt for %d months,Inflation %s pt pendant %d mois
+EFFECT_DAMAGE_INFRASTRUCTURE,Infrastructure %s in a province,Infrastructures %s dans une province
+EFFECT_SUPPLY_SHOCK,%s: world supply %s %% for %d months,%s : offre mondiale %s %% pendant %d mois
+EFFECT_RESOURCE_CAPACITY,New %s deposits,Nouveaux gisements : %s
+EFFECT_CLOSE_STRAIT,%s closed,%s fermé
+EFFECT_OPEN_STRAIT,%s reopened,%s rouvert
+EFFECT_KILL_LEADER,A leader dies,Un dirigeant meurt
+TOPBAR_DECISIONS_BUTTON,Decisions,Décisions
+TOPBAR_DECISIONS_BUTTON_TOOLTIP,One-off decisions and the national decision tree,Décisions ponctuelles et arbre de décisions national
+DECISIONS_TITLE,Decisions,Décisions
+DECISIONS_TAB,Decisions,Décisions
+FOCUS_TAB,National tree,Arbre national
+DECISIONS_ACTIVE,Under way,En cours
+DECISIONS_DAYS_LEFT,%d days left,encore %d jours
+DECISIONS_CANCEL,Cancel,Annuler
+DECISIONS_CANCEL_TOOLTIP,Stop this decision: its cost is not refunded.,Arrêter cette décision : son coût n'est pas remboursé.
+DECISIONS_CATEGORY_ECONOMY,Economy,Économie
+DECISIONS_CATEGORY_POLITICS,Politics,Politique
+DECISIONS_CATEGORY_DIPLOMACY,Diplomacy,Diplomatie
+DECISIONS_CATEGORY_MILITARY,Defence,Défense
+DECISIONS_CATEGORY_SOCIETY,Society,Société
+DECISIONS_COST,Cost: %s,Coût : %s
+DECISIONS_FREE,No cost,Sans coût
+DECISIONS_DURATION,%d days,%d jours
+DECISIONS_IMMEDIATE,Immediate,Immédiat
+DECISIONS_READY_IN,available again in %d days,de nouveau possible dans %d jours
+DECISIONS_TAKE,Take,Prendre
+DECISIONS_COST_DEBT_GDP,%s pt of GDP,%s pt de PIB
+DECISIONS_COST_INFLUENCE,%s influence,%s d'influence
+DECISIONS_COST_STABILITY,%s stability,%s de stabilité
+DECISIONS_COST_LEGITIMACY,%s legitimacy,%s de légitimité
+DECISION_UNKNOWN,This decision is not open to us.,Cette décision ne nous est pas ouverte.
+DECISION_ACTIVE,Already under way.,Déjà en cours.
+DECISION_COOLDOWN,Taken recently: not available yet.,Prise récemment : pas encore possible.
+DECISION_UNAVAILABLE,The conditions are not met.,Les conditions ne sont pas réunies.
+DECISION_TOO_EXPENSIVE,We cannot afford it.,Nous n'en avons pas les moyens.
+DECISION_NOT_ACTIVE,This decision is not under way.,Cette décision n'est pas en cours.
+FOCUS_NONE_ACTIVE,No goal under way: choose one in the tree.,Aucun objectif en cours : choisissez-en un dans l'arbre.
+FOCUS_CANCEL,Abandon,Abandonner
+FOCUS_CANCEL_TOOLTIP,Abandon this goal: progress is lost.,Abandonner cet objectif : l'avancement est perdu.
+FOCUS_MONTHS,%d months,%d mois
+FOCUS_UNKNOWN,Unknown goal.,Objectif inconnu.
+FOCUS_DONE,Completed.,Accompli.
+FOCUS_BUSY,Another goal is under way.,Un autre objectif est en cours.
+FOCUS_EXCLUDED,Closed by a choice already made.,Fermé par un choix déjà fait.
+FOCUS_MISSING_PREREQUISITE,Requires an earlier goal.,Demande un objectif précédent.
+FOCUS_UNAVAILABLE,The conditions are not met.,Les conditions ne sont pas réunies.
+FOCUS_NONE,No goal under way.,Aucun objectif en cours.
+EFFECT_ADD_INFLUENCE,Influence %s,Influence %s
+EFFECT_ADD_CORRUPTION,Corruption %s,Corruption %s
+EFFECT_ADD_TECH,Technology acquired: %s,Technologie acquise : %s
+EFFECT_PERMANENT_GROWTH,Growth %s pt (permanent),Croissance %s pt (permanent)
+EFFECT_PERMANENT_UNEMPLOYMENT,Unemployment %s pt (permanent),Chômage %s pt (permanent)
+EFFECT_PERMANENT_INFLATION,Inflation %s pt (permanent),Inflation %s pt (permanent)
+EFFECT_PERMANENT_STABILITY,Target stability %s (permanent),Stabilité visée %s (permanent)
+NOTIFY_COUNTRY_ANNEXED,%s and %s are now one country,%s et %s ne forment plus qu'un seul pays
+EFFECT_ANNEX_COUNTRY,Absorbs %s,Absorbe : %s
+EFFECT_JOIN_COUNTRY,Joins %s,Rejoint : %s
+EFFECT_RENAME_COUNTRY,The country becomes: %s,Le pays devient : %s
+ANNEX_INVALID,This union is not possible.,Cette union n'est pas possible.
+ANNEX_PLAYER,Your country cannot be absorbed.,Votre pays ne peut pas être absorbé.
+DIPLOMACY_DEV_ANNEX,Absorb (dev),Absorber (dév.)
+DIPLOMACY_DEV_ANNEX_TOOLTIP,Development version: peaceful union with this country.,Version de développement : union pacifique avec ce pays.
+NOTIFY_COUNTRY_RELEASED,%s proclaims its independence from %s,%s proclame son indépendance vis-à-vis de : %s
+EFFECT_RELEASE_COUNTRY,Independence of %s,Indépendance : %s
+RELEASE_INVALID,This independence is not possible.,Cette indépendance n'est pas possible.
+DIPLOMACY_DEV_RELEASE,Release (dev),Libérer (dév.)
+EFFECT_SET_REGIME,New regime: %s,Nouveau régime : %s
+EFFECT_JOIN_ORGANIZATION,Joins: %s,Adhère à : %s
+EFFECT_LEAVE_ORGANIZATION,Leaves: %s,Quitte : %s
+EFFECT_DECLARE_WAR,War against %s,Guerre contre : %s
+EFFECT_ADD_CLAIM,Claim on %s,Revendication sur : %s
+EFFECT_TRANSFER_PROVINCES,%d provinces change hands,%d provinces changent de mains
+MENU_EDITOR,Event editor,Éditeur d'événements
+MENU_EDITOR_TOOLTIP,Create and edit events for your mods,Créer et modifier des événements pour vos mods
+EDITOR_TITLE,Event editor,Éditeur d'événements
+EDITOR_NEW_MOD,New mod,Nouveau mod
+EDITOR_NEW_MOD_NAME,My mod %d,Mon mod %d
+EDITOR_NO_MOD,No mod yet,Aucun mod pour l'instant
+EDITOR_MOD_CREATED,Mod created in %s,Mod créé dans %s
+EDITOR_FILTER,Search an event,Chercher un événement
+EDITOR_NEW_EVENT,New,Nouveau
+EDITOR_DUPLICATE,Copy to mod,Copier dans le mod
+EDITOR_DELETE,Delete,Supprimer
+EDITOR_BACK,Back to menu,Retour au menu
+EDITOR_ID,Identifier,Identifiant
+EDITOR_SCOPE,Scope,Portée
+EDITOR_SCOPE_COUNTRY,Each country,Chaque pays
+EDITOR_SCOPE_WORLD,World,Monde
+EDITOR_MTTH,"Mean time (months, 0 = none)","Délai moyen (mois, 0 = aucun)"
+EDITOR_FLAGS,Options,Options
+EDITOR_ONCE,Only once,Une seule fois
+EDITOR_TRIGGERED_ONLY,Chain only,Seulement par chaîne
+EDITOR_ON_ACTION,Triggered by,Déclenché par
+EDITOR_NO_ACTION,No game action,Aucune action du jeu
+EDITOR_ACTION_SCOPE,For,Pour
+EDITOR_ACTION_SCOPE_ACTOR,The country that acts,Le pays qui agit
+EDITOR_ACTION_SCOPE_OTHERS,Every other country,Chaque autre pays
+EDITOR_ACTION_CHANCE,Chance,Probabilité
+EDITOR_TITLE_EN,Title (English),Titre (anglais)
+EDITOR_TITLE_FR,Title (French),Titre (français)
+EDITOR_DESC_EN,"Text (English) — {country}, {from}, {province} allowed","Texte (anglais) — {country}, {from}, {province} acceptés"
+EDITOR_DESC_FR,"Text (French) — {country}, {from}, {province} allowed","Texte (français) — {country}, {from}, {province} acceptés"
+EDITOR_TRIGGER,Trigger (JSON conditions),Déclencheur (conditions JSON)
+EDITOR_MTTH_MODIFIERS,Mean time factors (JSON list),Facteurs du délai moyen (liste JSON)
+EDITOR_IMMEDIATE,Immediate effects (JSON),Effets immédiats (JSON)
+EDITOR_NEWS,News for the player (true or JSON conditions),Nouvelle pour le joueur (true ou conditions JSON)
+EDITOR_OPTIONS,Choices,Choix
+EDITOR_ADD_OPTION,Add,Ajouter
+EDITOR_REMOVE_OPTION,Remove last,Retirer le dernier
+EDITOR_OPTION,Choice %d,Choix %d
+EDITOR_OPTION_NAME_EN,Text (English),Texte (anglais)
+EDITOR_OPTION_NAME_FR,Text (French),Texte (français)
+EDITOR_OPTION_EFFECTS,Effects (JSON),Effets (JSON)
+EDITOR_OPTION_AI_WEIGHT,AI weight,Poids pour l'IA
+EDITOR_OPTION_AI_MODIFIERS,AI factors (JSON list),Facteurs de l'IA (liste JSON)
+EDITOR_HELP,Help: double-click to insert,Aide : double-clic pour insérer
+EDITOR_CONDITIONS,Conditions,Conditions
+EDITOR_EFFECTS,Effects,Effets
+EDITOR_ERRORS,Checks,Vérifications
+EDITOR_NO_ERROR,No error.,Aucune erreur.
+EDITOR_ERROR_JSON,A JSON field cannot be read.,Un champ JSON est illisible.
+EDITOR_ERROR_ID,"Identifier: lowercase letters, digits and _ only.","Identifiant : minuscules, chiffres et _ seulement."
+EDITOR_ERROR_OPTIONS,At most %d choices.,Au plus %d choix.
+EDITOR_ERROR_TEXT,Missing text: %s,Texte manquant : %s
+EDITOR_PREVIEW,Preview,Aperçu
+EDITOR_TEST,Test,Tester
+EDITOR_TEST_COUNTRY,"Country code for the test (FRA, USA…)","Code du pays pour l'essai (FRA, USA…)"
+EDITOR_TEST_OPTION,Choice applied during the test,Choix appliqué pendant l'essai
+EDITOR_TEST_PREPARING,Preparing a test game…,Préparation d'une partie de test…
+EDITOR_TEST_TITLE,Test result,Résultat de l'essai
+EDITOR_TEST_NO_COUNTRY,This country does not exist.,Ce pays n'existe pas.
+EDITOR_TEST_TRIGGER_TRUE,The trigger is true for %s.,Le déclencheur est vrai pour %s.
+EDITOR_TEST_TRIGGER_FALSE,The trigger is false for %s.,Le déclencheur est faux pour %s.
+EDITOR_TEST_CHANCE,Chance per month: %s %%,Chance par mois : %s %%
+EDITOR_TEST_EVENTS,Game events: %s,Événements de jeu : %s
+EDITOR_VALUE_STABILITY,Stability,Stabilité
+EDITOR_VALUE_LEGITIMACY,Legitimacy,Légitimité
+EDITOR_VALUE_GROWTH,Growth modifier,Modificateur de croissance
+EDITOR_VALUE_UNEMPLOYMENT,Unemployment modifier,Modificateur de chômage
+EDITOR_VALUE_INFLATION,Inflation modifier,Modificateur d'inflation
+EDITOR_VALUE_DEBT,Debt (% of GDP),Dette (% du PIB)
+EDITOR_SAVE,Save to mod,Enregistrer dans le mod
+EDITOR_SAVED,Saved in %s (loaded in game once mods are enabled).,Enregistré dans %s (chargé en partie quand les mods seront activés).
+EDITOR_NEED_MOD,Create or choose a mod first.,Créez ou choisissez d'abord un mod.

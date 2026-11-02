@@ -121,7 +121,6 @@ static func hold_legislative(country: CountryState, state: SimState) -> void:
 static func hold_presidential(country: CountryState, state: SimState) -> void:
 	var politics := country.politics
 	var settings := settings_of(state)
-	var definitions: Dictionary = state.politics_definitions.get("parties", {})
 	var incumbent_party := str(GovernmentSystem.character(state, politics.head_of_state).get("party", ""))
 	var result := {"kind": KIND_PRESIDENTIAL, "year": state.date.year, "month": state.date.month,
 		"government_changed": false}
@@ -141,7 +140,7 @@ static func hold_presidential(country: CountryState, state: SimState) -> void:
 		if not winner.is_empty() and winner == incumbent_party and term_limited(politics):
 			_install_successor(country, state, winner)
 		if not winner.is_empty() and winner != incumbent_party:
-			var leader := str((definitions.get(winner, {}) as Dictionary).get("leader", ""))
+			var leader := LeaderSystem.party_leader(state, winner)
 			if not leader.is_empty():
 				var same_person := politics.head_of_government == politics.head_of_state
 				politics.head_of_state = leader
@@ -185,8 +184,7 @@ static func apply_government(country: CountryState, state: SimState, government:
 	politics.ideology = new_ruling.ideology
 	GovernmentSystem.form_cabinet(country, state)
 	if politics.executive == PoliticsState.EXECUTIVE_PARLIAMENTARY:
-		var leader := str((state.politics_definitions.get("parties", {}) as Dictionary).get(new_ruling.id, {}).get(
-			"leader", ""))
+		var leader := LeaderSystem.party_leader(state, new_ruling.id)
 		if not leader.is_empty():
 			politics.head_of_government = leader
 	return true

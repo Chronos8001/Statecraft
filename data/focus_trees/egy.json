@@ -1,0 +1,291 @@
+{
+  "egy": {
+    "name_key": "FOCUS_TREE_EGY",
+    "countries": [
+      "EGY"
+    ],
+    "include": "generic",
+    "nodes": {
+      "egy_new_republic": {
+        "name_key": "FOCUS_EGY_NEW_REPUBLIC",
+        "desc_key": "FOCUS_EGY_NEW_REPUBLIC_DESC",
+        "x": 10,
+        "y": 6,
+        "months": 6,
+        "effects": {
+          "add_legitimacy": 2,
+          "add_modifier": {
+            "stability": 1,
+            "months": -1
+          }
+        },
+        "ai_weight": 3
+      },
+      "egy_imf_reforms": {
+        "name_key": "FOCUS_EGY_IMF_REFORMS",
+        "desc_key": "FOCUS_EGY_IMF_REFORMS_DESC",
+        "x": 4,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "egy_new_republic"
+        ],
+        "exclusive": [
+          "egy_army_economy"
+        ],
+        "effects": {
+          "set_law": {
+            "fuel_subsidies": "none"
+          },
+          "add_debt_gdp": -2,
+          "add_group_satisfaction": {
+            "workers": -4,
+            "middle_class": -2
+          },
+          "add_modifier": {
+            "growth": 0.2,
+            "months": -1
+          }
+        },
+        "ai_weight": 1
+      },
+      "egy_new_capital": {
+        "name_key": "FOCUS_EGY_NEW_CAPITAL",
+        "desc_key": "FOCUS_EGY_NEW_CAPITAL_DESC",
+        "x": 10,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "egy_new_republic"
+        ],
+        "effects": {
+          "add_debt_gdp": 2,
+          "add_legitimacy": 2,
+          "add_modifier": {
+            "growth": 0.05,
+            "months": -1
+          }
+        }
+      },
+      "egy_army_economy": {
+        "name_key": "FOCUS_EGY_ARMY_ECONOMY",
+        "desc_key": "FOCUS_EGY_ARMY_ECONOMY_DESC",
+        "x": 16,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "egy_new_republic"
+        ],
+        "exclusive": [
+          "egy_imf_reforms"
+        ],
+        "effects": {
+          "add_group_satisfaction": {
+            "military": 5,
+            "elites": -2
+          },
+          "add_corruption": 3,
+          "add_modifier": {
+            "stability": 2,
+            "months": -1
+          }
+        },
+        "ai_weight": 2
+      },
+      "egy_suez_economic_zone": {
+        "name_key": "FOCUS_EGY_SUEZ_ECONOMIC_ZONE",
+        "desc_key": "FOCUS_EGY_SUEZ_ECONOMIC_ZONE_DESC",
+        "x": 2,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "egy_imf_reforms"
+        ],
+        "effects": {
+          "add_modifier": {
+            "growth": 0.2,
+            "months": -1
+          }
+        }
+      },
+      "egy_gaza_mediator": {
+        "name_key": "FOCUS_EGY_GAZA_MEDIATOR",
+        "desc_key": "FOCUS_EGY_GAZA_MEDIATOR_DESC",
+        "x": 6,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "egy_new_republic"
+        ],
+        "effects": {
+          "add_influence": 30,
+          "every_country": {
+            "limit": {
+              "tag": [
+                "USA",
+                "ISR",
+                "QAT",
+                "PSE"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 8
+              }
+            }
+          }
+        }
+      },
+      "egy_green_hydrogen_coast": {
+        "name_key": "FOCUS_EGY_GREEN_HYDROGEN_COAST",
+        "desc_key": "FOCUS_EGY_GREEN_HYDROGEN_COAST_DESC",
+        "x": 10,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "egy_new_capital"
+        ],
+        "effects": {
+          "add_tech": "green_hydrogen",
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          }
+        }
+      },
+      "egy_nile_diplomacy": {
+        "name_key": "FOCUS_EGY_NILE_DIPLOMACY",
+        "desc_key": "FOCUS_EGY_NILE_DIPLOMACY_DESC",
+        "x": 14,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "egy_new_republic"
+        ],
+        "exclusive": [
+          "egy_strike_the_dam"
+        ],
+        "effects": {
+          "add_relation": {
+            "with": "ETH",
+            "value": 20
+          },
+          "every_country": {
+            "limit": {
+              "tag": [
+                "SDN"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 10
+              }
+            }
+          }
+        }
+      },
+      "egy_strike_the_dam": {
+        "name_key": "FOCUS_EGY_STRIKE_THE_DAM",
+        "desc_key": "FOCUS_EGY_STRIKE_THE_DAM_DESC",
+        "x": 18,
+        "y": 8,
+        "months": 8,
+        "requires": [
+          "egy_army_economy"
+        ],
+        "exclusive": [
+          "egy_nile_diplomacy"
+        ],
+        "available": {
+          "country_exists": "ETH",
+          "world_tension": ">50",
+          "relation": {
+            "with": "ETH",
+            "value": "<-30"
+          }
+        },
+        "effects": {
+          "declare_war": {
+            "target": "ETH",
+            "goal": "reparations"
+          },
+          "add_group_satisfaction": {
+            "military": 4
+          }
+        },
+        "ai_weight": 0.1
+      },
+      "egy_second_revolution": {
+        "name_key": "FOCUS_EGY_SECOND_REVOLUTION",
+        "desc_key": "FOCUS_EGY_SECOND_REVOLUTION_DESC",
+        "x": 8,
+        "y": 9,
+        "months": 10,
+        "requires": [
+          "egy_imf_reforms"
+        ],
+        "available": {
+          "stability": "<30"
+        },
+        "effects": {
+          "set_regime": "semi_presidential_republic",
+          "set_law": {
+            "press_freedom": "free",
+            "assembly": "free"
+          },
+          "add_stability": -12,
+          "add_modifier": {
+            "stability": 3,
+            "months": -1
+          },
+          "add_group_satisfaction": {
+            "youth": 6,
+            "military": -6
+          }
+        },
+        "ai_weight": 0.05
+      },
+      "egy_pharaonic_projects": {
+        "name_key": "FOCUS_EGY_PHARAONIC_PROJECTS",
+        "desc_key": "FOCUS_EGY_PHARAONIC_PROJECTS_DESC",
+        "x": 16,
+        "y": 9,
+        "months": 12,
+        "requires": [
+          "egy_army_economy"
+        ],
+        "effects": {
+          "add_debt_gdp": 1.5,
+          "add_legitimacy": 3,
+          "add_group_satisfaction": {
+            "workers": 3
+          }
+        }
+      },
+      "egy_mother_of_the_world": {
+        "name_key": "FOCUS_EGY_MOTHER_OF_THE_WORLD",
+        "desc_key": "FOCUS_EGY_MOTHER_OF_THE_WORLD_DESC",
+        "x": 10,
+        "y": 11,
+        "months": 12,
+        "requires_any": [
+          "egy_suez_economic_zone",
+          "egy_green_hydrogen_coast",
+          "egy_pharaonic_projects",
+          "egy_strike_the_dam",
+          "egy_second_revolution"
+        ],
+        "effects": {
+          "add_modifier": {
+            "stability": 2,
+            "growth": 0.05,
+            "months": -1
+          },
+          "add_influence": 30
+        }
+      }
+    }
+  }
+}

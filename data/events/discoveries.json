@@ -1,0 +1,72 @@
+{
+  "oil_discovery": {
+    "title_key": "EVENT_OIL_DISCOVERY_TITLE",
+    "desc_key": "EVENT_OIL_DISCOVERY_DESC",
+    "scope": "country",
+    "trigger": {"population": ">0.5"},
+    "mtth_months": 4000,
+    "once": true,
+    "news": {"any": [{"gdp_rank": "<=20"}, {"is_player_or_neighbor": true}]},
+    "news_key": "EVENT_OIL_DISCOVERY_NEWS",
+    "immediate": {"add_resource_capacity": {"resource": "oil", "world_share": 0.005}},
+    "options": [
+      {"name_key": "EVENT_OIL_DISCOVERY_A", "effects": {"add_legitimacy": 2, "add_debt_gdp": 0.5,
+        "add_group_satisfaction": {"workers": 2}}, "ai_weight": 1,
+        "ai_modifiers": [{"factor": 2, "if": {"democratic": false}}]},
+      {"name_key": "EVENT_OIL_DISCOVERY_B", "effects": {"add_modifier": {"growth": 0.4, "months": 24},
+        "add_group_satisfaction": {"elites": 3, "ecologists": -2}}, "ai_weight": 1}
+    ]
+  },
+  "gas_discovery": {
+    "title_key": "EVENT_GAS_DISCOVERY_TITLE",
+    "desc_key": "EVENT_GAS_DISCOVERY_DESC",
+    "scope": "country",
+    "trigger": {"population": ">0.5"},
+    "mtth_months": 4000,
+    "once": true,
+    "news": {"any": [{"gdp_rank": "<=20"}, {"is_player_or_neighbor": true}]},
+    "news_key": "EVENT_GAS_DISCOVERY_NEWS",
+    "immediate": {"add_resource_capacity": {"resource": "gas", "world_share": 0.006}},
+    "options": [
+      {"name_key": "EVENT_GAS_DISCOVERY_A", "effects": {"add_modifier": {"growth": 0.3, "months": 24}}, "ai_weight": 1},
+      {"name_key": "EVENT_GAS_DISCOVERY_B", "effects": {"add_group_satisfaction": {"ecologists": 3},
+        "add_legitimacy": 1}, "ai_weight": 0.3}
+    ]
+  },
+  "critical_minerals_discovery": {
+    "title_key": "EVENT_CRITICAL_MINERALS_TITLE",
+    "desc_key": "EVENT_CRITICAL_MINERALS_DESC",
+    "scope": "country",
+    "trigger": {"population": ">1"},
+    "mtth_months": 5000,
+    "once": true,
+    "news": {"any": [{"gdp_rank": "<=20"}, {"is_player_or_neighbor": true}]},
+    "news_key": "EVENT_CRITICAL_MINERALS_NEWS",
+    "immediate": {
+      "if": {"random": 0.5},
+      "then": {"add_resource_capacity": {"resource": "lithium", "world_share": 0.02}},
+      "else": {"add_resource_capacity": {"resource": "rare_earths", "world_share": 0.02}}
+    },
+    "options": [
+      {"name_key": "EVENT_CRITICAL_MINERALS_A", "effects": {"add_modifier": {"growth": 0.2, "months": 24},
+        "add_group_satisfaction": {"workers": 2}}, "ai_weight": 1},
+      {"name_key": "EVENT_CRITICAL_MINERALS_B", "effects": {"add_group_satisfaction": {"ecologists": 3}, "add_research": 30},
+        "ai_weight": 0.5}
+    ]
+  },
+  "scientific_breakthrough": {
+    "title_key": "EVENT_SCIENTIFIC_BREAKTHROUGH_TITLE",
+    "desc_key": "EVENT_SCIENTIFIC_BREAKTHROUGH_DESC",
+    "scope": "country",
+    "trigger": {"gdp_rank": "<=40"},
+    "mtth_months": 360,
+    "mtth_modifiers": [{"factor": 0.6, "if": {"gdp_rank": "<=10"}}],
+    "news": {"gdp_rank": "<=5"},
+    "news_key": "EVENT_SCIENTIFIC_BREAKTHROUGH_NEWS",
+    "options": [
+      {"name_key": "EVENT_SCIENTIFIC_BREAKTHROUGH_A", "effects": {"add_research": 80}, "ai_weight": 1},
+      {"name_key": "EVENT_SCIENTIFIC_BREAKTHROUGH_B", "effects": {"add_modifier": {"growth": 0.2, "months": 24},
+        "add_legitimacy": 1}, "ai_weight": 1}
+    ]
+  }
+}

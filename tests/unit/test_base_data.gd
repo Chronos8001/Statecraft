@@ -249,12 +249,18 @@ func test_every_country_has_a_flag() -> void:
 				"proportions 4:3 du drapeau de %s" % tag)
 
 
+## Chaque drapeau sert à un pays de départ, à un pays qui peut naître (data/releasables) ou à un pays renommé
+## par un événement (« rename_country »).
 func test_no_flag_without_country() -> void:
-	var countries := _repository.get_category("countries")
+	var allowed: Dictionary = _repository.get_category("countries").duplicate()
+	for definition: Variant in _repository.get_category("releasables").values():
+		allowed[str((definition as Dictionary)["tag"])] = true
+	var events := JSON.stringify(_repository.get_category("events"))
 	var flag_dir := CountryFlags.DEFAULT_PATH.get_base_dir()
 	for file_name: String in DirAccess.get_files_at(flag_dir):
 		if file_name.get_extension() == "svg":
-			assert_true(countries.has(file_name.get_basename()), "drapeau en trop : %s" % file_name)
+			assert_true(allowed.has(file_name.get_basename()) or events.contains(flag_dir + "/" + file_name),
+				"drapeau en trop : %s" % file_name)
 
 
 func _selection() -> CountrySelection:

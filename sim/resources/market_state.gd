@@ -16,6 +16,9 @@ var supply_trend: float = 0.0
 ## Offre et demande mondiales du dernier mois (unités de la ressource).
 var supply: float = 0.0
 var demand: float = 0.0
+## Choc d'offre temporaire (part de la production mondiale perdue) et mois restants.
+var shock: float = 0.0
+var shock_months: int = 0
 
 
 func price_ratio() -> float:

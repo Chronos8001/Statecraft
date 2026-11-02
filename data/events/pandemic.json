@@ -1,0 +1,65 @@
+{
+  "pandemic_outbreak": {
+    "title_key": "EVENT_PANDEMIC_OUTBREAK_TITLE",
+    "desc_key": "EVENT_PANDEMIC_OUTBREAK_DESC",
+    "scope": "world",
+    "trigger": {"year": ">=2027", "not": {"has_world_flag": "pandemic"}},
+    "mtth_months": 240,
+    "immediate": {
+      "set_world_flag": "pandemic",
+      "add_tension": 2,
+      "random_country": {"limit": {"population": ">30", "gdp_rank": "<=80"}, "effects": {"set_flag": "pandemic_origin",
+        "add_stability": -4, "add_modifier": {"growth": -1.0, "months": 6}}},
+      "trigger_event": {"id": "pandemic_spread", "days": 75}
+    },
+    "options": [
+      {"name_key": "EVENT_PANDEMIC_OUTBREAK_A", "effects": {"add_modifier": {"growth": -0.3, "stability": 1, "months": 6}}},
+      {"name_key": "EVENT_PANDEMIC_OUTBREAK_B", "effects": {"if": {"random": 0.5}, "then": {"add_stability": -2}}}
+    ]
+  },
+  "pandemic_spread": {
+    "title_key": "EVENT_PANDEMIC_SPREAD_TITLE",
+    "desc_key": "EVENT_PANDEMIC_SPREAD_DESC",
+    "scope": "world",
+    "triggered_only": true,
+    "immediate": {
+      "every_country": {"effects": {"add_modifier": {"growth": -1.5, "unemployment": 0.8, "months": 12},
+        "trigger_event": "pandemic_response"}},
+      "trigger_event": {"id": "pandemic_vaccine", "days": 420}
+    },
+    "options": [
+      {"name_key": "EVENT_PANDEMIC_SPREAD_A", "effects": {}}
+    ]
+  },
+  "pandemic_response": {
+    "title_key": "EVENT_PANDEMIC_RESPONSE_TITLE",
+    "desc_key": "EVENT_PANDEMIC_RESPONSE_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "options": [
+      {"name_key": "EVENT_PANDEMIC_RESPONSE_A",
+        "effects": {"add_modifier": {"growth": -2.0, "unemployment": 1.2, "stability": 2, "months": 6}, "add_debt_gdp": 3},
+        "ai_weight": 2, "ai_modifiers": [{"factor": 2, "if": {"democratic": true}}, {"factor": 0.5, "if": {"debt": ">120"}}]},
+      {"name_key": "EVENT_PANDEMIC_RESPONSE_B",
+        "effects": {"add_modifier": {"growth": -0.8, "unemployment": 0.5, "stability": -2, "months": 9}, "add_debt_gdp": 1.5},
+        "ai_weight": 2},
+      {"name_key": "EVENT_PANDEMIC_RESPONSE_C",
+        "effects": {"add_stability": -5, "add_legitimacy": -4, "add_modifier": {"growth": -0.3, "months": 6}},
+        "ai_weight": 1, "ai_modifiers": [{"factor": 3, "if": {"democratic": false}}, {"factor": 2, "if": {"debt": ">120"}}]}
+    ]
+  },
+  "pandemic_vaccine": {
+    "title_key": "EVENT_PANDEMIC_VACCINE_TITLE",
+    "desc_key": "EVENT_PANDEMIC_VACCINE_DESC",
+    "scope": "world",
+    "triggered_only": true,
+    "immediate": {
+      "clear_world_flag": "pandemic",
+      "every_country": {"effects": {"add_modifier": {"growth": 0.8, "months": 12}, "add_stability": 2}}
+    },
+    "options": [
+      {"name_key": "EVENT_PANDEMIC_VACCINE_A", "effects": {"add_debt_gdp": 0.3, "add_legitimacy": 2, "add_tension": -1}},
+      {"name_key": "EVENT_PANDEMIC_VACCINE_B", "effects": {"add_stability": 2}}
+    ]
+  }
+}

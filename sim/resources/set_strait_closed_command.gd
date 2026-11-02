@@ -1,7 +1,7 @@
 class_name SetStraitClosedCommand
 extends Command
-## Ferme ou rouvre un détroit au commerce des ressources. Pour l'instant réservée aux tests et au mode
-## développement ; les blocus militaires (étape 7) et les événements (étape 9) l'utiliseront.
+## Ferme ou rouvre un détroit au commerce des ressources (tests et mode développement ; les événements passent
+## par ResourceSystem.set_strait_closed).
 
 var strait_id: String = ""
 var closed: bool = true
@@ -22,12 +22,7 @@ func can_execute(state: SimState) -> bool:
 
 
 func execute(state: SimState) -> void:
-	if closed:
-		state.closed_straits[strait_id] = true
-		state.add_event(ResourceSystem.EVENT_STRAIT_CLOSED, "", {"strait": strait_id})
-	else:
-		state.closed_straits.erase(strait_id)
-		state.add_event(ResourceSystem.EVENT_STRAIT_OPENED, "", {"strait": strait_id})
+	ResourceSystem.set_strait_closed(state, strait_id, closed)
 
 
 func to_dict() -> Dictionary:

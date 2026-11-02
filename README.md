@@ -69,6 +69,10 @@ mods/mon_mod/
     localization/mon_mod.csv
 ```
 
+### Éditeur d'événements
+
+Le bouton **Éditeur d'événements** de l'écran titre permet de créer un mod et d'y écrire des événements sans toucher aux fichiers : réglages, textes français et anglais, déclencheur et effets en JSON (double-clic sur un modèle de condition ou d'effet pour l'insérer), vérification en direct, aperçu et essai dans une partie de test. Les événements du jeu peuvent être copiés dans le mod pour servir de point de départ. L'éditeur enregistre dans `data/events/editor_events.json` et `data/localization/editor_events.csv` du mod.
+
 Les fichiers d'un mod sont fusionnés par-dessus les données du jeu, entrée par entrée :
 
 - une valeur remplace la valeur d'origine (les tableaux sont remplacés en entier) ;

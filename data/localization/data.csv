@@ -754,3 +754,1230 @@ LAW_AI_REGULATION,AI regulation,Régulation de l'IA
 LAW_AI_REGULATION_OPEN,Open,Libre
 LAW_AI_REGULATION_FRAMED,Framed,Encadrée
 LAW_AI_REGULATION_STRICT,Strict,Stricte
+EVENT_UNREST_WAVE_TITLE,A wave of discontent,Vague de mécontentement
+EVENT_UNREST_WAVE_DESC,"Across {country}, unions, students and shopkeepers march together. The cabinet must answer before the movement hardens.","Dans tout le pays ({country}), syndicats, étudiants et commerçants défilent ensemble. Le gouvernement doit répondre avant que le mouvement ne se durcisse."
+EVENT_UNREST_WAVE_A,Open talks and fund a support package,Ouvrir le dialogue et financer un plan de soutien
+EVENT_UNREST_WAVE_B,Restore order,Rétablir l'ordre
+EVENT_SOCIAL_MEDIA_SCANDAL_TITLE,Leaked messages,Messages divulgués
+EVENT_SOCIAL_MEDIA_SCANDAL_DESC,Private messages from a minister go viral overnight. The opposition demands explanations.,Des messages privés d'un ministre se répandent sur les réseaux en une nuit. L'opposition exige des explications.
+EVENT_SOCIAL_MEDIA_SCANDAL_A,Apologise and dismiss the minister,S'excuser et limoger le ministre
+EVENT_SOCIAL_MEDIA_SCANDAL_B,Deny everything,Tout démentir
+EVENT_SCANDAL_REVELATIONS_TITLE,New revelations,Nouvelles révélations
+EVENT_SCANDAL_REVELATIONS_DESC,An investigative outlet publishes proof that the government lied about the leaked messages.,Un média d'investigation publie la preuve que le gouvernement a menti sur les messages divulgués.
+EVENT_SCANDAL_REVELATIONS_A,Weather the storm,Faire le dos rond
+EVENT_AI_BREAKTHROUGH_TITLE,AI breakthrough,Percée en intelligence artificielle
+EVENT_AI_BREAKTHROUGH_DESC,A national lab announces a model far ahead of the competition. How should its results be used?,Un laboratoire national annonce un modèle bien en avance sur la concurrence. Comment exploiter ses résultats ?
+EVENT_AI_BREAKTHROUGH_A,Put it to work in our research labs,Le mettre au service de nos laboratoires
+EVENT_AI_BREAKTHROUGH_B,License it to our companies,Le licencier à nos entreprises
+EVENT_HEATWAVE_TITLE,Record heatwave,Canicule record
+EVENT_HEATWAVE_DESC,A record heatwave hits several regions of the world: crops wither and power grids strain.,Une canicule record frappe plusieurs régions du monde : les récoltes souffrent et les réseaux électriques saturent.
+EVENT_HEATWAVE_A,Fund emergency cooling centres,Financer des centres de rafraîchissement d'urgence
+EVENT_HEATWAVE_B,Let local authorities cope,Laisser faire les autorités locales
+EVENT_DEBT_JITTERS_TITLE,Jitters on the bond market,Fébrilité sur le marché obligataire
+EVENT_DEBT_JITTERS_DESC,Investors question our public debt and rates are rising. The finance ministry offers two answers.,Les investisseurs s'interrogent sur notre dette publique et les taux montent. Le ministère des Finances propose deux réponses.
+EVENT_DEBT_JITTERS_A,Announce spending cuts,Annoncer des économies
+EVENT_DEBT_JITTERS_B,Reassure markets and change nothing,Rassurer les marchés sans rien changer
+EVENT_EARTHQUAKE_TITLE,Earthquake,Séisme
+EVENT_EARTHQUAKE_DESC,A powerful earthquake has struck {province}. Buildings have collapsed and roads are cut; rescuers are digging through the rubble.,"Un violent séisme a frappé la région de {province}. Des immeubles se sont effondrés, des routes sont coupées et les secours fouillent les décombres."
+EVENT_EARTHQUAKE_NEWS,{country}: a deadly earthquake strikes {province},{country} : un séisme meurtrier frappe {province}
+EVENT_EARTHQUAKE_A,Send in the army and fund reconstruction,Envoyer l'armée et financer la reconstruction
+EVENT_EARTHQUAKE_B,Leave it to the regional authorities,Laisser faire les autorités régionales
+EVENT_HURRICANE_TITLE,Tropical storm,Tempête tropicale
+EVENT_HURRICANE_DESC,"A major storm has made landfall near {province}: flooded districts, wrecked harbours and hundreds of thousands without power.","Une tempête majeure a touché terre près de {province} : quartiers inondés, ports dévastés et des centaines de milliers de foyers privés d'électricité."
+EVENT_HURRICANE_NEWS,{country}: a tropical storm devastates {province},{country} : une tempête tropicale dévaste {province}
+EVENT_HURRICANE_A,Declare a state of disaster and release emergency funds,Décréter l'état de catastrophe et débloquer des fonds d'urgence
+EVENT_HURRICANE_B,Rely on insurers and local relief,S'en remettre aux assureurs et aux secours locaux
+EVENT_SOUTHERN_CYCLONE_TITLE,Cyclone,Cyclone
+EVENT_SOUTHERN_CYCLONE_DESC,"A cyclone has swept across {province}, flattening homes and crops along the coast.","Un cyclone a balayé {province}, rasant maisons et cultures le long de la côte."
+EVENT_FLOOD_TITLE,Floods,Inondations
+EVENT_FLOOD_DESC,Days of torrential rain have burst the riverbanks around {province}. Fields are under water and villages must be evacuated.,Des pluies torrentielles ont fait déborder les rivières autour de {province}. Les champs sont sous l'eau et des villages doivent être évacués.
+EVENT_FLOOD_NEWS,{country}: deadly floods around {province},{country} : inondations meurtrières autour de {province}
+EVENT_FLOOD_A,Compensate farmers and rebuild,Indemniser les agriculteurs et reconstruire
+EVENT_FLOOD_B,Launch a long-term flood defence plan,Lancer un plan durable contre les crues
+EVENT_DROUGHT_TITLE,Drought,Sécheresse
+EVENT_DROUGHT_DESC,"Months without rain: reservoirs are at record lows, harvests are failing and food prices are climbing.","Des mois sans pluie : les réservoirs sont au plus bas, les récoltes s'effondrent et les prix alimentaires grimpent."
+EVENT_DROUGHT_NEWS,{country}: severe drought ruins harvests,{country} : une sécheresse sévère ruine les récoltes
+EVENT_DROUGHT_A,Emergency aid for farmers,Aide d'urgence aux agriculteurs
+EVENT_DROUGHT_B,Ration water and let prices adjust,Rationner l'eau et laisser les prix s'ajuster
+EVENT_WILDFIRES_TITLE,Wildfires,Incendies
+EVENT_WILDFIRES_DESC,"Fanned by heat and wind, huge fires are burning around {province}. Thousands of residents have fled.","Attisés par la chaleur et le vent, d'immenses incendies ravagent les environs de {province}. Des milliers d'habitants ont fui."
+EVENT_WILDFIRES_NEWS,{country}: huge wildfires around {province},{country} : incendies géants autour de {province}
+EVENT_WILDFIRES_A,Mobilise water bombers and fund prevention,Mobiliser les bombardiers d'eau et financer la prévention
+EVENT_WILDFIRES_B,Blame arsonists and wait for the rain,Accuser les incendiaires et attendre la pluie
+EVENT_VOLCANIC_ERUPTION_TITLE,Volcanic eruption,Éruption volcanique
+EVENT_VOLCANIC_ERUPTION_DESC,A volcano has erupted near {province}. Ash covers the region and nearby towns are being evacuated.,Un volcan est entré en éruption près de {province}. Les cendres recouvrent la région et les villes voisines sont évacuées.
+EVENT_VOLCANIC_ERUPTION_NEWS,{country}: volcanic eruption near {province},{country} : éruption volcanique près de {province}
+EVENT_VOLCANIC_ERUPTION_A,Evacuate and rebuild,Évacuer et reconstruire
+EVENT_OIL_DISCOVERY_TITLE,Oil discovery,Découverte de pétrole
+EVENT_OIL_DISCOVERY_DESC,Geologists confirm a large oil field. Who should develop it?,Les géologues confirment un vaste gisement de pétrole. À qui confier son exploitation ?
+EVENT_OIL_DISCOVERY_NEWS,{country} announces a major oil discovery,{country} annonce une importante découverte de pétrole
+EVENT_OIL_DISCOVERY_A,Our national oil company,Notre compagnie pétrolière nationale
+EVENT_OIL_DISCOVERY_B,"Foreign majors, in exchange for investment","Des compagnies étrangères, contre des investissements"
+EVENT_GAS_DISCOVERY_TITLE,Gas discovery,Découverte de gaz
+EVENT_GAS_DISCOVERY_DESC,An offshore survey reveals a significant natural gas field.,Une campagne d'exploration révèle un important gisement de gaz naturel.
+EVENT_GAS_DISCOVERY_NEWS,{country} announces a major gas discovery,{country} annonce une importante découverte de gaz
+EVENT_GAS_DISCOVERY_A,Develop it quickly,L'exploiter rapidement
+EVENT_GAS_DISCOVERY_B,Keep it in the ground,Le laisser sous terre
+EVENT_CRITICAL_MINERALS_TITLE,Critical minerals,Minerais critiques
+EVENT_CRITICAL_MINERALS_DESC,Prospectors have found deposits of the minerals that batteries and electronics depend on.,Des prospecteurs ont trouvé des gisements des minerais dont dépendent les batteries et l'électronique.
+EVENT_CRITICAL_MINERALS_NEWS,{country} finds critical mineral deposits,{country} découvre des gisements de minerais critiques
+EVENT_CRITICAL_MINERALS_A,Open the mines,Ouvrir les mines
+EVENT_CRITICAL_MINERALS_B,Strict environmental rules and local refining research,Règles environnementales strictes et recherche sur le raffinage
+EVENT_SCIENTIFIC_BREAKTHROUGH_TITLE,Scientific breakthrough,Percée scientifique
+EVENT_SCIENTIFIC_BREAKTHROUGH_DESC,One of our universities publishes a result that the whole scientific world is talking about.,Une de nos universités publie un résultat dont parle tout le monde scientifique.
+EVENT_SCIENTIFIC_BREAKTHROUGH_NEWS,Scientific breakthrough in {country},Percée scientifique en {country}
+EVENT_SCIENTIFIC_BREAKTHROUGH_A,Fund the follow-up research,Financer la suite des travaux
+EVENT_SCIENTIFIC_BREAKTHROUGH_B,Help start-ups bring it to market,Aider les jeunes entreprises à l'exploiter
+EVENT_STOCK_MARKET_CRASH_TITLE,Stock market crash,Krach boursier
+EVENT_STOCK_MARKET_CRASH_DESC,Markets are in free fall worldwide. Banks stop lending to each other and investors flee to safety.,Les marchés s'effondrent dans le monde entier. Les banques cessent de se prêter entre elles et les investisseurs se réfugient vers les valeurs sûres.
+EVENT_STOCK_MARKET_CRASH_A,Stimulus plan and support for banks,Plan de relance et soutien aux banques
+EVENT_STOCK_MARKET_CRASH_B,Let the market correct itself,Laisser le marché se corriger
+EVENT_FINANCIAL_CONTAGION_TITLE,Financial contagion,Contagion financière
+EVENT_FINANCIAL_CONTAGION_DESC,The crisis is spreading to the most indebted countries.,La crise gagne les pays les plus endettés.
+EVENT_BANK_RUN_TITLE,Bank run,Panique bancaire
+EVENT_BANK_RUN_DESC,Depositors are queuing outside the banks. One of our largest lenders will not survive the week without help.,Les épargnants font la queue devant les banques. L'un de nos plus grands établissements ne passera pas la semaine sans aide.
+EVENT_BANK_RUN_A,Bail out the banks,Renflouer les banques
+EVENT_BANK_RUN_B,Let the weakest fail,Laisser tomber les plus fragiles
+EVENT_FINANCIAL_RECOVERY_TITLE,Markets recover,Les marchés se redressent
+EVENT_FINANCIAL_RECOVERY_DESC,The financial crisis is over: credit is flowing again.,La crise financière est terminée : le crédit circule de nouveau.
+EVENT_HOUSING_BUBBLE_TITLE,Housing bubble bursts,Éclatement de la bulle immobilière
+EVENT_HOUSING_BUBBLE_DESC,"After years of soaring prices, property values are collapsing. Developers are going bankrupt and households are underwater.","Après des années de flambée, les prix de l'immobilier s'effondrent. Les promoteurs font faillite et les ménages sont surendettés."
+EVENT_HOUSING_BUBBLE_A,Support indebted households,Soutenir les ménages endettés
+EVENT_HOUSING_BUBBLE_B,Let prices fall,Laisser les prix baisser
+EVENT_CURRENCY_PANIC_TITLE,Currency panic,Panique monétaire
+EVENT_CURRENCY_PANIC_DESC,Prices are rising every week and people are rushing to buy dollars. The central bank must act.,Les prix montent chaque semaine et la population se rue sur les dollars. La banque centrale doit agir.
+EVENT_CURRENCY_PANIC_A,Sharp rate hike,Forte hausse des taux
+EVENT_CURRENCY_PANIC_B,Price controls,Contrôle des prix
+EVENT_REFUGEE_WAVE_TITLE,Refugees at the border,Réfugiés à la frontière
+EVENT_REFUGEE_WAVE_DESC,"Fleeing war and chaos next door, tens of thousands of people are massing at our border.","Fuyant la guerre et le chaos chez nos voisins, des dizaines de milliers de personnes se pressent à notre frontière."
+EVENT_REFUGEE_WAVE_NEWS,{country} faces a wave of refugees,{country} fait face à un afflux de réfugiés
+EVENT_REFUGEE_WAVE_A,Open reception camps,Ouvrir des camps d'accueil
+EVENT_REFUGEE_WAVE_B,Close the border,Fermer la frontière
+EVENT_REFUGEE_WAVE_C,Call for international burden-sharing,Demander une répartition internationale
+EVENT_MEDITERRANEAN_CROSSINGS_TITLE,Crossings in the Mediterranean,Traversées en Méditerranée
+EVENT_MEDITERRANEAN_CROSSINGS_DESC,Overloaded boats keep arriving on our shores. Several shipwrecks have made the headlines.,Des embarcations surchargées continuent d'arriver sur nos côtes. Plusieurs naufrages font la une.
+EVENT_MEDITERRANEAN_CROSSINGS_NEWS,{country}: record migrant arrivals by sea,{country} : arrivées record de migrants par la mer
+EVENT_MEDITERRANEAN_CROSSINGS_A,Step up sea rescues,Renforcer les sauvetages en mer
+EVENT_MEDITERRANEAN_CROSSINGS_B,Close our ports to charity ships,Fermer nos ports aux navires humanitaires
+EVENT_MEDITERRANEAN_CROSSINGS_C,Pay Libya to hold back departures,Payer la Libye pour retenir les départs
+EVENT_HOST_COUNTRY_STRAIN_TITLE,Strained welcome,Accueil sous tension
+EVENT_HOST_COUNTRY_STRAIN_DESC,"The large refugee population we host is weighing on schools, hospitals and housing. Tensions are rising with residents.","La nombreuse population réfugiée que nous accueillons pèse sur les écoles, les hôpitaux et le logement. Les tensions montent avec les habitants."
+EVENT_HOST_COUNTRY_STRAIN_NEWS,{country}: tensions over refugee reception,{country} : tensions autour de l'accueil des réfugiés
+EVENT_HOST_COUNTRY_STRAIN_A,Invest in integration,Investir dans l'intégration
+EVENT_HOST_COUNTRY_STRAIN_B,Encourage returns,Encourager les retours
+EVENT_PANDEMIC_OUTBREAK_TITLE,A new virus,Un nouveau virus
+EVENT_PANDEMIC_OUTBREAK_DESC,Health authorities report clusters of an unknown respiratory disease. Experts fear a pandemic.,Les autorités sanitaires signalent des foyers d'une maladie respiratoire inconnue. Les experts craignent une pandémie.
+EVENT_PANDEMIC_OUTBREAK_A,Screen travellers and stockpile equipment,Contrôler les voyageurs et constituer des stocks
+EVENT_PANDEMIC_OUTBREAK_B,Avoid alarming the public,Éviter d'alarmer la population
+EVENT_PANDEMIC_SPREAD_TITLE,Pandemic,Pandémie
+EVENT_PANDEMIC_SPREAD_DESC,The virus is now spreading on every continent. Hospitals are overwhelmed and the world economy is stalling.,Le virus circule désormais sur tous les continents. Les hôpitaux sont débordés et l'économie mondiale cale.
+EVENT_PANDEMIC_SPREAD_A,Prepare the country,Préparer le pays
+EVENT_PANDEMIC_RESPONSE_TITLE,Facing the pandemic,Face à la pandémie
+EVENT_PANDEMIC_RESPONSE_DESC,"The health minister presents three strategies. Each has a price, in lives or in growth.","Le ministre de la Santé présente trois stratégies. Chacune a un prix, en vies ou en croissance."
+EVENT_PANDEMIC_RESPONSE_A,Strict lockdown and job support,Confinement strict et chômage partiel
+EVENT_PANDEMIC_RESPONSE_B,Targeted measures,Mesures ciblées
+EVENT_PANDEMIC_RESPONSE_C,Keep the country running,Ne pas arrêter le pays
+EVENT_PANDEMIC_VACCINE_TITLE,A vaccine,Un vaccin
+EVENT_PANDEMIC_VACCINE_DESC,Laboratories have produced an effective vaccine. The end of the pandemic is in sight.,Les laboratoires ont mis au point un vaccin efficace. La fin de la pandémie est en vue.
+EVENT_PANDEMIC_VACCINE_A,Fund access for poor countries,Financer l'accès des pays pauvres
+EVENT_PANDEMIC_VACCINE_B,Vaccinate our citizens first,Vacciner d'abord nos citoyens
+EVENT_TERROR_ATTACK_TITLE,Terrorist attack,Attentat
+EVENT_TERROR_ATTACK_DESC,A bomb has exploded in a crowded area of {province}. The country is in shock.,Une bombe a explosé dans un lieu fréquenté de {province}. Le pays est sous le choc.
+EVENT_TERROR_ATTACK_NEWS,{country}: deadly attack in {province},{country} : attentat meurtrier à {province}
+EVENT_TERROR_ATTACK_A,State of emergency and new security laws,État d'urgence et nouvelles lois de sécurité
+EVENT_TERROR_ATTACK_B,Call for national unity,Appeler à l'unité nationale
+EVENT_ASSASSINATION_ATTEMPT_TITLE,Assassination attempt,Tentative d'assassinat
+EVENT_ASSASSINATION_ATTEMPT_DESC,Shots were fired at the head of state's motorcade. The security services are on maximum alert.,Des coups de feu ont visé le cortège du chef de l'État. Les services de sécurité sont en alerte maximale.
+EVENT_ASSASSINATION_ATTEMPT_NEWS,{country}: assassination attempt on the head of state,{country} : tentative d'assassinat contre le chef de l'État
+EVENT_ASSASSINATION_ATTEMPT_A,Hunt down the plotters,Traquer les conspirateurs
+EVENT_ASSASSINATION_ATTEMPT_B,An independent inquiry,Une enquête indépendante
+EVENT_INFRASTRUCTURE_CYBERATTACK_TITLE,Cyberattack,Cyberattaque
+EVENT_INFRASTRUCTURE_CYBERATTACK_DESC,Hackers have paralysed part of our power grid and hospital systems. The trail leads abroad.,Des pirates ont paralysé une partie de notre réseau électrique et des systèmes hospitaliers. La piste mène à l'étranger.
+EVENT_INFRASTRUCTURE_CYBERATTACK_NEWS,{country} hit by a massive cyberattack,{country} frappé par une cyberattaque massive
+EVENT_INFRASTRUCTURE_CYBERATTACK_A,Strengthen our cyber defences,Renforcer notre cyberdéfense
+EVENT_INFRASTRUCTURE_CYBERATTACK_B,Publicly name the culprits,Désigner publiquement les coupables
+EVENT_HORMUZ_CRISIS_TITLE,Crisis in the Strait of Hormuz,Crise dans le détroit d'Ormuz
+EVENT_HORMUZ_CRISIS_DESC,Mines and tanker seizures have halted traffic through Hormuz. A fifth of the world's oil is stuck in the Gulf.,Mines et arraisonnements de pétroliers ont stoppé le trafic dans le détroit d'Ormuz. Un cinquième du pétrole mondial est bloqué dans le Golfe.
+EVENT_HORMUZ_CRISIS_A,Join an international escort mission,Rejoindre une mission internationale d'escorte
+EVENT_HORMUZ_CRISIS_B,Stay out and absorb the price shock,Rester à l'écart et encaisser la hausse des prix
+EVENT_HORMUZ_REOPENED_TITLE,Hormuz reopens,Ormuz rouvre
+EVENT_HORMUZ_REOPENED_DESC,Tankers are passing through the strait again.,Les pétroliers franchissent de nouveau le détroit.
+EVENT_RED_SEA_ATTACKS_TITLE,Attacks in the Red Sea,Attaques en mer Rouge
+EVENT_RED_SEA_ATTACKS_DESC,Missile and drone attacks on merchant ships are forcing shipping lines to avoid Bab-el-Mandeb and sail around Africa.,Des attaques de missiles et de drones contre des navires marchands obligent les armateurs à éviter Bab-el-Mandeb et à contourner l'Afrique.
+EVENT_RED_SEA_ATTACKS_A,Send a frigate,Envoyer une frégate
+EVENT_RED_SEA_ATTACKS_B,Leave it to the great powers,Laisser faire les grandes puissances
+EVENT_RED_SEA_REOPENED_TITLE,The Red Sea is calm again,La mer Rouge s'apaise
+EVENT_RED_SEA_REOPENED_DESC,Ships are returning to the Bab-el-Mandeb route.,Les navires reprennent la route de Bab-el-Mandeb.
+EVENT_SUEZ_BLOCKED_TITLE,Suez Canal blocked,Canal de Suez bloqué
+EVENT_SUEZ_BLOCKED_DESC,A giant container ship has run aground across the Suez Canal. Hundreds of ships are waiting at both ends.,Un porte-conteneurs géant s'est échoué en travers du canal de Suez. Des centaines de navires attendent à ses deux extrémités.
+EVENT_SUEZ_BLOCKED_A,Watch the salvage efforts,Suivre les opérations de renflouement
+EVENT_SUEZ_CLEARED_TITLE,Suez Canal cleared,Canal de Suez dégagé
+EVENT_SUEZ_CLEARED_DESC,The ship has been refloated: traffic resumes.,Le navire a été renfloué : le trafic reprend.
+EVENT_PANAMA_DROUGHT_TITLE,Drought in the Panama Canal,Sécheresse sur le canal de Panama
+EVENT_PANAMA_DROUGHT_DESC,The canal's lakes are too low: the authority sharply limits the number of crossings.,Les lacs du canal sont trop bas : l'autorité limite fortement le nombre de passages.
+EVENT_PANAMA_DROUGHT_A,Reroute our shipments,Dérouter nos cargaisons
+EVENT_PANAMA_REOPENED_TITLE,Panama Canal back to normal,Canal de Panama rétabli
+EVENT_PANAMA_REOPENED_DESC,The rains have returned and crossings are back to normal.,Les pluies sont revenues et les passages reprennent normalement.
+EVENT_OPEC_SUPPLY_CUT_TITLE,Oil producers cut output,Les producteurs de pétrole réduisent leur production
+EVENT_OPEC_SUPPLY_CUT_DESC,The main exporters announce a sharp production cut. Oil prices jump.,Les principaux exportateurs annoncent une forte baisse de leur production. Le prix du pétrole bondit.
+EVENT_OPEC_SUPPLY_CUT_A,Release strategic reserves,Puiser dans les réserves stratégiques
+EVENT_OPEC_SUPPLY_CUT_B,Let prices rise,Laisser les prix monter
+EVENT_GLOBAL_FOOD_CRISIS_TITLE,Global food crisis,Crise alimentaire mondiale
+EVENT_GLOBAL_FOOD_CRISIS_DESC,Poor harvests and export bans are pushing grain prices to record highs. Hunger riots are breaking out in the poorest countries.,Mauvaises récoltes et interdictions d'exporter font flamber le prix des céréales. Des émeutes de la faim éclatent dans les pays les plus pauvres.
+EVENT_GLOBAL_FOOD_CRISIS_A,Fund the World Food Programme,Financer le Programme alimentaire mondial
+EVENT_GLOBAL_FOOD_CRISIS_B,Protect our own farmers,Protéger nos propres agriculteurs
+EVENT_SOLAR_STORM_TITLE,Solar storm,Tempête solaire
+EVENT_SOLAR_STORM_DESC,An exceptional solar storm has damaged satellites and transformers. GPS and communications are disrupted.,Une tempête solaire exceptionnelle a endommagé satellites et transformateurs. Le GPS et les communications sont perturbés.
+EVENT_SOLAR_STORM_A,Harden our power grids,Protéger nos réseaux électriques
+EVENT_SOLAR_STORM_B,Repair and move on,Réparer et passer à autre chose
+EVENT_FOREIGN_POWER_SHIFT_TITLE,Change of power abroad,Alternance à l'étranger
+EVENT_FOREIGN_POWER_SHIFT_DESC,A new government has taken office after the elections in {country}.,Un nouveau gouvernement prend ses fonctions après les élections en {country}.
+EVENT_FOREIGN_POWER_SHIFT_NEWS,Elections: change of government in {country},Élections : changement de gouvernement en {country}
+EVENT_FOREIGN_ELECTION_REACTION_TITLE,A new government next door,Un nouveau gouvernement chez un voisin
+EVENT_FOREIGN_ELECTION_REACTION_DESC,The elections in {from} have brought a new team to power. How should we greet it?,Les élections en {from} ont porté une nouvelle équipe au pouvoir. Comment l'accueillir ?
+EVENT_FOREIGN_ELECTION_REACTION_A,Warm congratulations and an invitation,Félicitations chaleureuses et invitation officielle
+EVENT_FOREIGN_ELECTION_REACTION_B,A formal message,Un message protocolaire
+EVENT_FOREIGN_ELECTION_REACTION_C,Express our concerns,Exprimer nos inquiétudes
+EVENT_LEADER_DEATH_NEWS_TITLE,Death of a leader,Mort d'un dirigeant
+EVENT_LEADER_DEATH_NEWS_DESC,One of the leaders of {country} has died; a successor has taken over.,L'un des dirigeants de {country} est mort ; un successeur a pris la relève.
+EVENT_LEADER_DEATH_NEWS,"{country}: death of a national leader, a successor takes over","{country} : mort d'un dirigeant, un successeur prend la relève"
+EVENT_LEADER_DEATH_PLAYER_TITLE,The nation in mourning,La nation en deuil
+EVENT_LEADER_DEATH_PLAYER_DESC,"One of our leaders has died. In line with our institutions, a successor has been sworn in.","L'un de nos dirigeants est mort. Conformément à nos institutions, un successeur a pris ses fonctions."
+EVENT_LEADER_DEATH_PLAYER_A,Declare national mourning,Décréter un deuil national
+EVENT_LEADER_DEATH_PLAYER_B,Insist on continuity,Insister sur la continuité de l'État
+EVENT_SUCCESSION_CRISIS_TITLE,Succession crisis,Crise de succession
+EVENT_SUCCESSION_CRISIS_DESC,The death of the head of state has opened a struggle between factions of the regime.,La mort du chef de l'État a ouvert une lutte entre les factions du régime.
+EVENT_SUCCESSION_CRISIS_NEWS,{country}: succession crisis at the top of the state,{country} : crise de succession au sommet de l'État
+EVENT_SUCCESSION_CRISIS_A,Rely on the army and purge rivals,S'appuyer sur l'armée et écarter les rivaux
+EVENT_SUCCESSION_CRISIS_B,Share power among the clans,Partager le pouvoir entre les clans
+EVENT_FOREIGN_LEADER_FUNERAL_TITLE,State funeral,Obsèques nationales
+EVENT_FOREIGN_LEADER_FUNERAL_DESC,One of the leaders of {from} has died. The funeral will bring together leaders from around the world.,L'un des dirigeants de {from} est mort. Les obsèques réuniront des dirigeants du monde entier.
+EVENT_FOREIGN_LEADER_FUNERAL_A,Attend in person,Y assister en personne
+EVENT_FOREIGN_LEADER_FUNERAL_B,Send an ambassador,Envoyer un ambassadeur
+EVENT_FOREIGN_ASSASSINATION_TITLE,Assassination abroad,Assassinat à l'étranger
+EVENT_FOREIGN_ASSASSINATION_DESC,The head of state of {from} has been assassinated. The world holds its breath.,Le chef de l'État de {from} a été assassiné. Le monde retient son souffle.
+EVENT_FOREIGN_ASSASSINATION_A,Offer our full support,Offrir tout notre soutien
+EVENT_FOREIGN_ASSASSINATION_B,Tighten our own security,Renforcer notre propre sécurité
+EVENT_COUP_REACTION_TITLE,Coup abroad,Coup d'État à l'étranger
+EVENT_COUP_REACTION_DESC,The army has seized power in {from}. The new junta seeks recognition.,L'armée a pris le pouvoir en {from}. La nouvelle junte cherche à être reconnue.
+EVENT_COUP_REACTION_A,Condemn the coup,Condamner le coup d'État
+EVENT_COUP_REACTION_B,Deal with the new rulers,Traiter avec les nouveaux maîtres
+DECISION_STIMULUS_PLAN,Stimulus plan,Plan de relance
+DECISION_STIMULUS_PLAN_DESC,Public investment and tax cuts to restart the economy.,Investissement public et baisses d'impôts pour relancer l'économie.
+DECISION_AUSTERITY_PACKAGE,Austerity package,Plan d'austérité
+DECISION_AUSTERITY_PACKAGE_DESC,"Cut spending to reduce the debt, at the price of growth and social peace.","Couper dans les dépenses pour réduire la dette, au prix de la croissance et de la paix sociale."
+DECISION_TAX_AMNESTY,Tax amnesty,Amnistie fiscale
+DECISION_TAX_AMNESTY_DESC,Let hidden capital come home against a small penalty.,Laisser revenir les capitaux cachés contre une faible pénalité.
+DECISION_INFRASTRUCTURE_PROGRAM,Major public works,Grands travaux
+DECISION_INFRASTRUCTURE_PROGRAM_DESC,"Two years of building roads, railways and ports.","Deux ans de chantiers : routes, voies ferrées et ports."
+DECISION_INVESTMENT_FORUM,Investment forum,Forum d'investissement
+DECISION_INVESTMENT_FORUM_DESC,Invite the world's investors to discover our opportunities.,Inviter les investisseurs du monde entier à découvrir nos atouts.
+DECISION_ANTICORRUPTION_CAMPAIGN,Anti-corruption campaign,Campagne anticorruption
+DECISION_ANTICORRUPTION_CAMPAIGN_DESC,A year of investigations and trials: the powerful will not like it.,Un an d'enquêtes et de procès : les puissants n'apprécieront pas.
+DECISION_NATIONAL_UNITY_CAMPAIGN,National unity campaign,Campagne d'unité nationale
+DECISION_NATIONAL_UNITY_CAMPAIGN_DESC,"Speeches, ceremonies and media campaigns to bring the country together.","Discours, cérémonies et campagnes médiatiques pour rassembler le pays."
+DECISION_STATE_OF_EMERGENCY,State of emergency,État d'urgence
+DECISION_STATE_OF_EMERGENCY_DESC,Exceptional powers to restore order.,Des pouvoirs exceptionnels pour rétablir l'ordre.
+DECISION_NATIONAL_DIALOGUE,National dialogue,Dialogue national
+DECISION_NATIONAL_DIALOGUE_DESC,"Bring parties, unions and civil society around one table.","Réunir partis, syndicats et société civile autour d'une même table."
+DECISION_POLITICAL_AMNESTY,Political amnesty,Amnistie politique
+DECISION_POLITICAL_AMNESTY_DESC,Release political prisoners to ease tensions.,Libérer des prisonniers politiques pour apaiser les tensions.
+DECISION_DIPLOMATIC_SUMMIT,Host a summit,Accueillir un sommet
+DECISION_DIPLOMATIC_SUMMIT_DESC,Bring world leaders together to calm international tensions.,Réunir les dirigeants du monde pour apaiser les tensions internationales.
+DECISION_FOREIGN_AID_PLEDGE,Aid pledge,Promesse d'aide
+DECISION_FOREIGN_AID_PLEDGE_DESC,Announce a development aid package for poorer countries.,Annoncer une enveloppe d'aide au développement pour les pays pauvres.
+DECISION_SOFT_POWER_CAMPAIGN,Cultural influence,Rayonnement culturel
+DECISION_SOFT_POWER_CAMPAIGN_DESC,"Fund cultural centres, scholarships and international media.","Financer centres culturels, bourses d'études et médias internationaux."
+DECISION_GOOD_NEIGHBOUR_POLICY,Good neighbour policy,Politique de bon voisinage
+DECISION_GOOD_NEIGHBOUR_POLICY_DESC,"Visits, border agreements and joint projects with our neighbours.","Visites, accords frontaliers et projets communs avec nos voisins."
+DECISION_MILITARY_PARADE,Military parade,Défilé militaire
+DECISION_MILITARY_PARADE_DESC,Show the nation's strength to the people and the world.,Montrer la force de la nation au peuple et au monde.
+DECISION_DEFENSE_MODERNIZATION_PLAN,Defence modernisation plan,Plan de modernisation de la défense
+DECISION_DEFENSE_MODERNIZATION_PLAN_DESC,Two years of investment in research and new equipment.,Deux ans d'investissement dans la recherche et les nouveaux équipements.
+DECISION_VACCINATION_CAMPAIGN,Mass vaccination,Vaccination de masse
+DECISION_VACCINATION_CAMPAIGN_DESC,Vaccination centres everywhere to end the epidemic sooner.,Des centres de vaccination partout pour finir plus vite l'épidémie.
+DECISION_DIGITAL_LITERACY_PROGRAM,Digital skills programme,Programme de compétences numériques
+DECISION_DIGITAL_LITERACY_PROGRAM_DESC,Train young people and workers in digital skills.,Former les jeunes et les actifs au numérique.
+FOCUS_TREE_GENERIC,National strategy,Stratégie nationale
+FOCUS_ECO_NATIONAL_PLAN,National economic plan,Plan économique national
+FOCUS_ECO_NATIONAL_PLAN_DESC,Set the country's economic priorities for the decade.,Fixer les priorités économiques du pays pour la décennie.
+FOCUS_ECO_INDUSTRIAL_POLICY,Industrial policy,Politique industrielle
+FOCUS_ECO_INDUSTRIAL_POLICY_DESC,Rebuild our factories and our supply chains.,Reconstruire nos usines et nos chaînes d'approvisionnement.
+FOCUS_ECO_SERVICES_HUB,Services hub,Pôle de services
+FOCUS_ECO_SERVICES_HUB_DESC,"Bet on finance, digital services and trade.","Miser sur la finance, le numérique et le commerce."
+FOCUS_ECO_GREEN_TRANSITION,Green transition,Transition verte
+FOCUS_ECO_GREEN_TRANSITION_DESC,Start moving the economy away from fossil fuels.,Commencer à sortir l'économie des énergies fossiles.
+FOCUS_ECO_SMART_FACTORIES,Factories of the future,Usines du futur
+FOCUS_ECO_SMART_FACTORIES_DESC,Automation and robotics in our industrial base.,Automatisation et robotique dans notre tissu industriel.
+FOCUS_ECO_FINANCIAL_CENTER,Financial centre,Place financière
+FOCUS_ECO_FINANCIAL_CENTER_DESC,"Attract banks, funds and fintech start-ups.","Attirer banques, fonds et jeunes entreprises de la finance."
+FOCUS_ECO_RENEWABLES,Renewables push,Essor des renouvelables
+FOCUS_ECO_RENEWABLES_DESC,Wind and solar farms across the country.,Parcs éoliens et solaires dans tout le pays.
+FOCUS_ECO_INFRASTRUCTURE_DECADE,Infrastructure decade,Décennie des infrastructures
+FOCUS_ECO_INFRASTRUCTURE_DECADE_DESC,A massive investment in networks and transport.,Un investissement massif dans les réseaux et les transports.
+FOCUS_ECO_SHARED_PROSPERITY,Shared prosperity,Prospérité partagée
+FOCUS_ECO_SHARED_PROSPERITY_DESC,Make sure growth benefits everyone.,Faire en sorte que la croissance profite à tous.
+FOCUS_POL_STATE_REFORM,State reform,Réforme de l'État
+FOCUS_POL_STATE_REFORM_DESC,"A leaner, more efficient administration.",Une administration plus légère et plus efficace.
+FOCUS_POL_DEMOCRATIC_REFORMS,Democratic reforms,Réformes démocratiques
+FOCUS_POL_DEMOCRATIC_REFORMS_DESC,"Free press, open debate and stronger checks and balances.","Presse libre, débat ouvert et contre-pouvoirs renforcés."
+FOCUS_POL_STRONG_STATE,Strong state,État fort
+FOCUS_POL_STRONG_STATE_DESC,Order first: wider police powers and a firmer hand.,L'ordre d'abord : pouvoirs de police élargis et main plus ferme.
+FOCUS_POL_INDEPENDENT_JUSTICE,Independent justice,Justice indépendante
+FOCUS_POL_INDEPENDENT_JUSTICE_DESC,Shield judges from political pressure.,Protéger les juges des pressions politiques.
+FOCUS_POL_SECURITY_APPARATUS,Security apparatus,Appareil sécuritaire
+FOCUS_POL_SECURITY_APPARATUS_DESC,Surveillance and security services that see everything.,Surveillance et services de sécurité qui voient tout.
+FOCUS_POL_CLEAN_HANDS,Clean hands,Mains propres
+FOCUS_POL_CLEAN_HANDS_DESC,A tough anti-corruption law and its enforcement.,"Une loi anticorruption sévère, et son application."
+FOCUS_POL_NATIONAL_COHESION,National cohesion,Cohésion nationale
+FOCUS_POL_NATIONAL_COHESION_DESC,Bring every community into the national project.,Associer chaque communauté au projet national.
+FOCUS_DIP_FOREIGN_POLICY_REVIEW,Foreign policy review,Revue de politique étrangère
+FOCUS_DIP_FOREIGN_POLICY_REVIEW_DESC,Define our place in a divided world.,Définir notre place dans un monde divisé.
+FOCUS_DIP_WESTERN_ALIGNMENT,Western alignment,Alignement occidental
+FOCUS_DIP_WESTERN_ALIGNMENT_DESC,"Move closer to the United States, Europe and Japan.","Se rapprocher des États-Unis, de l'Europe et du Japon."
+FOCUS_DIP_EASTERN_ALIGNMENT,Eastern alignment,Alignement sur l'Est
+FOCUS_DIP_EASTERN_ALIGNMENT_DESC,Move closer to China and Russia.,Se rapprocher de la Chine et de la Russie.
+FOCUS_DIP_NON_ALIGNED,Non-alignment,Non-alignement
+FOCUS_DIP_NON_ALIGNED_DESC,"Deal with everyone, depend on no one.","Traiter avec tous, ne dépendre de personne."
+FOCUS_DIP_REGIONAL_INTEGRATION,Regional integration,Intégration régionale
+FOCUS_DIP_REGIONAL_INTEGRATION_DESC,Closer ties with our neighbours.,Des liens plus étroits avec nos voisins.
+FOCUS_DIP_TRADE_DIPLOMACY,Trade diplomacy,Diplomatie économique
+FOCUS_DIP_TRADE_DIPLOMACY_DESC,Embassies working for our exporters.,Des ambassades au service de nos exportateurs.
+FOCUS_DIP_INTERNATIONAL_PRESTIGE,International prestige,Prestige international
+FOCUS_DIP_INTERNATIONAL_PRESTIGE_DESC,Host major events and lead international initiatives.,Accueillir de grands événements et porter des initiatives internationales.
+FOCUS_DIP_GLOBAL_VOICE,A voice in the world,Une voix dans le monde
+FOCUS_DIP_GLOBAL_VOICE_DESC,Become a power that counts in world affairs.,Devenir une puissance qui compte dans les affaires du monde.
+FOCUS_DEF_STRATEGIC_REVIEW,Strategic review,Revue stratégique
+FOCUS_DEF_STRATEGIC_REVIEW_DESC,Assess the threats and our defence needs.,Évaluer les menaces et nos besoins de défense.
+FOCUS_DEF_MILITARY_MODERNIZATION,Military modernisation,Modernisation militaire
+FOCUS_DEF_MILITARY_MODERNIZATION_DESC,"Drones, sensors and a better-equipped army.","Drones, capteurs et une armée mieux équipée."
+FOCUS_DEF_ARMED_NEUTRALITY,Armed neutrality,Neutralité armée
+FOCUS_DEF_ARMED_NEUTRALITY_DESC,Defend ourselves without taking sides.,Se défendre sans prendre parti.
+FOCUS_DEF_DRONE_FORCES,Drone forces,Forces de drones
+FOCUS_DEF_DRONE_FORCES_DESC,Build the drone and counter-drone units of tomorrow.,Créer les unités de drones et d'anti-drones de demain.
+FOCUS_DEF_DEFENSE_INDUSTRY,Defence industry,Industrie de défense
+FOCUS_DEF_DEFENSE_INDUSTRY_DESC,Produce our own equipment.,Produire nos propres équipements.
+FOCUS_SCI_RESEARCH_COUNCIL,National research council,Conseil national de la recherche
+FOCUS_SCI_RESEARCH_COUNCIL_DESC,Coordinate and fund our scientists.,Coordonner et financer nos chercheurs.
+FOCUS_SCI_SPACE_PROGRAM,Space programme,Programme spatial
+FOCUS_SCI_SPACE_PROGRAM_DESC,Our own launchers and satellites.,Nos propres lanceurs et satellites.
+FOCUS_SCI_AI_STRATEGY,AI strategy,Stratégie d'intelligence artificielle
+FOCUS_SCI_AI_STRATEGY_DESC,Do not miss the artificial intelligence revolution.,Ne pas manquer la révolution de l'intelligence artificielle.
+FOCUS_DEF_NATIONAL_POWER,National power,Puissance nationale
+FOCUS_DEF_NATIONAL_POWER_DESC,A country confident in its strength and its future.,Un pays sûr de sa force et de son avenir.
+FOCUS_TREE_USA,American destiny,Destin américain
+FOCUS_USA_MIDTERMS,The midterm elections,Les élections de mi-mandat
+FOCUS_USA_MIDTERMS_DESC,The 2026 midterms will set the course for the rest of the term.,Les élections de mi-mandat de 2026 fixeront le cap de la fin du mandat.
+FOCUS_USA_AMERICA_FIRST,America First,L'Amérique d'abord
+FOCUS_USA_AMERICA_FIRST_DESC,"Our workers, our factories, our borders: the rest of the world comes second.","Nos ouvriers, nos usines, nos frontières : le reste du monde passe après."
+FOCUS_USA_AI_MANHATTAN,AI Manhattan Project,Projet Manhattan de l'IA
+FOCUS_USA_AI_MANHATTAN_DESC,"A national effort to keep the lead in artificial intelligence, whatever the cost.","Un effort national pour garder l'avance en intelligence artificielle, quoi qu'il en coûte."
+FOCUS_USA_GLOBAL_LEADERSHIP,Global leadership,Leadership mondial
+FOCUS_USA_GLOBAL_LEADERSHIP_DESC,America leads by example and by alliances.,L'Amérique guide par l'exemple et par ses alliances.
+FOCUS_USA_RESHORING,Bring the factories home,Rapatrier les usines
+FOCUS_USA_RESHORING_DESC,Subsidies and tax credits to rebuild chip plants and heavy industry at home.,Subventions et crédits d'impôt pour reconstruire chez nous usines de puces et industrie lourde.
+FOCUS_USA_BORDER_SECURITY,Secure the border,Sécuriser la frontière
+FOCUS_USA_BORDER_SECURITY_DESC,A closed southern border and restrictive immigration.,Une frontière sud fermée et une immigration restreinte.
+FOCUS_USA_MOON_RETURN,Return to the Moon,Retour sur la Lune
+FOCUS_USA_MOON_RETURN_DESC,"American astronauts back on the Moon, and a constellation over every continent.","Des astronautes américains de nouveau sur la Lune, et une constellation au-dessus de chaque continent."
+FOCUS_USA_ALLIANCE_RENEWAL,Renew the alliances,Renouveler les alliances
+FOCUS_USA_ALLIANCE_RENEWAL_DESC,Reassure allies shaken by years of doubt.,Rassurer des alliés ébranlés par des années de doute.
+FOCUS_USA_GREENLAND_OFFER,An offer for Greenland,Une offre pour le Groenland
+FOCUS_USA_GREENLAND_OFFER_DESC,"Make Denmark an offer it may not refuse: Greenland, its minerals and its Arctic position.","Faire au Danemark une offre difficile à refuser : le Groenland, ses minerais et sa position arctique."
+FOCUS_USA_TARIFF_WALL,Tariff wall,Mur douanier
+FOCUS_USA_TARIFF_WALL_DESC,"High tariffs on imports, starting with China.","Des droits de douane élevés, à commencer par la Chine."
+FOCUS_USA_NATO_ULTIMATUM,Ultimatum to NATO,Ultimatum à l'OTAN
+FOCUS_USA_NATO_ULTIMATUM_DESC,Allies who do not pay will no longer be protected.,Les alliés qui ne paient pas ne seront plus protégés.
+FOCUS_USA_DIVIDED_NATION,A divided nation,Une nation divisée
+FOCUS_USA_DIVIDED_NATION_DESC,Two Americas no longer speak to each other. Something has to give.,Deux Amériques ne se parlent plus. Quelque chose doit céder.
+FOCUS_USA_PACIFIC_PIVOT,Pivot to the Pacific,Pivot vers le Pacifique
+FOCUS_USA_PACIFIC_PIVOT_DESC,Bring our partners of the Indo-Pacific together in front of China.,Rassembler nos partenaires de l'Indo-Pacifique face à la Chine.
+FOCUS_USA_NORTH_AMERICAN_UNION,North American union,Union nord-américaine
+FOCUS_USA_NORTH_AMERICAN_UNION_DESC,Propose to Canada what history never dared: a single country from the Rio Grande to the Arctic.,Proposer au Canada ce que l'histoire n'a jamais osé : un seul pays du Rio Grande à l'Arctique.
+FOCUS_USA_LEAVE_NATO,Leave NATO,Quitter l'OTAN
+FOCUS_USA_LEAVE_NATO_DESC,"Seventy-seven years later, America leaves the alliance it founded.","Soixante-dix-sept ans plus tard, l'Amérique quitte l'alliance qu'elle a fondée."
+FOCUS_USA_RECONCILIATION,National reconciliation,Réconciliation nationale
+FOCUS_USA_RECONCILIATION_DESC,Rebuild trust between red and blue states.,Rebâtir la confiance entre États rouges et bleus.
+FOCUS_USA_EMERGENCY_POWERS,Emergency powers,Pouvoirs d'exception
+FOCUS_USA_EMERGENCY_POWERS_DESC,Order before freedom: the President governs by decree. Some states may not accept it.,L'ordre avant la liberté : le Président gouverne par décret. Certains États pourraient ne pas l'accepter.
+FOCUS_USA_NEW_AMERICAN_CENTURY,A new American century,Un nouveau siècle américain
+FOCUS_USA_NEW_AMERICAN_CENTURY_DESC,America has chosen its path and walks it with confidence.,L'Amérique a choisi sa voie et la suit avec assurance.
+FOCUS_TREE_CHN,The Chinese dream,Le rêve chinois
+FOCUS_CHN_15TH_PLAN,The 15th Five-Year Plan,Le 15e plan quinquennal
+FOCUS_CHN_15TH_PLAN_DESC,"Priorities for 2026-2030: technology, consumption, security.","Les priorités 2026-2030 : technologie, consommation, sécurité."
+FOCUS_CHN_COMMON_PROSPERITY,Common prosperity,Prospérité commune
+FOCUS_CHN_COMMON_PROSPERITY_DESC,Rein in the billionaires and share the fruits of growth.,Mettre au pas les milliardaires et partager les fruits de la croissance.
+FOCUS_CHN_TECH_SELF_RELIANCE,Technological self-reliance,Autonomie technologique
+FOCUS_CHN_TECH_SELF_RELIANCE_DESC,Never again depend on foreign technology.,Ne plus jamais dépendre de technologies étrangères.
+FOCUS_CHN_REFORM_AND_OPENING,A second reform and opening,Une seconde réforme et ouverture
+FOCUS_CHN_REFORM_AND_OPENING_DESC,"Return to the spirit of 1978: markets, private enterprise and openness to the world.","Retrouver l'esprit de 1978 : marché, entreprise privée et ouverture au monde."
+FOCUS_CHN_PARTY_DISCIPLINE,Party discipline,Discipline du Parti
+FOCUS_CHN_PARTY_DISCIPLINE_DESC,A new campaign against corruption and deviation.,Une nouvelle campagne contre la corruption et les déviances.
+FOCUS_CHN_DUAL_CIRCULATION,Dual circulation,Double circulation
+FOCUS_CHN_DUAL_CIRCULATION_DESC,Growth driven by our own consumers rather than exports.,Une croissance portée par nos consommateurs plutôt que par les exportations.
+FOCUS_CHN_CHIP_INDEPENDENCE,Chip independence,Indépendance des puces
+FOCUS_CHN_CHIP_INDEPENDENCE_DESC,Domestic foundries capable of the most advanced chips.,Des fonderies nationales capables des puces les plus avancées.
+FOCUS_CHN_MARKET_REFORMS,Market reforms,Réformes de marché
+FOCUS_CHN_MARKET_REFORMS_DESC,"Open finance, cut the state giants down to size.","Ouvrir la finance, réduire la taille des géants publics."
+FOCUS_CHN_BELT_AND_ROAD,New Silk Roads,Nouvelles routes de la soie
+FOCUS_CHN_BELT_AND_ROAD_DESC,"Ports, railways and loans across the developing world.","Ports, voies ferrées et prêts dans tout le monde en développement."
+FOCUS_CHN_TAIWAN_PRESSURE,Pressure on Taiwan,Pression sur Taïwan
+FOCUS_CHN_TAIWAN_PRESSURE_DESC,"Drills, blockades rehearsals and a formal claim over the island.","Manœuvres, répétitions de blocus et revendication officielle de l'île."
+FOCUS_CHN_POLITICAL_LIBERALIZATION,Political opening,Ouverture politique
+FOCUS_CHN_POLITICAL_LIBERALIZATION_DESC,"A freer press, a less filtered internet: a cautious first step.","Une presse plus libre, un internet moins filtré : un premier pas prudent."
+FOCUS_CHN_PEACEFUL_REUNIFICATION,Peaceful reunification,Réunification pacifique
+FOCUS_CHN_PEACEFUL_REUNIFICATION_DESC,"Offer Taiwan ""one country, two systems"" and wide autonomy.","Proposer à Taïwan « un pays, deux systèmes » et une large autonomie."
+FOCUS_CHN_REUNIFICATION_BY_FORCE,Reunification by force,Réunification par la force
+FOCUS_CHN_REUNIFICATION_BY_FORCE_DESC,"If words fail, the army will finish the work of 1949.","Si les mots échouent, l'armée achèvera l'œuvre de 1949."
+FOCUS_CHN_FEDERAL_CHINA,A federal China,Une Chine fédérale
+FOCUS_CHN_FEDERAL_CHINA_DESC,"Unthinkable yesterday: multiparty elections, a federal state, Tibet free to choose.","Impensable hier : élections pluralistes, État fédéral, Tibet libre de choisir."
+FOCUS_CHN_PAX_SINICA,Pax Sinica,Pax Sinica
+FOCUS_CHN_PAX_SINICA_DESC,China at the centre of a new world order.,La Chine au centre d'un nouvel ordre mondial.
+FOCUS_TREE_RUS,Russia's path,La voie de la Russie
+FOCUS_RUS_WAR_ECONOMY,War economy,Économie de guerre
+FOCUS_RUS_WAR_ECONOMY_DESC,"Factories work for the front and wages rise, but so do prices.","Les usines travaillent pour le front, les salaires montent, et les prix aussi."
+FOCUS_RUS_VICTORY_AT_ANY_COST,Victory at any cost,La victoire à tout prix
+FOCUS_RUS_VICTORY_AT_ANY_COST_DESC,No negotiation until the objectives are met.,Aucune négociation avant que les objectifs soient atteints.
+FOCUS_RUS_EURASIAN_INTEGRATION,Eurasian integration,Intégration eurasienne
+FOCUS_RUS_EURASIAN_INTEGRATION_DESC,Bind the former Soviet republics to Moscow.,Arrimer les anciennes républiques soviétiques à Moscou.
+FOCUS_RUS_NEGOTIATED_PEACE,A negotiated peace,Une paix négociée
+FOCUS_RUS_NEGOTIATED_PEACE_DESC,End the war and let the country breathe.,Finir la guerre et laisser le pays respirer.
+FOCUS_RUS_DRONE_INDUSTRY,Drone industry,Industrie des drones
+FOCUS_RUS_DRONE_INDUSTRY_DESC,Mass production of drones and counter-drone systems.,Production en masse de drones et de systèmes anti-drones.
+FOCUS_RUS_TOTAL_MOBILIZATION,Total mobilisation,Mobilisation totale
+FOCUS_RUS_TOTAL_MOBILIZATION_DESC,Universal conscription: every man to the service of the nation.,Service militaire universel : chaque homme au service de la nation.
+FOCUS_RUS_UNION_STATE,The Union State,L'État de l'Union
+FOCUS_RUS_UNION_STATE_DESC,Turn the 1999 treaty into reality: one state with Belarus.,Faire du traité de 1999 une réalité : un seul État avec la Biélorussie.
+FOCUS_RUS_SANCTIONS_RELIEF,Sanctions relief,Levée des sanctions
+FOCUS_RUS_SANCTIONS_RELIEF_DESC,Peace opens the door to trade with Europe.,La paix ouvre la porte au commerce avec l'Europe.
+FOCUS_RUS_PIVOT_EAST,Pivot to the East,Pivot vers l'Est
+FOCUS_RUS_PIVOT_EAST_DESC,"China, India and Iran rather than Europe.","La Chine, l'Inde et l'Iran plutôt que l'Europe."
+FOCUS_RUS_ARCTIC_ROUTE,The Arctic route,La route arctique
+FOCUS_RUS_ARCTIC_ROUTE_DESC,Develop the Northern Sea Route and the gas fields of the Far North.,Développer la route maritime du Nord et les gisements de gaz du Grand Nord.
+FOCUS_RUS_NEW_BORDERS,New borders,Nouvelles frontières
+FOCUS_RUS_NEW_BORDERS_DESC,Press our claims on Transnistria.,Faire valoir nos revendications sur la Transnistrie.
+FOCUS_RUS_LIBERAL_THAW,The thaw,Le dégel
+FOCUS_RUS_LIBERAL_THAW_DESC,Release the pressure: a little freedom for the press and the parties.,Relâcher la pression : un peu de liberté pour la presse et les partis.
+FOCUS_RUS_ETERNAL_POWER,Eternal power,Pouvoir éternel
+FOCUS_RUS_ETERNAL_POWER_DESC,"One party, a sovereign internet, a nation closed in on itself.","Un parti unique, un internet souverain, une nation repliée sur elle-même."
+FOCUS_RUS_SECOND_REPUBLIC,The Second Republic,La Seconde République
+FOCUS_RUS_SECOND_REPUBLIC_DESC,"Free elections, a federal state and a new constitution.","Élections libres, État fédéral et nouvelle constitution."
+FOCUS_RUS_RETURN_TO_EUROPE,Return to Europe,Retour en Europe
+FOCUS_RUS_RETURN_TO_EUROPE_DESC,Leave the CSTO and make peace with the West.,Quitter l'OTSC et faire la paix avec l'Occident.
+FOCUS_RUS_GREAT_RUSSIA,Great Russia,La Grande Russie
+FOCUS_RUS_GREAT_RUSSIA_DESC,Russia is once again a power that counts.,La Russie est de nouveau une puissance qui compte.
+FOCUS_TREE_IND,Developed India,L'Inde développée
+FOCUS_IND_VIKSIT_BHARAT,Viksit Bharat 2047,Viksit Bharat 2047
+FOCUS_IND_VIKSIT_BHARAT_DESC,The plan to make India a developed country for the centenary of independence.,Le plan pour faire de l'Inde un pays développé au centenaire de l'indépendance.
+FOCUS_IND_MAKE_IN_INDIA,Make in India,Make in India
+FOCUS_IND_MAKE_IN_INDIA_DESC,Factories for hundreds of millions of young workers.,Des usines pour des centaines de millions de jeunes travailleurs.
+FOCUS_IND_DIGITAL_INDIA,Digital India,Inde numérique
+FOCUS_IND_DIGITAL_INDIA_DESC,Digital identity and payments for 1.4 billion people.,"Identité et paiements numériques pour 1,4 milliard de personnes."
+FOCUS_IND_CIVILIZATIONAL_STATE,Civilisational state,État-civilisation
+FOCUS_IND_CIVILIZATIONAL_STATE_DESC,A nation built on its Hindu heritage.,Une nation fondée sur son héritage hindou.
+FOCUS_IND_SECULAR_FEDERATION,Secular federation,Fédération laïque
+FOCUS_IND_SECULAR_FEDERATION_DESC,"A secular, federal India where every state has its say.",Une Inde laïque et fédérale où chaque État a voix au chapitre.
+FOCUS_IND_SEMICONDUCTOR_MISSION,Semiconductor mission,Mission semi-conducteurs
+FOCUS_IND_SEMICONDUCTOR_MISSION_DESC,Our own chip foundries.,Nos propres fonderies de puces.
+FOCUS_IND_CHINA_PLUS_ONE,China plus one,La Chine plus une
+FOCUS_IND_CHINA_PLUS_ONE_DESC,Attract the companies leaving China.,Attirer les entreprises qui quittent la Chine.
+FOCUS_IND_SPACE_POWER,Space power,Puissance spatiale
+FOCUS_IND_SPACE_POWER_DESC,Reusable launchers and crewed flights.,Lanceurs réutilisables et vols habités.
+FOCUS_IND_AKHAND_BHARAT,Undivided India,L'Inde indivise
+FOCUS_IND_AKHAND_BHARAT_DESC,Claim the parts of Kashmir held by Pakistan.,Revendiquer les parties du Cachemire tenues par le Pakistan.
+FOCUS_IND_PEACE_WITH_PAKISTAN,Peace with Pakistan,La paix avec le Pakistan
+FOCUS_IND_PEACE_WITH_PAKISTAN_DESC,End seventy-nine years of enmity.,Mettre fin à soixante-dix-neuf ans d'inimitié.
+FOCUS_IND_STRATEGIC_AUTONOMY,Strategic autonomy,Autonomie stratégique
+FOCUS_IND_STRATEGIC_AUTONOMY_DESC,"Partner with everyone, align with no one.","Être partenaire de tous, aligné sur personne."
+FOCUS_IND_KASHMIR_OFFENSIVE,Kashmir offensive,Offensive au Cachemire
+FOCUS_IND_KASHMIR_OFFENSIVE_DESC,Take back by force what diplomacy has not.,Reprendre par la force ce que la diplomatie n'a pas rendu.
+FOCUS_IND_SOUTH_ASIAN_UNION,South Asian union,Union sud-asiatique
+FOCUS_IND_SOUTH_ASIAN_UNION_DESC,"A common market for the subcontinent, and perhaps more.","Un marché commun pour le sous-continent, et peut-être davantage."
+FOCUS_IND_SECURITY_COUNCIL_SEAT,A permanent seat,Un siège permanent
+FOCUS_IND_SECURITY_COUNCIL_SEAT_DESC,The world's most populous country demands its place.,Le pays le plus peuplé du monde réclame sa place.
+FOCUS_IND_THIRD_ECONOMY,The third economy,La troisième économie
+FOCUS_IND_THIRD_ECONOMY_DESC,India overtakes Germany and Japan.,L'Inde dépasse l'Allemagne et le Japon.
+FOCUS_IND_VISHWAGURU,Vishwaguru,Vishwaguru
+FOCUS_IND_VISHWAGURU_DESC,"India, teacher of the world.","L'Inde, maître du monde."
+FOCUS_TREE_FRA,A certain idea of France,Une certaine idée de la France
+FOCUS_FRA_BREAK_DEADLOCK,Break the deadlock,Sortir de l'impasse
+FOCUS_FRA_BREAK_DEADLOCK_DESC,"A parliament without a majority, a weary country: we must find a way out.","Un parlement sans majorité, un pays fatigué : il faut trouver une issue."
+FOCUS_FRA_EUROPEAN_FEDERALISM,European federalism,Fédéralisme européen
+FOCUS_FRA_EUROPEAN_FEDERALISM_DESC,France's future is a sovereign Europe.,L'avenir de la France est une Europe souveraine.
+FOCUS_FRA_GAULLIST_INDEPENDENCE,Gaullist independence,Indépendance gaullienne
+FOCUS_FRA_GAULLIST_INDEPENDENCE_DESC,Neither aligned nor isolated: France speaks for itself.,"Ni alignée, ni isolée : la France parle en son nom."
+FOCUS_FRA_NATIONAL_SOVEREIGNTY,National sovereignty,Souveraineté nationale
+FOCUS_FRA_NATIONAL_SOVEREIGNTY_DESC,Take back control of our borders and our laws.,Reprendre le contrôle de nos frontières et de nos lois.
+FOCUS_FRA_FRANCO_GERMAN_AXIS,The Franco-German engine,Le moteur franco-allemand
+FOCUS_FRA_FRANCO_GERMAN_AXIS_DESC,Restart the partnership with Berlin.,Relancer le partenariat avec Berlin.
+FOCUS_FRA_EUROPEAN_DEFENCE,European defence,Défense européenne
+FOCUS_FRA_EUROPEAN_DEFENCE_DESC,Common procurement and a real European pillar.,Des achats communs et un vrai pilier européen.
+FOCUS_FRA_NUCLEAR_RENAISSANCE,Nuclear renaissance,Renaissance nucléaire
+FOCUS_FRA_NUCLEAR_RENAISSANCE_DESC,New reactors and small modular reactors.,De nouveaux réacteurs et des petits réacteurs modulaires.
+FOCUS_FRA_AFRICA_RESET,A new start with Africa,Un nouveau départ avec l'Afrique
+FOCUS_FRA_AFRICA_RESET_DESC,End Françafrique and build partnerships among equals.,En finir avec la Françafrique et bâtir des partenariats d'égal à égal.
+FOCUS_FRA_FREXIT_REFERENDUM,Frexit referendum,Référendum sur le Frexit
+FOCUS_FRA_FREXIT_REFERENDUM_DESC,The French will decide: in or out of the European Union.,Les Français décideront : dans l'Union européenne ou en dehors.
+FOCUS_FRA_EUROPEAN_ARMY,A European army,Une armée européenne
+FOCUS_FRA_EUROPEAN_ARMY_DESC,Integrated brigades under a common command.,Des brigades intégrées sous un commandement commun.
+FOCUS_FRA_SIXTH_REPUBLIC,The Sixth Republic,La VIe République
+FOCUS_FRA_SIXTH_REPUBLIC_DESC,A parliamentary republic and citizens' referendums.,Une république parlementaire et des référendums d'initiative citoyenne.
+FOCUS_FRA_LEAVE_INTEGRATED_COMMAND,Leave the integrated command,Quitter le commandement intégré
+FOCUS_FRA_LEAVE_INTEGRATED_COMMAND_DESC,"As in 1966: in the alliance, but master of our forces.","Comme en 1966 : dans l'alliance, mais maître de nos forces."
+FOCUS_FRA_NEW_FRANC,The new franc,Le nouveau franc
+FOCUS_FRA_NEW_FRANC_DESC,"A national currency again, for better or worse.","De nouveau une monnaie nationale, pour le meilleur et pour le pire."
+FOCUS_FRA_EUROPEAN_FEDERATION,The European Federation,La Fédération européenne
+FOCUS_FRA_EUROPEAN_FEDERATION_DESC,Propose to Germany to merge our two countries into the core of a federal Europe.,Proposer à l'Allemagne de fondre nos deux pays dans le noyau d'une Europe fédérale.
+FOCUS_FRA_GRANDEUR,Grandeur,Grandeur
+FOCUS_FRA_GRANDEUR_DESC,France has found its rank again.,La France a retrouvé son rang.
+FOCUS_TREE_DEU,Germany at the crossroads,L'Allemagne à la croisée des chemins
+FOCUS_DEU_ZEITENWENDE,Zeitenwende,Changement d'époque
+FOCUS_DEU_ZEITENWENDE_DESC,The turning point: Germany must rethink its security and its model.,Le tournant : l'Allemagne doit repenser sa sécurité et son modèle.
+FOCUS_DEU_REARMAMENT,Rearmament,Réarmement
+FOCUS_DEU_REARMAMENT_DESC,The Bundeswehr becomes Europe's leading army.,La Bundeswehr devient la première armée d'Europe.
+FOCUS_DEU_DEBT_BRAKE_REFORM,Reform the debt brake,Réformer le frein à l'endettement
+FOCUS_DEU_DEBT_BRAKE_REFORM_DESC,Borrow to invest in infrastructure and industry.,Emprunter pour investir dans les infrastructures et l'industrie.
+FOCUS_DEU_BLACK_ZERO,The black zero,Le zéro noir
+FOCUS_DEU_BLACK_ZERO_DESC,"Balanced budgets, whatever happens.","Des budgets à l'équilibre, quoi qu'il arrive."
+FOCUS_DEU_ENERGY_SECURITY,Energy security,Sécurité énergétique
+FOCUS_DEU_ENERGY_SECURITY_DESC,Hydrogen and new supply routes after Russian gas.,L'hydrogène et de nouvelles routes d'approvisionnement après le gaz russe.
+FOCUS_DEU_EUROPEAN_LEADERSHIP,European leadership,Leadership européen
+FOCUS_DEU_EUROPEAN_LEADERSHIP_DESC,Berlin takes responsibility for Europe.,Berlin prend ses responsabilités pour l'Europe.
+FOCUS_DEU_INDUSTRIAL_RENEWAL,Industrial renewal,Renouveau industriel
+FOCUS_DEU_INDUSTRIAL_RENEWAL_DESC,Modernise the factories that made Germany's wealth.,Moderniser les usines qui ont fait la richesse de l'Allemagne.
+FOCUS_DEU_FISCAL_DISCIPLINE,Fiscal discipline,Discipline budgétaire
+FOCUS_DEU_FISCAL_DISCIPLINE_DESC,Pay down the debt to protect future generations.,Rembourser la dette pour protéger les générations futures.
+FOCUS_DEU_OSTPOLITIK_RESET,A new Ostpolitik,Une nouvelle Ostpolitik
+FOCUS_DEU_OSTPOLITIK_RESET_DESC,"Reopen dialogue with Moscow, at the risk of angering our partners.","Rouvrir le dialogue avec Moscou, au risque de fâcher nos partenaires."
+FOCUS_DEU_NUCLEAR_UMBRELLA,A European nuclear umbrella,Un parapluie nucléaire européen
+FOCUS_DEU_NUCLEAR_UMBRELLA_DESC,Share France's deterrent rather than depend on Washington.,Partager la dissuasion française plutôt que dépendre de Washington.
+FOCUS_DEU_FEDERAL_EUROPE,A federal Europe,Une Europe fédérale
+FOCUS_DEU_FEDERAL_EUROPE_DESC,Propose to France to merge our two countries into the core of a European Federation.,Proposer à la France de fondre nos deux pays dans le noyau d'une Fédération européenne.
+FOCUS_DEU_DIGITAL_MITTELSTAND,Digital Mittelstand,Mittelstand numérique
+FOCUS_DEU_DIGITAL_MITTELSTAND_DESC,Our family firms enter the digital age.,Nos entreprises familiales entrent dans l'ère numérique.
+FOCUS_DEU_EAST_WEST_COHESION,East-West cohesion,Cohésion Est-Ouest
+FOCUS_DEU_EAST_WEST_COHESION_DESC,Close the gap between the old and new Länder.,Combler l'écart entre anciens et nouveaux Länder.
+FOCUS_DEU_MODELL_DEUTSCHLAND,Modell Deutschland 2040,Modèle allemand 2040
+FOCUS_DEU_MODELL_DEUTSCHLAND_DESC,A reinvented German model.,Un modèle allemand réinventé.
+EVENT_GREENLAND_PURCHASE_OFFER_TITLE,An offer for Greenland,Une offre pour le Groenland
+EVENT_GREENLAND_PURCHASE_OFFER_DESC,{from} officially offers to buy Greenland. The sum is staggering; so is the outrage in Nuuk.,"Le pays suivant propose officiellement d'acheter le Groenland : {from}. La somme est vertigineuse, l'indignation à Nuuk aussi."
+EVENT_GREENLAND_PURCHASE_OFFER_A,Accept the offer,Accepter l'offre
+EVENT_GREENLAND_PURCHASE_OFFER_B,Greenland is not for sale,Le Groenland n'est pas à vendre
+EVENT_GREENLAND_PURCHASED_TITLE,Greenland changes hands,Le Groenland change de mains
+EVENT_GREENLAND_PURCHASED_DESC,The largest land purchase since Alaska: Greenland now belongs to {country}.,Le plus grand achat de territoire depuis l'Alaska : le Groenland appartient désormais à : {country}.
+EVENT_GREENLAND_PURCHASED_A,"Welcome, Greenlanders",Bienvenue aux Groenlandais
+EVENT_NORTH_AMERICAN_UNION_PROPOSAL_TITLE,A North American union,Une union nord-américaine
+EVENT_NORTH_AMERICAN_UNION_PROPOSAL_DESC,"{from} proposes that our two countries become one. History would be made, and our country would disappear.","Le pays suivant propose que nos deux pays n'en fassent plus qu'un : {from}. Ce serait historique, et notre pays disparaîtrait."
+EVENT_NORTH_AMERICAN_UNION_PROPOSAL_A,Accept the union,Accepter l'union
+EVENT_NORTH_AMERICAN_UNION_PROPOSAL_B,Remain independent,Rester indépendants
+EVENT_CROSS_STRAIT_UNION_PROPOSAL_TITLE,"One country, two systems","Un pays, deux systèmes"
+EVENT_CROSS_STRAIT_UNION_PROPOSAL_DESC,{from} offers reunification with broad autonomy. Accepting would end our existence as a separate state.,"Proposition de réunification avec une large autonomie, venue de : {from}. Accepter mettrait fin à notre existence en tant qu'État séparé."
+EVENT_CROSS_STRAIT_UNION_PROPOSAL_A,Accept reunification,Accepter la réunification
+EVENT_CROSS_STRAIT_UNION_PROPOSAL_B,Reject the offer,Rejeter l'offre
+EVENT_UNION_STATE_PROPOSAL_TITLE,The Union State,L'État de l'Union
+EVENT_UNION_STATE_PROPOSAL_DESC,{from} wants to turn the old union treaty into a single state.,"Volonté de transformer le vieux traité d'union en un seul État, exprimée par : {from}."
+EVENT_UNION_STATE_PROPOSAL_A,Accept the merger,Accepter la fusion
+EVENT_UNION_STATE_PROPOSAL_B,Defend our sovereignty,Défendre notre souveraineté
+EVENT_BHUTAN_UNION_PROPOSAL_TITLE,A proposal from the south,Une proposition venue du sud
+EVENT_BHUTAN_UNION_PROPOSAL_DESC,{from} offers to integrate our kingdom as a state of its federation.,"Proposition d'intégrer notre royaume comme État de sa fédération, venue de : {from}."
+EVENT_BHUTAN_UNION_PROPOSAL_A,Join the federation,Rejoindre la fédération
+EVENT_BHUTAN_UNION_PROPOSAL_B,Thank them politely,Remercier poliment
+EVENT_EUROPEAN_FEDERATION_PROPOSAL_TITLE,Founding a federation,Fonder une fédération
+EVENT_EUROPEAN_FEDERATION_PROPOSAL_DESC,{from} proposes to merge our two countries into the founding core of a European Federation.,"Proposition de fondre nos deux pays dans le noyau fondateur d'une Fédération européenne, venue de : {from}."
+EVENT_EUROPEAN_FEDERATION_PROPOSAL_A,Found the Federation together,Fonder ensemble la Fédération
+EVENT_EUROPEAN_FEDERATION_PROPOSAL_B,"Too soon, too far","Trop tôt, trop loin"
+EVENT_EUROPEAN_FEDERATION_FOUNDED_TITLE,The European Federation is born,Naissance de la Fédération européenne
+EVENT_EUROPEAN_FEDERATION_FOUNDED_DESC,A new state is born at the heart of Europe. The other members of the Union are invited to join.,Un nouvel État naît au cœur de l'Europe. Les autres membres de l'Union sont invités à le rejoindre.
+EVENT_EUROPEAN_FEDERATION_FOUNDED_A,Long live Europe,Vive l'Europe
+EVENT_EUROPEAN_FEDERATION_INVITATION_TITLE,Joining the Federation,Rejoindre la Fédération
+EVENT_EUROPEAN_FEDERATION_INVITATION_DESC,{from} invites us to join it as a member state.,"Invitation à rejoindre la Fédération comme État membre, venue de : {from}."
+EVENT_EUROPEAN_FEDERATION_INVITATION_A,Join,Adhérer
+EVENT_EUROPEAN_FEDERATION_INVITATION_B,Stay out,Rester à l'écart
+EVENT_TEXAS_INDEPENDENCE_CRISIS_TITLE,Texas defies Washington,Le Texas défie Washington
+EVENT_TEXAS_INDEPENDENCE_CRISIS_DESC,The Texas legislature refuses the emergency decrees and votes to leave the Union.,Le parlement du Texas refuse les décrets d'exception et vote la sortie de l'Union.
+EVENT_TEXAS_INDEPENDENCE_CRISIS_A,Let Texas go,Laisser partir le Texas
+EVENT_TEXAS_INDEPENDENCE_CRISIS_B,Send in the National Guard,Envoyer la Garde nationale
+FOCUS_TREE_GBR,Britain's place in the world,La place de la Grande-Bretagne
+FOCUS_GBR_NATIONAL_RENEWAL,National renewal,Renouveau national
+FOCUS_GBR_NATIONAL_RENEWAL_DESC,"After a decade of crises, the country needs a project.","Après une décennie de crises, le pays a besoin d'un projet."
+FOCUS_GBR_REJOIN_EUROPE,Back to Europe,Retour vers l'Europe
+FOCUS_GBR_REJOIN_EUROPE_DESC,Repair the relationship with our nearest neighbours.,Réparer la relation avec nos plus proches voisins.
+FOCUS_GBR_UNION_QUESTION,The question of the Union,La question de l'Union
+FOCUS_GBR_UNION_QUESTION_DESC,Scotland and Northern Ireland are drifting away. The Union must be rethought.,L'Écosse et l'Irlande du Nord s'éloignent. Il faut repenser l'Union.
+FOCUS_GBR_GLOBAL_BRITAIN,Global Britain,Grande-Bretagne mondiale
+FOCUS_GBR_GLOBAL_BRITAIN_DESC,"Look beyond Europe: the Commonwealth, the Indo-Pacific, the Anglosphere.","Regarder au-delà de l'Europe : le Commonwealth, l'Indo-Pacifique, le monde anglophone."
+FOCUS_GBR_SINGLE_MARKET,Back in the single market,Retour dans le marché unique
+FOCUS_GBR_SINGLE_MARKET_DESC,Rejoin the single market in exchange for freedom of movement.,Réintégrer le marché unique en échange de la libre circulation.
+FOCUS_GBR_EU_ACCESSION,Rejoin the European Union,Réintégrer l'Union européenne
+FOCUS_GBR_EU_ACCESSION_DESC,"Ten years after Brexit, the United Kingdom applies again.","Dix ans après le Brexit, le Royaume-Uni se porte de nouveau candidat."
+FOCUS_GBR_SCOTTISH_REFERENDUM,A second Scottish referendum,Un second référendum écossais
+FOCUS_GBR_SCOTTISH_REFERENDUM_DESC,"Let Scotland decide its future, whatever the result.","Laisser l'Écosse décider de son avenir, quel que soit le résultat."
+FOCUS_GBR_MUSCULAR_UNIONISM,Muscular unionism,Unionisme musclé
+FOCUS_GBR_MUSCULAR_UNIONISM_DESC,"One kingdom, one parliament, no more referendums.","Un royaume, un parlement, plus de référendums."
+FOCUS_GBR_CANZUK,CANZUK,CANZUK
+FOCUS_GBR_CANZUK_DESC,"Free movement and trade with Canada, Australia and New Zealand.","Libre circulation et libre-échange avec le Canada, l'Australie et la Nouvelle-Zélande."
+FOCUS_GBR_CITY_DEREGULATION,Singapore-on-Thames,Singapour-sur-Tamise
+FOCUS_GBR_CITY_DEREGULATION_DESC,Light regulation to make the City the world's financial hub.,Une réglementation légère pour faire de la City le centre financier du monde.
+FOCUS_GBR_IRISH_UNITY,Irish unity,L'unité irlandaise
+FOCUS_GBR_IRISH_UNITY_DESC,"Accept the verdict of the people of Ireland, North and South: Northern Ireland joins the Republic.",Accepter le verdict des Irlandais du Nord et du Sud : l'Irlande du Nord rejoint la République.
+FOCUS_GBR_AUKUS_PLUS,AUKUS plus,AUKUS plus
+FOCUS_GBR_AUKUS_PLUS_DESC,Nuclear submarines and drones with the Americans and Australians.,Sous-marins nucléaires et drones avec les Américains et les Australiens.
+FOCUS_GBR_GREEN_INDUSTRIAL_REVOLUTION,Green industrial revolution,Révolution industrielle verte
+FOCUS_GBR_GREEN_INDUSTRIAL_REVOLUTION_DESC,The North Sea becomes Europe's wind power station.,La mer du Nord devient la centrale éolienne de l'Europe.
+FOCUS_GBR_NEW_SETTLEMENT,A new settlement,Un nouveau pacte
+FOCUS_GBR_NEW_SETTLEMENT_DESC,Britain has found its place in the world.,La Grande-Bretagne a trouvé sa place dans le monde.
+FOCUS_TREE_JPN,Japan's choice,Le choix du Japon
+FOCUS_JPN_NEW_CAPITALISM,New capitalism,Nouveau capitalisme
+FOCUS_JPN_NEW_CAPITALISM_DESC,Higher wages and a fairer distribution of growth.,Des salaires plus élevés et une croissance mieux partagée.
+FOCUS_JPN_CONSTITUTIONAL_REVISION,Revise Article 9,Réviser l'article 9
+FOCUS_JPN_CONSTITUTIONAL_REVISION_DESC,Recognise the Self-Defence Forces as a true army.,Reconnaître les Forces d'autodéfense comme une véritable armée.
+FOCUS_JPN_DEMOGRAPHIC_CRISIS,The demographic crisis,La crise démographique
+FOCUS_JPN_DEMOGRAPHIC_CRISIS_DESC,"Fewer births, more elderly: Japan must choose how to face it.","Moins de naissances, plus d'aînés : le Japon doit choisir comment y faire face."
+FOCUS_JPN_PACIFIST_PATH,The pacifist path,La voie pacifiste
+FOCUS_JPN_PACIFIST_PATH_DESC,Keep the peace constitution and lead by example.,Garder la constitution pacifiste et montrer l'exemple.
+FOCUS_JPN_COUNTERSTRIKE,Counterstrike capability,Capacité de contre-frappe
+FOCUS_JPN_COUNTERSTRIKE_DESC,Long-range missiles to deter any attack.,Des missiles à longue portée pour dissuader toute attaque.
+FOCUS_JPN_QUAD_ALLIANCE,Strengthen the Quad,Renforcer le Quad
+FOCUS_JPN_QUAD_ALLIANCE_DESC,"Closer ties with the United States, India, Australia and the Philippines.","Des liens plus étroits avec les États-Unis, l'Inde, l'Australie et les Philippines."
+FOCUS_JPN_ROBOT_SOCIETY,Robot society,Société des robots
+FOCUS_JPN_ROBOT_SOCIETY_DESC,Robots and AI instead of immigration.,Des robots et l'IA plutôt que l'immigration.
+FOCUS_JPN_OPEN_DOORS,Open the doors,Ouvrir les portes
+FOCUS_JPN_OPEN_DOORS_DESC,Welcome foreign workers to keep the economy alive.,Accueillir des travailleurs étrangers pour faire vivre l'économie.
+FOCUS_JPN_ASIAN_RECONCILIATION,Reconciliation in Asia,Réconciliation en Asie
+FOCUS_JPN_ASIAN_RECONCILIATION_DESC,Settle the wounds of history with Korea and China.,Refermer les blessures de l'histoire avec la Corée et la Chine.
+FOCUS_JPN_EAST_ASIAN_COMMUNITY,An East Asian community,Une communauté est-asiatique
+FOCUS_JPN_EAST_ASIAN_COMMUNITY_DESC,Economic integration with Southeast Asia and China.,L'intégration économique avec l'Asie du Sud-Est et la Chine.
+FOCUS_JPN_NUCLEAR_THRESHOLD,The nuclear threshold,Le seuil nucléaire
+FOCUS_JPN_NUCLEAR_THRESHOLD_DESC,Japan lets it be known that it could build the bomb within months.,Le Japon laisse entendre qu'il pourrait fabriquer la bombe en quelques mois.
+FOCUS_JPN_LOST_DECADES_END,The end of the lost decades,La fin des décennies perdues
+FOCUS_JPN_LOST_DECADES_END_DESC,"Growth and inflation are back, and the debt starts to fall.","Croissance et inflation sont de retour, et la dette commence à baisser."
+FOCUS_JPN_NORMAL_NATION,A normal nation,Une nation normale
+FOCUS_JPN_NORMAL_NATION_DESC,Japan takes its full place among the powers.,Le Japon prend toute sa place parmi les puissances.
+FOCUS_TREE_KOR,The future of the peninsula,L'avenir de la péninsule
+FOCUS_KOR_AFTER_THE_CRISIS,After the martial law crisis,Après la crise de la loi martiale
+FOCUS_KOR_AFTER_THE_CRISIS_DESC,Restore confidence in institutions after the turmoil of 2024-2025.,Rétablir la confiance dans les institutions après la tourmente de 2024-2025.
+FOCUS_KOR_SUNSHINE_POLICY,A new Sunshine Policy,Une nouvelle politique du rayon de soleil
+FOCUS_KOR_SUNSHINE_POLICY_DESC,Hold out a hand to the North.,Tendre la main au Nord.
+FOCUS_KOR_CHAEBOL_REFORM,Reform the chaebols,Réformer les chaebols
+FOCUS_KOR_CHAEBOL_REFORM_DESC,Break the grip of the family conglomerates.,Desserrer l'emprise des conglomérats familiaux.
+FOCUS_KOR_DETERRENCE_FIRST,Deterrence first,La dissuasion d'abord
+FOCUS_KOR_DETERRENCE_FIRST_DESC,"Peace through strength, alongside our American ally.","La paix par la force, aux côtés de notre allié américain."
+FOCUS_KOR_KAESONG_REOPENED,Reopen Kaesong,Rouvrir Kaesong
+FOCUS_KOR_KAESONG_REOPENED_DESC,The joint industrial zone resumes operations.,La zone industrielle commune reprend son activité.
+FOCUS_KOR_PEACE_TREATY,A peace treaty,Un traité de paix
+FOCUS_KOR_PEACE_TREATY_DESC,"Formally end the Korean War, seventy-three years later.","Mettre officiellement fin à la guerre de Corée, soixante-treize ans plus tard."
+FOCUS_KOR_SEMICONDUCTOR_SUPERPOWER,Semiconductor superpower,Superpuissance des semi-conducteurs
+FOCUS_KOR_SEMICONDUCTOR_SUPERPOWER_DESC,Stay at the top of the memory and logic chip race.,Rester en tête de la course aux puces mémoire et logiques.
+FOCUS_KOR_THREE_AXIS,Three-axis defence,Défense à trois axes
+FOCUS_KOR_THREE_AXIS_DESC,"Strike, missile defence and massive retaliation.","Frappe, défense antimissile et riposte massive."
+FOCUS_KOR_NUCLEAR_DEBATE,The nuclear debate,Le débat nucléaire
+FOCUS_KOR_NUCLEAR_DEBATE_DESC,More and more Koreans want their own bomb.,De plus en plus de Coréens veulent leur propre bombe.
+FOCUS_KOR_BIRTH_RATE_EMERGENCY,Birth rate emergency,Urgence natalité
+FOCUS_KOR_BIRTH_RATE_EMERGENCY_DESC,The world's lowest fertility rate: a national emergency.,Le taux de fécondité le plus bas du monde : une urgence nationale.
+FOCUS_KOR_REUNIFICATION_OFFER,Offer reunification,Proposer la réunification
+FOCUS_KOR_REUNIFICATION_OFFER_DESC,"Propose to the North a single Korea, democratic and free.","Proposer au Nord une seule Corée, démocratique et libre."
+FOCUS_KOR_COLLAPSE_CONTINGENCY,Collapse contingency,Plan en cas d'effondrement
+FOCUS_KOR_COLLAPSE_CONTINGENCY_DESC,"If the North collapses, we must be ready to restore order across the whole peninsula.","Si le Nord s'effondre, il faut être prêt à rétablir l'ordre dans toute la péninsule."
+FOCUS_KOR_UNIFIED_KOREA,One Korea,Une seule Corée
+FOCUS_KOR_UNIFIED_KOREA_DESC,"Whatever happened, the peninsula looks to the future.","Quoi qu'il soit arrivé, la péninsule regarde vers l'avenir."
+FOCUS_TREE_PRK,The Paektu line,La lignée du Paektu
+FOCUS_PRK_PARTY_CONGRESS,The Party Congress,Le congrès du Parti
+FOCUS_PRK_PARTY_CONGRESS_DESC,The Ninth Congress sets the line for the years to come.,Le IXe Congrès fixe la ligne des années à venir.
+FOCUS_PRK_JUCHE_FOREVER,Juche forever,Le Juche pour toujours
+FOCUS_PRK_JUCHE_FOREVER_DESC,Self-reliance and closure to the outside world.,L'autosuffisance et la fermeture au monde extérieur.
+FOCUS_PRK_RUSSIAN_ALLIANCE,The Russian alliance,L'alliance russe
+FOCUS_PRK_RUSSIAN_ALLIANCE_DESC,Shells and soldiers in exchange for technology and grain.,Des obus et des soldats en échange de technologies et de céréales.
+FOCUS_PRK_DOI_MOI,Our own Doi Moi,Notre propre Doi Moi
+FOCUS_PRK_DOI_MOI_DESC,Follow Vietnam: markets under the Party's control.,Suivre le Vietnam : le marché sous le contrôle du Parti.
+FOCUS_PRK_NUCLEAR_TEST,A new nuclear test,Un nouvel essai nucléaire
+FOCUS_PRK_NUCLEAR_TEST_DESC,Remind the world that we are a nuclear power.,Rappeler au monde que nous sommes une puissance nucléaire.
+FOCUS_PRK_MILITARY_FIRST,Military first,L'armée d'abord
+FOCUS_PRK_MILITARY_FIRST_DESC,The army before everything else.,L'armée avant tout le reste.
+FOCUS_PRK_SPECIAL_ECONOMIC_ZONES,Special economic zones,Zones économiques spéciales
+FOCUS_PRK_SPECIAL_ECONOMIC_ZONES_DESC,Open coastal zones to foreign investors.,Ouvrir des zones côtières aux investisseurs étrangers.
+FOCUS_PRK_INTER_KOREAN_SUMMIT,Inter-Korean summit,Sommet intercoréen
+FOCUS_PRK_INTER_KOREAN_SUMMIT_DESC,Meet the South at Panmunjom.,Rencontrer le Sud à Panmunjom.
+FOCUS_PRK_SUCCESSION,Secure the succession,Assurer la succession
+FOCUS_PRK_SUCCESSION_DESC,The next generation of the Paektu bloodline is presented to the people.,La génération suivante de la lignée du Paektu est présentée au peuple.
+FOCUS_PRK_UNIFICATION_BY_FORCE,Unification by force,Réunification par la force
+FOCUS_PRK_UNIFICATION_BY_FORCE_DESC,Finish what was started in 1950.,Achever ce qui a été commencé en 1950.
+FOCUS_PRK_CONFEDERATION,A Korean confederation,Une confédération coréenne
+FOCUS_PRK_CONFEDERATION_DESC,Propose to the South a single Korean state.,Proposer au Sud un seul État coréen.
+FOCUS_PRK_PAEKTU_BLOODLINE,Eternal Korea,Corée éternelle
+FOCUS_PRK_PAEKTU_BLOODLINE_DESC,The regime has survived another decade.,Le régime a survécu une décennie de plus.
+FOCUS_TREE_TWN,Taiwan's destiny,Le destin de Taïwan
+FOCUS_TWN_STATUS_QUO,Keep the status quo,Garder le statu quo
+FOCUS_TWN_STATUS_QUO_DESC,Neither independence nor unification: keep the peace.,"Ni indépendance, ni unification : garder la paix."
+FOCUS_TWN_PORCUPINE,Porcupine strategy,Stratégie du porc-épic
+FOCUS_TWN_PORCUPINE_DESC,Make the island too costly to swallow.,Rendre l'île trop coûteuse à avaler.
+FOCUS_TWN_SILICON_SHIELD,Silicon shield,Bouclier de silicium
+FOCUS_TWN_SILICON_SHIELD_DESC,The world cannot do without our chips.,Le monde ne peut se passer de nos puces.
+FOCUS_TWN_CROSS_STRAIT_DETENTE,Cross-strait détente,Détente dans le détroit
+FOCUS_TWN_CROSS_STRAIT_DETENTE_DESC,Reopen dialogue and trade with the mainland.,Rouvrir le dialogue et le commerce avec le continent.
+FOCUS_TWN_WHOLE_OF_SOCIETY,Whole-of-society defence,Défense de toute la société
+FOCUS_TWN_WHOLE_OF_SOCIETY_DESC,Every citizen trained to resist.,Chaque citoyen formé à résister.
+FOCUS_TWN_US_GUARANTEE,An American guarantee,Une garantie américaine
+FOCUS_TWN_US_GUARANTEE_DESC,Obtain a clear commitment from Washington.,Obtenir un engagement clair de Washington.
+FOCUS_TWN_DIVERSIFY_FABS,Factories abroad,Des usines à l'étranger
+FOCUS_TWN_DIVERSIFY_FABS_DESC,"Build foundries in the United States, Japan and Germany.","Construire des fonderies aux États-Unis, au Japon et en Allemagne."
+FOCUS_TWN_FORMAL_INDEPENDENCE,Formal independence,Indépendance formelle
+FOCUS_TWN_FORMAL_INDEPENDENCE_DESC,Proclaim the Republic of Taiwan. Beijing has always said this would mean war.,Proclamer la République de Taïwan. Pékin a toujours dit que ce serait la guerre.
+FOCUS_TWN_ONE_COUNTRY_TWO_SYSTEMS,Open to a union,Ouvert à une union
+FOCUS_TWN_ONE_COUNTRY_TWO_SYSTEMS_DESC,Let Beijing know that a union with real autonomy could be discussed.,Faire savoir à Pékin qu'une union avec une vraie autonomie pourrait se discuter.
+FOCUS_TWN_DIPLOMATIC_RECOGNITION,Seek recognition,Chercher la reconnaissance
+FOCUS_TWN_DIPLOMATIC_RECOGNITION_DESC,Ask the democracies to recognise us.,Demander aux démocraties de nous reconnaître.
+FOCUS_TWN_DEMOCRATIC_BEACON,A democratic beacon,Un phare démocratique
+FOCUS_TWN_DEMOCRATIC_BEACON_DESC,"Taiwan, a free society at the gates of China.","Taïwan, une société libre aux portes de la Chine."
+FOCUS_TREE_UKR,Ukraine standing,L'Ukraine debout
+FOCUS_UKR_HOLD_THE_LINE,Hold the line,Tenir le front
+FOCUS_UKR_HOLD_THE_LINE_DESC,Every metre counts.,Chaque mètre compte.
+FOCUS_UKR_DRONE_ARMY,An army of drones,Une armée de drones
+FOCUS_UKR_DRONE_ARMY_DESC,Millions of drones built in garages and factories.,Des millions de drones fabriqués dans des garages et des usines.
+FOCUS_UKR_WESTERN_AID,Western aid,L'aide occidentale
+FOCUS_UKR_WESTERN_AID_DESC,Keep weapons and money flowing from our allies.,Faire continuer le flux d'armes et d'argent de nos alliés.
+FOCUS_UKR_PEACE_TALKS,Peace talks,Négociations de paix
+FOCUS_UKR_PEACE_TALKS_DESC,"Negotiate an end to the war, without giving up everything.","Négocier la fin de la guerre, sans tout céder."
+FOCUS_UKR_DEFENCE_INDUSTRY,Our own defence industry,Notre propre industrie de défense
+FOCUS_UKR_DEFENCE_INDUSTRY_DESC,Produce our own armoured vehicles and robots.,Produire nos propres blindés et robots.
+FOCUS_UKR_COUNTEROFFENSIVE,Counteroffensive,Contre-offensive
+FOCUS_UKR_COUNTEROFFENSIVE_DESC,Take back the occupied territories.,Reprendre les territoires occupés.
+FOCUS_UKR_EU_ACCESSION,Join the European Union,Rejoindre l'Union européenne
+FOCUS_UKR_EU_ACCESSION_DESC,The European dream of the Maidan comes true.,Le rêve européen du Maïdan se réalise.
+FOCUS_UKR_NATO_MEMBERSHIP,Join NATO,Rejoindre l'OTAN
+FOCUS_UKR_NATO_MEMBERSHIP_DESC,The only real guarantee of our security.,La seule vraie garantie de notre sécurité.
+FOCUS_UKR_ARMED_NEUTRALITY,Armed neutrality,Neutralité armée
+FOCUS_UKR_ARMED_NEUTRALITY_DESC,Neither NATO nor Russia: a neutral but armed Ukraine.,"Ni l'OTAN, ni la Russie : une Ukraine neutre mais armée."
+FOCUS_UKR_RECONSTRUCTION,Reconstruction,Reconstruction
+FOCUS_UKR_RECONSTRUCTION_DESC,"Rebuild cities, energy grids and railways.","Reconstruire villes, réseaux électriques et voies ferrées."
+FOCUS_UKR_CRIMEAN_QUESTION,The Crimean question,La question de Crimée
+FOCUS_UKR_CRIMEAN_QUESTION_DESC,Never recognise the annexation of Crimea.,Ne jamais reconnaître l'annexion de la Crimée.
+FOCUS_UKR_ANTICORRUPTION_COURT,Fight corruption,Lutter contre la corruption
+FOCUS_UKR_ANTICORRUPTION_COURT_DESC,"Independent courts, a condition for joining Europe.","Des tribunaux indépendants, condition de l'entrée en Europe."
+FOCUS_UKR_VICTORY,Ukraine has won,L'Ukraine a gagné
+FOCUS_UKR_VICTORY_DESC,"Whatever its borders, Ukraine has survived and chosen its path.","Quelles que soient ses frontières, l'Ukraine a survécu et choisi sa voie."
+EVENT_SCOTTISH_INDEPENDENCE_REFERENDUM_TITLE,Scotland votes,L'Écosse vote
+EVENT_SCOTTISH_INDEPENDENCE_REFERENDUM_DESC,Scots go to the polls to decide whether Scotland should be an independent country.,Les Écossais votent pour décider si l'Écosse doit devenir un pays indépendant.
+EVENT_SCOTLAND_VOTES_YES_TITLE,Scotland chooses independence,L'Écosse choisit l'indépendance
+EVENT_SCOTLAND_VOTES_YES_DESC,"""Yes"" has won. Edinburgh asks London to recognise the result.",Le « oui » l'emporte. Édimbourg demande à Londres de reconnaître le résultat.
+EVENT_SCOTLAND_VOTES_YES_A,Respect the vote,Respecter le vote
+EVENT_SCOTLAND_VOTES_YES_B,Refuse to recognise it,Refuser de le reconnaître
+EVENT_SCOTLAND_VOTES_NO_TITLE,Scotland stays,L'Écosse reste
+EVENT_SCOTLAND_VOTES_NO_DESC,"""No"" has won: Scotland remains in the United Kingdom, for now.","Le « non » l'emporte : l'Écosse reste dans le Royaume-Uni, pour l'instant."
+EVENT_SCOTLAND_VOTES_NO_A,The Union endures,L'Union perdure
+EVENT_KOREAN_REUNIFICATION_PROPOSAL_TITLE,An offer from the South,Une offre du Sud
+EVENT_KOREAN_REUNIFICATION_PROPOSAL_DESC,{from} proposes reunification under a single democratic government. Accepting would end our state.,"Proposition de réunification sous un gouvernement démocratique unique, venue de : {from}. Accepter mettrait fin à notre État."
+EVENT_KOREAN_REUNIFICATION_PROPOSAL_A,Accept reunification,Accepter la réunification
+EVENT_KOREAN_REUNIFICATION_PROPOSAL_B,Reject the puppets' offer,Rejeter l'offre des fantoches
+EVENT_KOREAN_CONFEDERATION_OFFER_TITLE,An offer from the North,Une offre du Nord
+EVENT_KOREAN_CONFEDERATION_OFFER_DESC,{from} proposes a single Korean state under its leadership.,"Proposition d'un seul État coréen sous sa direction, venue de : {from}."
+EVENT_KOREAN_CONFEDERATION_OFFER_A,Accept,Accepter
+EVENT_KOREAN_CONFEDERATION_OFFER_B,Refuse,Refuser
+EVENT_KOREA_REUNIFIED_TITLE,Korea reunified,La Corée réunifiée
+EVENT_KOREA_REUNIFIED_DESC,"After eighty years of division, the peninsula is once again a single country.","Après quatre-vingts ans de division, la péninsule ne forme de nouveau qu'un seul pays."
+EVENT_KOREA_REUNIFIED_A,"One people, one nation","Un peuple, une nation"
+FOCUS_TREE_BRA,"Brazil, land of the future","Le Brésil, pays d'avenir"
+FOCUS_BRA_NEW_GROWTH_PLAN,New growth plan,Nouveau plan de croissance
+FOCUS_BRA_NEW_GROWTH_PLAN_DESC,"Infrastructure, industry and green transition.","Infrastructures, industrie et transition verte."
+FOCUS_BRA_AMAZON_GUARDIAN,Guardian of the Amazon,Gardien de l'Amazonie
+FOCUS_BRA_AMAZON_GUARDIAN_DESC,Zero deforestation and the world's greatest forest protected.,Zéro déforestation et la plus grande forêt du monde protégée.
+FOCUS_BRA_SOCIAL_BRAZIL,A social Brazil,Un Brésil social
+FOCUS_BRA_SOCIAL_BRAZIL_DESC,Fight hunger and inequality.,Lutter contre la faim et les inégalités.
+FOCUS_BRA_AGRIBUSINESS_FRONTIER,The agricultural frontier,La frontière agricole
+FOCUS_BRA_AGRIBUSINESS_FRONTIER_DESC,"Soy, cattle and new land: Brazil feeds the world.","Soja, bétail et nouvelles terres : le Brésil nourrit le monde."
+FOCUS_BRA_BIOECONOMY,Bioeconomy,Bioéconomie
+FOCUS_BRA_BIOECONOMY_DESC,Make the forest worth more standing than cut down.,Faire que la forêt vaille plus debout qu'abattue.
+FOCUS_BRA_CLIMATE_FINANCE,Climate finance,Finance climatique
+FOCUS_BRA_CLIMATE_FINANCE_DESC,Rich countries pay to protect the Amazon.,Les pays riches paient pour protéger l'Amazonie.
+FOCUS_BRA_BRICS_LEADERSHIP,BRICS leadership,Leadership des BRICS
+FOCUS_BRA_BRICS_LEADERSHIP_DESC,Speak for the Global South.,Parler au nom du Sud global.
+FOCUS_BRA_PRE_SALT_BOOM,Pre-salt boom,Le boom du pré-sel
+FOCUS_BRA_PRE_SALT_BOOM_DESC,Deep offshore oil makes Brazil a major producer.,Le pétrole offshore profond fait du Brésil un grand producteur.
+FOCUS_BRA_INDUSTRIAL_NATIONALISM,Industrial nationalism,Nationalisme industriel
+FOCUS_BRA_INDUSTRIAL_NATIONALISM_DESC,Protect national industry from foreign competition.,Protéger l'industrie nationale de la concurrence étrangère.
+FOCUS_BRA_SOUTH_AMERICAN_UNION,South American union,Union sud-américaine
+FOCUS_BRA_SOUTH_AMERICAN_UNION_DESC,A continent united around Mercosur.,Un continent uni autour du Mercosur.
+FOCUS_BRA_NUCLEAR_SUBMARINE,Nuclear submarine,Sous-marin nucléaire
+FOCUS_BRA_NUCLEAR_SUBMARINE_DESC,The first nuclear-powered submarine of the southern hemisphere.,Le premier sous-marin à propulsion nucléaire de l'hémisphère sud.
+FOCUS_BRA_MILITARY_GUARDIANSHIP,Military guardianship,Tutelle militaire
+FOCUS_BRA_MILITARY_GUARDIANSHIP_DESC,"Amid chaos, the generals take control ""to save the Republic"".","Dans le chaos, les généraux prennent le contrôle « pour sauver la République »."
+FOCUS_BRA_GLOBAL_POWER,A global power,Une puissance mondiale
+FOCUS_BRA_GLOBAL_POWER_DESC,Brazil is no longer only the country of the future.,Le Brésil n'est plus seulement le pays de l'avenir.
+FOCUS_TREE_MEX,The Mexican transformation,La transformation mexicaine
+FOCUS_MEX_FOURTH_TRANSFORMATION,The Fourth Transformation,La Quatrième Transformation
+FOCUS_MEX_FOURTH_TRANSFORMATION_DESC,Continue the project begun in 2018.,Poursuivre le projet commencé en 2018.
+FOCUS_MEX_WAR_ON_CARTELS,War on the cartels,Guerre aux cartels
+FOCUS_MEX_WAR_ON_CARTELS_DESC,"The army against organised crime, whatever the cost.","L'armée contre le crime organisé, quoi qu'il en coûte."
+FOCUS_MEX_NEARSHORING,Nearshoring,Relocalisation de proximité
+FOCUS_MEX_NEARSHORING_DESC,Attract factories leaving Asia for the American market.,Attirer les usines qui quittent l'Asie pour le marché américain.
+FOCUS_MEX_HUGS_NOT_BULLETS,"Hugs, not bullets","Des câlins, pas des balles"
+FOCUS_MEX_HUGS_NOT_BULLETS_DESC,Fight the causes of violence rather than the gangs.,Combattre les causes de la violence plutôt que les gangs.
+FOCUS_MEX_NATIONAL_GUARD,The National Guard,La Garde nationale
+FOCUS_MEX_NATIONAL_GUARD_DESC,A militarised force to restore order.,Une force militarisée pour rétablir l'ordre.
+FOCUS_MEX_US_JOINT_OPERATIONS,Joint operations with Washington,Opérations conjointes avec Washington
+FOCUS_MEX_US_JOINT_OPERATIONS_DESC,"Accept American help against the cartels, at the price of sovereignty.","Accepter l'aide américaine contre les cartels, au prix de la souveraineté."
+FOCUS_MEX_INDUSTRIAL_CORRIDORS,Industrial corridors,Corridors industriels
+FOCUS_MEX_INDUSTRIAL_CORRIDORS_DESC,"Railways, ports and industrial parks from coast to coast.","Voies ferrées, ports et parcs industriels d'une côte à l'autre."
+FOCUS_MEX_PEMEX_SOVEREIGNTY,Energy sovereignty,Souveraineté énergétique
+FOCUS_MEX_PEMEX_SOVEREIGNTY_DESC,Pemex and the CFE remain in the hands of the nation.,Pemex et la CFE restent entre les mains de la nation.
+FOCUS_MEX_ENERGY_OPENING,Energy opening,Ouverture énergétique
+FOCUS_MEX_ENERGY_OPENING_DESC,Let private and foreign investors into energy.,Laisser entrer les investisseurs privés et étrangers dans l'énergie.
+FOCUS_MEX_JUDICIAL_REFORM,Judicial reform,Réforme judiciaire
+FOCUS_MEX_JUDICIAL_REFORM_DESC,Elected judges: more democratic or more political?,Des juges élus : plus démocratique ou plus politique ?
+FOCUS_MEX_USMCA_SHOWDOWN,USMCA showdown,Bras de fer sur l'ACEUM
+FOCUS_MEX_USMCA_SHOWDOWN_DESC,Defend our interests in the review of the trade agreement.,Défendre nos intérêts lors de la révision de l'accord commercial.
+FOCUS_MEX_MESOAMERICAN_COMMUNITY,Mesoamerican community,Communauté mésoaméricaine
+FOCUS_MEX_MESOAMERICAN_COMMUNITY_DESC,Lead the development of Central America.,Prendre la tête du développement de l'Amérique centrale.
+FOCUS_MEX_MEXICAN_CENTURY,The Mexican century,Le siècle mexicain
+FOCUS_MEX_MEXICAN_CENTURY_DESC,Mexico becomes a top ten economy.,Le Mexique entre parmi les dix premières économies.
+FOCUS_TREE_ARG,Argentina reborn,L'Argentine renaissante
+FOCUS_ARG_CHAINSAW,The chainsaw,La tronçonneuse
+FOCUS_ARG_CHAINSAW_DESC,Cut public spending to break inflation.,Tailler dans la dépense publique pour casser l'inflation.
+FOCUS_ARG_DOLLARIZATION,Dollarisation,Dollarisation
+FOCUS_ARG_DOLLARIZATION_DESC,Replace the peso with the dollar once and for all.,Remplacer le peso par le dollar une fois pour toutes.
+FOCUS_ARG_VACA_MUERTA,Vaca Muerta,Vaca Muerta
+FOCUS_ARG_VACA_MUERTA_DESC,The second largest shale gas reserve in the world.,La deuxième réserve de gaz de schiste du monde.
+FOCUS_ARG_PERONIST_RETURN,The Peronist return,Le retour péroniste
+FOCUS_ARG_PERONIST_RETURN_DESC,"Workers, wages and the state at the heart of the economy.","Les travailleurs, les salaires et l'État au cœur de l'économie."
+FOCUS_ARG_OECD_ACCESSION,Join the OECD,Rejoindre l'OCDE
+FOCUS_ARG_OECD_ACCESSION_DESC,Join the club of developed economies.,Rejoindre le club des économies développées.
+FOCUS_ARG_LITHIUM_TRIANGLE,The lithium triangle,Le triangle du lithium
+FOCUS_ARG_LITHIUM_TRIANGLE_DESC,Exploit the lithium of the northern salt flats.,Exploiter le lithium des salars du Nord.
+FOCUS_ARG_US_PARTNERSHIP,Partnership with Washington,Partenariat avec Washington
+FOCUS_ARG_US_PARTNERSHIP_DESC,A privileged ally of the United States in the south.,Un allié privilégié des États-Unis dans le Sud.
+FOCUS_ARG_NATIONAL_INDUSTRY,National industry,Industrie nationale
+FOCUS_ARG_NATIONAL_INDUSTRY_DESC,Protect and subsidise Argentine factories.,Protéger et subventionner les usines argentines.
+FOCUS_ARG_BRICS_TURN,Turn to the BRICS,Virage vers les BRICS
+FOCUS_ARG_BRICS_TURN_DESC,China and the Global South as partners.,La Chine et le Sud global comme partenaires.
+FOCUS_ARG_MALVINAS_CLAIM,The Malvinas are Argentine,Les Malouines sont argentines
+FOCUS_ARG_MALVINAS_CLAIM_DESC,Formally revive our claim over the islands.,Relancer officiellement notre revendication sur les îles.
+FOCUS_ARG_MALVINAS_WAR,A second Malvinas war,Une seconde guerre des Malouines
+FOCUS_ARG_MALVINAS_WAR_DESC,"Take back the islands by force, forty-five years later.","Reprendre les îles par la force, quarante-cinq ans plus tard."
+FOCUS_ARG_MERCOSUR_REBOOT,Relaunch Mercosur,Relancer le Mercosur
+FOCUS_ARG_MERCOSUR_REBOOT_DESC,Revive the common market of the south.,Raviver le marché commun du Sud.
+FOCUS_ARG_ARGENTINA_RISES,Argentina rises again,L'Argentine se relève
+FOCUS_ARG_ARGENTINA_RISES_DESC,"After a century of crises, Argentina regains its rank.","Après un siècle de crises, l'Argentine retrouve son rang."
+FOCUS_TREE_CAN,The True North,Le Grand Nord
+FOCUS_CAN_ELBOWS_UP,Elbows up,Jouer des coudes
+FOCUS_CAN_ELBOWS_UP_DESC,Stand up to pressure from our southern neighbour.,Tenir tête aux pressions de notre voisin du Sud.
+FOCUS_CAN_ENERGY_SUPERPOWER,Energy superpower,Superpuissance énergétique
+FOCUS_CAN_ENERGY_SUPERPOWER_DESC,Pipelines and LNG terminals to sell to the world.,Oléoducs et terminaux de GNL pour vendre au monde entier.
+FOCUS_CAN_DIVERSIFY_TRADE,Diversify trade,Diversifier le commerce
+FOCUS_CAN_DIVERSIFY_TRADE_DESC,Depend less on the United States.,Dépendre moins des États-Unis.
+FOCUS_CAN_NATIONAL_UNITY,National unity,L'unité nationale
+FOCUS_CAN_NATIONAL_UNITY_DESC,Quebec and the West feel neglected by Ottawa.,Le Québec et l'Ouest se sentent négligés par Ottawa.
+FOCUS_CAN_ARCTIC_SOVEREIGNTY,Arctic sovereignty,Souveraineté arctique
+FOCUS_CAN_ARCTIC_SOVEREIGNTY_DESC,Defend our northern waters.,Défendre nos eaux septentrionales.
+FOCUS_CAN_CRITICAL_MINERALS,Critical minerals,Minerais critiques
+FOCUS_CAN_CRITICAL_MINERALS_DESC,"Lithium, nickel and cobalt for the energy transition.","Lithium, nickel et cobalt pour la transition énergétique."
+FOCUS_CAN_EUROPEAN_PARTNER,Europe's partner,Partenaire de l'Europe
+FOCUS_CAN_EUROPEAN_PARTNER_DESC,Turn towards Europe.,Se tourner vers l'Europe.
+FOCUS_CAN_CONTINENTAL_INTEGRATION,Continental integration,Intégration continentale
+FOCUS_CAN_CONTINENTAL_INTEGRATION_DESC,Tie our future even more closely to America's.,Lier encore davantage notre avenir à celui de l'Amérique.
+FOCUS_CAN_QUEBEC_REFERENDUM,A third referendum in Quebec,Un troisième référendum au Québec
+FOCUS_CAN_QUEBEC_REFERENDUM_DESC,Let Quebec decide its future.,Laisser le Québec décider de son avenir.
+FOCUS_CAN_WESTERN_ALIENATION,Western alienation,Le malaise de l'Ouest
+FOCUS_CAN_WESTERN_ALIENATION_DESC,Alberta and Saskatchewan threaten to leave.,L'Alberta et la Saskatchewan menacent de partir.
+FOCUS_CAN_EU_MEMBERSHIP,Join the European Union,Rejoindre l'Union européenne
+FOCUS_CAN_EU_MEMBERSHIP_DESC,An unexpected candidate across the Atlantic.,Un candidat inattendu de l'autre côté de l'Atlantique.
+FOCUS_CAN_RECONCILIATION,Reconciliation,Réconciliation
+FOCUS_CAN_RECONCILIATION_DESC,"With First Nations, Quebec and the West.","Avec les Premières Nations, le Québec et l'Ouest."
+FOCUS_CAN_TRUE_NORTH,Strong and free,Fort et libre
+FOCUS_CAN_TRUE_NORTH_DESC,Canada stands on its own.,Le Canada se tient debout seul.
+FOCUS_TREE_AUS,Advance Australia,Australie en avant
+FOCUS_AUS_FUTURE_MADE_IN_AUSTRALIA,A future made in Australia,Un avenir fabriqué en Australie
+FOCUS_AUS_FUTURE_MADE_IN_AUSTRALIA_DESC,Process our resources at home.,Transformer nos ressources chez nous.
+FOCUS_AUS_AUKUS_SUBMARINES,AUKUS submarines,Sous-marins AUKUS
+FOCUS_AUS_AUKUS_SUBMARINES_DESC,Nuclear-powered submarines with the Americans and the British.,Des sous-marins nucléaires avec les Américains et les Britanniques.
+FOCUS_AUS_CRITICAL_MINERALS,Critical minerals,Minerais critiques
+FOCUS_AUS_CRITICAL_MINERALS_DESC,Become the alternative to China for rare earths.,Devenir l'alternative à la Chine pour les terres rares.
+FOCUS_AUS_MIDDLE_POWER_BALANCE,A balancing middle power,Une puissance d'équilibre
+FOCUS_AUS_MIDDLE_POWER_BALANCE_DESC,"Trade with China, security with everyone.","Le commerce avec la Chine, la sécurité avec tous."
+FOCUS_AUS_NORTHERN_SHIELD,Northern shield,Bouclier du Nord
+FOCUS_AUS_NORTHERN_SHIELD_DESC,Long-range missiles to defend the northern approaches.,Des missiles à longue portée pour défendre les approches du Nord.
+FOCUS_AUS_PACIFIC_STEP_UP,Pacific step-up,Engagement dans le Pacifique
+FOCUS_AUS_PACIFIC_STEP_UP_DESC,Aid and partnerships with our Pacific neighbours.,Aide et partenariats avec nos voisins du Pacifique.
+FOCUS_AUS_GREEN_HYDROGEN,Green hydrogen superpower,Superpuissance de l'hydrogène vert
+FOCUS_AUS_GREEN_HYDROGEN_DESC,Sun and wind turned into exportable energy.,Le soleil et le vent transformés en énergie exportable.
+FOCUS_AUS_ASIAN_INTEGRATION,Part of Asia,Une part de l'Asie
+FOCUS_AUS_ASIAN_INTEGRATION_DESC,Australia's future lies in Asia.,L'avenir de l'Australie est en Asie.
+FOCUS_AUS_REPUBLIC_REFERENDUM,A republic referendum,Un référendum sur la république
+FOCUS_AUS_REPUBLIC_REFERENDUM_DESC,Should Australia cut its last tie with the Crown?,L'Australie doit-elle couper son dernier lien avec la Couronne ?
+FOCUS_AUS_FIRST_NATIONS_VOICE,A voice for First Nations,Une voix pour les Premières Nations
+FOCUS_AUS_FIRST_NATIONS_VOICE_DESC,Recognise the first Australians.,Reconnaître les premiers Australiens.
+FOCUS_AUS_LUCKY_COUNTRY,The lucky country,Le pays chanceux
+FOCUS_AUS_LUCKY_COUNTRY_DESC,Australia has made its own luck.,L'Australie a forgé sa propre chance.
+FOCUS_TREE_IDN,Golden Indonesia 2045,Indonésie d'or 2045
+FOCUS_IDN_GOLDEN_INDONESIA,Golden Indonesia,Indonésie d'or
+FOCUS_IDN_GOLDEN_INDONESIA_DESC,A high-income country by the centenary of independence.,Un pays à revenu élevé pour le centenaire de l'indépendance.
+FOCUS_IDN_NICKEL_DOWNSTREAMING,Nickel downstreaming,Transformation du nickel
+FOCUS_IDN_NICKEL_DOWNSTREAMING_DESC,Ban raw ore exports and refine at home.,Interdire l'export de minerai brut et raffiner sur place.
+FOCUS_IDN_NUSANTARA,Nusantara,Nusantara
+FOCUS_IDN_NUSANTARA_DESC,Move the capital from sinking Jakarta to Borneo.,"Déplacer la capitale de Jakarta, qui s'enfonce, vers Bornéo."
+FOCUS_IDN_FREE_AND_ACTIVE,Free and active,Libre et active
+FOCUS_IDN_FREE_AND_ACTIVE_DESC,Indonesia's foreign policy: non-aligned and engaged.,La politique étrangère indonésienne : non alignée et engagée.
+FOCUS_IDN_BATTERY_HUB,Battery hub,Pôle des batteries
+FOCUS_IDN_BATTERY_HUB_DESC,From nickel to electric vehicle batteries.,Du nickel aux batteries de véhicules électriques.
+FOCUS_IDN_FREE_MEALS,Free school meals,Repas scolaires gratuits
+FOCUS_IDN_FREE_MEALS_DESC,A free meal for every child.,Un repas gratuit pour chaque enfant.
+FOCUS_IDN_STRONG_PRESIDENCY,A strong presidency,Une présidence forte
+FOCUS_IDN_STRONG_PRESIDENCY_DESC,Stability and order above all.,La stabilité et l'ordre avant tout.
+FOCUS_IDN_REFORMASI_RENEWED,Reformasi renewed,Reformasi renouvelée
+FOCUS_IDN_REFORMASI_RENEWED_DESC,Return to the spirit of 1998: democracy and clean government.,Retrouver l'esprit de 1998 : démocratie et gouvernement intègre.
+FOCUS_IDN_ASEAN_LEADERSHIP,ASEAN leadership,Leadership de l'ASEAN
+FOCUS_IDN_ASEAN_LEADERSHIP_DESC,The natural leader of Southeast Asia.,Le leader naturel de l'Asie du Sud-Est.
+FOCUS_IDN_PAPUA_CRACKDOWN,Order in Papua,L'ordre en Papouasie
+FOCUS_IDN_PAPUA_CRACKDOWN_DESC,Crush the separatist movement.,Écraser le mouvement séparatiste.
+FOCUS_IDN_PAPUA_SELF_DETERMINATION,Self-determination for Papua,Autodétermination pour la Papouasie
+FOCUS_IDN_PAPUA_SELF_DETERMINATION_DESC,Let West Papua choose independence.,Laisser la Papouasie occidentale choisir l'indépendance.
+FOCUS_IDN_MARITIME_FULCRUM,Global maritime fulcrum,Pivot maritime mondial
+FOCUS_IDN_MARITIME_FULCRUM_DESC,A navy worthy of the largest archipelago in the world.,Une marine digne du plus grand archipel du monde.
+FOCUS_IDN_INDONESIA_EMAS,Indonesia Emas,Indonesia Emas
+FOCUS_IDN_INDONESIA_EMAS_DESC,The archipelago takes its place among the great powers.,L'archipel prend sa place parmi les grandes puissances.
+EVENT_QUEBEC_SOVEREIGNTY_REFERENDUM_TITLE,Quebec votes,Le Québec vote
+EVENT_QUEBEC_SOVEREIGNTY_REFERENDUM_DESC,Quebecers vote for the third time on sovereignty.,Les Québécois se prononcent pour la troisième fois sur la souveraineté.
+EVENT_QUEBEC_VOTES_YES_TITLE,Quebec says yes,Le Québec dit oui
+EVENT_QUEBEC_VOTES_YES_DESC,"""Yes"" wins. Quebec City asks Ottawa to negotiate independence.",Le « oui » l'emporte. Québec demande à Ottawa de négocier l'indépendance.
+EVENT_QUEBEC_VOTES_YES_A,Respect the vote,Respecter le vote
+EVENT_QUEBEC_VOTES_YES_B,Refuse to negotiate,Refuser de négocier
+EVENT_QUEBEC_VOTES_NO_TITLE,Quebec says no,Le Québec dit non
+EVENT_QUEBEC_VOTES_NO_DESC,"""No"" wins: Quebec remains in Canada.",Le « non » l'emporte : le Québec reste au Canada.
+EVENT_QUEBEC_VOTES_NO_A,Canada endures,Le Canada perdure
+EVENT_ALBERTA_INDEPENDENCE_CRISIS_TITLE,Wexit,Wexit
+EVENT_ALBERTA_INDEPENDENCE_CRISIS_DESC,Alberta and Saskatchewan vote to leave the federation.,L'Alberta et la Saskatchewan votent pour quitter la fédération.
+EVENT_ALBERTA_INDEPENDENCE_CRISIS_A,Let them go,Les laisser partir
+EVENT_ALBERTA_INDEPENDENCE_CRISIS_B,Offer a new deal to the West,Proposer un nouveau pacte à l'Ouest
+FOCUS_TREE_TUR,The Century of Türkiye,Le siècle de la Turquie
+FOCUS_TUR_CENTURY_OF_TURKIYE,The Century of Türkiye,Le siècle de la Turquie
+FOCUS_TUR_CENTURY_OF_TURKIYE_DESC,The Republic's second century begins.,Le deuxième siècle de la République commence.
+FOCUS_TUR_NEO_OTTOMAN,Neo-Ottoman ambition,Ambition néo-ottomane
+FOCUS_TUR_NEO_OTTOMAN_DESC,Restore Turkish influence from the Balkans to the Caucasus.,Restaurer l'influence turque des Balkans au Caucase.
+FOCUS_TUR_DEFENCE_INDUSTRY,National defence industry,Industrie de défense nationale
+FOCUS_TUR_DEFENCE_INDUSTRY_DESC,"Drones, frigates and fighters made in Türkiye.","Drones, frégates et chasseurs fabriqués en Turquie."
+FOCUS_TUR_EUROPEAN_PATH,The European path,La voie européenne
+FOCUS_TUR_EUROPEAN_PATH_DESC,Revive the EU accession process.,Relancer le processus d'adhésion à l'UE.
+FOCUS_TUR_BLUE_HOMELAND,Blue Homeland,Patrie bleue
+FOCUS_TUR_BLUE_HOMELAND_DESC,Assert our maritime rights in the Aegean and the Mediterranean.,Affirmer nos droits maritimes en Égée et en Méditerranée.
+FOCUS_TUR_EURASIAN_TURN,The Eurasian turn,Le virage eurasien
+FOCUS_TUR_EURASIAN_TURN_DESC,Join the Shanghai Cooperation Organisation.,Rejoindre l'Organisation de coopération de Shanghai.
+FOCUS_TUR_KURDISH_PEACE,Peace with the Kurds,La paix avec les Kurdes
+FOCUS_TUR_KURDISH_PEACE_DESC,End forty years of conflict.,Mettre fin à quarante ans de conflit.
+FOCUS_TUR_SECURITY_ZONE,A security zone in Syria,Une zone de sécurité en Syrie
+FOCUS_TUR_SECURITY_ZONE_DESC,Push armed groups away from our border.,Éloigner les groupes armés de notre frontière.
+FOCUS_TUR_CUSTOMS_UNION_UPGRADE,Modernise the customs union,Moderniser l'union douanière
+FOCUS_TUR_CUSTOMS_UNION_UPGRADE_DESC,Extend the customs union with the EU to services and agriculture.,Étendre l'union douanière avec l'UE aux services et à l'agriculture.
+FOCUS_TUR_CYPRUS_SETTLEMENT,A settlement in Cyprus,Un règlement à Chypre
+FOCUS_TUR_CYPRUS_SETTLEMENT_DESC,Support a federal solution for the island.,Soutenir une solution fédérale pour l'île.
+FOCUS_TUR_ANNEX_NORTHERN_CYPRUS,Annex Northern Cyprus,Annexer Chypre du Nord
+FOCUS_TUR_ANNEX_NORTHERN_CYPRUS_DESC,Make Northern Cyprus a Turkish province.,Faire de Chypre du Nord une province turque.
+FOCUS_TUR_LEAVE_NATO,Leave NATO,Quitter l'OTAN
+FOCUS_TUR_LEAVE_NATO_DESC,"Seventy-four years after joining, Türkiye goes its own way.","Soixante-quatorze ans après son adhésion, la Turquie suit sa propre voie."
+FOCUS_TUR_ISTANBUL_CANAL,Kanal Istanbul,Canal d'Istanbul
+FOCUS_TUR_ISTANBUL_CANAL_DESC,"A second Bosphorus, outside the Montreux Convention.","Un second Bosphore, hors de la convention de Montreux."
+FOCUS_TUR_REGIONAL_POWER,A regional power,Une puissance régionale
+FOCUS_TUR_REGIONAL_POWER_DESC,Türkiye counts on three continents.,La Turquie compte sur trois continents.
+FOCUS_TREE_IRN,The Islamic Republic at the crossroads,La République islamique à la croisée des chemins
+FOCUS_IRN_AFTER_THE_WAR,After the twelve-day war,Après la guerre des douze jours
+FOCUS_IRN_AFTER_THE_WAR_DESC,Rebuild after the strikes of June 2025.,Reconstruire après les frappes de juin 2025.
+FOCUS_IRN_RESISTANCE_ECONOMY,Resistance economy,Économie de résistance
+FOCUS_IRN_RESISTANCE_ECONOMY_DESC,Self-reliance in the face of sanctions.,L'autosuffisance face aux sanctions.
+FOCUS_IRN_SUPREME_LEADER_SUCCESSION,The succession,La succession
+FOCUS_IRN_SUPREME_LEADER_SUCCESSION_DESC,Who will succeed the Supreme Leader?,Qui succédera au Guide suprême ?
+FOCUS_IRN_PRAGMATIC_OPENING,Pragmatic opening,Ouverture pragmatique
+FOCUS_IRN_PRAGMATIC_OPENING_DESC,Negotiate to lift sanctions.,Négocier pour lever les sanctions.
+FOCUS_IRN_NUCLEAR_BREAKOUT,Nuclear breakout,Percée nucléaire
+FOCUS_IRN_NUCLEAR_BREAKOUT_DESC,"Enrich to weapons grade, whatever the risk.","Enrichir jusqu'au seuil militaire, quel que soit le risque."
+FOCUS_IRN_AXIS_OF_RESISTANCE,Axis of resistance,Axe de la résistance
+FOCUS_IRN_AXIS_OF_RESISTANCE_DESC,Rebuild the network of allied movements.,Reconstruire le réseau des mouvements alliés.
+FOCUS_IRN_HARDLINE_SUCCESSOR,A hardline successor,Un successeur intransigeant
+FOCUS_IRN_HARDLINE_SUCCESSOR_DESC,The Guardians choose continuity and firmness.,Les Gardiens choisissent la continuité et la fermeté.
+FOCUS_IRN_REFORMIST_SUCCESSOR,A reformist successor,Un successeur réformateur
+FOCUS_IRN_REFORMIST_SUCCESSOR_DESC,A more open cleric takes the helm.,Un religieux plus ouvert prend la barre.
+FOCUS_IRN_NUCLEAR_DEAL,A new nuclear deal,Un nouvel accord nucléaire
+FOCUS_IRN_NUCLEAR_DEAL_DESC,Limits on enrichment against an end to sanctions.,Des limites à l'enrichissement contre la fin des sanctions.
+FOCUS_IRN_HORMUZ_LEVERAGE,The Hormuz card,La carte d'Ormuz
+FOCUS_IRN_HORMUZ_LEVERAGE_DESC,Close the strait to make the world pay for the pressure.,Fermer le détroit pour faire payer au monde la pression exercée.
+FOCUS_IRN_WOMAN_LIFE_FREEDOM,"Woman, Life, Freedom","Femme, vie, liberté"
+FOCUS_IRN_WOMAN_LIFE_FREEDOM_DESC,The street wins: a secular republic is proclaimed.,La rue l'emporte : une république laïque est proclamée.
+FOCUS_IRN_PERSIAN_POWER,A Persian power,Une puissance perse
+FOCUS_IRN_PERSIAN_POWER_DESC,Iran has chosen its path and imposed itself in the region.,L'Iran a choisi sa voie et s'est imposé dans la région.
+FOCUS_TREE_ISR,Israel's future,L'avenir d'Israël
+FOCUS_ISR_DAY_AFTER,The day after,Le jour d'après
+FOCUS_ISR_DAY_AFTER_DESC,"After the Gaza war, the country must choose a direction.","Après la guerre de Gaza, le pays doit choisir une direction."
+FOCUS_ISR_JUDICIAL_OVERHAUL,Judicial overhaul,Réforme de la justice
+FOCUS_ISR_JUDICIAL_OVERHAUL_DESC,Give the Knesset the last word over the Supreme Court.,Donner à la Knesset le dernier mot face à la Cour suprême.
+FOCUS_ISR_STARTUP_NATION,Start-up nation,Nation start-up
+FOCUS_ISR_STARTUP_NATION_DESC,"Cyber, AI and deep tech as the engine of the economy.","Cyber, IA et technologies de pointe comme moteur de l'économie."
+FOCUS_ISR_NATIONAL_UNITY_GOVERNMENT,National unity government,Gouvernement d'union nationale
+FOCUS_ISR_NATIONAL_UNITY_GOVERNMENT_DESC,Bring the main parties together to heal a divided society.,Rassembler les grands partis pour apaiser une société divisée.
+FOCUS_ISR_WEST_BANK_ANNEXATION,Annex the West Bank,Annexer la Cisjordanie
+FOCUS_ISR_WEST_BANK_ANNEXATION_DESC,"Apply Israeli sovereignty to the West Bank, against international opinion.","Appliquer la souveraineté israélienne à la Cisjordanie, contre l'opinion internationale."
+FOCUS_ISR_IRAN_CAMPAIGN,Campaign against Iran,Campagne contre l'Iran
+FOCUS_ISR_IRAN_CAMPAIGN_DESC,End the Iranian threat by force.,Mettre fin par la force à la menace iranienne.
+FOCUS_ISR_IRON_BEAM,Iron Beam,Iron Beam
+FOCUS_ISR_IRON_BEAM_DESC,Laser air defence against rockets and drones.,Une défense aérienne laser contre roquettes et drones.
+FOCUS_ISR_ABRAHAM_ACCORDS_EXPANSION,Expand the Abraham Accords,Élargir les accords d'Abraham
+FOCUS_ISR_ABRAHAM_ACCORDS_EXPANSION_DESC,Normalise relations with more Arab states.,Normaliser les relations avec davantage d'États arabes.
+FOCUS_ISR_TWO_STATE_SOLUTION,Two states,Deux États
+FOCUS_ISR_TWO_STATE_SOLUTION_DESC,Negotiate a Palestinian state alongside Israel.,Négocier un État palestinien aux côtés d'Israël.
+FOCUS_ISR_GAS_CORRIDOR,Eastern Mediterranean gas,Le gaz de Méditerranée orientale
+FOCUS_ISR_GAS_CORRIDOR_DESC,"Export gas to Europe with Cyprus, Greece and Egypt.","Exporter du gaz vers l'Europe avec Chypre, la Grèce et l'Égypte."
+FOCUS_ISR_SECURE_ISRAEL,A secure Israel,Un Israël en sécurité
+FOCUS_ISR_SECURE_ISRAEL_DESC,"Whatever the path chosen, the country looks ahead.","Quelle que soit la voie choisie, le pays regarde vers l'avenir."
+FOCUS_TREE_SAU,Vision 2030,Vision 2030
+FOCUS_SAU_VISION_2030,Vision 2030,Vision 2030
+FOCUS_SAU_VISION_2030_DESC,Prepare the kingdom for life after oil.,Préparer le royaume à l'après-pétrole.
+FOCUS_SAU_SOCIAL_OPENING,Social opening,Ouverture sociale
+FOCUS_SAU_SOCIAL_OPENING_DESC,"Concerts, cinemas and more rights for women.","Concerts, cinémas et davantage de droits pour les femmes."
+FOCUS_SAU_NEOM,NEOM,NEOM
+FOCUS_SAU_NEOM_DESC,A futuristic city in the desert.,Une ville futuriste dans le désert.
+FOCUS_SAU_GUARDIANS_OF_TRADITION,Guardians of tradition,Gardiens de la tradition
+FOCUS_SAU_GUARDIANS_OF_TRADITION_DESC,The kingdom remains faithful to its religious foundations.,Le royaume reste fidèle à ses fondements religieux.
+FOCUS_SAU_TOURISM_KINGDOM,Tourist kingdom,Royaume touristique
+FOCUS_SAU_TOURISM_KINGDOM_DESC,Open the country to millions of visitors.,Ouvrir le pays à des millions de visiteurs.
+FOCUS_SAU_ISRAEL_NORMALIZATION,Normalisation with Israel,Normalisation avec Israël
+FOCUS_SAU_ISRAEL_NORMALIZATION_DESC,"Establish diplomatic relations, in exchange for American guarantees.","Établir des relations diplomatiques, contre des garanties américaines."
+FOCUS_SAU_OPEC_PRICE_WAR,Price war,Guerre des prix
+FOCUS_SAU_OPEC_PRICE_WAR_DESC,Open the taps to win back market share.,Ouvrir les vannes pour reconquérir des parts de marché.
+FOCUS_SAU_OPEC_SUPPLY_DISCIPLINE,Supply discipline,Discipline de production
+FOCUS_SAU_OPEC_SUPPLY_DISCIPLINE_DESC,Cut production to keep prices high.,Réduire la production pour maintenir des prix élevés.
+FOCUS_SAU_YEMEN_PEACE,Peace in Yemen,La paix au Yémen
+FOCUS_SAU_YEMEN_PEACE_DESC,End the war on our southern border.,Mettre fin à la guerre à notre frontière sud.
+FOCUS_SAU_GULF_UNION,A Gulf union,Une union du Golfe
+FOCUS_SAU_GULF_UNION_DESC,Propose to our closest neighbours to unite under one crown.,Proposer à nos plus proches voisins de s'unir sous une seule couronne.
+FOCUS_SAU_NUCLEAR_HEDGE,Nuclear hedge,Assurance nucléaire
+FOCUS_SAU_NUCLEAR_HEDGE_DESC,"If Iran gets the bomb, so will we.","Si l'Iran a la bombe, nous l'aurons aussi."
+FOCUS_SAU_CONSTITUTIONAL_MONARCHY,A constitutional monarchy,Une monarchie constitutionnelle
+FOCUS_SAU_CONSTITUTIONAL_MONARCHY_DESC,An elected consultative assembly and a written constitution.,Une assemblée consultative élue et une constitution écrite.
+FOCUS_SAU_POST_OIL_KINGDOM,The post-oil kingdom,Le royaume de l'après-pétrole
+FOCUS_SAU_POST_OIL_KINGDOM_DESC,Saudi Arabia has reinvented itself.,L'Arabie saoudite s'est réinventée.
+FOCUS_TREE_EGY,The new Egypt,La nouvelle Égypte
+FOCUS_EGY_NEW_REPUBLIC,The New Republic,La Nouvelle République
+FOCUS_EGY_NEW_REPUBLIC_DESC,Megaprojects and stability as the national programme.,Grands projets et stabilité comme programme national.
+FOCUS_EGY_IMF_REFORMS,IMF reforms,Réformes du FMI
+FOCUS_EGY_IMF_REFORMS_DESC,"End subsidies and open the economy, at a social cost.","Supprimer les subventions et ouvrir l'économie, au prix d'un coût social."
+FOCUS_EGY_NEW_CAPITAL,The new capital,La nouvelle capitale
+FOCUS_EGY_NEW_CAPITAL_DESC,Move ministries out of overcrowded Cairo.,Déplacer les ministères hors du Caire surpeuplé.
+FOCUS_EGY_ARMY_ECONOMY,The army's economy,L'économie de l'armée
+FOCUS_EGY_ARMY_ECONOMY_DESC,The armed forces at the centre of economic life.,Les forces armées au centre de la vie économique.
+FOCUS_EGY_SUEZ_ECONOMIC_ZONE,Suez economic zone,Zone économique de Suez
+FOCUS_EGY_SUEZ_ECONOMIC_ZONE_DESC,Turn the canal into an industrial and logistics hub.,Faire du canal un pôle industriel et logistique.
+FOCUS_EGY_GAZA_MEDIATOR,Mediator for Gaza,Médiateur pour Gaza
+FOCUS_EGY_GAZA_MEDIATOR_DESC,"Egypt, indispensable mediator of the region.","L'Égypte, médiatrice indispensable de la région."
+FOCUS_EGY_GREEN_HYDROGEN_COAST,Green hydrogen coast,Côte de l'hydrogène vert
+FOCUS_EGY_GREEN_HYDROGEN_COAST_DESC,Sun and wind along the Red Sea.,Le soleil et le vent le long de la mer Rouge.
+FOCUS_EGY_NILE_DIPLOMACY,Nile diplomacy,Diplomatie du Nil
+FOCUS_EGY_NILE_DIPLOMACY_DESC,Negotiate the sharing of Nile waters with Ethiopia.,Négocier le partage des eaux du Nil avec l'Éthiopie.
+FOCUS_EGY_STRIKE_THE_DAM,Strike the dam,Frapper le barrage
+FOCUS_EGY_STRIKE_THE_DAM_DESC,Destroy the Renaissance Dam before it dries up Egypt.,Détruire le barrage de la Renaissance avant qu'il n'assèche l'Égypte.
+FOCUS_EGY_SECOND_REVOLUTION,A second revolution,Une seconde révolution
+FOCUS_EGY_SECOND_REVOLUTION_DESC,"Fifteen years after Tahrir, the street rises again and wins.","Quinze ans après Tahrir, la rue se soulève de nouveau et l'emporte."
+FOCUS_EGY_PHARAONIC_PROJECTS,Pharaonic projects,Projets pharaoniques
+FOCUS_EGY_PHARAONIC_PROJECTS_DESC,"Bridges, cities and monuments worthy of the pharaohs.","Ponts, villes et monuments dignes des pharaons."
+FOCUS_EGY_MOTHER_OF_THE_WORLD,Mother of the world,Mère du monde
+FOCUS_EGY_MOTHER_OF_THE_WORLD_DESC,Egypt regains its place at the heart of the Arab world.,L'Égypte retrouve sa place au cœur du monde arabe.
+FOCUS_TREE_PAK,Naya Pakistan,Naya Pakistan
+FOCUS_PAK_STABILIZATION,Stabilisation,Stabilisation
+FOCUS_PAK_STABILIZATION_DESC,Bring inflation down and reassure creditors.,Faire baisser l'inflation et rassurer les créanciers.
+FOCUS_PAK_CIVILIAN_SUPREMACY,Civilian supremacy,Primauté du pouvoir civil
+FOCUS_PAK_CIVILIAN_SUPREMACY_DESC,Send the generals back to the barracks.,Renvoyer les généraux dans leurs casernes.
+FOCUS_PAK_CPEC_PHASE_TWO,"CPEC, second phase","CPEC, seconde phase"
+FOCUS_PAK_CPEC_PHASE_TWO_DESC,Special economic zones along the corridor with China.,Des zones économiques spéciales le long du corridor avec la Chine.
+FOCUS_PAK_HYBRID_REGIME,The hybrid regime,Le régime hybride
+FOCUS_PAK_HYBRID_REGIME_DESC,"Civilian government, military power.","Gouvernement civil, pouvoir militaire."
+FOCUS_PAK_PEACE_WITH_INDIA,Peace with India,La paix avec l'Inde
+FOCUS_PAK_PEACE_WITH_INDIA_DESC,Trade rather than war.,Le commerce plutôt que la guerre.
+FOCUS_PAK_TAX_THE_ELITE,Tax the elite,Taxer les élites
+FOCUS_PAK_TAX_THE_ELITE_DESC,Make landowners and the wealthy pay their share.,Faire payer leur part aux grands propriétaires et aux plus riches.
+FOCUS_PAK_GWADAR_PORT,Gwadar port,Le port de Gwadar
+FOCUS_PAK_GWADAR_PORT_DESC,A deep-water port on the Arabian Sea.,Un port en eau profonde sur la mer d'Arabie.
+FOCUS_PAK_KASHMIR_CLAIM,Kashmir is ours,Le Cachemire est à nous
+FOCUS_PAK_KASHMIR_CLAIM_DESC,Formally claim Indian-administered Kashmir.,Revendiquer officiellement le Cachemire administré par l'Inde.
+FOCUS_PAK_AFGHAN_BORDER,The Afghan border,La frontière afghane
+FOCUS_PAK_AFGHAN_BORDER_DESC,Secure the Durand Line against armed groups.,Sécuriser la ligne Durand contre les groupes armés.
+FOCUS_PAK_KASHMIR_WAR,War for Kashmir,La guerre pour le Cachemire
+FOCUS_PAK_KASHMIR_WAR_DESC,"Settle the question by force, between two nuclear powers.","Régler la question par la force, entre deux puissances nucléaires."
+FOCUS_PAK_MILITARY_RULE,Military rule,Pouvoir militaire
+FOCUS_PAK_MILITARY_RULE_DESC,"The army takes power directly, once again.","L'armée prend directement le pouvoir, une fois de plus."
+FOCUS_PAK_NAYA_PAKISTAN,A new Pakistan,Un nouveau Pakistan
+FOCUS_PAK_NAYA_PAKISTAN_DESC,Pakistan has found a path to stability.,Le Pakistan a trouvé le chemin de la stabilité.
+EVENT_GULF_UNION_PROPOSAL_TITLE,A Gulf union,Une union du Golfe
+EVENT_GULF_UNION_PROPOSAL_DESC,{from} proposes that our two states unite under one crown.,"Proposition d'unir nos deux États sous une seule couronne, venue de : {from}."
+EVENT_GULF_UNION_PROPOSAL_A,Join the union,Rejoindre l'union
+EVENT_GULF_UNION_PROPOSAL_B,Preserve our independence,Préserver notre indépendance
+FOCUS_TREE_ITA,Italy's renaissance,La renaissance italienne
+FOCUS_ITA_STABLE_GOVERNMENT,A stable government,Un gouvernement stable
+FOCUS_ITA_STABLE_GOVERNMENT_DESC,"For once, a government that lasts a full term.","Pour une fois, un gouvernement qui dure tout un mandat."
+FOCUS_ITA_PREMIERATO,The premierato,Le premierato
+FOCUS_ITA_PREMIERATO_DESC,A directly elected prime minister.,Un président du Conseil élu au suffrage direct.
+FOCUS_ITA_PNRR_COMPLETION,Complete the recovery plan,Achever le plan de relance
+FOCUS_ITA_PNRR_COMPLETION_DESC,Spend the European funds before the deadline.,Dépenser les fonds européens avant l'échéance.
+FOCUS_ITA_DIFFERENTIATED_AUTONOMY,Differentiated autonomy,Autonomie différenciée
+FOCUS_ITA_DIFFERENTIATED_AUTONOMY_DESC,More powers for the regions that want them.,Davantage de pouvoirs pour les régions qui le souhaitent.
+FOCUS_ITA_MATTEI_PLAN,Mattei Plan,Plan Mattei
+FOCUS_ITA_MATTEI_PLAN_DESC,Partnerships with Africa on energy and migration.,Des partenariats avec l'Afrique sur l'énergie et les migrations.
+FOCUS_ITA_MEDITERRANEAN_BORDER,The Mediterranean border,La frontière méditerranéenne
+FOCUS_ITA_MEDITERRANEAN_BORDER_DESC,Stop irregular arrivals by sea.,Stopper les arrivées irrégulières par la mer.
+FOCUS_ITA_MESSINA_BRIDGE,The Strait of Messina bridge,Le pont du détroit de Messine
+FOCUS_ITA_MESSINA_BRIDGE_DESC,Finally link Sicily to the mainland.,Relier enfin la Sicile au continent.
+FOCUS_ITA_MEZZOGIORNO_PLAN,A plan for the South,Un plan pour le Sud
+FOCUS_ITA_MEZZOGIORNO_PLAN_DESC,Close the gap between North and South.,Combler l'écart entre le Nord et le Sud.
+FOCUS_ITA_BABY_BONUS,Baby bonus,Prime à la naissance
+FOCUS_ITA_BABY_BONUS_DESC,Fight the demographic winter.,Combattre l'hiver démographique.
+FOCUS_ITA_EURO_CORE,At the heart of the euro,Au cœur de l'euro
+FOCUS_ITA_EURO_CORE_DESC,"Italy, pillar of the eurozone.","L'Italie, pilier de la zone euro."
+FOCUS_ITA_SOVEREIGN_CURRENCY,Monetary sovereignty,Souveraineté monétaire
+FOCUS_ITA_SOVEREIGN_CURRENCY_DESC,Leave the Union and bring back the lira.,Quitter l'Union et retrouver la lire.
+FOCUS_ITA_BEL_PAESE,Il Bel Paese,Il Bel Paese
+FOCUS_ITA_BEL_PAESE_DESC,Italy has found its confidence again.,L'Italie a retrouvé confiance en elle.
+FOCUS_TREE_ESP,The Spain of tomorrow,L'Espagne de demain
+FOCUS_ESP_PROGRESSIVE_COALITION,The progressive coalition,La coalition progressiste
+FOCUS_ESP_PROGRESSIVE_COALITION_DESC,Govern with a fragile majority.,Gouverner avec une majorité fragile.
+FOCUS_ESP_PLURINATIONAL_SPAIN,A plurinational Spain,Une Espagne plurinationale
+FOCUS_ESP_PLURINATIONAL_SPAIN_DESC,A federal Spain that recognises its nations.,Une Espagne fédérale qui reconnaît ses nations.
+FOCUS_ESP_RENEWABLE_SUPERPOWER,Renewable superpower,Superpuissance renouvelable
+FOCUS_ESP_RENEWABLE_SUPERPOWER_DESC,The sun of Spain powers Europe.,Le soleil d'Espagne alimente l'Europe.
+FOCUS_ESP_INDISSOLUBLE_UNITY,Indissoluble unity,Unité indissoluble
+FOCUS_ESP_INDISSOLUBLE_UNITY_DESC,"One nation, one Spain.","Une seule nation, une seule Espagne."
+FOCUS_ESP_CATALAN_REFERENDUM,A legal referendum in Catalonia,Un référendum légal en Catalogne
+FOCUS_ESP_CATALAN_REFERENDUM_DESC,"Let Catalans vote, legally this time.","Laisser voter les Catalans, légalement cette fois."
+FOCUS_ESP_HOUSING_PLAN,Housing plan,Plan logement
+FOCUS_ESP_HOUSING_PLAN_DESC,Cap rents and build for the young.,Plafonner les loyers et construire pour les jeunes.
+FOCUS_ESP_GREEN_HYDROGEN_VALLEY,Green hydrogen valley,Vallée de l'hydrogène vert
+FOCUS_ESP_GREEN_HYDROGEN_VALLEY_DESC,Iberian hydrogen for European industry.,De l'hydrogène ibérique pour l'industrie européenne.
+FOCUS_ESP_GIBRALTAR_CLAIM,Gibraltar is Spanish,Gibraltar est espagnol
+FOCUS_ESP_GIBRALTAR_CLAIM_DESC,Revive the claim over the Rock.,Relancer la revendication sur le Rocher.
+FOCUS_ESP_LATIN_AMERICA_BRIDGE,Bridge to Latin America,Pont vers l'Amérique latine
+FOCUS_ESP_LATIN_AMERICA_BRIDGE_DESC,"Spain, Europe's door to Latin America.","L'Espagne, porte de l'Europe vers l'Amérique latine."
+FOCUS_ESP_THIRD_REPUBLIC,The Third Republic,La IIIe République
+FOCUS_ESP_THIRD_REPUBLIC_DESC,The monarchy gives way to a republic.,La monarchie laisse place à la république.
+FOCUS_ESP_IBERIAN_FEDERATION,An Iberian federation,Une fédération ibérique
+FOCUS_ESP_IBERIAN_FEDERATION_DESC,Propose to Portugal to unite the peninsula.,Proposer au Portugal d'unir la péninsule.
+FOCUS_ESP_ESPANA_GLOBAL,Global Spain,L'Espagne mondiale
+FOCUS_ESP_ESPANA_GLOBAL_DESC,Spain counts in Europe and beyond.,L'Espagne compte en Europe et au-delà.
+FOCUS_TREE_POL,Poland rising,La Pologne qui monte
+FOCUS_POLAND_EASTERN_FLANK,The eastern flank,Le flanc oriental
+FOCUS_POLAND_EASTERN_FLANK_DESC,Poland guards NATO's eastern border.,La Pologne garde la frontière orientale de l'OTAN.
+FOCUS_POLAND_STRONGEST_ARMY,Europe's strongest army,La plus forte armée d'Europe
+FOCUS_POLAND_STRONGEST_ARMY_DESC,Three hundred thousand soldiers and the latest equipment.,Trois cent mille soldats et le meilleur équipement.
+FOCUS_POLAND_CPK_MEGAPROJECT,The central airport,L'aéroport central
+FOCUS_POLAND_CPK_MEGAPROJECT_DESC,A new hub for Central Europe.,Une nouvelle plaque tournante pour l'Europe centrale.
+FOCUS_POLAND_RULE_OF_LAW,Restore the rule of law,Rétablir l'État de droit
+FOCUS_POLAND_RULE_OF_LAW_DESC,Independent courts and peace with Brussels.,Des tribunaux indépendants et la paix avec Bruxelles.
+FOCUS_POLAND_EAST_SHIELD,East Shield,Bouclier Est
+FOCUS_POLAND_EAST_SHIELD_DESC,Fortify the border with Belarus and Russia.,Fortifier la frontière avec la Biélorussie et la Russie.
+FOCUS_POLAND_NUCLEAR_SHARING,Nuclear sharing,Partage nucléaire
+FOCUS_POLAND_NUCLEAR_SHARING_DESC,Host allied nuclear weapons on Polish soil.,Accueillir des armes nucléaires alliées sur le sol polonais.
+FOCUS_POLAND_FIRST_NUCLEAR_PLANT,The first nuclear plant,La première centrale nucléaire
+FOCUS_POLAND_FIRST_NUCLEAR_PLANT_DESC,End dependence on coal.,Sortir de la dépendance au charbon.
+FOCUS_POLAND_SOVEREIGN_POLAND,Sovereign Poland,Une Pologne souveraine
+FOCUS_POLAND_SOVEREIGN_POLAND_DESC,"Polish values first, even against Brussels.","Les valeurs polonaises d'abord, même contre Bruxelles."
+FOCUS_POLAND_THREE_SEAS,Three Seas Initiative,Initiative des trois mers
+FOCUS_POLAND_THREE_SEAS_DESC,Unite Central Europe from the Baltic to the Adriatic.,Unir l'Europe centrale de la Baltique à l'Adriatique.
+FOCUS_POLAND_EURO_ADOPTION,Adopt the euro,Adopter l'euro
+FOCUS_POLAND_EURO_ADOPTION_DESC,Join the heart of Europe.,Rejoindre le cœur de l'Europe.
+FOCUS_POLAND_INTERMARIUM,Intermarium,Intermarium
+FOCUS_POLAND_INTERMARIUM_DESC,An alliance from the Baltic to the Black Sea with Ukraine.,Une alliance de la Baltique à la mer Noire avec l'Ukraine.
+FOCUS_POLAND_POLISH_CENTURY,The Polish century,Le siècle polonais
+FOCUS_POLAND_POLISH_CENTURY_DESC,Poland among the great powers of Europe.,La Pologne parmi les grandes puissances d'Europe.
+FOCUS_TREE_NGA,The giant of Africa,Le géant de l'Afrique
+FOCUS_NGA_RENEWED_HOPE,Renewed hope,Espoir renouvelé
+FOCUS_NGA_RENEWED_HOPE_DESC,Reform the economy of Africa's most populous country.,Réformer l'économie du pays le plus peuplé d'Afrique.
+FOCUS_NGA_SUBSIDY_REFORM,End fuel subsidies,Fin des subventions au carburant
+FOCUS_NGA_SUBSIDY_REFORM_DESC,A painful reform to save public finances.,Une réforme douloureuse pour sauver les finances publiques.
+FOCUS_NGA_REFINING_INDEPENDENCE,Refining independence,Indépendance du raffinage
+FOCUS_NGA_REFINING_INDEPENDENCE_DESC,Refine our own oil instead of importing petrol.,Raffiner notre propre pétrole au lieu d'importer l'essence.
+FOCUS_NGA_SECURITY_FIRST,Security first,La sécurité d'abord
+FOCUS_NGA_SECURITY_FIRST_DESC,"Bandits, jihadists and kidnappers: restore order.","Bandits, djihadistes et ravisseurs : rétablir l'ordre."
+FOCUS_NGA_LAGOS_TECH_HUB,Lagos tech hub,Pôle technologique de Lagos
+FOCUS_NGA_LAGOS_TECH_HUB_DESC,Africa's Silicon Valley.,La Silicon Valley de l'Afrique.
+FOCUS_NGA_RESTRUCTURING,Restructure the federation,Restructurer la fédération
+FOCUS_NGA_RESTRUCTURING_DESC,More powers and resources for the states.,Davantage de pouvoirs et de ressources pour les États.
+FOCUS_NGA_STRONG_CENTRE,A strong centre,Un centre fort
+FOCUS_NGA_STRONG_CENTRE_DESC,Abuja holds the country together.,Abuja tient le pays.
+FOCUS_NGA_CRUSH_INSURGENCY,Crush the insurgency,Écraser l'insurrection
+FOCUS_NGA_CRUSH_INSURGENCY_DESC,Drones and special forces in the North-East.,Drones et forces spéciales dans le Nord-Est.
+FOCUS_NGA_ECOWAS_LEADERSHIP,ECOWAS leadership,Leadership de la CEDEAO
+FOCUS_NGA_ECOWAS_LEADERSHIP_DESC,Lead West Africa.,Prendre la tête de l'Afrique de l'Ouest.
+FOCUS_NGA_BIAFRA_REFERENDUM,A referendum in the South-East,Un référendum dans le Sud-Est
+FOCUS_NGA_BIAFRA_REFERENDUM_DESC,"Let the South-East decide, sixty years after the Biafran war.","Laisser décider le Sud-Est, soixante ans après la guerre du Biafra."
+FOCUS_NGA_GIANT_OF_AFRICA,Giant of Africa,Géant de l'Afrique
+FOCUS_NGA_GIANT_OF_AFRICA_DESC,Nigeria lives up to its name.,Le Nigeria est à la hauteur de son surnom.
+FOCUS_TREE_ZAF,The rainbow nation,La nation arc-en-ciel
+FOCUS_ZAF_GOVERNMENT_OF_NATIONAL_UNITY,Government of national unity,Gouvernement d'unité nationale
+FOCUS_ZAF_GOVERNMENT_OF_NATIONAL_UNITY_DESC,Make the first coalition since 1994 work.,Faire fonctionner la première coalition depuis 1994.
+FOCUS_ZAF_KEEP_THE_LIGHTS_ON,Keep the lights on,Garder la lumière allumée
+FOCUS_ZAF_KEEP_THE_LIGHTS_ON_DESC,End load-shedding for good.,En finir pour de bon avec les délestages.
+FOCUS_ZAF_LAND_EXPROPRIATION,Expropriation without compensation,Expropriation sans compensation
+FOCUS_ZAF_LAND_EXPROPRIATION_DESC,Return the land to the majority.,Rendre la terre à la majorité.
+FOCUS_ZAF_MARKET_REFORMS,Growth reforms,Réformes pour la croissance
+FOCUS_ZAF_MARKET_REFORMS_DESC,"Open ports, rail and energy to private investment.","Ouvrir ports, rail et énergie à l'investissement privé."
+FOCUS_ZAF_PLATINUM_BELT,The platinum belt,La ceinture du platine
+FOCUS_ZAF_PLATINUM_BELT_DESC,Mine the metals of the energy transition.,Exploiter les métaux de la transition énergétique.
+FOCUS_ZAF_FIGHT_CRIME,Fight crime,Combattre la criminalité
+FOCUS_ZAF_FIGHT_CRIME_DESC,Reclaim the streets and clean up the police.,Reprendre les rues et assainir la police.
+FOCUS_ZAF_BRICS_VOICE,Voice of the BRICS,La voix des BRICS
+FOCUS_ZAF_BRICS_VOICE_DESC,Speak for Africa among the emerging powers.,Parler pour l'Afrique parmi les puissances émergentes.
+FOCUS_ZAF_WESTERN_PARTNERSHIP,Western partnership,Partenariat occidental
+FOCUS_ZAF_WESTERN_PARTNERSHIP_DESC,Repair relations with Washington and Europe.,Réparer les relations avec Washington et l'Europe.
+FOCUS_ZAF_CAPE_QUESTION,The Cape question,La question du Cap
+FOCUS_ZAF_CAPE_QUESTION_DESC,"In the Western Cape, voices call for independence.","Au Cap-Occidental, des voix réclament l'indépendance."
+FOCUS_ZAF_AFRICAN_FREE_TRADE,African free trade,Le libre-échange africain
+FOCUS_ZAF_AFRICAN_FREE_TRADE_DESC,Make the African Continental Free Trade Area a reality.,Faire de la zone de libre-échange continentale africaine une réalité.
+FOCUS_ZAF_RAINBOW_RENEWED,The rainbow renewed,L'arc-en-ciel renouvelé
+FOCUS_ZAF_RAINBOW_RENEWED_DESC,South Africa keeps Mandela's promise.,L'Afrique du Sud tient la promesse de Mandela.
+FOCUS_TREE_ETH,Ethiopia rising,L'Éthiopie se lève
+FOCUS_ETH_MEDEMER,Medemer,Medemer
+FOCUS_ETH_MEDEMER_DESC,"""Coming together"": the national philosophy of synergy.",« Se rassembler » : la philosophie nationale de la synergie.
+FOCUS_ETH_RENAISSANCE_DAM,The Renaissance Dam,Le barrage de la Renaissance
+FOCUS_ETH_RENAISSANCE_DAM_DESC,Africa's largest dam is running at full capacity.,Le plus grand barrage d'Afrique tourne à plein régime.
+FOCUS_ETH_PROSPERITY_UNITARY,A united Ethiopia,Une Éthiopie unie
+FOCUS_ETH_PROSPERITY_UNITARY_DESC,Move beyond ethnic federalism.,Dépasser le fédéralisme ethnique.
+FOCUS_ETH_ETHNIC_FEDERALISM,Ethnic federalism,Fédéralisme ethnique
+FOCUS_ETH_ETHNIC_FEDERALISM_DESC,Each nation of Ethiopia governs itself.,Chaque nation d'Éthiopie se gouverne elle-même.
+FOCUS_ETH_POWER_EXPORTS,Power exports,Exporter l'électricité
+FOCUS_ETH_POWER_EXPORTS_DESC,Sell hydroelectricity to our neighbours.,Vendre l'hydroélectricité à nos voisins.
+FOCUS_ETH_RED_SEA_ACCESS,Access to the Red Sea,Un accès à la mer Rouge
+FOCUS_ETH_RED_SEA_ACCESS_DESC,A nation of 130 million cannot remain landlocked.,Une nation de 130 millions d'habitants ne peut rester enclavée.
+FOCUS_ETH_INDUSTRIAL_PARKS,Industrial parks,Parcs industriels
+FOCUS_ETH_INDUSTRIAL_PARKS_DESC,Africa's new factory.,La nouvelle usine de l'Afrique.
+FOCUS_ETH_TIGRAY_PEACE,Peace in Tigray,La paix au Tigré
+FOCUS_ETH_TIGRAY_PEACE_DESC,Heal the wounds of the war.,Panser les plaies de la guerre.
+FOCUS_ETH_HORN_UNION,A union of the Horn,Une union de la Corne
+FOCUS_ETH_HORN_UNION_DESC,Propose to Eritrea to unite again.,Proposer à l'Érythrée de s'unir de nouveau.
+FOCUS_ETH_ASSAB_WAR,War for Assab,La guerre pour Assab
+FOCUS_ETH_ASSAB_WAR_DESC,Take a port by force.,Prendre un port par la force.
+FOCUS_ETH_AFRICAN_LION,The African lion,Le lion africain
+FOCUS_ETH_AFRICAN_LION_DESC,Ethiopia becomes a regional power.,L'Éthiopie devient une puissance régionale.
+EVENT_CATALAN_INDEPENDENCE_REFERENDUM_TITLE,Catalonia votes,La Catalogne vote
+EVENT_CATALAN_INDEPENDENCE_REFERENDUM_DESC,Catalans vote legally on independence.,Les Catalans votent légalement sur l'indépendance.
+EVENT_CATALAN_INDEPENDENCE_VOTES_YES_TITLE,Catalonia chooses independence,La Catalogne choisit l'indépendance
+EVENT_CATALAN_INDEPENDENCE_VOTES_YES_DESC,"""Yes"" has won. Barcelona asks Madrid to recognise the result.",Le « oui » l'emporte. Barcelone demande à Madrid de reconnaître le résultat.
+EVENT_CATALAN_INDEPENDENCE_VOTES_YES_A,Respect the vote,Respecter le vote
+EVENT_CATALAN_INDEPENDENCE_VOTES_YES_B,Refuse to recognise it,Refuser de le reconnaître
+EVENT_CATALAN_INDEPENDENCE_VOTES_NO_TITLE,Catalonia stays,La Catalogne reste
+EVENT_CATALAN_INDEPENDENCE_VOTES_NO_DESC,"""No"" has won: Catalonia remains in Spain.",Le « non » l'emporte : la Catalogne reste en Espagne.
+EVENT_CATALAN_INDEPENDENCE_VOTES_NO_A,Spain endures,L'Espagne perdure
+EVENT_BIAFRA_REFERENDUM_TITLE,The South-East votes,Le Sud-Est vote
+EVENT_BIAFRA_REFERENDUM_DESC,The people of the South-East vote on independence.,Les habitants du Sud-Est votent sur l'indépendance.
+EVENT_BIAFRA_VOTES_YES_TITLE,Biafra chooses independence,Le Biafra choisit l'indépendance
+EVENT_BIAFRA_VOTES_YES_DESC,"""Yes"" has won. Enugu asks Abuja to let Biafra go.",Le « oui » l'emporte. Enugu demande à Abuja de laisser partir le Biafra.
+EVENT_BIAFRA_VOTES_YES_A,Respect the vote,Respecter le vote
+EVENT_BIAFRA_VOTES_YES_B,Refuse to recognise it,Refuser de le reconnaître
+EVENT_BIAFRA_VOTES_NO_TITLE,The South-East stays,Le Sud-Est reste
+EVENT_BIAFRA_VOTES_NO_DESC,"""No"" has won: the South-East remains in Nigeria.",Le « non » l'emporte : le Sud-Est reste au Nigeria.
+EVENT_BIAFRA_VOTES_NO_A,One Nigeria,Un seul Nigeria
+EVENT_IBERIAN_FEDERATION_PROPOSAL_TITLE,An Iberian federation,Une fédération ibérique
+EVENT_IBERIAN_FEDERATION_PROPOSAL_DESC,{from} proposes to unite the peninsula in a single federation.,"Proposition d'unir la péninsule en une seule fédération, venue de : {from}."
+EVENT_IBERIAN_FEDERATION_PROPOSAL_A,Unite the peninsula,Unir la péninsule
+EVENT_IBERIAN_FEDERATION_PROPOSAL_B,Portugal remains Portugal,Le Portugal reste le Portugal
+EVENT_IBERIAN_FEDERATION_FOUNDED_TITLE,The Iberian Federation is born,Naissance de la Fédération ibérique
+EVENT_IBERIAN_FEDERATION_FOUNDED_DESC,"For the first time since 1640, the peninsula is a single state.","Pour la première fois depuis 1640, la péninsule ne forme qu'un seul État."
+EVENT_IBERIAN_FEDERATION_FOUNDED_A,Long live Iberia,Vive l'Ibérie
+EVENT_HORN_UNION_PROPOSAL_TITLE,A union of the Horn,Une union de la Corne
+EVENT_HORN_UNION_PROPOSAL_DESC,{from} proposes that our two countries become one again.,"Proposition que nos deux pays n'en forment plus qu'un, venue de : {from}."
+EVENT_HORN_UNION_PROPOSAL_A,Accept the union,Accepter l'union
+EVENT_HORN_UNION_PROPOSAL_B,Defend our independence,Défendre notre indépendance
+EVENT_CAPE_INDEPENDENCE_CRISIS_TITLE,Capexit,Capexit
+EVENT_CAPE_INDEPENDENCE_CRISIS_DESC,The Western Cape demands independence.,Le Cap-Occidental réclame l'indépendance.
+EVENT_CAPE_INDEPENDENCE_CRISIS_A,Let the Cape go,Laisser partir le Cap
+EVENT_CAPE_INDEPENDENCE_CRISIS_B,Offer more autonomy,Proposer davantage d'autonomie

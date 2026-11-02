@@ -38,8 +38,40 @@ func on_month(state: SimState) -> void:
 	ids.sort()
 	for resource_id: String in ids:
 		clear_market(state.markets[resource_id], state, tags, settings)
+		_tick_shock(state.markets[resource_id])
 	for tag: String in tags:
 		apply_effects(state.countries[tag], state, settings)
+
+
+static func _tick_shock(market: MarketState) -> void:
+	if market.shock_months <= 0:
+		return
+	market.shock_months -= 1
+	if market.shock_months <= 0:
+		market.shock = 0.0
+
+
+## Choc d'offre : une part de la production mondiale manque pendant quelques mois (le plus fort l'emporte).
+static func add_supply_shock(state: SimState, resource_id: String, share: float, months: int) -> void:
+	var market: MarketState = state.markets.get(resource_id)
+	if market == null:
+		return
+	market.shock = clampf(maxf(market.shock, share), 0.0, 1.0)
+	market.shock_months = maxi(market.shock_months, months)
+
+
+## Ferme ou rouvre un détroit (commande de développement, événements). Renvoie false s'il n'y a rien à faire.
+static func set_strait_closed(state: SimState, strait_id: String, closed: bool) -> bool:
+	if not (state.resource_definitions.get("straits", {}) as Dictionary).has(strait_id) 			or state.closed_straits.has(strait_id) == closed:
+		return false
+	if closed:
+		state.closed_straits[strait_id] = true
+		state.add_event(EVENT_STRAIT_CLOSED, "", {"strait": strait_id})
+	else:
+		state.closed_straits.erase(strait_id)
+		state.war_closed_straits.erase(strait_id)
+		state.add_event(EVENT_STRAIT_OPENED, "", {"strait": strait_id})
+	return true
 
 
 ## Part des exportations de chaque pays qui passe par un détroit fermé (cumulée, au plus 1).
@@ -131,7 +163,7 @@ static func clear_market(market: MarketState, state: SimState, tags: Array, sett
 	var countries: Array[CountryResources] = []
 	for tag: String in tags:
 		var resources: CountryResources = (state.countries[tag] as CountryState).resources
-		var capacity := float(resources.production_base.get(market.resource_id, 0.0))
+		var capacity := float(resources.production_base.get(market.resource_id, 0.0)) * (1.0 - market.shock)
 		var needs := resources.needs(market.resource_id, (state.countries[tag] as CountryState).energy.fuel_factor)
 		if capacity <= 0.0 and needs <= 0.0:
 			continue

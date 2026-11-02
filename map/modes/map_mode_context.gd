@@ -37,7 +37,7 @@ static func from_game_data() -> MapModeContext:
 	context.provinces = DataLoader.get_category("provinces")
 	context.data_provinces = context.provinces
 	context.sea_zones = DataLoader.get_category("sea_zones")
-	context.countries = DataLoader.get_category("countries")
+	context.countries = CountryRegistry.all()
 	context.terrains = DataLoader.get_category("terrains")
 	context.ideologies = DataLoader.get_category("ideologies")
 	context.organizations = DataLoader.repository.resolve_ref("names#organizations")
@@ -53,6 +53,8 @@ static func from_game_data() -> MapModeContext:
 ## Met à jour ce qui dépend de la partie en cours (pays joué, commerce).
 func refresh_from_simulation(state: SimState) -> void:
 	player_tag = str(state.player_tag)
+	if not state.country_overrides.is_empty() or not state.dissolved.is_empty() or not state.created_countries.is_empty():
+		countries = CountryRegistry.all()
 	relations.clear()
 	if not player_tag.is_empty() and not state.diplomacy_settings.is_empty():
 		var influence: Dictionary = {}

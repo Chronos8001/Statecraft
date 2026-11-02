@@ -15,6 +15,7 @@ signal government_requested
 signal military_requested
 signal world_requested
 signal research_requested
+signal decisions_requested
 
 const TREASURY_INDEX := 0
 const STABILITY_INDEX := 1
@@ -67,6 +68,13 @@ func _ready() -> void:
 	research_button.add_theme_font_size_override("font_size", COMPACT_FONT_SIZE)
 	_military_button.add_sibling(research_button)
 	research_button.pressed.connect(func() -> void: research_requested.emit())
+	var decisions_button := Button.new()
+	decisions_button.text = "TOPBAR_DECISIONS_BUTTON"
+	decisions_button.tooltip_text = "TOPBAR_DECISIONS_BUTTON_TOOLTIP"
+	decisions_button.focus_mode = Control.FOCUS_NONE
+	decisions_button.add_theme_font_size_override("font_size", COMPACT_FONT_SIZE)
+	research_button.add_sibling(decisions_button)
+	decisions_button.pressed.connect(func() -> void: decisions_requested.emit())
 	_budget_button.pressed.connect(func() -> void: budget_requested.emit())
 	_markets_button.pressed.connect(func() -> void: markets_requested.emit())
 	_trade_button.pressed.connect(func() -> void: trade_requested.emit())
@@ -140,7 +148,7 @@ func _update_speed() -> void:
 ## Les valeurs que rien ne calcule encore sont masquées.
 func _update_country() -> void:
 	var tag := str(GameState.sim.player_tag)
-	var country := DataLoader.get_entry("countries", tag)
+	var country := CountryRegistry.entry(tag)
 	_country_label.text = tr(str(country.get("name_key", ""))) if not country.is_empty() else tr("TOPBAR_NO_COUNTRY")
 	_flag_rect.visible = not country.is_empty()
 	if not country.is_empty():

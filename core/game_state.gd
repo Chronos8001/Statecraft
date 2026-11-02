@@ -27,6 +27,19 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 			"war_goals": DataLoader.get_category("war_goals"), "terrains": DataLoader.get_category("terrains"),
 			"sea_zones": DataLoader.get_category("sea_zones"), "straits": DataLoader.get_category("straits")},
 		{"technologies": DataLoader.get_category("technologies"), "settings": DataLoader.get_define("research", {})})
+	sim.event_definitions = DataLoader.get_category("events")
+	sim.event_settings = DataLoader.get_define("events", {})
+	for message: String in EventSystem.validate_definitions(sim.event_definitions):
+		GameLog.error(SOURCE, message)
+	EventSystem.index_actions(sim)
+	sim.decision_definitions = DataLoader.get_category("decisions")
+	sim.focus_trees = DecisionSystem.resolve_trees(DataLoader.get_category("focus_trees"))
+	sim.decision_settings = DataLoader.get_define("decisions", {})
+	for message: String in DecisionSystem.validate_definitions(sim.decision_definitions, sim.focus_trees,
+			sim.event_definitions.keys()):
+		GameLog.error(SOURCE, message)
+	DecisionSystem.assign_trees(sim)
+	sim.releasable_definitions = DataLoader.get_category("releasables")
 	scheduler = SimScheduler.new()
 	scheduler.add_system(LawSystem.new())
 	scheduler.add_system(ConstitutionSystem.new())
@@ -39,8 +52,11 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	scheduler.add_system(MilitarySystem.new())
 	scheduler.add_system(ResearchSystem.new())
 	scheduler.add_system(AiRaceSystem.new())
+	scheduler.add_system(EventSystem.new())
+	scheduler.add_system(DecisionSystem.new())
 	scheduler.add_system(EconomySystem.new(DataLoader.get_category("economy_sectors")))
 	scheduler.add_system(GovernmentSystem.new())
+	scheduler.add_system(LeaderSystem.new())
 	scheduler.add_system(CrisisSystem.new())
 	scheduler.add_system(MediaSystem.new())
 	scheduler.add_system(SocietySystem.new())
@@ -138,6 +154,7 @@ func politics_definitions() -> Dictionary:
 			"ideologies": DataLoader.get_category("ideologies"), "traits": DataLoader.get_category("traits"),
 			"settings": DataLoader.get_define("characters", {})},
 		"settings": DataLoader.get_define("politics", {}),
+		"leader_settings": DataLoader.get_define("leaders", {}),
 	}
 
 

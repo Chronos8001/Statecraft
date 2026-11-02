@@ -28,6 +28,7 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 			state.markets[resource_id] = _create_market(resource_id, market_data)
 	state.countries.clear()
 	state.currencies.clear()
+	state.country_data = countries
 	var ratings := CreditRating.new(settings)
 	var tags: Array = countries.keys()
 	tags.sort()
@@ -107,6 +108,40 @@ static func populate(state: SimState, countries: Dictionary, currencies: Diction
 			ResearchSystem.setup_country(state, state.countries[tag], countries[tag])
 		ResearchSystem.refresh_known_counts(state)
 		AiRaceSystem.setup_start(state)
+
+
+## Crée un seul pays en cours de partie (sécession), avec les mêmes étapes qu'au départ : économie, budget,
+## ressources, investissement, énergie, société, politique, lois, constitution, médias, gouvernement, armée,
+## recherche. Le commerce, les relations, le territoire et les groupes d'armées sont faits par CountryFactory.
+static func create_country(state: SimState, tag: String, data: Dictionary) -> CountryState:
+	var country := CountryState.new()
+	country.tag = tag
+	var settings := state.economy_settings
+	_setup_economy(country, data, state, CreditRating.new(settings), settings)
+	_setup_budget(country, data, state)
+	_setup_resources(country, data, state)
+	_setup_investment(country, data)
+	state.countries[tag] = country
+	var currency: CurrencyState = state.currencies.get(country.economy.currency)
+	if currency != null and not currency.members.has(tag):
+		currency.members.append(tag)
+	if not state.energy_definitions.is_empty():
+		_setup_energy(country, data, state)
+	if not state.society_definitions.is_empty():
+		_setup_society(country, data, state)
+	if not state.politics_definitions.is_empty():
+		_setup_politics(country, data, state)
+		_setup_laws(country, data, state)
+		_setup_constitution(country, data)
+		MediaSystem.refresh_media(country, (state.politics_definitions.get("settings", {}) as Dictionary).get("media", {}))
+		if not (state.politics_definitions.get("portfolios", {}) as Dictionary).is_empty():
+			GovernmentSystem.form_cabinet(country, state)
+			GovernmentSystem.set_start(country, state)
+	if not state.military_settings.is_empty():
+		state.military.model.setup_country(country, data, state)
+	if not state.technology_definitions.is_empty():
+		ResearchSystem.setup_country(state, country, data)
+	return country
 
 
 ## Relations de départ (données « relations » de chaque pays, symétriques), traités de 2026, ambassades et

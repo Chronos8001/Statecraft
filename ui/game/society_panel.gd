@@ -153,7 +153,7 @@ func _fill_media(country: CountryState) -> void:
 	var names: Array = []
 	for tag: String in state.countries.keys():
 		if tag != country.tag:
-			names.append([tr(str(DataLoader.get_entry("countries", tag).get("name_key", tag))), tag])
+			names.append([tr(str(CountryRegistry.entry(tag).get("name_key", tag))), tag])
 	names.sort_custom(func(a: Array, b: Array) -> bool: return str(a[0]).naturalnocasecmp_to(str(b[0])) < 0)
 	for entry: Array in names:
 		_targets.append(str(entry[1]))

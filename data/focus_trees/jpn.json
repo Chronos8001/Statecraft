@@ -1,0 +1,92 @@
+{
+  "jpn": {
+    "name_key": "FOCUS_TREE_JPN",
+    "countries": ["JPN"],
+    "include": "generic",
+    "nodes": {
+      "jpn_new_capitalism": {
+        "name_key": "FOCUS_JPN_NEW_CAPITALISM", "desc_key": "FOCUS_JPN_NEW_CAPITALISM_DESC", "x": 10, "y": 6, "months": 8,
+        "effects": {"add_modifier": {"growth": 0.05, "months": -1}, "add_group_satisfaction": {"workers": 2}},
+        "ai_weight": 3
+      },
+      "jpn_constitutional_revision": {
+        "name_key": "FOCUS_JPN_CONSTITUTIONAL_REVISION", "desc_key": "FOCUS_JPN_CONSTITUTIONAL_REVISION_DESC", "x": 4, "y": 7,
+        "months": 12,
+        "requires": ["jpn_new_capitalism"], "exclusive": ["jpn_pacifist_path"],
+        "effects": {"add_group_satisfaction": {"military": 5, "youth": -2}, "add_relation": {"with": "CHN", "value": -10},
+          "add_legitimacy": -2},
+        "ai_weight": 2
+      },
+      "jpn_demographic_crisis": {
+        "name_key": "FOCUS_JPN_DEMOGRAPHIC_CRISIS", "desc_key": "FOCUS_JPN_DEMOGRAPHIC_CRISIS_DESC", "x": 10, "y": 7,
+        "months": 8,
+        "requires": ["jpn_new_capitalism"],
+        "effects": {"add_group_satisfaction": {"retirees": 2}, "set_flag": "jpn_demography_debate"}
+      },
+      "jpn_pacifist_path": {
+        "name_key": "FOCUS_JPN_PACIFIST_PATH", "desc_key": "FOCUS_JPN_PACIFIST_PATH_DESC", "x": 16, "y": 7, "months": 10,
+        "requires": ["jpn_new_capitalism"], "exclusive": ["jpn_constitutional_revision"],
+        "effects": {"add_tension": -2, "add_influence": 20, "add_legitimacy": 2},
+        "ai_weight": 1
+      },
+      "jpn_counterstrike": {
+        "name_key": "FOCUS_JPN_COUNTERSTRIKE", "desc_key": "FOCUS_JPN_COUNTERSTRIKE_DESC", "x": 2, "y": 8, "months": 12,
+        "requires": ["jpn_constitutional_revision"],
+        "effects": {"add_tech": "hypersonic_missiles", "add_debt_gdp": 1, "add_group_satisfaction": {"military": 3}}
+      },
+      "jpn_quad_alliance": {
+        "name_key": "FOCUS_JPN_QUAD_ALLIANCE", "desc_key": "FOCUS_JPN_QUAD_ALLIANCE_DESC", "x": 6, "y": 8, "months": 10,
+        "requires": ["jpn_constitutional_revision"],
+        "effects": {"every_country": {"limit": {"tag": ["USA", "IND", "AUS", "PHL"]},
+          "effects": {"add_relation": {"with": "from", "value": 12}}}, "add_relation": {"with": "CHN", "value": -10}}
+      },
+      "jpn_robot_society": {
+        "name_key": "FOCUS_JPN_ROBOT_SOCIETY", "desc_key": "FOCUS_JPN_ROBOT_SOCIETY_DESC", "x": 9, "y": 8, "months": 12,
+        "requires": ["jpn_demographic_crisis"], "exclusive": ["jpn_open_doors"],
+        "effects": {"add_tech": "humanoid_robots", "add_modifier": {"growth": 0.15, "months": -1},
+          "set_law": {"immigration": "restrictive"}},
+        "ai_weight": 2
+      },
+      "jpn_open_doors": {
+        "name_key": "FOCUS_JPN_OPEN_DOORS", "desc_key": "FOCUS_JPN_OPEN_DOORS_DESC", "x": 11, "y": 9, "months": 12,
+        "requires": ["jpn_demographic_crisis"], "exclusive": ["jpn_robot_society"],
+        "effects": {"set_law": {"immigration": "selective", "work_visas": "open"}, "add_modifier": {"growth": 0.2,
+          "months": -1}, "add_group_satisfaction": {"retirees": -2, "minorities": 4}},
+        "ai_weight": 1
+      },
+      "jpn_asian_reconciliation": {
+        "name_key": "FOCUS_JPN_ASIAN_RECONCILIATION", "desc_key": "FOCUS_JPN_ASIAN_RECONCILIATION_DESC", "x": 14, "y": 8,
+        "months": 12,
+        "requires": ["jpn_pacifist_path"],
+        "effects": {"every_country": {"limit": {"tag": ["KOR", "CHN"]}, "effects": {"add_relation": {"with": "from",
+          "value": 20}}}, "add_legitimacy": 2}
+      },
+      "jpn_east_asian_community": {
+        "name_key": "FOCUS_JPN_EAST_ASIAN_COMMUNITY", "desc_key": "FOCUS_JPN_EAST_ASIAN_COMMUNITY_DESC", "x": 18, "y": 8,
+        "months": 12,
+        "requires": ["jpn_pacifist_path"],
+        "effects": {"every_country": {"limit": {"member_of": "asean"}, "effects": {"add_relation": {"with": "from", "value": 10}}},
+          "add_relation": {"with": "CHN", "value": 10}, "add_modifier": {"growth": 0.1, "months": -1}}
+      },
+      "jpn_nuclear_threshold": {
+        "name_key": "FOCUS_JPN_NUCLEAR_THRESHOLD", "desc_key": "FOCUS_JPN_NUCLEAR_THRESHOLD_DESC", "x": 4, "y": 9, "months": 12,
+        "requires": ["jpn_counterstrike"],
+        "available": {"world_tension": ">55"},
+        "effects": {"add_tension": 5, "add_relation": {"with": "CHN", "value": -20}, "set_flag": "jpn_nuclear_threshold",
+          "add_group_satisfaction": {"military": 3, "ecologists": -5}},
+        "ai_weight": 0.2
+      },
+      "jpn_lost_decades_end": {
+        "name_key": "FOCUS_JPN_LOST_DECADES_END", "desc_key": "FOCUS_JPN_LOST_DECADES_END_DESC", "x": 7, "y": 10, "months": 12,
+        "requires_any": ["jpn_robot_society", "jpn_open_doors"],
+        "effects": {"add_modifier": {"growth": 0.15, "inflation": 0.2, "months": -1}, "add_debt_gdp": -2}
+      },
+      "jpn_normal_nation": {
+        "name_key": "FOCUS_JPN_NORMAL_NATION", "desc_key": "FOCUS_JPN_NORMAL_NATION_DESC", "x": 10, "y": 11, "months": 12,
+        "requires": ["jpn_lost_decades_end"],
+        "requires_any": ["jpn_quad_alliance", "jpn_asian_reconciliation", "jpn_east_asian_community", "jpn_nuclear_threshold"],
+        "effects": {"add_influence": 40, "add_modifier": {"stability": 2, "months": -1}, "add_legitimacy": 3}
+      }
+    }
+  }
+}

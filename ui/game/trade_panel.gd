@@ -193,7 +193,7 @@ func _goods_text(goods: Array) -> String:
 
 ## Listes des pays (triés par nom) et des marchandises visables.
 func _fill_options() -> void:
-	var countries := DataLoader.get_category("countries")
+	var countries := CountryRegistry.all()
 	var player := str(GameState.sim.player_tag)
 	var entries: Array = []
 	for tag: String in countries.keys():
@@ -256,7 +256,7 @@ func _submit(command: Command) -> void:
 
 
 func _country_name(tag: String) -> String:
-	return tr(str(DataLoader.get_entry("countries", tag).get("name_key", tag)))
+	return tr(str(CountryRegistry.entry(tag).get("name_key", tag)))
 
 
 func _header(key: String) -> Label:

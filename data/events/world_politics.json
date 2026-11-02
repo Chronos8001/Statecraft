@@ -1,0 +1,105 @@
+{
+  "foreign_power_shift": {
+    "title_key": "EVENT_FOREIGN_POWER_SHIFT_TITLE",
+    "desc_key": "EVENT_FOREIGN_POWER_SHIFT_DESC",
+    "scope": "country",
+    "on_action": "election_held",
+    "trigger": {"action": {"government_changed": true}, "is_player": false, "gdp_rank": "<=30"},
+    "news": true,
+    "news_key": "EVENT_FOREIGN_POWER_SHIFT_NEWS"
+  },
+  "foreign_election_reaction": {
+    "title_key": "EVENT_FOREIGN_ELECTION_REACTION_TITLE",
+    "desc_key": "EVENT_FOREIGN_ELECTION_REACTION_DESC",
+    "scope": "country",
+    "on_action": "election_held",
+    "action_scope": "others",
+    "trigger": {"is_player": true, "action": {"government_changed": true},
+      "from": {"any": [{"gdp_rank": "<=10"}, {"borders_player": true}]}},
+    "options": [
+      {"name_key": "EVENT_FOREIGN_ELECTION_REACTION_A", "effects": {"add_relation": {"with": "from", "value": 10}}},
+      {"name_key": "EVENT_FOREIGN_ELECTION_REACTION_B", "effects": {}},
+      {"name_key": "EVENT_FOREIGN_ELECTION_REACTION_C", "effects": {"add_relation": {"with": "from", "value": -10},
+        "add_legitimacy": 1}}
+    ]
+  },
+  "leader_death_news": {
+    "title_key": "EVENT_LEADER_DEATH_NEWS_TITLE",
+    "desc_key": "EVENT_LEADER_DEATH_NEWS_DESC",
+    "scope": "country",
+    "on_action": "leader_died",
+    "trigger": {"is_player": false},
+    "news": {"any": [{"gdp_rank": "<=40"}, {"is_player_or_neighbor": true}]},
+    "news_key": "EVENT_LEADER_DEATH_NEWS"
+  },
+  "leader_death_player": {
+    "title_key": "EVENT_LEADER_DEATH_PLAYER_TITLE",
+    "desc_key": "EVENT_LEADER_DEATH_PLAYER_DESC",
+    "scope": "country",
+    "on_action": "leader_died",
+    "trigger": {"is_player": true},
+    "options": [
+      {"name_key": "EVENT_LEADER_DEATH_PLAYER_A", "effects": {"add_stability": 2, "add_modifier": {"growth": -0.1,
+        "months": 1}}},
+      {"name_key": "EVENT_LEADER_DEATH_PLAYER_B", "effects": {"add_legitimacy": 2}}
+    ]
+  },
+  "succession_crisis": {
+    "title_key": "EVENT_SUCCESSION_CRISIS_TITLE",
+    "desc_key": "EVENT_SUCCESSION_CRISIS_DESC",
+    "scope": "country",
+    "on_action": "leader_died",
+    "action_chance": 0.35,
+    "trigger": {"democratic": false, "action": {"role": "head_of_state"}},
+    "news": {"any": [{"gdp_rank": "<=30"}, {"is_player_or_neighbor": true}]},
+    "news_key": "EVENT_SUCCESSION_CRISIS_NEWS",
+    "immediate": {"add_stability": -5},
+    "options": [
+      {"name_key": "EVENT_SUCCESSION_CRISIS_A", "effects": {"add_stability": 4, "add_legitimacy": -4,
+        "add_group_satisfaction": {"military": 3, "elites": -3}}, "ai_weight": 2},
+      {"name_key": "EVENT_SUCCESSION_CRISIS_B", "effects": {"add_legitimacy": 3,
+        "add_group_satisfaction": {"elites": 4, "military": -2}}, "ai_weight": 1}
+    ]
+  },
+  "foreign_leader_funeral": {
+    "title_key": "EVENT_FOREIGN_LEADER_FUNERAL_TITLE",
+    "desc_key": "EVENT_FOREIGN_LEADER_FUNERAL_DESC",
+    "scope": "country",
+    "on_action": "leader_died",
+    "action_scope": "others",
+    "trigger": {"is_player": true, "action": {"cause": "natural"},
+      "from": {"any": [{"gdp_rank": "<=10"}, {"borders_player": true}]}},
+    "options": [
+      {"name_key": "EVENT_FOREIGN_LEADER_FUNERAL_A", "effects": {"add_relation": {"with": "from", "value": 5}}},
+      {"name_key": "EVENT_FOREIGN_LEADER_FUNERAL_B", "effects": {}}
+    ]
+  },
+  "foreign_assassination": {
+    "title_key": "EVENT_FOREIGN_ASSASSINATION_TITLE",
+    "desc_key": "EVENT_FOREIGN_ASSASSINATION_DESC",
+    "scope": "country",
+    "on_action": "leader_died",
+    "action_scope": "others",
+    "trigger": {"is_player": true, "action": {"cause": "assassination"},
+      "from": {"any": [{"gdp_rank": "<=20"}, {"borders_player": true}]}},
+    "options": [
+      {"name_key": "EVENT_FOREIGN_ASSASSINATION_A", "effects": {"add_relation": {"with": "from", "value": 8}}},
+      {"name_key": "EVENT_FOREIGN_ASSASSINATION_B", "effects": {"add_stability": 1}}
+    ]
+  },
+  "coup_reaction": {
+    "title_key": "EVENT_COUP_REACTION_TITLE",
+    "desc_key": "EVENT_COUP_REACTION_DESC",
+    "scope": "country",
+    "on_action": "coup",
+    "action_scope": "others",
+    "trigger": {"is_player": true, "action": {"success": true},
+      "from": {"any": [{"gdp_rank": "<=30"}, {"borders_player": true}]}},
+    "options": [
+      {"name_key": "EVENT_COUP_REACTION_A", "effects": {"add_relation": {"with": "from", "value": -20},
+        "if": {"democratic": true}, "then": {"add_legitimacy": 2}}},
+      {"name_key": "EVENT_COUP_REACTION_B", "effects": {"add_relation": {"with": "from", "value": 5},
+        "if": {"democratic": true}, "then": {"add_legitimacy": -3}}}
+    ]
+  }
+}

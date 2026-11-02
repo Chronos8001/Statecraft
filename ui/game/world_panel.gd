@@ -278,7 +278,7 @@ func _sorted_tags(state: SimState, keep: Callable) -> Array[String]:
 
 
 func _country_name(tag: String) -> String:
-	return tr(str(DataLoader.get_entry("countries", tag).get("name_key", tag)))
+	return tr(str(CountryRegistry.entry(tag).get("name_key", tag)))
 
 
 func _submit(command: Command) -> void:

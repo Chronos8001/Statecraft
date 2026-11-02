@@ -1,0 +1,111 @@
+{
+  "rus": {
+    "name_key": "FOCUS_TREE_RUS",
+    "countries": ["RUS"],
+    "include": "generic",
+    "nodes": {
+      "rus_war_economy": {
+        "name_key": "FOCUS_RUS_WAR_ECONOMY", "desc_key": "FOCUS_RUS_WAR_ECONOMY_DESC", "x": 10, "y": 6, "months": 6,
+        "effects": {"add_group_satisfaction": {"military": 3, "workers": 2}, "add_modifier": {"inflation": 0.3, "months": 12}},
+        "ai_weight": 3
+      },
+      "rus_victory_at_any_cost": {
+        "name_key": "FOCUS_RUS_VICTORY_AT_ANY_COST", "desc_key": "FOCUS_RUS_VICTORY_AT_ANY_COST_DESC", "x": 4, "y": 7,
+        "months": 10,
+        "requires": ["rus_war_economy"], "exclusive": ["rus_negotiated_peace"],
+        "effects": {"add_tech": "drone_warfare", "add_group_satisfaction": {"military": 4, "youth": -3},
+          "add_modifier": {"growth": -0.1, "months": -1}, "add_debt_gdp": 1},
+        "ai_weight": 3
+      },
+      "rus_eurasian_integration": {
+        "name_key": "FOCUS_RUS_EURASIAN_INTEGRATION", "desc_key": "FOCUS_RUS_EURASIAN_INTEGRATION_DESC", "x": 10, "y": 7,
+        "months": 10,
+        "requires": ["rus_war_economy"],
+        "effects": {"every_country": {"limit": {"member_of": "eaeu"}, "effects": {"add_relation": {"with": "from", "value": 10}}},
+          "add_influence": 25}
+      },
+      "rus_negotiated_peace": {
+        "name_key": "FOCUS_RUS_NEGOTIATED_PEACE", "desc_key": "FOCUS_RUS_NEGOTIATED_PEACE_DESC", "x": 16, "y": 7, "months": 10,
+        "requires": ["rus_war_economy"], "exclusive": ["rus_victory_at_any_cost"],
+        "effects": {"add_relation": {"with": "UKR", "value": 15}, "add_tension": -4, "add_group_satisfaction": {"military": -3,
+          "middle_class": 3}},
+        "ai_weight": 1
+      },
+      "rus_drone_industry": {
+        "name_key": "FOCUS_RUS_DRONE_INDUSTRY", "desc_key": "FOCUS_RUS_DRONE_INDUSTRY_DESC", "x": 2, "y": 8, "months": 10,
+        "requires": ["rus_victory_at_any_cost"],
+        "effects": {"add_tech": "counter_drone", "add_group_satisfaction": {"workers": 2}, "add_research": 40}
+      },
+      "rus_total_mobilization": {
+        "name_key": "FOCUS_RUS_TOTAL_MOBILIZATION", "desc_key": "FOCUS_RUS_TOTAL_MOBILIZATION_DESC", "x": 6, "y": 8, "months": 8,
+        "requires": ["rus_victory_at_any_cost"],
+        "effects": {"set_law": {"conscription": "universal"}, "add_stability": -5, "add_group_satisfaction": {"youth": -5,
+          "military": 4}}
+      },
+      "rus_union_state": {
+        "name_key": "FOCUS_RUS_UNION_STATE", "desc_key": "FOCUS_RUS_UNION_STATE_DESC", "x": 10, "y": 8, "months": 12,
+        "requires": ["rus_eurasian_integration"],
+        "available": {"not": {"player_is": "BLR"}, "country_exists": "BLR"},
+        "effects": {"trigger_event": {"id": "union_state_proposal", "target": "BLR", "days": 10}}
+      },
+      "rus_sanctions_relief": {
+        "name_key": "FOCUS_RUS_SANCTIONS_RELIEF", "desc_key": "FOCUS_RUS_SANCTIONS_RELIEF_DESC", "x": 14, "y": 8, "months": 10,
+        "requires": ["rus_negotiated_peace"],
+        "effects": {"every_country": {"limit": {"member_of": "eu"}, "effects": {"add_relation": {"with": "from", "value": 12}}},
+          "add_modifier": {"growth": 0.3, "months": -1}}
+      },
+      "rus_pivot_east": {
+        "name_key": "FOCUS_RUS_PIVOT_EAST", "desc_key": "FOCUS_RUS_PIVOT_EAST_DESC", "x": 18, "y": 8, "months": 10,
+        "requires": ["rus_war_economy"],
+        "effects": {"add_relation": {"with": "CHN", "value": 15},
+          "every_country": {"limit": {"tag": ["IND", "IRN", "PRK"]}, "effects": {"add_relation": {"with": "from", "value": 8}}},
+          "add_modifier": {"growth": 0.05, "months": -1}}
+      },
+      "rus_arctic_route": {
+        "name_key": "FOCUS_RUS_ARCTIC_ROUTE", "desc_key": "FOCUS_RUS_ARCTIC_ROUTE_DESC", "x": 2, "y": 9, "months": 12,
+        "requires": ["rus_war_economy"],
+        "effects": {"add_resource_capacity": {"resource": "gas", "world_share": 0.01}, "add_modifier": {"growth": 0.1,
+          "months": -1}}
+      },
+      "rus_new_borders": {
+        "name_key": "FOCUS_RUS_NEW_BORDERS", "desc_key": "FOCUS_RUS_NEW_BORDERS_DESC", "x": 6, "y": 9, "months": 10,
+        "requires": ["rus_total_mobilization"],
+        "available": {"country_exists": "MDA"},
+        "effects": {"add_claim": {"target": "MDA", "provinces": [2427, 2436]}, "add_tension": 3, "add_legitimacy": 2}
+      },
+      "rus_liberal_thaw": {
+        "name_key": "FOCUS_RUS_LIBERAL_THAW", "desc_key": "FOCUS_RUS_LIBERAL_THAW_DESC", "x": 14, "y": 9, "months": 12,
+        "requires": ["rus_sanctions_relief"],
+        "effects": {"set_law": {"press_freedom": "regulated", "political_parties": "free"}, "add_legitimacy": 3,
+          "add_group_satisfaction": {"youth": 4, "middle_class": 3, "military": -3}},
+        "ai_weight": 0.5
+      },
+      "rus_eternal_power": {
+        "name_key": "FOCUS_RUS_ETERNAL_POWER", "desc_key": "FOCUS_RUS_ETERNAL_POWER_DESC", "x": 4, "y": 10, "months": 12,
+        "requires_any": ["rus_new_borders", "rus_drone_industry"],
+        "effects": {"set_law": {"internet": "intranet", "political_parties": "single"}, "add_modifier": {"stability": 3,
+          "months": -1}, "add_legitimacy": -4, "add_tension": 2}
+      },
+      "rus_second_republic": {
+        "name_key": "FOCUS_RUS_SECOND_REPUBLIC", "desc_key": "FOCUS_RUS_SECOND_REPUBLIC_DESC", "x": 14, "y": 10, "months": 12,
+        "requires": ["rus_liberal_thaw"],
+        "effects": {"set_regime": "semi_presidential_republic", "set_law": {"press_freedom": "free", "decentralization": "federal"},
+          "add_stability": -8, "add_modifier": {"stability": 3, "months": -1},
+          "every_country": {"limit": {"member_of": "eu"}, "effects": {"add_relation": {"with": "from", "value": 25}}}},
+        "ai_weight": 0.2
+      },
+      "rus_return_to_europe": {
+        "name_key": "FOCUS_RUS_RETURN_TO_EUROPE", "desc_key": "FOCUS_RUS_RETURN_TO_EUROPE_DESC", "x": 16, "y": 11, "months": 12,
+        "requires": ["rus_second_republic"],
+        "effects": {"leave_organization": "csto", "add_relation": {"with": "UKR", "value": 25},
+          "every_country": {"limit": {"member_of": "nato"}, "effects": {"add_relation": {"with": "from", "value": 15}}},
+          "add_modifier": {"growth": 0.3, "months": -1}}
+      },
+      "rus_great_russia": {
+        "name_key": "FOCUS_RUS_GREAT_RUSSIA", "desc_key": "FOCUS_RUS_GREAT_RUSSIA_DESC", "x": 8, "y": 11, "months": 12,
+        "requires_any": ["rus_union_state", "rus_eternal_power", "rus_pivot_east"],
+        "effects": {"add_influence": 50, "add_modifier": {"stability": 2, "months": -1}, "add_legitimacy": 3}
+      }
+    }
+  }
+}

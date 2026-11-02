@@ -1,0 +1,90 @@
+{
+  "kor": {
+    "name_key": "FOCUS_TREE_KOR",
+    "countries": ["KOR"],
+    "include": "generic",
+    "nodes": {
+      "kor_after_the_crisis": {
+        "name_key": "FOCUS_KOR_AFTER_THE_CRISIS", "desc_key": "FOCUS_KOR_AFTER_THE_CRISIS_DESC", "x": 10, "y": 6, "months": 6,
+        "effects": {"add_legitimacy": 3, "add_stability": 2},
+        "ai_weight": 3
+      },
+      "kor_sunshine_policy": {
+        "name_key": "FOCUS_KOR_SUNSHINE_POLICY", "desc_key": "FOCUS_KOR_SUNSHINE_POLICY_DESC", "x": 4, "y": 7, "months": 10,
+        "requires": ["kor_after_the_crisis"], "exclusive": ["kor_deterrence_first"],
+        "effects": {"add_relation": {"with": "PRK", "value": 20}, "add_tension": -2, "add_group_satisfaction": {"youth": 2}},
+        "ai_weight": 2
+      },
+      "kor_chaebol_reform": {
+        "name_key": "FOCUS_KOR_CHAEBOL_REFORM", "desc_key": "FOCUS_KOR_CHAEBOL_REFORM_DESC", "x": 10, "y": 7, "months": 10,
+        "requires": ["kor_after_the_crisis"],
+        "effects": {"add_corruption": -4, "set_law": {"antitrust": "strong"}, "add_group_satisfaction": {"elites": -4,
+          "middle_class": 3}}
+      },
+      "kor_deterrence_first": {
+        "name_key": "FOCUS_KOR_DETERRENCE_FIRST", "desc_key": "FOCUS_KOR_DETERRENCE_FIRST_DESC", "x": 16, "y": 7, "months": 10,
+        "requires": ["kor_after_the_crisis"], "exclusive": ["kor_sunshine_policy"],
+        "effects": {"add_tech": "drone_warfare", "add_relation": {"with": "USA", "value": 10}, "add_group_satisfaction": {
+          "military": 4}},
+        "ai_weight": 2
+      },
+      "kor_kaesong_reopened": {
+        "name_key": "FOCUS_KOR_KAESONG_REOPENED", "desc_key": "FOCUS_KOR_KAESONG_REOPENED_DESC", "x": 2, "y": 8, "months": 10,
+        "requires": ["kor_sunshine_policy"],
+        "available": {"country_exists": "PRK"},
+        "effects": {"add_relation": {"with": "PRK", "value": 15}, "add_modifier": {"growth": 0.05, "months": -1}}
+      },
+      "kor_peace_treaty": {
+        "name_key": "FOCUS_KOR_PEACE_TREATY", "desc_key": "FOCUS_KOR_PEACE_TREATY_DESC", "x": 6, "y": 8, "months": 12,
+        "requires": ["kor_sunshine_policy"],
+        "available": {"country_exists": "PRK", "relation": {"with": "PRK", "value": ">0"}},
+        "effects": {"add_relation": {"with": "PRK", "value": 25}, "add_tension": -4, "add_legitimacy": 4}
+      },
+      "kor_semiconductor_superpower": {
+        "name_key": "FOCUS_KOR_SEMICONDUCTOR_SUPERPOWER", "desc_key": "FOCUS_KOR_SEMICONDUCTOR_SUPERPOWER_DESC", "x": 10,
+        "y": 8, "months": 12,
+        "requires": ["kor_chaebol_reform"],
+        "effects": {"add_tech": "advanced_chips", "add_modifier": {"growth": 0.15, "months": -1}, "add_research": 60}
+      },
+      "kor_three_axis": {
+        "name_key": "FOCUS_KOR_THREE_AXIS", "desc_key": "FOCUS_KOR_THREE_AXIS_DESC", "x": 14, "y": 8, "months": 12,
+        "requires": ["kor_deterrence_first"],
+        "effects": {"add_tech": "laser_air_defense", "add_debt_gdp": 0.8, "add_group_satisfaction": {"military": 3}}
+      },
+      "kor_nuclear_debate": {
+        "name_key": "FOCUS_KOR_NUCLEAR_DEBATE", "desc_key": "FOCUS_KOR_NUCLEAR_DEBATE_DESC", "x": 18, "y": 8, "months": 10,
+        "requires": ["kor_deterrence_first"],
+        "available": {"world_tension": ">55"},
+        "effects": {"add_tension": 4, "add_relation": {"with": "USA", "value": -10}, "set_flag": "kor_nuclear_option"},
+        "ai_weight": 0.3
+      },
+      "kor_birth_rate_emergency": {
+        "name_key": "FOCUS_KOR_BIRTH_RATE_EMERGENCY", "desc_key": "FOCUS_KOR_BIRTH_RATE_EMERGENCY_DESC", "x": 10, "y": 9,
+        "months": 12,
+        "requires": ["kor_after_the_crisis"],
+        "effects": {"set_law": {"parental_leave": "long"}, "add_debt_gdp": 1, "add_group_satisfaction": {"youth": 4}}
+      },
+      "kor_reunification_offer": {
+        "name_key": "FOCUS_KOR_REUNIFICATION_OFFER", "desc_key": "FOCUS_KOR_REUNIFICATION_OFFER_DESC", "x": 4, "y": 9,
+        "months": 12,
+        "requires": ["kor_peace_treaty"],
+        "available": {"country_exists": "PRK", "not": {"player_is": "PRK"}},
+        "effects": {"trigger_event": {"id": "korean_reunification_proposal", "target": "PRK", "days": 10}},
+        "ai_weight": 0.5
+      },
+      "kor_collapse_contingency": {
+        "name_key": "FOCUS_KOR_COLLAPSE_CONTINGENCY", "desc_key": "FOCUS_KOR_COLLAPSE_CONTINGENCY_DESC", "x": 16, "y": 9,
+        "months": 8,
+        "requires": ["kor_three_axis"],
+        "available": {"not": {"player_is": "PRK"}, "other_country": {"tag": "PRK", "if": {"stability": "<30"}}},
+        "effects": {"add_claim": {"target": "PRK", "provinces": [3237, 3238, 3239, 3240, 3241, 3242, 3243, 3244, 3245, 3246,
+          3247]}, "add_tension": 2}
+      },
+      "kor_unified_korea": {
+        "name_key": "FOCUS_KOR_UNIFIED_KOREA", "desc_key": "FOCUS_KOR_UNIFIED_KOREA_DESC", "x": 10, "y": 11, "months": 12,
+        "requires_any": ["kor_reunification_offer", "kor_collapse_contingency", "kor_semiconductor_superpower"],
+        "effects": {"add_influence": 30, "add_modifier": {"stability": 2, "growth": 0.05, "months": -1}}
+      }
+    }
+  }
+}

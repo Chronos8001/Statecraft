@@ -1,0 +1,269 @@
+{
+  "aus": {
+    "name_key": "FOCUS_TREE_AUS",
+    "countries": [
+      "AUS"
+    ],
+    "include": "generic",
+    "nodes": {
+      "aus_future_made_in_australia": {
+        "name_key": "FOCUS_AUS_FUTURE_MADE_IN_AUSTRALIA",
+        "desc_key": "FOCUS_AUS_FUTURE_MADE_IN_AUSTRALIA_DESC",
+        "x": 10,
+        "y": 6,
+        "months": 8,
+        "effects": {
+          "add_modifier": {
+            "growth": 0.05,
+            "months": -1
+          },
+          "add_group_satisfaction": {
+            "workers": 2
+          }
+        },
+        "ai_weight": 3
+      },
+      "aus_aukus_submarines": {
+        "name_key": "FOCUS_AUS_AUKUS_SUBMARINES",
+        "desc_key": "FOCUS_AUS_AUKUS_SUBMARINES_DESC",
+        "x": 4,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "aus_future_made_in_australia"
+        ],
+        "exclusive": [
+          "aus_middle_power_balance"
+        ],
+        "effects": {
+          "add_tech": "autonomous_submarines",
+          "add_debt_gdp": 1,
+          "add_relation": {
+            "with": "USA",
+            "value": 10
+          },
+          "every_country": {
+            "limit": {
+              "tag": [
+                "CHN"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": -15
+              }
+            }
+          }
+        },
+        "ai_weight": 2
+      },
+      "aus_critical_minerals": {
+        "name_key": "FOCUS_AUS_CRITICAL_MINERALS",
+        "desc_key": "FOCUS_AUS_CRITICAL_MINERALS_DESC",
+        "x": 10,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "aus_future_made_in_australia"
+        ],
+        "effects": {
+          "add_resource_capacity": {
+            "resource": "rare_earths",
+            "world_share": 0.02
+          },
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          }
+        }
+      },
+      "aus_middle_power_balance": {
+        "name_key": "FOCUS_AUS_MIDDLE_POWER_BALANCE",
+        "desc_key": "FOCUS_AUS_MIDDLE_POWER_BALANCE_DESC",
+        "x": 16,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "aus_future_made_in_australia"
+        ],
+        "exclusive": [
+          "aus_aukus_submarines"
+        ],
+        "effects": {
+          "add_relation": {
+            "with": "CHN",
+            "value": 15
+          },
+          "add_influence": 20,
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          }
+        },
+        "ai_weight": 1
+      },
+      "aus_northern_shield": {
+        "name_key": "FOCUS_AUS_NORTHERN_SHIELD",
+        "desc_key": "FOCUS_AUS_NORTHERN_SHIELD_DESC",
+        "x": 2,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "aus_aukus_submarines"
+        ],
+        "effects": {
+          "add_tech": "hypersonic_missiles",
+          "add_group_satisfaction": {
+            "military": 3
+          }
+        }
+      },
+      "aus_pacific_step_up": {
+        "name_key": "FOCUS_AUS_PACIFIC_STEP_UP",
+        "desc_key": "FOCUS_AUS_PACIFIC_STEP_UP_DESC",
+        "x": 6,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "aus_future_made_in_australia"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "tag": [
+                "FJI",
+                "PNG",
+                "SLB",
+                "VUT",
+                "WSM",
+                "TON",
+                "KIR",
+                "TUV",
+                "NRU",
+                "FSM",
+                "MHL",
+                "PLW"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 15
+              }
+            }
+          },
+          "add_influence": 20
+        }
+      },
+      "aus_green_hydrogen": {
+        "name_key": "FOCUS_AUS_GREEN_HYDROGEN",
+        "desc_key": "FOCUS_AUS_GREEN_HYDROGEN_DESC",
+        "x": 10,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "aus_critical_minerals"
+        ],
+        "effects": {
+          "add_tech": "green_hydrogen",
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          },
+          "add_group_satisfaction": {
+            "ecologists": 3
+          }
+        }
+      },
+      "aus_asian_integration": {
+        "name_key": "FOCUS_AUS_ASIAN_INTEGRATION",
+        "desc_key": "FOCUS_AUS_ASIAN_INTEGRATION_DESC",
+        "x": 16,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "aus_middle_power_balance"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "member_of": "asean"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 10
+              }
+            }
+          },
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          }
+        }
+      },
+      "aus_republic_referendum": {
+        "name_key": "FOCUS_AUS_REPUBLIC_REFERENDUM",
+        "desc_key": "FOCUS_AUS_REPUBLIC_REFERENDUM_DESC",
+        "x": 13,
+        "y": 9,
+        "months": 10,
+        "requires": [
+          "aus_future_made_in_australia"
+        ],
+        "effects": {
+          "if": {
+            "random": 0.5
+          },
+          "then": {
+            "set_regime": "parliamentary_republic",
+            "add_legitimacy": 4
+          },
+          "else": {
+            "add_legitimacy": -1,
+            "add_stability": -1
+          }
+        },
+        "ai_weight": 0.5
+      },
+      "aus_first_nations_voice": {
+        "name_key": "FOCUS_AUS_FIRST_NATIONS_VOICE",
+        "desc_key": "FOCUS_AUS_FIRST_NATIONS_VOICE_DESC",
+        "x": 9,
+        "y": 9,
+        "months": 10,
+        "requires": [
+          "aus_future_made_in_australia"
+        ],
+        "effects": {
+          "add_group_satisfaction": {
+            "minorities": 5
+          },
+          "add_legitimacy": 2
+        }
+      },
+      "aus_lucky_country": {
+        "name_key": "FOCUS_AUS_LUCKY_COUNTRY",
+        "desc_key": "FOCUS_AUS_LUCKY_COUNTRY_DESC",
+        "x": 10,
+        "y": 11,
+        "months": 12,
+        "requires_any": [
+          "aus_northern_shield",
+          "aus_green_hydrogen",
+          "aus_asian_integration",
+          "aus_republic_referendum"
+        ],
+        "effects": {
+          "add_modifier": {
+            "stability": 2,
+            "growth": 0.05,
+            "months": -1
+          },
+          "add_influence": 25
+        }
+      }
+    }
+  }
+}

@@ -82,7 +82,7 @@ func refresh() -> void:
 		return
 	var state := GameState.sim
 	var player := str(state.player_tag)
-	var data := DataLoader.get_entry("countries", _tag)
+	var data := CountryRegistry.entry(_tag)
 	_title_label.text = tr("DIPLOMACY_TITLE_VALUE") % tr(str(data.get("name_key", _tag)))
 	_flag_rect.texture = CountryFlags.texture_for(CountryFlags.path_for(_tag, data), Color.html(str(data.get("color", "#808080"))))
 	_clear_rows(_summary_grid)
@@ -341,6 +341,30 @@ func _fill_actions(state: SimState) -> void:
 		button.tooltip_text = tr(refusal) if not refusal.is_empty() else tr("DIPLOMACY_ACTION_%s_TOOLTIP" % action.to_upper())
 		button.pressed.connect(func() -> void: _submit(DiplomaticActionCommand.new(state.player_tag, _tag, action)))
 		_actions_grid.add_child(button)
+	# Union pacifique, en version de développement seulement (en jeu : arbres de décisions).
+	if OS.is_debug_build():
+		var annex := Button.new()
+		annex.text = "DIPLOMACY_DEV_ANNEX"
+		annex.focus_mode = Control.FOCUS_NONE
+		var refusal := CountryLifecycle.annex_refusal(state, str(state.player_tag), _tag)
+		annex.disabled = not refusal.is_empty()
+		annex.tooltip_text = tr(refusal) if not refusal.is_empty() else tr("DIPLOMACY_DEV_ANNEX_TOOLTIP")
+		annex.pressed.connect(func() -> void:
+			var tag := _tag
+			_submit(AnnexCountryCommand.new(state.player_tag, tag))
+			close())
+		_actions_grid.add_child(annex)
+		for definition_id: String in state.releasable_definitions.keys():
+			if CountryFactory.parent_of(state, definition_id) != _tag:
+				continue
+			var release := Button.new()
+			release.text = tr("DIPLOMACY_DEV_RELEASE") + " " + tr(str((state.releasable_definitions[definition_id]
+				as Dictionary).get("name_key", "")))
+			release.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+			release.focus_mode = Control.FOCUS_NONE
+			var released := definition_id
+			release.pressed.connect(func() -> void: _submit(ReleaseCountryCommand.new(state.player_tag, released)))
+			_actions_grid.add_child(release)
 
 
 func _fill_proposal(state: SimState, player: String) -> void:

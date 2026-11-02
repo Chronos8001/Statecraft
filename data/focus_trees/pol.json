@@ -1,0 +1,313 @@
+{
+  "pol": {
+    "name_key": "FOCUS_TREE_POL",
+    "countries": [
+      "POL"
+    ],
+    "include": "generic",
+    "nodes": {
+      "poland_eastern_flank": {
+        "name_key": "FOCUS_POLAND_EASTERN_FLANK",
+        "desc_key": "FOCUS_POLAND_EASTERN_FLANK_DESC",
+        "x": 10,
+        "y": 6,
+        "months": 6,
+        "effects": {
+          "add_group_satisfaction": {
+            "military": 3
+          },
+          "add_legitimacy": 1
+        },
+        "ai_weight": 3
+      },
+      "poland_strongest_army": {
+        "name_key": "FOCUS_POLAND_STRONGEST_ARMY",
+        "desc_key": "FOCUS_POLAND_STRONGEST_ARMY_DESC",
+        "x": 4,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "poland_eastern_flank"
+        ],
+        "effects": {
+          "set_law": {
+            "conscription": "selective"
+          },
+          "add_tech": "active_protection",
+          "add_debt_gdp": 1.5,
+          "add_group_satisfaction": {
+            "military": 5
+          }
+        },
+        "ai_weight": 2
+      },
+      "poland_cpk_megaproject": {
+        "name_key": "FOCUS_POLAND_CPK_MEGAPROJECT",
+        "desc_key": "FOCUS_POLAND_CPK_MEGAPROJECT_DESC",
+        "x": 10,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "poland_eastern_flank"
+        ],
+        "effects": {
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          },
+          "add_debt_gdp": 0.8
+        }
+      },
+      "poland_rule_of_law": {
+        "name_key": "FOCUS_POLAND_RULE_OF_LAW",
+        "desc_key": "FOCUS_POLAND_RULE_OF_LAW_DESC",
+        "x": 16,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "poland_eastern_flank"
+        ],
+        "exclusive": [
+          "poland_sovereign_poland"
+        ],
+        "effects": {
+          "set_law": {
+            "judicial_independence": "independent"
+          },
+          "every_country": {
+            "limit": {
+              "member_of": "eu"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 10
+              }
+            }
+          }
+        },
+        "ai_weight": 2
+      },
+      "poland_east_shield": {
+        "name_key": "FOCUS_POLAND_EAST_SHIELD",
+        "desc_key": "FOCUS_POLAND_EAST_SHIELD_DESC",
+        "x": 2,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "poland_strongest_army"
+        ],
+        "effects": {
+          "add_tech": "counter_drone",
+          "add_relation": {
+            "with": "RUS",
+            "value": -10
+          },
+          "add_group_satisfaction": {
+            "military": 2
+          }
+        }
+      },
+      "poland_nuclear_sharing": {
+        "name_key": "FOCUS_POLAND_NUCLEAR_SHARING",
+        "desc_key": "FOCUS_POLAND_NUCLEAR_SHARING_DESC",
+        "x": 6,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "poland_strongest_army"
+        ],
+        "effects": {
+          "add_relation": {
+            "with": "USA",
+            "value": 10
+          },
+          "add_tension": 2,
+          "every_country": {
+            "limit": {
+              "tag": [
+                "FRA"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 8
+              }
+            }
+          }
+        }
+      },
+      "poland_first_nuclear_plant": {
+        "name_key": "FOCUS_POLAND_FIRST_NUCLEAR_PLANT",
+        "desc_key": "FOCUS_POLAND_FIRST_NUCLEAR_PLANT_DESC",
+        "x": 10,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "poland_cpk_megaproject"
+        ],
+        "effects": {
+          "set_law": {
+            "nuclear_power": "expansion"
+          },
+          "add_tech": "small_modular_reactors",
+          "add_group_satisfaction": {
+            "ecologists": -2
+          }
+        }
+      },
+      "poland_sovereign_poland": {
+        "name_key": "FOCUS_POLAND_SOVEREIGN_POLAND",
+        "desc_key": "FOCUS_POLAND_SOVEREIGN_POLAND_DESC",
+        "x": 14,
+        "y": 9,
+        "months": 10,
+        "requires": [
+          "poland_eastern_flank"
+        ],
+        "exclusive": [
+          "poland_rule_of_law"
+        ],
+        "effects": {
+          "set_law": {
+            "judicial_independence": "partial"
+          },
+          "add_group_satisfaction": {
+            "religious": 4,
+            "youth": -3
+          },
+          "every_country": {
+            "limit": {
+              "member_of": "eu"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": -8
+              }
+            }
+          }
+        },
+        "ai_weight": 1
+      },
+      "poland_three_seas": {
+        "name_key": "FOCUS_POLAND_THREE_SEAS",
+        "desc_key": "FOCUS_POLAND_THREE_SEAS_DESC",
+        "x": 18,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "poland_rule_of_law"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "tag": [
+                "EST",
+                "LVA",
+                "LTU",
+                "CZE",
+                "SVK",
+                "HUN",
+                "ROU",
+                "BGR",
+                "HRV",
+                "SVN",
+                "AUT"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 10
+              }
+            }
+          },
+          "add_influence": 30
+        }
+      },
+      "poland_euro_adoption": {
+        "name_key": "FOCUS_POLAND_EURO_ADOPTION",
+        "desc_key": "FOCUS_POLAND_EURO_ADOPTION_DESC",
+        "x": 18,
+        "y": 9,
+        "months": 12,
+        "requires": [
+          "poland_three_seas"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "member_of": "eu"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 8
+              }
+            }
+          },
+          "add_modifier": {
+            "growth": 0.1,
+            "inflation": -0.3,
+            "months": -1
+          }
+        },
+        "ai_weight": 0.5
+      },
+      "poland_intermarium": {
+        "name_key": "FOCUS_POLAND_INTERMARIUM",
+        "desc_key": "FOCUS_POLAND_INTERMARIUM_DESC",
+        "x": 6,
+        "y": 10,
+        "months": 12,
+        "requires_any": [
+          "poland_east_shield",
+          "poland_nuclear_sharing"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "tag": [
+                "UKR",
+                "LTU",
+                "LVA",
+                "EST"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 20
+              }
+            }
+          },
+          "add_influence": 30,
+          "add_tension": 1
+        }
+      },
+      "poland_polish_century": {
+        "name_key": "FOCUS_POLAND_POLISH_CENTURY",
+        "desc_key": "FOCUS_POLAND_POLISH_CENTURY_DESC",
+        "x": 12,
+        "y": 11,
+        "months": 12,
+        "requires_any": [
+          "poland_intermarium",
+          "poland_euro_adoption",
+          "poland_first_nuclear_plant",
+          "poland_sovereign_poland"
+        ],
+        "effects": {
+          "add_modifier": {
+            "stability": 2,
+            "growth": 0.1,
+            "months": -1
+          },
+          "add_influence": 25
+        }
+      }
+    }
+  }
+}

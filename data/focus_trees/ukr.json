@@ -1,0 +1,87 @@
+{
+  "ukr": {
+    "name_key": "FOCUS_TREE_UKR",
+    "countries": ["UKR"],
+    "include": "generic",
+    "nodes": {
+      "ukr_hold_the_line": {
+        "name_key": "FOCUS_UKR_HOLD_THE_LINE", "desc_key": "FOCUS_UKR_HOLD_THE_LINE_DESC", "x": 10, "y": 6, "months": 6,
+        "effects": {"add_group_satisfaction": {"military": 3}, "add_modifier": {"stability": 2, "months": 12}},
+        "ai_weight": 3
+      },
+      "ukr_drone_army": {
+        "name_key": "FOCUS_UKR_DRONE_ARMY", "desc_key": "FOCUS_UKR_DRONE_ARMY_DESC", "x": 4, "y": 7, "months": 10,
+        "requires": ["ukr_hold_the_line"],
+        "effects": {"add_tech": "counter_drone", "add_research": 40, "add_group_satisfaction": {"youth": 2}}
+      },
+      "ukr_western_aid": {
+        "name_key": "FOCUS_UKR_WESTERN_AID", "desc_key": "FOCUS_UKR_WESTERN_AID_DESC", "x": 10, "y": 7, "months": 8,
+        "requires": ["ukr_hold_the_line"],
+        "effects": {"every_country": {"limit": {"member_of": "eu"}, "effects": {"add_relation": {"with": "from", "value": 8}}},
+          "add_debt_gdp": -3, "add_influence": 20}
+      },
+      "ukr_peace_talks": {
+        "name_key": "FOCUS_UKR_PEACE_TALKS", "desc_key": "FOCUS_UKR_PEACE_TALKS_DESC", "x": 16, "y": 7, "months": 10,
+        "requires": ["ukr_hold_the_line"],
+        "effects": {"add_relation": {"with": "RUS", "value": 10}, "add_tension": -2, "add_group_satisfaction": {
+          "retirees": 2, "military": -2}}
+      },
+      "ukr_defence_industry": {
+        "name_key": "FOCUS_UKR_DEFENCE_INDUSTRY", "desc_key": "FOCUS_UKR_DEFENCE_INDUSTRY_DESC", "x": 2, "y": 8, "months": 12,
+        "requires": ["ukr_drone_army"],
+        "effects": {"add_tech": "robotic_vehicles", "add_modifier": {"growth": 0.1, "months": -1},
+          "add_group_satisfaction": {"workers": 3}}
+      },
+      "ukr_counteroffensive": {
+        "name_key": "FOCUS_UKR_COUNTEROFFENSIVE", "desc_key": "FOCUS_UKR_COUNTEROFFENSIVE_DESC", "x": 6, "y": 8, "months": 8,
+        "requires": ["ukr_drone_army"],
+        "effects": {"add_group_satisfaction": {"military": 4}, "add_legitimacy": 3, "set_flag": "ukr_counteroffensive"}
+      },
+      "ukr_eu_accession": {
+        "name_key": "FOCUS_UKR_EU_ACCESSION", "desc_key": "FOCUS_UKR_EU_ACCESSION_DESC", "x": 10, "y": 8, "months": 12,
+        "requires": ["ukr_western_aid"],
+        "available": {"not": {"member_of": "eu"}},
+        "effects": {"join_organization": "eu", "add_modifier": {"growth": 0.4, "months": -1}, "add_corruption": -4,
+          "add_relation": {"with": "RUS", "value": -10}},
+        "ai_weight": 2
+      },
+      "ukr_nato_membership": {
+        "name_key": "FOCUS_UKR_NATO_MEMBERSHIP", "desc_key": "FOCUS_UKR_NATO_MEMBERSHIP_DESC", "x": 13, "y": 9, "months": 12,
+        "requires": ["ukr_western_aid"], "exclusive": ["ukr_armed_neutrality"],
+        "available": {"not": {"member_of": "nato"}},
+        "effects": {"join_organization": "nato", "add_relation": {"with": "RUS", "value": -30}, "add_tension": 6},
+        "ai_weight": 0.5
+      },
+      "ukr_armed_neutrality": {
+        "name_key": "FOCUS_UKR_ARMED_NEUTRALITY", "desc_key": "FOCUS_UKR_ARMED_NEUTRALITY_DESC", "x": 17, "y": 9, "months": 10,
+        "requires": ["ukr_peace_talks"], "exclusive": ["ukr_nato_membership"],
+        "effects": {"add_relation": {"with": "RUS", "value": 15}, "add_tension": -4, "add_modifier": {"stability": 2,
+          "months": -1}},
+        "ai_weight": 1
+      },
+      "ukr_reconstruction": {
+        "name_key": "FOCUS_UKR_RECONSTRUCTION", "desc_key": "FOCUS_UKR_RECONSTRUCTION_DESC", "x": 16, "y": 8, "months": 12,
+        "requires": ["ukr_peace_talks"],
+        "available": {"at_war": false},
+        "effects": {"add_modifier": {"growth": 0.6, "unemployment": -0.5, "months": -1}, "add_debt_gdp": 2}
+      },
+      "ukr_crimean_question": {
+        "name_key": "FOCUS_UKR_CRIMEAN_QUESTION", "desc_key": "FOCUS_UKR_CRIMEAN_QUESTION_DESC", "x": 6, "y": 9, "months": 10,
+        "requires": ["ukr_counteroffensive"],
+        "effects": {"add_legitimacy": 2, "add_relation": {"with": "RUS", "value": -10}, "set_flag": "ukr_crimea_platform"}
+      },
+      "ukr_anticorruption_court": {
+        "name_key": "FOCUS_UKR_ANTICORRUPTION_COURT", "desc_key": "FOCUS_UKR_ANTICORRUPTION_COURT_DESC", "x": 10, "y": 9,
+        "months": 10,
+        "requires": ["ukr_eu_accession"],
+        "effects": {"add_corruption": -6, "set_law": {"judicial_independence": "independent"}, "add_legitimacy": 3}
+      },
+      "ukr_victory": {
+        "name_key": "FOCUS_UKR_VICTORY", "desc_key": "FOCUS_UKR_VICTORY_DESC", "x": 10, "y": 11, "months": 12,
+        "requires_any": ["ukr_crimean_question", "ukr_nato_membership", "ukr_armed_neutrality", "ukr_anticorruption_court"],
+        "requires": ["ukr_defence_industry"],
+        "effects": {"add_modifier": {"stability": 3, "growth": 0.1, "months": -1}, "add_influence": 30}
+      }
+    }
+  }
+}
