@@ -1,0 +1,206 @@
+{
+  "conditions": {
+    "stability": "<30",
+    "legitimacy": ">50",
+    "growth": "<0",
+    "unemployment": ">10",
+    "inflation": ">8",
+    "debt": ">100",
+    "gdp": ">1000",
+    "year": ">=2030",
+    "month": "=6",
+    "world_tension": ">50",
+    "ai_level": ">50",
+    "corruption": ">40",
+    "population": ">50",
+    "gdp_rank": "<=20",
+    "leader_age": ">80",
+    "all": [
+      {
+        "stability": "<40"
+      },
+      {
+        "democratic": true
+      }
+    ],
+    "any": [
+      {
+        "at_war": true
+      },
+      {
+        "stability": "<20"
+      }
+    ],
+    "not": {
+      "tag": "USA"
+    },
+    "from": {
+      "gdp_rank": "<=10"
+    },
+    "any_neighbor": {
+      "at_war": true
+    },
+    "other_country": {
+      "tag": "CHN",
+      "if": {
+        "stability": "<30"
+      }
+    },
+    "tag": [
+      "FRA",
+      "DEU"
+    ],
+    "regime": "parliamentary_republic",
+    "democratic": true,
+    "at_war": false,
+    "has_tech": "advanced_chips",
+    "has_flag": "my_flag",
+    "has_world_flag": "pandemic",
+    "relation": {
+      "with": "USA",
+      "value": ">50"
+    },
+    "law": {
+      "press_freedom": "free"
+    },
+    "random": 0.5,
+    "is_player": true,
+    "exists": true,
+    "borders_player": true,
+    "is_player_or_neighbor": true,
+    "has_resource": "oil",
+    "strait_closed": "hormuz",
+    "action": {
+      "government_changed": true
+    },
+    "has_focus": "eco_national_plan",
+    "has_decision": "stimulus_plan",
+    "country_exists": "TWN",
+    "is_dissolved": "PRK",
+    "owns_province": "1233",
+    "can_release": "scotland",
+    "member_of": "eu",
+    "player_is": "FRA"
+  },
+  "effects": {
+    "add_stability": 5,
+    "add_legitimacy": 3,
+    "add_modifier": {
+      "growth": 0.5,
+      "stability": 2,
+      "months": 12
+    },
+    "add_debt": 10,
+    "add_relation": {
+      "with": "from",
+      "value": 10
+    },
+    "add_tension": 2,
+    "add_group_satisfaction": {
+      "workers": 3
+    },
+    "set_law": {
+      "press_freedom": "free"
+    },
+    "add_research": 50,
+    "trigger_event": {
+      "id": "my_event",
+      "days": 30,
+      "target": "self"
+    },
+    "set_flag": "my_flag",
+    "clear_flag": "my_flag",
+    "set_world_flag": "my_world_flag",
+    "clear_world_flag": "my_world_flag",
+    "every_country": {
+      "limit": {
+        "member_of": "eu"
+      },
+      "effects": {
+        "add_relation": {
+          "with": "from",
+          "value": 5
+        }
+      }
+    },
+    "random_country": {
+      "limit": {
+        "gdp_rank": "<=20"
+      },
+      "effects": {
+        "add_stability": -2
+      }
+    },
+    "random_province": {
+      "limit": {
+        "coastal": true
+      },
+      "effects": {
+        "damage_infrastructure": 2
+      }
+    },
+    "if": {
+      "democratic": true
+    },
+    "then": {
+      "add_legitimacy": 2
+    },
+    "else": {
+      "add_stability": 2
+    },
+    "damage_infrastructure": 2,
+    "add_resource_capacity": {
+      "resource": "oil",
+      "world_share": 0.005
+    },
+    "add_supply_shock": {
+      "resource": "oil",
+      "share": 0.05,
+      "months": 6
+    },
+    "close_strait": "hormuz",
+    "open_strait": "hormuz",
+    "kill_leader": {
+      "role": "head_of_state",
+      "cause": "assassination"
+    },
+    "add_debt_gdp": 1,
+    "add_influence": 20,
+    "add_corruption": -3,
+    "add_tech": "advanced_chips",
+    "every_neighbor": {
+      "add_relation": {
+        "with": "from",
+        "value": 5
+      }
+    },
+    "annex_country": "from",
+    "join_country": "from",
+    "rename_country": {
+      "name_key": "COUNTRY_MY_NAME",
+      "color": "#336699",
+      "flag": ""
+    },
+    "release_country": "scotland",
+    "set_regime": "parliamentary_republic",
+    "join_organization": "eu",
+    "leave_organization": "eu",
+    "declare_war": {
+      "target": "from",
+      "goal": "annex"
+    },
+    "add_claim": {
+      "target": "from",
+      "provinces": [
+        1
+      ]
+    },
+    "transfer_provinces": {
+      "from": "self",
+      "to": "from",
+      "provinces": [
+        1
+      ]
+    }
+  }
+}
