@@ -17,7 +17,8 @@ const KEYS := ["add_stability", "add_legitimacy", "add_modifier", "add_debt", "a
 	"set_world_flag", "clear_world_flag", "every_country", "random_country", "random_province", "if", "then", "else",
 	"damage_infrastructure", "add_resource_capacity", "add_supply_shock", "close_strait", "open_strait", "kill_leader",
 	"add_debt_gdp", "add_influence", "add_corruption", "add_tech", "every_neighbor",
-	"annex_country", "join_country", "rename_country", "release_country"]
+	"annex_country", "join_country", "rename_country", "release_country",
+	"set_regime", "join_organization", "leave_organization", "declare_war", "add_claim", "transfer_provinces"]
 const MODIFIER_KEYS := ["growth", "unemployment", "inflation", "stability", "months"]
 ## Conditions propres aux provinces (filtre « limit » de random_province).
 const PROVINCE_KEYS := ["coastal", "terrain", "population"]
@@ -43,6 +44,8 @@ static func apply(state: SimState, scope: Dictionary, effects: Variant) -> void:
 				state.world_flags[str(value)] = true
 			"release_country":
 				CountryFactory.release(state, str(value))
+			"transfer_provinces":
+				_transfer_provinces(state, scope, value)
 			"clear_world_flag":
 				state.world_flags.erase(str(value))
 			"trigger_event":
@@ -97,6 +100,30 @@ static func apply(state: SimState, scope: Dictionary, effects: Variant) -> void:
 				if country.research != null and state.technology_definitions.has(str(value)) \
 						and not country.research.is_known(str(value)):
 					ResearchSystem.complete(state, country, str(value))
+			"set_regime":
+				RegimeChange.apply(state, country, str(value))
+			"join_organization":
+				if state.diplomacy.organizations.has(str(value)) and not OrganizationSystem.is_member(state, str(value),
+						country.tag):
+					OrganizationSystem.add_member(state, str(value), country.tag)
+					state.add_event(OrganizationSystem.EVENT_JOINED, country.tag, {"organization": str(value)})
+			"leave_organization":
+				if OrganizationSystem.is_member(state, str(value), country.tag):
+					OrganizationSystem.leave(state, str(value), country.tag)
+			"declare_war":
+				var target := ScriptConditions.target_tag(scope, str((value as Dictionary).get("target", "")))
+				var goal := str((value as Dictionary).get("goal", "annex"))
+				if WarSystem.declare_refusal(state, country.tag, target, goal).is_empty():
+					WarSystem.declare(state, country.tag, target, goal)
+			"add_claim":
+				var claimed := ScriptConditions.target_tag(scope, str((value as Dictionary).get("target", "")))
+				var provinces: Array[String] = []
+				for province_id: Variant in (value as Dictionary).get("provinces", []):
+					var id := str(int(province_id)) if province_id is float or province_id is int else str(province_id)
+					if ControlSystem.owner(state, id) == claimed:
+						provinces.append(id)
+				if not provinces.is_empty():
+					TensionSystem.add_claim(state, country.tag, claimed, provinces, true)
 			"annex_country":
 				CountryLifecycle.annex(state, country.tag, ScriptConditions.target_tag(scope, str(value)))
 			"join_country":
@@ -163,6 +190,24 @@ static func _add_research(country: CountryState, points: float) -> void:
 		country.research.progress[tech_id] = float(country.research.progress.get(tech_id, 0.0)) + points / busy.size()
 
 
+## Cession pacifique de provinces : {from, to, provinces} (« self », « from » ou un tag) ; un pays qui perdrait
+## toutes ses provinces garde la dernière.
+static func _transfer_provinces(state: SimState, scope: Dictionary, value: Variant) -> void:
+	var spec: Dictionary = value
+	var giver := ScriptConditions.target_tag(scope, str(spec.get("from", "self")))
+	var taker := ScriptConditions.target_tag(scope, str(spec.get("to", "self")))
+	if giver == taker or state.get_country(giver) == null or state.get_country(taker) == null:
+		return
+	var moved := false
+	for province_id: Variant in spec.get("provinces", []):
+		var id := str(int(province_id)) if province_id is float or province_id is int else str(province_id)
+		if ControlSystem.owner(state, id) == giver and (state.provinces_by_owner.get(giver, []) as Array).size() > 1:
+			WarEnd.cede(state, id, taker, true)
+			moved = true
+	if moved:
+		CountryLifecycle.recompute_land_neighbors(state)
+
+
 ## Un pays tiré au sort parmi ceux qui remplissent « limit » ; « from » désigne la portée d'origine.
 static func _random_country(state: SimState, scope: Dictionary, value: Variant) -> void:
 	var limit: Variant = (value as Dictionary).get("limit", null)
@@ -227,8 +272,8 @@ static func province_matches(province: Dictionary, limit: Dictionary) -> bool:
 static func _trigger(state: SimState, scope: Dictionary, value: Variant) -> void:
 	var spec: Dictionary = value if value is Dictionary else {"id": str(value)}
 	var target := ScriptConditions.target_tag(scope, str(spec.get("target", "self")))
-	EventSystem.schedule(state, str(spec.get("id", "")), target, str(scope.get("country", "")),
-		int(spec.get("days", 0)))
+	var origin := ScriptConditions.target_tag(scope, str(spec.get("from", "self")))
+	EventSystem.schedule(state, str(spec.get("id", "")), target, origin, int(spec.get("days", 0)))
 
 
 # --- Validation et description ----------------------------------------------------------------------------------
@@ -262,6 +307,12 @@ static func validate(effects: Variant, where: String, event_ids: Array) -> Packe
 					errors.append_array(validate((value as Dictionary).get("effects", {}), where, event_ids))
 			"every_neighbor":
 				errors.append_array(validate(value, where, event_ids))
+			"transfer_provinces":
+				if not value is Dictionary or not (value as Dictionary).has("provinces"):
+					errors.append("%s : « transfer_provinces » attend {from, to, provinces}" % where)
+			"declare_war", "add_claim":
+				if not value is Dictionary or not (value as Dictionary).has("target"):
+					errors.append("%s : « %s » attend {target, …}" % [where, name])
 			"rename_country":
 				if not value is Dictionary:
 					errors.append("%s : « rename_country » attend {name_key, color, flag}" % where)
@@ -345,6 +396,20 @@ static func describe(effects: Variant, locale: String) -> PackedStringArray:
 					TranslationServer.translate("STRAIT_%s" % str(value).to_upper()))
 			"kill_leader":
 				lines.append(TranslationServer.translate("EFFECT_KILL_LEADER"))
+			"set_regime":
+				lines.append(TranslationServer.translate("EFFECT_SET_REGIME") %
+					TranslationServer.translate("REGIME_%s" % str(value).to_upper()))
+			"join_organization", "leave_organization":
+				lines.append(TranslationServer.translate("EFFECT_%s" % name.to_upper()) % str(value).to_upper())
+			"declare_war":
+				lines.append(TranslationServer.translate("EFFECT_DECLARE_WAR") %
+					TranslationServer.translate("COUNTRY_%s" % str((value as Dictionary).get("target", ""))))
+			"add_claim":
+				lines.append(TranslationServer.translate("EFFECT_ADD_CLAIM") %
+					TranslationServer.translate("COUNTRY_%s" % str((value as Dictionary).get("target", ""))))
+			"transfer_provinces":
+				lines.append(TranslationServer.translate("EFFECT_TRANSFER_PROVINCES") % ((value as Dictionary).get(
+					"provinces", []) as Array).size())
 			"release_country":
 				lines.append(TranslationServer.translate("EFFECT_RELEASE_COUNTRY") % str(value))
 			"annex_country", "join_country":

@@ -193,7 +193,7 @@ func test_new_effects() -> void:
 
 func test_game_data_is_valid() -> void:
 	var decisions := DataLoader.get_category("decisions")
-	var trees := DataLoader.get_category("focus_trees")
+	var trees := DecisionSystem.resolve_trees(DataLoader.get_category("focus_trees"))
 	assert_gt(decisions.size(), 15)
 	assert_true(trees.has("generic"))
 	assert_gt(((trees["generic"] as Dictionary)["nodes"] as Dictionary).size(), 30)

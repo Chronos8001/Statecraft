@@ -33,7 +33,7 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 		GameLog.error(SOURCE, message)
 	EventSystem.index_actions(sim)
 	sim.decision_definitions = DataLoader.get_category("decisions")
-	sim.focus_trees = DataLoader.get_category("focus_trees")
+	sim.focus_trees = DecisionSystem.resolve_trees(DataLoader.get_category("focus_trees"))
 	sim.decision_settings = DataLoader.get_define("decisions", {})
 	for message: String in DecisionSystem.validate_definitions(sim.decision_definitions, sim.focus_trees,
 			sim.event_definitions.keys()):

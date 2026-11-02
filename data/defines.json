@@ -1377,6 +1377,7 @@
   },
   "decisions": {
     "ai_monthly_chance": 0.06,
+    "national_focus_ai_factor": 3.0,
     "days_per_month": 30.4
   },
   "leaders": {
