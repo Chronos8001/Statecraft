@@ -1,0 +1,100 @@
+{
+  "deu": {
+    "name_key": "FOCUS_TREE_DEU",
+    "countries": ["DEU"],
+    "include": "generic",
+    "nodes": {
+      "deu_zeitenwende": {
+        "name_key": "FOCUS_DEU_ZEITENWENDE", "desc_key": "FOCUS_DEU_ZEITENWENDE_DESC", "x": 10, "y": 6, "months": 6,
+        "effects": {"add_group_satisfaction": {"military": 3}, "add_legitimacy": 1},
+        "ai_weight": 3
+      },
+      "deu_rearmament": {
+        "name_key": "FOCUS_DEU_REARMAMENT", "desc_key": "FOCUS_DEU_REARMAMENT_DESC", "x": 4, "y": 7, "months": 12,
+        "requires": ["deu_zeitenwende"],
+        "effects": {"add_tech": "active_protection", "add_debt_gdp": 1.5, "add_group_satisfaction": {"military": 5,
+          "ecologists": -2}}
+      },
+      "deu_debt_brake_reform": {
+        "name_key": "FOCUS_DEU_DEBT_BRAKE_REFORM", "desc_key": "FOCUS_DEU_DEBT_BRAKE_REFORM_DESC", "x": 10, "y": 7, "months": 10,
+        "requires": ["deu_zeitenwende"], "exclusive": ["deu_black_zero"],
+        "effects": {"add_debt_gdp": 2, "add_modifier": {"growth": 0.3, "months": 36}, "add_group_satisfaction": {
+          "workers": 2, "elites": -1}},
+        "ai_weight": 2
+      },
+      "deu_black_zero": {
+        "name_key": "FOCUS_DEU_BLACK_ZERO", "desc_key": "FOCUS_DEU_BLACK_ZERO_DESC", "x": 14, "y": 7, "months": 10,
+        "requires": ["deu_zeitenwende"], "exclusive": ["deu_debt_brake_reform"],
+        "effects": {"add_debt_gdp": -2, "add_modifier": {"growth": -0.1, "months": 24}, "add_group_satisfaction": {
+          "retirees": 2, "elites": 2}},
+        "ai_weight": 1
+      },
+      "deu_energy_security": {
+        "name_key": "FOCUS_DEU_ENERGY_SECURITY", "desc_key": "FOCUS_DEU_ENERGY_SECURITY_DESC", "x": 18, "y": 7, "months": 10,
+        "requires": ["deu_zeitenwende"],
+        "effects": {"add_tech": "green_hydrogen", "add_modifier": {"inflation": -0.1, "months": -1}, "add_debt_gdp": 0.5}
+      },
+      "deu_european_leadership": {
+        "name_key": "FOCUS_DEU_EUROPEAN_LEADERSHIP", "desc_key": "FOCUS_DEU_EUROPEAN_LEADERSHIP_DESC", "x": 4, "y": 8,
+        "months": 10,
+        "requires": ["deu_rearmament"],
+        "effects": {"every_country": {"limit": {"member_of": "eu"}, "effects": {"add_relation": {"with": "from", "value": 8}}},
+          "add_influence": 30}
+      },
+      "deu_industrial_renewal": {
+        "name_key": "FOCUS_DEU_INDUSTRIAL_RENEWAL", "desc_key": "FOCUS_DEU_INDUSTRIAL_RENEWAL_DESC", "x": 10, "y": 8,
+        "months": 12,
+        "requires": ["deu_debt_brake_reform"],
+        "effects": {"add_tech": "smart_factories", "add_modifier": {"growth": 0.15, "months": -1},
+          "add_group_satisfaction": {"workers": 3}}
+      },
+      "deu_fiscal_discipline": {
+        "name_key": "FOCUS_DEU_FISCAL_DISCIPLINE", "desc_key": "FOCUS_DEU_FISCAL_DISCIPLINE_DESC", "x": 14, "y": 8, "months": 10,
+        "requires": ["deu_black_zero"],
+        "effects": {"add_debt_gdp": -2, "add_legitimacy": 2, "add_group_satisfaction": {"workers": -2}}
+      },
+      "deu_ostpolitik_reset": {
+        "name_key": "FOCUS_DEU_OSTPOLITIK_RESET", "desc_key": "FOCUS_DEU_OSTPOLITIK_RESET_DESC", "x": 18, "y": 8, "months": 10,
+        "requires": ["deu_energy_security"],
+        "available": {"country_exists": "RUS", "not": {"at_war": true}},
+        "effects": {"add_relation": {"with": "RUS", "value": 15},
+          "every_country": {"limit": {"member_of": "eu"}, "effects": {"add_relation": {"with": "from", "value": -6}}},
+          "add_modifier": {"growth": 0.1, "inflation": -0.2, "months": -1}},
+        "ai_weight": 0.3
+      },
+      "deu_nuclear_umbrella": {
+        "name_key": "FOCUS_DEU_NUCLEAR_UMBRELLA", "desc_key": "FOCUS_DEU_NUCLEAR_UMBRELLA_DESC", "x": 2, "y": 9, "months": 12,
+        "requires": ["deu_european_leadership"],
+        "effects": {"add_relation": {"with": "FRA", "value": 15}, "add_group_satisfaction": {"military": 2,
+          "ecologists": -2}, "add_tension": 1}
+      },
+      "deu_federal_europe": {
+        "name_key": "FOCUS_DEU_FEDERAL_EUROPE", "desc_key": "FOCUS_DEU_FEDERAL_EUROPE_DESC", "x": 6, "y": 9, "months": 12,
+        "requires": ["deu_european_leadership"],
+        "available": {"not": {"player_is": "FRA"}, "country_exists": "FRA", "relation": {"with": "FRA", "value": ">70"}},
+        "effects": {"trigger_event": {"id": "european_federation_proposal", "target": "FRA", "days": 10}},
+        "ai_weight": 0.5
+      },
+      "deu_digital_mittelstand": {
+        "name_key": "FOCUS_DEU_DIGITAL_MITTELSTAND", "desc_key": "FOCUS_DEU_DIGITAL_MITTELSTAND_DESC", "x": 10, "y": 9,
+        "months": 10,
+        "requires_any": ["deu_industrial_renewal", "deu_fiscal_discipline"],
+        "effects": {"add_tech": "platform_economy", "add_research": 60, "add_modifier": {"growth": 0.1, "months": -1}}
+      },
+      "deu_east_west_cohesion": {
+        "name_key": "FOCUS_DEU_EAST_WEST_COHESION", "desc_key": "FOCUS_DEU_EAST_WEST_COHESION_DESC", "x": 14, "y": 9,
+        "months": 12,
+        "requires": ["deu_zeitenwende"],
+        "effects": {"add_modifier": {"stability": 3, "months": -1}, "add_group_satisfaction": {"workers": 2, "minorities": 2},
+          "add_debt_gdp": 0.5}
+      },
+      "deu_modell_deutschland": {
+        "name_key": "FOCUS_DEU_MODELL_DEUTSCHLAND", "desc_key": "FOCUS_DEU_MODELL_DEUTSCHLAND_DESC", "x": 10, "y": 10,
+        "months": 12,
+        "requires": ["deu_digital_mittelstand"],
+        "requires_any": ["deu_federal_europe", "deu_nuclear_umbrella", "deu_east_west_cohesion", "deu_ostpolitik_reset"],
+        "effects": {"add_modifier": {"growth": 0.15, "stability": 2, "months": -1}, "add_influence": 30}
+      }
+    }
+  }
+}

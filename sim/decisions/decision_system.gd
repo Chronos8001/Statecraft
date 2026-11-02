@@ -78,6 +78,24 @@ static func assign_trees(state: SimState) -> void:
 				country.focus_tree = tree_id
 
 
+## Arbres prêts à l'emploi : un arbre avec « include » reçoit en plus les nœuds de l'arbre cité (ses propres
+## nœuds l'emportent). Les données d'origine ne sont pas modifiées.
+static func resolve_trees(trees: Dictionary) -> Dictionary:
+	var result: Dictionary = {}
+	for tree_id: Variant in trees.keys():
+		var tree: Dictionary = trees[tree_id]
+		var included := str(tree.get("include", ""))
+		if included.is_empty() or not trees.has(included):
+			result[tree_id] = tree
+			continue
+		var merged := tree.duplicate()
+		var nodes: Dictionary = ((trees[included] as Dictionary).get("nodes", {}) as Dictionary).duplicate()
+		nodes.merge(tree.get("nodes", {}), true)
+		merged["nodes"] = nodes
+		result[tree_id] = merged
+	return result
+
+
 static func _scope(country: CountryState) -> Dictionary:
 	return {"country": country.tag, "from": ""}
 
@@ -262,18 +280,26 @@ static func ai_pick_focus(state: SimState, country: CountryState) -> String:
 	for id: String in ids:
 		if focus_refusal(state, country, id).is_empty():
 			candidates.append(id)
-	return _weighted(state, country, candidates, nodes)
+	# Les nœuds propres au pays passent avant ceux de l'arbre générique qu'il inclut.
+	var included := str((state.focus_trees.get(country.focus_tree, {}) as Dictionary).get("include", ""))
+	var generic: Dictionary = (state.focus_trees.get(included, {}) as Dictionary).get("nodes", {})
+	var factors: Dictionary = {}
+	for id: String in candidates:
+		if not generic.is_empty() and not generic.has(id):
+			factors[id] = float(settings_of(state).get("national_focus_ai_factor", 1.0))
+	return _weighted(state, country, candidates, nodes, factors)
 
 
 ## Choix pondéré par « ai_weight » et ses facteurs « ai_modifiers ».
-static func _weighted(state: SimState, country: CountryState, candidates: Array[String], definitions: Dictionary) -> String:
+static func _weighted(state: SimState, country: CountryState, candidates: Array[String], definitions: Dictionary,
+		factors: Dictionary = {}) -> String:
 	if candidates.is_empty():
 		return ""
 	var weights: Array[float] = []
 	var total := 0.0
 	for id: String in candidates:
 		var definition: Dictionary = definitions[id]
-		var weight := float(definition.get("ai_weight", 1.0))
+		var weight := float(definition.get("ai_weight", 1.0)) * float(factors.get(id, 1.0))
 		for modifier: Variant in definition.get("ai_modifiers", []):
 			if ScriptConditions.evaluate(state, _scope(country), (modifier as Dictionary).get("if", null)):
 				weight *= float((modifier as Dictionary).get("factor", 1.0))

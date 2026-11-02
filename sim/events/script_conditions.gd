@@ -17,7 +17,7 @@ const COMBINATORS := ["all", "any", "not", "from", "any_neighbor"]
 const OTHERS := ["tag", "regime", "democratic", "at_war", "has_tech", "has_flag", "has_world_flag", "relation",
 	"law", "random", "is_player", "exists", "borders_player", "is_player_or_neighbor", "has_resource",
 	"strait_closed", "action", "has_focus", "has_decision", "country_exists", "is_dissolved", "owns_province",
-	"can_release"]
+	"can_release", "member_of", "player_is"]
 const OPERATORS := ["<=", ">=", "!=", "<", ">", "="]
 const PERCENT := 100.0
 const MILLION := 1.0e6
@@ -70,6 +70,8 @@ static func _check(state: SimState, scope: Dictionary, key: String, value: Varia
 			return state.world_flags.has(str(value))
 		"strait_closed":
 			return state.closed_straits.has(str(value))
+		"player_is":
+			return str(state.player_tag) == str(value)
 		"can_release":
 			return CountryFactory.release_refusal(state, str(value)).is_empty()
 		"country_exists":
@@ -115,6 +117,8 @@ static func _check(state: SimState, scope: Dictionary, key: String, value: Varia
 			return (state.event_flags.get(country.tag, {}) as Dictionary).has(str(value))
 		"has_focus":
 			return country.focus_done.has(str(value))
+		"member_of":
+			return OrganizationSystem.is_member(state, str(value), country.tag)
 		"owns_province":
 			return ControlSystem.owner(state, str(value)) == country.tag
 		"has_decision":

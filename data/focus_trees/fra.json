@@ -1,0 +1,108 @@
+{
+  "fra": {
+    "name_key": "FOCUS_TREE_FRA",
+    "countries": ["FRA"],
+    "include": "generic",
+    "nodes": {
+      "fra_break_deadlock": {
+        "name_key": "FOCUS_FRA_BREAK_DEADLOCK", "desc_key": "FOCUS_FRA_BREAK_DEADLOCK_DESC", "x": 10, "y": 6, "months": 6,
+        "effects": {"add_legitimacy": 2, "add_stability": 2},
+        "ai_weight": 3
+      },
+      "fra_european_federalism": {
+        "name_key": "FOCUS_FRA_EUROPEAN_FEDERALISM", "desc_key": "FOCUS_FRA_EUROPEAN_FEDERALISM_DESC", "x": 4, "y": 7,
+        "months": 10,
+        "requires": ["fra_break_deadlock"], "exclusive": ["fra_gaullist_independence", "fra_national_sovereignty"],
+        "effects": {"every_country": {"limit": {"member_of": "eu"}, "effects": {"add_relation": {"with": "from", "value": 10}}},
+          "add_group_satisfaction": {"middle_class": 2, "youth": 2}},
+        "ai_weight": 2
+      },
+      "fra_gaullist_independence": {
+        "name_key": "FOCUS_FRA_GAULLIST_INDEPENDENCE", "desc_key": "FOCUS_FRA_GAULLIST_INDEPENDENCE_DESC", "x": 10, "y": 7,
+        "months": 10,
+        "requires": ["fra_break_deadlock"], "exclusive": ["fra_european_federalism", "fra_national_sovereignty"],
+        "effects": {"add_influence": 30, "add_legitimacy": 2, "add_group_satisfaction": {"military": 3}},
+        "ai_weight": 2
+      },
+      "fra_national_sovereignty": {
+        "name_key": "FOCUS_FRA_NATIONAL_SOVEREIGNTY", "desc_key": "FOCUS_FRA_NATIONAL_SOVEREIGNTY_DESC", "x": 16, "y": 7,
+        "months": 10,
+        "requires": ["fra_break_deadlock"], "exclusive": ["fra_european_federalism", "fra_gaullist_independence"],
+        "effects": {"set_law": {"immigration": "restrictive", "border_control": "strict"},
+          "add_group_satisfaction": {"workers": 3, "farmers": 3, "minorities": -5}},
+        "ai_weight": 1
+      },
+      "fra_franco_german_axis": {
+        "name_key": "FOCUS_FRA_FRANCO_GERMAN_AXIS", "desc_key": "FOCUS_FRA_FRANCO_GERMAN_AXIS_DESC", "x": 2, "y": 8, "months": 10,
+        "requires": ["fra_european_federalism"],
+        "available": {"country_exists": "DEU"},
+        "effects": {"add_relation": {"with": "DEU", "value": 25}, "add_modifier": {"growth": 0.05, "months": -1}}
+      },
+      "fra_european_defence": {
+        "name_key": "FOCUS_FRA_EUROPEAN_DEFENCE", "desc_key": "FOCUS_FRA_EUROPEAN_DEFENCE_DESC", "x": 6, "y": 8, "months": 10,
+        "requires": ["fra_european_federalism"],
+        "effects": {"add_tech": "drone_warfare", "every_country": {"limit": {"member_of": "eu"},
+          "effects": {"add_relation": {"with": "from", "value": 8}}}, "add_debt_gdp": 0.5}
+      },
+      "fra_nuclear_renaissance": {
+        "name_key": "FOCUS_FRA_NUCLEAR_RENAISSANCE", "desc_key": "FOCUS_FRA_NUCLEAR_RENAISSANCE_DESC", "x": 10, "y": 8,
+        "months": 12,
+        "requires": ["fra_break_deadlock"],
+        "effects": {"set_law": {"nuclear_power": "expansion"}, "add_tech": "small_modular_reactors",
+          "add_modifier": {"inflation": -0.1, "months": -1}, "add_group_satisfaction": {"ecologists": -3, "workers": 2}}
+      },
+      "fra_africa_reset": {
+        "name_key": "FOCUS_FRA_AFRICA_RESET", "desc_key": "FOCUS_FRA_AFRICA_RESET_DESC", "x": 14, "y": 8, "months": 10,
+        "requires": ["fra_gaullist_independence"],
+        "effects": {"every_country": {"limit": {"member_of": "au"}, "effects": {"add_relation": {"with": "from", "value": 8}}},
+          "add_influence": 20}
+      },
+      "fra_frexit_referendum": {
+        "name_key": "FOCUS_FRA_FREXIT_REFERENDUM", "desc_key": "FOCUS_FRA_FREXIT_REFERENDUM_DESC", "x": 18, "y": 8, "months": 10,
+        "requires": ["fra_national_sovereignty"],
+        "effects": {"leave_organization": "eu", "add_modifier": {"growth": -1.0, "months": 18}, "add_stability": -4,
+          "every_country": {"limit": {"member_of": "eu"}, "effects": {"add_relation": {"with": "from", "value": -20}}}},
+        "ai_weight": 0.2
+      },
+      "fra_european_army": {
+        "name_key": "FOCUS_FRA_EUROPEAN_ARMY", "desc_key": "FOCUS_FRA_EUROPEAN_ARMY_DESC", "x": 4, "y": 9, "months": 12,
+        "requires": ["fra_franco_german_axis", "fra_european_defence"],
+        "effects": {"add_group_satisfaction": {"military": 2}, "add_tension": -1, "add_influence": 20}
+      },
+      "fra_sixth_republic": {
+        "name_key": "FOCUS_FRA_SIXTH_REPUBLIC", "desc_key": "FOCUS_FRA_SIXTH_REPUBLIC_DESC", "x": 8, "y": 9, "months": 12,
+        "requires": ["fra_break_deadlock"],
+        "available": {"democratic": true},
+        "effects": {"set_regime": "parliamentary_republic", "set_law": {"referendum_initiative": "yes",
+          "decentralization": "regional"}, "add_legitimacy": 6, "add_group_satisfaction": {"youth": 3}},
+        "ai_weight": 0.5
+      },
+      "fra_leave_integrated_command": {
+        "name_key": "FOCUS_FRA_LEAVE_INTEGRATED_COMMAND", "desc_key": "FOCUS_FRA_LEAVE_INTEGRATED_COMMAND_DESC", "x": 12,
+        "y": 9, "months": 10,
+        "requires": ["fra_gaullist_independence"],
+        "effects": {"add_relation": {"with": "USA", "value": -10}, "add_influence": 25, "add_legitimacy": 2}
+      },
+      "fra_new_franc": {
+        "name_key": "FOCUS_FRA_NEW_FRANC", "desc_key": "FOCUS_FRA_NEW_FRANC_DESC", "x": 18, "y": 9, "months": 12,
+        "requires": ["fra_frexit_referendum"],
+        "effects": {"add_modifier": {"inflation": 0.6, "growth": 0.1, "months": -1}, "add_legitimacy": 3,
+          "set_law": {"capital_controls": "partial"}}
+      },
+      "fra_european_federation": {
+        "name_key": "FOCUS_FRA_EUROPEAN_FEDERATION", "desc_key": "FOCUS_FRA_EUROPEAN_FEDERATION_DESC", "x": 4, "y": 10,
+        "months": 12,
+        "requires": ["fra_european_army"],
+        "available": {"not": {"player_is": "DEU"}, "country_exists": "DEU", "relation": {"with": "DEU", "value": ">70"}},
+        "effects": {"trigger_event": {"id": "european_federation_proposal", "target": "DEU", "days": 10}},
+        "ai_weight": 0.5
+      },
+      "fra_grandeur": {
+        "name_key": "FOCUS_FRA_GRANDEUR", "desc_key": "FOCUS_FRA_GRANDEUR_DESC", "x": 12, "y": 11, "months": 12,
+        "requires": ["fra_nuclear_renaissance"],
+        "requires_any": ["fra_european_federation", "fra_leave_integrated_command", "fra_new_franc", "fra_sixth_republic"],
+        "effects": {"add_influence": 40, "add_modifier": {"stability": 2, "growth": 0.05, "months": -1}}
+      }
+    }
+  }
+}

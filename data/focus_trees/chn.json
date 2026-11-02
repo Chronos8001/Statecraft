@@ -1,0 +1,112 @@
+{
+  "chn": {
+    "name_key": "FOCUS_TREE_CHN",
+    "countries": ["CHN"],
+    "include": "generic",
+    "nodes": {
+      "chn_15th_plan": {
+        "name_key": "FOCUS_CHN_15TH_PLAN", "desc_key": "FOCUS_CHN_15TH_PLAN_DESC", "x": 10, "y": 6, "months": 8,
+        "effects": {"add_modifier": {"growth": 0.1, "months": -1}, "add_legitimacy": 2},
+        "ai_weight": 3
+      },
+      "chn_common_prosperity": {
+        "name_key": "FOCUS_CHN_COMMON_PROSPERITY", "desc_key": "FOCUS_CHN_COMMON_PROSPERITY_DESC", "x": 4, "y": 7, "months": 10,
+        "requires": ["chn_15th_plan"], "exclusive": ["chn_reform_and_opening"],
+        "effects": {"add_group_satisfaction": {"workers": 4, "farmers": 3, "elites": -4}, "add_corruption": -3,
+          "add_modifier": {"growth": -0.1, "stability": 2, "months": -1}},
+        "ai_weight": 3
+      },
+      "chn_tech_self_reliance": {
+        "name_key": "FOCUS_CHN_TECH_SELF_RELIANCE", "desc_key": "FOCUS_CHN_TECH_SELF_RELIANCE_DESC", "x": 10, "y": 7,
+        "months": 12,
+        "requires": ["chn_15th_plan"],
+        "effects": {"add_research": 120, "add_tech": "industrial_robots", "add_debt_gdp": 0.5}
+      },
+      "chn_reform_and_opening": {
+        "name_key": "FOCUS_CHN_REFORM_AND_OPENING", "desc_key": "FOCUS_CHN_REFORM_AND_OPENING_DESC", "x": 16, "y": 7,
+        "months": 10,
+        "requires": ["chn_15th_plan"], "exclusive": ["chn_common_prosperity"],
+        "effects": {"add_modifier": {"growth": 0.25, "months": -1}, "add_group_satisfaction": {"elites": 4, "middle_class": 3},
+          "add_relation": {"with": "USA", "value": 10}},
+        "ai_weight": 1
+      },
+      "chn_party_discipline": {
+        "name_key": "FOCUS_CHN_PARTY_DISCIPLINE", "desc_key": "FOCUS_CHN_PARTY_DISCIPLINE_DESC", "x": 2, "y": 8, "months": 10,
+        "requires": ["chn_common_prosperity"],
+        "effects": {"add_corruption": -6, "add_modifier": {"stability": 2, "months": -1}, "set_law": {"internet": "censored"}}
+      },
+      "chn_dual_circulation": {
+        "name_key": "FOCUS_CHN_DUAL_CIRCULATION", "desc_key": "FOCUS_CHN_DUAL_CIRCULATION_DESC", "x": 6, "y": 8, "months": 10,
+        "requires": ["chn_common_prosperity"],
+        "effects": {"add_modifier": {"growth": 0.15, "months": -1}, "add_group_satisfaction": {"middle_class": 2}}
+      },
+      "chn_chip_independence": {
+        "name_key": "FOCUS_CHN_CHIP_INDEPENDENCE", "desc_key": "FOCUS_CHN_CHIP_INDEPENDENCE_DESC", "x": 10, "y": 8,
+        "months": 12,
+        "requires": ["chn_tech_self_reliance"],
+        "effects": {"add_tech": "advanced_chips", "add_research": 60, "add_debt_gdp": 0.5}
+      },
+      "chn_market_reforms": {
+        "name_key": "FOCUS_CHN_MARKET_REFORMS", "desc_key": "FOCUS_CHN_MARKET_REFORMS_DESC", "x": 14, "y": 8, "months": 10,
+        "requires": ["chn_reform_and_opening"],
+        "effects": {"add_modifier": {"growth": 0.2, "unemployment": 0.2, "months": -1}, "set_law": {"capital_controls": "partial"},
+          "add_group_satisfaction": {"workers": -2, "elites": 3}}
+      },
+      "chn_belt_and_road": {
+        "name_key": "FOCUS_CHN_BELT_AND_ROAD", "desc_key": "FOCUS_CHN_BELT_AND_ROAD_DESC", "x": 18, "y": 8, "months": 12,
+        "requires": ["chn_15th_plan"],
+        "effects": {"add_influence": 60, "add_debt_gdp": 0.5,
+          "every_country": {"limit": {"gdp_rank": ">60"}, "effects": {"add_relation": {"with": "from", "value": 6}}}}
+      },
+      "chn_taiwan_pressure": {
+        "name_key": "FOCUS_CHN_TAIWAN_PRESSURE", "desc_key": "FOCUS_CHN_TAIWAN_PRESSURE_DESC", "x": 10, "y": 9, "months": 8,
+        "requires_any": ["chn_chip_independence", "chn_party_discipline"],
+        "available": {"country_exists": "TWN"},
+        "effects": {"add_tension": 4, "add_relation": {"with": "TWN", "value": -20},
+          "add_claim": {"target": "TWN", "provinces": [4112, 4113, 4114, 4115, 4116, 4117, 4118, 4119, 4120, 4121, 4122,
+            4123, 4124, 4125, 4126, 4127, 4128, 4129, 4130, 4131, 4132]}}
+      },
+      "chn_political_liberalization": {
+        "name_key": "FOCUS_CHN_POLITICAL_LIBERALIZATION", "desc_key": "FOCUS_CHN_POLITICAL_LIBERALIZATION_DESC", "x": 14,
+        "y": 9, "months": 12,
+        "requires": ["chn_market_reforms"],
+        "effects": {"set_law": {"press_freedom": "regulated", "internet": "filtered"}, "add_legitimacy": 4,
+          "add_group_satisfaction": {"youth": 4, "middle_class": 3, "military": -3}},
+        "ai_weight": 0.5
+      },
+      "chn_peaceful_reunification": {
+        "name_key": "FOCUS_CHN_PEACEFUL_REUNIFICATION", "desc_key": "FOCUS_CHN_PEACEFUL_REUNIFICATION_DESC", "x": 8, "y": 10,
+        "months": 12,
+        "requires": ["chn_taiwan_pressure"], "exclusive": ["chn_reunification_by_force"],
+        "available": {"not": {"player_is": "TWN"}, "country_exists": "TWN"},
+        "effects": {"trigger_event": {"id": "cross_strait_union_proposal", "target": "TWN", "days": 10}},
+        "ai_weight": 3
+      },
+      "chn_reunification_by_force": {
+        "name_key": "FOCUS_CHN_REUNIFICATION_BY_FORCE", "desc_key": "FOCUS_CHN_REUNIFICATION_BY_FORCE_DESC", "x": 12, "y": 10,
+        "months": 10,
+        "requires": ["chn_taiwan_pressure"], "exclusive": ["chn_peaceful_reunification"],
+        "available": {"country_exists": "TWN", "world_tension": ">50"},
+        "effects": {"declare_war": {"target": "TWN", "goal": "annex"}, "add_group_satisfaction": {"military": 5}},
+        "ai_weight": 0.3
+      },
+      "chn_federal_china": {
+        "name_key": "FOCUS_CHN_FEDERAL_CHINA", "desc_key": "FOCUS_CHN_FEDERAL_CHINA_DESC", "x": 16, "y": 10, "months": 12,
+        "requires": ["chn_political_liberalization"],
+        "available": {"stability": ">40"},
+        "effects": {"set_regime": "semi_presidential_republic", "set_law": {"decentralization": "federal",
+          "political_parties": "free", "press_freedom": "free"}, "add_stability": -10,
+          "add_modifier": {"stability": 3, "growth": 0.1, "months": -1},
+          "every_country": {"limit": {"member_of": "g7"}, "effects": {"add_relation": {"with": "from", "value": 25}}},
+          "if": {"can_release": "tibet"}, "then": {"release_country": "tibet"}},
+        "ai_weight": 0.1
+      },
+      "chn_pax_sinica": {
+        "name_key": "FOCUS_CHN_PAX_SINICA", "desc_key": "FOCUS_CHN_PAX_SINICA_DESC", "x": 10, "y": 11, "months": 12,
+        "requires": ["chn_belt_and_road"],
+        "requires_any": ["chn_peaceful_reunification", "chn_reunification_by_force", "chn_federal_china"],
+        "effects": {"add_influence": 60, "add_legitimacy": 5, "add_modifier": {"stability": 2, "months": -1}}
+      }
+    }
+  }
+}
