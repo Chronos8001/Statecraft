@@ -1294,3 +1294,9 @@ NOTIFY_COUNTRY_RELEASED,%s proclaims its independence from %s,%s proclame son in
 EFFECT_RELEASE_COUNTRY,Independence of %s,Indépendance : %s
 RELEASE_INVALID,This independence is not possible.,Cette indépendance n'est pas possible.
 DIPLOMACY_DEV_RELEASE,Release (dev),Libérer (dév.)
+EFFECT_SET_REGIME,New regime: %s,Nouveau régime : %s
+EFFECT_JOIN_ORGANIZATION,Joins: %s,Adhère à : %s
+EFFECT_LEAVE_ORGANIZATION,Leaves: %s,Quitte : %s
+EFFECT_DECLARE_WAR,War against %s,Guerre contre : %s
+EFFECT_ADD_CLAIM,Claim on %s,Revendication sur : %s
+EFFECT_TRANSFER_PROVINCES,%d provinces change hands,%d provinces changent de mains

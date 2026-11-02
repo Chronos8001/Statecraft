@@ -1065,3 +1065,235 @@ FOCUS_SCI_AI_STRATEGY,AI strategy,Stratégie d'intelligence artificielle
 FOCUS_SCI_AI_STRATEGY_DESC,Do not miss the artificial intelligence revolution.,Ne pas manquer la révolution de l'intelligence artificielle.
 FOCUS_DEF_NATIONAL_POWER,National power,Puissance nationale
 FOCUS_DEF_NATIONAL_POWER_DESC,A country confident in its strength and its future.,Un pays sûr de sa force et de son avenir.
+FOCUS_TREE_USA,American destiny,Destin américain
+FOCUS_USA_MIDTERMS,The midterm elections,Les élections de mi-mandat
+FOCUS_USA_MIDTERMS_DESC,The 2026 midterms will set the course for the rest of the term.,Les élections de mi-mandat de 2026 fixeront le cap de la fin du mandat.
+FOCUS_USA_AMERICA_FIRST,America First,L'Amérique d'abord
+FOCUS_USA_AMERICA_FIRST_DESC,"Our workers, our factories, our borders: the rest of the world comes second.","Nos ouvriers, nos usines, nos frontières : le reste du monde passe après."
+FOCUS_USA_AI_MANHATTAN,AI Manhattan Project,Projet Manhattan de l'IA
+FOCUS_USA_AI_MANHATTAN_DESC,"A national effort to keep the lead in artificial intelligence, whatever the cost.","Un effort national pour garder l'avance en intelligence artificielle, quoi qu'il en coûte."
+FOCUS_USA_GLOBAL_LEADERSHIP,Global leadership,Leadership mondial
+FOCUS_USA_GLOBAL_LEADERSHIP_DESC,America leads by example and by alliances.,L'Amérique guide par l'exemple et par ses alliances.
+FOCUS_USA_RESHORING,Bring the factories home,Rapatrier les usines
+FOCUS_USA_RESHORING_DESC,Subsidies and tax credits to rebuild chip plants and heavy industry at home.,Subventions et crédits d'impôt pour reconstruire chez nous usines de puces et industrie lourde.
+FOCUS_USA_BORDER_SECURITY,Secure the border,Sécuriser la frontière
+FOCUS_USA_BORDER_SECURITY_DESC,A closed southern border and restrictive immigration.,Une frontière sud fermée et une immigration restreinte.
+FOCUS_USA_MOON_RETURN,Return to the Moon,Retour sur la Lune
+FOCUS_USA_MOON_RETURN_DESC,"American astronauts back on the Moon, and a constellation over every continent.","Des astronautes américains de nouveau sur la Lune, et une constellation au-dessus de chaque continent."
+FOCUS_USA_ALLIANCE_RENEWAL,Renew the alliances,Renouveler les alliances
+FOCUS_USA_ALLIANCE_RENEWAL_DESC,Reassure allies shaken by years of doubt.,Rassurer des alliés ébranlés par des années de doute.
+FOCUS_USA_GREENLAND_OFFER,An offer for Greenland,Une offre pour le Groenland
+FOCUS_USA_GREENLAND_OFFER_DESC,"Make Denmark an offer it may not refuse: Greenland, its minerals and its Arctic position.","Faire au Danemark une offre difficile à refuser : le Groenland, ses minerais et sa position arctique."
+FOCUS_USA_TARIFF_WALL,Tariff wall,Mur douanier
+FOCUS_USA_TARIFF_WALL_DESC,"High tariffs on imports, starting with China.","Des droits de douane élevés, à commencer par la Chine."
+FOCUS_USA_NATO_ULTIMATUM,Ultimatum to NATO,Ultimatum à l'OTAN
+FOCUS_USA_NATO_ULTIMATUM_DESC,Allies who do not pay will no longer be protected.,Les alliés qui ne paient pas ne seront plus protégés.
+FOCUS_USA_DIVIDED_NATION,A divided nation,Une nation divisée
+FOCUS_USA_DIVIDED_NATION_DESC,Two Americas no longer speak to each other. Something has to give.,Deux Amériques ne se parlent plus. Quelque chose doit céder.
+FOCUS_USA_PACIFIC_PIVOT,Pivot to the Pacific,Pivot vers le Pacifique
+FOCUS_USA_PACIFIC_PIVOT_DESC,Bring our partners of the Indo-Pacific together in front of China.,Rassembler nos partenaires de l'Indo-Pacifique face à la Chine.
+FOCUS_USA_NORTH_AMERICAN_UNION,North American union,Union nord-américaine
+FOCUS_USA_NORTH_AMERICAN_UNION_DESC,Propose to Canada what history never dared: a single country from the Rio Grande to the Arctic.,Proposer au Canada ce que l'histoire n'a jamais osé : un seul pays du Rio Grande à l'Arctique.
+FOCUS_USA_LEAVE_NATO,Leave NATO,Quitter l'OTAN
+FOCUS_USA_LEAVE_NATO_DESC,"Seventy-seven years later, America leaves the alliance it founded.","Soixante-dix-sept ans plus tard, l'Amérique quitte l'alliance qu'elle a fondée."
+FOCUS_USA_RECONCILIATION,National reconciliation,Réconciliation nationale
+FOCUS_USA_RECONCILIATION_DESC,Rebuild trust between red and blue states.,Rebâtir la confiance entre États rouges et bleus.
+FOCUS_USA_EMERGENCY_POWERS,Emergency powers,Pouvoirs d'exception
+FOCUS_USA_EMERGENCY_POWERS_DESC,Order before freedom: the President governs by decree. Some states may not accept it.,L'ordre avant la liberté : le Président gouverne par décret. Certains États pourraient ne pas l'accepter.
+FOCUS_USA_NEW_AMERICAN_CENTURY,A new American century,Un nouveau siècle américain
+FOCUS_USA_NEW_AMERICAN_CENTURY_DESC,America has chosen its path and walks it with confidence.,L'Amérique a choisi sa voie et la suit avec assurance.
+FOCUS_TREE_CHN,The Chinese dream,Le rêve chinois
+FOCUS_CHN_15TH_PLAN,The 15th Five-Year Plan,Le 15e plan quinquennal
+FOCUS_CHN_15TH_PLAN_DESC,"Priorities for 2026-2030: technology, consumption, security.","Les priorités 2026-2030 : technologie, consommation, sécurité."
+FOCUS_CHN_COMMON_PROSPERITY,Common prosperity,Prospérité commune
+FOCUS_CHN_COMMON_PROSPERITY_DESC,Rein in the billionaires and share the fruits of growth.,Mettre au pas les milliardaires et partager les fruits de la croissance.
+FOCUS_CHN_TECH_SELF_RELIANCE,Technological self-reliance,Autonomie technologique
+FOCUS_CHN_TECH_SELF_RELIANCE_DESC,Never again depend on foreign technology.,Ne plus jamais dépendre de technologies étrangères.
+FOCUS_CHN_REFORM_AND_OPENING,A second reform and opening,Une seconde réforme et ouverture
+FOCUS_CHN_REFORM_AND_OPENING_DESC,"Return to the spirit of 1978: markets, private enterprise and openness to the world.","Retrouver l'esprit de 1978 : marché, entreprise privée et ouverture au monde."
+FOCUS_CHN_PARTY_DISCIPLINE,Party discipline,Discipline du Parti
+FOCUS_CHN_PARTY_DISCIPLINE_DESC,A new campaign against corruption and deviation.,Une nouvelle campagne contre la corruption et les déviances.
+FOCUS_CHN_DUAL_CIRCULATION,Dual circulation,Double circulation
+FOCUS_CHN_DUAL_CIRCULATION_DESC,Growth driven by our own consumers rather than exports.,Une croissance portée par nos consommateurs plutôt que par les exportations.
+FOCUS_CHN_CHIP_INDEPENDENCE,Chip independence,Indépendance des puces
+FOCUS_CHN_CHIP_INDEPENDENCE_DESC,Domestic foundries capable of the most advanced chips.,Des fonderies nationales capables des puces les plus avancées.
+FOCUS_CHN_MARKET_REFORMS,Market reforms,Réformes de marché
+FOCUS_CHN_MARKET_REFORMS_DESC,"Open finance, cut the state giants down to size.","Ouvrir la finance, réduire la taille des géants publics."
+FOCUS_CHN_BELT_AND_ROAD,New Silk Roads,Nouvelles routes de la soie
+FOCUS_CHN_BELT_AND_ROAD_DESC,"Ports, railways and loans across the developing world.","Ports, voies ferrées et prêts dans tout le monde en développement."
+FOCUS_CHN_TAIWAN_PRESSURE,Pressure on Taiwan,Pression sur Taïwan
+FOCUS_CHN_TAIWAN_PRESSURE_DESC,"Drills, blockades rehearsals and a formal claim over the island.","Manœuvres, répétitions de blocus et revendication officielle de l'île."
+FOCUS_CHN_POLITICAL_LIBERALIZATION,Political opening,Ouverture politique
+FOCUS_CHN_POLITICAL_LIBERALIZATION_DESC,"A freer press, a less filtered internet: a cautious first step.","Une presse plus libre, un internet moins filtré : un premier pas prudent."
+FOCUS_CHN_PEACEFUL_REUNIFICATION,Peaceful reunification,Réunification pacifique
+FOCUS_CHN_PEACEFUL_REUNIFICATION_DESC,"Offer Taiwan ""one country, two systems"" and wide autonomy.","Proposer à Taïwan « un pays, deux systèmes » et une large autonomie."
+FOCUS_CHN_REUNIFICATION_BY_FORCE,Reunification by force,Réunification par la force
+FOCUS_CHN_REUNIFICATION_BY_FORCE_DESC,"If words fail, the army will finish the work of 1949.","Si les mots échouent, l'armée achèvera l'œuvre de 1949."
+FOCUS_CHN_FEDERAL_CHINA,A federal China,Une Chine fédérale
+FOCUS_CHN_FEDERAL_CHINA_DESC,"Unthinkable yesterday: multiparty elections, a federal state, Tibet free to choose.","Impensable hier : élections pluralistes, État fédéral, Tibet libre de choisir."
+FOCUS_CHN_PAX_SINICA,Pax Sinica,Pax Sinica
+FOCUS_CHN_PAX_SINICA_DESC,China at the centre of a new world order.,La Chine au centre d'un nouvel ordre mondial.
+FOCUS_TREE_RUS,Russia's path,La voie de la Russie
+FOCUS_RUS_WAR_ECONOMY,War economy,Économie de guerre
+FOCUS_RUS_WAR_ECONOMY_DESC,"Factories work for the front and wages rise, but so do prices.","Les usines travaillent pour le front, les salaires montent, et les prix aussi."
+FOCUS_RUS_VICTORY_AT_ANY_COST,Victory at any cost,La victoire à tout prix
+FOCUS_RUS_VICTORY_AT_ANY_COST_DESC,No negotiation until the objectives are met.,Aucune négociation avant que les objectifs soient atteints.
+FOCUS_RUS_EURASIAN_INTEGRATION,Eurasian integration,Intégration eurasienne
+FOCUS_RUS_EURASIAN_INTEGRATION_DESC,Bind the former Soviet republics to Moscow.,Arrimer les anciennes républiques soviétiques à Moscou.
+FOCUS_RUS_NEGOTIATED_PEACE,A negotiated peace,Une paix négociée
+FOCUS_RUS_NEGOTIATED_PEACE_DESC,End the war and let the country breathe.,Finir la guerre et laisser le pays respirer.
+FOCUS_RUS_DRONE_INDUSTRY,Drone industry,Industrie des drones
+FOCUS_RUS_DRONE_INDUSTRY_DESC,Mass production of drones and counter-drone systems.,Production en masse de drones et de systèmes anti-drones.
+FOCUS_RUS_TOTAL_MOBILIZATION,Total mobilisation,Mobilisation totale
+FOCUS_RUS_TOTAL_MOBILIZATION_DESC,Universal conscription: every man to the service of the nation.,Service militaire universel : chaque homme au service de la nation.
+FOCUS_RUS_UNION_STATE,The Union State,L'État de l'Union
+FOCUS_RUS_UNION_STATE_DESC,Turn the 1999 treaty into reality: one state with Belarus.,Faire du traité de 1999 une réalité : un seul État avec la Biélorussie.
+FOCUS_RUS_SANCTIONS_RELIEF,Sanctions relief,Levée des sanctions
+FOCUS_RUS_SANCTIONS_RELIEF_DESC,Peace opens the door to trade with Europe.,La paix ouvre la porte au commerce avec l'Europe.
+FOCUS_RUS_PIVOT_EAST,Pivot to the East,Pivot vers l'Est
+FOCUS_RUS_PIVOT_EAST_DESC,"China, India and Iran rather than Europe.","La Chine, l'Inde et l'Iran plutôt que l'Europe."
+FOCUS_RUS_ARCTIC_ROUTE,The Arctic route,La route arctique
+FOCUS_RUS_ARCTIC_ROUTE_DESC,Develop the Northern Sea Route and the gas fields of the Far North.,Développer la route maritime du Nord et les gisements de gaz du Grand Nord.
+FOCUS_RUS_NEW_BORDERS,New borders,Nouvelles frontières
+FOCUS_RUS_NEW_BORDERS_DESC,Press our claims on Transnistria.,Faire valoir nos revendications sur la Transnistrie.
+FOCUS_RUS_LIBERAL_THAW,The thaw,Le dégel
+FOCUS_RUS_LIBERAL_THAW_DESC,Release the pressure: a little freedom for the press and the parties.,Relâcher la pression : un peu de liberté pour la presse et les partis.
+FOCUS_RUS_ETERNAL_POWER,Eternal power,Pouvoir éternel
+FOCUS_RUS_ETERNAL_POWER_DESC,"One party, a sovereign internet, a nation closed in on itself.","Un parti unique, un internet souverain, une nation repliée sur elle-même."
+FOCUS_RUS_SECOND_REPUBLIC,The Second Republic,La Seconde République
+FOCUS_RUS_SECOND_REPUBLIC_DESC,"Free elections, a federal state and a new constitution.","Élections libres, État fédéral et nouvelle constitution."
+FOCUS_RUS_RETURN_TO_EUROPE,Return to Europe,Retour en Europe
+FOCUS_RUS_RETURN_TO_EUROPE_DESC,Leave the CSTO and make peace with the West.,Quitter l'OTSC et faire la paix avec l'Occident.
+FOCUS_RUS_GREAT_RUSSIA,Great Russia,La Grande Russie
+FOCUS_RUS_GREAT_RUSSIA_DESC,Russia is once again a power that counts.,La Russie est de nouveau une puissance qui compte.
+FOCUS_TREE_IND,Developed India,L'Inde développée
+FOCUS_IND_VIKSIT_BHARAT,Viksit Bharat 2047,Viksit Bharat 2047
+FOCUS_IND_VIKSIT_BHARAT_DESC,The plan to make India a developed country for the centenary of independence.,Le plan pour faire de l'Inde un pays développé au centenaire de l'indépendance.
+FOCUS_IND_MAKE_IN_INDIA,Make in India,Make in India
+FOCUS_IND_MAKE_IN_INDIA_DESC,Factories for hundreds of millions of young workers.,Des usines pour des centaines de millions de jeunes travailleurs.
+FOCUS_IND_DIGITAL_INDIA,Digital India,Inde numérique
+FOCUS_IND_DIGITAL_INDIA_DESC,Digital identity and payments for 1.4 billion people.,"Identité et paiements numériques pour 1,4 milliard de personnes."
+FOCUS_IND_CIVILIZATIONAL_STATE,Civilisational state,État-civilisation
+FOCUS_IND_CIVILIZATIONAL_STATE_DESC,A nation built on its Hindu heritage.,Une nation fondée sur son héritage hindou.
+FOCUS_IND_SECULAR_FEDERATION,Secular federation,Fédération laïque
+FOCUS_IND_SECULAR_FEDERATION_DESC,"A secular, federal India where every state has its say.",Une Inde laïque et fédérale où chaque État a voix au chapitre.
+FOCUS_IND_SEMICONDUCTOR_MISSION,Semiconductor mission,Mission semi-conducteurs
+FOCUS_IND_SEMICONDUCTOR_MISSION_DESC,Our own chip foundries.,Nos propres fonderies de puces.
+FOCUS_IND_CHINA_PLUS_ONE,China plus one,La Chine plus une
+FOCUS_IND_CHINA_PLUS_ONE_DESC,Attract the companies leaving China.,Attirer les entreprises qui quittent la Chine.
+FOCUS_IND_SPACE_POWER,Space power,Puissance spatiale
+FOCUS_IND_SPACE_POWER_DESC,Reusable launchers and crewed flights.,Lanceurs réutilisables et vols habités.
+FOCUS_IND_AKHAND_BHARAT,Undivided India,L'Inde indivise
+FOCUS_IND_AKHAND_BHARAT_DESC,Claim the parts of Kashmir held by Pakistan.,Revendiquer les parties du Cachemire tenues par le Pakistan.
+FOCUS_IND_PEACE_WITH_PAKISTAN,Peace with Pakistan,La paix avec le Pakistan
+FOCUS_IND_PEACE_WITH_PAKISTAN_DESC,End seventy-nine years of enmity.,Mettre fin à soixante-dix-neuf ans d'inimitié.
+FOCUS_IND_STRATEGIC_AUTONOMY,Strategic autonomy,Autonomie stratégique
+FOCUS_IND_STRATEGIC_AUTONOMY_DESC,"Partner with everyone, align with no one.","Être partenaire de tous, aligné sur personne."
+FOCUS_IND_KASHMIR_OFFENSIVE,Kashmir offensive,Offensive au Cachemire
+FOCUS_IND_KASHMIR_OFFENSIVE_DESC,Take back by force what diplomacy has not.,Reprendre par la force ce que la diplomatie n'a pas rendu.
+FOCUS_IND_SOUTH_ASIAN_UNION,South Asian union,Union sud-asiatique
+FOCUS_IND_SOUTH_ASIAN_UNION_DESC,"A common market for the subcontinent, and perhaps more.","Un marché commun pour le sous-continent, et peut-être davantage."
+FOCUS_IND_SECURITY_COUNCIL_SEAT,A permanent seat,Un siège permanent
+FOCUS_IND_SECURITY_COUNCIL_SEAT_DESC,The world's most populous country demands its place.,Le pays le plus peuplé du monde réclame sa place.
+FOCUS_IND_THIRD_ECONOMY,The third economy,La troisième économie
+FOCUS_IND_THIRD_ECONOMY_DESC,India overtakes Germany and Japan.,L'Inde dépasse l'Allemagne et le Japon.
+FOCUS_IND_VISHWAGURU,Vishwaguru,Vishwaguru
+FOCUS_IND_VISHWAGURU_DESC,"India, teacher of the world.","L'Inde, maître du monde."
+FOCUS_TREE_FRA,A certain idea of France,Une certaine idée de la France
+FOCUS_FRA_BREAK_DEADLOCK,Break the deadlock,Sortir de l'impasse
+FOCUS_FRA_BREAK_DEADLOCK_DESC,"A parliament without a majority, a weary country: we must find a way out.","Un parlement sans majorité, un pays fatigué : il faut trouver une issue."
+FOCUS_FRA_EUROPEAN_FEDERALISM,European federalism,Fédéralisme européen
+FOCUS_FRA_EUROPEAN_FEDERALISM_DESC,France's future is a sovereign Europe.,L'avenir de la France est une Europe souveraine.
+FOCUS_FRA_GAULLIST_INDEPENDENCE,Gaullist independence,Indépendance gaullienne
+FOCUS_FRA_GAULLIST_INDEPENDENCE_DESC,Neither aligned nor isolated: France speaks for itself.,"Ni alignée, ni isolée : la France parle en son nom."
+FOCUS_FRA_NATIONAL_SOVEREIGNTY,National sovereignty,Souveraineté nationale
+FOCUS_FRA_NATIONAL_SOVEREIGNTY_DESC,Take back control of our borders and our laws.,Reprendre le contrôle de nos frontières et de nos lois.
+FOCUS_FRA_FRANCO_GERMAN_AXIS,The Franco-German engine,Le moteur franco-allemand
+FOCUS_FRA_FRANCO_GERMAN_AXIS_DESC,Restart the partnership with Berlin.,Relancer le partenariat avec Berlin.
+FOCUS_FRA_EUROPEAN_DEFENCE,European defence,Défense européenne
+FOCUS_FRA_EUROPEAN_DEFENCE_DESC,Common procurement and a real European pillar.,Des achats communs et un vrai pilier européen.
+FOCUS_FRA_NUCLEAR_RENAISSANCE,Nuclear renaissance,Renaissance nucléaire
+FOCUS_FRA_NUCLEAR_RENAISSANCE_DESC,New reactors and small modular reactors.,De nouveaux réacteurs et des petits réacteurs modulaires.
+FOCUS_FRA_AFRICA_RESET,A new start with Africa,Un nouveau départ avec l'Afrique
+FOCUS_FRA_AFRICA_RESET_DESC,End Françafrique and build partnerships among equals.,En finir avec la Françafrique et bâtir des partenariats d'égal à égal.
+FOCUS_FRA_FREXIT_REFERENDUM,Frexit referendum,Référendum sur le Frexit
+FOCUS_FRA_FREXIT_REFERENDUM_DESC,The French will decide: in or out of the European Union.,Les Français décideront : dans l'Union européenne ou en dehors.
+FOCUS_FRA_EUROPEAN_ARMY,A European army,Une armée européenne
+FOCUS_FRA_EUROPEAN_ARMY_DESC,Integrated brigades under a common command.,Des brigades intégrées sous un commandement commun.
+FOCUS_FRA_SIXTH_REPUBLIC,The Sixth Republic,La VIe République
+FOCUS_FRA_SIXTH_REPUBLIC_DESC,A parliamentary republic and citizens' referendums.,Une république parlementaire et des référendums d'initiative citoyenne.
+FOCUS_FRA_LEAVE_INTEGRATED_COMMAND,Leave the integrated command,Quitter le commandement intégré
+FOCUS_FRA_LEAVE_INTEGRATED_COMMAND_DESC,"As in 1966: in the alliance, but master of our forces.","Comme en 1966 : dans l'alliance, mais maître de nos forces."
+FOCUS_FRA_NEW_FRANC,The new franc,Le nouveau franc
+FOCUS_FRA_NEW_FRANC_DESC,"A national currency again, for better or worse.","De nouveau une monnaie nationale, pour le meilleur et pour le pire."
+FOCUS_FRA_EUROPEAN_FEDERATION,The European Federation,La Fédération européenne
+FOCUS_FRA_EUROPEAN_FEDERATION_DESC,Propose to Germany to merge our two countries into the core of a federal Europe.,Proposer à l'Allemagne de fondre nos deux pays dans le noyau d'une Europe fédérale.
+FOCUS_FRA_GRANDEUR,Grandeur,Grandeur
+FOCUS_FRA_GRANDEUR_DESC,France has found its rank again.,La France a retrouvé son rang.
+FOCUS_TREE_DEU,Germany at the crossroads,L'Allemagne à la croisée des chemins
+FOCUS_DEU_ZEITENWENDE,Zeitenwende,Changement d'époque
+FOCUS_DEU_ZEITENWENDE_DESC,The turning point: Germany must rethink its security and its model.,Le tournant : l'Allemagne doit repenser sa sécurité et son modèle.
+FOCUS_DEU_REARMAMENT,Rearmament,Réarmement
+FOCUS_DEU_REARMAMENT_DESC,The Bundeswehr becomes Europe's leading army.,La Bundeswehr devient la première armée d'Europe.
+FOCUS_DEU_DEBT_BRAKE_REFORM,Reform the debt brake,Réformer le frein à l'endettement
+FOCUS_DEU_DEBT_BRAKE_REFORM_DESC,Borrow to invest in infrastructure and industry.,Emprunter pour investir dans les infrastructures et l'industrie.
+FOCUS_DEU_BLACK_ZERO,The black zero,Le zéro noir
+FOCUS_DEU_BLACK_ZERO_DESC,"Balanced budgets, whatever happens.","Des budgets à l'équilibre, quoi qu'il arrive."
+FOCUS_DEU_ENERGY_SECURITY,Energy security,Sécurité énergétique
+FOCUS_DEU_ENERGY_SECURITY_DESC,Hydrogen and new supply routes after Russian gas.,L'hydrogène et de nouvelles routes d'approvisionnement après le gaz russe.
+FOCUS_DEU_EUROPEAN_LEADERSHIP,European leadership,Leadership européen
+FOCUS_DEU_EUROPEAN_LEADERSHIP_DESC,Berlin takes responsibility for Europe.,Berlin prend ses responsabilités pour l'Europe.
+FOCUS_DEU_INDUSTRIAL_RENEWAL,Industrial renewal,Renouveau industriel
+FOCUS_DEU_INDUSTRIAL_RENEWAL_DESC,Modernise the factories that made Germany's wealth.,Moderniser les usines qui ont fait la richesse de l'Allemagne.
+FOCUS_DEU_FISCAL_DISCIPLINE,Fiscal discipline,Discipline budgétaire
+FOCUS_DEU_FISCAL_DISCIPLINE_DESC,Pay down the debt to protect future generations.,Rembourser la dette pour protéger les générations futures.
+FOCUS_DEU_OSTPOLITIK_RESET,A new Ostpolitik,Une nouvelle Ostpolitik
+FOCUS_DEU_OSTPOLITIK_RESET_DESC,"Reopen dialogue with Moscow, at the risk of angering our partners.","Rouvrir le dialogue avec Moscou, au risque de fâcher nos partenaires."
+FOCUS_DEU_NUCLEAR_UMBRELLA,A European nuclear umbrella,Un parapluie nucléaire européen
+FOCUS_DEU_NUCLEAR_UMBRELLA_DESC,Share France's deterrent rather than depend on Washington.,Partager la dissuasion française plutôt que dépendre de Washington.
+FOCUS_DEU_FEDERAL_EUROPE,A federal Europe,Une Europe fédérale
+FOCUS_DEU_FEDERAL_EUROPE_DESC,Propose to France to merge our two countries into the core of a European Federation.,Proposer à la France de fondre nos deux pays dans le noyau d'une Fédération européenne.
+FOCUS_DEU_DIGITAL_MITTELSTAND,Digital Mittelstand,Mittelstand numérique
+FOCUS_DEU_DIGITAL_MITTELSTAND_DESC,Our family firms enter the digital age.,Nos entreprises familiales entrent dans l'ère numérique.
+FOCUS_DEU_EAST_WEST_COHESION,East-West cohesion,Cohésion Est-Ouest
+FOCUS_DEU_EAST_WEST_COHESION_DESC,Close the gap between the old and new Länder.,Combler l'écart entre anciens et nouveaux Länder.
+FOCUS_DEU_MODELL_DEUTSCHLAND,Modell Deutschland 2040,Modèle allemand 2040
+FOCUS_DEU_MODELL_DEUTSCHLAND_DESC,A reinvented German model.,Un modèle allemand réinventé.
+EVENT_GREENLAND_PURCHASE_OFFER_TITLE,An offer for Greenland,Une offre pour le Groenland
+EVENT_GREENLAND_PURCHASE_OFFER_DESC,{from} officially offers to buy Greenland. The sum is staggering; so is the outrage in Nuuk.,"Le pays suivant propose officiellement d'acheter le Groenland : {from}. La somme est vertigineuse, l'indignation à Nuuk aussi."
+EVENT_GREENLAND_PURCHASE_OFFER_A,Accept the offer,Accepter l'offre
+EVENT_GREENLAND_PURCHASE_OFFER_B,Greenland is not for sale,Le Groenland n'est pas à vendre
+EVENT_GREENLAND_PURCHASED_TITLE,Greenland changes hands,Le Groenland change de mains
+EVENT_GREENLAND_PURCHASED_DESC,The largest land purchase since Alaska: Greenland now belongs to {country}.,Le plus grand achat de territoire depuis l'Alaska : le Groenland appartient désormais à : {country}.
+EVENT_GREENLAND_PURCHASED_A,"Welcome, Greenlanders",Bienvenue aux Groenlandais
+EVENT_NORTH_AMERICAN_UNION_PROPOSAL_TITLE,A North American union,Une union nord-américaine
+EVENT_NORTH_AMERICAN_UNION_PROPOSAL_DESC,"{from} proposes that our two countries become one. History would be made, and our country would disappear.","Le pays suivant propose que nos deux pays n'en fassent plus qu'un : {from}. Ce serait historique, et notre pays disparaîtrait."
+EVENT_NORTH_AMERICAN_UNION_PROPOSAL_A,Accept the union,Accepter l'union
+EVENT_NORTH_AMERICAN_UNION_PROPOSAL_B,Remain independent,Rester indépendants
+EVENT_CROSS_STRAIT_UNION_PROPOSAL_TITLE,"One country, two systems","Un pays, deux systèmes"
+EVENT_CROSS_STRAIT_UNION_PROPOSAL_DESC,{from} offers reunification with broad autonomy. Accepting would end our existence as a separate state.,"Proposition de réunification avec une large autonomie, venue de : {from}. Accepter mettrait fin à notre existence en tant qu'État séparé."
+EVENT_CROSS_STRAIT_UNION_PROPOSAL_A,Accept reunification,Accepter la réunification
+EVENT_CROSS_STRAIT_UNION_PROPOSAL_B,Reject the offer,Rejeter l'offre
+EVENT_UNION_STATE_PROPOSAL_TITLE,The Union State,L'État de l'Union
+EVENT_UNION_STATE_PROPOSAL_DESC,{from} wants to turn the old union treaty into a single state.,"Volonté de transformer le vieux traité d'union en un seul État, exprimée par : {from}."
+EVENT_UNION_STATE_PROPOSAL_A,Accept the merger,Accepter la fusion
+EVENT_UNION_STATE_PROPOSAL_B,Defend our sovereignty,Défendre notre souveraineté
+EVENT_BHUTAN_UNION_PROPOSAL_TITLE,A proposal from the south,Une proposition venue du sud
+EVENT_BHUTAN_UNION_PROPOSAL_DESC,{from} offers to integrate our kingdom as a state of its federation.,"Proposition d'intégrer notre royaume comme État de sa fédération, venue de : {from}."
+EVENT_BHUTAN_UNION_PROPOSAL_A,Join the federation,Rejoindre la fédération
+EVENT_BHUTAN_UNION_PROPOSAL_B,Thank them politely,Remercier poliment
+EVENT_EUROPEAN_FEDERATION_PROPOSAL_TITLE,Founding a federation,Fonder une fédération
+EVENT_EUROPEAN_FEDERATION_PROPOSAL_DESC,{from} proposes to merge our two countries into the founding core of a European Federation.,"Proposition de fondre nos deux pays dans le noyau fondateur d'une Fédération européenne, venue de : {from}."
+EVENT_EUROPEAN_FEDERATION_PROPOSAL_A,Found the Federation together,Fonder ensemble la Fédération
+EVENT_EUROPEAN_FEDERATION_PROPOSAL_B,"Too soon, too far","Trop tôt, trop loin"
+EVENT_EUROPEAN_FEDERATION_FOUNDED_TITLE,The European Federation is born,Naissance de la Fédération européenne
+EVENT_EUROPEAN_FEDERATION_FOUNDED_DESC,A new state is born at the heart of Europe. The other members of the Union are invited to join.,Un nouvel État naît au cœur de l'Europe. Les autres membres de l'Union sont invités à le rejoindre.
+EVENT_EUROPEAN_FEDERATION_FOUNDED_A,Long live Europe,Vive l'Europe
+EVENT_EUROPEAN_FEDERATION_INVITATION_TITLE,Joining the Federation,Rejoindre la Fédération
+EVENT_EUROPEAN_FEDERATION_INVITATION_DESC,{from} invites us to join it as a member state.,"Invitation à rejoindre la Fédération comme État membre, venue de : {from}."
+EVENT_EUROPEAN_FEDERATION_INVITATION_A,Join,Adhérer
+EVENT_EUROPEAN_FEDERATION_INVITATION_B,Stay out,Rester à l'écart
+EVENT_TEXAS_INDEPENDENCE_CRISIS_TITLE,Texas defies Washington,Le Texas défie Washington
+EVENT_TEXAS_INDEPENDENCE_CRISIS_DESC,The Texas legislature refuses the emergency decrees and votes to leave the Union.,Le parlement du Texas refuse les décrets d'exception et vote la sortie de l'Union.
+EVENT_TEXAS_INDEPENDENCE_CRISIS_A,Let Texas go,Laisser partir le Texas
+EVENT_TEXAS_INDEPENDENCE_CRISIS_B,Send in the National Guard,Envoyer la Garde nationale

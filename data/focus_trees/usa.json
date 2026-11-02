@@ -1,0 +1,123 @@
+{
+  "usa": {
+    "name_key": "FOCUS_TREE_USA",
+    "countries": ["USA"],
+    "include": "generic",
+    "nodes": {
+      "usa_midterms": {
+        "name_key": "FOCUS_USA_MIDTERMS", "desc_key": "FOCUS_USA_MIDTERMS_DESC", "x": 10, "y": 6, "months": 6,
+        "effects": {"add_legitimacy": 2, "add_group_satisfaction": {"middle_class": 1}},
+        "ai_weight": 3
+      },
+      "usa_america_first": {
+        "name_key": "FOCUS_USA_AMERICA_FIRST", "desc_key": "FOCUS_USA_AMERICA_FIRST_DESC", "x": 4, "y": 7, "months": 10,
+        "requires": ["usa_midterms"], "exclusive": ["usa_global_leadership"],
+        "effects": {"add_group_satisfaction": {"workers": 3, "elites": -2}, "add_relation": {"with": "CHN", "value": -15},
+          "add_modifier": {"stability": 1, "months": -1}},
+        "ai_weight": 2
+      },
+      "usa_ai_manhattan": {
+        "name_key": "FOCUS_USA_AI_MANHATTAN", "desc_key": "FOCUS_USA_AI_MANHATTAN_DESC", "x": 10, "y": 7, "months": 12,
+        "requires": ["usa_midterms"],
+        "effects": {"add_tech": "ai_scientists", "add_research": 150, "add_debt_gdp": 0.5}
+      },
+      "usa_global_leadership": {
+        "name_key": "FOCUS_USA_GLOBAL_LEADERSHIP", "desc_key": "FOCUS_USA_GLOBAL_LEADERSHIP_DESC", "x": 16, "y": 7, "months": 10,
+        "requires": ["usa_midterms"], "exclusive": ["usa_america_first"],
+        "effects": {"add_influence": 40,
+          "every_country": {"limit": {"member_of": "nato"}, "effects": {"add_relation": {"with": "from", "value": 8}}}},
+        "ai_weight": 1
+      },
+      "usa_reshoring": {
+        "name_key": "FOCUS_USA_RESHORING", "desc_key": "FOCUS_USA_RESHORING_DESC", "x": 2, "y": 8, "months": 10,
+        "requires": ["usa_america_first"],
+        "effects": {"add_tech": "advanced_chips", "add_modifier": {"growth": 0.1, "inflation": 0.2, "months": -1},
+          "add_group_satisfaction": {"workers": 3}}
+      },
+      "usa_border_security": {
+        "name_key": "FOCUS_USA_BORDER_SECURITY", "desc_key": "FOCUS_USA_BORDER_SECURITY_DESC", "x": 6, "y": 8, "months": 8,
+        "requires": ["usa_america_first"],
+        "effects": {"set_law": {"border_control": "strict", "immigration": "restrictive"},
+          "add_group_satisfaction": {"minorities": -4, "workers": 2}, "add_relation": {"with": "MEX", "value": -15}}
+      },
+      "usa_moon_return": {
+        "name_key": "FOCUS_USA_MOON_RETURN", "desc_key": "FOCUS_USA_MOON_RETURN_DESC", "x": 10, "y": 8, "months": 12,
+        "requires": ["usa_ai_manhattan"],
+        "effects": {"add_tech": "satellite_internet", "add_research": 80, "add_legitimacy": 3, "add_influence": 20}
+      },
+      "usa_alliance_renewal": {
+        "name_key": "FOCUS_USA_ALLIANCE_RENEWAL", "desc_key": "FOCUS_USA_ALLIANCE_RENEWAL_DESC", "x": 14, "y": 8, "months": 10,
+        "requires": ["usa_global_leadership"],
+        "effects": {"every_country": {"limit": {"member_of": "nato"}, "effects": {"add_relation": {"with": "from", "value": 10}}},
+          "add_tension": -1}
+      },
+      "usa_greenland_offer": {
+        "name_key": "FOCUS_USA_GREENLAND_OFFER", "desc_key": "FOCUS_USA_GREENLAND_OFFER_DESC", "x": 18, "y": 8, "months": 8,
+        "requires_any": ["usa_global_leadership", "usa_america_first"],
+        "available": {"country_exists": "DNK"},
+        "effects": {"trigger_event": {"id": "greenland_purchase_offer", "target": "DNK", "days": 10}}
+      },
+      "usa_tariff_wall": {
+        "name_key": "FOCUS_USA_TARIFF_WALL", "desc_key": "FOCUS_USA_TARIFF_WALL_DESC", "x": 2, "y": 9, "months": 10,
+        "requires": ["usa_reshoring"],
+        "effects": {"add_modifier": {"growth": -0.1, "inflation": 0.4, "unemployment": -0.2, "months": -1},
+          "add_relation": {"with": "CHN", "value": -15}, "add_group_satisfaction": {"workers": 3, "middle_class": -2}}
+      },
+      "usa_nato_ultimatum": {
+        "name_key": "FOCUS_USA_NATO_ULTIMATUM", "desc_key": "FOCUS_USA_NATO_ULTIMATUM_DESC", "x": 6, "y": 9, "months": 8,
+        "requires": ["usa_america_first"],
+        "effects": {"every_country": {"limit": {"member_of": "nato"}, "effects": {"add_relation": {"with": "from", "value": -10}}},
+          "add_debt_gdp": -0.5}
+      },
+      "usa_divided_nation": {
+        "name_key": "FOCUS_USA_DIVIDED_NATION", "desc_key": "FOCUS_USA_DIVIDED_NATION_DESC", "x": 10, "y": 9, "months": 6,
+        "requires": ["usa_midterms"],
+        "available": {"any": [{"stability": "<50"}, {"year": ">=2028"}]},
+        "effects": {"add_stability": -4, "set_flag": "usa_divided"}
+      },
+      "usa_pacific_pivot": {
+        "name_key": "FOCUS_USA_PACIFIC_PIVOT", "desc_key": "FOCUS_USA_PACIFIC_PIVOT_DESC", "x": 14, "y": 9, "months": 10,
+        "requires": ["usa_alliance_renewal"],
+        "effects": {"every_country": {"limit": {"tag": ["JPN", "KOR", "AUS", "PHL", "TWN", "IND"]},
+          "effects": {"add_relation": {"with": "from", "value": 10}}},
+          "add_relation": {"with": "CHN", "value": -15}, "add_tech": "naval_drones"}
+      },
+      "usa_north_american_union": {
+        "name_key": "FOCUS_USA_NORTH_AMERICAN_UNION", "desc_key": "FOCUS_USA_NORTH_AMERICAN_UNION_DESC", "x": 18, "y": 9,
+        "months": 12,
+        "requires": ["usa_greenland_offer"],
+        "available": {"not": {"player_is": "CAN"}, "country_exists": "CAN", "relation": {"with": "CAN", "value": ">60"}},
+        "effects": {"trigger_event": {"id": "north_american_union_proposal", "target": "CAN", "days": 10}}
+      },
+      "usa_leave_nato": {
+        "name_key": "FOCUS_USA_LEAVE_NATO", "desc_key": "FOCUS_USA_LEAVE_NATO_DESC", "x": 6, "y": 10, "months": 10,
+        "requires": ["usa_nato_ultimatum"],
+        "effects": {"leave_organization": "nato", "add_tension": 4, "add_influence": -40,
+          "add_group_satisfaction": {"military": -3, "workers": 2}},
+        "ai_weight": 0.2
+      },
+      "usa_reconciliation": {
+        "name_key": "FOCUS_USA_RECONCILIATION", "desc_key": "FOCUS_USA_RECONCILIATION_DESC", "x": 8, "y": 10, "months": 12,
+        "requires": ["usa_divided_nation"], "exclusive": ["usa_emergency_powers"],
+        "effects": {"add_modifier": {"stability": 4, "months": -1}, "add_legitimacy": 4, "clear_flag": "usa_divided"},
+        "ai_weight": 3
+      },
+      "usa_emergency_powers": {
+        "name_key": "FOCUS_USA_EMERGENCY_POWERS", "desc_key": "FOCUS_USA_EMERGENCY_POWERS_DESC", "x": 12, "y": 10, "months": 10,
+        "requires": ["usa_divided_nation"], "exclusive": ["usa_reconciliation"],
+        "effects": {"set_regime": "authoritarian", "set_law": {"press_freedom": "regulated", "assembly": "restricted"},
+          "add_legitimacy": -12, "add_modifier": {"stability": 3, "months": -1},
+          "every_country": {"limit": {"member_of": "eu"}, "effects": {"add_relation": {"with": "from", "value": -20}}},
+          "trigger_event": {"id": "texas_independence_crisis", "days": 120}},
+        "ai_weight": 0.2
+      },
+      "usa_new_american_century": {
+        "name_key": "FOCUS_USA_NEW_AMERICAN_CENTURY", "desc_key": "FOCUS_USA_NEW_AMERICAN_CENTURY_DESC", "x": 10, "y": 11,
+        "months": 12,
+        "requires_any": ["usa_reconciliation", "usa_emergency_powers", "usa_pacific_pivot", "usa_tariff_wall"],
+        "requires": ["usa_moon_return"],
+        "effects": {"add_modifier": {"growth": 0.15, "stability": 2, "months": -1}, "add_influence": 50}
+      }
+    }
+  }
+}

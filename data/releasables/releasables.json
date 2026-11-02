@@ -12,5 +12,7 @@
   "kurdistan": {"tag": "KUR", "name_key": "COUNTRY_KUR", "color": "#C94F3D", "capital": 1802, "culture": "persian",
     "provinces": [1800, 1802, 1814], "regime": "parliamentary_republic", "relation_with_parent": -30},
   "tibet": {"tag": "TIB", "name_key": "COUNTRY_TIB", "color": "#B8860B", "capital": 627, "culture": "himalayan",
-    "provinces": [627], "regime": "theocracy", "relation_with_parent": -60}
+    "provinces": [627], "regime": "theocracy", "relation_with_parent": -60},
+  "texas": {"tag": "TEX", "name_key": "COUNTRY_TEX", "color": "#BF0A30", "capital": 4350, "provinces": [4350],
+    "regime": "presidential_republic", "relation_with_parent": -40}
 }

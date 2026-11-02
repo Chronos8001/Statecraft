@@ -1,0 +1,110 @@
+{
+  "ind": {
+    "name_key": "FOCUS_TREE_IND",
+    "countries": ["IND"],
+    "include": "generic",
+    "nodes": {
+      "ind_viksit_bharat": {
+        "name_key": "FOCUS_IND_VIKSIT_BHARAT", "desc_key": "FOCUS_IND_VIKSIT_BHARAT_DESC", "x": 10, "y": 6, "months": 8,
+        "effects": {"add_modifier": {"growth": 0.1, "months": -1}, "add_legitimacy": 2},
+        "ai_weight": 3
+      },
+      "ind_make_in_india": {
+        "name_key": "FOCUS_IND_MAKE_IN_INDIA", "desc_key": "FOCUS_IND_MAKE_IN_INDIA_DESC", "x": 4, "y": 7, "months": 10,
+        "requires": ["ind_viksit_bharat"],
+        "effects": {"add_modifier": {"growth": 0.15, "unemployment": -0.3, "months": -1}, "add_group_satisfaction": {"workers": 3}}
+      },
+      "ind_digital_india": {
+        "name_key": "FOCUS_IND_DIGITAL_INDIA", "desc_key": "FOCUS_IND_DIGITAL_INDIA_DESC", "x": 10, "y": 7, "months": 10,
+        "requires": ["ind_viksit_bharat"],
+        "effects": {"add_tech": "digital_identity", "add_research": 60, "add_group_satisfaction": {"youth": 3}}
+      },
+      "ind_civilizational_state": {
+        "name_key": "FOCUS_IND_CIVILIZATIONAL_STATE", "desc_key": "FOCUS_IND_CIVILIZATIONAL_STATE_DESC", "x": 14, "y": 7,
+        "months": 10,
+        "requires": ["ind_viksit_bharat"], "exclusive": ["ind_secular_federation"],
+        "effects": {"set_law": {"religion_state": "state_religion"}, "add_group_satisfaction": {"religious": 5,
+          "minorities": -6}, "add_modifier": {"stability": 1, "months": -1}},
+        "ai_weight": 2
+      },
+      "ind_secular_federation": {
+        "name_key": "FOCUS_IND_SECULAR_FEDERATION", "desc_key": "FOCUS_IND_SECULAR_FEDERATION_DESC", "x": 18, "y": 7,
+        "months": 10,
+        "requires": ["ind_viksit_bharat"], "exclusive": ["ind_civilizational_state"],
+        "effects": {"set_law": {"religion_state": "secular", "decentralization": "federal"}, "add_group_satisfaction": {
+          "minorities": 5, "religious": -3}, "add_legitimacy": 3},
+        "ai_weight": 1
+      },
+      "ind_semiconductor_mission": {
+        "name_key": "FOCUS_IND_SEMICONDUCTOR_MISSION", "desc_key": "FOCUS_IND_SEMICONDUCTOR_MISSION_DESC", "x": 2, "y": 8,
+        "months": 12,
+        "requires": ["ind_make_in_india"],
+        "effects": {"add_tech": "advanced_chips", "add_debt_gdp": 0.5, "add_modifier": {"growth": 0.05, "months": -1}}
+      },
+      "ind_china_plus_one": {
+        "name_key": "FOCUS_IND_CHINA_PLUS_ONE", "desc_key": "FOCUS_IND_CHINA_PLUS_ONE_DESC", "x": 6, "y": 8, "months": 10,
+        "requires": ["ind_make_in_india"],
+        "effects": {"add_relation": {"with": "USA", "value": 10}, "add_modifier": {"growth": 0.15, "months": -1},
+          "add_group_satisfaction": {"elites": 2}}
+      },
+      "ind_space_power": {
+        "name_key": "FOCUS_IND_SPACE_POWER", "desc_key": "FOCUS_IND_SPACE_POWER_DESC", "x": 10, "y": 8, "months": 12,
+        "requires": ["ind_digital_india"],
+        "effects": {"add_tech": "reusable_rockets", "add_legitimacy": 3, "add_influence": 20}
+      },
+      "ind_akhand_bharat": {
+        "name_key": "FOCUS_IND_AKHAND_BHARAT", "desc_key": "FOCUS_IND_AKHAND_BHARAT_DESC", "x": 14, "y": 8, "months": 10,
+        "requires": ["ind_civilizational_state"],
+        "available": {"country_exists": "PAK"},
+        "effects": {"add_claim": {"target": "PAK", "provinces": [3018, 3020]}, "add_relation": {"with": "PAK", "value": -25},
+          "add_tension": 4},
+        "ai_weight": 0.5
+      },
+      "ind_peace_with_pakistan": {
+        "name_key": "FOCUS_IND_PEACE_WITH_PAKISTAN", "desc_key": "FOCUS_IND_PEACE_WITH_PAKISTAN_DESC", "x": 18, "y": 8,
+        "months": 12,
+        "requires": ["ind_secular_federation"],
+        "available": {"country_exists": "PAK"},
+        "effects": {"add_relation": {"with": "PAK", "value": 30}, "add_tension": -3, "add_modifier": {"growth": 0.05,
+          "months": -1}}
+      },
+      "ind_strategic_autonomy": {
+        "name_key": "FOCUS_IND_STRATEGIC_AUTONOMY", "desc_key": "FOCUS_IND_STRATEGIC_AUTONOMY_DESC", "x": 6, "y": 9, "months": 10,
+        "requires": ["ind_china_plus_one"],
+        "effects": {"add_influence": 30, "add_relation": {"with": "RUS", "value": 5}, "add_legitimacy": 2}
+      },
+      "ind_kashmir_offensive": {
+        "name_key": "FOCUS_IND_KASHMIR_OFFENSIVE", "desc_key": "FOCUS_IND_KASHMIR_OFFENSIVE_DESC", "x": 14, "y": 9, "months": 8,
+        "requires": ["ind_akhand_bharat"],
+        "available": {"country_exists": "PAK", "world_tension": ">45"},
+        "effects": {"declare_war": {"target": "PAK", "goal": "annex"}, "add_group_satisfaction": {"military": 4}},
+        "ai_weight": 0.2
+      },
+      "ind_south_asian_union": {
+        "name_key": "FOCUS_IND_SOUTH_ASIAN_UNION", "desc_key": "FOCUS_IND_SOUTH_ASIAN_UNION_DESC", "x": 18, "y": 9, "months": 12,
+        "requires": ["ind_peace_with_pakistan"],
+        "effects": {"every_country": {"limit": {"tag": ["NPL", "BTN", "BGD", "LKA", "MDV"]},
+          "effects": {"add_relation": {"with": "from", "value": 15}}},
+          "add_modifier": {"growth": 0.1, "months": -1}, "add_influence": 25,
+          "if": {"not": {"player_is": "BTN"}, "country_exists": "BTN"},
+          "then": {"trigger_event": {"id": "bhutan_union_proposal", "target": "BTN", "days": 30}}}
+      },
+      "ind_security_council_seat": {
+        "name_key": "FOCUS_IND_SECURITY_COUNCIL_SEAT", "desc_key": "FOCUS_IND_SECURITY_COUNCIL_SEAT_DESC", "x": 10, "y": 10,
+        "months": 12,
+        "requires": ["ind_space_power"], "requires_any": ["ind_strategic_autonomy", "ind_south_asian_union"],
+        "effects": {"add_influence": 50, "add_legitimacy": 4}
+      },
+      "ind_third_economy": {
+        "name_key": "FOCUS_IND_THIRD_ECONOMY", "desc_key": "FOCUS_IND_THIRD_ECONOMY_DESC", "x": 4, "y": 10, "months": 12,
+        "requires": ["ind_semiconductor_mission"], "requires_any": ["ind_strategic_autonomy"],
+        "effects": {"add_modifier": {"growth": 0.2, "stability": 1, "months": -1}}
+      },
+      "ind_vishwaguru": {
+        "name_key": "FOCUS_IND_VISHWAGURU", "desc_key": "FOCUS_IND_VISHWAGURU_DESC", "x": 10, "y": 11, "months": 12,
+        "requires": ["ind_security_council_seat"],
+        "effects": {"add_influence": 60, "add_modifier": {"stability": 2, "months": -1}, "add_legitimacy": 3}
+      }
+    }
+  }
+}
