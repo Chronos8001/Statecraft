@@ -1,0 +1,312 @@
+{
+  "sau": {
+    "name_key": "FOCUS_TREE_SAU",
+    "countries": [
+      "SAU"
+    ],
+    "include": "generic",
+    "nodes": {
+      "sau_vision_2030": {
+        "name_key": "FOCUS_SAU_VISION_2030",
+        "desc_key": "FOCUS_SAU_VISION_2030_DESC",
+        "x": 10,
+        "y": 6,
+        "months": 8,
+        "effects": {
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          },
+          "add_legitimacy": 2
+        },
+        "ai_weight": 3
+      },
+      "sau_social_opening": {
+        "name_key": "FOCUS_SAU_SOCIAL_OPENING",
+        "desc_key": "FOCUS_SAU_SOCIAL_OPENING_DESC",
+        "x": 4,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "sau_vision_2030"
+        ],
+        "exclusive": [
+          "sau_guardians_of_tradition"
+        ],
+        "effects": {
+          "set_law": {
+            "dress_code": "free",
+            "gender_equality": "standard"
+          },
+          "add_group_satisfaction": {
+            "youth": 5,
+            "religious": -4
+          }
+        },
+        "ai_weight": 2
+      },
+      "sau_neom": {
+        "name_key": "FOCUS_SAU_NEOM",
+        "desc_key": "FOCUS_SAU_NEOM_DESC",
+        "x": 10,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "sau_vision_2030"
+        ],
+        "effects": {
+          "add_debt_gdp": 2,
+          "add_tech": "smart_cities",
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          }
+        }
+      },
+      "sau_guardians_of_tradition": {
+        "name_key": "FOCUS_SAU_GUARDIANS_OF_TRADITION",
+        "desc_key": "FOCUS_SAU_GUARDIANS_OF_TRADITION_DESC",
+        "x": 16,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "sau_vision_2030"
+        ],
+        "exclusive": [
+          "sau_social_opening"
+        ],
+        "effects": {
+          "add_group_satisfaction": {
+            "religious": 5,
+            "youth": -3
+          },
+          "add_modifier": {
+            "stability": 2,
+            "months": -1
+          }
+        },
+        "ai_weight": 1
+      },
+      "sau_tourism_kingdom": {
+        "name_key": "FOCUS_SAU_TOURISM_KINGDOM",
+        "desc_key": "FOCUS_SAU_TOURISM_KINGDOM_DESC",
+        "x": 2,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "sau_social_opening"
+        ],
+        "effects": {
+          "add_modifier": {
+            "growth": 0.15,
+            "months": -1
+          }
+        }
+      },
+      "sau_israel_normalization": {
+        "name_key": "FOCUS_SAU_ISRAEL_NORMALIZATION",
+        "desc_key": "FOCUS_SAU_ISRAEL_NORMALIZATION_DESC",
+        "x": 6,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "sau_social_opening"
+        ],
+        "available": {
+          "country_exists": "ISR"
+        },
+        "effects": {
+          "add_relation": {
+            "with": "ISR",
+            "value": 30
+          },
+          "add_group_satisfaction": {
+            "religious": -3
+          },
+          "every_country": {
+            "limit": {
+              "tag": [
+                "USA"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 15
+              }
+            }
+          }
+        },
+        "ai_weight": 0.5
+      },
+      "sau_opec_price_war": {
+        "name_key": "FOCUS_SAU_OPEC_PRICE_WAR",
+        "desc_key": "FOCUS_SAU_OPEC_PRICE_WAR_DESC",
+        "x": 10,
+        "y": 8,
+        "months": 8,
+        "requires": [
+          "sau_vision_2030"
+        ],
+        "exclusive": [
+          "sau_opec_supply_discipline"
+        ],
+        "effects": {
+          "add_resource_capacity": {
+            "resource": "oil",
+            "world_share": 0.02
+          },
+          "add_modifier": {
+            "growth": 0.2,
+            "months": 12
+          }
+        }
+      },
+      "sau_opec_supply_discipline": {
+        "name_key": "FOCUS_SAU_OPEC_SUPPLY_DISCIPLINE",
+        "desc_key": "FOCUS_SAU_OPEC_SUPPLY_DISCIPLINE_DESC",
+        "x": 13,
+        "y": 9,
+        "months": 8,
+        "requires": [
+          "sau_vision_2030"
+        ],
+        "exclusive": [
+          "sau_opec_price_war"
+        ],
+        "effects": {
+          "add_supply_shock": {
+            "resource": "oil",
+            "share": 0.04,
+            "months": 12
+          },
+          "add_influence": 20
+        }
+      },
+      "sau_yemen_peace": {
+        "name_key": "FOCUS_SAU_YEMEN_PEACE",
+        "desc_key": "FOCUS_SAU_YEMEN_PEACE_DESC",
+        "x": 16,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "sau_guardians_of_tradition"
+        ],
+        "effects": {
+          "add_relation": {
+            "with": "YEM",
+            "value": 25
+          },
+          "add_tension": -2,
+          "add_debt_gdp": -0.5
+        }
+      },
+      "sau_gulf_union": {
+        "name_key": "FOCUS_SAU_GULF_UNION",
+        "desc_key": "FOCUS_SAU_GULF_UNION_DESC",
+        "x": 18,
+        "y": 9,
+        "months": 12,
+        "requires": [
+          "sau_yemen_peace"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "member_of": "gcc"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 15
+              }
+            }
+          },
+          "if": {
+            "exists": true
+          },
+          "then": {
+            "every_country": {
+              "limit": {
+                "tag": [
+                  "BHR",
+                  "KWT"
+                ],
+                "is_player": false
+              },
+              "effects": {
+                "trigger_event": {
+                  "id": "gulf_union_proposal",
+                  "days": 30,
+                  "from": "from"
+                }
+              }
+            }
+          }
+        },
+        "ai_weight": 0.5
+      },
+      "sau_nuclear_hedge": {
+        "name_key": "FOCUS_SAU_NUCLEAR_HEDGE",
+        "desc_key": "FOCUS_SAU_NUCLEAR_HEDGE_DESC",
+        "x": 6,
+        "y": 9,
+        "months": 12,
+        "requires": [
+          "sau_neom"
+        ],
+        "effects": {
+          "add_tech": "small_modular_reactors",
+          "add_tension": 2,
+          "set_flag": "sau_nuclear_hedge"
+        },
+        "available": {
+          "other_country": {
+            "tag": "IRN",
+            "if": {
+              "has_flag": "irn_breakout"
+            }
+          }
+        }
+      },
+      "sau_constitutional_monarchy": {
+        "name_key": "FOCUS_SAU_CONSTITUTIONAL_MONARCHY",
+        "desc_key": "FOCUS_SAU_CONSTITUTIONAL_MONARCHY_DESC",
+        "x": 2,
+        "y": 9,
+        "months": 12,
+        "requires": [
+          "sau_tourism_kingdom"
+        ],
+        "effects": {
+          "set_regime": "constitutional_monarchy",
+          "add_legitimacy": 5,
+          "add_stability": -5
+        },
+        "ai_weight": 0.1
+      },
+      "sau_post_oil_kingdom": {
+        "name_key": "FOCUS_SAU_POST_OIL_KINGDOM",
+        "desc_key": "FOCUS_SAU_POST_OIL_KINGDOM_DESC",
+        "x": 10,
+        "y": 11,
+        "months": 12,
+        "requires_any": [
+          "sau_israel_normalization",
+          "sau_opec_price_war",
+          "sau_opec_supply_discipline",
+          "sau_gulf_union",
+          "sau_constitutional_monarchy"
+        ],
+        "effects": {
+          "add_modifier": {
+            "growth": 0.1,
+            "stability": 2,
+            "months": -1
+          },
+          "add_influence": 30
+        }
+      }
+    }
+  }
+}

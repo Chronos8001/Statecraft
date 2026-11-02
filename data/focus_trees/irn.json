@@ -1,0 +1,308 @@
+{
+  "irn": {
+    "name_key": "FOCUS_TREE_IRN",
+    "countries": [
+      "IRN"
+    ],
+    "include": "generic",
+    "nodes": {
+      "irn_after_the_war": {
+        "name_key": "FOCUS_IRN_AFTER_THE_WAR",
+        "desc_key": "FOCUS_IRN_AFTER_THE_WAR_DESC",
+        "x": 10,
+        "y": 6,
+        "months": 6,
+        "effects": {
+          "add_legitimacy": 2,
+          "add_group_satisfaction": {
+            "military": 2
+          }
+        },
+        "ai_weight": 3
+      },
+      "irn_resistance_economy": {
+        "name_key": "FOCUS_IRN_RESISTANCE_ECONOMY",
+        "desc_key": "FOCUS_IRN_RESISTANCE_ECONOMY_DESC",
+        "x": 4,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "irn_after_the_war"
+        ],
+        "exclusive": [
+          "irn_pragmatic_opening"
+        ],
+        "effects": {
+          "add_modifier": {
+            "growth": -0.05,
+            "stability": 1,
+            "months": -1
+          },
+          "add_group_satisfaction": {
+            "religious": 3
+          }
+        },
+        "ai_weight": 3
+      },
+      "irn_supreme_leader_succession": {
+        "name_key": "FOCUS_IRN_SUPREME_LEADER_SUCCESSION",
+        "desc_key": "FOCUS_IRN_SUPREME_LEADER_SUCCESSION_DESC",
+        "x": 10,
+        "y": 7,
+        "months": 8,
+        "requires": [
+          "irn_after_the_war"
+        ],
+        "effects": {
+          "set_flag": "irn_succession_debate",
+          "add_stability": -2
+        }
+      },
+      "irn_pragmatic_opening": {
+        "name_key": "FOCUS_IRN_PRAGMATIC_OPENING",
+        "desc_key": "FOCUS_IRN_PRAGMATIC_OPENING_DESC",
+        "x": 16,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "irn_after_the_war"
+        ],
+        "exclusive": [
+          "irn_resistance_economy"
+        ],
+        "effects": {
+          "add_group_satisfaction": {
+            "youth": 3,
+            "middle_class": 3,
+            "religious": -3
+          },
+          "every_country": {
+            "limit": {
+              "member_of": "eu"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 8
+              }
+            }
+          }
+        },
+        "ai_weight": 1
+      },
+      "irn_nuclear_breakout": {
+        "name_key": "FOCUS_IRN_NUCLEAR_BREAKOUT",
+        "desc_key": "FOCUS_IRN_NUCLEAR_BREAKOUT_DESC",
+        "x": 2,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "irn_resistance_economy"
+        ],
+        "effects": {
+          "add_tension": 8,
+          "set_flag": "irn_breakout",
+          "every_country": {
+            "limit": {
+              "tag": [
+                "USA",
+                "ISR",
+                "SAU"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": -25
+              }
+            }
+          }
+        },
+        "ai_weight": 0.5
+      },
+      "irn_axis_of_resistance": {
+        "name_key": "FOCUS_IRN_AXIS_OF_RESISTANCE",
+        "desc_key": "FOCUS_IRN_AXIS_OF_RESISTANCE_DESC",
+        "x": 6,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "irn_resistance_economy"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "tag": [
+                "SYR",
+                "IRQ",
+                "YEM",
+                "LBN"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 10
+              }
+            }
+          },
+          "add_influence": 30,
+          "add_relation": {
+            "with": "ISR",
+            "value": -15
+          }
+        }
+      },
+      "irn_hardline_successor": {
+        "name_key": "FOCUS_IRN_HARDLINE_SUCCESSOR",
+        "desc_key": "FOCUS_IRN_HARDLINE_SUCCESSOR_DESC",
+        "x": 9,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "irn_supreme_leader_succession"
+        ],
+        "exclusive": [
+          "irn_reformist_successor"
+        ],
+        "effects": {
+          "set_law": {
+            "dress_code": "religious_rules"
+          },
+          "add_group_satisfaction": {
+            "religious": 5,
+            "youth": -5
+          },
+          "add_modifier": {
+            "stability": 2,
+            "months": -1
+          }
+        },
+        "ai_weight": 2
+      },
+      "irn_reformist_successor": {
+        "name_key": "FOCUS_IRN_REFORMIST_SUCCESSOR",
+        "desc_key": "FOCUS_IRN_REFORMIST_SUCCESSOR_DESC",
+        "x": 12,
+        "y": 9,
+        "months": 10,
+        "requires": [
+          "irn_supreme_leader_succession"
+        ],
+        "exclusive": [
+          "irn_hardline_successor"
+        ],
+        "effects": {
+          "add_group_satisfaction": {
+            "youth": 5,
+            "religious": -4
+          },
+          "add_legitimacy": 4
+        },
+        "ai_weight": 1
+      },
+      "irn_nuclear_deal": {
+        "name_key": "FOCUS_IRN_NUCLEAR_DEAL",
+        "desc_key": "FOCUS_IRN_NUCLEAR_DEAL_DESC",
+        "x": 16,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "irn_pragmatic_opening"
+        ],
+        "effects": {
+          "add_modifier": {
+            "growth": 0.6,
+            "months": -1
+          },
+          "every_country": {
+            "limit": {
+              "tag": [
+                "USA",
+                "DEU",
+                "FRA",
+                "GBR"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 15
+              }
+            }
+          },
+          "add_tension": -4
+        }
+      },
+      "irn_hormuz_leverage": {
+        "name_key": "FOCUS_IRN_HORMUZ_LEVERAGE",
+        "desc_key": "FOCUS_IRN_HORMUZ_LEVERAGE_DESC",
+        "x": 2,
+        "y": 9,
+        "months": 8,
+        "requires": [
+          "irn_nuclear_breakout"
+        ],
+        "available": {
+          "world_tension": ">55"
+        },
+        "effects": {
+          "close_strait": "hormuz",
+          "add_tension": 6,
+          "trigger_event": {
+            "id": "hormuz_reopened",
+            "days": 90
+          }
+        },
+        "ai_weight": 0.2
+      },
+      "irn_woman_life_freedom": {
+        "name_key": "FOCUS_IRN_WOMAN_LIFE_FREEDOM",
+        "desc_key": "FOCUS_IRN_WOMAN_LIFE_FREEDOM_DESC",
+        "x": 16,
+        "y": 9,
+        "months": 12,
+        "requires": [
+          "irn_nuclear_deal",
+          "irn_reformist_successor"
+        ],
+        "effects": {
+          "set_regime": "semi_presidential_republic",
+          "set_law": {
+            "dress_code": "free",
+            "press_freedom": "free",
+            "religion_state": "secular"
+          },
+          "add_stability": -10,
+          "add_modifier": {
+            "stability": 3,
+            "growth": 0.3,
+            "months": -1
+          }
+        },
+        "ai_weight": 0.1
+      },
+      "irn_persian_power": {
+        "name_key": "FOCUS_IRN_PERSIAN_POWER",
+        "desc_key": "FOCUS_IRN_PERSIAN_POWER_DESC",
+        "x": 10,
+        "y": 11,
+        "months": 12,
+        "requires_any": [
+          "irn_hormuz_leverage",
+          "irn_axis_of_resistance",
+          "irn_woman_life_freedom",
+          "irn_hardline_successor"
+        ],
+        "effects": {
+          "add_modifier": {
+            "stability": 2,
+            "months": -1
+          },
+          "add_influence": 40,
+          "add_legitimacy": 3
+        }
+      }
+    }
+  }
+}

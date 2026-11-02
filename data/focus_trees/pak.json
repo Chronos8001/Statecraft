@@ -1,0 +1,266 @@
+{
+  "pak": {
+    "name_key": "FOCUS_TREE_PAK",
+    "countries": [
+      "PAK"
+    ],
+    "include": "generic",
+    "nodes": {
+      "pak_stabilization": {
+        "name_key": "FOCUS_PAK_STABILIZATION",
+        "desc_key": "FOCUS_PAK_STABILIZATION_DESC",
+        "x": 10,
+        "y": 6,
+        "months": 6,
+        "effects": {
+          "add_debt_gdp": -1,
+          "add_modifier": {
+            "inflation": -2,
+            "months": 12
+          }
+        },
+        "ai_weight": 3
+      },
+      "pak_civilian_supremacy": {
+        "name_key": "FOCUS_PAK_CIVILIAN_SUPREMACY",
+        "desc_key": "FOCUS_PAK_CIVILIAN_SUPREMACY_DESC",
+        "x": 4,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "pak_stabilization"
+        ],
+        "exclusive": [
+          "pak_hybrid_regime"
+        ],
+        "effects": {
+          "add_legitimacy": 5,
+          "add_group_satisfaction": {
+            "military": -5,
+            "youth": 3
+          }
+        },
+        "ai_weight": 1
+      },
+      "pak_cpec_phase_two": {
+        "name_key": "FOCUS_PAK_CPEC_PHASE_TWO",
+        "desc_key": "FOCUS_PAK_CPEC_PHASE_TWO_DESC",
+        "x": 10,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "pak_stabilization"
+        ],
+        "effects": {
+          "add_relation": {
+            "with": "CHN",
+            "value": 15
+          },
+          "add_modifier": {
+            "growth": 0.2,
+            "months": -1
+          },
+          "add_debt_gdp": 1
+        }
+      },
+      "pak_hybrid_regime": {
+        "name_key": "FOCUS_PAK_HYBRID_REGIME",
+        "desc_key": "FOCUS_PAK_HYBRID_REGIME_DESC",
+        "x": 16,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "pak_stabilization"
+        ],
+        "exclusive": [
+          "pak_civilian_supremacy"
+        ],
+        "effects": {
+          "add_group_satisfaction": {
+            "military": 5
+          },
+          "add_modifier": {
+            "stability": 2,
+            "months": -1
+          },
+          "add_legitimacy": -3
+        },
+        "ai_weight": 2
+      },
+      "pak_peace_with_india": {
+        "name_key": "FOCUS_PAK_PEACE_WITH_INDIA",
+        "desc_key": "FOCUS_PAK_PEACE_WITH_INDIA_DESC",
+        "x": 2,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "pak_civilian_supremacy"
+        ],
+        "available": {
+          "country_exists": "IND"
+        },
+        "effects": {
+          "add_relation": {
+            "with": "IND",
+            "value": 30
+          },
+          "add_tension": -3,
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          }
+        }
+      },
+      "pak_tax_the_elite": {
+        "name_key": "FOCUS_PAK_TAX_THE_ELITE",
+        "desc_key": "FOCUS_PAK_TAX_THE_ELITE_DESC",
+        "x": 6,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "pak_civilian_supremacy"
+        ],
+        "effects": {
+          "set_law": {
+            "tax_enforcement": "strict"
+          },
+          "add_debt_gdp": -2,
+          "add_group_satisfaction": {
+            "elites": -5,
+            "workers": 3
+          }
+        }
+      },
+      "pak_gwadar_port": {
+        "name_key": "FOCUS_PAK_GWADAR_PORT",
+        "desc_key": "FOCUS_PAK_GWADAR_PORT_DESC",
+        "x": 10,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "pak_cpec_phase_two"
+        ],
+        "effects": {
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          }
+        }
+      },
+      "pak_kashmir_claim": {
+        "name_key": "FOCUS_PAK_KASHMIR_CLAIM",
+        "desc_key": "FOCUS_PAK_KASHMIR_CLAIM_DESC",
+        "x": 14,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "pak_hybrid_regime"
+        ],
+        "available": {
+          "country_exists": "IND"
+        },
+        "effects": {
+          "add_claim": {
+            "target": "IND",
+            "provinces": [
+              1702,
+              1697
+            ]
+          },
+          "add_relation": {
+            "with": "IND",
+            "value": -25
+          },
+          "add_tension": 4,
+          "add_legitimacy": 2
+        }
+      },
+      "pak_afghan_border": {
+        "name_key": "FOCUS_PAK_AFGHAN_BORDER",
+        "desc_key": "FOCUS_PAK_AFGHAN_BORDER_DESC",
+        "x": 18,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "pak_hybrid_regime"
+        ],
+        "effects": {
+          "add_relation": {
+            "with": "AFG",
+            "value": -15
+          },
+          "add_group_satisfaction": {
+            "military": 3,
+            "minorities": -3
+          },
+          "add_modifier": {
+            "stability": 1,
+            "months": -1
+          }
+        }
+      },
+      "pak_kashmir_war": {
+        "name_key": "FOCUS_PAK_KASHMIR_WAR",
+        "desc_key": "FOCUS_PAK_KASHMIR_WAR_DESC",
+        "x": 14,
+        "y": 9,
+        "months": 8,
+        "requires": [
+          "pak_kashmir_claim"
+        ],
+        "available": {
+          "world_tension": ">55"
+        },
+        "effects": {
+          "declare_war": {
+            "target": "IND",
+            "goal": "annex"
+          },
+          "add_group_satisfaction": {
+            "military": 5
+          }
+        },
+        "ai_weight": 0.1
+      },
+      "pak_military_rule": {
+        "name_key": "FOCUS_PAK_MILITARY_RULE",
+        "desc_key": "FOCUS_PAK_MILITARY_RULE_DESC",
+        "x": 18,
+        "y": 9,
+        "months": 10,
+        "requires": [
+          "pak_hybrid_regime"
+        ],
+        "available": {
+          "stability": "<30"
+        },
+        "effects": {
+          "set_regime": "military_junta"
+        },
+        "ai_weight": 0.1
+      },
+      "pak_naya_pakistan": {
+        "name_key": "FOCUS_PAK_NAYA_PAKISTAN",
+        "desc_key": "FOCUS_PAK_NAYA_PAKISTAN_DESC",
+        "x": 10,
+        "y": 11,
+        "months": 12,
+        "requires_any": [
+          "pak_peace_with_india",
+          "pak_tax_the_elite",
+          "pak_gwadar_port",
+          "pak_kashmir_war",
+          "pak_military_rule"
+        ],
+        "effects": {
+          "add_modifier": {
+            "stability": 2,
+            "growth": 0.1,
+            "months": -1
+          },
+          "add_influence": 25
+        }
+      }
+    }
+  }
+}

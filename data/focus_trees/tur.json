@@ -1,0 +1,372 @@
+{
+  "tur": {
+    "name_key": "FOCUS_TREE_TUR",
+    "countries": [
+      "TUR"
+    ],
+    "include": "generic",
+    "nodes": {
+      "tur_century_of_turkiye": {
+        "name_key": "FOCUS_TUR_CENTURY_OF_TURKIYE",
+        "desc_key": "FOCUS_TUR_CENTURY_OF_TURKIYE_DESC",
+        "x": 10,
+        "y": 6,
+        "months": 6,
+        "effects": {
+          "add_modifier": {
+            "growth": 0.05,
+            "months": -1
+          },
+          "add_legitimacy": 2
+        },
+        "ai_weight": 3
+      },
+      "tur_neo_ottoman": {
+        "name_key": "FOCUS_TUR_NEO_OTTOMAN",
+        "desc_key": "FOCUS_TUR_NEO_OTTOMAN_DESC",
+        "x": 4,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "tur_century_of_turkiye"
+        ],
+        "exclusive": [
+          "tur_european_path"
+        ],
+        "effects": {
+          "add_influence": 30,
+          "every_country": {
+            "limit": {
+              "member_of": "arab_league"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 5
+              }
+            }
+          },
+          "add_group_satisfaction": {
+            "religious": 3
+          }
+        },
+        "ai_weight": 2
+      },
+      "tur_defence_industry": {
+        "name_key": "FOCUS_TUR_DEFENCE_INDUSTRY",
+        "desc_key": "FOCUS_TUR_DEFENCE_INDUSTRY_DESC",
+        "x": 10,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "tur_century_of_turkiye"
+        ],
+        "effects": {
+          "add_tech": "drone_warfare",
+          "add_research": 40,
+          "add_group_satisfaction": {
+            "military": 3,
+            "workers": 2
+          }
+        }
+      },
+      "tur_european_path": {
+        "name_key": "FOCUS_TUR_EUROPEAN_PATH",
+        "desc_key": "FOCUS_TUR_EUROPEAN_PATH_DESC",
+        "x": 16,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "tur_century_of_turkiye"
+        ],
+        "exclusive": [
+          "tur_neo_ottoman"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "member_of": "eu"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 12
+              }
+            }
+          },
+          "set_law": {
+            "press_freedom": "free"
+          },
+          "add_group_satisfaction": {
+            "youth": 3,
+            "religious": -2
+          }
+        },
+        "ai_weight": 1
+      },
+      "tur_blue_homeland": {
+        "name_key": "FOCUS_TUR_BLUE_HOMELAND",
+        "desc_key": "FOCUS_TUR_BLUE_HOMELAND_DESC",
+        "x": 2,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "tur_neo_ottoman"
+        ],
+        "effects": {
+          "add_tech": "naval_drones",
+          "every_country": {
+            "limit": {
+              "tag": [
+                "GRC",
+                "CYP"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": -15
+              }
+            }
+          },
+          "add_tension": 2
+        }
+      },
+      "tur_eurasian_turn": {
+        "name_key": "FOCUS_TUR_EURASIAN_TURN",
+        "desc_key": "FOCUS_TUR_EURASIAN_TURN_DESC",
+        "x": 6,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "tur_neo_ottoman"
+        ],
+        "effects": {
+          "join_organization": "sco",
+          "every_country": {
+            "limit": {
+              "tag": [
+                "RUS",
+                "CHN"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 10
+              }
+            }
+          },
+          "if": {
+            "exists": true
+          },
+          "then": {
+            "every_country": {
+              "limit": {
+                "member_of": "nato"
+              },
+              "effects": {
+                "add_relation": {
+                  "with": "from",
+                  "value": -8
+                }
+              }
+            }
+          }
+        },
+        "ai_weight": 0.5
+      },
+      "tur_kurdish_peace": {
+        "name_key": "FOCUS_TUR_KURDISH_PEACE",
+        "desc_key": "FOCUS_TUR_KURDISH_PEACE_DESC",
+        "x": 10,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "tur_century_of_turkiye"
+        ],
+        "exclusive": [
+          "tur_security_zone"
+        ],
+        "effects": {
+          "add_group_satisfaction": {
+            "minorities": 6,
+            "military": -2
+          },
+          "add_modifier": {
+            "stability": 3,
+            "months": -1
+          },
+          "add_legitimacy": 3
+        },
+        "ai_weight": 1
+      },
+      "tur_security_zone": {
+        "name_key": "FOCUS_TUR_SECURITY_ZONE",
+        "desc_key": "FOCUS_TUR_SECURITY_ZONE_DESC",
+        "x": 13,
+        "y": 9,
+        "months": 10,
+        "requires": [
+          "tur_century_of_turkiye"
+        ],
+        "exclusive": [
+          "tur_kurdish_peace"
+        ],
+        "effects": {
+          "add_group_satisfaction": {
+            "military": 4,
+            "minorities": -4
+          },
+          "add_relation": {
+            "with": "SYR",
+            "value": -10
+          },
+          "add_tension": 1
+        },
+        "ai_weight": 1
+      },
+      "tur_customs_union_upgrade": {
+        "name_key": "FOCUS_TUR_CUSTOMS_UNION_UPGRADE",
+        "desc_key": "FOCUS_TUR_CUSTOMS_UNION_UPGRADE_DESC",
+        "x": 16,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "tur_european_path"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "member_of": "eu"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 8
+              }
+            }
+          },
+          "add_modifier": {
+            "growth": 0.15,
+            "months": -1
+          }
+        }
+      },
+      "tur_cyprus_settlement": {
+        "name_key": "FOCUS_TUR_CYPRUS_SETTLEMENT",
+        "desc_key": "FOCUS_TUR_CYPRUS_SETTLEMENT_DESC",
+        "x": 19,
+        "y": 9,
+        "months": 12,
+        "requires": [
+          "tur_european_path"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "tag": [
+                "CYP",
+                "GRC"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 25
+              }
+            }
+          },
+          "add_tension": -2
+        }
+      },
+      "tur_annex_northern_cyprus": {
+        "name_key": "FOCUS_TUR_ANNEX_NORTHERN_CYPRUS",
+        "desc_key": "FOCUS_TUR_ANNEX_NORTHERN_CYPRUS_DESC",
+        "x": 2,
+        "y": 9,
+        "months": 10,
+        "requires": [
+          "tur_blue_homeland"
+        ],
+        "available": {
+          "country_exists": "CYN",
+          "not": {
+            "player_is": "CYN"
+          }
+        },
+        "effects": {
+          "annex_country": "CYN",
+          "add_relation": {
+            "with": "CYP",
+            "value": -30
+          },
+          "add_tension": 3
+        },
+        "ai_weight": 0.2
+      },
+      "tur_leave_nato": {
+        "name_key": "FOCUS_TUR_LEAVE_NATO",
+        "desc_key": "FOCUS_TUR_LEAVE_NATO_DESC",
+        "x": 6,
+        "y": 9,
+        "months": 10,
+        "requires": [
+          "tur_eurasian_turn"
+        ],
+        "effects": {
+          "leave_organization": "nato",
+          "add_tension": 4,
+          "add_group_satisfaction": {
+            "military": -2
+          }
+        },
+        "ai_weight": 0.1
+      },
+      "tur_istanbul_canal": {
+        "name_key": "FOCUS_TUR_ISTANBUL_CANAL",
+        "desc_key": "FOCUS_TUR_ISTANBUL_CANAL_DESC",
+        "x": 10,
+        "y": 10,
+        "months": 12,
+        "requires_any": [
+          "tur_defence_industry"
+        ],
+        "effects": {
+          "add_debt_gdp": 2,
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          },
+          "add_legitimacy": 2,
+          "add_relation": {
+            "with": "RUS",
+            "value": -10
+          }
+        }
+      },
+      "tur_regional_power": {
+        "name_key": "FOCUS_TUR_REGIONAL_POWER",
+        "desc_key": "FOCUS_TUR_REGIONAL_POWER_DESC",
+        "x": 10,
+        "y": 11,
+        "months": 12,
+        "requires_any": [
+          "tur_annex_northern_cyprus",
+          "tur_leave_nato",
+          "tur_customs_union_upgrade",
+          "tur_cyprus_settlement",
+          "tur_istanbul_canal"
+        ],
+        "effects": {
+          "add_modifier": {
+            "stability": 2,
+            "growth": 0.05,
+            "months": -1
+          },
+          "add_influence": 40
+        }
+      }
+    }
+  }
+}
