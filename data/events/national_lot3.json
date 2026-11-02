@@ -1,0 +1,94 @@
+{
+  "quebec_sovereignty_referendum": {
+    "title_key": "EVENT_QUEBEC_SOVEREIGNTY_REFERENDUM_TITLE",
+    "desc_key": "EVENT_QUEBEC_SOVEREIGNTY_REFERENDUM_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "news": true,
+    "immediate": {
+      "if": {
+        "random": 0.4
+      },
+      "then": {
+        "trigger_event": {
+          "id": "quebec_votes_yes",
+          "days": 7
+        }
+      },
+      "else": {
+        "trigger_event": {
+          "id": "quebec_votes_no",
+          "days": 7
+        }
+      }
+    }
+  },
+  "quebec_votes_yes": {
+    "title_key": "EVENT_QUEBEC_VOTES_YES_TITLE",
+    "desc_key": "EVENT_QUEBEC_VOTES_YES_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "news": true,
+    "options": [
+      {
+        "name_key": "EVENT_QUEBEC_VOTES_YES_A",
+        "effects": {
+          "release_country": "quebec",
+          "add_legitimacy": 3
+        },
+        "ai_weight": 4
+      },
+      {
+        "name_key": "EVENT_QUEBEC_VOTES_YES_B",
+        "effects": {
+          "add_stability": -10,
+          "add_legitimacy": -8
+        },
+        "ai_weight": 1
+      }
+    ]
+  },
+  "quebec_votes_no": {
+    "title_key": "EVENT_QUEBEC_VOTES_NO_TITLE",
+    "desc_key": "EVENT_QUEBEC_VOTES_NO_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "news": true,
+    "options": [
+      {
+        "name_key": "EVENT_QUEBEC_VOTES_NO_A",
+        "effects": {
+          "add_stability": 3,
+          "add_legitimacy": 2
+        }
+      }
+    ]
+  },
+  "alberta_independence_crisis": {
+    "title_key": "EVENT_ALBERTA_INDEPENDENCE_CRISIS_TITLE",
+    "desc_key": "EVENT_ALBERTA_INDEPENDENCE_CRISIS_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "news": true,
+    "options": [
+      {
+        "name_key": "EVENT_ALBERTA_INDEPENDENCE_CRISIS_A",
+        "effects": {
+          "release_country": "alberta"
+        },
+        "ai_weight": 0.5
+      },
+      {
+        "name_key": "EVENT_ALBERTA_INDEPENDENCE_CRISIS_B",
+        "effects": {
+          "add_debt_gdp": 1,
+          "add_stability": 2,
+          "add_group_satisfaction": {
+            "workers": 2
+          }
+        },
+        "ai_weight": 4
+      }
+    ]
+  }
+}

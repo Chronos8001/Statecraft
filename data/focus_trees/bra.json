@@ -1,0 +1,301 @@
+{
+  "bra": {
+    "name_key": "FOCUS_TREE_BRA",
+    "countries": [
+      "BRA"
+    ],
+    "include": "generic",
+    "nodes": {
+      "bra_new_growth_plan": {
+        "name_key": "FOCUS_BRA_NEW_GROWTH_PLAN",
+        "desc_key": "FOCUS_BRA_NEW_GROWTH_PLAN_DESC",
+        "x": 10,
+        "y": 6,
+        "months": 6,
+        "effects": {
+          "add_modifier": {
+            "growth": 0.05,
+            "months": -1
+          },
+          "add_legitimacy": 2
+        },
+        "ai_weight": 3
+      },
+      "bra_amazon_guardian": {
+        "name_key": "FOCUS_BRA_AMAZON_GUARDIAN",
+        "desc_key": "FOCUS_BRA_AMAZON_GUARDIAN_DESC",
+        "x": 4,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "bra_new_growth_plan"
+        ],
+        "exclusive": [
+          "bra_agribusiness_frontier"
+        ],
+        "effects": {
+          "set_law": {
+            "deforestation": "protected"
+          },
+          "add_group_satisfaction": {
+            "ecologists": 5,
+            "farmers": -4
+          },
+          "every_country": {
+            "limit": {
+              "member_of": "eu"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 8
+              }
+            }
+          }
+        },
+        "ai_weight": 2
+      },
+      "bra_social_brazil": {
+        "name_key": "FOCUS_BRA_SOCIAL_BRAZIL",
+        "desc_key": "FOCUS_BRA_SOCIAL_BRAZIL_DESC",
+        "x": 10,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "bra_new_growth_plan"
+        ],
+        "effects": {
+          "add_group_satisfaction": {
+            "workers": 4,
+            "farmers": 2,
+            "elites": -2
+          },
+          "add_debt_gdp": 1,
+          "add_modifier": {
+            "stability": 2,
+            "months": -1
+          }
+        }
+      },
+      "bra_agribusiness_frontier": {
+        "name_key": "FOCUS_BRA_AGRIBUSINESS_FRONTIER",
+        "desc_key": "FOCUS_BRA_AGRIBUSINESS_FRONTIER_DESC",
+        "x": 16,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "bra_new_growth_plan"
+        ],
+        "exclusive": [
+          "bra_amazon_guardian"
+        ],
+        "effects": {
+          "set_law": {
+            "deforestation": "free"
+          },
+          "add_group_satisfaction": {
+            "farmers": 5,
+            "ecologists": -6
+          },
+          "add_modifier": {
+            "growth": 0.2,
+            "months": -1
+          }
+        },
+        "ai_weight": 1
+      },
+      "bra_bioeconomy": {
+        "name_key": "FOCUS_BRA_BIOECONOMY",
+        "desc_key": "FOCUS_BRA_BIOECONOMY_DESC",
+        "x": 2,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "bra_amazon_guardian"
+        ],
+        "effects": {
+          "add_tech": "synthetic_biology",
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          }
+        }
+      },
+      "bra_climate_finance": {
+        "name_key": "FOCUS_BRA_CLIMATE_FINANCE",
+        "desc_key": "FOCUS_BRA_CLIMATE_FINANCE_DESC",
+        "x": 6,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "bra_amazon_guardian"
+        ],
+        "effects": {
+          "add_influence": 30,
+          "add_debt_gdp": -1
+        }
+      },
+      "bra_brics_leadership": {
+        "name_key": "FOCUS_BRA_BRICS_LEADERSHIP",
+        "desc_key": "FOCUS_BRA_BRICS_LEADERSHIP_DESC",
+        "x": 10,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "bra_social_brazil"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "member_of": "brics"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 10
+              }
+            }
+          },
+          "add_influence": 30
+        }
+      },
+      "bra_pre_salt_boom": {
+        "name_key": "FOCUS_BRA_PRE_SALT_BOOM",
+        "desc_key": "FOCUS_BRA_PRE_SALT_BOOM_DESC",
+        "x": 14,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "bra_agribusiness_frontier"
+        ],
+        "effects": {
+          "add_resource_capacity": {
+            "resource": "oil",
+            "world_share": 0.01
+          },
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          }
+        }
+      },
+      "bra_industrial_nationalism": {
+        "name_key": "FOCUS_BRA_INDUSTRIAL_NATIONALISM",
+        "desc_key": "FOCUS_BRA_INDUSTRIAL_NATIONALISM_DESC",
+        "x": 18,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "bra_agribusiness_frontier"
+        ],
+        "effects": {
+          "set_law": {
+            "capital_controls": "partial"
+          },
+          "add_group_satisfaction": {
+            "workers": 3,
+            "elites": -2
+          },
+          "add_modifier": {
+            "growth": 0.05,
+            "inflation": 0.2,
+            "months": -1
+          }
+        }
+      },
+      "bra_south_american_union": {
+        "name_key": "FOCUS_BRA_SOUTH_AMERICAN_UNION",
+        "desc_key": "FOCUS_BRA_SOUTH_AMERICAN_UNION_DESC",
+        "x": 8,
+        "y": 9,
+        "months": 12,
+        "requires": [
+          "bra_brics_leadership"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "member_of": "mercosur"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 15
+              }
+            }
+          },
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          },
+          "add_influence": 20
+        }
+      },
+      "bra_nuclear_submarine": {
+        "name_key": "FOCUS_BRA_NUCLEAR_SUBMARINE",
+        "desc_key": "FOCUS_BRA_NUCLEAR_SUBMARINE_DESC",
+        "x": 12,
+        "y": 9,
+        "months": 12,
+        "requires": [
+          "bra_brics_leadership"
+        ],
+        "effects": {
+          "add_tech": "autonomous_submarines",
+          "add_group_satisfaction": {
+            "military": 4
+          },
+          "add_debt_gdp": 0.5
+        }
+      },
+      "bra_military_guardianship": {
+        "name_key": "FOCUS_BRA_MILITARY_GUARDIANSHIP",
+        "desc_key": "FOCUS_BRA_MILITARY_GUARDIANSHIP_DESC",
+        "x": 18,
+        "y": 9,
+        "months": 10,
+        "requires": [
+          "bra_industrial_nationalism"
+        ],
+        "available": {
+          "stability": "<35"
+        },
+        "effects": {
+          "set_regime": "authoritarian",
+          "add_group_satisfaction": {
+            "military": 6,
+            "youth": -5
+          },
+          "add_legitimacy": -10,
+          "add_modifier": {
+            "stability": 3,
+            "months": -1
+          }
+        },
+        "ai_weight": 0.1
+      },
+      "bra_global_power": {
+        "name_key": "FOCUS_BRA_GLOBAL_POWER",
+        "desc_key": "FOCUS_BRA_GLOBAL_POWER_DESC",
+        "x": 10,
+        "y": 11,
+        "months": 12,
+        "requires_any": [
+          "bra_south_american_union",
+          "bra_nuclear_submarine",
+          "bra_bioeconomy",
+          "bra_pre_salt_boom",
+          "bra_military_guardianship"
+        ],
+        "effects": {
+          "add_influence": 40,
+          "add_modifier": {
+            "stability": 2,
+            "growth": 0.05,
+            "months": -1
+          }
+        }
+      }
+    }
+  }
+}

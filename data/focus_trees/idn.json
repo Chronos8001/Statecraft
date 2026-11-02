@@ -1,0 +1,277 @@
+{
+  "idn": {
+    "name_key": "FOCUS_TREE_IDN",
+    "countries": [
+      "IDN"
+    ],
+    "include": "generic",
+    "nodes": {
+      "idn_golden_indonesia": {
+        "name_key": "FOCUS_IDN_GOLDEN_INDONESIA",
+        "desc_key": "FOCUS_IDN_GOLDEN_INDONESIA_DESC",
+        "x": 10,
+        "y": 6,
+        "months": 8,
+        "effects": {
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          },
+          "add_legitimacy": 2
+        },
+        "ai_weight": 3
+      },
+      "idn_nickel_downstreaming": {
+        "name_key": "FOCUS_IDN_NICKEL_DOWNSTREAMING",
+        "desc_key": "FOCUS_IDN_NICKEL_DOWNSTREAMING_DESC",
+        "x": 4,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "idn_golden_indonesia"
+        ],
+        "effects": {
+          "add_resource_capacity": {
+            "resource": "cobalt",
+            "world_share": 0.03
+          },
+          "add_modifier": {
+            "growth": 0.15,
+            "months": -1
+          },
+          "add_group_satisfaction": {
+            "ecologists": -3
+          }
+        }
+      },
+      "idn_nusantara": {
+        "name_key": "FOCUS_IDN_NUSANTARA",
+        "desc_key": "FOCUS_IDN_NUSANTARA_DESC",
+        "x": 10,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "idn_golden_indonesia"
+        ],
+        "effects": {
+          "add_debt_gdp": 1.5,
+          "add_legitimacy": 3,
+          "add_modifier": {
+            "growth": 0.05,
+            "months": -1
+          }
+        }
+      },
+      "idn_free_and_active": {
+        "name_key": "FOCUS_IDN_FREE_AND_ACTIVE",
+        "desc_key": "FOCUS_IDN_FREE_AND_ACTIVE_DESC",
+        "x": 16,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "idn_golden_indonesia"
+        ],
+        "effects": {
+          "add_influence": 30,
+          "every_country": {
+            "limit": {
+              "member_of": "asean"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 8
+              }
+            }
+          }
+        }
+      },
+      "idn_battery_hub": {
+        "name_key": "FOCUS_IDN_BATTERY_HUB",
+        "desc_key": "FOCUS_IDN_BATTERY_HUB_DESC",
+        "x": 2,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "idn_nickel_downstreaming"
+        ],
+        "effects": {
+          "add_tech": "solid_state_batteries",
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          }
+        }
+      },
+      "idn_free_meals": {
+        "name_key": "FOCUS_IDN_FREE_MEALS",
+        "desc_key": "FOCUS_IDN_FREE_MEALS_DESC",
+        "x": 6,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "idn_golden_indonesia"
+        ],
+        "effects": {
+          "add_group_satisfaction": {
+            "youth": 4,
+            "farmers": 2
+          },
+          "add_debt_gdp": 1,
+          "add_modifier": {
+            "stability": 2,
+            "months": -1
+          }
+        }
+      },
+      "idn_strong_presidency": {
+        "name_key": "FOCUS_IDN_STRONG_PRESIDENCY",
+        "desc_key": "FOCUS_IDN_STRONG_PRESIDENCY_DESC",
+        "x": 10,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "idn_nusantara"
+        ],
+        "exclusive": [
+          "idn_reformasi_renewed"
+        ],
+        "effects": {
+          "set_law": {
+            "press_freedom": "regulated"
+          },
+          "add_group_satisfaction": {
+            "military": 4,
+            "youth": -3
+          },
+          "add_modifier": {
+            "stability": 2,
+            "months": -1
+          },
+          "add_legitimacy": -3
+        },
+        "ai_weight": 2
+      },
+      "idn_reformasi_renewed": {
+        "name_key": "FOCUS_IDN_REFORMASI_RENEWED",
+        "desc_key": "FOCUS_IDN_REFORMASI_RENEWED_DESC",
+        "x": 13,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "idn_nusantara"
+        ],
+        "exclusive": [
+          "idn_strong_presidency"
+        ],
+        "effects": {
+          "add_corruption": -4,
+          "add_legitimacy": 4,
+          "add_group_satisfaction": {
+            "youth": 3,
+            "military": -2
+          }
+        },
+        "ai_weight": 1
+      },
+      "idn_asean_leadership": {
+        "name_key": "FOCUS_IDN_ASEAN_LEADERSHIP",
+        "desc_key": "FOCUS_IDN_ASEAN_LEADERSHIP_DESC",
+        "x": 17,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "idn_free_and_active"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "member_of": "asean"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 12
+              }
+            }
+          },
+          "add_influence": 30
+        }
+      },
+      "idn_papua_crackdown": {
+        "name_key": "FOCUS_IDN_PAPUA_CRACKDOWN",
+        "desc_key": "FOCUS_IDN_PAPUA_CRACKDOWN_DESC",
+        "x": 8,
+        "y": 9,
+        "months": 10,
+        "requires": [
+          "idn_strong_presidency"
+        ],
+        "effects": {
+          "add_group_satisfaction": {
+            "minorities": -5,
+            "military": 3
+          },
+          "add_stability": 2
+        }
+      },
+      "idn_papua_self_determination": {
+        "name_key": "FOCUS_IDN_PAPUA_SELF_DETERMINATION",
+        "desc_key": "FOCUS_IDN_PAPUA_SELF_DETERMINATION_DESC",
+        "x": 14,
+        "y": 9,
+        "months": 12,
+        "requires": [
+          "idn_reformasi_renewed"
+        ],
+        "available": {
+          "can_release": "west_papua"
+        },
+        "effects": {
+          "release_country": "west_papua",
+          "add_legitimacy": 3,
+          "add_influence": 15
+        },
+        "ai_weight": 0.05
+      },
+      "idn_maritime_fulcrum": {
+        "name_key": "FOCUS_IDN_MARITIME_FULCRUM",
+        "desc_key": "FOCUS_IDN_MARITIME_FULCRUM_DESC",
+        "x": 18,
+        "y": 9,
+        "months": 12,
+        "requires": [
+          "idn_asean_leadership"
+        ],
+        "effects": {
+          "add_tech": "naval_drones",
+          "add_group_satisfaction": {
+            "military": 3
+          },
+          "add_debt_gdp": 0.5
+        }
+      },
+      "idn_indonesia_emas": {
+        "name_key": "FOCUS_IDN_INDONESIA_EMAS",
+        "desc_key": "FOCUS_IDN_INDONESIA_EMAS_DESC",
+        "x": 10,
+        "y": 11,
+        "months": 12,
+        "requires_any": [
+          "idn_battery_hub",
+          "idn_papua_crackdown",
+          "idn_papua_self_determination",
+          "idn_maritime_fulcrum"
+        ],
+        "effects": {
+          "add_modifier": {
+            "growth": 0.1,
+            "stability": 2,
+            "months": -1
+          },
+          "add_influence": 30
+        }
+      }
+    }
+  }
+}

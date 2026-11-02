@@ -2,7 +2,8 @@ extends GutTest
 ## Arbres nationaux : données valides, nœuds qui ne se chevauchent pas, bon arbre pour chaque pays, et les
 ## uchronies jouées dans le vrai monde (fédération européenne, Groenland, Taïwan, Texas).
 
-const NATIONAL := ["USA", "CHN", "RUS", "IND", "FRA", "DEU", "GBR", "JPN", "KOR", "PRK", "TWN", "UKR"]
+const NATIONAL := ["USA", "CHN", "RUS", "IND", "FRA", "DEU", "GBR", "JPN", "KOR", "PRK", "TWN", "UKR", "BRA", "MEX", "ARG",
+	"CAN", "AUS", "IDN"]
 const MIN_GAP := 2.0
 
 
@@ -37,7 +38,7 @@ func test_countries_get_their_tree() -> void:
 	GameState.new_game(31, &"BRA")
 	for tag: String in NATIONAL:
 		assert_eq(GameState.sim.get_country(tag).focus_tree, tag.to_lower())
-	assert_eq(GameState.sim.get_country("BRA").focus_tree, "generic")
+	assert_eq(GameState.sim.get_country("CHL").focus_tree, "generic")
 
 
 func test_european_federation() -> void:
@@ -108,5 +109,30 @@ func test_scotland_ireland_and_ukraine() -> void:
 		(trees["ukr"]["nodes"]["ukr_nato_membership"] as Dictionary)["effects"])
 	assert_true(OrganizationSystem.is_member(state, "eu", "UKR"))
 	assert_true(OrganizationSystem.is_member(state, "nato", "UKR"))
+	for _hour: int in 31 * GameDate.HOURS_PER_DAY:
+		GameState.advance_hour()
+
+
+func test_lot_3_scenarios() -> void:
+	GameState.new_game(37, &"FRA")
+	var state := GameState.sim
+	var trees := _trees()
+	EventSystem.choose(state, "quebec_votes_yes", {"country": "CAN", "from": ""}, 0)
+	assert_not_null(state.get_country("QUE"))
+	EventSystem.choose(state, "alberta_independence_crisis", {"country": "CAN", "from": ""}, 0)
+	assert_eq(ControlSystem.owner(state, "565"), "ABT")
+	ScriptEffects.apply(state, {"country": "IDN", "from": ""},
+		(trees["idn"]["nodes"]["idn_papua_self_determination"] as Dictionary)["effects"])
+	assert_not_null(state.get_country("PAP"))
+	ScriptEffects.apply(state, {"country": "ARG", "from": ""},
+		(trees["arg"]["nodes"]["arg_malvinas_claim"] as Dictionary)["effects"])
+	ScriptEffects.apply(state, {"country": "ARG", "from": ""},
+		(trees["arg"]["nodes"]["arg_malvinas_war"] as Dictionary)["effects"])
+	assert_true(WarSystem.at_war(state, "ARG", "GBR"), "guerre des Malouines")
+	state.rng.seed = 1
+	for _attempt: int in 10:
+		ScriptEffects.apply(state, {"country": "AUS", "from": ""},
+			(trees["aus"]["nodes"]["aus_republic_referendum"] as Dictionary)["effects"])
+	assert_eq(state.get_country("AUS").politics.regime, "parliamentary_republic", "la république finit par passer")
 	for _hour: int in 31 * GameDate.HOURS_PER_DAY:
 		GameState.advance_hour()

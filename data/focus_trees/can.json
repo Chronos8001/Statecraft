@@ -1,0 +1,299 @@
+{
+  "can": {
+    "name_key": "FOCUS_TREE_CAN",
+    "countries": [
+      "CAN"
+    ],
+    "include": "generic",
+    "nodes": {
+      "can_elbows_up": {
+        "name_key": "FOCUS_CAN_ELBOWS_UP",
+        "desc_key": "FOCUS_CAN_ELBOWS_UP_DESC",
+        "x": 10,
+        "y": 6,
+        "months": 6,
+        "effects": {
+          "add_legitimacy": 3,
+          "add_relation": {
+            "with": "USA",
+            "value": -5
+          },
+          "add_stability": 2
+        },
+        "ai_weight": 3
+      },
+      "can_energy_superpower": {
+        "name_key": "FOCUS_CAN_ENERGY_SUPERPOWER",
+        "desc_key": "FOCUS_CAN_ENERGY_SUPERPOWER_DESC",
+        "x": 4,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "can_elbows_up"
+        ],
+        "effects": {
+          "add_resource_capacity": {
+            "resource": "gas",
+            "world_share": 0.008
+          },
+          "add_modifier": {
+            "growth": 0.15,
+            "months": -1
+          },
+          "add_group_satisfaction": {
+            "ecologists": -3
+          }
+        }
+      },
+      "can_diversify_trade": {
+        "name_key": "FOCUS_CAN_DIVERSIFY_TRADE",
+        "desc_key": "FOCUS_CAN_DIVERSIFY_TRADE_DESC",
+        "x": 10,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "can_elbows_up"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "tag": [
+                "JPN",
+                "KOR",
+                "IND",
+                "GBR",
+                "AUS",
+                "DEU",
+                "FRA"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 8
+              }
+            }
+          }
+        }
+      },
+      "can_national_unity": {
+        "name_key": "FOCUS_CAN_NATIONAL_UNITY",
+        "desc_key": "FOCUS_CAN_NATIONAL_UNITY_DESC",
+        "x": 16,
+        "y": 7,
+        "months": 8,
+        "requires": [
+          "can_elbows_up"
+        ],
+        "effects": {
+          "set_flag": "can_unity_debate",
+          "add_stability": -1
+        }
+      },
+      "can_arctic_sovereignty": {
+        "name_key": "FOCUS_CAN_ARCTIC_SOVEREIGNTY",
+        "desc_key": "FOCUS_CAN_ARCTIC_SOVEREIGNTY_DESC",
+        "x": 2,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "can_energy_superpower"
+        ],
+        "effects": {
+          "add_tech": "naval_drones",
+          "add_debt_gdp": 0.5,
+          "add_group_satisfaction": {
+            "military": 3
+          }
+        }
+      },
+      "can_critical_minerals": {
+        "name_key": "FOCUS_CAN_CRITICAL_MINERALS",
+        "desc_key": "FOCUS_CAN_CRITICAL_MINERALS_DESC",
+        "x": 6,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "can_energy_superpower"
+        ],
+        "effects": {
+          "add_resource_capacity": {
+            "resource": "lithium",
+            "world_share": 0.01
+          },
+          "add_modifier": {
+            "growth": 0.05,
+            "months": -1
+          }
+        }
+      },
+      "can_european_partner": {
+        "name_key": "FOCUS_CAN_EUROPEAN_PARTNER",
+        "desc_key": "FOCUS_CAN_EUROPEAN_PARTNER_DESC",
+        "x": 10,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "can_diversify_trade"
+        ],
+        "exclusive": [
+          "can_continental_integration"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "member_of": "eu"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 15
+              }
+            }
+          },
+          "add_modifier": {
+            "growth": 0.05,
+            "months": -1
+          }
+        }
+      },
+      "can_continental_integration": {
+        "name_key": "FOCUS_CAN_CONTINENTAL_INTEGRATION",
+        "desc_key": "FOCUS_CAN_CONTINENTAL_INTEGRATION_DESC",
+        "x": 13,
+        "y": 9,
+        "months": 10,
+        "requires": [
+          "can_diversify_trade"
+        ],
+        "exclusive": [
+          "can_european_partner"
+        ],
+        "effects": {
+          "add_relation": {
+            "with": "USA",
+            "value": 20
+          },
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          }
+        }
+      },
+      "can_quebec_referendum": {
+        "name_key": "FOCUS_CAN_QUEBEC_REFERENDUM",
+        "desc_key": "FOCUS_CAN_QUEBEC_REFERENDUM_DESC",
+        "x": 16,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "can_national_unity"
+        ],
+        "available": {
+          "can_release": "quebec"
+        },
+        "effects": {
+          "trigger_event": {
+            "id": "quebec_sovereignty_referendum",
+            "days": 30
+          }
+        },
+        "ai_weight": 0.3
+      },
+      "can_western_alienation": {
+        "name_key": "FOCUS_CAN_WESTERN_ALIENATION",
+        "desc_key": "FOCUS_CAN_WESTERN_ALIENATION_DESC",
+        "x": 19,
+        "y": 9,
+        "months": 10,
+        "requires": [
+          "can_national_unity"
+        ],
+        "effects": {
+          "add_stability": -3,
+          "set_flag": "can_wexit_risk",
+          "if": {
+            "random": 0.3
+          },
+          "then": {
+            "trigger_event": {
+              "id": "alberta_independence_crisis",
+              "days": 60
+            }
+          }
+        },
+        "ai_weight": 0.3
+      },
+      "can_eu_membership": {
+        "name_key": "FOCUS_CAN_EU_MEMBERSHIP",
+        "desc_key": "FOCUS_CAN_EU_MEMBERSHIP_DESC",
+        "x": 9,
+        "y": 9,
+        "months": 12,
+        "requires": [
+          "can_european_partner"
+        ],
+        "available": {
+          "not": {
+            "member_of": "eu"
+          }
+        },
+        "effects": {
+          "join_organization": "eu",
+          "add_modifier": {
+            "growth": 0.15,
+            "months": -1
+          },
+          "add_relation": {
+            "with": "USA",
+            "value": -10
+          }
+        },
+        "ai_weight": 0.2
+      },
+      "can_reconciliation": {
+        "name_key": "FOCUS_CAN_RECONCILIATION",
+        "desc_key": "FOCUS_CAN_RECONCILIATION_DESC",
+        "x": 16,
+        "y": 10,
+        "months": 12,
+        "requires_any": [
+          "can_quebec_referendum",
+          "can_western_alienation",
+          "can_national_unity"
+        ],
+        "effects": {
+          "add_group_satisfaction": {
+            "minorities": 5
+          },
+          "add_legitimacy": 3,
+          "add_modifier": {
+            "stability": 2,
+            "months": -1
+          }
+        }
+      },
+      "can_true_north": {
+        "name_key": "FOCUS_CAN_TRUE_NORTH",
+        "desc_key": "FOCUS_CAN_TRUE_NORTH_DESC",
+        "x": 10,
+        "y": 11,
+        "months": 12,
+        "requires_any": [
+          "can_eu_membership",
+          "can_continental_integration",
+          "can_arctic_sovereignty",
+          "can_reconciliation"
+        ],
+        "effects": {
+          "add_modifier": {
+            "stability": 2,
+            "growth": 0.05,
+            "months": -1
+          },
+          "add_influence": 30
+        }
+      }
+    }
+  }
+}

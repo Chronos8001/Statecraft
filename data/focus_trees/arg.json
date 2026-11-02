@@ -1,0 +1,326 @@
+{
+  "arg": {
+    "name_key": "FOCUS_TREE_ARG",
+    "countries": [
+      "ARG"
+    ],
+    "include": "generic",
+    "nodes": {
+      "arg_chainsaw": {
+        "name_key": "FOCUS_ARG_CHAINSAW",
+        "desc_key": "FOCUS_ARG_CHAINSAW_DESC",
+        "x": 10,
+        "y": 6,
+        "months": 6,
+        "effects": {
+          "add_debt_gdp": -1,
+          "add_group_satisfaction": {
+            "elites": 3,
+            "workers": -3
+          },
+          "add_modifier": {
+            "inflation": -3,
+            "months": 12
+          }
+        },
+        "ai_weight": 3
+      },
+      "arg_dollarization": {
+        "name_key": "FOCUS_ARG_DOLLARIZATION",
+        "desc_key": "FOCUS_ARG_DOLLARIZATION_DESC",
+        "x": 4,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "arg_chainsaw"
+        ],
+        "exclusive": [
+          "arg_peronist_return"
+        ],
+        "effects": {
+          "add_modifier": {
+            "inflation": -5,
+            "growth": -0.3,
+            "months": 24
+          },
+          "set_law": {
+            "capital_controls": "none"
+          },
+          "add_group_satisfaction": {
+            "middle_class": 3,
+            "workers": -3
+          }
+        },
+        "ai_weight": 2
+      },
+      "arg_vaca_muerta": {
+        "name_key": "FOCUS_ARG_VACA_MUERTA",
+        "desc_key": "FOCUS_ARG_VACA_MUERTA_DESC",
+        "x": 10,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "arg_chainsaw"
+        ],
+        "effects": {
+          "add_resource_capacity": {
+            "resource": "gas",
+            "world_share": 0.01
+          },
+          "set_law": {
+            "fracking": "allowed"
+          },
+          "add_modifier": {
+            "growth": 0.15,
+            "months": -1
+          }
+        }
+      },
+      "arg_peronist_return": {
+        "name_key": "FOCUS_ARG_PERONIST_RETURN",
+        "desc_key": "FOCUS_ARG_PERONIST_RETURN_DESC",
+        "x": 16,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "arg_chainsaw"
+        ],
+        "exclusive": [
+          "arg_dollarization"
+        ],
+        "effects": {
+          "set_law": {
+            "price_controls": "essentials",
+            "capital_controls": "partial"
+          },
+          "add_group_satisfaction": {
+            "workers": 5,
+            "elites": -4
+          },
+          "add_modifier": {
+            "inflation": 1.5,
+            "growth": 0.3,
+            "months": 24
+          }
+        },
+        "ai_weight": 1
+      },
+      "arg_oecd_accession": {
+        "name_key": "FOCUS_ARG_OECD_ACCESSION",
+        "desc_key": "FOCUS_ARG_OECD_ACCESSION_DESC",
+        "x": 2,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "arg_dollarization"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "tag": [
+                "USA",
+                "DEU",
+                "FRA",
+                "GBR",
+                "JPN",
+                "ESP",
+                "ITA"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 8
+              }
+            }
+          },
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          }
+        }
+      },
+      "arg_lithium_triangle": {
+        "name_key": "FOCUS_ARG_LITHIUM_TRIANGLE",
+        "desc_key": "FOCUS_ARG_LITHIUM_TRIANGLE_DESC",
+        "x": 6,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "arg_vaca_muerta"
+        ],
+        "effects": {
+          "add_resource_capacity": {
+            "resource": "lithium",
+            "world_share": 0.03
+          },
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          }
+        }
+      },
+      "arg_us_partnership": {
+        "name_key": "FOCUS_ARG_US_PARTNERSHIP",
+        "desc_key": "FOCUS_ARG_US_PARTNERSHIP_DESC",
+        "x": 10,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "arg_dollarization"
+        ],
+        "effects": {
+          "add_relation": {
+            "with": "USA",
+            "value": 20
+          },
+          "add_debt_gdp": -2
+        }
+      },
+      "arg_national_industry": {
+        "name_key": "FOCUS_ARG_NATIONAL_INDUSTRY",
+        "desc_key": "FOCUS_ARG_NATIONAL_INDUSTRY_DESC",
+        "x": 14,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "arg_peronist_return"
+        ],
+        "effects": {
+          "add_group_satisfaction": {
+            "workers": 3
+          },
+          "add_modifier": {
+            "growth": 0.05,
+            "inflation": 0.3,
+            "months": -1
+          }
+        }
+      },
+      "arg_brics_turn": {
+        "name_key": "FOCUS_ARG_BRICS_TURN",
+        "desc_key": "FOCUS_ARG_BRICS_TURN_DESC",
+        "x": 18,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "arg_peronist_return"
+        ],
+        "effects": {
+          "add_relation": {
+            "with": "CHN",
+            "value": 15
+          },
+          "every_country": {
+            "limit": {
+              "member_of": "brics"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 8
+              }
+            }
+          }
+        }
+      },
+      "arg_malvinas_claim": {
+        "name_key": "FOCUS_ARG_MALVINAS_CLAIM",
+        "desc_key": "FOCUS_ARG_MALVINAS_CLAIM_DESC",
+        "x": 8,
+        "y": 9,
+        "months": 10,
+        "requires_any": [
+          "arg_national_industry",
+          "arg_lithium_triangle"
+        ],
+        "effects": {
+          "add_claim": {
+            "target": "GBR",
+            "provinces": [
+              1094
+            ]
+          },
+          "add_relation": {
+            "with": "GBR",
+            "value": -20
+          },
+          "add_legitimacy": 3,
+          "add_tension": 2
+        }
+      },
+      "arg_malvinas_war": {
+        "name_key": "FOCUS_ARG_MALVINAS_WAR",
+        "desc_key": "FOCUS_ARG_MALVINAS_WAR_DESC",
+        "x": 8,
+        "y": 10,
+        "months": 8,
+        "requires": [
+          "arg_malvinas_claim"
+        ],
+        "available": {
+          "world_tension": ">55"
+        },
+        "effects": {
+          "declare_war": {
+            "target": "GBR",
+            "goal": "annex"
+          },
+          "add_group_satisfaction": {
+            "military": 5
+          }
+        },
+        "ai_weight": 0.05
+      },
+      "arg_mercosur_reboot": {
+        "name_key": "FOCUS_ARG_MERCOSUR_REBOOT",
+        "desc_key": "FOCUS_ARG_MERCOSUR_REBOOT_DESC",
+        "x": 14,
+        "y": 9,
+        "months": 10,
+        "requires_any": [
+          "arg_national_industry",
+          "arg_oecd_accession"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "member_of": "mercosur"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 12
+              }
+            }
+          },
+          "add_modifier": {
+            "growth": 0.05,
+            "months": -1
+          }
+        }
+      },
+      "arg_argentina_rises": {
+        "name_key": "FOCUS_ARG_ARGENTINA_RISES",
+        "desc_key": "FOCUS_ARG_ARGENTINA_RISES_DESC",
+        "x": 12,
+        "y": 11,
+        "months": 12,
+        "requires_any": [
+          "arg_us_partnership",
+          "arg_mercosur_reboot",
+          "arg_brics_turn",
+          "arg_malvinas_war"
+        ],
+        "effects": {
+          "add_modifier": {
+            "stability": 2,
+            "growth": 0.1,
+            "months": -1
+          },
+          "add_legitimacy": 3
+        }
+      }
+    }
+  }
+}
