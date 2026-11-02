@@ -1,0 +1,259 @@
+{
+  "zaf": {
+    "name_key": "FOCUS_TREE_ZAF",
+    "countries": [
+      "ZAF"
+    ],
+    "include": "generic",
+    "nodes": {
+      "zaf_government_of_national_unity": {
+        "name_key": "FOCUS_ZAF_GOVERNMENT_OF_NATIONAL_UNITY",
+        "desc_key": "FOCUS_ZAF_GOVERNMENT_OF_NATIONAL_UNITY_DESC",
+        "x": 10,
+        "y": 6,
+        "months": 6,
+        "effects": {
+          "add_legitimacy": 3,
+          "add_stability": 2
+        },
+        "ai_weight": 3
+      },
+      "zaf_keep_the_lights_on": {
+        "name_key": "FOCUS_ZAF_KEEP_THE_LIGHTS_ON",
+        "desc_key": "FOCUS_ZAF_KEEP_THE_LIGHTS_ON_DESC",
+        "x": 4,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "zaf_government_of_national_unity"
+        ],
+        "effects": {
+          "add_tech": "grid_storage",
+          "add_modifier": {
+            "growth": 0.2,
+            "months": -1
+          }
+        }
+      },
+      "zaf_land_expropriation": {
+        "name_key": "FOCUS_ZAF_LAND_EXPROPRIATION",
+        "desc_key": "FOCUS_ZAF_LAND_EXPROPRIATION_DESC",
+        "x": 10,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "zaf_government_of_national_unity"
+        ],
+        "exclusive": [
+          "zaf_market_reforms"
+        ],
+        "effects": {
+          "set_law": {
+            "property_rights": "weak"
+          },
+          "add_group_satisfaction": {
+            "farmers": -5,
+            "workers": 4,
+            "elites": -4
+          },
+          "add_modifier": {
+            "growth": -0.15,
+            "months": -1
+          }
+        },
+        "ai_weight": 1
+      },
+      "zaf_market_reforms": {
+        "name_key": "FOCUS_ZAF_MARKET_REFORMS",
+        "desc_key": "FOCUS_ZAF_MARKET_REFORMS_DESC",
+        "x": 16,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "zaf_government_of_national_unity"
+        ],
+        "exclusive": [
+          "zaf_land_expropriation"
+        ],
+        "effects": {
+          "add_modifier": {
+            "growth": 0.2,
+            "unemployment": -0.5,
+            "months": -1
+          },
+          "add_group_satisfaction": {
+            "elites": 3,
+            "workers": -2
+          }
+        },
+        "ai_weight": 2
+      },
+      "zaf_platinum_belt": {
+        "name_key": "FOCUS_ZAF_PLATINUM_BELT",
+        "desc_key": "FOCUS_ZAF_PLATINUM_BELT_DESC",
+        "x": 2,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "zaf_keep_the_lights_on"
+        ],
+        "effects": {
+          "add_resource_capacity": {
+            "resource": "rare_earths",
+            "world_share": 0.01
+          },
+          "add_modifier": {
+            "growth": 0.05,
+            "months": -1
+          }
+        }
+      },
+      "zaf_fight_crime": {
+        "name_key": "FOCUS_ZAF_FIGHT_CRIME",
+        "desc_key": "FOCUS_ZAF_FIGHT_CRIME_DESC",
+        "x": 6,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "zaf_government_of_national_unity"
+        ],
+        "effects": {
+          "set_law": {
+            "police_powers": "extended"
+          },
+          "add_modifier": {
+            "stability": 3,
+            "months": -1
+          },
+          "add_corruption": -3
+        }
+      },
+      "zaf_brics_voice": {
+        "name_key": "FOCUS_ZAF_BRICS_VOICE",
+        "desc_key": "FOCUS_ZAF_BRICS_VOICE_DESC",
+        "x": 10,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "zaf_land_expropriation"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "member_of": "brics"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 10
+              }
+            }
+          },
+          "add_influence": 25
+        }
+      },
+      "zaf_western_partnership": {
+        "name_key": "FOCUS_ZAF_WESTERN_PARTNERSHIP",
+        "desc_key": "FOCUS_ZAF_WESTERN_PARTNERSHIP_DESC",
+        "x": 14,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "zaf_market_reforms"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "tag": [
+                "USA",
+                "GBR",
+                "DEU",
+                "FRA"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 12
+              }
+            }
+          }
+        }
+      },
+      "zaf_cape_question": {
+        "name_key": "FOCUS_ZAF_CAPE_QUESTION",
+        "desc_key": "FOCUS_ZAF_CAPE_QUESTION_DESC",
+        "x": 18,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "zaf_market_reforms"
+        ],
+        "effects": {
+          "set_flag": "zaf_cape_question",
+          "add_stability": -2,
+          "if": {
+            "random": 0.25
+          },
+          "then": {
+            "trigger_event": {
+              "id": "cape_independence_crisis",
+              "days": 60
+            }
+          }
+        },
+        "ai_weight": 0.2
+      },
+      "zaf_african_free_trade": {
+        "name_key": "FOCUS_ZAF_AFRICAN_FREE_TRADE",
+        "desc_key": "FOCUS_ZAF_AFRICAN_FREE_TRADE_DESC",
+        "x": 8,
+        "y": 9,
+        "months": 12,
+        "requires_any": [
+          "zaf_brics_voice",
+          "zaf_western_partnership"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "member_of": "au"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 10
+              }
+            }
+          },
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          }
+        }
+      },
+      "zaf_rainbow_renewed": {
+        "name_key": "FOCUS_ZAF_RAINBOW_RENEWED",
+        "desc_key": "FOCUS_ZAF_RAINBOW_RENEWED_DESC",
+        "x": 10,
+        "y": 11,
+        "months": 12,
+        "requires_any": [
+          "zaf_african_free_trade",
+          "zaf_platinum_belt",
+          "zaf_fight_crime",
+          "zaf_cape_question"
+        ],
+        "effects": {
+          "add_modifier": {
+            "stability": 2,
+            "growth": 0.05,
+            "months": -1
+          },
+          "add_influence": 25,
+          "add_legitimacy": 3
+        }
+      }
+    }
+  }
+}

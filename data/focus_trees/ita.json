@@ -1,0 +1,277 @@
+{
+  "ita": {
+    "name_key": "FOCUS_TREE_ITA",
+    "countries": [
+      "ITA"
+    ],
+    "include": "generic",
+    "nodes": {
+      "ita_stable_government": {
+        "name_key": "FOCUS_ITA_STABLE_GOVERNMENT",
+        "desc_key": "FOCUS_ITA_STABLE_GOVERNMENT_DESC",
+        "x": 10,
+        "y": 6,
+        "months": 6,
+        "effects": {
+          "add_legitimacy": 2,
+          "add_stability": 2
+        },
+        "ai_weight": 3
+      },
+      "ita_premierato": {
+        "name_key": "FOCUS_ITA_PREMIERATO",
+        "desc_key": "FOCUS_ITA_PREMIERATO_DESC",
+        "x": 4,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "ita_stable_government"
+        ],
+        "exclusive": [
+          "ita_differentiated_autonomy"
+        ],
+        "effects": {
+          "add_modifier": {
+            "stability": 3,
+            "months": -1
+          },
+          "add_legitimacy": -2,
+          "add_group_satisfaction": {
+            "elites": 2,
+            "youth": -2
+          }
+        },
+        "ai_weight": 2
+      },
+      "ita_pnrr_completion": {
+        "name_key": "FOCUS_ITA_PNRR_COMPLETION",
+        "desc_key": "FOCUS_ITA_PNRR_COMPLETION_DESC",
+        "x": 10,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "ita_stable_government"
+        ],
+        "effects": {
+          "add_modifier": {
+            "growth": 0.15,
+            "months": -1
+          },
+          "add_tech": "digital_government"
+        }
+      },
+      "ita_differentiated_autonomy": {
+        "name_key": "FOCUS_ITA_DIFFERENTIATED_AUTONOMY",
+        "desc_key": "FOCUS_ITA_DIFFERENTIATED_AUTONOMY_DESC",
+        "x": 16,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "ita_stable_government"
+        ],
+        "exclusive": [
+          "ita_premierato"
+        ],
+        "effects": {
+          "set_law": {
+            "decentralization": "regional"
+          },
+          "add_group_satisfaction": {
+            "middle_class": 3,
+            "workers": -2
+          },
+          "add_modifier": {
+            "growth": 0.05,
+            "months": -1
+          }
+        },
+        "ai_weight": 1
+      },
+      "ita_mattei_plan": {
+        "name_key": "FOCUS_ITA_MATTEI_PLAN",
+        "desc_key": "FOCUS_ITA_MATTEI_PLAN_DESC",
+        "x": 2,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "ita_premierato"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "member_of": "au"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 8
+              }
+            }
+          },
+          "add_influence": 25,
+          "add_resource_capacity": {
+            "resource": "gas",
+            "world_share": 0.002
+          }
+        }
+      },
+      "ita_mediterranean_border": {
+        "name_key": "FOCUS_ITA_MEDITERRANEAN_BORDER",
+        "desc_key": "FOCUS_ITA_MEDITERRANEAN_BORDER_DESC",
+        "x": 6,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "ita_premierato"
+        ],
+        "effects": {
+          "set_law": {
+            "immigration": "restrictive",
+            "border_control": "strict"
+          },
+          "add_group_satisfaction": {
+            "minorities": -4,
+            "workers": 2
+          }
+        }
+      },
+      "ita_messina_bridge": {
+        "name_key": "FOCUS_ITA_MESSINA_BRIDGE",
+        "desc_key": "FOCUS_ITA_MESSINA_BRIDGE_DESC",
+        "x": 10,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "ita_pnrr_completion"
+        ],
+        "effects": {
+          "add_debt_gdp": 0.8,
+          "add_legitimacy": 2,
+          "add_modifier": {
+            "growth": 0.05,
+            "months": -1
+          }
+        }
+      },
+      "ita_mezzogiorno_plan": {
+        "name_key": "FOCUS_ITA_MEZZOGIORNO_PLAN",
+        "desc_key": "FOCUS_ITA_MEZZOGIORNO_PLAN_DESC",
+        "x": 14,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "ita_pnrr_completion"
+        ],
+        "effects": {
+          "add_modifier": {
+            "growth": 0.1,
+            "unemployment": -0.4,
+            "months": -1
+          },
+          "add_debt_gdp": 1
+        }
+      },
+      "ita_baby_bonus": {
+        "name_key": "FOCUS_ITA_BABY_BONUS",
+        "desc_key": "FOCUS_ITA_BABY_BONUS_DESC",
+        "x": 18,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "ita_differentiated_autonomy"
+        ],
+        "effects": {
+          "set_law": {
+            "parental_leave": "long"
+          },
+          "add_debt_gdp": 0.5,
+          "add_group_satisfaction": {
+            "youth": 3
+          }
+        }
+      },
+      "ita_euro_core": {
+        "name_key": "FOCUS_ITA_EURO_CORE",
+        "desc_key": "FOCUS_ITA_EURO_CORE_DESC",
+        "x": 12,
+        "y": 9,
+        "months": 10,
+        "requires_any": [
+          "ita_mezzogiorno_plan",
+          "ita_messina_bridge"
+        ],
+        "exclusive": [
+          "ita_sovereign_currency"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "member_of": "eu"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 10
+              }
+            }
+          },
+          "add_debt_gdp": -1
+        }
+      },
+      "ita_sovereign_currency": {
+        "name_key": "FOCUS_ITA_SOVEREIGN_CURRENCY",
+        "desc_key": "FOCUS_ITA_SOVEREIGN_CURRENCY_DESC",
+        "x": 6,
+        "y": 9,
+        "months": 12,
+        "requires": [
+          "ita_mediterranean_border"
+        ],
+        "exclusive": [
+          "ita_euro_core"
+        ],
+        "effects": {
+          "leave_organization": "eu",
+          "add_modifier": {
+            "growth": -0.8,
+            "inflation": 1.0,
+            "months": 24
+          },
+          "every_country": {
+            "limit": {
+              "member_of": "eu"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": -20
+              }
+            }
+          }
+        },
+        "ai_weight": 0.1
+      },
+      "ita_bel_paese": {
+        "name_key": "FOCUS_ITA_BEL_PAESE",
+        "desc_key": "FOCUS_ITA_BEL_PAESE_DESC",
+        "x": 10,
+        "y": 11,
+        "months": 12,
+        "requires_any": [
+          "ita_mattei_plan",
+          "ita_euro_core",
+          "ita_sovereign_currency",
+          "ita_baby_bonus"
+        ],
+        "effects": {
+          "add_modifier": {
+            "stability": 2,
+            "growth": 0.05,
+            "months": -1
+          },
+          "add_influence": 25
+        }
+      }
+    }
+  }
+}

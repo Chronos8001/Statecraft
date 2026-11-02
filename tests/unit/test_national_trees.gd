@@ -3,7 +3,8 @@ extends GutTest
 ## uchronies jouées dans le vrai monde (fédération européenne, Groenland, Taïwan, Texas).
 
 const NATIONAL := ["USA", "CHN", "RUS", "IND", "FRA", "DEU", "GBR", "JPN", "KOR", "PRK", "TWN", "UKR", "BRA", "MEX", "ARG",
-	"CAN", "AUS", "IDN", "TUR", "IRN", "ISR", "SAU", "EGY", "PAK"]
+	"CAN", "AUS", "IDN", "TUR", "IRN", "ISR", "SAU", "EGY", "PAK",
+	"ITA", "ESP", "POL", "NGA", "ZAF", "ETH"]
 const MIN_GAP := 2.0
 
 
@@ -20,6 +21,10 @@ func test_trees_are_valid_and_readable() -> void:
 		var tree: Dictionary = trees[tag.to_lower()]
 		assert_eq(tree["countries"], [tag])
 		var nodes: Dictionary = tree["nodes"]
+		var own: Dictionary = (DataLoader.get_category("focus_trees")[tag.to_lower()] as Dictionary)["nodes"]
+		for node_id: Variant in own.keys():
+			assert_false((trees["generic"]["nodes"] as Dictionary).has(node_id), "%s : %s masque un nœud générique" % [tag,
+				node_id])
 		assert_gte(nodes.size(), 44, "%s : nœuds nationaux et génériques" % tag)
 		var rows: Dictionary = {}
 		for node: Dictionary in nodes.values():
@@ -153,5 +158,23 @@ func test_lot_4_scenarios() -> void:
 	ScriptEffects.apply(state, {"country": "PAK", "from": ""},
 		(trees["pak"]["nodes"]["pak_military_rule"] as Dictionary)["effects"])
 	assert_eq(state.get_country("PAK").politics.regime, "military_junta")
+	for _hour: int in 31 * GameDate.HOURS_PER_DAY:
+		GameState.advance_hour()
+
+
+func test_lot_5_scenarios() -> void:
+	GameState.new_game(39, &"FRA")
+	var state := GameState.sim
+	EventSystem.choose(state, "catalan_independence_votes_yes", {"country": "ESP", "from": ""}, 0)
+	assert_not_null(state.get_country("CAT"))
+	EventSystem.choose(state, "iberian_federation_proposal", {"country": "PRT", "from": "ESP"}, 0)
+	assert_null(state.get_country("PRT"))
+	assert_eq(str(state.country_overrides["ESP"]["name_key"]), "COUNTRY_IBE")
+	EventSystem.choose(state, "biafra_votes_yes", {"country": "NGA", "from": ""}, 0)
+	assert_not_null(state.get_country("BIA"))
+	EventSystem.choose(state, "cape_independence_crisis", {"country": "ZAF", "from": ""}, 0)
+	assert_not_null(state.get_country("CPE"))
+	EventSystem.choose(state, "horn_union_proposal", {"country": "ERI", "from": "ETH"}, 0)
+	assert_null(state.get_country("ERI"))
 	for _hour: int in 31 * GameDate.HOURS_PER_DAY:
 		GameState.advance_hour()

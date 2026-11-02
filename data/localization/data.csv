@@ -1804,3 +1804,180 @@ EVENT_GULF_UNION_PROPOSAL_TITLE,A Gulf union,Une union du Golfe
 EVENT_GULF_UNION_PROPOSAL_DESC,{from} proposes that our two states unite under one crown.,"Proposition d'unir nos deux États sous une seule couronne, venue de : {from}."
 EVENT_GULF_UNION_PROPOSAL_A,Join the union,Rejoindre l'union
 EVENT_GULF_UNION_PROPOSAL_B,Preserve our independence,Préserver notre indépendance
+FOCUS_TREE_ITA,Italy's renaissance,La renaissance italienne
+FOCUS_ITA_STABLE_GOVERNMENT,A stable government,Un gouvernement stable
+FOCUS_ITA_STABLE_GOVERNMENT_DESC,"For once, a government that lasts a full term.","Pour une fois, un gouvernement qui dure tout un mandat."
+FOCUS_ITA_PREMIERATO,The premierato,Le premierato
+FOCUS_ITA_PREMIERATO_DESC,A directly elected prime minister.,Un président du Conseil élu au suffrage direct.
+FOCUS_ITA_PNRR_COMPLETION,Complete the recovery plan,Achever le plan de relance
+FOCUS_ITA_PNRR_COMPLETION_DESC,Spend the European funds before the deadline.,Dépenser les fonds européens avant l'échéance.
+FOCUS_ITA_DIFFERENTIATED_AUTONOMY,Differentiated autonomy,Autonomie différenciée
+FOCUS_ITA_DIFFERENTIATED_AUTONOMY_DESC,More powers for the regions that want them.,Davantage de pouvoirs pour les régions qui le souhaitent.
+FOCUS_ITA_MATTEI_PLAN,Mattei Plan,Plan Mattei
+FOCUS_ITA_MATTEI_PLAN_DESC,Partnerships with Africa on energy and migration.,Des partenariats avec l'Afrique sur l'énergie et les migrations.
+FOCUS_ITA_MEDITERRANEAN_BORDER,The Mediterranean border,La frontière méditerranéenne
+FOCUS_ITA_MEDITERRANEAN_BORDER_DESC,Stop irregular arrivals by sea.,Stopper les arrivées irrégulières par la mer.
+FOCUS_ITA_MESSINA_BRIDGE,The Strait of Messina bridge,Le pont du détroit de Messine
+FOCUS_ITA_MESSINA_BRIDGE_DESC,Finally link Sicily to the mainland.,Relier enfin la Sicile au continent.
+FOCUS_ITA_MEZZOGIORNO_PLAN,A plan for the South,Un plan pour le Sud
+FOCUS_ITA_MEZZOGIORNO_PLAN_DESC,Close the gap between North and South.,Combler l'écart entre le Nord et le Sud.
+FOCUS_ITA_BABY_BONUS,Baby bonus,Prime à la naissance
+FOCUS_ITA_BABY_BONUS_DESC,Fight the demographic winter.,Combattre l'hiver démographique.
+FOCUS_ITA_EURO_CORE,At the heart of the euro,Au cœur de l'euro
+FOCUS_ITA_EURO_CORE_DESC,"Italy, pillar of the eurozone.","L'Italie, pilier de la zone euro."
+FOCUS_ITA_SOVEREIGN_CURRENCY,Monetary sovereignty,Souveraineté monétaire
+FOCUS_ITA_SOVEREIGN_CURRENCY_DESC,Leave the Union and bring back the lira.,Quitter l'Union et retrouver la lire.
+FOCUS_ITA_BEL_PAESE,Il Bel Paese,Il Bel Paese
+FOCUS_ITA_BEL_PAESE_DESC,Italy has found its confidence again.,L'Italie a retrouvé confiance en elle.
+FOCUS_TREE_ESP,The Spain of tomorrow,L'Espagne de demain
+FOCUS_ESP_PROGRESSIVE_COALITION,The progressive coalition,La coalition progressiste
+FOCUS_ESP_PROGRESSIVE_COALITION_DESC,Govern with a fragile majority.,Gouverner avec une majorité fragile.
+FOCUS_ESP_PLURINATIONAL_SPAIN,A plurinational Spain,Une Espagne plurinationale
+FOCUS_ESP_PLURINATIONAL_SPAIN_DESC,A federal Spain that recognises its nations.,Une Espagne fédérale qui reconnaît ses nations.
+FOCUS_ESP_RENEWABLE_SUPERPOWER,Renewable superpower,Superpuissance renouvelable
+FOCUS_ESP_RENEWABLE_SUPERPOWER_DESC,The sun of Spain powers Europe.,Le soleil d'Espagne alimente l'Europe.
+FOCUS_ESP_INDISSOLUBLE_UNITY,Indissoluble unity,Unité indissoluble
+FOCUS_ESP_INDISSOLUBLE_UNITY_DESC,"One nation, one Spain.","Une seule nation, une seule Espagne."
+FOCUS_ESP_CATALAN_REFERENDUM,A legal referendum in Catalonia,Un référendum légal en Catalogne
+FOCUS_ESP_CATALAN_REFERENDUM_DESC,"Let Catalans vote, legally this time.","Laisser voter les Catalans, légalement cette fois."
+FOCUS_ESP_HOUSING_PLAN,Housing plan,Plan logement
+FOCUS_ESP_HOUSING_PLAN_DESC,Cap rents and build for the young.,Plafonner les loyers et construire pour les jeunes.
+FOCUS_ESP_GREEN_HYDROGEN_VALLEY,Green hydrogen valley,Vallée de l'hydrogène vert
+FOCUS_ESP_GREEN_HYDROGEN_VALLEY_DESC,Iberian hydrogen for European industry.,De l'hydrogène ibérique pour l'industrie européenne.
+FOCUS_ESP_GIBRALTAR_CLAIM,Gibraltar is Spanish,Gibraltar est espagnol
+FOCUS_ESP_GIBRALTAR_CLAIM_DESC,Revive the claim over the Rock.,Relancer la revendication sur le Rocher.
+FOCUS_ESP_LATIN_AMERICA_BRIDGE,Bridge to Latin America,Pont vers l'Amérique latine
+FOCUS_ESP_LATIN_AMERICA_BRIDGE_DESC,"Spain, Europe's door to Latin America.","L'Espagne, porte de l'Europe vers l'Amérique latine."
+FOCUS_ESP_THIRD_REPUBLIC,The Third Republic,La IIIe République
+FOCUS_ESP_THIRD_REPUBLIC_DESC,The monarchy gives way to a republic.,La monarchie laisse place à la république.
+FOCUS_ESP_IBERIAN_FEDERATION,An Iberian federation,Une fédération ibérique
+FOCUS_ESP_IBERIAN_FEDERATION_DESC,Propose to Portugal to unite the peninsula.,Proposer au Portugal d'unir la péninsule.
+FOCUS_ESP_ESPANA_GLOBAL,Global Spain,L'Espagne mondiale
+FOCUS_ESP_ESPANA_GLOBAL_DESC,Spain counts in Europe and beyond.,L'Espagne compte en Europe et au-delà.
+FOCUS_TREE_POL,Poland rising,La Pologne qui monte
+FOCUS_POLAND_EASTERN_FLANK,The eastern flank,Le flanc oriental
+FOCUS_POLAND_EASTERN_FLANK_DESC,Poland guards NATO's eastern border.,La Pologne garde la frontière orientale de l'OTAN.
+FOCUS_POLAND_STRONGEST_ARMY,Europe's strongest army,La plus forte armée d'Europe
+FOCUS_POLAND_STRONGEST_ARMY_DESC,Three hundred thousand soldiers and the latest equipment.,Trois cent mille soldats et le meilleur équipement.
+FOCUS_POLAND_CPK_MEGAPROJECT,The central airport,L'aéroport central
+FOCUS_POLAND_CPK_MEGAPROJECT_DESC,A new hub for Central Europe.,Une nouvelle plaque tournante pour l'Europe centrale.
+FOCUS_POLAND_RULE_OF_LAW,Restore the rule of law,Rétablir l'État de droit
+FOCUS_POLAND_RULE_OF_LAW_DESC,Independent courts and peace with Brussels.,Des tribunaux indépendants et la paix avec Bruxelles.
+FOCUS_POLAND_EAST_SHIELD,East Shield,Bouclier Est
+FOCUS_POLAND_EAST_SHIELD_DESC,Fortify the border with Belarus and Russia.,Fortifier la frontière avec la Biélorussie et la Russie.
+FOCUS_POLAND_NUCLEAR_SHARING,Nuclear sharing,Partage nucléaire
+FOCUS_POLAND_NUCLEAR_SHARING_DESC,Host allied nuclear weapons on Polish soil.,Accueillir des armes nucléaires alliées sur le sol polonais.
+FOCUS_POLAND_FIRST_NUCLEAR_PLANT,The first nuclear plant,La première centrale nucléaire
+FOCUS_POLAND_FIRST_NUCLEAR_PLANT_DESC,End dependence on coal.,Sortir de la dépendance au charbon.
+FOCUS_POLAND_SOVEREIGN_POLAND,Sovereign Poland,Une Pologne souveraine
+FOCUS_POLAND_SOVEREIGN_POLAND_DESC,"Polish values first, even against Brussels.","Les valeurs polonaises d'abord, même contre Bruxelles."
+FOCUS_POLAND_THREE_SEAS,Three Seas Initiative,Initiative des trois mers
+FOCUS_POLAND_THREE_SEAS_DESC,Unite Central Europe from the Baltic to the Adriatic.,Unir l'Europe centrale de la Baltique à l'Adriatique.
+FOCUS_POLAND_EURO_ADOPTION,Adopt the euro,Adopter l'euro
+FOCUS_POLAND_EURO_ADOPTION_DESC,Join the heart of Europe.,Rejoindre le cœur de l'Europe.
+FOCUS_POLAND_INTERMARIUM,Intermarium,Intermarium
+FOCUS_POLAND_INTERMARIUM_DESC,An alliance from the Baltic to the Black Sea with Ukraine.,Une alliance de la Baltique à la mer Noire avec l'Ukraine.
+FOCUS_POLAND_POLISH_CENTURY,The Polish century,Le siècle polonais
+FOCUS_POLAND_POLISH_CENTURY_DESC,Poland among the great powers of Europe.,La Pologne parmi les grandes puissances d'Europe.
+FOCUS_TREE_NGA,The giant of Africa,Le géant de l'Afrique
+FOCUS_NGA_RENEWED_HOPE,Renewed hope,Espoir renouvelé
+FOCUS_NGA_RENEWED_HOPE_DESC,Reform the economy of Africa's most populous country.,Réformer l'économie du pays le plus peuplé d'Afrique.
+FOCUS_NGA_SUBSIDY_REFORM,End fuel subsidies,Fin des subventions au carburant
+FOCUS_NGA_SUBSIDY_REFORM_DESC,A painful reform to save public finances.,Une réforme douloureuse pour sauver les finances publiques.
+FOCUS_NGA_REFINING_INDEPENDENCE,Refining independence,Indépendance du raffinage
+FOCUS_NGA_REFINING_INDEPENDENCE_DESC,Refine our own oil instead of importing petrol.,Raffiner notre propre pétrole au lieu d'importer l'essence.
+FOCUS_NGA_SECURITY_FIRST,Security first,La sécurité d'abord
+FOCUS_NGA_SECURITY_FIRST_DESC,"Bandits, jihadists and kidnappers: restore order.","Bandits, djihadistes et ravisseurs : rétablir l'ordre."
+FOCUS_NGA_LAGOS_TECH_HUB,Lagos tech hub,Pôle technologique de Lagos
+FOCUS_NGA_LAGOS_TECH_HUB_DESC,Africa's Silicon Valley.,La Silicon Valley de l'Afrique.
+FOCUS_NGA_RESTRUCTURING,Restructure the federation,Restructurer la fédération
+FOCUS_NGA_RESTRUCTURING_DESC,More powers and resources for the states.,Davantage de pouvoirs et de ressources pour les États.
+FOCUS_NGA_STRONG_CENTRE,A strong centre,Un centre fort
+FOCUS_NGA_STRONG_CENTRE_DESC,Abuja holds the country together.,Abuja tient le pays.
+FOCUS_NGA_CRUSH_INSURGENCY,Crush the insurgency,Écraser l'insurrection
+FOCUS_NGA_CRUSH_INSURGENCY_DESC,Drones and special forces in the North-East.,Drones et forces spéciales dans le Nord-Est.
+FOCUS_NGA_ECOWAS_LEADERSHIP,ECOWAS leadership,Leadership de la CEDEAO
+FOCUS_NGA_ECOWAS_LEADERSHIP_DESC,Lead West Africa.,Prendre la tête de l'Afrique de l'Ouest.
+FOCUS_NGA_BIAFRA_REFERENDUM,A referendum in the South-East,Un référendum dans le Sud-Est
+FOCUS_NGA_BIAFRA_REFERENDUM_DESC,"Let the South-East decide, sixty years after the Biafran war.","Laisser décider le Sud-Est, soixante ans après la guerre du Biafra."
+FOCUS_NGA_GIANT_OF_AFRICA,Giant of Africa,Géant de l'Afrique
+FOCUS_NGA_GIANT_OF_AFRICA_DESC,Nigeria lives up to its name.,Le Nigeria est à la hauteur de son surnom.
+FOCUS_TREE_ZAF,The rainbow nation,La nation arc-en-ciel
+FOCUS_ZAF_GOVERNMENT_OF_NATIONAL_UNITY,Government of national unity,Gouvernement d'unité nationale
+FOCUS_ZAF_GOVERNMENT_OF_NATIONAL_UNITY_DESC,Make the first coalition since 1994 work.,Faire fonctionner la première coalition depuis 1994.
+FOCUS_ZAF_KEEP_THE_LIGHTS_ON,Keep the lights on,Garder la lumière allumée
+FOCUS_ZAF_KEEP_THE_LIGHTS_ON_DESC,End load-shedding for good.,En finir pour de bon avec les délestages.
+FOCUS_ZAF_LAND_EXPROPRIATION,Expropriation without compensation,Expropriation sans compensation
+FOCUS_ZAF_LAND_EXPROPRIATION_DESC,Return the land to the majority.,Rendre la terre à la majorité.
+FOCUS_ZAF_MARKET_REFORMS,Growth reforms,Réformes pour la croissance
+FOCUS_ZAF_MARKET_REFORMS_DESC,"Open ports, rail and energy to private investment.","Ouvrir ports, rail et énergie à l'investissement privé."
+FOCUS_ZAF_PLATINUM_BELT,The platinum belt,La ceinture du platine
+FOCUS_ZAF_PLATINUM_BELT_DESC,Mine the metals of the energy transition.,Exploiter les métaux de la transition énergétique.
+FOCUS_ZAF_FIGHT_CRIME,Fight crime,Combattre la criminalité
+FOCUS_ZAF_FIGHT_CRIME_DESC,Reclaim the streets and clean up the police.,Reprendre les rues et assainir la police.
+FOCUS_ZAF_BRICS_VOICE,Voice of the BRICS,La voix des BRICS
+FOCUS_ZAF_BRICS_VOICE_DESC,Speak for Africa among the emerging powers.,Parler pour l'Afrique parmi les puissances émergentes.
+FOCUS_ZAF_WESTERN_PARTNERSHIP,Western partnership,Partenariat occidental
+FOCUS_ZAF_WESTERN_PARTNERSHIP_DESC,Repair relations with Washington and Europe.,Réparer les relations avec Washington et l'Europe.
+FOCUS_ZAF_CAPE_QUESTION,The Cape question,La question du Cap
+FOCUS_ZAF_CAPE_QUESTION_DESC,"In the Western Cape, voices call for independence.","Au Cap-Occidental, des voix réclament l'indépendance."
+FOCUS_ZAF_AFRICAN_FREE_TRADE,African free trade,Le libre-échange africain
+FOCUS_ZAF_AFRICAN_FREE_TRADE_DESC,Make the African Continental Free Trade Area a reality.,Faire de la zone de libre-échange continentale africaine une réalité.
+FOCUS_ZAF_RAINBOW_RENEWED,The rainbow renewed,L'arc-en-ciel renouvelé
+FOCUS_ZAF_RAINBOW_RENEWED_DESC,South Africa keeps Mandela's promise.,L'Afrique du Sud tient la promesse de Mandela.
+FOCUS_TREE_ETH,Ethiopia rising,L'Éthiopie se lève
+FOCUS_ETH_MEDEMER,Medemer,Medemer
+FOCUS_ETH_MEDEMER_DESC,"""Coming together"": the national philosophy of synergy.",« Se rassembler » : la philosophie nationale de la synergie.
+FOCUS_ETH_RENAISSANCE_DAM,The Renaissance Dam,Le barrage de la Renaissance
+FOCUS_ETH_RENAISSANCE_DAM_DESC,Africa's largest dam is running at full capacity.,Le plus grand barrage d'Afrique tourne à plein régime.
+FOCUS_ETH_PROSPERITY_UNITARY,A united Ethiopia,Une Éthiopie unie
+FOCUS_ETH_PROSPERITY_UNITARY_DESC,Move beyond ethnic federalism.,Dépasser le fédéralisme ethnique.
+FOCUS_ETH_ETHNIC_FEDERALISM,Ethnic federalism,Fédéralisme ethnique
+FOCUS_ETH_ETHNIC_FEDERALISM_DESC,Each nation of Ethiopia governs itself.,Chaque nation d'Éthiopie se gouverne elle-même.
+FOCUS_ETH_POWER_EXPORTS,Power exports,Exporter l'électricité
+FOCUS_ETH_POWER_EXPORTS_DESC,Sell hydroelectricity to our neighbours.,Vendre l'hydroélectricité à nos voisins.
+FOCUS_ETH_RED_SEA_ACCESS,Access to the Red Sea,Un accès à la mer Rouge
+FOCUS_ETH_RED_SEA_ACCESS_DESC,A nation of 130 million cannot remain landlocked.,Une nation de 130 millions d'habitants ne peut rester enclavée.
+FOCUS_ETH_INDUSTRIAL_PARKS,Industrial parks,Parcs industriels
+FOCUS_ETH_INDUSTRIAL_PARKS_DESC,Africa's new factory.,La nouvelle usine de l'Afrique.
+FOCUS_ETH_TIGRAY_PEACE,Peace in Tigray,La paix au Tigré
+FOCUS_ETH_TIGRAY_PEACE_DESC,Heal the wounds of the war.,Panser les plaies de la guerre.
+FOCUS_ETH_HORN_UNION,A union of the Horn,Une union de la Corne
+FOCUS_ETH_HORN_UNION_DESC,Propose to Eritrea to unite again.,Proposer à l'Érythrée de s'unir de nouveau.
+FOCUS_ETH_ASSAB_WAR,War for Assab,La guerre pour Assab
+FOCUS_ETH_ASSAB_WAR_DESC,Take a port by force.,Prendre un port par la force.
+FOCUS_ETH_AFRICAN_LION,The African lion,Le lion africain
+FOCUS_ETH_AFRICAN_LION_DESC,Ethiopia becomes a regional power.,L'Éthiopie devient une puissance régionale.
+EVENT_CATALAN_INDEPENDENCE_REFERENDUM_TITLE,Catalonia votes,La Catalogne vote
+EVENT_CATALAN_INDEPENDENCE_REFERENDUM_DESC,Catalans vote legally on independence.,Les Catalans votent légalement sur l'indépendance.
+EVENT_CATALAN_INDEPENDENCE_VOTES_YES_TITLE,Catalonia chooses independence,La Catalogne choisit l'indépendance
+EVENT_CATALAN_INDEPENDENCE_VOTES_YES_DESC,"""Yes"" has won. Barcelona asks Madrid to recognise the result.",Le « oui » l'emporte. Barcelone demande à Madrid de reconnaître le résultat.
+EVENT_CATALAN_INDEPENDENCE_VOTES_YES_A,Respect the vote,Respecter le vote
+EVENT_CATALAN_INDEPENDENCE_VOTES_YES_B,Refuse to recognise it,Refuser de le reconnaître
+EVENT_CATALAN_INDEPENDENCE_VOTES_NO_TITLE,Catalonia stays,La Catalogne reste
+EVENT_CATALAN_INDEPENDENCE_VOTES_NO_DESC,"""No"" has won: Catalonia remains in Spain.",Le « non » l'emporte : la Catalogne reste en Espagne.
+EVENT_CATALAN_INDEPENDENCE_VOTES_NO_A,Spain endures,L'Espagne perdure
+EVENT_BIAFRA_REFERENDUM_TITLE,The South-East votes,Le Sud-Est vote
+EVENT_BIAFRA_REFERENDUM_DESC,The people of the South-East vote on independence.,Les habitants du Sud-Est votent sur l'indépendance.
+EVENT_BIAFRA_VOTES_YES_TITLE,Biafra chooses independence,Le Biafra choisit l'indépendance
+EVENT_BIAFRA_VOTES_YES_DESC,"""Yes"" has won. Enugu asks Abuja to let Biafra go.",Le « oui » l'emporte. Enugu demande à Abuja de laisser partir le Biafra.
+EVENT_BIAFRA_VOTES_YES_A,Respect the vote,Respecter le vote
+EVENT_BIAFRA_VOTES_YES_B,Refuse to recognise it,Refuser de le reconnaître
+EVENT_BIAFRA_VOTES_NO_TITLE,The South-East stays,Le Sud-Est reste
+EVENT_BIAFRA_VOTES_NO_DESC,"""No"" has won: the South-East remains in Nigeria.",Le « non » l'emporte : le Sud-Est reste au Nigeria.
+EVENT_BIAFRA_VOTES_NO_A,One Nigeria,Un seul Nigeria
+EVENT_IBERIAN_FEDERATION_PROPOSAL_TITLE,An Iberian federation,Une fédération ibérique
+EVENT_IBERIAN_FEDERATION_PROPOSAL_DESC,{from} proposes to unite the peninsula in a single federation.,"Proposition d'unir la péninsule en une seule fédération, venue de : {from}."
+EVENT_IBERIAN_FEDERATION_PROPOSAL_A,Unite the peninsula,Unir la péninsule
+EVENT_IBERIAN_FEDERATION_PROPOSAL_B,Portugal remains Portugal,Le Portugal reste le Portugal
+EVENT_IBERIAN_FEDERATION_FOUNDED_TITLE,The Iberian Federation is born,Naissance de la Fédération ibérique
+EVENT_IBERIAN_FEDERATION_FOUNDED_DESC,"For the first time since 1640, the peninsula is a single state.","Pour la première fois depuis 1640, la péninsule ne forme qu'un seul État."
+EVENT_IBERIAN_FEDERATION_FOUNDED_A,Long live Iberia,Vive l'Ibérie
+EVENT_HORN_UNION_PROPOSAL_TITLE,A union of the Horn,Une union de la Corne
+EVENT_HORN_UNION_PROPOSAL_DESC,{from} proposes that our two countries become one again.,"Proposition que nos deux pays n'en forment plus qu'un, venue de : {from}."
+EVENT_HORN_UNION_PROPOSAL_A,Accept the union,Accepter l'union
+EVENT_HORN_UNION_PROPOSAL_B,Defend our independence,Défendre notre indépendance
+EVENT_CAPE_INDEPENDENCE_CRISIS_TITLE,Capexit,Capexit
+EVENT_CAPE_INDEPENDENCE_CRISIS_DESC,The Western Cape demands independence.,Le Cap-Occidental réclame l'indépendance.
+EVENT_CAPE_INDEPENDENCE_CRISIS_A,Let the Cape go,Laisser partir le Cap
+EVENT_CAPE_INDEPENDENCE_CRISIS_B,Offer more autonomy,Proposer davantage d'autonomie

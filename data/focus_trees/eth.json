@@ -1,0 +1,261 @@
+{
+  "eth": {
+    "name_key": "FOCUS_TREE_ETH",
+    "countries": [
+      "ETH"
+    ],
+    "include": "generic",
+    "nodes": {
+      "eth_medemer": {
+        "name_key": "FOCUS_ETH_MEDEMER",
+        "desc_key": "FOCUS_ETH_MEDEMER_DESC",
+        "x": 10,
+        "y": 6,
+        "months": 6,
+        "effects": {
+          "add_legitimacy": 2,
+          "add_modifier": {
+            "growth": 0.05,
+            "months": -1
+          }
+        },
+        "ai_weight": 3
+      },
+      "eth_renaissance_dam": {
+        "name_key": "FOCUS_ETH_RENAISSANCE_DAM",
+        "desc_key": "FOCUS_ETH_RENAISSANCE_DAM_DESC",
+        "x": 4,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "eth_medemer"
+        ],
+        "effects": {
+          "add_modifier": {
+            "growth": 0.2,
+            "months": -1
+          },
+          "add_relation": {
+            "with": "EGY",
+            "value": -15
+          },
+          "add_legitimacy": 3
+        }
+      },
+      "eth_prosperity_unitary": {
+        "name_key": "FOCUS_ETH_PROSPERITY_UNITARY",
+        "desc_key": "FOCUS_ETH_PROSPERITY_UNITARY_DESC",
+        "x": 10,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "eth_medemer"
+        ],
+        "exclusive": [
+          "eth_ethnic_federalism"
+        ],
+        "effects": {
+          "set_law": {
+            "decentralization": "centralized"
+          },
+          "add_group_satisfaction": {
+            "minorities": -4,
+            "military": 3
+          }
+        },
+        "ai_weight": 2
+      },
+      "eth_ethnic_federalism": {
+        "name_key": "FOCUS_ETH_ETHNIC_FEDERALISM",
+        "desc_key": "FOCUS_ETH_ETHNIC_FEDERALISM_DESC",
+        "x": 16,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "eth_medemer"
+        ],
+        "exclusive": [
+          "eth_prosperity_unitary"
+        ],
+        "effects": {
+          "set_law": {
+            "decentralization": "federal"
+          },
+          "add_group_satisfaction": {
+            "minorities": 5
+          },
+          "add_legitimacy": 2
+        },
+        "ai_weight": 1
+      },
+      "eth_power_exports": {
+        "name_key": "FOCUS_ETH_POWER_EXPORTS",
+        "desc_key": "FOCUS_ETH_POWER_EXPORTS_DESC",
+        "x": 2,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "eth_renaissance_dam"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "tag": [
+                "KEN",
+                "DJI",
+                "SDN"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 10
+              }
+            }
+          },
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          }
+        }
+      },
+      "eth_red_sea_access": {
+        "name_key": "FOCUS_ETH_RED_SEA_ACCESS",
+        "desc_key": "FOCUS_ETH_RED_SEA_ACCESS_DESC",
+        "x": 6,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "eth_prosperity_unitary"
+        ],
+        "effects": {
+          "add_claim": {
+            "target": "ERI",
+            "provinces": [
+              991
+            ]
+          },
+          "add_relation": {
+            "with": "ERI",
+            "value": -20
+          },
+          "add_tension": 2
+        }
+      },
+      "eth_industrial_parks": {
+        "name_key": "FOCUS_ETH_INDUSTRIAL_PARKS",
+        "desc_key": "FOCUS_ETH_INDUSTRIAL_PARKS_DESC",
+        "x": 10,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "eth_medemer"
+        ],
+        "effects": {
+          "add_modifier": {
+            "growth": 0.15,
+            "unemployment": -0.4,
+            "months": -1
+          },
+          "add_relation": {
+            "with": "CHN",
+            "value": 8
+          }
+        }
+      },
+      "eth_tigray_peace": {
+        "name_key": "FOCUS_ETH_TIGRAY_PEACE",
+        "desc_key": "FOCUS_ETH_TIGRAY_PEACE_DESC",
+        "x": 14,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "eth_ethnic_federalism"
+        ],
+        "effects": {
+          "add_group_satisfaction": {
+            "minorities": 4
+          },
+          "add_modifier": {
+            "stability": 3,
+            "months": -1
+          },
+          "add_legitimacy": 2
+        }
+      },
+      "eth_horn_union": {
+        "name_key": "FOCUS_ETH_HORN_UNION",
+        "desc_key": "FOCUS_ETH_HORN_UNION_DESC",
+        "x": 18,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "eth_ethnic_federalism"
+        ],
+        "available": {
+          "country_exists": "ERI",
+          "not": {
+            "player_is": "ERI"
+          },
+          "relation": {
+            "with": "ERI",
+            "value": ">40"
+          }
+        },
+        "effects": {
+          "trigger_event": {
+            "id": "horn_union_proposal",
+            "target": "ERI",
+            "days": 10
+          }
+        },
+        "ai_weight": 0.3
+      },
+      "eth_assab_war": {
+        "name_key": "FOCUS_ETH_ASSAB_WAR",
+        "desc_key": "FOCUS_ETH_ASSAB_WAR_DESC",
+        "x": 6,
+        "y": 9,
+        "months": 8,
+        "requires": [
+          "eth_red_sea_access"
+        ],
+        "available": {
+          "country_exists": "ERI"
+        },
+        "effects": {
+          "declare_war": {
+            "target": "ERI",
+            "goal": "annex"
+          },
+          "add_group_satisfaction": {
+            "military": 4
+          }
+        },
+        "ai_weight": 0.2
+      },
+      "eth_african_lion": {
+        "name_key": "FOCUS_ETH_AFRICAN_LION",
+        "desc_key": "FOCUS_ETH_AFRICAN_LION_DESC",
+        "x": 10,
+        "y": 11,
+        "months": 12,
+        "requires_any": [
+          "eth_power_exports",
+          "eth_assab_war",
+          "eth_industrial_parks",
+          "eth_tigray_peace",
+          "eth_horn_union"
+        ],
+        "effects": {
+          "add_modifier": {
+            "stability": 2,
+            "growth": 0.1,
+            "months": -1
+          },
+          "add_influence": 25
+        }
+      }
+    }
+  }
+}
