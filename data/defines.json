@@ -1373,6 +1373,10 @@
     "default_ai_weight": 1.0,
     "modifier_months": 12
   },
+  "decisions": {
+    "ai_monthly_chance": 0.06,
+    "days_per_month": 30.4
+  },
   "leaders": {
     "mortality_at_reference": 0.025,
     "reference_age": 70,
