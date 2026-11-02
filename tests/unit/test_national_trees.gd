@@ -3,7 +3,7 @@ extends GutTest
 ## uchronies jouées dans le vrai monde (fédération européenne, Groenland, Taïwan, Texas).
 
 const NATIONAL := ["USA", "CHN", "RUS", "IND", "FRA", "DEU", "GBR", "JPN", "KOR", "PRK", "TWN", "UKR", "BRA", "MEX", "ARG",
-	"CAN", "AUS", "IDN"]
+	"CAN", "AUS", "IDN", "TUR", "IRN", "ISR", "SAU", "EGY", "PAK"]
 const MIN_GAP := 2.0
 
 
@@ -134,5 +134,24 @@ func test_lot_3_scenarios() -> void:
 		ScriptEffects.apply(state, {"country": "AUS", "from": ""},
 			(trees["aus"]["nodes"]["aus_republic_referendum"] as Dictionary)["effects"])
 	assert_eq(state.get_country("AUS").politics.regime, "parliamentary_republic", "la république finit par passer")
+	for _hour: int in 31 * GameDate.HOURS_PER_DAY:
+		GameState.advance_hour()
+
+
+func test_lot_4_scenarios() -> void:
+	GameState.new_game(38, &"FRA")
+	var state := GameState.sim
+	var trees := _trees()
+	ScriptEffects.apply(state, {"country": "TUR", "from": ""},
+		(trees["tur"]["nodes"]["tur_annex_northern_cyprus"] as Dictionary)["effects"])
+	assert_null(state.get_country("CYN"))
+	EventSystem.choose(state, "gulf_union_proposal", {"country": "BHR", "from": "SAU"}, 0)
+	assert_null(state.get_country("BHR"))
+	ScriptEffects.apply(state, {"country": "IRN", "from": ""},
+		(trees["irn"]["nodes"]["irn_woman_life_freedom"] as Dictionary)["effects"])
+	assert_true(state.get_country("IRN").politics.democratic)
+	ScriptEffects.apply(state, {"country": "PAK", "from": ""},
+		(trees["pak"]["nodes"]["pak_military_rule"] as Dictionary)["effects"])
+	assert_eq(state.get_country("PAK").politics.regime, "military_junta")
 	for _hour: int in 31 * GameDate.HOURS_PER_DAY:
 		GameState.advance_hour()

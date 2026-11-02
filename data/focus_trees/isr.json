@@ -1,0 +1,330 @@
+{
+  "isr": {
+    "name_key": "FOCUS_TREE_ISR",
+    "countries": [
+      "ISR"
+    ],
+    "include": "generic",
+    "nodes": {
+      "isr_day_after": {
+        "name_key": "FOCUS_ISR_DAY_AFTER",
+        "desc_key": "FOCUS_ISR_DAY_AFTER_DESC",
+        "x": 10,
+        "y": 6,
+        "months": 6,
+        "effects": {
+          "add_stability": 2,
+          "add_group_satisfaction": {
+            "military": 2
+          }
+        },
+        "ai_weight": 3
+      },
+      "isr_judicial_overhaul": {
+        "name_key": "FOCUS_ISR_JUDICIAL_OVERHAUL",
+        "desc_key": "FOCUS_ISR_JUDICIAL_OVERHAUL_DESC",
+        "x": 4,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "isr_day_after"
+        ],
+        "exclusive": [
+          "isr_national_unity_government"
+        ],
+        "effects": {
+          "set_law": {
+            "judicial_independence": "partial"
+          },
+          "add_group_satisfaction": {
+            "religious": 4,
+            "youth": -4,
+            "middle_class": -3
+          },
+          "add_stability": -4
+        },
+        "ai_weight": 2
+      },
+      "isr_startup_nation": {
+        "name_key": "FOCUS_ISR_STARTUP_NATION",
+        "desc_key": "FOCUS_ISR_STARTUP_NATION_DESC",
+        "x": 10,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "isr_day_after"
+        ],
+        "effects": {
+          "add_tech": "ai_cyber_defense",
+          "add_modifier": {
+            "growth": 0.15,
+            "months": -1
+          }
+        }
+      },
+      "isr_national_unity_government": {
+        "name_key": "FOCUS_ISR_NATIONAL_UNITY_GOVERNMENT",
+        "desc_key": "FOCUS_ISR_NATIONAL_UNITY_GOVERNMENT_DESC",
+        "x": 16,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "isr_day_after"
+        ],
+        "exclusive": [
+          "isr_judicial_overhaul"
+        ],
+        "effects": {
+          "add_legitimacy": 4,
+          "add_modifier": {
+            "stability": 2,
+            "months": -1
+          }
+        },
+        "ai_weight": 1
+      },
+      "isr_west_bank_annexation": {
+        "name_key": "FOCUS_ISR_WEST_BANK_ANNEXATION",
+        "desc_key": "FOCUS_ISR_WEST_BANK_ANNEXATION_DESC",
+        "x": 2,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "isr_judicial_overhaul"
+        ],
+        "available": {
+          "country_exists": "PSE",
+          "not": {
+            "player_is": "PSE"
+          }
+        },
+        "effects": {
+          "transfer_provinces": {
+            "from": "PSE",
+            "to": "self",
+            "provinces": [
+              4499
+            ]
+          },
+          "add_tension": 6,
+          "add_group_satisfaction": {
+            "religious": 4,
+            "minorities": -6
+          },
+          "every_country": {
+            "limit": {
+              "member_of": "arab_league"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": -30
+              }
+            }
+          },
+          "if": {
+            "exists": true
+          },
+          "then": {
+            "every_country": {
+              "limit": {
+                "member_of": "eu"
+              },
+              "effects": {
+                "add_relation": {
+                  "with": "from",
+                  "value": -20
+                }
+              }
+            }
+          }
+        },
+        "ai_weight": 0.2
+      },
+      "isr_iran_campaign": {
+        "name_key": "FOCUS_ISR_IRAN_CAMPAIGN",
+        "desc_key": "FOCUS_ISR_IRAN_CAMPAIGN_DESC",
+        "x": 6,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "isr_judicial_overhaul"
+        ],
+        "available": {
+          "country_exists": "IRN",
+          "world_tension": ">60",
+          "relation": {
+            "with": "IRN",
+            "value": "<-50"
+          }
+        },
+        "effects": {
+          "declare_war": {
+            "target": "IRN",
+            "goal": "regime_change"
+          },
+          "add_group_satisfaction": {
+            "military": 4
+          }
+        },
+        "ai_weight": 0.2
+      },
+      "isr_iron_beam": {
+        "name_key": "FOCUS_ISR_IRON_BEAM",
+        "desc_key": "FOCUS_ISR_IRON_BEAM_DESC",
+        "x": 10,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "isr_startup_nation"
+        ],
+        "effects": {
+          "add_tech": "laser_air_defense",
+          "add_debt_gdp": 0.5
+        }
+      },
+      "isr_abraham_accords_expansion": {
+        "name_key": "FOCUS_ISR_ABRAHAM_ACCORDS_EXPANSION",
+        "desc_key": "FOCUS_ISR_ABRAHAM_ACCORDS_EXPANSION_DESC",
+        "x": 14,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "isr_national_unity_government"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "tag": [
+                "SAU",
+                "ARE",
+                "BHR",
+                "MAR",
+                "EGY",
+                "JOR"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 15
+              }
+            }
+          },
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          }
+        }
+      },
+      "isr_two_state_solution": {
+        "name_key": "FOCUS_ISR_TWO_STATE_SOLUTION",
+        "desc_key": "FOCUS_ISR_TWO_STATE_SOLUTION_DESC",
+        "x": 18,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "isr_national_unity_government"
+        ],
+        "available": {
+          "country_exists": "PSE"
+        },
+        "effects": {
+          "every_country": {
+            "limit": {
+              "member_of": "arab_league"
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 20
+              }
+            }
+          },
+          "if": {
+            "exists": true
+          },
+          "then": {
+            "every_country": {
+              "limit": {
+                "member_of": "eu"
+              },
+              "effects": {
+                "add_relation": {
+                  "with": "from",
+                  "value": 15
+                }
+              }
+            }
+          },
+          "add_relation": {
+            "with": "PSE",
+            "value": 40
+          },
+          "add_tension": -5,
+          "add_group_satisfaction": {
+            "religious": -4,
+            "minorities": 4
+          }
+        },
+        "ai_weight": 0.3
+      },
+      "isr_gas_corridor": {
+        "name_key": "FOCUS_ISR_GAS_CORRIDOR",
+        "desc_key": "FOCUS_ISR_GAS_CORRIDOR_DESC",
+        "x": 12,
+        "y": 9,
+        "months": 12,
+        "requires_any": [
+          "isr_iron_beam",
+          "isr_abraham_accords_expansion"
+        ],
+        "effects": {
+          "add_resource_capacity": {
+            "resource": "gas",
+            "world_share": 0.004
+          },
+          "every_country": {
+            "limit": {
+              "tag": [
+                "CYP",
+                "GRC",
+                "EGY"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 10
+              }
+            }
+          },
+          "add_modifier": {
+            "growth": 0.05,
+            "months": -1
+          }
+        }
+      },
+      "isr_secure_israel": {
+        "name_key": "FOCUS_ISR_SECURE_ISRAEL",
+        "desc_key": "FOCUS_ISR_SECURE_ISRAEL_DESC",
+        "x": 10,
+        "y": 11,
+        "months": 12,
+        "requires_any": [
+          "isr_west_bank_annexation",
+          "isr_iran_campaign",
+          "isr_two_state_solution",
+          "isr_gas_corridor"
+        ],
+        "effects": {
+          "add_modifier": {
+            "stability": 3,
+            "months": -1
+          },
+          "add_influence": 25
+        }
+      }
+    }
+  }
+}

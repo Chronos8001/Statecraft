@@ -1,0 +1,41 @@
+{
+  "gulf_union_proposal": {
+    "title_key": "EVENT_GULF_UNION_PROPOSAL_TITLE",
+    "desc_key": "EVENT_GULF_UNION_PROPOSAL_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "options": [
+      {
+        "name_key": "EVENT_GULF_UNION_PROPOSAL_A",
+        "effects": {
+          "join_country": "from"
+        },
+        "ai_weight": 0.3,
+        "ai_modifiers": [
+          {
+            "factor": 4,
+            "if": {
+              "relation": {
+                "with": "from",
+                "value": ">70"
+              }
+            }
+          },
+          {
+            "factor": 3,
+            "if": {
+              "stability": "<30"
+            }
+          }
+        ]
+      },
+      {
+        "name_key": "EVENT_GULF_UNION_PROPOSAL_B",
+        "effects": {
+          "add_legitimacy": 2
+        },
+        "ai_weight": 3
+      }
+    ]
+  }
+}

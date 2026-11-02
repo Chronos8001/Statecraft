@@ -1646,3 +1646,161 @@ EVENT_ALBERTA_INDEPENDENCE_CRISIS_TITLE,Wexit,Wexit
 EVENT_ALBERTA_INDEPENDENCE_CRISIS_DESC,Alberta and Saskatchewan vote to leave the federation.,L'Alberta et la Saskatchewan votent pour quitter la fédération.
 EVENT_ALBERTA_INDEPENDENCE_CRISIS_A,Let them go,Les laisser partir
 EVENT_ALBERTA_INDEPENDENCE_CRISIS_B,Offer a new deal to the West,Proposer un nouveau pacte à l'Ouest
+FOCUS_TREE_TUR,The Century of Türkiye,Le siècle de la Turquie
+FOCUS_TUR_CENTURY_OF_TURKIYE,The Century of Türkiye,Le siècle de la Turquie
+FOCUS_TUR_CENTURY_OF_TURKIYE_DESC,The Republic's second century begins.,Le deuxième siècle de la République commence.
+FOCUS_TUR_NEO_OTTOMAN,Neo-Ottoman ambition,Ambition néo-ottomane
+FOCUS_TUR_NEO_OTTOMAN_DESC,Restore Turkish influence from the Balkans to the Caucasus.,Restaurer l'influence turque des Balkans au Caucase.
+FOCUS_TUR_DEFENCE_INDUSTRY,National defence industry,Industrie de défense nationale
+FOCUS_TUR_DEFENCE_INDUSTRY_DESC,"Drones, frigates and fighters made in Türkiye.","Drones, frégates et chasseurs fabriqués en Turquie."
+FOCUS_TUR_EUROPEAN_PATH,The European path,La voie européenne
+FOCUS_TUR_EUROPEAN_PATH_DESC,Revive the EU accession process.,Relancer le processus d'adhésion à l'UE.
+FOCUS_TUR_BLUE_HOMELAND,Blue Homeland,Patrie bleue
+FOCUS_TUR_BLUE_HOMELAND_DESC,Assert our maritime rights in the Aegean and the Mediterranean.,Affirmer nos droits maritimes en Égée et en Méditerranée.
+FOCUS_TUR_EURASIAN_TURN,The Eurasian turn,Le virage eurasien
+FOCUS_TUR_EURASIAN_TURN_DESC,Join the Shanghai Cooperation Organisation.,Rejoindre l'Organisation de coopération de Shanghai.
+FOCUS_TUR_KURDISH_PEACE,Peace with the Kurds,La paix avec les Kurdes
+FOCUS_TUR_KURDISH_PEACE_DESC,End forty years of conflict.,Mettre fin à quarante ans de conflit.
+FOCUS_TUR_SECURITY_ZONE,A security zone in Syria,Une zone de sécurité en Syrie
+FOCUS_TUR_SECURITY_ZONE_DESC,Push armed groups away from our border.,Éloigner les groupes armés de notre frontière.
+FOCUS_TUR_CUSTOMS_UNION_UPGRADE,Modernise the customs union,Moderniser l'union douanière
+FOCUS_TUR_CUSTOMS_UNION_UPGRADE_DESC,Extend the customs union with the EU to services and agriculture.,Étendre l'union douanière avec l'UE aux services et à l'agriculture.
+FOCUS_TUR_CYPRUS_SETTLEMENT,A settlement in Cyprus,Un règlement à Chypre
+FOCUS_TUR_CYPRUS_SETTLEMENT_DESC,Support a federal solution for the island.,Soutenir une solution fédérale pour l'île.
+FOCUS_TUR_ANNEX_NORTHERN_CYPRUS,Annex Northern Cyprus,Annexer Chypre du Nord
+FOCUS_TUR_ANNEX_NORTHERN_CYPRUS_DESC,Make Northern Cyprus a Turkish province.,Faire de Chypre du Nord une province turque.
+FOCUS_TUR_LEAVE_NATO,Leave NATO,Quitter l'OTAN
+FOCUS_TUR_LEAVE_NATO_DESC,"Seventy-four years after joining, Türkiye goes its own way.","Soixante-quatorze ans après son adhésion, la Turquie suit sa propre voie."
+FOCUS_TUR_ISTANBUL_CANAL,Kanal Istanbul,Canal d'Istanbul
+FOCUS_TUR_ISTANBUL_CANAL_DESC,"A second Bosphorus, outside the Montreux Convention.","Un second Bosphore, hors de la convention de Montreux."
+FOCUS_TUR_REGIONAL_POWER,A regional power,Une puissance régionale
+FOCUS_TUR_REGIONAL_POWER_DESC,Türkiye counts on three continents.,La Turquie compte sur trois continents.
+FOCUS_TREE_IRN,The Islamic Republic at the crossroads,La République islamique à la croisée des chemins
+FOCUS_IRN_AFTER_THE_WAR,After the twelve-day war,Après la guerre des douze jours
+FOCUS_IRN_AFTER_THE_WAR_DESC,Rebuild after the strikes of June 2025.,Reconstruire après les frappes de juin 2025.
+FOCUS_IRN_RESISTANCE_ECONOMY,Resistance economy,Économie de résistance
+FOCUS_IRN_RESISTANCE_ECONOMY_DESC,Self-reliance in the face of sanctions.,L'autosuffisance face aux sanctions.
+FOCUS_IRN_SUPREME_LEADER_SUCCESSION,The succession,La succession
+FOCUS_IRN_SUPREME_LEADER_SUCCESSION_DESC,Who will succeed the Supreme Leader?,Qui succédera au Guide suprême ?
+FOCUS_IRN_PRAGMATIC_OPENING,Pragmatic opening,Ouverture pragmatique
+FOCUS_IRN_PRAGMATIC_OPENING_DESC,Negotiate to lift sanctions.,Négocier pour lever les sanctions.
+FOCUS_IRN_NUCLEAR_BREAKOUT,Nuclear breakout,Percée nucléaire
+FOCUS_IRN_NUCLEAR_BREAKOUT_DESC,"Enrich to weapons grade, whatever the risk.","Enrichir jusqu'au seuil militaire, quel que soit le risque."
+FOCUS_IRN_AXIS_OF_RESISTANCE,Axis of resistance,Axe de la résistance
+FOCUS_IRN_AXIS_OF_RESISTANCE_DESC,Rebuild the network of allied movements.,Reconstruire le réseau des mouvements alliés.
+FOCUS_IRN_HARDLINE_SUCCESSOR,A hardline successor,Un successeur intransigeant
+FOCUS_IRN_HARDLINE_SUCCESSOR_DESC,The Guardians choose continuity and firmness.,Les Gardiens choisissent la continuité et la fermeté.
+FOCUS_IRN_REFORMIST_SUCCESSOR,A reformist successor,Un successeur réformateur
+FOCUS_IRN_REFORMIST_SUCCESSOR_DESC,A more open cleric takes the helm.,Un religieux plus ouvert prend la barre.
+FOCUS_IRN_NUCLEAR_DEAL,A new nuclear deal,Un nouvel accord nucléaire
+FOCUS_IRN_NUCLEAR_DEAL_DESC,Limits on enrichment against an end to sanctions.,Des limites à l'enrichissement contre la fin des sanctions.
+FOCUS_IRN_HORMUZ_LEVERAGE,The Hormuz card,La carte d'Ormuz
+FOCUS_IRN_HORMUZ_LEVERAGE_DESC,Close the strait to make the world pay for the pressure.,Fermer le détroit pour faire payer au monde la pression exercée.
+FOCUS_IRN_WOMAN_LIFE_FREEDOM,"Woman, Life, Freedom","Femme, vie, liberté"
+FOCUS_IRN_WOMAN_LIFE_FREEDOM_DESC,The street wins: a secular republic is proclaimed.,La rue l'emporte : une république laïque est proclamée.
+FOCUS_IRN_PERSIAN_POWER,A Persian power,Une puissance perse
+FOCUS_IRN_PERSIAN_POWER_DESC,Iran has chosen its path and imposed itself in the region.,L'Iran a choisi sa voie et s'est imposé dans la région.
+FOCUS_TREE_ISR,Israel's future,L'avenir d'Israël
+FOCUS_ISR_DAY_AFTER,The day after,Le jour d'après
+FOCUS_ISR_DAY_AFTER_DESC,"After the Gaza war, the country must choose a direction.","Après la guerre de Gaza, le pays doit choisir une direction."
+FOCUS_ISR_JUDICIAL_OVERHAUL,Judicial overhaul,Réforme de la justice
+FOCUS_ISR_JUDICIAL_OVERHAUL_DESC,Give the Knesset the last word over the Supreme Court.,Donner à la Knesset le dernier mot face à la Cour suprême.
+FOCUS_ISR_STARTUP_NATION,Start-up nation,Nation start-up
+FOCUS_ISR_STARTUP_NATION_DESC,"Cyber, AI and deep tech as the engine of the economy.","Cyber, IA et technologies de pointe comme moteur de l'économie."
+FOCUS_ISR_NATIONAL_UNITY_GOVERNMENT,National unity government,Gouvernement d'union nationale
+FOCUS_ISR_NATIONAL_UNITY_GOVERNMENT_DESC,Bring the main parties together to heal a divided society.,Rassembler les grands partis pour apaiser une société divisée.
+FOCUS_ISR_WEST_BANK_ANNEXATION,Annex the West Bank,Annexer la Cisjordanie
+FOCUS_ISR_WEST_BANK_ANNEXATION_DESC,"Apply Israeli sovereignty to the West Bank, against international opinion.","Appliquer la souveraineté israélienne à la Cisjordanie, contre l'opinion internationale."
+FOCUS_ISR_IRAN_CAMPAIGN,Campaign against Iran,Campagne contre l'Iran
+FOCUS_ISR_IRAN_CAMPAIGN_DESC,End the Iranian threat by force.,Mettre fin par la force à la menace iranienne.
+FOCUS_ISR_IRON_BEAM,Iron Beam,Iron Beam
+FOCUS_ISR_IRON_BEAM_DESC,Laser air defence against rockets and drones.,Une défense aérienne laser contre roquettes et drones.
+FOCUS_ISR_ABRAHAM_ACCORDS_EXPANSION,Expand the Abraham Accords,Élargir les accords d'Abraham
+FOCUS_ISR_ABRAHAM_ACCORDS_EXPANSION_DESC,Normalise relations with more Arab states.,Normaliser les relations avec davantage d'États arabes.
+FOCUS_ISR_TWO_STATE_SOLUTION,Two states,Deux États
+FOCUS_ISR_TWO_STATE_SOLUTION_DESC,Negotiate a Palestinian state alongside Israel.,Négocier un État palestinien aux côtés d'Israël.
+FOCUS_ISR_GAS_CORRIDOR,Eastern Mediterranean gas,Le gaz de Méditerranée orientale
+FOCUS_ISR_GAS_CORRIDOR_DESC,"Export gas to Europe with Cyprus, Greece and Egypt.","Exporter du gaz vers l'Europe avec Chypre, la Grèce et l'Égypte."
+FOCUS_ISR_SECURE_ISRAEL,A secure Israel,Un Israël en sécurité
+FOCUS_ISR_SECURE_ISRAEL_DESC,"Whatever the path chosen, the country looks ahead.","Quelle que soit la voie choisie, le pays regarde vers l'avenir."
+FOCUS_TREE_SAU,Vision 2030,Vision 2030
+FOCUS_SAU_VISION_2030,Vision 2030,Vision 2030
+FOCUS_SAU_VISION_2030_DESC,Prepare the kingdom for life after oil.,Préparer le royaume à l'après-pétrole.
+FOCUS_SAU_SOCIAL_OPENING,Social opening,Ouverture sociale
+FOCUS_SAU_SOCIAL_OPENING_DESC,"Concerts, cinemas and more rights for women.","Concerts, cinémas et davantage de droits pour les femmes."
+FOCUS_SAU_NEOM,NEOM,NEOM
+FOCUS_SAU_NEOM_DESC,A futuristic city in the desert.,Une ville futuriste dans le désert.
+FOCUS_SAU_GUARDIANS_OF_TRADITION,Guardians of tradition,Gardiens de la tradition
+FOCUS_SAU_GUARDIANS_OF_TRADITION_DESC,The kingdom remains faithful to its religious foundations.,Le royaume reste fidèle à ses fondements religieux.
+FOCUS_SAU_TOURISM_KINGDOM,Tourist kingdom,Royaume touristique
+FOCUS_SAU_TOURISM_KINGDOM_DESC,Open the country to millions of visitors.,Ouvrir le pays à des millions de visiteurs.
+FOCUS_SAU_ISRAEL_NORMALIZATION,Normalisation with Israel,Normalisation avec Israël
+FOCUS_SAU_ISRAEL_NORMALIZATION_DESC,"Establish diplomatic relations, in exchange for American guarantees.","Établir des relations diplomatiques, contre des garanties américaines."
+FOCUS_SAU_OPEC_PRICE_WAR,Price war,Guerre des prix
+FOCUS_SAU_OPEC_PRICE_WAR_DESC,Open the taps to win back market share.,Ouvrir les vannes pour reconquérir des parts de marché.
+FOCUS_SAU_OPEC_SUPPLY_DISCIPLINE,Supply discipline,Discipline de production
+FOCUS_SAU_OPEC_SUPPLY_DISCIPLINE_DESC,Cut production to keep prices high.,Réduire la production pour maintenir des prix élevés.
+FOCUS_SAU_YEMEN_PEACE,Peace in Yemen,La paix au Yémen
+FOCUS_SAU_YEMEN_PEACE_DESC,End the war on our southern border.,Mettre fin à la guerre à notre frontière sud.
+FOCUS_SAU_GULF_UNION,A Gulf union,Une union du Golfe
+FOCUS_SAU_GULF_UNION_DESC,Propose to our closest neighbours to unite under one crown.,Proposer à nos plus proches voisins de s'unir sous une seule couronne.
+FOCUS_SAU_NUCLEAR_HEDGE,Nuclear hedge,Assurance nucléaire
+FOCUS_SAU_NUCLEAR_HEDGE_DESC,"If Iran gets the bomb, so will we.","Si l'Iran a la bombe, nous l'aurons aussi."
+FOCUS_SAU_CONSTITUTIONAL_MONARCHY,A constitutional monarchy,Une monarchie constitutionnelle
+FOCUS_SAU_CONSTITUTIONAL_MONARCHY_DESC,An elected consultative assembly and a written constitution.,Une assemblée consultative élue et une constitution écrite.
+FOCUS_SAU_POST_OIL_KINGDOM,The post-oil kingdom,Le royaume de l'après-pétrole
+FOCUS_SAU_POST_OIL_KINGDOM_DESC,Saudi Arabia has reinvented itself.,L'Arabie saoudite s'est réinventée.
+FOCUS_TREE_EGY,The new Egypt,La nouvelle Égypte
+FOCUS_EGY_NEW_REPUBLIC,The New Republic,La Nouvelle République
+FOCUS_EGY_NEW_REPUBLIC_DESC,Megaprojects and stability as the national programme.,Grands projets et stabilité comme programme national.
+FOCUS_EGY_IMF_REFORMS,IMF reforms,Réformes du FMI
+FOCUS_EGY_IMF_REFORMS_DESC,"End subsidies and open the economy, at a social cost.","Supprimer les subventions et ouvrir l'économie, au prix d'un coût social."
+FOCUS_EGY_NEW_CAPITAL,The new capital,La nouvelle capitale
+FOCUS_EGY_NEW_CAPITAL_DESC,Move ministries out of overcrowded Cairo.,Déplacer les ministères hors du Caire surpeuplé.
+FOCUS_EGY_ARMY_ECONOMY,The army's economy,L'économie de l'armée
+FOCUS_EGY_ARMY_ECONOMY_DESC,The armed forces at the centre of economic life.,Les forces armées au centre de la vie économique.
+FOCUS_EGY_SUEZ_ECONOMIC_ZONE,Suez economic zone,Zone économique de Suez
+FOCUS_EGY_SUEZ_ECONOMIC_ZONE_DESC,Turn the canal into an industrial and logistics hub.,Faire du canal un pôle industriel et logistique.
+FOCUS_EGY_GAZA_MEDIATOR,Mediator for Gaza,Médiateur pour Gaza
+FOCUS_EGY_GAZA_MEDIATOR_DESC,"Egypt, indispensable mediator of the region.","L'Égypte, médiatrice indispensable de la région."
+FOCUS_EGY_GREEN_HYDROGEN_COAST,Green hydrogen coast,Côte de l'hydrogène vert
+FOCUS_EGY_GREEN_HYDROGEN_COAST_DESC,Sun and wind along the Red Sea.,Le soleil et le vent le long de la mer Rouge.
+FOCUS_EGY_NILE_DIPLOMACY,Nile diplomacy,Diplomatie du Nil
+FOCUS_EGY_NILE_DIPLOMACY_DESC,Negotiate the sharing of Nile waters with Ethiopia.,Négocier le partage des eaux du Nil avec l'Éthiopie.
+FOCUS_EGY_STRIKE_THE_DAM,Strike the dam,Frapper le barrage
+FOCUS_EGY_STRIKE_THE_DAM_DESC,Destroy the Renaissance Dam before it dries up Egypt.,Détruire le barrage de la Renaissance avant qu'il n'assèche l'Égypte.
+FOCUS_EGY_SECOND_REVOLUTION,A second revolution,Une seconde révolution
+FOCUS_EGY_SECOND_REVOLUTION_DESC,"Fifteen years after Tahrir, the street rises again and wins.","Quinze ans après Tahrir, la rue se soulève de nouveau et l'emporte."
+FOCUS_EGY_PHARAONIC_PROJECTS,Pharaonic projects,Projets pharaoniques
+FOCUS_EGY_PHARAONIC_PROJECTS_DESC,"Bridges, cities and monuments worthy of the pharaohs.","Ponts, villes et monuments dignes des pharaons."
+FOCUS_EGY_MOTHER_OF_THE_WORLD,Mother of the world,Mère du monde
+FOCUS_EGY_MOTHER_OF_THE_WORLD_DESC,Egypt regains its place at the heart of the Arab world.,L'Égypte retrouve sa place au cœur du monde arabe.
+FOCUS_TREE_PAK,Naya Pakistan,Naya Pakistan
+FOCUS_PAK_STABILIZATION,Stabilisation,Stabilisation
+FOCUS_PAK_STABILIZATION_DESC,Bring inflation down and reassure creditors.,Faire baisser l'inflation et rassurer les créanciers.
+FOCUS_PAK_CIVILIAN_SUPREMACY,Civilian supremacy,Primauté du pouvoir civil
+FOCUS_PAK_CIVILIAN_SUPREMACY_DESC,Send the generals back to the barracks.,Renvoyer les généraux dans leurs casernes.
+FOCUS_PAK_CPEC_PHASE_TWO,"CPEC, second phase","CPEC, seconde phase"
+FOCUS_PAK_CPEC_PHASE_TWO_DESC,Special economic zones along the corridor with China.,Des zones économiques spéciales le long du corridor avec la Chine.
+FOCUS_PAK_HYBRID_REGIME,The hybrid regime,Le régime hybride
+FOCUS_PAK_HYBRID_REGIME_DESC,"Civilian government, military power.","Gouvernement civil, pouvoir militaire."
+FOCUS_PAK_PEACE_WITH_INDIA,Peace with India,La paix avec l'Inde
+FOCUS_PAK_PEACE_WITH_INDIA_DESC,Trade rather than war.,Le commerce plutôt que la guerre.
+FOCUS_PAK_TAX_THE_ELITE,Tax the elite,Taxer les élites
+FOCUS_PAK_TAX_THE_ELITE_DESC,Make landowners and the wealthy pay their share.,Faire payer leur part aux grands propriétaires et aux plus riches.
+FOCUS_PAK_GWADAR_PORT,Gwadar port,Le port de Gwadar
+FOCUS_PAK_GWADAR_PORT_DESC,A deep-water port on the Arabian Sea.,Un port en eau profonde sur la mer d'Arabie.
+FOCUS_PAK_KASHMIR_CLAIM,Kashmir is ours,Le Cachemire est à nous
+FOCUS_PAK_KASHMIR_CLAIM_DESC,Formally claim Indian-administered Kashmir.,Revendiquer officiellement le Cachemire administré par l'Inde.
+FOCUS_PAK_AFGHAN_BORDER,The Afghan border,La frontière afghane
+FOCUS_PAK_AFGHAN_BORDER_DESC,Secure the Durand Line against armed groups.,Sécuriser la ligne Durand contre les groupes armés.
+FOCUS_PAK_KASHMIR_WAR,War for Kashmir,La guerre pour le Cachemire
+FOCUS_PAK_KASHMIR_WAR_DESC,"Settle the question by force, between two nuclear powers.","Régler la question par la force, entre deux puissances nucléaires."
+FOCUS_PAK_MILITARY_RULE,Military rule,Pouvoir militaire
+FOCUS_PAK_MILITARY_RULE_DESC,"The army takes power directly, once again.","L'armée prend directement le pouvoir, une fois de plus."
+FOCUS_PAK_NAYA_PAKISTAN,A new Pakistan,Un nouveau Pakistan
+FOCUS_PAK_NAYA_PAKISTAN_DESC,Pakistan has found a path to stability.,Le Pakistan a trouvé le chemin de la stabilité.
+EVENT_GULF_UNION_PROPOSAL_TITLE,A Gulf union,Une union du Golfe
+EVENT_GULF_UNION_PROPOSAL_DESC,{from} proposes that our two states unite under one crown.,"Proposition d'unir nos deux États sous une seule couronne, venue de : {from}."
+EVENT_GULF_UNION_PROPOSAL_A,Join the union,Rejoindre l'union
+EVENT_GULF_UNION_PROPOSAL_B,Preserve our independence,Préserver notre indépendance
