@@ -35,6 +35,8 @@ func _ready() -> void:
 func setup(layouts: Dictionary, countries: Dictionary, camera: MapCameraState) -> void:
 	_layouts = layouts
 	_countries = countries
+	_texts.clear()
+	_unit_widths.clear()
 	_camera = camera
 	_color = Color.html(str(DataLoader.get_define("map_style.label_color")))
 	_color.a = float(DataLoader.get_define("map_style.label_opacity"))

@@ -82,7 +82,7 @@ func refresh() -> void:
 		return
 	var state := GameState.sim
 	var player := str(state.player_tag)
-	var data := DataLoader.get_entry("countries", _tag)
+	var data := CountryRegistry.entry(_tag)
 	_title_label.text = tr("DIPLOMACY_TITLE_VALUE") % tr(str(data.get("name_key", _tag)))
 	_flag_rect.texture = CountryFlags.texture_for(CountryFlags.path_for(_tag, data), Color.html(str(data.get("color", "#808080"))))
 	_clear_rows(_summary_grid)
@@ -341,6 +341,19 @@ func _fill_actions(state: SimState) -> void:
 		button.tooltip_text = tr(refusal) if not refusal.is_empty() else tr("DIPLOMACY_ACTION_%s_TOOLTIP" % action.to_upper())
 		button.pressed.connect(func() -> void: _submit(DiplomaticActionCommand.new(state.player_tag, _tag, action)))
 		_actions_grid.add_child(button)
+	# Union pacifique, en version de développement seulement (en jeu : arbres de décisions).
+	if OS.is_debug_build():
+		var annex := Button.new()
+		annex.text = "DIPLOMACY_DEV_ANNEX"
+		annex.focus_mode = Control.FOCUS_NONE
+		var refusal := CountryLifecycle.annex_refusal(state, str(state.player_tag), _tag)
+		annex.disabled = not refusal.is_empty()
+		annex.tooltip_text = tr(refusal) if not refusal.is_empty() else tr("DIPLOMACY_DEV_ANNEX_TOOLTIP")
+		annex.pressed.connect(func() -> void:
+			var tag := _tag
+			_submit(AnnexCountryCommand.new(state.player_tag, tag))
+			close())
+		_actions_grid.add_child(annex)
 
 
 func _fill_proposal(state: SimState, player: String) -> void:

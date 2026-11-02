@@ -1282,3 +1282,11 @@ EFFECT_PERMANENT_GROWTH,Growth %s pt (permanent),Croissance %s pt (permanent)
 EFFECT_PERMANENT_UNEMPLOYMENT,Unemployment %s pt (permanent),Chômage %s pt (permanent)
 EFFECT_PERMANENT_INFLATION,Inflation %s pt (permanent),Inflation %s pt (permanent)
 EFFECT_PERMANENT_STABILITY,Target stability %s (permanent),Stabilité visée %s (permanent)
+NOTIFY_COUNTRY_ANNEXED,%s and %s are now one country,%s et %s ne forment plus qu'un seul pays
+EFFECT_ANNEX_COUNTRY,Absorbs %s,Absorbe : %s
+EFFECT_JOIN_COUNTRY,Joins %s,Rejoint : %s
+EFFECT_RENAME_COUNTRY,The country becomes: %s,Le pays devient : %s
+ANNEX_INVALID,This union is not possible.,Cette union n'est pas possible.
+ANNEX_PLAYER,Your country cannot be absorbed.,Votre pays ne peut pas être absorbé.
+DIPLOMACY_DEV_ANNEX,Absorb (dev),Absorber (dév.)
+DIPLOMACY_DEV_ANNEX_TOOLTIP,Development version: peaceful union with this country.,Version de développement : union pacifique avec ce pays.
