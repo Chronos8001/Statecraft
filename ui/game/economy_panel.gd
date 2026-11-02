@@ -57,7 +57,7 @@ func refresh() -> void:
 		_imf_button.visible = false
 		return
 	_ratings = CreditRating.new(state.economy_settings)
-	var data := DataLoader.get_entry("countries", country.tag)
+	var data := CountryRegistry.entry(country.tag)
 	_flag.texture = CountryFlags.texture_for(CountryFlags.path_for(country.tag, data),
 		Color.html(str(data.get("color", "#808080"))))
 	_name_label.text = tr(str(data.get("name_key", country.tag)))

@@ -148,7 +148,7 @@ func _update_speed() -> void:
 ## Les valeurs que rien ne calcule encore sont masquées.
 func _update_country() -> void:
 	var tag := str(GameState.sim.player_tag)
-	var country := DataLoader.get_entry("countries", tag)
+	var country := CountryRegistry.entry(tag)
 	_country_label.text = tr(str(country.get("name_key", ""))) if not country.is_empty() else tr("TOPBAR_NO_COUNTRY")
 	_flag_rect.visible = not country.is_empty()
 	if not country.is_empty():

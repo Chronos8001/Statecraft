@@ -72,7 +72,7 @@ func refresh() -> void:
 		_name_label.text = tr("TOPBAR_NO_COUNTRY")
 		_building = false
 		return
-	var data := DataLoader.get_entry("countries", country.tag)
+	var data := CountryRegistry.entry(country.tag)
 	_flag.texture = CountryFlags.texture_for(CountryFlags.path_for(country.tag, data),
 		Color.html(str(data.get("color", "#808080"))))
 	_name_label.text = tr(str(data.get("name_key", country.tag)))

@@ -19,7 +19,7 @@ func group_name(group: ArmyGroup) -> String:
 ## Nom affiché d'un pays ou d'une faction rebelle (« Rebelles (Soudan) »), déjà traduit.
 static func side_name(state: SimState, tag: String) -> String:
 	var country := WarSystem.country_of(state, tag)
-	var name := TranslationServer.translate(str(DataLoader.get_entry("countries", country).get("name_key", country)))
+	var name := TranslationServer.translate(str(CountryRegistry.entry(country).get("name_key", country)))
 	return TranslationServer.translate("REBEL_NAME") % name if WarSystem.is_rebel(state, tag) else name
 
 

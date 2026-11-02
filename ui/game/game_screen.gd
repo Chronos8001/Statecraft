@@ -226,7 +226,7 @@ func _on_country_selected(tag: String, from_list: bool) -> void:
 
 
 func _focus_capital(tag: String, zoom: float) -> void:
-	var capital := int(DataLoader.get_entry("countries", tag).get("capital", 0))
+	var capital := int(CountryRegistry.entry(tag).get("capital", 0))
 	var center: Array = DataLoader.get_entry("provinces", str(capital)).get("center", [])
 	if center.size() >= 2:
 		_map_view.focus_on(Vector2(float(center[0]), float(center[1])), zoom)
@@ -263,11 +263,23 @@ func _on_war_event(event: Dictionary) -> bool:
 				_notify(tr("NOTIFY_CIVIL_WAR_ENDED") % MilitaryUI.side_name(state, target))
 			elif not bool(event.get("negotiated", false)):
 				_notify(tr("NOTIFY_WAR_ENDED") % [MilitaryUI.side_name(state, tag), MilitaryUI.side_name(state, target)])
+		CountryLifecycle.EVENT_ANNEXED, CountryLifecycle.EVENT_RENAMED:
+			# Frontières, couleurs et noms suivent l'union ou le changement de nom.
+			if _map_view.camera != null:
+				_mode_context.refresh_from_simulation(state)
+				_map_view.set_province_owners(_mode_context.provinces, CountryRegistry.all())
+				_map_view.refresh_labels(_mode_context.provinces, CountryRegistry.all())
+				set_map_mode(_current_mode_id)
+			if event.get("type") == CountryLifecycle.EVENT_ANNEXED:
+				_notify(tr("NOTIFY_COUNTRY_ANNEXED") % [CountryRegistry.name_of(tag),
+					CountryRegistry.name_of(target)])
 		WarEnd.EVENT_CEDED:
+			if bool(event.get("union", false)):
+				return true
 			# Frontières et couleurs des pays suivent la cession.
 			if _map_view.camera != null:
 				_mode_context.refresh_from_simulation(state)
-				_map_view.set_province_owners(_mode_context.provinces, DataLoader.get_category("countries"))
+				_map_view.set_province_owners(_mode_context.provinces, CountryRegistry.all())
 				set_map_mode(_current_mode_id)
 			if tag == player or str(event.get("previous", "")) == player:
 				_notify(tr("NOTIFY_PROVINCE_CEDED") % [_province_label(str(event.get("province", ""))),
@@ -418,7 +430,7 @@ func _on_sim_event(event: Dictionary) -> void:
 			return
 	if event.get("type") == CrisisSystem.EVENT_COUP or (event.get("type") == CrisisSystem.EVENT_STARTED
 			and str(event.get("crisis", "")) == CrisisSystem.CIVIL_WAR):
-		var country := DataLoader.get_entry("countries", str(event.get("tag", "")))
+		var country := CountryRegistry.entry(str(event.get("tag", "")))
 		var key := "NOTIFY_CIVIL_WAR" if event.get("type") == CrisisSystem.EVENT_STARTED \
 			else "NOTIFY_COUP_SUCCESS" if bool(event.get("success", false)) else "NOTIFY_COUP_FAILED"
 		_notify(tr(key) % tr(str(country.get("name_key", ""))))
@@ -428,7 +440,7 @@ func _on_sim_event(event: Dictionary) -> void:
 			% tr("WORLD_ACTION_%s" % str(event.get("action", "")).to_upper()))
 		return
 	if event.get("type") == MobilizeCommand.EVENT_MOBILIZATION:
-		var mobilizing := DataLoader.get_entry("countries", str(event.get("tag", "")))
+		var mobilizing := CountryRegistry.entry(str(event.get("tag", "")))
 		_notify(tr("NOTIFY_MOBILIZATION") % [tr(str(mobilizing.get("name_key", ""))),
 			tr("MILITARY_MOBILIZATION_%d" % int(event.get("level", 0))).to_lower()])
 		return
@@ -447,7 +459,7 @@ func _on_sim_event(event: Dictionary) -> void:
 				"provinces", arrived.province).get("name_key", "")))])
 		return
 	if event.get("type") == ElectionSystem.EVENT_FRAUD_DETECTED:
-		var country := DataLoader.get_entry("countries", str(event.get("tag", "")))
+		var country := CountryRegistry.entry(str(event.get("tag", "")))
 		_notify(tr("NOTIFY_FRAUD_DETECTED") % tr(str(country.get("name_key", ""))))
 		return
 	if str(event.get("tag", "")) != str(GameState.sim.player_tag):
@@ -499,11 +511,11 @@ func _on_sim_event(event: Dictionary) -> void:
 			_notify(tr(key) % tr(str(portfolio.get("name_key", ""))))
 		DiplomacySystem.EVENT_TREATY_SIGNED, DiplomacySystem.EVENT_TREATY_REFUSED, DiplomacySystem.EVENT_TREATY_CANCELLED:
 			var treaty: Dictionary = GameState.sim.treaty_definitions.get(str(event.get("treaty", "")), {})
-			var other := DataLoader.get_entry("countries", str(event.get("target", "")))
+			var other := CountryRegistry.entry(str(event.get("target", "")))
 			_notify(tr("NOTIFY_%s" % str(event.get("type")).to_upper()) % [tr(str(treaty.get("name_key", ""))),
 				tr(str(other.get("name_key", "")))])
 		DiplomacySystem.EVENT_ULTIMATUM:
-			var other := DataLoader.get_entry("countries", str(event.get("target", "")))
+			var other := CountryRegistry.entry(str(event.get("target", "")))
 			_notify(tr("NOTIFY_ULTIMATUM_ACCEPTED" if bool(event.get("accepted", false)) else "NOTIFY_ULTIMATUM_REFUSED")
 				% tr(str(other.get("name_key", ""))))
 		OrganizationSystem.EVENT_JOINED, OrganizationSystem.EVENT_JOIN_REFUSED, OrganizationSystem.EVENT_LEFT, \
@@ -512,22 +524,22 @@ func _on_sim_event(event: Dictionary) -> void:
 			_notify(tr("NOTIFY_%s" % str(event.get("type")).to_upper()) % Localization.pick_text(
 				organization.get("name", "")))
 		OrganizationSystem.EVENT_RESOLUTION:
-			var target := DataLoader.get_entry("countries", str(event.get("target", "")))
+			var target := CountryRegistry.entry(str(event.get("target", "")))
 			_notify(tr("NOTIFY_RESOLUTION_PASSED" if bool(event.get("passed", false)) else "NOTIFY_RESOLUTION_FAILED")
 				% [tr(str(target.get("name_key", ""))), event.get("yes", 0), event.get("no", 0)])
 		SanctionSystem.EVENT_SANCTION:
 			var definition: Dictionary = GameState.sim.sanction_definitions.get(str(event.get("measure", "")), {})
-			var other := DataLoader.get_entry("countries", str(event.get("target", "")))
+			var other := CountryRegistry.entry(str(event.get("target", "")))
 			_notify(tr("NOTIFY_SANCTION_IMPOSED" if bool(event.get("active", false)) else "NOTIFY_SANCTION_LIFTED")
 				% [tr(str(definition.get("name_key", ""))), tr(str(other.get("name_key", "")))])
 		AidSystem.EVENT_AID, AidSystem.EVENT_AID_REFUSED:
 			var definition: Dictionary = GameState.sim.aid_definitions.get(str(event.get("kind", "")), {})
-			var other := DataLoader.get_entry("countries", str(event.get("target", "")))
+			var other := CountryRegistry.entry(str(event.get("target", "")))
 			_notify(tr("NOTIFY_AID_GIVEN" if event.get("type") == AidSystem.EVENT_AID else "NOTIFY_AID_REFUSED")
 				% [tr(str(definition.get("name_key", ""))), tr(str(other.get("name_key", "")))])
 		InfluenceSystem.EVENT_INFLUENCE:
 			if bool(event.get("exposed", false)):
-				var other := DataLoader.get_entry("countries", str(event.get("target", "")))
+				var other := CountryRegistry.entry(str(event.get("target", "")))
 				_notify(tr("NOTIFY_INFLUENCE_EXPOSED") % tr(str(other.get("name_key", ""))))
 		MediaSystem.EVENT_DISINFORMATION:
 			_notify(tr("NOTIFY_DISINFORMATION_EXPOSED" if bool(event.get("exposed", false)) else "NOTIFY_DISINFORMATION_DONE"))
@@ -624,7 +636,7 @@ func _on_province_clicked(province_id: int) -> void:
 	var live_owner := ControlSystem.owner(GameState.sim, str(province_id))
 	if not live_owner.is_empty():
 		owner = live_owner
-	var info := CountryInfo.build(owner, DataLoader.get_category("countries"),
+	var info := CountryInfo.build(owner, CountryRegistry.all(),
 		_mode_context.provinces, DataLoader.get_category("names"),
 		DataLoader.get_category("regimes"), DataLoader.get_category("ideologies"),
 		DataLoader.get_category("names/cultures"), GameState.sim.date.year)
@@ -646,7 +658,7 @@ func _show_province(province_id: int) -> void:
 	if _is_selecting():
 		return
 	var info := ProvinceInfo.build(province_id, DataLoader.get_category("provinces"),
-		DataLoader.get_category("countries"), DataLoader.get_category("terrains"),
+		CountryRegistry.all(), DataLoader.get_category("terrains"),
 		DataLoader.get_category("resources"), DataLoader.get_category("sea_zones"),
 		DataLoader.get_category("straits"))
 	_country_panel.close()
@@ -666,7 +678,7 @@ func _apply_live_control(info: ProvinceInfo, province_id: String) -> void:
 		return
 	var owner_tag := ControlSystem.owner(state, province_id)
 	if owner_tag != info.owner_tag and not owner_tag.is_empty():
-		var owner_data := DataLoader.get_entry("countries", owner_tag)
+		var owner_data := CountryRegistry.entry(owner_tag)
 		info.owner_tag = owner_tag
 		info.owner_name_key = str(owner_data.get("name_key", owner_tag))
 		info.owner_color = Color.html(str(owner_data.get("color", "#808080")))
@@ -760,7 +772,7 @@ func _on_army_group_clicked(group_id: int) -> void:
 		if _selected_group >= 0:
 			_notify(tr("NOTIFY_ARMY_SELECTED") % name)
 	else:
-		var owner_name := tr(str(DataLoader.get_entry("countries", group.owner).get("name_key", "")))
+		var owner_name := tr(str(CountryRegistry.entry(group.owner).get("name_key", "")))
 		_notify(tr("NOTIFY_ARMY_FOREIGN") % [name, owner_name, NumberFormat.integer(roundi(
 			group.personnel(country.military, ArmyGroupModel.reserve_share(state))), Localization.get_locale())])
 	_refresh_armies()

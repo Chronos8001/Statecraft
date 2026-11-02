@@ -70,18 +70,27 @@ func setup(data: ProvinceMapData, colors: PackedColorArray) -> void:
 	_apply_border_style()
 	set_selected_province(NO_SELECTION)
 	set_province_colors(colors)
-	set_province_owners(DataLoader.get_category("provinces"), DataLoader.get_category("countries"))
+	set_province_owners(DataLoader.get_category("provinces"), CountryRegistry.all())
 	var provinces := DataLoader.get_category("provinces")
 	var owner_at := func(map_position: Vector2) -> String:
 		var province: Dictionary = provinces.get(str(data.get_province_at(map_position)), {})
 		return str(province.get("owner", ""))
 	_labels.setup(CountryLabelLayout.compute_all(provinces, data.width,
 		float(DataLoader.get_define("map_style.label_max_bend")), owner_at),
-		DataLoader.get_category("countries"), camera)
+		CountryRegistry.all(), camera)
 	_straits.setup(DataLoader.get_category("straits"), camera)
 	_armies.setup(camera)
 	_update_camera()
 	set_process(true)
+
+
+## Noms des pays recalculés après un changement de frontières ou de nom (union, renommage).
+func refresh_labels(provinces: Dictionary, countries: Dictionary) -> void:
+	var owner_at := func(map_position: Vector2) -> String:
+		var province: Dictionary = provinces.get(str(map_data.get_province_at(map_position)), {})
+		return str(province.get("owner", ""))
+	_labels.setup(CountryLabelLayout.compute_all(provinces, map_data.width,
+		float(DataLoader.get_define("map_style.label_max_bend")), owner_at), countries, camera)
 
 
 ## Remplace les couleurs affichées (une couleur par id de province).
