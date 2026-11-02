@@ -16,7 +16,7 @@ const NUMBERS := ["stability", "legitimacy", "growth", "unemployment", "inflatio
 const COMBINATORS := ["all", "any", "not", "from", "any_neighbor"]
 const OTHERS := ["tag", "regime", "democratic", "at_war", "has_tech", "has_flag", "has_world_flag", "relation",
 	"law", "random", "is_player", "exists", "borders_player", "is_player_or_neighbor", "has_resource",
-	"strait_closed", "action", "has_focus", "has_decision"]
+	"strait_closed", "action", "has_focus", "has_decision", "country_exists", "is_dissolved", "owns_province"]
 const OPERATORS := ["<=", ">=", "!=", "<", ">", "="]
 const PERCENT := 100.0
 const MILLION := 1.0e6
@@ -69,6 +69,10 @@ static func _check(state: SimState, scope: Dictionary, key: String, value: Varia
 			return state.world_flags.has(str(value))
 		"strait_closed":
 			return state.closed_straits.has(str(value))
+		"country_exists":
+			return state.get_country(target_tag(scope, str(value))) != null
+		"is_dissolved":
+			return state.dissolved.has(target_tag(scope, str(value)))
 		"action":
 			var details: Dictionary = scope.get("action", {})
 			for detail: Variant in (value as Dictionary).keys():
@@ -108,6 +112,8 @@ static func _check(state: SimState, scope: Dictionary, key: String, value: Varia
 			return (state.event_flags.get(country.tag, {}) as Dictionary).has(str(value))
 		"has_focus":
 			return country.focus_done.has(str(value))
+		"owns_province":
+			return ControlSystem.owner(state, str(value)) == country.tag
 		"has_decision":
 			return country.decisions_active.has(str(value))
 		"law":

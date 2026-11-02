@@ -330,8 +330,8 @@ static func sign_peace(state: SimState, war: War, tag: String, demands: Array) -
 
 ## Cession d'une province : nouveau propriétaire et contrôleur, transfert de sa population, de son économie et
 ## de sa circonscription (Territory), frontières recalculées, revendications mises à jour (le cédant garde une
-## revendication active), groupes du cédant repliés.
-static func cede(state: SimState, province_id: String, to: String) -> void:
+## revendication active), groupes du cédant repliés. Union pacifique (« union ») : ni revendication ni tension.
+static func cede(state: SimState, province_id: String, to: String, union: bool = false) -> void:
 	var previous := ControlSystem.owner(state, province_id)
 	if previous == to or previous.is_empty():
 		return
@@ -359,11 +359,11 @@ static func cede(state: SimState, province_id: String, to: String) -> void:
 			claim["active"] = true
 			merged = true
 			break
-	if not merged:
+	if not merged and not union:
 		var lost: Array[String] = [province_id]
 		TensionSystem.add_claim(state, previous, to, lost, true)
 	ArmyGroupModel.evacuate(state, province_id)
-	state.add_event(EVENT_CEDED, to, {"province": province_id, "previous": previous})
+	state.add_event(EVENT_CEDED, to, {"province": province_id, "previous": previous, "union": union})
 
 
 # --- Propositions au joueur -----------------------------------------------------------------------------------

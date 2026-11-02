@@ -16,7 +16,8 @@ const KEYS := ["add_stability", "add_legitimacy", "add_modifier", "add_debt", "a
 	"add_group_satisfaction", "set_law", "add_research", "trigger_event", "set_flag", "clear_flag",
 	"set_world_flag", "clear_world_flag", "every_country", "random_country", "random_province", "if", "then", "else",
 	"damage_infrastructure", "add_resource_capacity", "add_supply_shock", "close_strait", "open_strait", "kill_leader",
-	"add_debt_gdp", "add_influence", "add_corruption", "add_tech", "every_neighbor"]
+	"add_debt_gdp", "add_influence", "add_corruption", "add_tech", "every_neighbor",
+	"annex_country", "join_country", "rename_country"]
 const MODIFIER_KEYS := ["growth", "unemployment", "inflation", "stability", "months"]
 ## Conditions propres aux provinces (filtre « limit » de random_province).
 const PROVINCE_KEYS := ["coastal", "terrain", "population"]
@@ -94,6 +95,13 @@ static func apply(state: SimState, scope: Dictionary, effects: Variant) -> void:
 				if country.research != null and state.technology_definitions.has(str(value)) \
 						and not country.research.is_known(str(value)):
 					ResearchSystem.complete(state, country, str(value))
+			"annex_country":
+				CountryLifecycle.annex(state, country.tag, ScriptConditions.target_tag(scope, str(value)))
+			"join_country":
+				CountryLifecycle.annex(state, ScriptConditions.target_tag(scope, str(value)), country.tag)
+			"rename_country":
+				CountryLifecycle.rename(state, country.tag, str((value as Dictionary).get("name_key", "")),
+					str((value as Dictionary).get("color", "")), str((value as Dictionary).get("flag", "")))
 			"add_debt_gdp":
 				InvestmentSystem.add_debt_usd(country, state, TradeSystem.current_gdp(state, country.tag) * float(value)
 					/ LIMIT)
@@ -252,6 +260,9 @@ static func validate(effects: Variant, where: String, event_ids: Array) -> Packe
 					errors.append_array(validate((value as Dictionary).get("effects", {}), where, event_ids))
 			"every_neighbor":
 				errors.append_array(validate(value, where, event_ids))
+			"rename_country":
+				if not value is Dictionary:
+					errors.append("%s : « rename_country » attend {name_key, color, flag}" % where)
 			"random_province":
 				if not value is Dictionary:
 					errors.append("%s : « random_province » attend {limit, effects}" % where)
@@ -332,6 +343,12 @@ static func describe(effects: Variant, locale: String) -> PackedStringArray:
 					TranslationServer.translate("STRAIT_%s" % str(value).to_upper()))
 			"kill_leader":
 				lines.append(TranslationServer.translate("EFFECT_KILL_LEADER"))
+			"annex_country", "join_country":
+				lines.append(TranslationServer.translate("EFFECT_%s" % name.to_upper()) %
+					TranslationServer.translate("COUNTRY_%s" % str(value)))
+			"rename_country":
+				lines.append(TranslationServer.translate("EFFECT_RENAME_COUNTRY") %
+					TranslationServer.translate(str((value as Dictionary).get("name_key", ""))))
 			"add_tech":
 				lines.append(TranslationServer.translate("EFFECT_ADD_TECH") %
 					TranslationServer.translate("TECH_%s" % str(value).to_upper()))

@@ -10,6 +10,10 @@ var date: GameDate = GameDate.new()
 var player_tag: StringName = &""
 ## tag → CountryState (rempli par WorldSetup au début de la partie).
 var countries: Dictionary = {}
+## Pays modifiés en cours de partie : nom, couleur, drapeau (tag → {name_key, color, flag}) ; pays dissous
+## (tag → pays qui l'a absorbé).
+var country_overrides: Dictionary = {}
+var dissolved: Dictionary = {}
 ## identifiant → CurrencyState.
 var currencies: Dictionary = {}
 ## Section « economy » de defines.json, utilisée par les systèmes et les commandes économiques.
