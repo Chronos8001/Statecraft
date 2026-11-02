@@ -31,6 +31,7 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	sim.event_settings = DataLoader.get_define("events", {})
 	for message: String in EventSystem.validate_definitions(sim.event_definitions):
 		GameLog.error(SOURCE, message)
+	EventSystem.index_actions(sim)
 	scheduler = SimScheduler.new()
 	scheduler.add_system(LawSystem.new())
 	scheduler.add_system(ConstitutionSystem.new())
@@ -46,6 +47,7 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	scheduler.add_system(EventSystem.new())
 	scheduler.add_system(EconomySystem.new(DataLoader.get_category("economy_sectors")))
 	scheduler.add_system(GovernmentSystem.new())
+	scheduler.add_system(LeaderSystem.new())
 	scheduler.add_system(CrisisSystem.new())
 	scheduler.add_system(MediaSystem.new())
 	scheduler.add_system(SocietySystem.new())
@@ -143,6 +145,7 @@ func politics_definitions() -> Dictionary:
 			"ideologies": DataLoader.get_category("ideologies"), "traits": DataLoader.get_category("traits"),
 			"settings": DataLoader.get_define("characters", {})},
 		"settings": DataLoader.get_define("politics", {}),
+		"leader_settings": DataLoader.get_define("leaders", {}),
 	}
 
 

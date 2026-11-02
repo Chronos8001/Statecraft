@@ -83,6 +83,7 @@ var ai_unemployment: float = 0.0
 ## Modificateurs temporaires des événements.
 var event_growth: float = 0.0
 var event_unemployment: float = 0.0
+var event_inflation: float = 0.0
 ## Effet des frappes et cyberattaques subies (points de croissance, temporaire).
 var attack_growth: float = 0.0
 var project_spending: float = 0.0

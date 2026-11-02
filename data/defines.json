@@ -1372,5 +1372,14 @@
   "events": {
     "default_ai_weight": 1.0,
     "modifier_months": 12
+  },
+  "leaders": {
+    "mortality_at_reference": 0.025,
+    "reference_age": 70,
+    "mortality_growth": 0.095,
+    "office_factor": 0.35,
+    "max_annual": 0.5,
+    "democratic_shock": {"stability": 2.0, "legitimacy": 0.0},
+    "autocratic_shock": {"stability": 8.0, "legitimacy": 6.0}
   }
 }
