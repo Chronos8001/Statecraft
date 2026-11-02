@@ -1300,3 +1300,75 @@ EFFECT_LEAVE_ORGANIZATION,Leaves: %s,Quitte : %s
 EFFECT_DECLARE_WAR,War against %s,Guerre contre : %s
 EFFECT_ADD_CLAIM,Claim on %s,Revendication sur : %s
 EFFECT_TRANSFER_PROVINCES,%d provinces change hands,%d provinces changent de mains
+MENU_EDITOR,Event editor,Éditeur d'événements
+MENU_EDITOR_TOOLTIP,Create and edit events for your mods,Créer et modifier des événements pour vos mods
+EDITOR_TITLE,Event editor,Éditeur d'événements
+EDITOR_NEW_MOD,New mod,Nouveau mod
+EDITOR_NEW_MOD_NAME,My mod %d,Mon mod %d
+EDITOR_NO_MOD,No mod yet,Aucun mod pour l'instant
+EDITOR_MOD_CREATED,Mod created in %s,Mod créé dans %s
+EDITOR_FILTER,Search an event,Chercher un événement
+EDITOR_NEW_EVENT,New,Nouveau
+EDITOR_DUPLICATE,Copy to mod,Copier dans le mod
+EDITOR_DELETE,Delete,Supprimer
+EDITOR_BACK,Back to menu,Retour au menu
+EDITOR_ID,Identifier,Identifiant
+EDITOR_SCOPE,Scope,Portée
+EDITOR_SCOPE_COUNTRY,Each country,Chaque pays
+EDITOR_SCOPE_WORLD,World,Monde
+EDITOR_MTTH,"Mean time (months, 0 = none)","Délai moyen (mois, 0 = aucun)"
+EDITOR_FLAGS,Options,Options
+EDITOR_ONCE,Only once,Une seule fois
+EDITOR_TRIGGERED_ONLY,Chain only,Seulement par chaîne
+EDITOR_ON_ACTION,Triggered by,Déclenché par
+EDITOR_NO_ACTION,No game action,Aucune action du jeu
+EDITOR_ACTION_SCOPE,For,Pour
+EDITOR_ACTION_SCOPE_ACTOR,The country that acts,Le pays qui agit
+EDITOR_ACTION_SCOPE_OTHERS,Every other country,Chaque autre pays
+EDITOR_ACTION_CHANCE,Chance,Probabilité
+EDITOR_TITLE_EN,Title (English),Titre (anglais)
+EDITOR_TITLE_FR,Title (French),Titre (français)
+EDITOR_DESC_EN,"Text (English) — {country}, {from}, {province} allowed","Texte (anglais) — {country}, {from}, {province} acceptés"
+EDITOR_DESC_FR,"Text (French) — {country}, {from}, {province} allowed","Texte (français) — {country}, {from}, {province} acceptés"
+EDITOR_TRIGGER,Trigger (JSON conditions),Déclencheur (conditions JSON)
+EDITOR_MTTH_MODIFIERS,Mean time factors (JSON list),Facteurs du délai moyen (liste JSON)
+EDITOR_IMMEDIATE,Immediate effects (JSON),Effets immédiats (JSON)
+EDITOR_NEWS,News for the player (true or JSON conditions),Nouvelle pour le joueur (true ou conditions JSON)
+EDITOR_OPTIONS,Choices,Choix
+EDITOR_ADD_OPTION,Add,Ajouter
+EDITOR_REMOVE_OPTION,Remove last,Retirer le dernier
+EDITOR_OPTION,Choice %d,Choix %d
+EDITOR_OPTION_NAME_EN,Text (English),Texte (anglais)
+EDITOR_OPTION_NAME_FR,Text (French),Texte (français)
+EDITOR_OPTION_EFFECTS,Effects (JSON),Effets (JSON)
+EDITOR_OPTION_AI_WEIGHT,AI weight,Poids pour l'IA
+EDITOR_OPTION_AI_MODIFIERS,AI factors (JSON list),Facteurs de l'IA (liste JSON)
+EDITOR_HELP,Help: double-click to insert,Aide : double-clic pour insérer
+EDITOR_CONDITIONS,Conditions,Conditions
+EDITOR_EFFECTS,Effects,Effets
+EDITOR_ERRORS,Checks,Vérifications
+EDITOR_NO_ERROR,No error.,Aucune erreur.
+EDITOR_ERROR_JSON,A JSON field cannot be read.,Un champ JSON est illisible.
+EDITOR_ERROR_ID,"Identifier: lowercase letters, digits and _ only.","Identifiant : minuscules, chiffres et _ seulement."
+EDITOR_ERROR_OPTIONS,At most %d choices.,Au plus %d choix.
+EDITOR_ERROR_TEXT,Missing text: %s,Texte manquant : %s
+EDITOR_PREVIEW,Preview,Aperçu
+EDITOR_TEST,Test,Tester
+EDITOR_TEST_COUNTRY,"Country code for the test (FRA, USA…)","Code du pays pour l'essai (FRA, USA…)"
+EDITOR_TEST_OPTION,Choice applied during the test,Choix appliqué pendant l'essai
+EDITOR_TEST_PREPARING,Preparing a test game…,Préparation d'une partie de test…
+EDITOR_TEST_TITLE,Test result,Résultat de l'essai
+EDITOR_TEST_NO_COUNTRY,This country does not exist.,Ce pays n'existe pas.
+EDITOR_TEST_TRIGGER_TRUE,The trigger is true for %s.,Le déclencheur est vrai pour %s.
+EDITOR_TEST_TRIGGER_FALSE,The trigger is false for %s.,Le déclencheur est faux pour %s.
+EDITOR_TEST_CHANCE,Chance per month: %s %%,Chance par mois : %s %%
+EDITOR_TEST_EVENTS,Game events: %s,Événements de jeu : %s
+EDITOR_VALUE_STABILITY,Stability,Stabilité
+EDITOR_VALUE_LEGITIMACY,Legitimacy,Légitimité
+EDITOR_VALUE_GROWTH,Growth modifier,Modificateur de croissance
+EDITOR_VALUE_UNEMPLOYMENT,Unemployment modifier,Modificateur de chômage
+EDITOR_VALUE_INFLATION,Inflation modifier,Modificateur d'inflation
+EDITOR_VALUE_DEBT,Debt (% of GDP),Dette (% du PIB)
+EDITOR_SAVE,Save to mod,Enregistrer dans le mod
+EDITOR_SAVED,Saved in %s (loaded in game once mods are enabled).,Enregistré dans %s (chargé en partie quand les mods seront activés).
+EDITOR_NEED_MOD,Create or choose a mod first.,Créez ou choisissez d'abord un mod.

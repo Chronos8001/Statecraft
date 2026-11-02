@@ -3,6 +3,7 @@ extends Control
 
 const FOOTER_SEPARATOR := "   ·   "
 const GAME_SCENE := "res://ui/game/game_screen.tscn"
+const EDITOR_SCENE := "res://ui/editor/event_editor.tscn"
 
 var _locale_codes: PackedStringArray = PackedStringArray()
 
@@ -22,6 +23,14 @@ func _ready() -> void:
 	_load_button.pressed.connect(_on_load_pressed)
 	_options_button.pressed.connect(_on_options_pressed)
 	_quit_button.pressed.connect(_on_quit_pressed)
+	# Éditeur d'événements pour les moddeurs, après Options.
+	var editor_button := _options_button.duplicate() as Button
+	editor_button.unique_name_in_owner = false
+	editor_button.name = "EditorButton"
+	editor_button.text = "MENU_EDITOR"
+	editor_button.tooltip_text = "MENU_EDITOR_TOOLTIP"
+	_options_button.add_sibling(editor_button)
+	editor_button.pressed.connect(func() -> void: get_tree().change_scene_to_file(EDITOR_SCENE))
 	_close_button.pressed.connect(_close_options)
 	_language_option.item_selected.connect(_on_language_selected)
 	EventBus.locale_changed.connect(_on_locale_changed)
