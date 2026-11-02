@@ -263,13 +263,15 @@ func _on_war_event(event: Dictionary) -> bool:
 				_notify(tr("NOTIFY_CIVIL_WAR_ENDED") % MilitaryUI.side_name(state, target))
 			elif not bool(event.get("negotiated", false)):
 				_notify(tr("NOTIFY_WAR_ENDED") % [MilitaryUI.side_name(state, tag), MilitaryUI.side_name(state, target)])
-		CountryLifecycle.EVENT_ANNEXED, CountryLifecycle.EVENT_RENAMED:
+		CountryLifecycle.EVENT_ANNEXED, CountryLifecycle.EVENT_RENAMED, CountryFactory.EVENT_RELEASED:
 			# Frontières, couleurs et noms suivent l'union ou le changement de nom.
 			if _map_view.camera != null:
 				_mode_context.refresh_from_simulation(state)
 				_map_view.set_province_owners(_mode_context.provinces, CountryRegistry.all())
 				_map_view.refresh_labels(_mode_context.provinces, CountryRegistry.all())
 				set_map_mode(_current_mode_id)
+			if event.get("type") == CountryFactory.EVENT_RELEASED:
+				_notify(tr("NOTIFY_COUNTRY_RELEASED") % [CountryRegistry.name_of(tag), CountryRegistry.name_of(target)])
 			if event.get("type") == CountryLifecycle.EVENT_ANNEXED:
 				_notify(tr("NOTIFY_COUNTRY_ANNEXED") % [CountryRegistry.name_of(tag),
 					CountryRegistry.name_of(target)])

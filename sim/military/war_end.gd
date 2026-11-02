@@ -331,12 +331,13 @@ static func sign_peace(state: SimState, war: War, tag: String, demands: Array) -
 ## Cession d'une province : nouveau propriétaire et contrôleur, transfert de sa population, de son économie et
 ## de sa circonscription (Territory), frontières recalculées, revendications mises à jour (le cédant garde une
 ## revendication active), groupes du cédant repliés. Union pacifique (« union ») : ni revendication ni tension.
-static func cede(state: SimState, province_id: String, to: String, union: bool = false) -> void:
+static func cede(state: SimState, province_id: String, to: String, union: bool = false,
+		move_economy: bool = true) -> void:
 	var previous := ControlSystem.owner(state, province_id)
 	if previous == to or previous.is_empty():
 		return
 	(state.provinces_by_owner.get(previous, []) as Array).erase(province_id)
-	Territory.transfer(state, province_id, previous, to)
+	Territory.transfer(state, province_id, previous, to, move_economy)
 	state.province_owner[province_id] = to
 	if not state.provinces_by_owner.has(to):
 		state.provinces_by_owner[to] = []

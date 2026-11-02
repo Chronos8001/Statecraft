@@ -1290,3 +1290,7 @@ ANNEX_INVALID,This union is not possible.,Cette union n'est pas possible.
 ANNEX_PLAYER,Your country cannot be absorbed.,Votre pays ne peut pas être absorbé.
 DIPLOMACY_DEV_ANNEX,Absorb (dev),Absorber (dév.)
 DIPLOMACY_DEV_ANNEX_TOOLTIP,Development version: peaceful union with this country.,Version de développement : union pacifique avec ce pays.
+NOTIFY_COUNTRY_RELEASED,%s proclaims its independence from %s,%s proclame son indépendance vis-à-vis de : %s
+EFFECT_RELEASE_COUNTRY,Independence of %s,Indépendance : %s
+RELEASE_INVALID,This independence is not possible.,Cette indépendance n'est pas possible.
+DIPLOMACY_DEV_RELEASE,Release (dev),Libérer (dév.)

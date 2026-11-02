@@ -14,6 +14,11 @@ var countries: Dictionary = {}
 ## (tag → pays qui l'a absorbé).
 var country_overrides: Dictionary = {}
 var dissolved: Dictionary = {}
+## Données de départ de chaque pays (celles passées à WorldSetup, puis celles des pays nés pendant la partie) et
+## pays qui peuvent naître (data/releasables) ; pays nés pendant la partie (tag → identifiant de la définition).
+var country_data: Dictionary = {}
+var releasable_definitions: Dictionary = {}
+var created_countries: Dictionary = {}
 ## identifiant → CurrencyState.
 var currencies: Dictionary = {}
 ## Section « economy » de defines.json, utilisée par les systèmes et les commandes économiques.

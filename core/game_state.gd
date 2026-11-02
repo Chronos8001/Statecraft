@@ -39,6 +39,7 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 			sim.event_definitions.keys()):
 		GameLog.error(SOURCE, message)
 	DecisionSystem.assign_trees(sim)
+	sim.releasable_definitions = DataLoader.get_category("releasables")
 	scheduler = SimScheduler.new()
 	scheduler.add_system(LawSystem.new())
 	scheduler.add_system(ConstitutionSystem.new())

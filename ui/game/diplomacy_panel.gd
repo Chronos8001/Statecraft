@@ -354,6 +354,17 @@ func _fill_actions(state: SimState) -> void:
 			_submit(AnnexCountryCommand.new(state.player_tag, tag))
 			close())
 		_actions_grid.add_child(annex)
+		for definition_id: String in state.releasable_definitions.keys():
+			if CountryFactory.parent_of(state, definition_id) != _tag:
+				continue
+			var release := Button.new()
+			release.text = tr("DIPLOMACY_DEV_RELEASE") + " " + tr(str((state.releasable_definitions[definition_id]
+				as Dictionary).get("name_key", "")))
+			release.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+			release.focus_mode = Control.FOCUS_NONE
+			var released := definition_id
+			release.pressed.connect(func() -> void: _submit(ReleaseCountryCommand.new(state.player_tag, released)))
+			_actions_grid.add_child(release)
 
 
 func _fill_proposal(state: SimState, player: String) -> void:
