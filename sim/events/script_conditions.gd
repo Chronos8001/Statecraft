@@ -8,12 +8,14 @@ extends RefCounted
 ##   {"action": {"government_changed": true}}             détails de l'action qui a déclenché l'événement
 ##   {"from": {"gdp_rank": "<=15"}}                        condition sur le pays d'origine
 ##   {"any_neighbor": {"at_war": true}}                    au moins un voisin terrestre
+##   {"other_country": {"tag": "PRK", "if": {"stability": "<25"}}}  condition sur un autre pays (faux s'il n'existe pas)
 ## Valeurs numériques : nombre (égalité) ou texte « <, <=, >, >=, =, != » suivi d'un nombre.
 ## La portée (scope) est {"country": tag ou "" pour le monde, "from": tag à l'origine d'une chaîne}.
 
 const NUMBERS := ["stability", "legitimacy", "growth", "unemployment", "inflation", "debt", "gdp", "year", "month",
 	"world_tension", "ai_level", "corruption", "population", "gdp_rank", "leader_age"]
 const COMBINATORS := ["all", "any", "not", "from", "any_neighbor"]
+const OTHER_COUNTRY := "other_country"
 const OTHERS := ["tag", "regime", "democratic", "at_war", "has_tech", "has_flag", "has_world_flag", "relation",
 	"law", "random", "is_player", "exists", "borders_player", "is_player_or_neighbor", "has_resource",
 	"strait_closed", "action", "has_focus", "has_decision", "country_exists", "is_dissolved", "owns_province",
@@ -55,6 +57,10 @@ static func _check(state: SimState, scope: Dictionary, key: String, value: Varia
 			var origin := str(scope.get("from", ""))
 			return not origin.is_empty() and evaluate(state, {"country": origin, "from": str(scope.get("country", ""))},
 				value)
+		OTHER_COUNTRY:
+			var other := target_tag(scope, str((value as Dictionary).get("tag", "")))
+			return state.get_country(other) != null and evaluate(state, {"country": other,
+				"from": str(scope.get("country", ""))}, (value as Dictionary).get("if", null))
 		"any_neighbor":
 			var own := str(scope.get("country", ""))
 			var neighbors: Array = (state.land_neighbors.get(own, {}) as Dictionary).keys()
@@ -265,6 +271,11 @@ static func validate(condition: Variant, where: String) -> PackedStringArray:
 		elif NUMBERS.has(name):
 			if not _valid_comparison(value):
 				errors.append("%s : comparaison invalide pour « %s » (%s)" % [where, name, str(value)])
+		elif name == OTHER_COUNTRY:
+			if not value is Dictionary or not (value as Dictionary).has("tag"):
+				errors.append("%s : « other_country » attend {tag, if}" % where)
+			else:
+				errors.append_array(validate((value as Dictionary).get("if", null), where))
 		elif name == "relation":
 			if not value is Dictionary or not (value as Dictionary).has("with") \
 					or not _valid_comparison((value as Dictionary).get("value", null)):
