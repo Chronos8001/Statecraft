@@ -777,3 +777,188 @@ EVENT_DEBT_JITTERS_TITLE,Jitters on the bond market,Fébrilité sur le marché o
 EVENT_DEBT_JITTERS_DESC,Investors question our public debt and rates are rising. The finance ministry offers two answers.,Les investisseurs s'interrogent sur notre dette publique et les taux montent. Le ministère des Finances propose deux réponses.
 EVENT_DEBT_JITTERS_A,Announce spending cuts,Annoncer des économies
 EVENT_DEBT_JITTERS_B,Reassure markets and change nothing,Rassurer les marchés sans rien changer
+EVENT_EARTHQUAKE_TITLE,Earthquake,Séisme
+EVENT_EARTHQUAKE_DESC,A powerful earthquake has struck {province}. Buildings have collapsed and roads are cut; rescuers are digging through the rubble.,"Un violent séisme a frappé la région de {province}. Des immeubles se sont effondrés, des routes sont coupées et les secours fouillent les décombres."
+EVENT_EARTHQUAKE_NEWS,{country}: a deadly earthquake strikes {province},{country} : un séisme meurtrier frappe {province}
+EVENT_EARTHQUAKE_A,Send in the army and fund reconstruction,Envoyer l'armée et financer la reconstruction
+EVENT_EARTHQUAKE_B,Leave it to the regional authorities,Laisser faire les autorités régionales
+EVENT_HURRICANE_TITLE,Tropical storm,Tempête tropicale
+EVENT_HURRICANE_DESC,"A major storm has made landfall near {province}: flooded districts, wrecked harbours and hundreds of thousands without power.","Une tempête majeure a touché terre près de {province} : quartiers inondés, ports dévastés et des centaines de milliers de foyers privés d'électricité."
+EVENT_HURRICANE_NEWS,{country}: a tropical storm devastates {province},{country} : une tempête tropicale dévaste {province}
+EVENT_HURRICANE_A,Declare a state of disaster and release emergency funds,Décréter l'état de catastrophe et débloquer des fonds d'urgence
+EVENT_HURRICANE_B,Rely on insurers and local relief,S'en remettre aux assureurs et aux secours locaux
+EVENT_SOUTHERN_CYCLONE_TITLE,Cyclone,Cyclone
+EVENT_SOUTHERN_CYCLONE_DESC,"A cyclone has swept across {province}, flattening homes and crops along the coast.","Un cyclone a balayé {province}, rasant maisons et cultures le long de la côte."
+EVENT_FLOOD_TITLE,Floods,Inondations
+EVENT_FLOOD_DESC,Days of torrential rain have burst the riverbanks around {province}. Fields are under water and villages must be evacuated.,Des pluies torrentielles ont fait déborder les rivières autour de {province}. Les champs sont sous l'eau et des villages doivent être évacués.
+EVENT_FLOOD_NEWS,{country}: deadly floods around {province},{country} : inondations meurtrières autour de {province}
+EVENT_FLOOD_A,Compensate farmers and rebuild,Indemniser les agriculteurs et reconstruire
+EVENT_FLOOD_B,Launch a long-term flood defence plan,Lancer un plan durable contre les crues
+EVENT_DROUGHT_TITLE,Drought,Sécheresse
+EVENT_DROUGHT_DESC,"Months without rain: reservoirs are at record lows, harvests are failing and food prices are climbing.","Des mois sans pluie : les réservoirs sont au plus bas, les récoltes s'effondrent et les prix alimentaires grimpent."
+EVENT_DROUGHT_NEWS,{country}: severe drought ruins harvests,{country} : une sécheresse sévère ruine les récoltes
+EVENT_DROUGHT_A,Emergency aid for farmers,Aide d'urgence aux agriculteurs
+EVENT_DROUGHT_B,Ration water and let prices adjust,Rationner l'eau et laisser les prix s'ajuster
+EVENT_WILDFIRES_TITLE,Wildfires,Incendies
+EVENT_WILDFIRES_DESC,"Fanned by heat and wind, huge fires are burning around {province}. Thousands of residents have fled.","Attisés par la chaleur et le vent, d'immenses incendies ravagent les environs de {province}. Des milliers d'habitants ont fui."
+EVENT_WILDFIRES_NEWS,{country}: huge wildfires around {province},{country} : incendies géants autour de {province}
+EVENT_WILDFIRES_A,Mobilise water bombers and fund prevention,Mobiliser les bombardiers d'eau et financer la prévention
+EVENT_WILDFIRES_B,Blame arsonists and wait for the rain,Accuser les incendiaires et attendre la pluie
+EVENT_VOLCANIC_ERUPTION_TITLE,Volcanic eruption,Éruption volcanique
+EVENT_VOLCANIC_ERUPTION_DESC,A volcano has erupted near {province}. Ash covers the region and nearby towns are being evacuated.,Un volcan est entré en éruption près de {province}. Les cendres recouvrent la région et les villes voisines sont évacuées.
+EVENT_VOLCANIC_ERUPTION_NEWS,{country}: volcanic eruption near {province},{country} : éruption volcanique près de {province}
+EVENT_VOLCANIC_ERUPTION_A,Evacuate and rebuild,Évacuer et reconstruire
+EVENT_OIL_DISCOVERY_TITLE,Oil discovery,Découverte de pétrole
+EVENT_OIL_DISCOVERY_DESC,Geologists confirm a large oil field. Who should develop it?,Les géologues confirment un vaste gisement de pétrole. À qui confier son exploitation ?
+EVENT_OIL_DISCOVERY_NEWS,{country} announces a major oil discovery,{country} annonce une importante découverte de pétrole
+EVENT_OIL_DISCOVERY_A,Our national oil company,Notre compagnie pétrolière nationale
+EVENT_OIL_DISCOVERY_B,"Foreign majors, in exchange for investment","Des compagnies étrangères, contre des investissements"
+EVENT_GAS_DISCOVERY_TITLE,Gas discovery,Découverte de gaz
+EVENT_GAS_DISCOVERY_DESC,An offshore survey reveals a significant natural gas field.,Une campagne d'exploration révèle un important gisement de gaz naturel.
+EVENT_GAS_DISCOVERY_NEWS,{country} announces a major gas discovery,{country} annonce une importante découverte de gaz
+EVENT_GAS_DISCOVERY_A,Develop it quickly,L'exploiter rapidement
+EVENT_GAS_DISCOVERY_B,Keep it in the ground,Le laisser sous terre
+EVENT_CRITICAL_MINERALS_TITLE,Critical minerals,Minerais critiques
+EVENT_CRITICAL_MINERALS_DESC,Prospectors have found deposits of the minerals that batteries and electronics depend on.,Des prospecteurs ont trouvé des gisements des minerais dont dépendent les batteries et l'électronique.
+EVENT_CRITICAL_MINERALS_NEWS,{country} finds critical mineral deposits,{country} découvre des gisements de minerais critiques
+EVENT_CRITICAL_MINERALS_A,Open the mines,Ouvrir les mines
+EVENT_CRITICAL_MINERALS_B,Strict environmental rules and local refining research,Règles environnementales strictes et recherche sur le raffinage
+EVENT_SCIENTIFIC_BREAKTHROUGH_TITLE,Scientific breakthrough,Percée scientifique
+EVENT_SCIENTIFIC_BREAKTHROUGH_DESC,One of our universities publishes a result that the whole scientific world is talking about.,Une de nos universités publie un résultat dont parle tout le monde scientifique.
+EVENT_SCIENTIFIC_BREAKTHROUGH_NEWS,Scientific breakthrough in {country},Percée scientifique en {country}
+EVENT_SCIENTIFIC_BREAKTHROUGH_A,Fund the follow-up research,Financer la suite des travaux
+EVENT_SCIENTIFIC_BREAKTHROUGH_B,Help start-ups bring it to market,Aider les jeunes entreprises à l'exploiter
+EVENT_STOCK_MARKET_CRASH_TITLE,Stock market crash,Krach boursier
+EVENT_STOCK_MARKET_CRASH_DESC,Markets are in free fall worldwide. Banks stop lending to each other and investors flee to safety.,Les marchés s'effondrent dans le monde entier. Les banques cessent de se prêter entre elles et les investisseurs se réfugient vers les valeurs sûres.
+EVENT_STOCK_MARKET_CRASH_A,Stimulus plan and support for banks,Plan de relance et soutien aux banques
+EVENT_STOCK_MARKET_CRASH_B,Let the market correct itself,Laisser le marché se corriger
+EVENT_FINANCIAL_CONTAGION_TITLE,Financial contagion,Contagion financière
+EVENT_FINANCIAL_CONTAGION_DESC,The crisis is spreading to the most indebted countries.,La crise gagne les pays les plus endettés.
+EVENT_BANK_RUN_TITLE,Bank run,Panique bancaire
+EVENT_BANK_RUN_DESC,Depositors are queuing outside the banks. One of our largest lenders will not survive the week without help.,Les épargnants font la queue devant les banques. L'un de nos plus grands établissements ne passera pas la semaine sans aide.
+EVENT_BANK_RUN_A,Bail out the banks,Renflouer les banques
+EVENT_BANK_RUN_B,Let the weakest fail,Laisser tomber les plus fragiles
+EVENT_FINANCIAL_RECOVERY_TITLE,Markets recover,Les marchés se redressent
+EVENT_FINANCIAL_RECOVERY_DESC,The financial crisis is over: credit is flowing again.,La crise financière est terminée : le crédit circule de nouveau.
+EVENT_HOUSING_BUBBLE_TITLE,Housing bubble bursts,Éclatement de la bulle immobilière
+EVENT_HOUSING_BUBBLE_DESC,"After years of soaring prices, property values are collapsing. Developers are going bankrupt and households are underwater.","Après des années de flambée, les prix de l'immobilier s'effondrent. Les promoteurs font faillite et les ménages sont surendettés."
+EVENT_HOUSING_BUBBLE_A,Support indebted households,Soutenir les ménages endettés
+EVENT_HOUSING_BUBBLE_B,Let prices fall,Laisser les prix baisser
+EVENT_CURRENCY_PANIC_TITLE,Currency panic,Panique monétaire
+EVENT_CURRENCY_PANIC_DESC,Prices are rising every week and people are rushing to buy dollars. The central bank must act.,Les prix montent chaque semaine et la population se rue sur les dollars. La banque centrale doit agir.
+EVENT_CURRENCY_PANIC_A,Sharp rate hike,Forte hausse des taux
+EVENT_CURRENCY_PANIC_B,Price controls,Contrôle des prix
+EVENT_REFUGEE_WAVE_TITLE,Refugees at the border,Réfugiés à la frontière
+EVENT_REFUGEE_WAVE_DESC,"Fleeing war and chaos next door, tens of thousands of people are massing at our border.","Fuyant la guerre et le chaos chez nos voisins, des dizaines de milliers de personnes se pressent à notre frontière."
+EVENT_REFUGEE_WAVE_NEWS,{country} faces a wave of refugees,{country} fait face à un afflux de réfugiés
+EVENT_REFUGEE_WAVE_A,Open reception camps,Ouvrir des camps d'accueil
+EVENT_REFUGEE_WAVE_B,Close the border,Fermer la frontière
+EVENT_REFUGEE_WAVE_C,Call for international burden-sharing,Demander une répartition internationale
+EVENT_MEDITERRANEAN_CROSSINGS_TITLE,Crossings in the Mediterranean,Traversées en Méditerranée
+EVENT_MEDITERRANEAN_CROSSINGS_DESC,Overloaded boats keep arriving on our shores. Several shipwrecks have made the headlines.,Des embarcations surchargées continuent d'arriver sur nos côtes. Plusieurs naufrages font la une.
+EVENT_MEDITERRANEAN_CROSSINGS_NEWS,{country}: record migrant arrivals by sea,{country} : arrivées record de migrants par la mer
+EVENT_MEDITERRANEAN_CROSSINGS_A,Step up sea rescues,Renforcer les sauvetages en mer
+EVENT_MEDITERRANEAN_CROSSINGS_B,Close our ports to charity ships,Fermer nos ports aux navires humanitaires
+EVENT_MEDITERRANEAN_CROSSINGS_C,Pay Libya to hold back departures,Payer la Libye pour retenir les départs
+EVENT_HOST_COUNTRY_STRAIN_TITLE,Strained welcome,Accueil sous tension
+EVENT_HOST_COUNTRY_STRAIN_DESC,"The large refugee population we host is weighing on schools, hospitals and housing. Tensions are rising with residents.","La nombreuse population réfugiée que nous accueillons pèse sur les écoles, les hôpitaux et le logement. Les tensions montent avec les habitants."
+EVENT_HOST_COUNTRY_STRAIN_NEWS,{country}: tensions over refugee reception,{country} : tensions autour de l'accueil des réfugiés
+EVENT_HOST_COUNTRY_STRAIN_A,Invest in integration,Investir dans l'intégration
+EVENT_HOST_COUNTRY_STRAIN_B,Encourage returns,Encourager les retours
+EVENT_PANDEMIC_OUTBREAK_TITLE,A new virus,Un nouveau virus
+EVENT_PANDEMIC_OUTBREAK_DESC,Health authorities report clusters of an unknown respiratory disease. Experts fear a pandemic.,Les autorités sanitaires signalent des foyers d'une maladie respiratoire inconnue. Les experts craignent une pandémie.
+EVENT_PANDEMIC_OUTBREAK_A,Screen travellers and stockpile equipment,Contrôler les voyageurs et constituer des stocks
+EVENT_PANDEMIC_OUTBREAK_B,Avoid alarming the public,Éviter d'alarmer la population
+EVENT_PANDEMIC_SPREAD_TITLE,Pandemic,Pandémie
+EVENT_PANDEMIC_SPREAD_DESC,The virus is now spreading on every continent. Hospitals are overwhelmed and the world economy is stalling.,Le virus circule désormais sur tous les continents. Les hôpitaux sont débordés et l'économie mondiale cale.
+EVENT_PANDEMIC_SPREAD_A,Prepare the country,Préparer le pays
+EVENT_PANDEMIC_RESPONSE_TITLE,Facing the pandemic,Face à la pandémie
+EVENT_PANDEMIC_RESPONSE_DESC,"The health minister presents three strategies. Each has a price, in lives or in growth.","Le ministre de la Santé présente trois stratégies. Chacune a un prix, en vies ou en croissance."
+EVENT_PANDEMIC_RESPONSE_A,Strict lockdown and job support,Confinement strict et chômage partiel
+EVENT_PANDEMIC_RESPONSE_B,Targeted measures,Mesures ciblées
+EVENT_PANDEMIC_RESPONSE_C,Keep the country running,Ne pas arrêter le pays
+EVENT_PANDEMIC_VACCINE_TITLE,A vaccine,Un vaccin
+EVENT_PANDEMIC_VACCINE_DESC,Laboratories have produced an effective vaccine. The end of the pandemic is in sight.,Les laboratoires ont mis au point un vaccin efficace. La fin de la pandémie est en vue.
+EVENT_PANDEMIC_VACCINE_A,Fund access for poor countries,Financer l'accès des pays pauvres
+EVENT_PANDEMIC_VACCINE_B,Vaccinate our citizens first,Vacciner d'abord nos citoyens
+EVENT_TERROR_ATTACK_TITLE,Terrorist attack,Attentat
+EVENT_TERROR_ATTACK_DESC,A bomb has exploded in a crowded area of {province}. The country is in shock.,Une bombe a explosé dans un lieu fréquenté de {province}. Le pays est sous le choc.
+EVENT_TERROR_ATTACK_NEWS,{country}: deadly attack in {province},{country} : attentat meurtrier à {province}
+EVENT_TERROR_ATTACK_A,State of emergency and new security laws,État d'urgence et nouvelles lois de sécurité
+EVENT_TERROR_ATTACK_B,Call for national unity,Appeler à l'unité nationale
+EVENT_ASSASSINATION_ATTEMPT_TITLE,Assassination attempt,Tentative d'assassinat
+EVENT_ASSASSINATION_ATTEMPT_DESC,Shots were fired at the head of state's motorcade. The security services are on maximum alert.,Des coups de feu ont visé le cortège du chef de l'État. Les services de sécurité sont en alerte maximale.
+EVENT_ASSASSINATION_ATTEMPT_NEWS,{country}: assassination attempt on the head of state,{country} : tentative d'assassinat contre le chef de l'État
+EVENT_ASSASSINATION_ATTEMPT_A,Hunt down the plotters,Traquer les conspirateurs
+EVENT_ASSASSINATION_ATTEMPT_B,An independent inquiry,Une enquête indépendante
+EVENT_INFRASTRUCTURE_CYBERATTACK_TITLE,Cyberattack,Cyberattaque
+EVENT_INFRASTRUCTURE_CYBERATTACK_DESC,Hackers have paralysed part of our power grid and hospital systems. The trail leads abroad.,Des pirates ont paralysé une partie de notre réseau électrique et des systèmes hospitaliers. La piste mène à l'étranger.
+EVENT_INFRASTRUCTURE_CYBERATTACK_NEWS,{country} hit by a massive cyberattack,{country} frappé par une cyberattaque massive
+EVENT_INFRASTRUCTURE_CYBERATTACK_A,Strengthen our cyber defences,Renforcer notre cyberdéfense
+EVENT_INFRASTRUCTURE_CYBERATTACK_B,Publicly name the culprits,Désigner publiquement les coupables
+EVENT_HORMUZ_CRISIS_TITLE,Crisis in the Strait of Hormuz,Crise dans le détroit d'Ormuz
+EVENT_HORMUZ_CRISIS_DESC,Mines and tanker seizures have halted traffic through Hormuz. A fifth of the world's oil is stuck in the Gulf.,Mines et arraisonnements de pétroliers ont stoppé le trafic dans le détroit d'Ormuz. Un cinquième du pétrole mondial est bloqué dans le Golfe.
+EVENT_HORMUZ_CRISIS_A,Join an international escort mission,Rejoindre une mission internationale d'escorte
+EVENT_HORMUZ_CRISIS_B,Stay out and absorb the price shock,Rester à l'écart et encaisser la hausse des prix
+EVENT_HORMUZ_REOPENED_TITLE,Hormuz reopens,Ormuz rouvre
+EVENT_HORMUZ_REOPENED_DESC,Tankers are passing through the strait again.,Les pétroliers franchissent de nouveau le détroit.
+EVENT_RED_SEA_ATTACKS_TITLE,Attacks in the Red Sea,Attaques en mer Rouge
+EVENT_RED_SEA_ATTACKS_DESC,Missile and drone attacks on merchant ships are forcing shipping lines to avoid Bab-el-Mandeb and sail around Africa.,Des attaques de missiles et de drones contre des navires marchands obligent les armateurs à éviter Bab-el-Mandeb et à contourner l'Afrique.
+EVENT_RED_SEA_ATTACKS_A,Send a frigate,Envoyer une frégate
+EVENT_RED_SEA_ATTACKS_B,Leave it to the great powers,Laisser faire les grandes puissances
+EVENT_RED_SEA_REOPENED_TITLE,The Red Sea is calm again,La mer Rouge s'apaise
+EVENT_RED_SEA_REOPENED_DESC,Ships are returning to the Bab-el-Mandeb route.,Les navires reprennent la route de Bab-el-Mandeb.
+EVENT_SUEZ_BLOCKED_TITLE,Suez Canal blocked,Canal de Suez bloqué
+EVENT_SUEZ_BLOCKED_DESC,A giant container ship has run aground across the Suez Canal. Hundreds of ships are waiting at both ends.,Un porte-conteneurs géant s'est échoué en travers du canal de Suez. Des centaines de navires attendent à ses deux extrémités.
+EVENT_SUEZ_BLOCKED_A,Watch the salvage efforts,Suivre les opérations de renflouement
+EVENT_SUEZ_CLEARED_TITLE,Suez Canal cleared,Canal de Suez dégagé
+EVENT_SUEZ_CLEARED_DESC,The ship has been refloated: traffic resumes.,Le navire a été renfloué : le trafic reprend.
+EVENT_PANAMA_DROUGHT_TITLE,Drought in the Panama Canal,Sécheresse sur le canal de Panama
+EVENT_PANAMA_DROUGHT_DESC,The canal's lakes are too low: the authority sharply limits the number of crossings.,Les lacs du canal sont trop bas : l'autorité limite fortement le nombre de passages.
+EVENT_PANAMA_DROUGHT_A,Reroute our shipments,Dérouter nos cargaisons
+EVENT_PANAMA_REOPENED_TITLE,Panama Canal back to normal,Canal de Panama rétabli
+EVENT_PANAMA_REOPENED_DESC,The rains have returned and crossings are back to normal.,Les pluies sont revenues et les passages reprennent normalement.
+EVENT_OPEC_SUPPLY_CUT_TITLE,Oil producers cut output,Les producteurs de pétrole réduisent leur production
+EVENT_OPEC_SUPPLY_CUT_DESC,The main exporters announce a sharp production cut. Oil prices jump.,Les principaux exportateurs annoncent une forte baisse de leur production. Le prix du pétrole bondit.
+EVENT_OPEC_SUPPLY_CUT_A,Release strategic reserves,Puiser dans les réserves stratégiques
+EVENT_OPEC_SUPPLY_CUT_B,Let prices rise,Laisser les prix monter
+EVENT_GLOBAL_FOOD_CRISIS_TITLE,Global food crisis,Crise alimentaire mondiale
+EVENT_GLOBAL_FOOD_CRISIS_DESC,Poor harvests and export bans are pushing grain prices to record highs. Hunger riots are breaking out in the poorest countries.,Mauvaises récoltes et interdictions d'exporter font flamber le prix des céréales. Des émeutes de la faim éclatent dans les pays les plus pauvres.
+EVENT_GLOBAL_FOOD_CRISIS_A,Fund the World Food Programme,Financer le Programme alimentaire mondial
+EVENT_GLOBAL_FOOD_CRISIS_B,Protect our own farmers,Protéger nos propres agriculteurs
+EVENT_SOLAR_STORM_TITLE,Solar storm,Tempête solaire
+EVENT_SOLAR_STORM_DESC,An exceptional solar storm has damaged satellites and transformers. GPS and communications are disrupted.,Une tempête solaire exceptionnelle a endommagé satellites et transformateurs. Le GPS et les communications sont perturbés.
+EVENT_SOLAR_STORM_A,Harden our power grids,Protéger nos réseaux électriques
+EVENT_SOLAR_STORM_B,Repair and move on,Réparer et passer à autre chose
+EVENT_FOREIGN_POWER_SHIFT_TITLE,Change of power abroad,Alternance à l'étranger
+EVENT_FOREIGN_POWER_SHIFT_DESC,A new government has taken office after the elections in {country}.,Un nouveau gouvernement prend ses fonctions après les élections en {country}.
+EVENT_FOREIGN_POWER_SHIFT_NEWS,Elections: change of government in {country},Élections : changement de gouvernement en {country}
+EVENT_FOREIGN_ELECTION_REACTION_TITLE,A new government next door,Un nouveau gouvernement chez un voisin
+EVENT_FOREIGN_ELECTION_REACTION_DESC,The elections in {from} have brought a new team to power. How should we greet it?,Les élections en {from} ont porté une nouvelle équipe au pouvoir. Comment l'accueillir ?
+EVENT_FOREIGN_ELECTION_REACTION_A,Warm congratulations and an invitation,Félicitations chaleureuses et invitation officielle
+EVENT_FOREIGN_ELECTION_REACTION_B,A formal message,Un message protocolaire
+EVENT_FOREIGN_ELECTION_REACTION_C,Express our concerns,Exprimer nos inquiétudes
+EVENT_LEADER_DEATH_NEWS_TITLE,Death of a leader,Mort d'un dirigeant
+EVENT_LEADER_DEATH_NEWS_DESC,One of the leaders of {country} has died; a successor has taken over.,L'un des dirigeants de {country} est mort ; un successeur a pris la relève.
+EVENT_LEADER_DEATH_NEWS,"{country}: death of a national leader, a successor takes over","{country} : mort d'un dirigeant, un successeur prend la relève"
+EVENT_LEADER_DEATH_PLAYER_TITLE,The nation in mourning,La nation en deuil
+EVENT_LEADER_DEATH_PLAYER_DESC,"One of our leaders has died. In line with our institutions, a successor has been sworn in.","L'un de nos dirigeants est mort. Conformément à nos institutions, un successeur a pris ses fonctions."
+EVENT_LEADER_DEATH_PLAYER_A,Declare national mourning,Décréter un deuil national
+EVENT_LEADER_DEATH_PLAYER_B,Insist on continuity,Insister sur la continuité de l'État
+EVENT_SUCCESSION_CRISIS_TITLE,Succession crisis,Crise de succession
+EVENT_SUCCESSION_CRISIS_DESC,The death of the head of state has opened a struggle between factions of the regime.,La mort du chef de l'État a ouvert une lutte entre les factions du régime.
+EVENT_SUCCESSION_CRISIS_NEWS,{country}: succession crisis at the top of the state,{country} : crise de succession au sommet de l'État
+EVENT_SUCCESSION_CRISIS_A,Rely on the army and purge rivals,S'appuyer sur l'armée et écarter les rivaux
+EVENT_SUCCESSION_CRISIS_B,Share power among the clans,Partager le pouvoir entre les clans
+EVENT_FOREIGN_LEADER_FUNERAL_TITLE,State funeral,Obsèques nationales
+EVENT_FOREIGN_LEADER_FUNERAL_DESC,One of the leaders of {from} has died. The funeral will bring together leaders from around the world.,L'un des dirigeants de {from} est mort. Les obsèques réuniront des dirigeants du monde entier.
+EVENT_FOREIGN_LEADER_FUNERAL_A,Attend in person,Y assister en personne
+EVENT_FOREIGN_LEADER_FUNERAL_B,Send an ambassador,Envoyer un ambassadeur
+EVENT_FOREIGN_ASSASSINATION_TITLE,Assassination abroad,Assassinat à l'étranger
+EVENT_FOREIGN_ASSASSINATION_DESC,The head of state of {from} has been assassinated. The world holds its breath.,Le chef de l'État de {from} a été assassiné. Le monde retient son souffle.
+EVENT_FOREIGN_ASSASSINATION_A,Offer our full support,Offrir tout notre soutien
+EVENT_FOREIGN_ASSASSINATION_B,Tighten our own security,Renforcer notre propre sécurité
+EVENT_COUP_REACTION_TITLE,Coup abroad,Coup d'État à l'étranger
+EVENT_COUP_REACTION_DESC,The army has seized power in {from}. The new junta seeks recognition.,L'armée a pris le pouvoir en {from}. La nouvelle junte cherche à être reconnue.
+EVENT_COUP_REACTION_A,Condemn the coup,Condamner le coup d'État
+EVENT_COUP_REACTION_B,Deal with the new rulers,Traiter avec les nouveaux maîtres

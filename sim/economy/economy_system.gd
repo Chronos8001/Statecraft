@@ -138,7 +138,7 @@ static func step_country(economy: EconomyState, currency: CurrencyState, state: 
 	var expected := EconomyModel.expected_inflation(economy.inflation, currency.inflation_target, currency.independent,
 		settings)
 	economy.inflation = clampf(EconomyModel.next_inflation(economy.inflation, expected + economy.budget_inflation + economy.resource_inflation + economy.trade_inflation
-		+ economy.sanction_inflation,
+		+ economy.sanction_inflation + economy.event_inflation,
 		economy.output_gap,
 		currency.last_depreciation, settings), float(inflation_bounds[0]), float(inflation_bounds[1]))
 	economy.unemployment = clampf(EconomyModel.next_unemployment(economy.unemployment,

@@ -1,0 +1,125 @@
+{
+  "hormuz_crisis": {
+    "title_key": "EVENT_HORMUZ_CRISIS_TITLE",
+    "desc_key": "EVENT_HORMUZ_CRISIS_DESC",
+    "scope": "world",
+    "trigger": {"world_tension": ">50", "not": {"strait_closed": "hormuz"}},
+    "mtth_months": 120,
+    "mtth_modifiers": [{"factor": 0.5, "if": {"world_tension": ">65"}}],
+    "immediate": {
+      "close_strait": "hormuz",
+      "add_tension": 3,
+      "trigger_event": {"id": "hormuz_reopened", "days": 75}
+    },
+    "options": [
+      {"name_key": "EVENT_HORMUZ_CRISIS_A", "effects": {"add_debt_gdp": 0.1, "add_tension": 1, "add_legitimacy": 1}},
+      {"name_key": "EVENT_HORMUZ_CRISIS_B", "effects": {"add_modifier": {"inflation": 0.5, "months": 3}}}
+    ]
+  },
+  "hormuz_reopened": {
+    "title_key": "EVENT_HORMUZ_REOPENED_TITLE",
+    "desc_key": "EVENT_HORMUZ_REOPENED_DESC",
+    "scope": "world",
+    "triggered_only": true,
+    "immediate": {"open_strait": "hormuz", "add_tension": -2}
+  },
+  "red_sea_attacks": {
+    "title_key": "EVENT_RED_SEA_ATTACKS_TITLE",
+    "desc_key": "EVENT_RED_SEA_ATTACKS_DESC",
+    "scope": "world",
+    "trigger": {"world_tension": ">40", "not": {"strait_closed": "bab_el_mandeb"}},
+    "mtth_months": 90,
+    "immediate": {
+      "close_strait": "bab_el_mandeb",
+      "add_tension": 1,
+      "trigger_event": {"id": "red_sea_reopened", "days": 150}
+    },
+    "options": [
+      {"name_key": "EVENT_RED_SEA_ATTACKS_A", "effects": {"add_debt_gdp": 0.05, "add_tension": 1}},
+      {"name_key": "EVENT_RED_SEA_ATTACKS_B", "effects": {}}
+    ]
+  },
+  "red_sea_reopened": {
+    "title_key": "EVENT_RED_SEA_REOPENED_TITLE",
+    "desc_key": "EVENT_RED_SEA_REOPENED_DESC",
+    "scope": "world",
+    "triggered_only": true,
+    "immediate": {"open_strait": "bab_el_mandeb"}
+  },
+  "suez_blocked": {
+    "title_key": "EVENT_SUEZ_BLOCKED_TITLE",
+    "desc_key": "EVENT_SUEZ_BLOCKED_DESC",
+    "scope": "world",
+    "trigger": {"not": {"strait_closed": "suez"}},
+    "mtth_months": 360,
+    "immediate": {"close_strait": "suez", "trigger_event": {"id": "suez_cleared", "days": 8}},
+    "options": [
+      {"name_key": "EVENT_SUEZ_BLOCKED_A", "effects": {}}
+    ]
+  },
+  "suez_cleared": {
+    "title_key": "EVENT_SUEZ_CLEARED_TITLE",
+    "desc_key": "EVENT_SUEZ_CLEARED_DESC",
+    "scope": "world",
+    "triggered_only": true,
+    "immediate": {"open_strait": "suez"}
+  },
+  "panama_drought": {
+    "title_key": "EVENT_PANAMA_DROUGHT_TITLE",
+    "desc_key": "EVENT_PANAMA_DROUGHT_DESC",
+    "scope": "world",
+    "trigger": {"month": "<=5", "not": {"strait_closed": "panama"}},
+    "mtth_months": 120,
+    "immediate": {"close_strait": "panama", "trigger_event": {"id": "panama_reopened", "days": 45}},
+    "options": [
+      {"name_key": "EVENT_PANAMA_DROUGHT_A", "effects": {}}
+    ]
+  },
+  "panama_reopened": {
+    "title_key": "EVENT_PANAMA_REOPENED_TITLE",
+    "desc_key": "EVENT_PANAMA_REOPENED_DESC",
+    "scope": "world",
+    "triggered_only": true,
+    "immediate": {"open_strait": "panama"}
+  },
+  "opec_supply_cut": {
+    "title_key": "EVENT_OPEC_SUPPLY_CUT_TITLE",
+    "desc_key": "EVENT_OPEC_SUPPLY_CUT_DESC",
+    "scope": "world",
+    "trigger": {"world_tension": ">30"},
+    "mtth_months": 180,
+    "immediate": {"add_supply_shock": {"resource": "oil", "share": 0.05, "months": 8}},
+    "options": [
+      {"name_key": "EVENT_OPEC_SUPPLY_CUT_A", "effects": {"add_debt_gdp": 0.1, "add_stability": 1}},
+      {"name_key": "EVENT_OPEC_SUPPLY_CUT_B", "effects": {"add_modifier": {"inflation": 0.4, "months": 6}}}
+    ]
+  },
+  "global_food_crisis": {
+    "title_key": "EVENT_GLOBAL_FOOD_CRISIS_TITLE",
+    "desc_key": "EVENT_GLOBAL_FOOD_CRISIS_DESC",
+    "scope": "world",
+    "trigger": {"year": ">=2027"},
+    "mtth_months": 200,
+    "immediate": {
+      "add_supply_shock": {"resource": "wheat", "share": 0.08, "months": 9},
+      "every_country": {"limit": {"gdp_rank": ">100"}, "effects": {"add_stability": -2}}
+    },
+    "options": [
+      {"name_key": "EVENT_GLOBAL_FOOD_CRISIS_A", "effects": {"add_debt_gdp": 0.1, "add_tension": -1, "add_legitimacy": 1}},
+      {"name_key": "EVENT_GLOBAL_FOOD_CRISIS_B", "effects": {"add_group_satisfaction": {"farmers": 2}}}
+    ]
+  },
+  "solar_storm": {
+    "title_key": "EVENT_SOLAR_STORM_TITLE",
+    "desc_key": "EVENT_SOLAR_STORM_DESC",
+    "scope": "world",
+    "trigger": {"year": ">=2027"},
+    "mtth_months": 1200,
+    "once": true,
+    "immediate": {"every_country": {"limit": {"gdp_rank": "<=50"}, "effects": {"add_modifier": {"growth": -0.3, "months": 3}}}},
+    "options": [
+      {"name_key": "EVENT_SOLAR_STORM_A", "effects": {"add_research": 30, "add_debt_gdp": 0.1}},
+      {"name_key": "EVENT_SOLAR_STORM_B", "effects": {}}
+    ]
+  }
+}

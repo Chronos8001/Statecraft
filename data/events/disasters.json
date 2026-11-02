@@ -1,0 +1,169 @@
+{
+  "earthquake": {
+    "title_key": "EVENT_EARTHQUAKE_TITLE",
+    "desc_key": "EVENT_EARTHQUAKE_DESC",
+    "scope": "country",
+    "trigger": {"tag": ["JPN", "TUR", "IRN", "IDN", "CHL", "PER", "ECU", "MEX", "NPL", "PAK", "AFG", "CHN", "ITA", "GRC",
+      "PHL", "NZL", "USA", "COL", "GTM", "HTI", "TWN", "MMR", "IND", "DZA", "MAR", "SYR", "ARM", "GEO", "TJK", "KGZ", "PNG",
+      "VUT", "SLV", "CRI", "NIC", "HND", "ALB", "MNE", "ROU", "BTN", "SLB", "TON"]},
+    "mtth_months": 300,
+    "news": {"any": [{"gdp_rank": "<=25"}, {"is_player_or_neighbor": true}]},
+    "news_key": "EVENT_EARTHQUAKE_NEWS",
+    "immediate": {
+      "random_province": {"limit": {"population": ">50000"}, "effects": {"damage_infrastructure": 3}},
+      "add_stability": -3
+    },
+    "options": [
+      {"name_key": "EVENT_EARTHQUAKE_A", "effects": {"add_debt_gdp": 0.5, "add_stability": 2, "add_legitimacy": 2},
+        "ai_weight": 2, "ai_modifiers": [{"factor": 0.3, "if": {"debt": ">130"}}]},
+      {"name_key": "EVENT_EARTHQUAKE_B", "effects": {"add_modifier": {"growth": -0.3, "months": 6}, "add_legitimacy": -2},
+        "ai_weight": 1}
+    ]
+  },
+  "hurricane": {
+    "title_key": "EVENT_HURRICANE_TITLE",
+    "desc_key": "EVENT_HURRICANE_DESC",
+    "scope": "country",
+    "trigger": {"tag": ["USA", "MEX", "CUB", "HTI", "DOM", "JAM", "BHS", "HND", "NIC", "GTM", "BLZ", "PHL", "JPN", "CHN",
+      "TWN", "VNM", "BGD", "IND", "MMR", "KOR", "ATG", "BRB", "DMA", "GRD", "KNA", "LCA", "VCT", "TTO", "PRK", "LAO"],
+      "month": ">=6", "all": [{"month": "<=11"}]},
+    "mtth_months": 110,
+    "news": {"any": [{"gdp_rank": "<=15"}, {"is_player_or_neighbor": true}]},
+    "news_key": "EVENT_HURRICANE_NEWS",
+    "immediate": {
+      "random_province": {"limit": {"coastal": true}, "effects": {"damage_infrastructure": 2}},
+      "add_stability": -2
+    },
+    "options": [
+      {"name_key": "EVENT_HURRICANE_A", "effects": {"add_debt_gdp": 0.3, "add_stability": 2}, "ai_weight": 2},
+      {"name_key": "EVENT_HURRICANE_B", "effects": {"add_modifier": {"growth": -0.2, "months": 6}, "add_legitimacy": -1},
+        "ai_weight": 1}
+    ]
+  },
+  "southern_cyclone": {
+    "title_key": "EVENT_SOUTHERN_CYCLONE_TITLE",
+    "desc_key": "EVENT_SOUTHERN_CYCLONE_DESC",
+    "scope": "country",
+    "trigger": {"tag": ["AUS", "MDG", "MOZ", "MWI", "ZWE", "FJI", "VUT", "TON", "WSM", "SLB", "MUS", "COM", "NZL"],
+      "any": [{"month": "<=4"}, {"month": ">=11"}]},
+    "mtth_months": 110,
+    "news": {"any": [{"gdp_rank": "<=15"}, {"is_player_or_neighbor": true}]},
+    "news_key": "EVENT_HURRICANE_NEWS",
+    "immediate": {
+      "random_province": {"limit": {"coastal": true}, "effects": {"damage_infrastructure": 2}},
+      "add_stability": -2
+    },
+    "options": [
+      {"name_key": "EVENT_HURRICANE_A", "effects": {"add_debt_gdp": 0.3, "add_stability": 2}, "ai_weight": 2},
+      {"name_key": "EVENT_HURRICANE_B", "effects": {"add_modifier": {"growth": -0.2, "months": 6}, "add_legitimacy": -1},
+        "ai_weight": 1}
+    ]
+  },
+  "flood": {
+    "title_key": "EVENT_FLOOD_TITLE",
+    "desc_key": "EVENT_FLOOD_DESC",
+    "scope": "country",
+    "trigger": {"tag": ["BGD", "PAK", "IND", "CHN", "NGA", "DEU", "BRA", "IDN", "VNM", "THA", "MMR", "NPL", "SSD", "SDN",
+      "KEN", "SOM", "ETH", "LBY", "ZAF", "AFG", "ITA", "FRA", "ESP", "POL", "CZE", "AUT", "ROU", "MOZ", "MWI", "COD", "NER",
+      "TCD", "GBR", "BEL", "NLD", "SVN", "HRV", "BIH", "KHM", "LAO", "PHL", "MYS", "LKA", "COL", "PER", "BOL", "ARG"]},
+    "mtth_months": 240,
+    "news": {"any": [{"gdp_rank": "<=10"}, {"is_player_or_neighbor": true}]},
+    "news_key": "EVENT_FLOOD_NEWS",
+    "immediate": {
+      "random_province": {"limit": {"population": ">20000"}, "effects": {"damage_infrastructure": 1.5}},
+      "add_stability": -1,
+      "add_group_satisfaction": {"farmers": -2}
+    },
+    "options": [
+      {"name_key": "EVENT_FLOOD_A", "effects": {"add_debt_gdp": 0.3, "add_group_satisfaction": {"farmers": 3}},
+        "ai_weight": 2},
+      {"name_key": "EVENT_FLOOD_B", "effects": {"add_group_satisfaction": {"ecologists": 3}, "add_debt_gdp": 0.6,
+        "add_modifier": {"growth": 0.1, "months": 12}}, "ai_weight": 1,
+        "ai_modifiers": [{"factor": 2, "if": {"gdp_rank": "<=30"}}]}
+    ]
+  },
+  "drought": {
+    "title_key": "EVENT_DROUGHT_TITLE",
+    "desc_key": "EVENT_DROUGHT_DESC",
+    "scope": "country",
+    "trigger": {"tag": ["ESP", "MAR", "DZA", "TUN", "EGY", "ETH", "SOM", "KEN", "ZAF", "ZWE", "ZMB", "MOZ", "AUS", "USA",
+      "MEX", "BRA", "ARG", "IND", "PAK", "IRN", "IRQ", "SYR", "TUR", "AFG", "KAZ", "CHN", "MDG", "NAM", "BWA", "MLI", "NER",
+      "TCD", "SEN", "MRT", "BFA", "SDN", "ERI", "DJI", "AGO", "UZB", "TKM", "JOR", "ISR", "PSE", "PRT", "ITA", "GRC", "CYP"],
+      "month": ">=5", "all": [{"month": "<=9"}]},
+    "mtth_months": 120,
+    "news": {"any": [{"gdp_rank": "<=10"}, {"is_player_or_neighbor": true}]},
+    "news_key": "EVENT_DROUGHT_NEWS",
+    "immediate": {
+      "add_modifier": {"growth": -0.4, "inflation": 0.6, "months": 12},
+      "add_group_satisfaction": {"farmers": -4},
+      "if": {"has_resource": "wheat", "gdp_rank": "<=25"},
+      "then": {"add_supply_shock": {"resource": "wheat", "share": 0.04, "months": 9}}
+    },
+    "options": [
+      {"name_key": "EVENT_DROUGHT_A", "effects": {"add_debt_gdp": 0.4, "add_group_satisfaction": {"farmers": 4}},
+        "ai_weight": 2},
+      {"name_key": "EVENT_DROUGHT_B", "effects": {"add_group_satisfaction": {"farmers": -2, "middle_class": -1},
+        "add_stability": -1}, "ai_weight": 1, "ai_modifiers": [{"factor": 3, "if": {"debt": ">100"}}]}
+    ]
+  },
+  "wildfires": {
+    "title_key": "EVENT_WILDFIRES_TITLE",
+    "desc_key": "EVENT_WILDFIRES_DESC",
+    "scope": "country",
+    "trigger": {"tag": ["USA", "CAN", "GRC", "PRT", "ESP", "TUR", "FRA", "ITA", "RUS", "BRA", "BOL", "CHL", "ISR", "DZA",
+      "HRV", "CYP", "MAR", "KAZ", "MNG"], "month": ">=6", "all": [{"month": "<=9"}]},
+    "mtth_months": 80,
+    "news": {"any": [{"gdp_rank": "<=10"}, {"is_player_or_neighbor": true}]},
+    "news_key": "EVENT_WILDFIRES_NEWS",
+    "immediate": {
+      "random_province": {"limit": {"terrain": ["forest", "hills", "plains", "savanna", "mountains", "steppe"]},
+        "effects": {"damage_infrastructure": 1}},
+      "add_stability": -1
+    },
+    "options": [
+      {"name_key": "EVENT_WILDFIRES_A", "effects": {"add_debt_gdp": 0.2, "add_group_satisfaction": {"ecologists": 2}},
+        "ai_weight": 2},
+      {"name_key": "EVENT_WILDFIRES_B", "effects": {"add_legitimacy": -2, "add_group_satisfaction": {"ecologists": -3}},
+        "ai_weight": 1}
+    ]
+  },
+  "australian_bushfires": {
+    "title_key": "EVENT_WILDFIRES_TITLE",
+    "desc_key": "EVENT_WILDFIRES_DESC",
+    "scope": "country",
+    "trigger": {"tag": "AUS", "any": [{"month": "<=2"}, {"month": "=12"}]},
+    "mtth_months": 40,
+    "news": {"is_player_or_neighbor": true},
+    "news_key": "EVENT_WILDFIRES_NEWS",
+    "immediate": {
+      "random_province": {"effects": {"damage_infrastructure": 1}},
+      "add_stability": -1
+    },
+    "options": [
+      {"name_key": "EVENT_WILDFIRES_A", "effects": {"add_debt_gdp": 0.2, "add_group_satisfaction": {"ecologists": 2}},
+        "ai_weight": 2},
+      {"name_key": "EVENT_WILDFIRES_B", "effects": {"add_legitimacy": -2, "add_group_satisfaction": {"ecologists": -3}},
+        "ai_weight": 1}
+    ]
+  },
+  "volcanic_eruption": {
+    "title_key": "EVENT_VOLCANIC_ERUPTION_TITLE",
+    "desc_key": "EVENT_VOLCANIC_ERUPTION_DESC",
+    "scope": "country",
+    "trigger": {"tag": ["ISL", "IDN", "ITA", "PHL", "JPN", "CHL", "ECU", "GTM", "NZL", "PNG", "TON", "MEX", "CRI", "NIC",
+      "VUT", "COD", "ETH", "ERI", "CPV", "COM", "RUS", "USA"]},
+    "mtth_months": 900,
+    "news": {"any": [{"gdp_rank": "<=10"}, {"is_player_or_neighbor": true}, {"tag": "ISL"}]},
+    "news_key": "EVENT_VOLCANIC_ERUPTION_NEWS",
+    "immediate": {
+      "random_province": {"limit": {"terrain": ["mountains", "hills"]}, "effects": {"damage_infrastructure": 2}},
+      "add_stability": -2,
+      "if": {"tag": "ISL"},
+      "then": {"every_country": {"limit": {"gdp_rank": "<=40", "random": 0.5},
+        "effects": {"add_modifier": {"growth": -0.1, "months": 2}}}}
+    },
+    "options": [
+      {"name_key": "EVENT_VOLCANIC_ERUPTION_A", "effects": {"add_debt_gdp": 0.3, "add_stability": 2}, "ai_weight": 1}
+    ]
+  }
+}

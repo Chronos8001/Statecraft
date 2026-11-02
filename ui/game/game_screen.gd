@@ -400,6 +400,10 @@ func _on_sim_event(event: Dictionary) -> void:
 	if event.get("type") == EventSystem.EVENT_PENDING:
 		_show_next_event.call_deferred()
 		return
+	if event.get("type") == EventSystem.EVENT_FIRED:
+		if bool(event.get("news", false)):
+			_notify_news(event)
+		return
 	# Événements mondiaux : visibles quel que soit le pays joué.
 	match event.get("type"):
 		ResourceSystem.EVENT_STRAIT_CLOSED:
@@ -563,6 +567,19 @@ func _on_year_passed(date: GameDate) -> void:
 
 
 ## Message temporaire sous la barre supérieure.
+## Événement d'un autre pays (ou du monde) annoncé sans fenêtre : texte « news_key », sinon titre et pays.
+func _notify_news(event: Dictionary) -> void:
+	var definition: Dictionary = GameState.sim.event_definitions.get(str(event.get("event", "")), {})
+	var tag := str(event.get("tag", ""))
+	var key := str(definition.get("news_key", ""))
+	if not key.is_empty():
+		_notify(EventWindow.fill(tr(key), GameState.sim, tag, event))
+	elif tag.is_empty():
+		_notify(tr(str(definition.get("title_key", ""))))
+	else:
+		_notify("%s — %s" % [tr(str(definition.get("title_key", ""))), MilitaryUI.side_name(GameState.sim, tag)])
+
+
 func _notify(text: String) -> void:
 	_notification_label.text = text
 	_notification_label.visible = true

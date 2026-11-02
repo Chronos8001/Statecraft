@@ -1,0 +1,56 @@
+{
+  "refugee_wave": {
+    "title_key": "EVENT_REFUGEE_WAVE_TITLE",
+    "desc_key": "EVENT_REFUGEE_WAVE_DESC",
+    "scope": "country",
+    "trigger": {"at_war": false, "any_neighbor": {"any": [{"at_war": true}, {"stability": "<20"}]}},
+    "mtth_months": 150,
+    "news": {"gdp_rank": "<=15"},
+    "news_key": "EVENT_REFUGEE_WAVE_NEWS",
+    "immediate": {"add_stability": -1},
+    "options": [
+      {"name_key": "EVENT_REFUGEE_WAVE_A", "effects": {"add_debt_gdp": 0.3, "add_legitimacy": 1,
+        "add_group_satisfaction": {"minorities": 3, "workers": -2}, "add_modifier": {"unemployment": 0.2, "months": 12}},
+        "ai_weight": 1, "ai_modifiers": [{"factor": 2, "if": {"democratic": true}}]},
+      {"name_key": "EVENT_REFUGEE_WAVE_B", "effects": {"add_stability": 1, "add_group_satisfaction": {"minorities": -4},
+        "if": {"democratic": true}, "then": {"add_legitimacy": -2}}, "ai_weight": 1,
+        "ai_modifiers": [{"factor": 3, "if": {"democratic": false}}]},
+      {"name_key": "EVENT_REFUGEE_WAVE_C", "effects": {"add_debt_gdp": 0.1, "add_tension": -0.5,
+        "add_modifier": {"stability": -1, "months": 6}}, "ai_weight": 0.5}
+    ]
+  },
+  "mediterranean_crossings": {
+    "title_key": "EVENT_MEDITERRANEAN_CROSSINGS_TITLE",
+    "desc_key": "EVENT_MEDITERRANEAN_CROSSINGS_DESC",
+    "scope": "country",
+    "trigger": {"tag": ["ITA", "GRC", "ESP", "MLT", "CYP"], "month": ">=5", "all": [{"month": "<=9"}]},
+    "mtth_months": 30,
+    "news": {"is_player_or_neighbor": true},
+    "news_key": "EVENT_MEDITERRANEAN_CROSSINGS_NEWS",
+    "options": [
+      {"name_key": "EVENT_MEDITERRANEAN_CROSSINGS_A", "effects": {"add_debt_gdp": 0.05, "add_legitimacy": 1,
+        "add_group_satisfaction": {"religious": 2, "workers": -1}}, "ai_weight": 1},
+      {"name_key": "EVENT_MEDITERRANEAN_CROSSINGS_B", "effects": {"add_stability": 1, "add_legitimacy": -1,
+        "add_group_satisfaction": {"minorities": -2}}, "ai_weight": 1},
+      {"name_key": "EVENT_MEDITERRANEAN_CROSSINGS_C", "effects": {"add_relation": {"with": "LBY", "value": 5},
+        "add_debt_gdp": 0.05, "add_legitimacy": -1}, "ai_weight": 1}
+    ]
+  },
+  "host_country_strain": {
+    "title_key": "EVENT_HOST_COUNTRY_STRAIN_TITLE",
+    "desc_key": "EVENT_HOST_COUNTRY_STRAIN_DESC",
+    "scope": "country",
+    "trigger": {"tag": ["TUR", "LBN", "JOR", "COL", "BGD", "PAK", "UGA", "DEU", "POL", "IRN", "ETH", "SDN", "TCD", "PER",
+      "KEN", "EGY", "CMR"]},
+    "mtth_months": 120,
+    "news": {"is_player_or_neighbor": true},
+    "news_key": "EVENT_HOST_COUNTRY_STRAIN_NEWS",
+    "immediate": {"add_stability": -1},
+    "options": [
+      {"name_key": "EVENT_HOST_COUNTRY_STRAIN_A", "effects": {"add_debt_gdp": 0.3, "add_group_satisfaction": {"minorities": 3,
+        "workers": 1}}, "ai_weight": 1},
+      {"name_key": "EVENT_HOST_COUNTRY_STRAIN_B", "effects": {"add_stability": 1, "add_group_satisfaction": {"minorities": -4},
+        "add_legitimacy": -1}, "ai_weight": 1}
+    ]
+  }
+}

@@ -28,8 +28,7 @@ func setup(entry: Dictionary) -> void:
 	var text := Label.new()
 	text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	text.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	text.text = tr(str(definition.get("desc_key", ""))).replace("{country}", MilitaryUI.side_name(state, country)) \
-		.replace("{from}", MilitaryUI.side_name(state, str(entry.get("from", ""))))
+	text.text = fill(tr(str(definition.get("desc_key", ""))), state, country, entry)
 	box.add_child(text)
 	var options: Array = definition.get("options", [])
 	var locale := Localization.get_locale()
@@ -48,6 +47,15 @@ func setup(entry: Dictionary) -> void:
 		box.add_child(button)
 	close_requested.connect(func() -> void: pass)
 	visibility_changed.connect(_on_visibility_changed)
+
+
+## Remplace {country}, {from} et {province} dans un texte d'événement.
+static func fill(text: String, state: SimState, country: String, entry: Dictionary) -> String:
+	var province := str(entry.get("province", ""))
+	var province_name: String = TranslationServer.translate(str(DataLoader.get_entry("provinces", province).get("name_key",
+		""))) if not province.is_empty() else ""
+	return text.replace("{country}", MilitaryUI.side_name(state, country)) \
+		.replace("{from}", MilitaryUI.side_name(state, str(entry.get("from", "")))).replace("{province}", province_name)
 
 
 func _choose(index: int) -> void:

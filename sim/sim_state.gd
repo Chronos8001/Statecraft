@@ -73,6 +73,15 @@ var world_flags: Dictionary = {}
 var events_fired: Dictionary = {}
 var pending_events: Array[Dictionary] = []
 var scheduled_events: Array[Dictionary] = []
+## Événements déclenchés par une action du jeu (élection, guerre, mort d'un dirigeant…) : type d'action →
+## [identifiants], et actions survenues en attente de traitement (copies des événements de simulation).
+var event_actions: Dictionary = {}
+var action_queue: Array[Dictionary] = []
+## Rangs des pays par PIB, mis en cache pour la journée : {day, ranks: {tag: rang}}.
+var gdp_ranks: Dictionary = {}
+## Dirigeants : chefs de parti remplacés en cours de partie (parti → personnage) et personnages décédés.
+var party_leaders: Dictionary = {}
+var dead_characters: Dictionary = {}
 ## Forces armées : modules remplaçables (modèle, combats, IA) et réglages (defines.military).
 var military: MilitaryRegistry = MilitaryRegistry.new()
 var military_settings: Dictionary = {}
@@ -167,3 +176,5 @@ func add_event(type: StringName, tag: String, details: Dictionary = {}) -> void:
 	var event := {"type": type, "tag": tag}
 	event.merge(details)
 	events.append(event)
+	if event_actions.has(str(type)):
+		action_queue.append(event.duplicate())

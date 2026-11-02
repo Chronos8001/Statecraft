@@ -1226,3 +1226,11 @@ EFFECT_TRIGGER_EVENT,May have consequences later,Pourrait avoir des suites
 EFFECT_CONDITIONAL,Other effects depending on the situation,D'autres effets selon la situation
 EFFECT_NONE,No direct effect,Aucun effet direct
 EVENT_NOT_PENDING,This event is no longer waiting for an answer.,Cet événement n'attend plus de réponse.
+EFFECT_ADD_DEBT_GDP,Debt %s pt of GDP,Dette %s pt de PIB
+EFFECT_MODIFIER_INFLATION,Inflation %s pt for %d months,Inflation %s pt pendant %d mois
+EFFECT_DAMAGE_INFRASTRUCTURE,Infrastructure %s in a province,Infrastructures %s dans une province
+EFFECT_SUPPLY_SHOCK,%s: world supply %s %% for %d months,%s : offre mondiale %s %% pendant %d mois
+EFFECT_RESOURCE_CAPACITY,New %s deposits,Nouveaux gisements : %s
+EFFECT_CLOSE_STRAIT,%s closed,%s fermé
+EFFECT_OPEN_STRAIT,%s reopened,%s rouvert
+EFFECT_KILL_LEADER,A leader dies,Un dirigeant meurt

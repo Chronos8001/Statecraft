@@ -1,0 +1,87 @@
+{
+  "stock_market_crash": {
+    "title_key": "EVENT_STOCK_MARKET_CRASH_TITLE",
+    "desc_key": "EVENT_STOCK_MARKET_CRASH_DESC",
+    "scope": "world",
+    "trigger": {"not": {"has_world_flag": "financial_crisis"}},
+    "mtth_months": 150,
+    "immediate": {
+      "set_world_flag": "financial_crisis",
+      "every_country": {"effects": {
+        "if": {"gdp_rank": "<=40"},
+        "then": {"add_modifier": {"growth": -1.2, "unemployment": 0.6, "months": 12}},
+        "else": {"add_modifier": {"growth": -0.5, "months": 9}}}},
+      "trigger_event": {"id": "financial_contagion", "days": 90}
+    },
+    "options": [
+      {"name_key": "EVENT_STOCK_MARKET_CRASH_A",
+        "effects": {"add_debt_gdp": 2, "add_modifier": {"growth": 0.6, "inflation": 0.5, "months": 12}}},
+      {"name_key": "EVENT_STOCK_MARKET_CRASH_B", "effects": {"add_stability": -2}}
+    ]
+  },
+  "financial_contagion": {
+    "title_key": "EVENT_FINANCIAL_CONTAGION_TITLE",
+    "desc_key": "EVENT_FINANCIAL_CONTAGION_DESC",
+    "scope": "world",
+    "triggered_only": true,
+    "immediate": {
+      "every_country": {"limit": {"debt": ">90", "random": 0.5}, "effects": {"trigger_event": "bank_run"}},
+      "trigger_event": {"id": "financial_recovery", "days": 450}
+    },
+    "news": true
+  },
+  "bank_run": {
+    "title_key": "EVENT_BANK_RUN_TITLE",
+    "desc_key": "EVENT_BANK_RUN_DESC",
+    "scope": "country",
+    "triggered_only": true,
+    "news": {"gdp_rank": "<=20"},
+    "options": [
+      {"name_key": "EVENT_BANK_RUN_A", "effects": {"add_debt_gdp": 4, "add_legitimacy": -2},
+        "ai_weight": 2, "ai_modifiers": [{"factor": 0.3, "if": {"debt": ">150"}}]},
+      {"name_key": "EVENT_BANK_RUN_B",
+        "effects": {"add_modifier": {"growth": -1.5, "unemployment": 1.0, "months": 12}, "add_stability": -4},
+        "ai_weight": 1}
+    ]
+  },
+  "financial_recovery": {
+    "title_key": "EVENT_FINANCIAL_RECOVERY_TITLE",
+    "desc_key": "EVENT_FINANCIAL_RECOVERY_DESC",
+    "scope": "world",
+    "triggered_only": true,
+    "news": true,
+    "immediate": {"clear_world_flag": "financial_crisis"}
+  },
+  "housing_bubble": {
+    "title_key": "EVENT_HOUSING_BUBBLE_TITLE",
+    "desc_key": "EVENT_HOUSING_BUBBLE_DESC",
+    "scope": "country",
+    "trigger": {"growth": ">2.5", "gdp_rank": "<=60"},
+    "mtth_months": 480,
+    "mtth_modifiers": [{"factor": 0.5, "if": {"growth": ">5"}}],
+    "news": {"gdp_rank": "<=10"},
+    "immediate": {"add_modifier": {"growth": -1.0, "unemployment": 0.5, "months": 12}},
+    "options": [
+      {"name_key": "EVENT_HOUSING_BUBBLE_A", "effects": {"add_debt_gdp": 1.5, "add_group_satisfaction": {"middle_class": 2}},
+        "ai_weight": 1},
+      {"name_key": "EVENT_HOUSING_BUBBLE_B", "effects": {"add_group_satisfaction": {"middle_class": -3}, "add_stability": -1},
+        "ai_weight": 1, "ai_modifiers": [{"factor": 2, "if": {"debt": ">100"}}]}
+    ]
+  },
+  "currency_panic": {
+    "title_key": "EVENT_CURRENCY_PANIC_TITLE",
+    "desc_key": "EVENT_CURRENCY_PANIC_DESC",
+    "scope": "country",
+    "trigger": {"inflation": ">15"},
+    "mtth_months": 36,
+    "mtth_modifiers": [{"factor": 0.5, "if": {"inflation": ">40"}}],
+    "news": {"is_player_or_neighbor": true},
+    "options": [
+      {"name_key": "EVENT_CURRENCY_PANIC_A",
+        "effects": {"add_modifier": {"growth": -1.0, "inflation": -3.0, "months": 12}, "add_stability": -2}, "ai_weight": 2},
+      {"name_key": "EVENT_CURRENCY_PANIC_B",
+        "effects": {"add_modifier": {"inflation": 2.0, "months": 6}, "add_group_satisfaction": {"workers": -3, "retirees": -3}},
+        "ai_weight": 1, "ai_modifiers": [{"factor": 2, "if": {"democratic": false}}]}
+    ]
+  }
+}

@@ -36,6 +36,9 @@ static func make_character(state: SimState, country: CountryState, party_id: Str
 	var ideology := party.ideology if party != null else country.politics.ideology
 	var culture := country.politics.culture
 	var character := names.generate_character(country.tag, culture, names.pick_gender(culture), 0, ideology)
+	# L'âge est tiré par rapport à l'année de départ : on le ramène à l'année en cours.
+	character["birth_year"] = int(character["birth_year"]) + state.date.year 		- int((state.politics_definitions.get("names", {}) as Dictionary).get("settings", {}).get("reference_year",
+			state.date.year))
 	for _attempt: int in MAX_NAME_ATTEMPTS:
 		if not taken_last_names.has(character.get("last_name", "")):
 			break
