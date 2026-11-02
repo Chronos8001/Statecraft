@@ -1,0 +1,85 @@
+{
+  "prk": {
+    "name_key": "FOCUS_TREE_PRK",
+    "countries": ["PRK"],
+    "include": "generic",
+    "nodes": {
+      "prk_party_congress": {
+        "name_key": "FOCUS_PRK_PARTY_CONGRESS", "desc_key": "FOCUS_PRK_PARTY_CONGRESS_DESC", "x": 10, "y": 6, "months": 6,
+        "effects": {"add_legitimacy": 2, "add_group_satisfaction": {"military": 2}},
+        "ai_weight": 3
+      },
+      "prk_juche_forever": {
+        "name_key": "FOCUS_PRK_JUCHE_FOREVER", "desc_key": "FOCUS_PRK_JUCHE_FOREVER_DESC", "x": 4, "y": 7, "months": 10,
+        "requires": ["prk_party_congress"], "exclusive": ["prk_doi_moi"],
+        "effects": {"add_modifier": {"stability": 2, "growth": -0.1, "months": -1}, "set_law": {"internet": "intranet"}},
+        "ai_weight": 4
+      },
+      "prk_russian_alliance": {
+        "name_key": "FOCUS_PRK_RUSSIAN_ALLIANCE", "desc_key": "FOCUS_PRK_RUSSIAN_ALLIANCE_DESC", "x": 10, "y": 7, "months": 10,
+        "requires": ["prk_party_congress"],
+        "effects": {"add_relation": {"with": "RUS", "value": 20}, "add_tech": "drone_warfare", "add_modifier": {"growth": 0.2,
+          "months": 24}}
+      },
+      "prk_doi_moi": {
+        "name_key": "FOCUS_PRK_DOI_MOI", "desc_key": "FOCUS_PRK_DOI_MOI_DESC", "x": 16, "y": 7, "months": 12,
+        "requires": ["prk_party_congress"], "exclusive": ["prk_juche_forever"],
+        "effects": {"add_modifier": {"growth": 0.8, "months": -1}, "add_group_satisfaction": {"farmers": 5, "military": -4},
+          "add_relation": {"with": "CHN", "value": 15}},
+        "ai_weight": 0.5
+      },
+      "prk_nuclear_test": {
+        "name_key": "FOCUS_PRK_NUCLEAR_TEST", "desc_key": "FOCUS_PRK_NUCLEAR_TEST_DESC", "x": 2, "y": 8, "months": 8,
+        "requires": ["prk_juche_forever"],
+        "effects": {"add_tension": 6, "add_legitimacy": 3, "every_country": {"limit": {"tag": ["USA", "KOR", "JPN"]},
+          "effects": {"add_relation": {"with": "from", "value": -15}}}}
+      },
+      "prk_military_first": {
+        "name_key": "FOCUS_PRK_MILITARY_FIRST", "desc_key": "FOCUS_PRK_MILITARY_FIRST_DESC", "x": 6, "y": 8, "months": 10,
+        "requires": ["prk_juche_forever"],
+        "effects": {"set_law": {"conscription": "universal"}, "add_group_satisfaction": {"military": 5, "farmers": -3}}
+      },
+      "prk_special_economic_zones": {
+        "name_key": "FOCUS_PRK_SPECIAL_ECONOMIC_ZONES", "desc_key": "FOCUS_PRK_SPECIAL_ECONOMIC_ZONES_DESC", "x": 14, "y": 8,
+        "months": 12,
+        "requires": ["prk_doi_moi"],
+        "effects": {"add_modifier": {"growth": 0.5, "months": -1}, "set_law": {"internet": "censored"},
+          "add_group_satisfaction": {"elites": 3}}
+      },
+      "prk_inter_korean_summit": {
+        "name_key": "FOCUS_PRK_INTER_KOREAN_SUMMIT", "desc_key": "FOCUS_PRK_INTER_KOREAN_SUMMIT_DESC", "x": 18, "y": 8,
+        "months": 10,
+        "requires": ["prk_doi_moi"],
+        "available": {"country_exists": "KOR"},
+        "effects": {"add_relation": {"with": "KOR", "value": 30}, "add_tension": -3, "add_legitimacy": 2}
+      },
+      "prk_succession": {
+        "name_key": "FOCUS_PRK_SUCCESSION", "desc_key": "FOCUS_PRK_SUCCESSION_DESC", "x": 10, "y": 8, "months": 10,
+        "requires": ["prk_russian_alliance"],
+        "effects": {"add_modifier": {"stability": 2, "months": -1}, "add_legitimacy": 2}
+      },
+      "prk_unification_by_force": {
+        "name_key": "FOCUS_PRK_UNIFICATION_BY_FORCE", "desc_key": "FOCUS_PRK_UNIFICATION_BY_FORCE_DESC", "x": 4, "y": 9,
+        "months": 10,
+        "requires": ["prk_military_first", "prk_nuclear_test"],
+        "available": {"country_exists": "KOR", "world_tension": ">60"},
+        "effects": {"add_claim": {"target": "KOR", "provinces": [2091, 2092, 2093, 2094, 2095, 2096, 2097, 2098, 2099, 2100,
+          2101, 2102, 2103, 2104, 2105, 2106, 2107]}, "declare_war": {"target": "KOR", "goal": "annex"}},
+        "ai_weight": 0.1
+      },
+      "prk_confederation": {
+        "name_key": "FOCUS_PRK_CONFEDERATION", "desc_key": "FOCUS_PRK_CONFEDERATION_DESC", "x": 16, "y": 9, "months": 12,
+        "requires": ["prk_inter_korean_summit"],
+        "available": {"country_exists": "KOR", "not": {"player_is": "KOR"}, "relation": {"with": "KOR", "value": ">50"}},
+        "effects": {"trigger_event": {"id": "korean_confederation_offer", "target": "KOR",
+          "days": 10}},
+        "ai_weight": 0.3
+      },
+      "prk_paektu_bloodline": {
+        "name_key": "FOCUS_PRK_PAEKTU_BLOODLINE", "desc_key": "FOCUS_PRK_PAEKTU_BLOODLINE_DESC", "x": 10, "y": 11, "months": 12,
+        "requires_any": ["prk_succession", "prk_special_economic_zones", "prk_unification_by_force"],
+        "effects": {"add_modifier": {"stability": 3, "months": -1}, "add_legitimacy": 3}
+      }
+    }
+  }
+}

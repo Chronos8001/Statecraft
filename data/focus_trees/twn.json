@@ -1,0 +1,82 @@
+{
+  "twn": {
+    "name_key": "FOCUS_TREE_TWN",
+    "countries": ["TWN"],
+    "include": "generic",
+    "nodes": {
+      "twn_status_quo": {
+        "name_key": "FOCUS_TWN_STATUS_QUO", "desc_key": "FOCUS_TWN_STATUS_QUO_DESC", "x": 10, "y": 6, "months": 6,
+        "effects": {"add_stability": 2, "add_legitimacy": 1},
+        "ai_weight": 3
+      },
+      "twn_porcupine": {
+        "name_key": "FOCUS_TWN_PORCUPINE", "desc_key": "FOCUS_TWN_PORCUPINE_DESC", "x": 4, "y": 7, "months": 12,
+        "requires": ["twn_status_quo"],
+        "effects": {"add_tech": "naval_drones", "add_debt_gdp": 1, "add_group_satisfaction": {"military": 4}},
+        "ai_weight": 2
+      },
+      "twn_silicon_shield": {
+        "name_key": "FOCUS_TWN_SILICON_SHIELD", "desc_key": "FOCUS_TWN_SILICON_SHIELD_DESC", "x": 10, "y": 7, "months": 12,
+        "requires": ["twn_status_quo"],
+        "effects": {"add_tech": "advanced_chips", "add_modifier": {"growth": 0.15, "months": -1},
+          "add_relation": {"with": "USA", "value": 10}}
+      },
+      "twn_cross_strait_detente": {
+        "name_key": "FOCUS_TWN_CROSS_STRAIT_DETENTE", "desc_key": "FOCUS_TWN_CROSS_STRAIT_DETENTE_DESC", "x": 16, "y": 7,
+        "months": 10,
+        "requires": ["twn_status_quo"], "exclusive": ["twn_formal_independence"],
+        "effects": {"add_relation": {"with": "CHN", "value": 20}, "add_tension": -3, "add_modifier": {"growth": 0.1,
+          "months": -1}},
+        "ai_weight": 1
+      },
+      "twn_whole_of_society": {
+        "name_key": "FOCUS_TWN_WHOLE_OF_SOCIETY", "desc_key": "FOCUS_TWN_WHOLE_OF_SOCIETY_DESC", "x": 2, "y": 8, "months": 10,
+        "requires": ["twn_porcupine"],
+        "effects": {"set_law": {"conscription": "universal"}, "add_modifier": {"stability": 2, "months": -1},
+          "add_group_satisfaction": {"youth": -2}}
+      },
+      "twn_us_guarantee": {
+        "name_key": "FOCUS_TWN_US_GUARANTEE", "desc_key": "FOCUS_TWN_US_GUARANTEE_DESC", "x": 6, "y": 8, "months": 10,
+        "requires": ["twn_porcupine"],
+        "effects": {"add_relation": {"with": "USA", "value": 20},
+          "every_country": {"limit": {"tag": "CHN"}, "effects": {"add_relation": {"with": "from", "value": -10}}}}
+      },
+      "twn_diversify_fabs": {
+        "name_key": "FOCUS_TWN_DIVERSIFY_FABS", "desc_key": "FOCUS_TWN_DIVERSIFY_FABS_DESC", "x": 10, "y": 8, "months": 12,
+        "requires": ["twn_silicon_shield"],
+        "effects": {"every_country": {"limit": {"tag": ["USA", "JPN", "DEU"]}, "effects": {"add_relation": {"with": "from",
+          "value": 10}}}, "add_modifier": {"growth": -0.05, "months": -1}, "add_influence": 25}
+      },
+      "twn_formal_independence": {
+        "name_key": "FOCUS_TWN_FORMAL_INDEPENDENCE", "desc_key": "FOCUS_TWN_FORMAL_INDEPENDENCE_DESC", "x": 14, "y": 8,
+        "months": 12,
+        "requires": ["twn_status_quo"], "exclusive": ["twn_cross_strait_detente"],
+        "available": {"has_focus": "twn_porcupine"},
+        "effects": {"rename_country": {"name_key": "COUNTRY_TWN_REPUBLIC"}, "add_relation": {"with": "CHN", "value": -50},
+          "add_tension": 8, "add_legitimacy": 6},
+        "ai_weight": 0.1
+      },
+      "twn_one_country_two_systems": {
+        "name_key": "FOCUS_TWN_ONE_COUNTRY_TWO_SYSTEMS", "desc_key": "FOCUS_TWN_ONE_COUNTRY_TWO_SYSTEMS_DESC", "x": 18,
+        "y": 8, "months": 12,
+        "requires": ["twn_cross_strait_detente"],
+        "available": {"country_exists": "CHN", "relation": {"with": "CHN", "value": ">40"}, "not": {"player_is": "CHN"}},
+        "effects": {"add_relation": {"with": "CHN", "value": 20}, "set_flag": "twn_open_to_union"},
+        "ai_weight": 0.2
+      },
+      "twn_diplomatic_recognition": {
+        "name_key": "FOCUS_TWN_DIPLOMATIC_RECOGNITION", "desc_key": "FOCUS_TWN_DIPLOMATIC_RECOGNITION_DESC", "x": 14, "y": 9,
+        "months": 12,
+        "requires": ["twn_formal_independence"],
+        "effects": {"every_country": {"limit": {"democratic": true, "gdp_rank": "<=40"},
+          "effects": {"add_relation": {"with": "from", "value": 8}}}, "add_influence": 30}
+      },
+      "twn_democratic_beacon": {
+        "name_key": "FOCUS_TWN_DEMOCRATIC_BEACON", "desc_key": "FOCUS_TWN_DEMOCRATIC_BEACON_DESC", "x": 10, "y": 10, "months": 12,
+        "requires_any": ["twn_whole_of_society", "twn_us_guarantee", "twn_diversify_fabs", "twn_diplomatic_recognition",
+          "twn_one_country_two_systems"],
+        "effects": {"add_modifier": {"stability": 2, "months": -1}, "add_legitimacy": 3, "add_influence": 20}
+      }
+    }
+  }
+}
