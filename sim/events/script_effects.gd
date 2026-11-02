@@ -16,7 +16,7 @@ const KEYS := ["add_stability", "add_legitimacy", "add_modifier", "add_debt", "a
 	"add_group_satisfaction", "set_law", "add_research", "trigger_event", "set_flag", "clear_flag",
 	"set_world_flag", "clear_world_flag", "every_country", "random_country", "random_province", "if", "then", "else",
 	"damage_infrastructure", "add_resource_capacity", "add_supply_shock", "close_strait", "open_strait", "kill_leader",
-	"add_debt_gdp"]
+	"add_debt_gdp", "add_influence", "add_corruption", "add_tech", "every_neighbor"]
 const MODIFIER_KEYS := ["growth", "unemployment", "inflation", "stability", "months"]
 ## Conditions propres aux provinces (filtre « limit » de random_province).
 const PROVINCE_KEYS := ["coastal", "terrain", "population"]
@@ -54,6 +54,13 @@ static func apply(state: SimState, scope: Dictionary, effects: Variant) -> void:
 						apply(state, inner, (value as Dictionary).get("effects", {}))
 			"random_country":
 				_random_country(state, scope, value)
+			"every_neighbor":
+				var own := str(scope.get("country", ""))
+				var neighbors: Array = (state.land_neighbors.get(own, {}) as Dictionary).keys()
+				neighbors.sort()
+				for neighbor: Variant in neighbors:
+					if state.get_country(str(neighbor)) != null:
+						apply(state, {"country": str(neighbor), "from": own}, value)
 			"add_supply_shock":
 				ResourceSystem.add_supply_shock(state, str((value as Dictionary).get("resource", "")),
 					float((value as Dictionary).get("share", 0.0)), int((value as Dictionary).get("months", 0)))
@@ -77,6 +84,16 @@ static func apply(state: SimState, scope: Dictionary, effects: Variant) -> void:
 				add_modifier(state, country, value)
 			"add_debt":
 				InvestmentSystem.add_debt_usd(country, state, float(value))
+			"add_influence":
+				state.diplomacy.influence_points[country.tag] = maxf(float(state.diplomacy.influence_points.get(
+					country.tag, 0.0)) + float(value), 0.0)
+			"add_corruption":
+				country.society.start_corruption = clampf(country.society.start_corruption + float(value), 0.0, LIMIT)
+				country.society.corruption = clampf(country.society.corruption + float(value), 0.0, LIMIT)
+			"add_tech":
+				if country.research != null and state.technology_definitions.has(str(value)) \
+						and not country.research.is_known(str(value)):
+					ResearchSystem.complete(state, country, str(value))
 			"add_debt_gdp":
 				InvestmentSystem.add_debt_usd(country, state, TradeSystem.current_gdp(state, country.tag) * float(value)
 					/ LIMIT)
@@ -115,7 +132,8 @@ static func apply(state: SimState, scope: Dictionary, effects: Variant) -> void:
 				LeaderSystem.kill(state, country, str(spec.get("role", "")), str(spec.get("cause", "event")))
 
 
-## Modificateur temporaire : {growth, unemployment, stability, months} (durée par défaut dans les réglages).
+## Modificateur temporaire : {growth, unemployment, inflation, stability, months} (durée par défaut dans les
+## réglages ; « months » négatif : permanent).
 static func add_modifier(state: SimState, country: CountryState, value: Variant) -> void:
 	var modifier: Dictionary = (value as Dictionary).duplicate()
 	modifier["months"] = int(modifier.get("months", int(state.event_settings.get("modifier_months", 12))))
@@ -232,6 +250,8 @@ static func validate(effects: Variant, where: String, event_ids: Array) -> Packe
 				else:
 					errors.append_array(ScriptConditions.validate((value as Dictionary).get("limit", null), where))
 					errors.append_array(validate((value as Dictionary).get("effects", {}), where, event_ids))
+			"every_neighbor":
+				errors.append_array(validate(value, where, event_ids))
 			"random_province":
 				if not value is Dictionary:
 					errors.append("%s : « random_province » attend {limit, effects}" % where)
@@ -274,12 +294,15 @@ static func describe(effects: Variant, locale: String) -> PackedStringArray:
 		var name := str(key)
 		var value: Variant = data[key]
 		match name:
-			"add_stability", "add_legitimacy", "add_tension", "add_debt", "add_research", "add_debt_gdp":
+			"add_stability", "add_legitimacy", "add_tension", "add_debt", "add_research", "add_debt_gdp", "add_influence", "add_corruption":
 				lines.append(TranslationServer.translate("EFFECT_%s" % name.to_upper()) % _signed(float(value), locale))
 			"add_modifier":
 				var months := int((value as Dictionary).get("months", 12))
 				for part: String in ["growth", "unemployment", "inflation", "stability"]:
-					if (value as Dictionary).has(part):
+					if (value as Dictionary).has(part) and months < 0:
+						lines.append(TranslationServer.translate("EFFECT_PERMANENT_%s" % part.to_upper()) %
+							_signed(float(value[part]), locale))
+					elif (value as Dictionary).has(part):
 						lines.append(TranslationServer.translate("EFFECT_MODIFIER_%s" % part.to_upper()) % [
 							_signed(float(value[part]), locale), months])
 			"add_relation":
@@ -293,7 +316,7 @@ static func describe(effects: Variant, locale: String) -> PackedStringArray:
 				lines.append(TranslationServer.translate("EFFECT_SET_LAW"))
 			"trigger_event":
 				lines.append(TranslationServer.translate("EFFECT_TRIGGER_EVENT"))
-			"if", "every_country", "random_country", "random_province":
+			"if", "every_country", "random_country", "random_province", "every_neighbor":
 				lines.append(TranslationServer.translate("EFFECT_CONDITIONAL"))
 			"damage_infrastructure":
 				lines.append(TranslationServer.translate("EFFECT_DAMAGE_INFRASTRUCTURE") % _signed(-float(value), locale))
@@ -309,6 +332,11 @@ static func describe(effects: Variant, locale: String) -> PackedStringArray:
 					TranslationServer.translate("STRAIT_%s" % str(value).to_upper()))
 			"kill_leader":
 				lines.append(TranslationServer.translate("EFFECT_KILL_LEADER"))
+			"add_tech":
+				lines.append(TranslationServer.translate("EFFECT_ADD_TECH") %
+					TranslationServer.translate("TECH_%s" % str(value).to_upper()))
+			"set_flag", "set_world_flag", "clear_flag", "clear_world_flag":
+				pass
 	return lines
 
 

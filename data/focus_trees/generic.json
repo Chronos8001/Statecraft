@@ -1,0 +1,206 @@
+{
+  "generic": {
+    "name_key": "FOCUS_TREE_GENERIC",
+    "nodes": {
+      "eco_national_plan": {
+        "name_key": "FOCUS_ECO_NATIONAL_PLAN", "desc_key": "FOCUS_ECO_NATIONAL_PLAN_DESC", "x": 2, "y": 0, "months": 8,
+        "effects": {"add_modifier": {"growth": 0.1, "months": -1}},
+        "ai_weight": 3
+      },
+      "eco_industrial_policy": {
+        "name_key": "FOCUS_ECO_INDUSTRIAL_POLICY", "desc_key": "FOCUS_ECO_INDUSTRIAL_POLICY_DESC", "x": 0, "y": 1, "months": 9,
+        "requires": ["eco_national_plan"], "exclusive": ["eco_services_hub"],
+        "effects": {"add_modifier": {"growth": 0.1, "months": -1}, "add_tech": "industrial_robots",
+          "add_group_satisfaction": {"workers": 3}},
+        "ai_weight": 1
+      },
+      "eco_services_hub": {
+        "name_key": "FOCUS_ECO_SERVICES_HUB", "desc_key": "FOCUS_ECO_SERVICES_HUB_DESC", "x": 2, "y": 1, "months": 9,
+        "requires": ["eco_national_plan"], "exclusive": ["eco_industrial_policy"],
+        "effects": {"add_modifier": {"growth": 0.1, "months": -1}, "add_tech": "digital_payments",
+          "add_group_satisfaction": {"middle_class": 3}},
+        "ai_weight": 1, "ai_modifiers": [{"factor": 2, "if": {"gdp_rank": "<=40"}}]
+      },
+      "eco_green_transition": {
+        "name_key": "FOCUS_ECO_GREEN_TRANSITION", "desc_key": "FOCUS_ECO_GREEN_TRANSITION_DESC", "x": 4, "y": 1, "months": 10,
+        "requires": ["eco_national_plan"],
+        "effects": {"add_tech": "grid_storage", "add_group_satisfaction": {"ecologists": 4, "workers": -1},
+          "if": {"law": {"carbon_tax": "none"}}, "then": {"set_law": {"carbon_tax": "moderate"}}},
+        "ai_weight": 1, "ai_modifiers": [{"factor": 2, "if": {"democratic": true}}]
+      },
+      "eco_smart_factories": {
+        "name_key": "FOCUS_ECO_SMART_FACTORIES", "desc_key": "FOCUS_ECO_SMART_FACTORIES_DESC", "x": 0, "y": 2, "months": 10,
+        "requires": ["eco_industrial_policy"],
+        "effects": {"add_modifier": {"growth": 0.15, "months": -1}, "add_tech": "smart_factories"}
+      },
+      "eco_financial_center": {
+        "name_key": "FOCUS_ECO_FINANCIAL_CENTER", "desc_key": "FOCUS_ECO_FINANCIAL_CENTER_DESC", "x": 2, "y": 2, "months": 10,
+        "requires": ["eco_services_hub"],
+        "effects": {"add_modifier": {"growth": 0.15, "months": -1}, "add_tech": "tokenized_finance", "add_influence": 10}
+      },
+      "eco_renewables": {
+        "name_key": "FOCUS_ECO_RENEWABLES", "desc_key": "FOCUS_ECO_RENEWABLES_DESC", "x": 4, "y": 2, "months": 10,
+        "requires": ["eco_green_transition"],
+        "effects": {"add_tech": "offshore_wind", "add_modifier": {"inflation": -0.1, "growth": 0.05, "months": -1}}
+      },
+      "eco_infrastructure_decade": {
+        "name_key": "FOCUS_ECO_INFRASTRUCTURE_DECADE", "desc_key": "FOCUS_ECO_INFRASTRUCTURE_DECADE_DESC",
+        "x": 2, "y": 3, "months": 12,
+        "requires_any": ["eco_smart_factories", "eco_financial_center", "eco_renewables"],
+        "effects": {"add_modifier": {"growth": 0.2, "months": -1}, "add_debt_gdp": 2, "add_group_satisfaction": {"workers": 2}}
+      },
+      "eco_shared_prosperity": {
+        "name_key": "FOCUS_ECO_SHARED_PROSPERITY", "desc_key": "FOCUS_ECO_SHARED_PROSPERITY_DESC", "x": 2, "y": 4, "months": 12,
+        "requires": ["eco_infrastructure_decade"],
+        "effects": {"add_modifier": {"stability": 2, "growth": 0.1, "months": -1},
+          "add_group_satisfaction": {"workers": 2, "middle_class": 2}}
+      },
+      "pol_state_reform": {
+        "name_key": "FOCUS_POL_STATE_REFORM", "desc_key": "FOCUS_POL_STATE_REFORM_DESC", "x": 8, "y": 0, "months": 8,
+        "effects": {"add_legitimacy": 2, "add_corruption": -2},
+        "ai_weight": 2
+      },
+      "pol_democratic_reforms": {
+        "name_key": "FOCUS_POL_DEMOCRATIC_REFORMS", "desc_key": "FOCUS_POL_DEMOCRATIC_REFORMS_DESC", "x": 7, "y": 1, "months": 10,
+        "requires": ["pol_state_reform"], "exclusive": ["pol_strong_state"],
+        "effects": {"add_legitimacy": 5, "set_law": {"press_freedom": "free"},
+          "add_group_satisfaction": {"youth": 3, "minorities": 2, "elites": -2}},
+        "ai_weight": 1, "ai_modifiers": [{"factor": 4, "if": {"democratic": true}}, {"factor": 0.3, "if": {"democratic": false}}]
+      },
+      "pol_strong_state": {
+        "name_key": "FOCUS_POL_STRONG_STATE", "desc_key": "FOCUS_POL_STRONG_STATE_DESC", "x": 9, "y": 1, "months": 10,
+        "requires": ["pol_state_reform"], "exclusive": ["pol_democratic_reforms"],
+        "effects": {"add_modifier": {"stability": 3, "months": -1}, "set_law": {"police_powers": "extended"},
+          "add_group_satisfaction": {"military": 3, "youth": -2},
+          "if": {"democratic": true}, "then": {"add_legitimacy": -4}},
+        "ai_weight": 1, "ai_modifiers": [{"factor": 4, "if": {"democratic": false}}, {"factor": 0.3, "if": {"democratic": true}}]
+      },
+      "pol_independent_justice": {
+        "name_key": "FOCUS_POL_INDEPENDENT_JUSTICE", "desc_key": "FOCUS_POL_INDEPENDENT_JUSTICE_DESC", "x": 7, "y": 2, "months": 10,
+        "requires": ["pol_democratic_reforms"],
+        "effects": {"add_corruption": -5, "add_legitimacy": 3, "set_law": {"judicial_independence": "independent"}}
+      },
+      "pol_security_apparatus": {
+        "name_key": "FOCUS_POL_SECURITY_APPARATUS", "desc_key": "FOCUS_POL_SECURITY_APPARATUS_DESC", "x": 9, "y": 2, "months": 10,
+        "requires": ["pol_strong_state"],
+        "effects": {"add_modifier": {"stability": 3, "months": -1}, "set_law": {"surveillance": "mass"},
+          "add_group_satisfaction": {"military": 3, "minorities": -3}}
+      },
+      "pol_clean_hands": {
+        "name_key": "FOCUS_POL_CLEAN_HANDS", "desc_key": "FOCUS_POL_CLEAN_HANDS_DESC", "x": 8, "y": 3, "months": 9,
+        "requires_any": ["pol_independent_justice", "pol_security_apparatus"],
+        "effects": {"add_corruption": -6, "set_law": {"anti_corruption": "strong"}, "add_group_satisfaction": {"elites": -3}}
+      },
+      "pol_national_cohesion": {
+        "name_key": "FOCUS_POL_NATIONAL_COHESION", "desc_key": "FOCUS_POL_NATIONAL_COHESION_DESC", "x": 8, "y": 4, "months": 12,
+        "requires": ["pol_clean_hands"],
+        "effects": {"add_modifier": {"stability": 3, "months": -1}, "add_group_satisfaction": {"minorities": 3, "religious": 2}}
+      },
+      "dip_foreign_policy_review": {
+        "name_key": "FOCUS_DIP_FOREIGN_POLICY_REVIEW", "desc_key": "FOCUS_DIP_FOREIGN_POLICY_REVIEW_DESC", "x": 13, "y": 0,
+        "months": 6,
+        "effects": {"add_influence": 10},
+        "ai_weight": 2
+      },
+      "dip_western_alignment": {
+        "name_key": "FOCUS_DIP_WESTERN_ALIGNMENT", "desc_key": "FOCUS_DIP_WESTERN_ALIGNMENT_DESC", "x": 11, "y": 1, "months": 10,
+        "requires": ["dip_foreign_policy_review"], "exclusive": ["dip_eastern_alignment", "dip_non_aligned"],
+        "available": {"not": {"tag": ["USA", "CHN", "RUS"]}},
+        "effects": {"add_relation": {"with": "USA", "value": 15},
+          "every_country": {"limit": {"tag": ["DEU", "FRA", "GBR", "JPN"]}, "effects": {"add_relation": {"with": "from", "value": 10}}},
+          "if": {"exists": true}, "then": {"add_relation": {"with": "CHN", "value": -10}}},
+        "ai_weight": 1, "ai_modifiers": [{"factor": 4, "if": {"relation": {"with": "USA", "value": ">25"}}},
+          {"factor": 2, "if": {"democratic": true}}, {"factor": 0.2, "if": {"relation": {"with": "USA", "value": "<-10"}}}]
+      },
+      "dip_eastern_alignment": {
+        "name_key": "FOCUS_DIP_EASTERN_ALIGNMENT", "desc_key": "FOCUS_DIP_EASTERN_ALIGNMENT_DESC", "x": 13, "y": 1, "months": 10,
+        "requires": ["dip_foreign_policy_review"], "exclusive": ["dip_western_alignment", "dip_non_aligned"],
+        "available": {"not": {"tag": ["USA", "CHN", "RUS"]}},
+        "effects": {"add_relation": {"with": "CHN", "value": 15},
+          "every_country": {"limit": {"tag": "RUS"}, "effects": {"add_relation": {"with": "from", "value": 15}}},
+          "if": {"exists": true}, "then": {"add_relation": {"with": "USA", "value": -10}}},
+        "ai_weight": 1, "ai_modifiers": [{"factor": 4, "if": {"relation": {"with": "CHN", "value": ">25"}}},
+          {"factor": 2, "if": {"democratic": false}}, {"factor": 0.2, "if": {"relation": {"with": "CHN", "value": "<-10"}}}]
+      },
+      "dip_non_aligned": {
+        "name_key": "FOCUS_DIP_NON_ALIGNED", "desc_key": "FOCUS_DIP_NON_ALIGNED_DESC", "x": 15, "y": 1, "months": 10,
+        "requires": ["dip_foreign_policy_review"], "exclusive": ["dip_western_alignment", "dip_eastern_alignment"],
+        "effects": {"add_influence": 20, "add_legitimacy": 2},
+        "ai_weight": 2
+      },
+      "dip_regional_integration": {
+        "name_key": "FOCUS_DIP_REGIONAL_INTEGRATION", "desc_key": "FOCUS_DIP_REGIONAL_INTEGRATION_DESC", "x": 13, "y": 2,
+        "months": 10,
+        "requires_any": ["dip_western_alignment", "dip_eastern_alignment", "dip_non_aligned"],
+        "effects": {"every_neighbor": {"add_relation": {"with": "from", "value": 10}}, "add_modifier": {"growth": 0.05, "months": -1}}
+      },
+      "dip_trade_diplomacy": {
+        "name_key": "FOCUS_DIP_TRADE_DIPLOMACY", "desc_key": "FOCUS_DIP_TRADE_DIPLOMACY_DESC", "x": 12, "y": 3, "months": 9,
+        "requires": ["dip_regional_integration"],
+        "effects": {"add_modifier": {"growth": 0.1, "months": -1}, "add_influence": 10}
+      },
+      "dip_international_prestige": {
+        "name_key": "FOCUS_DIP_INTERNATIONAL_PRESTIGE", "desc_key": "FOCUS_DIP_INTERNATIONAL_PRESTIGE_DESC", "x": 14, "y": 3,
+        "months": 9,
+        "requires": ["dip_regional_integration"],
+        "effects": {"add_legitimacy": 3, "add_influence": 25}
+      },
+      "dip_global_voice": {
+        "name_key": "FOCUS_DIP_GLOBAL_VOICE", "desc_key": "FOCUS_DIP_GLOBAL_VOICE_DESC", "x": 13, "y": 4, "months": 12,
+        "requires": ["dip_trade_diplomacy", "dip_international_prestige"],
+        "effects": {"add_influence": 40, "add_tension": -1, "add_modifier": {"stability": 1, "months": -1}}
+      },
+      "def_strategic_review": {
+        "name_key": "FOCUS_DEF_STRATEGIC_REVIEW", "desc_key": "FOCUS_DEF_STRATEGIC_REVIEW_DESC", "x": 19.5, "y": 0, "months": 6,
+        "effects": {"add_group_satisfaction": {"military": 2}, "add_research": 30},
+        "ai_weight": 2
+      },
+      "def_military_modernization": {
+        "name_key": "FOCUS_DEF_MILITARY_MODERNIZATION", "desc_key": "FOCUS_DEF_MILITARY_MODERNIZATION_DESC", "x": 17, "y": 1,
+        "months": 10,
+        "requires": ["def_strategic_review"], "exclusive": ["def_armed_neutrality"],
+        "effects": {"add_tech": "drone_warfare", "add_debt_gdp": 0.5, "add_group_satisfaction": {"military": 4}},
+        "ai_weight": 1, "ai_modifiers": [{"factor": 3, "if": {"at_war": true}}, {"factor": 2, "if": {"world_tension": ">45"}}]
+      },
+      "def_armed_neutrality": {
+        "name_key": "FOCUS_DEF_ARMED_NEUTRALITY", "desc_key": "FOCUS_DEF_ARMED_NEUTRALITY_DESC", "x": 19, "y": 1, "months": 10,
+        "requires": ["def_strategic_review"], "exclusive": ["def_military_modernization"],
+        "available": {"at_war": false},
+        "effects": {"add_modifier": {"stability": 1, "months": -1}, "add_tension": -1, "add_influence": 10},
+        "ai_weight": 1, "ai_modifiers": [{"factor": 2, "if": {"gdp_rank": ">60"}}]
+      },
+      "def_drone_forces": {
+        "name_key": "FOCUS_DEF_DRONE_FORCES", "desc_key": "FOCUS_DEF_DRONE_FORCES_DESC", "x": 17, "y": 2, "months": 10,
+        "requires": ["def_military_modernization"],
+        "effects": {"add_tech": "counter_drone", "add_group_satisfaction": {"military": 2}}
+      },
+      "def_defense_industry": {
+        "name_key": "FOCUS_DEF_DEFENSE_INDUSTRY", "desc_key": "FOCUS_DEF_DEFENSE_INDUSTRY_DESC", "x": 18, "y": 3, "months": 12,
+        "requires_any": ["def_drone_forces", "def_armed_neutrality"],
+        "effects": {"add_tech": "active_protection", "add_modifier": {"growth": 0.05, "months": -1},
+          "add_group_satisfaction": {"workers": 2}}
+      },
+      "sci_research_council": {
+        "name_key": "FOCUS_SCI_RESEARCH_COUNCIL", "desc_key": "FOCUS_SCI_RESEARCH_COUNCIL_DESC", "x": 21, "y": 1, "months": 8,
+        "requires": ["def_strategic_review"],
+        "effects": {"add_research": 60, "add_group_satisfaction": {"youth": 1}}
+      },
+      "sci_space_program": {
+        "name_key": "FOCUS_SCI_SPACE_PROGRAM", "desc_key": "FOCUS_SCI_SPACE_PROGRAM_DESC", "x": 22, "y": 2, "months": 12,
+        "requires": ["sci_research_council"],
+        "available": {"gdp_rank": "<=60"},
+        "effects": {"add_tech": "reusable_rockets", "add_legitimacy": 2, "add_debt_gdp": 0.3}
+      },
+      "sci_ai_strategy": {
+        "name_key": "FOCUS_SCI_AI_STRATEGY", "desc_key": "FOCUS_SCI_AI_STRATEGY_DESC", "x": 20, "y": 2, "months": 10,
+        "requires": ["sci_research_council"],
+        "effects": {"add_tech": "large_language_models", "add_modifier": {"growth": 0.1, "months": -1}}
+      },
+      "def_national_power": {
+        "name_key": "FOCUS_DEF_NATIONAL_POWER", "desc_key": "FOCUS_DEF_NATIONAL_POWER_DESC", "x": 20, "y": 4, "months": 12,
+        "requires_any": ["def_defense_industry", "sci_ai_strategy", "sci_space_program"],
+        "effects": {"add_modifier": {"stability": 2, "months": -1}, "add_legitimacy": 2}
+      }
+    }
+  }
+}

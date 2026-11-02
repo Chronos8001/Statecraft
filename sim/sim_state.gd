@@ -76,6 +76,10 @@ var scheduled_events: Array[Dictionary] = []
 ## Événements déclenchés par une action du jeu (élection, guerre, mort d'un dirigeant…) : type d'action →
 ## [identifiants], et actions survenues en attente de traitement (copies des événements de simulation).
 var event_actions: Dictionary = {}
+## Décisions (data/decisions), arbres de décisions (data/focus_trees) et réglages (defines.decisions).
+var decision_definitions: Dictionary = {}
+var focus_trees: Dictionary = {}
+var decision_settings: Dictionary = {}
 var action_queue: Array[Dictionary] = []
 ## Rangs des pays par PIB, mis en cache pour la journée : {day, ranks: {tag: rang}}.
 var gdp_ranks: Dictionary = {}

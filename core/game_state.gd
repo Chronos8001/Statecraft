@@ -32,6 +32,13 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	for message: String in EventSystem.validate_definitions(sim.event_definitions):
 		GameLog.error(SOURCE, message)
 	EventSystem.index_actions(sim)
+	sim.decision_definitions = DataLoader.get_category("decisions")
+	sim.focus_trees = DataLoader.get_category("focus_trees")
+	sim.decision_settings = DataLoader.get_define("decisions", {})
+	for message: String in DecisionSystem.validate_definitions(sim.decision_definitions, sim.focus_trees,
+			sim.event_definitions.keys()):
+		GameLog.error(SOURCE, message)
+	DecisionSystem.assign_trees(sim)
 	scheduler = SimScheduler.new()
 	scheduler.add_system(LawSystem.new())
 	scheduler.add_system(ConstitutionSystem.new())
@@ -45,6 +52,7 @@ func new_game(p_seed: int, player_tag: StringName = &"") -> void:
 	scheduler.add_system(ResearchSystem.new())
 	scheduler.add_system(AiRaceSystem.new())
 	scheduler.add_system(EventSystem.new())
+	scheduler.add_system(DecisionSystem.new())
 	scheduler.add_system(EconomySystem.new(DataLoader.get_category("economy_sectors")))
 	scheduler.add_system(GovernmentSystem.new())
 	scheduler.add_system(LeaderSystem.new())

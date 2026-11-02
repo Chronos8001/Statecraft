@@ -1,0 +1,140 @@
+{
+  "stimulus_plan": {
+    "name_key": "DECISION_STIMULUS_PLAN", "desc_key": "DECISION_STIMULUS_PLAN_DESC", "category": "economy",
+    "cost": {"debt_gdp": 2},
+    "days": 90, "cooldown_days": 1095,
+    "effects": {"add_modifier": {"growth": 0.8, "unemployment": -0.4, "inflation": 0.3, "months": 18}},
+    "ai_weight": 1, "ai_modifiers": [{"factor": 4, "if": {"growth": "<1"}}, {"factor": 0.2, "if": {"debt": ">110"}}]
+  },
+  "austerity_package": {
+    "name_key": "DECISION_AUSTERITY_PACKAGE", "desc_key": "DECISION_AUSTERITY_PACKAGE_DESC", "category": "economy",
+    "visible": {"debt": ">60"},
+    "days": 60, "cooldown_days": 1095,
+    "effects": {"add_debt_gdp": -2, "add_modifier": {"growth": -0.4, "months": 12}, "add_stability": -3,
+      "add_group_satisfaction": {"workers": -3, "retirees": -2, "elites": 2}},
+    "ai_weight": 1, "ai_modifiers": [{"factor": 4, "if": {"debt": ">120"}}]
+  },
+  "tax_amnesty": {
+    "name_key": "DECISION_TAX_AMNESTY", "desc_key": "DECISION_TAX_AMNESTY_DESC", "category": "economy",
+    "cost": {"legitimacy": 2},
+    "days": 30, "cooldown_days": 1825,
+    "effects": {"add_debt_gdp": -0.8, "add_corruption": 1, "add_group_satisfaction": {"elites": 2, "middle_class": -1}},
+    "ai_weight": 0.5
+  },
+  "infrastructure_program": {
+    "name_key": "DECISION_INFRASTRUCTURE_PROGRAM", "desc_key": "DECISION_INFRASTRUCTURE_PROGRAM_DESC", "category": "economy",
+    "cost": {"debt_gdp": 3},
+    "on_start": {"add_group_satisfaction": {"workers": 3}},
+    "days": 730, "cooldown_days": 1825,
+    "effects": {"add_modifier": {"growth": 0.15, "months": -1}},
+    "ai_weight": 1, "ai_modifiers": [{"factor": 0.2, "if": {"debt": ">100"}}]
+  },
+  "investment_forum": {
+    "name_key": "DECISION_INVESTMENT_FORUM", "desc_key": "DECISION_INVESTMENT_FORUM_DESC", "category": "economy",
+    "cost": {"influence": 10},
+    "days": 60, "cooldown_days": 1460,
+    "effects": {"add_modifier": {"growth": 0.3, "months": 24}},
+    "ai_weight": 1
+  },
+  "anticorruption_campaign": {
+    "name_key": "DECISION_ANTICORRUPTION_CAMPAIGN", "desc_key": "DECISION_ANTICORRUPTION_CAMPAIGN_DESC", "category": "politics",
+    "visible": {"corruption": ">25"},
+    "cost": {"stability": 3},
+    "days": 365, "cooldown_days": 1825,
+    "effects": {"add_corruption": -5, "add_legitimacy": 3, "add_group_satisfaction": {"elites": -4, "middle_class": 2}},
+    "ai_weight": 1, "ai_modifiers": [{"factor": 2, "if": {"corruption": ">50"}}]
+  },
+  "national_unity_campaign": {
+    "name_key": "DECISION_NATIONAL_UNITY_CAMPAIGN", "desc_key": "DECISION_NATIONAL_UNITY_CAMPAIGN_DESC", "category": "politics",
+    "available": {"stability": "<60"},
+    "days": 90, "cooldown_days": 730,
+    "effects": {"add_stability": 4, "if": {"democratic": true}, "then": {"add_legitimacy": -1}},
+    "ai_weight": 1
+  },
+  "state_of_emergency": {
+    "name_key": "DECISION_STATE_OF_EMERGENCY", "desc_key": "DECISION_STATE_OF_EMERGENCY_DESC", "category": "politics",
+    "visible": {"stability": "<40"},
+    "available": {"stability": "<30"},
+    "cost": {"legitimacy": 5},
+    "cooldown_days": 1095,
+    "effects": {"add_modifier": {"stability": 8, "months": 6}, "add_group_satisfaction": {"youth": -3, "minorities": -2}},
+    "ai_weight": 2
+  },
+  "national_dialogue": {
+    "name_key": "DECISION_NATIONAL_DIALOGUE", "desc_key": "DECISION_NATIONAL_DIALOGUE_DESC", "category": "politics",
+    "visible": {"democratic": true},
+    "available": {"stability": "<50"},
+    "days": 180, "cooldown_days": 1460,
+    "effects": {"add_legitimacy": 4, "add_stability": 2},
+    "ai_weight": 1
+  },
+  "political_amnesty": {
+    "name_key": "DECISION_POLITICAL_AMNESTY", "desc_key": "DECISION_POLITICAL_AMNESTY_DESC", "category": "politics",
+    "visible": {"democratic": false},
+    "cost": {"stability": 2},
+    "days": 30, "cooldown_days": 1825,
+    "effects": {"add_legitimacy": 5, "add_group_satisfaction": {"minorities": 3, "youth": 2, "military": -2}},
+    "ai_weight": 0.5
+  },
+  "diplomatic_summit": {
+    "name_key": "DECISION_DIPLOMATIC_SUMMIT", "desc_key": "DECISION_DIPLOMATIC_SUMMIT_DESC", "category": "diplomacy",
+    "visible": {"gdp_rank": "<=60"},
+    "cost": {"influence": 15},
+    "days": 30, "cooldown_days": 730,
+    "effects": {"add_tension": -2, "add_legitimacy": 1},
+    "ai_weight": 0.5, "ai_modifiers": [{"factor": 3, "if": {"world_tension": ">50"}}]
+  },
+  "foreign_aid_pledge": {
+    "name_key": "DECISION_FOREIGN_AID_PLEDGE", "desc_key": "DECISION_FOREIGN_AID_PLEDGE_DESC", "category": "diplomacy",
+    "visible": {"gdp_rank": "<=40"},
+    "cost": {"debt_gdp": 0.2},
+    "cooldown_days": 1095,
+    "effects": {"add_influence": 25, "add_legitimacy": 1},
+    "ai_weight": 1
+  },
+  "soft_power_campaign": {
+    "name_key": "DECISION_SOFT_POWER_CAMPAIGN", "desc_key": "DECISION_SOFT_POWER_CAMPAIGN_DESC", "category": "diplomacy",
+    "cost": {"debt_gdp": 0.1},
+    "days": 365, "cooldown_days": 730,
+    "effects": {"add_influence": 15},
+    "ai_weight": 1
+  },
+  "good_neighbour_policy": {
+    "name_key": "DECISION_GOOD_NEIGHBOUR_POLICY", "desc_key": "DECISION_GOOD_NEIGHBOUR_POLICY_DESC", "category": "diplomacy",
+    "cost": {"influence": 10},
+    "days": 180, "cooldown_days": 1460,
+    "effects": {"every_neighbor": {"add_relation": {"with": "from", "value": 8}}},
+    "ai_weight": 1
+  },
+  "military_parade": {
+    "name_key": "DECISION_MILITARY_PARADE", "desc_key": "DECISION_MILITARY_PARADE_DESC", "category": "military",
+    "visible": {"democratic": false},
+    "cost": {"debt_gdp": 0.05},
+    "days": 30, "cooldown_days": 730,
+    "effects": {"add_group_satisfaction": {"military": 4}, "add_stability": 1, "add_tension": 1},
+    "ai_weight": 1
+  },
+  "defense_modernization_plan": {
+    "name_key": "DECISION_DEFENSE_MODERNIZATION_PLAN", "desc_key": "DECISION_DEFENSE_MODERNIZATION_PLAN_DESC",
+    "category": "military",
+    "cost": {"debt_gdp": 1.5},
+    "days": 730, "cooldown_days": 1825,
+    "effects": {"add_research": 100, "add_group_satisfaction": {"military": 4}},
+    "ai_weight": 0.5, "ai_modifiers": [{"factor": 4, "if": {"at_war": true}}, {"factor": 2, "if": {"world_tension": ">50"}}]
+  },
+  "vaccination_campaign": {
+    "name_key": "DECISION_VACCINATION_CAMPAIGN", "desc_key": "DECISION_VACCINATION_CAMPAIGN_DESC", "category": "society",
+    "visible": {"has_world_flag": "pandemic"},
+    "cost": {"debt_gdp": 0.2},
+    "days": 180, "cooldown_days": 730,
+    "effects": {"add_modifier": {"growth": 0.5, "months": 6}, "add_stability": 2},
+    "ai_weight": 3
+  },
+  "digital_literacy_program": {
+    "name_key": "DECISION_DIGITAL_LITERACY_PROGRAM", "desc_key": "DECISION_DIGITAL_LITERACY_PROGRAM_DESC", "category": "society",
+    "cost": {"debt_gdp": 0.3},
+    "days": 365, "cooldown_days": 1825,
+    "effects": {"add_research": 40, "add_group_satisfaction": {"youth": 2}},
+    "ai_weight": 1
+  }
+}

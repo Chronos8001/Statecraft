@@ -281,6 +281,9 @@ static func tick_modifiers(country: CountryState) -> void:
 		return
 	var kept: Array[Dictionary] = []
 	for modifier: Dictionary in country.event_modifiers:
+		if int(modifier.get("months", 0)) < 0:
+			kept.append(modifier)
+			continue
 		modifier["months"] = int(modifier.get("months", 0)) - 1
 		if int(modifier["months"]) > 0:
 			kept.append(modifier)

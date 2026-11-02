@@ -23,6 +23,7 @@ var _notification_timer: SceneTreeTimer
 var _military_ui: MilitaryUI = MilitaryUI.new()
 var _military_panel: InfoPanel
 var _research_panel: ResearchPanel
+var _decision_panel: DecisionPanel
 ## Fenêtre de l'événement du joueur en cours de choix (une à la fois) ; pause tant qu'elle est ouverte.
 var _event_window: EventWindow
 var _resume_after_events: bool = false
@@ -108,6 +109,9 @@ func _ready() -> void:
 	_research_panel = (load("res://ui/research/research_panel.tscn") as PackedScene).instantiate() as ResearchPanel
 	_military_panel.add_sibling(_research_panel)
 	_top_bar.research_requested.connect(_research_panel.toggle)
+	_decision_panel = DecisionPanel.new()
+	_research_panel.add_sibling(_decision_panel)
+	_top_bar.decisions_requested.connect(_decision_panel.toggle)
 	_top_bar.world_requested.connect(_world_panel.toggle)
 	_country_panel.diplomacy_requested.connect(func(tag: String) -> void:
 		_country_panel.close()
@@ -140,7 +144,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		var panels: Array[InfoPanel] = [_info_panel, _country_panel, _economy_panel, _budget_panel, _markets_panel,
 			_trade_panel, _energy_panel, _investment_panel, _society_panel,
 			_politics_panel, _laws_panel, _government_panel, _diplomacy_panel,
-			_world_panel, _military_panel, _research_panel]
+			_world_panel, _military_panel, _research_panel, _decision_panel]
 		if panels.any(func(panel: InfoPanel) -> bool: return panel.visible):
 			for panel: InfoPanel in panels:
 				panel.close()

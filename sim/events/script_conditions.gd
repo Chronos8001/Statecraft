@@ -16,7 +16,7 @@ const NUMBERS := ["stability", "legitimacy", "growth", "unemployment", "inflatio
 const COMBINATORS := ["all", "any", "not", "from", "any_neighbor"]
 const OTHERS := ["tag", "regime", "democratic", "at_war", "has_tech", "has_flag", "has_world_flag", "relation",
 	"law", "random", "is_player", "exists", "borders_player", "is_player_or_neighbor", "has_resource",
-	"strait_closed", "action"]
+	"strait_closed", "action", "has_focus", "has_decision"]
 const OPERATORS := ["<=", ">=", "!=", "<", ">", "="]
 const PERCENT := 100.0
 const MILLION := 1.0e6
@@ -106,6 +106,10 @@ static func _check(state: SimState, scope: Dictionary, key: String, value: Varia
 			return country.research != null and country.research.is_known(str(value))
 		"has_flag":
 			return (state.event_flags.get(country.tag, {}) as Dictionary).has(str(value))
+		"has_focus":
+			return country.focus_done.has(str(value))
+		"has_decision":
+			return country.decisions_active.has(str(value))
 		"law":
 			for law_id: Variant in (value as Dictionary).keys():
 				if str(country.laws.get(str(law_id), "")) != str(value[law_id]):
