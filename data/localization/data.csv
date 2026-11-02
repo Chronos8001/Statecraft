@@ -962,3 +962,106 @@ EVENT_COUP_REACTION_TITLE,Coup abroad,Coup d'État à l'étranger
 EVENT_COUP_REACTION_DESC,The army has seized power in {from}. The new junta seeks recognition.,L'armée a pris le pouvoir en {from}. La nouvelle junte cherche à être reconnue.
 EVENT_COUP_REACTION_A,Condemn the coup,Condamner le coup d'État
 EVENT_COUP_REACTION_B,Deal with the new rulers,Traiter avec les nouveaux maîtres
+DECISION_STIMULUS_PLAN,Stimulus plan,Plan de relance
+DECISION_STIMULUS_PLAN_DESC,Public investment and tax cuts to restart the economy.,Investissement public et baisses d'impôts pour relancer l'économie.
+DECISION_AUSTERITY_PACKAGE,Austerity package,Plan d'austérité
+DECISION_AUSTERITY_PACKAGE_DESC,"Cut spending to reduce the debt, at the price of growth and social peace.","Couper dans les dépenses pour réduire la dette, au prix de la croissance et de la paix sociale."
+DECISION_TAX_AMNESTY,Tax amnesty,Amnistie fiscale
+DECISION_TAX_AMNESTY_DESC,Let hidden capital come home against a small penalty.,Laisser revenir les capitaux cachés contre une faible pénalité.
+DECISION_INFRASTRUCTURE_PROGRAM,Major public works,Grands travaux
+DECISION_INFRASTRUCTURE_PROGRAM_DESC,"Two years of building roads, railways and ports.","Deux ans de chantiers : routes, voies ferrées et ports."
+DECISION_INVESTMENT_FORUM,Investment forum,Forum d'investissement
+DECISION_INVESTMENT_FORUM_DESC,Invite the world's investors to discover our opportunities.,Inviter les investisseurs du monde entier à découvrir nos atouts.
+DECISION_ANTICORRUPTION_CAMPAIGN,Anti-corruption campaign,Campagne anticorruption
+DECISION_ANTICORRUPTION_CAMPAIGN_DESC,A year of investigations and trials: the powerful will not like it.,Un an d'enquêtes et de procès : les puissants n'apprécieront pas.
+DECISION_NATIONAL_UNITY_CAMPAIGN,National unity campaign,Campagne d'unité nationale
+DECISION_NATIONAL_UNITY_CAMPAIGN_DESC,"Speeches, ceremonies and media campaigns to bring the country together.","Discours, cérémonies et campagnes médiatiques pour rassembler le pays."
+DECISION_STATE_OF_EMERGENCY,State of emergency,État d'urgence
+DECISION_STATE_OF_EMERGENCY_DESC,Exceptional powers to restore order.,Des pouvoirs exceptionnels pour rétablir l'ordre.
+DECISION_NATIONAL_DIALOGUE,National dialogue,Dialogue national
+DECISION_NATIONAL_DIALOGUE_DESC,"Bring parties, unions and civil society around one table.","Réunir partis, syndicats et société civile autour d'une même table."
+DECISION_POLITICAL_AMNESTY,Political amnesty,Amnistie politique
+DECISION_POLITICAL_AMNESTY_DESC,Release political prisoners to ease tensions.,Libérer des prisonniers politiques pour apaiser les tensions.
+DECISION_DIPLOMATIC_SUMMIT,Host a summit,Accueillir un sommet
+DECISION_DIPLOMATIC_SUMMIT_DESC,Bring world leaders together to calm international tensions.,Réunir les dirigeants du monde pour apaiser les tensions internationales.
+DECISION_FOREIGN_AID_PLEDGE,Aid pledge,Promesse d'aide
+DECISION_FOREIGN_AID_PLEDGE_DESC,Announce a development aid package for poorer countries.,Annoncer une enveloppe d'aide au développement pour les pays pauvres.
+DECISION_SOFT_POWER_CAMPAIGN,Cultural influence,Rayonnement culturel
+DECISION_SOFT_POWER_CAMPAIGN_DESC,"Fund cultural centres, scholarships and international media.","Financer centres culturels, bourses d'études et médias internationaux."
+DECISION_GOOD_NEIGHBOUR_POLICY,Good neighbour policy,Politique de bon voisinage
+DECISION_GOOD_NEIGHBOUR_POLICY_DESC,"Visits, border agreements and joint projects with our neighbours.","Visites, accords frontaliers et projets communs avec nos voisins."
+DECISION_MILITARY_PARADE,Military parade,Défilé militaire
+DECISION_MILITARY_PARADE_DESC,Show the nation's strength to the people and the world.,Montrer la force de la nation au peuple et au monde.
+DECISION_DEFENSE_MODERNIZATION_PLAN,Defence modernisation plan,Plan de modernisation de la défense
+DECISION_DEFENSE_MODERNIZATION_PLAN_DESC,Two years of investment in research and new equipment.,Deux ans d'investissement dans la recherche et les nouveaux équipements.
+DECISION_VACCINATION_CAMPAIGN,Mass vaccination,Vaccination de masse
+DECISION_VACCINATION_CAMPAIGN_DESC,Vaccination centres everywhere to end the epidemic sooner.,Des centres de vaccination partout pour finir plus vite l'épidémie.
+DECISION_DIGITAL_LITERACY_PROGRAM,Digital skills programme,Programme de compétences numériques
+DECISION_DIGITAL_LITERACY_PROGRAM_DESC,Train young people and workers in digital skills.,Former les jeunes et les actifs au numérique.
+FOCUS_TREE_GENERIC,National strategy,Stratégie nationale
+FOCUS_ECO_NATIONAL_PLAN,National economic plan,Plan économique national
+FOCUS_ECO_NATIONAL_PLAN_DESC,Set the country's economic priorities for the decade.,Fixer les priorités économiques du pays pour la décennie.
+FOCUS_ECO_INDUSTRIAL_POLICY,Industrial policy,Politique industrielle
+FOCUS_ECO_INDUSTRIAL_POLICY_DESC,Rebuild our factories and our supply chains.,Reconstruire nos usines et nos chaînes d'approvisionnement.
+FOCUS_ECO_SERVICES_HUB,Services hub,Pôle de services
+FOCUS_ECO_SERVICES_HUB_DESC,"Bet on finance, digital services and trade.","Miser sur la finance, le numérique et le commerce."
+FOCUS_ECO_GREEN_TRANSITION,Green transition,Transition verte
+FOCUS_ECO_GREEN_TRANSITION_DESC,Start moving the economy away from fossil fuels.,Commencer à sortir l'économie des énergies fossiles.
+FOCUS_ECO_SMART_FACTORIES,Factories of the future,Usines du futur
+FOCUS_ECO_SMART_FACTORIES_DESC,Automation and robotics in our industrial base.,Automatisation et robotique dans notre tissu industriel.
+FOCUS_ECO_FINANCIAL_CENTER,Financial centre,Place financière
+FOCUS_ECO_FINANCIAL_CENTER_DESC,"Attract banks, funds and fintech start-ups.","Attirer banques, fonds et jeunes entreprises de la finance."
+FOCUS_ECO_RENEWABLES,Renewables push,Essor des renouvelables
+FOCUS_ECO_RENEWABLES_DESC,Wind and solar farms across the country.,Parcs éoliens et solaires dans tout le pays.
+FOCUS_ECO_INFRASTRUCTURE_DECADE,Infrastructure decade,Décennie des infrastructures
+FOCUS_ECO_INFRASTRUCTURE_DECADE_DESC,A massive investment in networks and transport.,Un investissement massif dans les réseaux et les transports.
+FOCUS_ECO_SHARED_PROSPERITY,Shared prosperity,Prospérité partagée
+FOCUS_ECO_SHARED_PROSPERITY_DESC,Make sure growth benefits everyone.,Faire en sorte que la croissance profite à tous.
+FOCUS_POL_STATE_REFORM,State reform,Réforme de l'État
+FOCUS_POL_STATE_REFORM_DESC,"A leaner, more efficient administration.",Une administration plus légère et plus efficace.
+FOCUS_POL_DEMOCRATIC_REFORMS,Democratic reforms,Réformes démocratiques
+FOCUS_POL_DEMOCRATIC_REFORMS_DESC,"Free press, open debate and stronger checks and balances.","Presse libre, débat ouvert et contre-pouvoirs renforcés."
+FOCUS_POL_STRONG_STATE,Strong state,État fort
+FOCUS_POL_STRONG_STATE_DESC,Order first: wider police powers and a firmer hand.,L'ordre d'abord : pouvoirs de police élargis et main plus ferme.
+FOCUS_POL_INDEPENDENT_JUSTICE,Independent justice,Justice indépendante
+FOCUS_POL_INDEPENDENT_JUSTICE_DESC,Shield judges from political pressure.,Protéger les juges des pressions politiques.
+FOCUS_POL_SECURITY_APPARATUS,Security apparatus,Appareil sécuritaire
+FOCUS_POL_SECURITY_APPARATUS_DESC,Surveillance and security services that see everything.,Surveillance et services de sécurité qui voient tout.
+FOCUS_POL_CLEAN_HANDS,Clean hands,Mains propres
+FOCUS_POL_CLEAN_HANDS_DESC,A tough anti-corruption law and its enforcement.,"Une loi anticorruption sévère, et son application."
+FOCUS_POL_NATIONAL_COHESION,National cohesion,Cohésion nationale
+FOCUS_POL_NATIONAL_COHESION_DESC,Bring every community into the national project.,Associer chaque communauté au projet national.
+FOCUS_DIP_FOREIGN_POLICY_REVIEW,Foreign policy review,Revue de politique étrangère
+FOCUS_DIP_FOREIGN_POLICY_REVIEW_DESC,Define our place in a divided world.,Définir notre place dans un monde divisé.
+FOCUS_DIP_WESTERN_ALIGNMENT,Western alignment,Alignement occidental
+FOCUS_DIP_WESTERN_ALIGNMENT_DESC,"Move closer to the United States, Europe and Japan.","Se rapprocher des États-Unis, de l'Europe et du Japon."
+FOCUS_DIP_EASTERN_ALIGNMENT,Eastern alignment,Alignement sur l'Est
+FOCUS_DIP_EASTERN_ALIGNMENT_DESC,Move closer to China and Russia.,Se rapprocher de la Chine et de la Russie.
+FOCUS_DIP_NON_ALIGNED,Non-alignment,Non-alignement
+FOCUS_DIP_NON_ALIGNED_DESC,"Deal with everyone, depend on no one.","Traiter avec tous, ne dépendre de personne."
+FOCUS_DIP_REGIONAL_INTEGRATION,Regional integration,Intégration régionale
+FOCUS_DIP_REGIONAL_INTEGRATION_DESC,Closer ties with our neighbours.,Des liens plus étroits avec nos voisins.
+FOCUS_DIP_TRADE_DIPLOMACY,Trade diplomacy,Diplomatie économique
+FOCUS_DIP_TRADE_DIPLOMACY_DESC,Embassies working for our exporters.,Des ambassades au service de nos exportateurs.
+FOCUS_DIP_INTERNATIONAL_PRESTIGE,International prestige,Prestige international
+FOCUS_DIP_INTERNATIONAL_PRESTIGE_DESC,Host major events and lead international initiatives.,Accueillir de grands événements et porter des initiatives internationales.
+FOCUS_DIP_GLOBAL_VOICE,A voice in the world,Une voix dans le monde
+FOCUS_DIP_GLOBAL_VOICE_DESC,Become a power that counts in world affairs.,Devenir une puissance qui compte dans les affaires du monde.
+FOCUS_DEF_STRATEGIC_REVIEW,Strategic review,Revue stratégique
+FOCUS_DEF_STRATEGIC_REVIEW_DESC,Assess the threats and our defence needs.,Évaluer les menaces et nos besoins de défense.
+FOCUS_DEF_MILITARY_MODERNIZATION,Military modernisation,Modernisation militaire
+FOCUS_DEF_MILITARY_MODERNIZATION_DESC,"Drones, sensors and a better-equipped army.","Drones, capteurs et une armée mieux équipée."
+FOCUS_DEF_ARMED_NEUTRALITY,Armed neutrality,Neutralité armée
+FOCUS_DEF_ARMED_NEUTRALITY_DESC,Defend ourselves without taking sides.,Se défendre sans prendre parti.
+FOCUS_DEF_DRONE_FORCES,Drone forces,Forces de drones
+FOCUS_DEF_DRONE_FORCES_DESC,Build the drone and counter-drone units of tomorrow.,Créer les unités de drones et d'anti-drones de demain.
+FOCUS_DEF_DEFENSE_INDUSTRY,Defence industry,Industrie de défense
+FOCUS_DEF_DEFENSE_INDUSTRY_DESC,Produce our own equipment.,Produire nos propres équipements.
+FOCUS_SCI_RESEARCH_COUNCIL,National research council,Conseil national de la recherche
+FOCUS_SCI_RESEARCH_COUNCIL_DESC,Coordinate and fund our scientists.,Coordonner et financer nos chercheurs.
+FOCUS_SCI_SPACE_PROGRAM,Space programme,Programme spatial
+FOCUS_SCI_SPACE_PROGRAM_DESC,Our own launchers and satellites.,Nos propres lanceurs et satellites.
+FOCUS_SCI_AI_STRATEGY,AI strategy,Stratégie d'intelligence artificielle
+FOCUS_SCI_AI_STRATEGY_DESC,Do not miss the artificial intelligence revolution.,Ne pas manquer la révolution de l'intelligence artificielle.
+FOCUS_DEF_NATIONAL_POWER,National power,Puissance nationale
+FOCUS_DEF_NATIONAL_POWER_DESC,A country confident in its strength and its future.,Un pays sûr de sa force et de son avenir.
