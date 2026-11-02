@@ -133,3 +133,44 @@ func test_real_world_keeps_running_after_unions() -> void:
 	for war: War in state.wars.values():
 		for tag: String in war.attackers + war.defenders:
 			assert_true(state.get_country(tag) != null or WarSystem.is_rebel(state, tag), "belligérant vivant")
+
+
+## Naissance de pays dans le vrai monde : part de la population et du PIB, partis, dirigeants, frontières,
+## commerce ; puis la simulation continue, et un pays né peut être absorbé à son tour.
+func test_real_world_secessions() -> void:
+	GameState.new_game(22, &"FRA")
+	var state := GameState.sim
+	var gbr := state.get_country("GBR")
+	var population := gbr.economy.population
+	var gdp := TradeSystem.current_gdp(state, "GBR")
+	assert_eq(CountryFactory.parent_of(state, "scotland"), "GBR")
+	assert_eq(CountryFactory.release(state, "scotland"), "SCO")
+	var sco := state.get_country("SCO")
+	assert_not_null(sco)
+	assert_eq(CountryFactory.release_refusal(state, "scotland"), "RELEASE_INVALID", "déjà indépendante")
+	assert_eq(ControlSystem.owner(state, "1233"), "SCO")
+	assert_eq(sco.economy.population + gbr.economy.population, population, "population partagée")
+	assert_between(float(sco.economy.population) / population, 0.05, 0.12)
+	assert_almost_eq(TradeSystem.current_gdp(state, "SCO") + TradeSystem.current_gdp(state, "GBR"), gdp, gdp * 0.01)
+	assert_false(sco.politics.parties.is_empty())
+	for party_id: Variant in sco.politics.parties.keys():
+		assert_true(str(party_id).begins_with("pty_sco_"))
+	assert_false(sco.politics.head_of_state.is_empty())
+	assert_eq(str(GovernmentSystem.character(state, sco.politics.head_of_state).get("party", "")),
+		sco.politics.ruling_party())
+	assert_false(sco.cabinet.is_empty(), "un gouvernement")
+	assert_true((state.land_neighbors["SCO"] as Dictionary).has("GBR"))
+	assert_true(state.trade.start_flows.has("SCO"))
+	assert_gt(float((state.trade.start_flows["GBR"] as Dictionary).get("SCO", 0.0)), 0.0)
+	assert_eq(sco.economy.currency, gbr.economy.currency)
+	assert_eq(sco.focus_tree, "generic")
+	assert_eq(CountryFactory.release(state, "catalonia"), "CAT")
+	assert_eq(CountryFactory.release(state, "tibet"), "TIB")
+	assert_eq(state.get_country("TIB").politics.regime, "theocracy")
+	for _hour: int in MONTHS * 31 * GameDate.HOURS_PER_DAY:
+		GameState.advance_hour()
+	assert_not_null(state.get_country("CAT"))
+	assert_true(CountryLifecycle.annex(state, "GBR", "SCO"), "un pays né peut être réabsorbé")
+	assert_eq(ControlSystem.owner(state, "1233"), "GBR")
+	for province_id: Variant in state.province_owner.keys():
+		assert_not_null(state.get_country(str(state.province_owner[province_id])), "propriétaire vivant")

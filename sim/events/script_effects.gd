@@ -17,7 +17,7 @@ const KEYS := ["add_stability", "add_legitimacy", "add_modifier", "add_debt", "a
 	"set_world_flag", "clear_world_flag", "every_country", "random_country", "random_province", "if", "then", "else",
 	"damage_infrastructure", "add_resource_capacity", "add_supply_shock", "close_strait", "open_strait", "kill_leader",
 	"add_debt_gdp", "add_influence", "add_corruption", "add_tech", "every_neighbor",
-	"annex_country", "join_country", "rename_country"]
+	"annex_country", "join_country", "rename_country", "release_country"]
 const MODIFIER_KEYS := ["growth", "unemployment", "inflation", "stability", "months"]
 ## Conditions propres aux provinces (filtre « limit » de random_province).
 const PROVINCE_KEYS := ["coastal", "terrain", "population"]
@@ -41,6 +41,8 @@ static func apply(state: SimState, scope: Dictionary, effects: Variant) -> void:
 				TensionSystem.add(state, float(value))
 			"set_world_flag":
 				state.world_flags[str(value)] = true
+			"release_country":
+				CountryFactory.release(state, str(value))
 			"clear_world_flag":
 				state.world_flags.erase(str(value))
 			"trigger_event":
@@ -343,6 +345,8 @@ static func describe(effects: Variant, locale: String) -> PackedStringArray:
 					TranslationServer.translate("STRAIT_%s" % str(value).to_upper()))
 			"kill_leader":
 				lines.append(TranslationServer.translate("EFFECT_KILL_LEADER"))
+			"release_country":
+				lines.append(TranslationServer.translate("EFFECT_RELEASE_COUNTRY") % str(value))
 			"annex_country", "join_country":
 				lines.append(TranslationServer.translate("EFFECT_%s" % name.to_upper()) %
 					TranslationServer.translate("COUNTRY_%s" % str(value)))

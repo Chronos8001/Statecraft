@@ -288,6 +288,7 @@
     "long_run_supply_response": 5.0
   },
   "trade": {
+    "secession_mutual_trade": 0.15,
     "trade_elasticity": 4.0,
     "import_passthrough": 0.5,
     "tariff_growth_cost": 0.1,
@@ -591,6 +592,7 @@
     }
   },
   "diplomacy": {
+    "secession": {"relation_with_parent": 0.0},
     "relation_return": 0.02,
     "opinion_follow": 0.1,
     "opinion_noise": 8.0,

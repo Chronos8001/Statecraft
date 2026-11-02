@@ -16,7 +16,8 @@ const NUMBERS := ["stability", "legitimacy", "growth", "unemployment", "inflatio
 const COMBINATORS := ["all", "any", "not", "from", "any_neighbor"]
 const OTHERS := ["tag", "regime", "democratic", "at_war", "has_tech", "has_flag", "has_world_flag", "relation",
 	"law", "random", "is_player", "exists", "borders_player", "is_player_or_neighbor", "has_resource",
-	"strait_closed", "action", "has_focus", "has_decision", "country_exists", "is_dissolved", "owns_province"]
+	"strait_closed", "action", "has_focus", "has_decision", "country_exists", "is_dissolved", "owns_province",
+	"can_release"]
 const OPERATORS := ["<=", ">=", "!=", "<", ">", "="]
 const PERCENT := 100.0
 const MILLION := 1.0e6
@@ -69,6 +70,8 @@ static func _check(state: SimState, scope: Dictionary, key: String, value: Varia
 			return state.world_flags.has(str(value))
 		"strait_closed":
 			return state.closed_straits.has(str(value))
+		"can_release":
+			return CountryFactory.release_refusal(state, str(value)).is_empty()
 		"country_exists":
 			return state.get_country(target_tag(scope, str(value))) != null
 		"is_dissolved":
