@@ -53,7 +53,7 @@ static func from_game_data() -> MapModeContext:
 ## Met à jour ce qui dépend de la partie en cours (pays joué, commerce).
 func refresh_from_simulation(state: SimState) -> void:
 	player_tag = str(state.player_tag)
-	if not state.country_overrides.is_empty() or not state.dissolved.is_empty():
+	if not state.country_overrides.is_empty() or not state.dissolved.is_empty() or not state.created_countries.is_empty():
 		countries = CountryRegistry.all()
 	relations.clear()
 	if not player_tag.is_empty() and not state.diplomacy_settings.is_empty():

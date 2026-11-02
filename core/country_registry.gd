@@ -17,10 +17,13 @@ static func entry(tag: String) -> Dictionary:
 static func all() -> Dictionary:
 	var countries := DataLoader.get_category("countries")
 	var sim := GameState.sim
-	if sim.country_overrides.is_empty() and sim.dissolved.is_empty():
+	if sim.country_overrides.is_empty() and sim.dissolved.is_empty() and sim.created_countries.is_empty():
 		return countries
 	var result: Dictionary = {}
 	for tag: Variant in countries.keys():
+		if not sim.dissolved.has(tag):
+			result[tag] = entry(str(tag))
+	for tag: Variant in sim.created_countries.keys():
 		if not sim.dissolved.has(tag):
 			result[tag] = entry(str(tag))
 	return result
