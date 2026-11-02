@@ -1,0 +1,291 @@
+{
+  "mex": {
+    "name_key": "FOCUS_TREE_MEX",
+    "countries": [
+      "MEX"
+    ],
+    "include": "generic",
+    "nodes": {
+      "mex_fourth_transformation": {
+        "name_key": "FOCUS_MEX_FOURTH_TRANSFORMATION",
+        "desc_key": "FOCUS_MEX_FOURTH_TRANSFORMATION_DESC",
+        "x": 10,
+        "y": 6,
+        "months": 6,
+        "effects": {
+          "add_group_satisfaction": {
+            "workers": 3
+          },
+          "add_legitimacy": 2
+        },
+        "ai_weight": 3
+      },
+      "mex_war_on_cartels": {
+        "name_key": "FOCUS_MEX_WAR_ON_CARTELS",
+        "desc_key": "FOCUS_MEX_WAR_ON_CARTELS_DESC",
+        "x": 4,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "mex_fourth_transformation"
+        ],
+        "exclusive": [
+          "mex_hugs_not_bullets"
+        ],
+        "effects": {
+          "add_group_satisfaction": {
+            "military": 4,
+            "minorities": -2
+          },
+          "add_stability": -3,
+          "add_modifier": {
+            "stability": 3,
+            "months": -1
+          },
+          "add_corruption": -3
+        },
+        "ai_weight": 2
+      },
+      "mex_nearshoring": {
+        "name_key": "FOCUS_MEX_NEARSHORING",
+        "desc_key": "FOCUS_MEX_NEARSHORING_DESC",
+        "x": 10,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "mex_fourth_transformation"
+        ],
+        "effects": {
+          "add_modifier": {
+            "growth": 0.25,
+            "months": -1
+          },
+          "add_relation": {
+            "with": "USA",
+            "value": 10
+          }
+        }
+      },
+      "mex_hugs_not_bullets": {
+        "name_key": "FOCUS_MEX_HUGS_NOT_BULLETS",
+        "desc_key": "FOCUS_MEX_HUGS_NOT_BULLETS_DESC",
+        "x": 16,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "mex_fourth_transformation"
+        ],
+        "exclusive": [
+          "mex_war_on_cartels"
+        ],
+        "effects": {
+          "add_group_satisfaction": {
+            "youth": 3,
+            "military": -2
+          },
+          "add_legitimacy": 2
+        },
+        "ai_weight": 1
+      },
+      "mex_national_guard": {
+        "name_key": "FOCUS_MEX_NATIONAL_GUARD",
+        "desc_key": "FOCUS_MEX_NATIONAL_GUARD_DESC",
+        "x": 2,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "mex_war_on_cartels"
+        ],
+        "effects": {
+          "set_law": {
+            "police_powers": "extended"
+          },
+          "add_group_satisfaction": {
+            "military": 3
+          }
+        }
+      },
+      "mex_us_joint_operations": {
+        "name_key": "FOCUS_MEX_US_JOINT_OPERATIONS",
+        "desc_key": "FOCUS_MEX_US_JOINT_OPERATIONS_DESC",
+        "x": 6,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "mex_war_on_cartels"
+        ],
+        "available": {
+          "country_exists": "USA"
+        },
+        "effects": {
+          "add_relation": {
+            "with": "USA",
+            "value": 20
+          },
+          "add_legitimacy": -3,
+          "add_modifier": {
+            "stability": 2,
+            "months": -1
+          }
+        }
+      },
+      "mex_industrial_corridors": {
+        "name_key": "FOCUS_MEX_INDUSTRIAL_CORRIDORS",
+        "desc_key": "FOCUS_MEX_INDUSTRIAL_CORRIDORS_DESC",
+        "x": 10,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "mex_nearshoring"
+        ],
+        "effects": {
+          "add_tech": "smart_logistics",
+          "add_modifier": {
+            "growth": 0.15,
+            "unemployment": -0.3,
+            "months": -1
+          }
+        }
+      },
+      "mex_pemex_sovereignty": {
+        "name_key": "FOCUS_MEX_PEMEX_SOVEREIGNTY",
+        "desc_key": "FOCUS_MEX_PEMEX_SOVEREIGNTY_DESC",
+        "x": 14,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "mex_fourth_transformation"
+        ],
+        "exclusive": [
+          "mex_energy_opening"
+        ],
+        "effects": {
+          "set_law": {
+            "fuel_subsidies": "high"
+          },
+          "add_group_satisfaction": {
+            "workers": 3
+          },
+          "add_debt_gdp": 1
+        }
+      },
+      "mex_energy_opening": {
+        "name_key": "FOCUS_MEX_ENERGY_OPENING",
+        "desc_key": "FOCUS_MEX_ENERGY_OPENING_DESC",
+        "x": 18,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "mex_fourth_transformation"
+        ],
+        "exclusive": [
+          "mex_pemex_sovereignty"
+        ],
+        "effects": {
+          "add_modifier": {
+            "growth": 0.15,
+            "months": -1
+          },
+          "add_group_satisfaction": {
+            "elites": 3,
+            "workers": -2
+          }
+        }
+      },
+      "mex_judicial_reform": {
+        "name_key": "FOCUS_MEX_JUDICIAL_REFORM",
+        "desc_key": "FOCUS_MEX_JUDICIAL_REFORM_DESC",
+        "x": 8,
+        "y": 9,
+        "months": 10,
+        "requires_any": [
+          "mex_national_guard",
+          "mex_hugs_not_bullets"
+        ],
+        "effects": {
+          "set_law": {
+            "judicial_independence": "partial"
+          },
+          "add_corruption": -2,
+          "add_legitimacy": -2
+        }
+      },
+      "mex_usmca_showdown": {
+        "name_key": "FOCUS_MEX_USMCA_SHOWDOWN",
+        "desc_key": "FOCUS_MEX_USMCA_SHOWDOWN_DESC",
+        "x": 12,
+        "y": 9,
+        "months": 10,
+        "requires": [
+          "mex_industrial_corridors"
+        ],
+        "effects": {
+          "add_modifier": {
+            "growth": 0.05,
+            "months": -1
+          },
+          "add_relation": {
+            "with": "USA",
+            "value": -15
+          },
+          "add_legitimacy": 3,
+          "add_influence": 20
+        }
+      },
+      "mex_mesoamerican_community": {
+        "name_key": "FOCUS_MEX_MESOAMERICAN_COMMUNITY",
+        "desc_key": "FOCUS_MEX_MESOAMERICAN_COMMUNITY_DESC",
+        "x": 16,
+        "y": 9,
+        "months": 12,
+        "requires": [
+          "mex_hugs_not_bullets"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "tag": [
+                "GTM",
+                "BLZ",
+                "HND",
+                "SLV",
+                "NIC",
+                "CRI",
+                "PAN",
+                "CUB"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 15
+              }
+            }
+          },
+          "add_influence": 25
+        }
+      },
+      "mex_mexican_century": {
+        "name_key": "FOCUS_MEX_MEXICAN_CENTURY",
+        "desc_key": "FOCUS_MEX_MEXICAN_CENTURY_DESC",
+        "x": 10,
+        "y": 11,
+        "months": 12,
+        "requires_any": [
+          "mex_judicial_reform",
+          "mex_usmca_showdown",
+          "mex_mesoamerican_community",
+          "mex_us_joint_operations"
+        ],
+        "effects": {
+          "add_modifier": {
+            "growth": 0.1,
+            "stability": 2,
+            "months": -1
+          },
+          "add_influence": 30
+        }
+      }
+    }
+  }
+}

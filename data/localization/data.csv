@@ -1475,3 +1475,174 @@ EVENT_KOREAN_CONFEDERATION_OFFER_B,Refuse,Refuser
 EVENT_KOREA_REUNIFIED_TITLE,Korea reunified,La Corée réunifiée
 EVENT_KOREA_REUNIFIED_DESC,"After eighty years of division, the peninsula is once again a single country.","Après quatre-vingts ans de division, la péninsule ne forme de nouveau qu'un seul pays."
 EVENT_KOREA_REUNIFIED_A,"One people, one nation","Un peuple, une nation"
+FOCUS_TREE_BRA,"Brazil, land of the future","Le Brésil, pays d'avenir"
+FOCUS_BRA_NEW_GROWTH_PLAN,New growth plan,Nouveau plan de croissance
+FOCUS_BRA_NEW_GROWTH_PLAN_DESC,"Infrastructure, industry and green transition.","Infrastructures, industrie et transition verte."
+FOCUS_BRA_AMAZON_GUARDIAN,Guardian of the Amazon,Gardien de l'Amazonie
+FOCUS_BRA_AMAZON_GUARDIAN_DESC,Zero deforestation and the world's greatest forest protected.,Zéro déforestation et la plus grande forêt du monde protégée.
+FOCUS_BRA_SOCIAL_BRAZIL,A social Brazil,Un Brésil social
+FOCUS_BRA_SOCIAL_BRAZIL_DESC,Fight hunger and inequality.,Lutter contre la faim et les inégalités.
+FOCUS_BRA_AGRIBUSINESS_FRONTIER,The agricultural frontier,La frontière agricole
+FOCUS_BRA_AGRIBUSINESS_FRONTIER_DESC,"Soy, cattle and new land: Brazil feeds the world.","Soja, bétail et nouvelles terres : le Brésil nourrit le monde."
+FOCUS_BRA_BIOECONOMY,Bioeconomy,Bioéconomie
+FOCUS_BRA_BIOECONOMY_DESC,Make the forest worth more standing than cut down.,Faire que la forêt vaille plus debout qu'abattue.
+FOCUS_BRA_CLIMATE_FINANCE,Climate finance,Finance climatique
+FOCUS_BRA_CLIMATE_FINANCE_DESC,Rich countries pay to protect the Amazon.,Les pays riches paient pour protéger l'Amazonie.
+FOCUS_BRA_BRICS_LEADERSHIP,BRICS leadership,Leadership des BRICS
+FOCUS_BRA_BRICS_LEADERSHIP_DESC,Speak for the Global South.,Parler au nom du Sud global.
+FOCUS_BRA_PRE_SALT_BOOM,Pre-salt boom,Le boom du pré-sel
+FOCUS_BRA_PRE_SALT_BOOM_DESC,Deep offshore oil makes Brazil a major producer.,Le pétrole offshore profond fait du Brésil un grand producteur.
+FOCUS_BRA_INDUSTRIAL_NATIONALISM,Industrial nationalism,Nationalisme industriel
+FOCUS_BRA_INDUSTRIAL_NATIONALISM_DESC,Protect national industry from foreign competition.,Protéger l'industrie nationale de la concurrence étrangère.
+FOCUS_BRA_SOUTH_AMERICAN_UNION,South American union,Union sud-américaine
+FOCUS_BRA_SOUTH_AMERICAN_UNION_DESC,A continent united around Mercosur.,Un continent uni autour du Mercosur.
+FOCUS_BRA_NUCLEAR_SUBMARINE,Nuclear submarine,Sous-marin nucléaire
+FOCUS_BRA_NUCLEAR_SUBMARINE_DESC,The first nuclear-powered submarine of the southern hemisphere.,Le premier sous-marin à propulsion nucléaire de l'hémisphère sud.
+FOCUS_BRA_MILITARY_GUARDIANSHIP,Military guardianship,Tutelle militaire
+FOCUS_BRA_MILITARY_GUARDIANSHIP_DESC,"Amid chaos, the generals take control ""to save the Republic"".","Dans le chaos, les généraux prennent le contrôle « pour sauver la République »."
+FOCUS_BRA_GLOBAL_POWER,A global power,Une puissance mondiale
+FOCUS_BRA_GLOBAL_POWER_DESC,Brazil is no longer only the country of the future.,Le Brésil n'est plus seulement le pays de l'avenir.
+FOCUS_TREE_MEX,The Mexican transformation,La transformation mexicaine
+FOCUS_MEX_FOURTH_TRANSFORMATION,The Fourth Transformation,La Quatrième Transformation
+FOCUS_MEX_FOURTH_TRANSFORMATION_DESC,Continue the project begun in 2018.,Poursuivre le projet commencé en 2018.
+FOCUS_MEX_WAR_ON_CARTELS,War on the cartels,Guerre aux cartels
+FOCUS_MEX_WAR_ON_CARTELS_DESC,"The army against organised crime, whatever the cost.","L'armée contre le crime organisé, quoi qu'il en coûte."
+FOCUS_MEX_NEARSHORING,Nearshoring,Relocalisation de proximité
+FOCUS_MEX_NEARSHORING_DESC,Attract factories leaving Asia for the American market.,Attirer les usines qui quittent l'Asie pour le marché américain.
+FOCUS_MEX_HUGS_NOT_BULLETS,"Hugs, not bullets","Des câlins, pas des balles"
+FOCUS_MEX_HUGS_NOT_BULLETS_DESC,Fight the causes of violence rather than the gangs.,Combattre les causes de la violence plutôt que les gangs.
+FOCUS_MEX_NATIONAL_GUARD,The National Guard,La Garde nationale
+FOCUS_MEX_NATIONAL_GUARD_DESC,A militarised force to restore order.,Une force militarisée pour rétablir l'ordre.
+FOCUS_MEX_US_JOINT_OPERATIONS,Joint operations with Washington,Opérations conjointes avec Washington
+FOCUS_MEX_US_JOINT_OPERATIONS_DESC,"Accept American help against the cartels, at the price of sovereignty.","Accepter l'aide américaine contre les cartels, au prix de la souveraineté."
+FOCUS_MEX_INDUSTRIAL_CORRIDORS,Industrial corridors,Corridors industriels
+FOCUS_MEX_INDUSTRIAL_CORRIDORS_DESC,"Railways, ports and industrial parks from coast to coast.","Voies ferrées, ports et parcs industriels d'une côte à l'autre."
+FOCUS_MEX_PEMEX_SOVEREIGNTY,Energy sovereignty,Souveraineté énergétique
+FOCUS_MEX_PEMEX_SOVEREIGNTY_DESC,Pemex and the CFE remain in the hands of the nation.,Pemex et la CFE restent entre les mains de la nation.
+FOCUS_MEX_ENERGY_OPENING,Energy opening,Ouverture énergétique
+FOCUS_MEX_ENERGY_OPENING_DESC,Let private and foreign investors into energy.,Laisser entrer les investisseurs privés et étrangers dans l'énergie.
+FOCUS_MEX_JUDICIAL_REFORM,Judicial reform,Réforme judiciaire
+FOCUS_MEX_JUDICIAL_REFORM_DESC,Elected judges: more democratic or more political?,Des juges élus : plus démocratique ou plus politique ?
+FOCUS_MEX_USMCA_SHOWDOWN,USMCA showdown,Bras de fer sur l'ACEUM
+FOCUS_MEX_USMCA_SHOWDOWN_DESC,Defend our interests in the review of the trade agreement.,Défendre nos intérêts lors de la révision de l'accord commercial.
+FOCUS_MEX_MESOAMERICAN_COMMUNITY,Mesoamerican community,Communauté mésoaméricaine
+FOCUS_MEX_MESOAMERICAN_COMMUNITY_DESC,Lead the development of Central America.,Prendre la tête du développement de l'Amérique centrale.
+FOCUS_MEX_MEXICAN_CENTURY,The Mexican century,Le siècle mexicain
+FOCUS_MEX_MEXICAN_CENTURY_DESC,Mexico becomes a top ten economy.,Le Mexique entre parmi les dix premières économies.
+FOCUS_TREE_ARG,Argentina reborn,L'Argentine renaissante
+FOCUS_ARG_CHAINSAW,The chainsaw,La tronçonneuse
+FOCUS_ARG_CHAINSAW_DESC,Cut public spending to break inflation.,Tailler dans la dépense publique pour casser l'inflation.
+FOCUS_ARG_DOLLARIZATION,Dollarisation,Dollarisation
+FOCUS_ARG_DOLLARIZATION_DESC,Replace the peso with the dollar once and for all.,Remplacer le peso par le dollar une fois pour toutes.
+FOCUS_ARG_VACA_MUERTA,Vaca Muerta,Vaca Muerta
+FOCUS_ARG_VACA_MUERTA_DESC,The second largest shale gas reserve in the world.,La deuxième réserve de gaz de schiste du monde.
+FOCUS_ARG_PERONIST_RETURN,The Peronist return,Le retour péroniste
+FOCUS_ARG_PERONIST_RETURN_DESC,"Workers, wages and the state at the heart of the economy.","Les travailleurs, les salaires et l'État au cœur de l'économie."
+FOCUS_ARG_OECD_ACCESSION,Join the OECD,Rejoindre l'OCDE
+FOCUS_ARG_OECD_ACCESSION_DESC,Join the club of developed economies.,Rejoindre le club des économies développées.
+FOCUS_ARG_LITHIUM_TRIANGLE,The lithium triangle,Le triangle du lithium
+FOCUS_ARG_LITHIUM_TRIANGLE_DESC,Exploit the lithium of the northern salt flats.,Exploiter le lithium des salars du Nord.
+FOCUS_ARG_US_PARTNERSHIP,Partnership with Washington,Partenariat avec Washington
+FOCUS_ARG_US_PARTNERSHIP_DESC,A privileged ally of the United States in the south.,Un allié privilégié des États-Unis dans le Sud.
+FOCUS_ARG_NATIONAL_INDUSTRY,National industry,Industrie nationale
+FOCUS_ARG_NATIONAL_INDUSTRY_DESC,Protect and subsidise Argentine factories.,Protéger et subventionner les usines argentines.
+FOCUS_ARG_BRICS_TURN,Turn to the BRICS,Virage vers les BRICS
+FOCUS_ARG_BRICS_TURN_DESC,China and the Global South as partners.,La Chine et le Sud global comme partenaires.
+FOCUS_ARG_MALVINAS_CLAIM,The Malvinas are Argentine,Les Malouines sont argentines
+FOCUS_ARG_MALVINAS_CLAIM_DESC,Formally revive our claim over the islands.,Relancer officiellement notre revendication sur les îles.
+FOCUS_ARG_MALVINAS_WAR,A second Malvinas war,Une seconde guerre des Malouines
+FOCUS_ARG_MALVINAS_WAR_DESC,"Take back the islands by force, forty-five years later.","Reprendre les îles par la force, quarante-cinq ans plus tard."
+FOCUS_ARG_MERCOSUR_REBOOT,Relaunch Mercosur,Relancer le Mercosur
+FOCUS_ARG_MERCOSUR_REBOOT_DESC,Revive the common market of the south.,Raviver le marché commun du Sud.
+FOCUS_ARG_ARGENTINA_RISES,Argentina rises again,L'Argentine se relève
+FOCUS_ARG_ARGENTINA_RISES_DESC,"After a century of crises, Argentina regains its rank.","Après un siècle de crises, l'Argentine retrouve son rang."
+FOCUS_TREE_CAN,The True North,Le Grand Nord
+FOCUS_CAN_ELBOWS_UP,Elbows up,Jouer des coudes
+FOCUS_CAN_ELBOWS_UP_DESC,Stand up to pressure from our southern neighbour.,Tenir tête aux pressions de notre voisin du Sud.
+FOCUS_CAN_ENERGY_SUPERPOWER,Energy superpower,Superpuissance énergétique
+FOCUS_CAN_ENERGY_SUPERPOWER_DESC,Pipelines and LNG terminals to sell to the world.,Oléoducs et terminaux de GNL pour vendre au monde entier.
+FOCUS_CAN_DIVERSIFY_TRADE,Diversify trade,Diversifier le commerce
+FOCUS_CAN_DIVERSIFY_TRADE_DESC,Depend less on the United States.,Dépendre moins des États-Unis.
+FOCUS_CAN_NATIONAL_UNITY,National unity,L'unité nationale
+FOCUS_CAN_NATIONAL_UNITY_DESC,Quebec and the West feel neglected by Ottawa.,Le Québec et l'Ouest se sentent négligés par Ottawa.
+FOCUS_CAN_ARCTIC_SOVEREIGNTY,Arctic sovereignty,Souveraineté arctique
+FOCUS_CAN_ARCTIC_SOVEREIGNTY_DESC,Defend our northern waters.,Défendre nos eaux septentrionales.
+FOCUS_CAN_CRITICAL_MINERALS,Critical minerals,Minerais critiques
+FOCUS_CAN_CRITICAL_MINERALS_DESC,"Lithium, nickel and cobalt for the energy transition.","Lithium, nickel et cobalt pour la transition énergétique."
+FOCUS_CAN_EUROPEAN_PARTNER,Europe's partner,Partenaire de l'Europe
+FOCUS_CAN_EUROPEAN_PARTNER_DESC,Turn towards Europe.,Se tourner vers l'Europe.
+FOCUS_CAN_CONTINENTAL_INTEGRATION,Continental integration,Intégration continentale
+FOCUS_CAN_CONTINENTAL_INTEGRATION_DESC,Tie our future even more closely to America's.,Lier encore davantage notre avenir à celui de l'Amérique.
+FOCUS_CAN_QUEBEC_REFERENDUM,A third referendum in Quebec,Un troisième référendum au Québec
+FOCUS_CAN_QUEBEC_REFERENDUM_DESC,Let Quebec decide its future.,Laisser le Québec décider de son avenir.
+FOCUS_CAN_WESTERN_ALIENATION,Western alienation,Le malaise de l'Ouest
+FOCUS_CAN_WESTERN_ALIENATION_DESC,Alberta and Saskatchewan threaten to leave.,L'Alberta et la Saskatchewan menacent de partir.
+FOCUS_CAN_EU_MEMBERSHIP,Join the European Union,Rejoindre l'Union européenne
+FOCUS_CAN_EU_MEMBERSHIP_DESC,An unexpected candidate across the Atlantic.,Un candidat inattendu de l'autre côté de l'Atlantique.
+FOCUS_CAN_RECONCILIATION,Reconciliation,Réconciliation
+FOCUS_CAN_RECONCILIATION_DESC,"With First Nations, Quebec and the West.","Avec les Premières Nations, le Québec et l'Ouest."
+FOCUS_CAN_TRUE_NORTH,Strong and free,Fort et libre
+FOCUS_CAN_TRUE_NORTH_DESC,Canada stands on its own.,Le Canada se tient debout seul.
+FOCUS_TREE_AUS,Advance Australia,Australie en avant
+FOCUS_AUS_FUTURE_MADE_IN_AUSTRALIA,A future made in Australia,Un avenir fabriqué en Australie
+FOCUS_AUS_FUTURE_MADE_IN_AUSTRALIA_DESC,Process our resources at home.,Transformer nos ressources chez nous.
+FOCUS_AUS_AUKUS_SUBMARINES,AUKUS submarines,Sous-marins AUKUS
+FOCUS_AUS_AUKUS_SUBMARINES_DESC,Nuclear-powered submarines with the Americans and the British.,Des sous-marins nucléaires avec les Américains et les Britanniques.
+FOCUS_AUS_CRITICAL_MINERALS,Critical minerals,Minerais critiques
+FOCUS_AUS_CRITICAL_MINERALS_DESC,Become the alternative to China for rare earths.,Devenir l'alternative à la Chine pour les terres rares.
+FOCUS_AUS_MIDDLE_POWER_BALANCE,A balancing middle power,Une puissance d'équilibre
+FOCUS_AUS_MIDDLE_POWER_BALANCE_DESC,"Trade with China, security with everyone.","Le commerce avec la Chine, la sécurité avec tous."
+FOCUS_AUS_NORTHERN_SHIELD,Northern shield,Bouclier du Nord
+FOCUS_AUS_NORTHERN_SHIELD_DESC,Long-range missiles to defend the northern approaches.,Des missiles à longue portée pour défendre les approches du Nord.
+FOCUS_AUS_PACIFIC_STEP_UP,Pacific step-up,Engagement dans le Pacifique
+FOCUS_AUS_PACIFIC_STEP_UP_DESC,Aid and partnerships with our Pacific neighbours.,Aide et partenariats avec nos voisins du Pacifique.
+FOCUS_AUS_GREEN_HYDROGEN,Green hydrogen superpower,Superpuissance de l'hydrogène vert
+FOCUS_AUS_GREEN_HYDROGEN_DESC,Sun and wind turned into exportable energy.,Le soleil et le vent transformés en énergie exportable.
+FOCUS_AUS_ASIAN_INTEGRATION,Part of Asia,Une part de l'Asie
+FOCUS_AUS_ASIAN_INTEGRATION_DESC,Australia's future lies in Asia.,L'avenir de l'Australie est en Asie.
+FOCUS_AUS_REPUBLIC_REFERENDUM,A republic referendum,Un référendum sur la république
+FOCUS_AUS_REPUBLIC_REFERENDUM_DESC,Should Australia cut its last tie with the Crown?,L'Australie doit-elle couper son dernier lien avec la Couronne ?
+FOCUS_AUS_FIRST_NATIONS_VOICE,A voice for First Nations,Une voix pour les Premières Nations
+FOCUS_AUS_FIRST_NATIONS_VOICE_DESC,Recognise the first Australians.,Reconnaître les premiers Australiens.
+FOCUS_AUS_LUCKY_COUNTRY,The lucky country,Le pays chanceux
+FOCUS_AUS_LUCKY_COUNTRY_DESC,Australia has made its own luck.,L'Australie a forgé sa propre chance.
+FOCUS_TREE_IDN,Golden Indonesia 2045,Indonésie d'or 2045
+FOCUS_IDN_GOLDEN_INDONESIA,Golden Indonesia,Indonésie d'or
+FOCUS_IDN_GOLDEN_INDONESIA_DESC,A high-income country by the centenary of independence.,Un pays à revenu élevé pour le centenaire de l'indépendance.
+FOCUS_IDN_NICKEL_DOWNSTREAMING,Nickel downstreaming,Transformation du nickel
+FOCUS_IDN_NICKEL_DOWNSTREAMING_DESC,Ban raw ore exports and refine at home.,Interdire l'export de minerai brut et raffiner sur place.
+FOCUS_IDN_NUSANTARA,Nusantara,Nusantara
+FOCUS_IDN_NUSANTARA_DESC,Move the capital from sinking Jakarta to Borneo.,"Déplacer la capitale de Jakarta, qui s'enfonce, vers Bornéo."
+FOCUS_IDN_FREE_AND_ACTIVE,Free and active,Libre et active
+FOCUS_IDN_FREE_AND_ACTIVE_DESC,Indonesia's foreign policy: non-aligned and engaged.,La politique étrangère indonésienne : non alignée et engagée.
+FOCUS_IDN_BATTERY_HUB,Battery hub,Pôle des batteries
+FOCUS_IDN_BATTERY_HUB_DESC,From nickel to electric vehicle batteries.,Du nickel aux batteries de véhicules électriques.
+FOCUS_IDN_FREE_MEALS,Free school meals,Repas scolaires gratuits
+FOCUS_IDN_FREE_MEALS_DESC,A free meal for every child.,Un repas gratuit pour chaque enfant.
+FOCUS_IDN_STRONG_PRESIDENCY,A strong presidency,Une présidence forte
+FOCUS_IDN_STRONG_PRESIDENCY_DESC,Stability and order above all.,La stabilité et l'ordre avant tout.
+FOCUS_IDN_REFORMASI_RENEWED,Reformasi renewed,Reformasi renouvelée
+FOCUS_IDN_REFORMASI_RENEWED_DESC,Return to the spirit of 1998: democracy and clean government.,Retrouver l'esprit de 1998 : démocratie et gouvernement intègre.
+FOCUS_IDN_ASEAN_LEADERSHIP,ASEAN leadership,Leadership de l'ASEAN
+FOCUS_IDN_ASEAN_LEADERSHIP_DESC,The natural leader of Southeast Asia.,Le leader naturel de l'Asie du Sud-Est.
+FOCUS_IDN_PAPUA_CRACKDOWN,Order in Papua,L'ordre en Papouasie
+FOCUS_IDN_PAPUA_CRACKDOWN_DESC,Crush the separatist movement.,Écraser le mouvement séparatiste.
+FOCUS_IDN_PAPUA_SELF_DETERMINATION,Self-determination for Papua,Autodétermination pour la Papouasie
+FOCUS_IDN_PAPUA_SELF_DETERMINATION_DESC,Let West Papua choose independence.,Laisser la Papouasie occidentale choisir l'indépendance.
+FOCUS_IDN_MARITIME_FULCRUM,Global maritime fulcrum,Pivot maritime mondial
+FOCUS_IDN_MARITIME_FULCRUM_DESC,A navy worthy of the largest archipelago in the world.,Une marine digne du plus grand archipel du monde.
+FOCUS_IDN_INDONESIA_EMAS,Indonesia Emas,Indonesia Emas
+FOCUS_IDN_INDONESIA_EMAS_DESC,The archipelago takes its place among the great powers.,L'archipel prend sa place parmi les grandes puissances.
+EVENT_QUEBEC_SOVEREIGNTY_REFERENDUM_TITLE,Quebec votes,Le Québec vote
+EVENT_QUEBEC_SOVEREIGNTY_REFERENDUM_DESC,Quebecers vote for the third time on sovereignty.,Les Québécois se prononcent pour la troisième fois sur la souveraineté.
+EVENT_QUEBEC_VOTES_YES_TITLE,Quebec says yes,Le Québec dit oui
+EVENT_QUEBEC_VOTES_YES_DESC,"""Yes"" wins. Quebec City asks Ottawa to negotiate independence.",Le « oui » l'emporte. Québec demande à Ottawa de négocier l'indépendance.
+EVENT_QUEBEC_VOTES_YES_A,Respect the vote,Respecter le vote
+EVENT_QUEBEC_VOTES_YES_B,Refuse to negotiate,Refuser de négocier
+EVENT_QUEBEC_VOTES_NO_TITLE,Quebec says no,Le Québec dit non
+EVENT_QUEBEC_VOTES_NO_DESC,"""No"" wins: Quebec remains in Canada.",Le « non » l'emporte : le Québec reste au Canada.
+EVENT_QUEBEC_VOTES_NO_A,Canada endures,Le Canada perdure
+EVENT_ALBERTA_INDEPENDENCE_CRISIS_TITLE,Wexit,Wexit
+EVENT_ALBERTA_INDEPENDENCE_CRISIS_DESC,Alberta and Saskatchewan vote to leave the federation.,L'Alberta et la Saskatchewan votent pour quitter la fédération.
+EVENT_ALBERTA_INDEPENDENCE_CRISIS_A,Let them go,Les laisser partir
+EVENT_ALBERTA_INDEPENDENCE_CRISIS_B,Offer a new deal to the West,Proposer un nouveau pacte à l'Ouest

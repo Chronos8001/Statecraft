@@ -14,5 +14,9 @@
   "tibet": {"tag": "TIB", "name_key": "COUNTRY_TIB", "color": "#B8860B", "capital": 627, "culture": "himalayan",
     "provinces": [627], "regime": "theocracy", "relation_with_parent": -60},
   "texas": {"tag": "TEX", "name_key": "COUNTRY_TEX", "color": "#BF0A30", "capital": 4350, "provinces": [4350],
-    "regime": "presidential_republic", "relation_with_parent": -40}
+    "regime": "presidential_republic", "relation_with_parent": -40},
+  "west_papua": {"tag": "PAP", "name_key": "COUNTRY_PAP", "color": "#5A9E6F", "capital": 1694, "culture": "pacific",
+    "provinces": [1683, 1694], "regime": "presidential_republic", "relation_with_parent": -50},
+  "alberta": {"tag": "ABT", "name_key": "COUNTRY_ABT", "color": "#1F5FAD", "capital": 565, "provinces": [565, 564],
+    "regime": "parliamentary_republic", "relation_with_parent": 10}
 }
