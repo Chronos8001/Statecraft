@@ -1,22 +1,175 @@
 {
-  "scotland": {"tag": "SCO", "name_key": "COUNTRY_SCO", "color": "#1F4E9C", "capital": 1233,
-    "provinces": [1211, 1212, 1213, 1214, 1215, 1216, 1217, 1218, 1219, 1220, 1221, 1222, 1223, 1224, 1225, 1226, 1227,
-      1228, 1229, 1230, 1231, 1232, 1233, 1234, 1235, 1236, 1321, 1334, 1335, 1336, 1337, 1353],
-    "regime": "parliamentary_republic", "relation_with_parent": 40},
-  "catalonia": {"tag": "CAT", "name_key": "COUNTRY_CAT", "color": "#D9A400", "capital": 1001,
-    "provinces": [1001, 1011, 1022, 1037], "regime": "parliamentary_republic", "relation_with_parent": -20},
-  "quebec": {"tag": "QUE", "name_key": "COUNTRY_QUE", "color": "#2C5DA8", "capital": 571, "culture": "french",
-    "provinces": [571], "regime": "parliamentary_republic", "relation_with_parent": 30},
-  "flanders": {"tag": "FLA", "name_key": "COUNTRY_FLA", "color": "#E8C547", "capital": 286, "culture": "dutch",
-    "provinces": [279, 281, 284, 285, 286], "regime": "parliamentary_republic", "relation_with_parent": 20},
-  "kurdistan": {"tag": "KUR", "name_key": "COUNTRY_KUR", "color": "#C94F3D", "capital": 1802, "culture": "persian",
-    "provinces": [1800, 1802, 1814], "regime": "parliamentary_republic", "relation_with_parent": -30},
-  "tibet": {"tag": "TIB", "name_key": "COUNTRY_TIB", "color": "#B8860B", "capital": 627, "culture": "himalayan",
-    "provinces": [627], "regime": "theocracy", "relation_with_parent": -60},
-  "texas": {"tag": "TEX", "name_key": "COUNTRY_TEX", "color": "#BF0A30", "capital": 4350, "provinces": [4350],
-    "regime": "presidential_republic", "relation_with_parent": -40},
-  "west_papua": {"tag": "PAP", "name_key": "COUNTRY_PAP", "color": "#5A9E6F", "capital": 1694, "culture": "pacific",
-    "provinces": [1683, 1694], "regime": "presidential_republic", "relation_with_parent": -50},
-  "alberta": {"tag": "ABT", "name_key": "COUNTRY_ABT", "color": "#1F5FAD", "capital": 565, "provinces": [565, 564],
-    "regime": "parliamentary_republic", "relation_with_parent": 10}
+  "scotland": {
+    "tag": "SCO",
+    "name_key": "COUNTRY_SCO",
+    "color": "#1F4E9C",
+    "capital": 1233,
+    "provinces": [
+      1211,
+      1212,
+      1213,
+      1214,
+      1215,
+      1216,
+      1217,
+      1218,
+      1219,
+      1220,
+      1221,
+      1222,
+      1223,
+      1224,
+      1225,
+      1226,
+      1227,
+      1228,
+      1229,
+      1230,
+      1231,
+      1232,
+      1233,
+      1234,
+      1235,
+      1236,
+      1321,
+      1334,
+      1335,
+      1336,
+      1337,
+      1353
+    ],
+    "regime": "parliamentary_republic",
+    "relation_with_parent": 40
+  },
+  "catalonia": {
+    "tag": "CAT",
+    "name_key": "COUNTRY_CAT",
+    "color": "#D9A400",
+    "capital": 1001,
+    "provinces": [
+      1001,
+      1011,
+      1022,
+      1037
+    ],
+    "regime": "parliamentary_republic",
+    "relation_with_parent": -20
+  },
+  "quebec": {
+    "tag": "QUE",
+    "name_key": "COUNTRY_QUE",
+    "color": "#2C5DA8",
+    "capital": 571,
+    "culture": "french",
+    "provinces": [
+      571
+    ],
+    "regime": "parliamentary_republic",
+    "relation_with_parent": 30
+  },
+  "flanders": {
+    "tag": "FLA",
+    "name_key": "COUNTRY_FLA",
+    "color": "#E8C547",
+    "capital": 286,
+    "culture": "dutch",
+    "provinces": [
+      279,
+      281,
+      284,
+      285,
+      286
+    ],
+    "regime": "parliamentary_republic",
+    "relation_with_parent": 20
+  },
+  "kurdistan": {
+    "tag": "KUR",
+    "name_key": "COUNTRY_KUR",
+    "color": "#C94F3D",
+    "capital": 1802,
+    "culture": "persian",
+    "provinces": [
+      1800,
+      1802,
+      1814
+    ],
+    "regime": "parliamentary_republic",
+    "relation_with_parent": -30
+  },
+  "tibet": {
+    "tag": "TIB",
+    "name_key": "COUNTRY_TIB",
+    "color": "#B8860B",
+    "capital": 627,
+    "culture": "himalayan",
+    "provinces": [
+      627
+    ],
+    "regime": "theocracy",
+    "relation_with_parent": -60
+  },
+  "texas": {
+    "tag": "TEX",
+    "name_key": "COUNTRY_TEX",
+    "color": "#BF0A30",
+    "capital": 4350,
+    "provinces": [
+      4350
+    ],
+    "regime": "presidential_republic",
+    "relation_with_parent": -40
+  },
+  "west_papua": {
+    "tag": "PAP",
+    "name_key": "COUNTRY_PAP",
+    "color": "#5A9E6F",
+    "capital": 1694,
+    "culture": "pacific",
+    "provinces": [
+      1683,
+      1694
+    ],
+    "regime": "presidential_republic",
+    "relation_with_parent": -50
+  },
+  "alberta": {
+    "tag": "ABT",
+    "name_key": "COUNTRY_ABT",
+    "color": "#1F5FAD",
+    "capital": 565,
+    "provinces": [
+      565,
+      564
+    ],
+    "regime": "parliamentary_republic",
+    "relation_with_parent": 10
+  },
+  "biafra": {
+    "tag": "BIA",
+    "name_key": "COUNTRY_BIA",
+    "color": "#C8102E",
+    "capital": 2886,
+    "culture": "west_african_coast",
+    "provinces": [
+      2865,
+      2867,
+      2881,
+      2886,
+      2887
+    ],
+    "regime": "presidential_republic",
+    "relation_with_parent": -40
+  },
+  "cape": {
+    "tag": "CPE",
+    "name_key": "COUNTRY_CPE",
+    "color": "#2E6FB0",
+    "capital": 4537,
+    "provinces": [
+      4537
+    ],
+    "regime": "parliamentary_republic",
+    "relation_with_parent": -10
+  }
 }

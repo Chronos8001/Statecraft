@@ -1,0 +1,276 @@
+{
+  "esp": {
+    "name_key": "FOCUS_TREE_ESP",
+    "countries": [
+      "ESP"
+    ],
+    "include": "generic",
+    "nodes": {
+      "esp_progressive_coalition": {
+        "name_key": "FOCUS_ESP_PROGRESSIVE_COALITION",
+        "desc_key": "FOCUS_ESP_PROGRESSIVE_COALITION_DESC",
+        "x": 10,
+        "y": 6,
+        "months": 6,
+        "effects": {
+          "add_legitimacy": 2,
+          "add_group_satisfaction": {
+            "workers": 2
+          }
+        },
+        "ai_weight": 3
+      },
+      "esp_plurinational_spain": {
+        "name_key": "FOCUS_ESP_PLURINATIONAL_SPAIN",
+        "desc_key": "FOCUS_ESP_PLURINATIONAL_SPAIN_DESC",
+        "x": 4,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "esp_progressive_coalition"
+        ],
+        "exclusive": [
+          "esp_indissoluble_unity"
+        ],
+        "effects": {
+          "set_law": {
+            "decentralization": "federal",
+            "official_languages": "multiple"
+          },
+          "add_group_satisfaction": {
+            "minorities": 5,
+            "military": -2
+          }
+        },
+        "ai_weight": 2
+      },
+      "esp_renewable_superpower": {
+        "name_key": "FOCUS_ESP_RENEWABLE_SUPERPOWER",
+        "desc_key": "FOCUS_ESP_RENEWABLE_SUPERPOWER_DESC",
+        "x": 10,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "esp_progressive_coalition"
+        ],
+        "effects": {
+          "add_tech": "perovskite_solar",
+          "add_modifier": {
+            "growth": 0.1,
+            "inflation": -0.1,
+            "months": -1
+          }
+        }
+      },
+      "esp_indissoluble_unity": {
+        "name_key": "FOCUS_ESP_INDISSOLUBLE_UNITY",
+        "desc_key": "FOCUS_ESP_INDISSOLUBLE_UNITY_DESC",
+        "x": 16,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "esp_progressive_coalition"
+        ],
+        "exclusive": [
+          "esp_plurinational_spain"
+        ],
+        "effects": {
+          "set_law": {
+            "decentralization": "centralized"
+          },
+          "add_group_satisfaction": {
+            "minorities": -5,
+            "military": 3
+          },
+          "add_modifier": {
+            "stability": 1,
+            "months": -1
+          }
+        },
+        "ai_weight": 1
+      },
+      "esp_catalan_referendum": {
+        "name_key": "FOCUS_ESP_CATALAN_REFERENDUM",
+        "desc_key": "FOCUS_ESP_CATALAN_REFERENDUM_DESC",
+        "x": 2,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "esp_plurinational_spain"
+        ],
+        "available": {
+          "can_release": "catalonia"
+        },
+        "effects": {
+          "trigger_event": {
+            "id": "catalan_independence_referendum",
+            "days": 30
+          }
+        },
+        "ai_weight": 0.3
+      },
+      "esp_housing_plan": {
+        "name_key": "FOCUS_ESP_HOUSING_PLAN",
+        "desc_key": "FOCUS_ESP_HOUSING_PLAN_DESC",
+        "x": 6,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "esp_progressive_coalition"
+        ],
+        "effects": {
+          "set_law": {
+            "rent_control": "strict"
+          },
+          "add_group_satisfaction": {
+            "youth": 5,
+            "elites": -3
+          },
+          "add_debt_gdp": 0.5
+        }
+      },
+      "esp_green_hydrogen_valley": {
+        "name_key": "FOCUS_ESP_GREEN_HYDROGEN_VALLEY",
+        "desc_key": "FOCUS_ESP_GREEN_HYDROGEN_VALLEY_DESC",
+        "x": 10,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "esp_renewable_superpower"
+        ],
+        "effects": {
+          "add_tech": "green_hydrogen",
+          "add_modifier": {
+            "growth": 0.1,
+            "months": -1
+          }
+        }
+      },
+      "esp_gibraltar_claim": {
+        "name_key": "FOCUS_ESP_GIBRALTAR_CLAIM",
+        "desc_key": "FOCUS_ESP_GIBRALTAR_CLAIM_DESC",
+        "x": 14,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "esp_indissoluble_unity"
+        ],
+        "effects": {
+          "add_claim": {
+            "target": "GBR",
+            "provinces": [
+              1434
+            ]
+          },
+          "add_relation": {
+            "with": "GBR",
+            "value": -15
+          },
+          "add_legitimacy": 2
+        }
+      },
+      "esp_latin_america_bridge": {
+        "name_key": "FOCUS_ESP_LATIN_AMERICA_BRIDGE",
+        "desc_key": "FOCUS_ESP_LATIN_AMERICA_BRIDGE_DESC",
+        "x": 18,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "esp_progressive_coalition"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "tag": [
+                "MEX",
+                "ARG",
+                "COL",
+                "CHL",
+                "PER",
+                "BRA"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 10
+              }
+            }
+          },
+          "add_influence": 20
+        }
+      },
+      "esp_third_republic": {
+        "name_key": "FOCUS_ESP_THIRD_REPUBLIC",
+        "desc_key": "FOCUS_ESP_THIRD_REPUBLIC_DESC",
+        "x": 4,
+        "y": 9,
+        "months": 12,
+        "requires": [
+          "esp_plurinational_spain"
+        ],
+        "effects": {
+          "set_regime": "parliamentary_republic",
+          "add_legitimacy": 3,
+          "add_stability": -4,
+          "add_group_satisfaction": {
+            "youth": 3,
+            "religious": -3
+          }
+        },
+        "ai_weight": 0.2
+      },
+      "esp_iberian_federation": {
+        "name_key": "FOCUS_ESP_IBERIAN_FEDERATION",
+        "desc_key": "FOCUS_ESP_IBERIAN_FEDERATION_DESC",
+        "x": 10,
+        "y": 10,
+        "months": 12,
+        "requires": [
+          "esp_green_hydrogen_valley"
+        ],
+        "available": {
+          "country_exists": "PRT",
+          "not": {
+            "player_is": "PRT"
+          },
+          "relation": {
+            "with": "PRT",
+            "value": ">70"
+          }
+        },
+        "effects": {
+          "trigger_event": {
+            "id": "iberian_federation_proposal",
+            "target": "PRT",
+            "days": 10
+          }
+        },
+        "ai_weight": 0.3
+      },
+      "esp_espana_global": {
+        "name_key": "FOCUS_ESP_ESPANA_GLOBAL",
+        "desc_key": "FOCUS_ESP_ESPANA_GLOBAL_DESC",
+        "x": 14,
+        "y": 11,
+        "months": 12,
+        "requires_any": [
+          "esp_catalan_referendum",
+          "esp_third_republic",
+          "esp_iberian_federation",
+          "esp_gibraltar_claim",
+          "esp_latin_america_bridge",
+          "esp_housing_plan"
+        ],
+        "effects": {
+          "add_modifier": {
+            "stability": 2,
+            "growth": 0.05,
+            "months": -1
+          },
+          "add_influence": 25
+        }
+      }
+    }
+  }
+}

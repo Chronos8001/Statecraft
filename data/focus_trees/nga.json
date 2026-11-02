@@ -1,0 +1,261 @@
+{
+  "nga": {
+    "name_key": "FOCUS_TREE_NGA",
+    "countries": [
+      "NGA"
+    ],
+    "include": "generic",
+    "nodes": {
+      "nga_renewed_hope": {
+        "name_key": "FOCUS_NGA_RENEWED_HOPE",
+        "desc_key": "FOCUS_NGA_RENEWED_HOPE_DESC",
+        "x": 10,
+        "y": 6,
+        "months": 6,
+        "effects": {
+          "add_legitimacy": 2,
+          "add_modifier": {
+            "growth": 0.05,
+            "months": -1
+          }
+        },
+        "ai_weight": 3
+      },
+      "nga_subsidy_reform": {
+        "name_key": "FOCUS_NGA_SUBSIDY_REFORM",
+        "desc_key": "FOCUS_NGA_SUBSIDY_REFORM_DESC",
+        "x": 4,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "nga_renewed_hope"
+        ],
+        "effects": {
+          "set_law": {
+            "fuel_subsidies": "none"
+          },
+          "add_debt_gdp": -1.5,
+          "add_group_satisfaction": {
+            "workers": -4,
+            "middle_class": -2
+          },
+          "add_modifier": {
+            "inflation": 3,
+            "months": 12
+          }
+        },
+        "ai_weight": 2
+      },
+      "nga_refining_independence": {
+        "name_key": "FOCUS_NGA_REFINING_INDEPENDENCE",
+        "desc_key": "FOCUS_NGA_REFINING_INDEPENDENCE_DESC",
+        "x": 10,
+        "y": 7,
+        "months": 12,
+        "requires": [
+          "nga_renewed_hope"
+        ],
+        "effects": {
+          "add_modifier": {
+            "growth": 0.2,
+            "months": -1
+          },
+          "add_group_satisfaction": {
+            "workers": 2
+          }
+        }
+      },
+      "nga_security_first": {
+        "name_key": "FOCUS_NGA_SECURITY_FIRST",
+        "desc_key": "FOCUS_NGA_SECURITY_FIRST_DESC",
+        "x": 16,
+        "y": 7,
+        "months": 10,
+        "requires": [
+          "nga_renewed_hope"
+        ],
+        "effects": {
+          "add_group_satisfaction": {
+            "military": 4
+          },
+          "add_modifier": {
+            "stability": 2,
+            "months": -1
+          },
+          "add_debt_gdp": 0.5
+        }
+      },
+      "nga_lagos_tech_hub": {
+        "name_key": "FOCUS_NGA_LAGOS_TECH_HUB",
+        "desc_key": "FOCUS_NGA_LAGOS_TECH_HUB_DESC",
+        "x": 2,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "nga_subsidy_reform"
+        ],
+        "effects": {
+          "add_tech": "digital_payments",
+          "add_modifier": {
+            "growth": 0.15,
+            "months": -1
+          },
+          "add_group_satisfaction": {
+            "youth": 4
+          }
+        }
+      },
+      "nga_restructuring": {
+        "name_key": "FOCUS_NGA_RESTRUCTURING",
+        "desc_key": "FOCUS_NGA_RESTRUCTURING_DESC",
+        "x": 6,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "nga_renewed_hope"
+        ],
+        "exclusive": [
+          "nga_strong_centre"
+        ],
+        "effects": {
+          "set_law": {
+            "decentralization": "federal"
+          },
+          "add_group_satisfaction": {
+            "minorities": 4
+          },
+          "add_legitimacy": 2
+        },
+        "ai_weight": 1
+      },
+      "nga_strong_centre": {
+        "name_key": "FOCUS_NGA_STRONG_CENTRE",
+        "desc_key": "FOCUS_NGA_STRONG_CENTRE_DESC",
+        "x": 10,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "nga_renewed_hope"
+        ],
+        "exclusive": [
+          "nga_restructuring"
+        ],
+        "effects": {
+          "set_law": {
+            "decentralization": "centralized"
+          },
+          "add_group_satisfaction": {
+            "minorities": -4,
+            "military": 2
+          },
+          "add_modifier": {
+            "stability": 1,
+            "months": -1
+          }
+        },
+        "ai_weight": 1
+      },
+      "nga_crush_insurgency": {
+        "name_key": "FOCUS_NGA_CRUSH_INSURGENCY",
+        "desc_key": "FOCUS_NGA_CRUSH_INSURGENCY_DESC",
+        "x": 14,
+        "y": 8,
+        "months": 12,
+        "requires": [
+          "nga_security_first"
+        ],
+        "effects": {
+          "add_tech": "drone_warfare",
+          "add_group_satisfaction": {
+            "military": 3
+          },
+          "add_modifier": {
+            "stability": 3,
+            "months": -1
+          }
+        }
+      },
+      "nga_ecowas_leadership": {
+        "name_key": "FOCUS_NGA_ECOWAS_LEADERSHIP",
+        "desc_key": "FOCUS_NGA_ECOWAS_LEADERSHIP_DESC",
+        "x": 18,
+        "y": 8,
+        "months": 10,
+        "requires": [
+          "nga_security_first"
+        ],
+        "effects": {
+          "every_country": {
+            "limit": {
+              "tag": [
+                "GHA",
+                "SEN",
+                "CIV",
+                "BEN",
+                "TGO",
+                "NER",
+                "MLI",
+                "BFA",
+                "GIN",
+                "SLE",
+                "LBR",
+                "GMB",
+                "GNB",
+                "CPV"
+              ]
+            },
+            "effects": {
+              "add_relation": {
+                "with": "from",
+                "value": 10
+              }
+            }
+          },
+          "add_influence": 30
+        }
+      },
+      "nga_biafra_referendum": {
+        "name_key": "FOCUS_NGA_BIAFRA_REFERENDUM",
+        "desc_key": "FOCUS_NGA_BIAFRA_REFERENDUM_DESC",
+        "x": 6,
+        "y": 9,
+        "months": 12,
+        "requires": [
+          "nga_restructuring"
+        ],
+        "available": {
+          "can_release": "biafra"
+        },
+        "effects": {
+          "trigger_event": {
+            "id": "biafra_referendum",
+            "days": 30
+          }
+        },
+        "ai_weight": 0.1
+      },
+      "nga_giant_of_africa": {
+        "name_key": "FOCUS_NGA_GIANT_OF_AFRICA",
+        "desc_key": "FOCUS_NGA_GIANT_OF_AFRICA_DESC",
+        "x": 12,
+        "y": 11,
+        "months": 12,
+        "requires_any": [
+          "nga_lagos_tech_hub",
+          "nga_crush_insurgency",
+          "nga_ecowas_leadership",
+          "nga_biafra_referendum",
+          "nga_strong_centre"
+        ],
+        "effects": {
+          "add_modifier": {
+            "stability": 2,
+            "growth": 0.15,
+            "months": -1
+          },
+          "add_influence": 30
+        }
+      }
+    }
+  }
+}
